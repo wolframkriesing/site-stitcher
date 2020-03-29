@@ -18,6 +18,7 @@
 # v1 - my website
 - [x] make it run using docker
 - [ ] add plausible
+- [ ] deploy site on git push
 - [ ] publish the last post about jscamp
 - [ ] setup
   - [ ] ADRs
