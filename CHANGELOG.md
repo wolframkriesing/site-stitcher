@@ -19,4 +19,8 @@
 - [x] make it run using docker
 - [ ] add plausible
 - [ ] publish the last post about jscamp
+- [ ] setup
+  - [ ] ADRs
+  - [ ] type linting JS files using TS
+  - [ ] todo-stitcher
   
