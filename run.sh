@@ -3,7 +3,7 @@
 set -e
 
 DOCKERFILE_HASH=$(md5 -q ./Dockerfile)
-CONTAINER_NAME=website-tool
+CONTAINER_NAME=site-stitcher
 IMAGE_NAME=${CONTAINER_NAME}:${DOCKERFILE_HASH}
 
 if [[ $(docker inspect --format . ${IMAGE_NAME} 2>&1) != "." ]]; then
