@@ -7,4 +7,7 @@ Currently this tool serves for creating my website https://picostitch.com
 ## Develop
 
 Use `./run.sh /bin/bash` and you have a docker container containing the environment needed
-to run this project. In there you can `npm install` to install all node deps. 
+to run this project. In there you can `npm install` to install all node deps.
+
+- `./run.sh npm run build` to build the site
+- `./run.sh npm run serve` to serve the site at http://localhost:5000

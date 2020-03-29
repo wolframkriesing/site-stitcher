@@ -4,9 +4,14 @@
   "description": "The tool I use to build my website, picostitch.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "http-server _generated -d -i",
+    "build": "cp src/index.html _generated"
   },
   "keywords": [],
   "author": "Wolfram Kriesing",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^0.12.1"
+  }
 }

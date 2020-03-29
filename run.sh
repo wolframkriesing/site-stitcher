@@ -16,4 +16,5 @@ echo "--- RUNNING container '${CONTAINER_NAME}'---"
 docker run --rm -it \
 	--name ${CONTAINER_NAME} \
 	--volume $(pwd):/app \
+	--publish 5000:8080 \
 	${IMAGE_NAME} $@
