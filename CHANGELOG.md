@@ -24,4 +24,5 @@
   - [ ] ADRs
   - [ ] type linting JS files using TS
   - [ ] todo-stitcher
+- [ ] add og meta tags (https://ogp.me/)
   
