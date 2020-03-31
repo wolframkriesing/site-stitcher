@@ -1,0 +1,40 @@
+body {
+  font-family: monospace;
+  margin: 2rem;
+}
+
+
+h1 {
+  display: inline;
+}
+nav {
+  display: inline;
+}
+  nav ul {
+    display: inline;
+  }
+  nav li {
+    display: inline;
+  }
+
+
+.row {
+  display: flex;
+  margin: 1rem;
+}
+  .row .date {
+    white-space: nowrap;
+    color: gray;
+  }
+  .row .content {
+    padding: 0 1rem;
+  }
+  .row h2 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
+  .row p {
+    margin: 0;
+    padding: 0;
+  }
