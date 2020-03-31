@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && http-server _output -d -i",
-    "dev:start": "npm run start & ./build-on-file-change.sh",
+    "start": "npm run build && npm run serve",
+    "serve": "http-server _output -d -i",
+    "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
     "postdev:start": "pkill -f http-server",
-    "build": "mkdir -p _output; cp src/index.html _output"
+    "build": "mkdir -p _output; cp src/* _output/"
   },
   "keywords": [],
   "author": "Wolfram Kriesing",
