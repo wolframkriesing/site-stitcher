@@ -3,13 +3,13 @@ import assert from 'assert';
 import {buildBlogPostingListFromFiles, BlogPosting} from './blog-posting-list.js';
 
 const loadBlogPostingList = ({loadBlogPostingFromFile}) => blogPostingList => {
-  const rawBlogPostingData = loadBlogPostingFromFile();
-  const blogPosting = blogPostingList[0];
-  const newBlogPosting = new BlogPosting({
-    dateCreated: blogPosting.dateCreated,
-    ...rawBlogPostingData
+  return blogPostingList.map(post => {
+    const rawBlogPostingData = loadBlogPostingFromFile();
+    return new BlogPosting({
+      dateCreated: post.dateCreated,
+      ...rawBlogPostingData
+    });
   });
-  return [newBlogPosting];
 };
 
 describe('Build a list of posts and the intro paragraph', () => {
@@ -63,6 +63,23 @@ describe('Build a list of posts and the intro paragraph', () => {
         ...rawBlogPosting
       });
       assert(post.equals(expectedPost));
+    });
+    it('WHEN many files are given THEN return all the BlogPosting items', () => {
+      const blogPostingList = [
+        BlogPosting.withDateCreated('2018-05-13'),
+        BlogPosting.withDateCreated('2011-11-11'),
+      ];
+      const rawBlogPosting = {headline: 'headline', abstract: 'abstract'};
+      const loadBlogPostingFromFile = () => rawBlogPosting;
+      const completeBlogPostingList = loadBlogPostingList({loadBlogPostingFromFile})(blogPostingList);
+
+      const expectedPosts = [
+        new BlogPosting({dateCreated: '2018-05-13', ...rawBlogPosting}),
+        new BlogPosting({dateCreated: '2011-11-11', ...rawBlogPosting}),
+      ];
+      assert.strictEqual(completeBlogPostingList.length, 2);
+      assert(completeBlogPostingList[0].equals(expectedPosts[0]));
+      assert(completeBlogPostingList[1].equals(expectedPosts[1]));
     });
   });
 });
