@@ -3,11 +3,12 @@ import assert from 'assert';
 import {buildBlogPostingListFromFiles, BlogPosting} from './blog-posting-list.js';
 
 const loadBlogPostingList = ({loadBlogPostingFromFile}) => async blogPostingList => {
-  return blogPostingList.map(post => {
-    const rawBlogPostingData = loadBlogPostingFromFile();
+  const rawPosts = await Promise.all(blogPostingList.map(async () => await loadBlogPostingFromFile(/* TODO pass the date */)));
+  
+  return rawPosts.map((rawPostData, index) => {
     return new BlogPosting({
-      dateCreated: post.dateCreated,
-      ...rawBlogPostingData
+      dateCreated: blogPostingList[index].dateCreated,
+      ...rawPostData
     });
   });
 };
