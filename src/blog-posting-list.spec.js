@@ -2,6 +2,16 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {buildBlogPostingListFromFiles, BlogPosting} from './blog-posting-list.js';
 
+const loadBlogPostingList = ({loadBlogPostingFromFile}) => blogPostingList => {
+  const rawBlogPostingData = loadBlogPostingFromFile();
+  const blogPosting = blogPostingList[0];
+  const newBlogPosting = new BlogPosting({
+    dateCreated: blogPosting.dateCreated,
+    ...rawBlogPostingData
+  });
+  return [newBlogPosting];
+};
+
 describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN a list of files', () => {
     it('WHEN empty THEN no posts are returned', () => {
@@ -34,6 +44,25 @@ describe('Build a list of posts and the intro paragraph', () => {
       assert(blogPostingList[1].equals(expectedBlogPostings[1]));
       assert(blogPostingList[2].equals(expectedBlogPostings[2]));
       assert(blogPostingList[3].equals(expectedBlogPostings[3]));
+    });
+  });
+  describe('GIVEN load the blog posting preview data', () => {
+    it('WHEN one file is given THEN return one BlogPosting', () => {
+      const blogPostingList = [BlogPosting.withDateCreated('2018-05-13')];
+      const rawBlogPosting = {
+        headline: 'This is the first post',
+        abstract: 'the first paragraph of the blog post ...'
+      };
+      const loadBlogPostingFromFile = () => rawBlogPosting;
+      const completeBlogPostingList = loadBlogPostingList({loadBlogPostingFromFile})(blogPostingList);
+
+      assert.strictEqual(completeBlogPostingList.length, 1);
+      const post = completeBlogPostingList[0];
+      const expectedPost = new BlogPosting({
+        dateCreated: '2018-05-13',
+        ...rawBlogPosting
+      });
+      assert(post.equals(expectedPost));
     });
   });
 });

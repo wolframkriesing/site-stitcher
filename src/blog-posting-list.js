@@ -4,6 +4,9 @@ export class BlogPosting {
     blogPosting.dateCreated = dateCreated;
     return blogPosting;
   }
+  constructor(attributes = {}) {
+    Object.entries(attributes).forEach(([key, value]) => this[key] = value);
+  }
   equals(blogPosting) {
     return this.dateCreated === blogPosting.dateCreated;
   }
