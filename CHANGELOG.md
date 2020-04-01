@@ -14,6 +14,8 @@
   - [ ] tests2text (tests-stitcher)
   - [ ] to-do-list-checker (todo-stitcher)
   - [ ] kavun (test-stitcher)
+- [ ] show content at the top of the blog post
+- [ ] generate dates (started, published, last changed) from commits
 
 # v1 - my website
 - [x] make it run using docker
