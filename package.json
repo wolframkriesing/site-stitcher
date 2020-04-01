@@ -4,7 +4,7 @@
   "description": "The tool I use to build my website, picostitch.com",
   "main": "index.js",
   "scripts": {
-    "test": "mocha -r esm src/*.spec.js",
+    "test": "mocha -r esm src/*spec.js",
     "start": "npm run build && npm run serve",
     "serve": "http-server _output -d -i",
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
