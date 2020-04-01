@@ -15,6 +15,7 @@
   "author": "Wolfram Kriesing",
   "license": "MIT",
   "devDependencies": {
-    "http-server": "^0.12.1"
+    "http-server": "^0.12.1",
+    "mocha": "^7.1.1"
   }
 }
