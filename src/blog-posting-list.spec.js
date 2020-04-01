@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {buildBlogPostingListFromFiles, BlogPosting} from './blog-posting-list.js';
 
-const loadBlogPostingList = ({loadBlogPostingFromFile}) => blogPostingList => {
+const loadBlogPostingList = ({loadBlogPostingFromFile}) => async blogPostingList => {
   return blogPostingList.map(post => {
     const rawBlogPostingData = loadBlogPostingFromFile();
     return new BlogPosting({
@@ -47,14 +47,14 @@ describe('Build a list of posts and the intro paragraph', () => {
     });
   });
   describe('GIVEN load the blog posting preview data', () => {
-    it('WHEN one file is given THEN return one BlogPosting', () => {
+    it('WHEN one file is given THEN return one BlogPosting', async () => {
       const blogPostingList = [BlogPosting.withDateCreated('2018-05-13')];
       const rawBlogPosting = {
         headline: 'This is the first post',
         abstract: 'the first paragraph of the blog post ...'
       };
-      const loadBlogPostingFromFile = () => rawBlogPosting;
-      const completeBlogPostingList = loadBlogPostingList({loadBlogPostingFromFile})(blogPostingList);
+      const loadBlogPostingFromFile = async () => rawBlogPosting;
+      const completeBlogPostingList = await loadBlogPostingList({loadBlogPostingFromFile})(blogPostingList);
 
       assert.strictEqual(completeBlogPostingList.length, 1);
       const post = completeBlogPostingList[0];
@@ -64,14 +64,14 @@ describe('Build a list of posts and the intro paragraph', () => {
       });
       assert(post.equals(expectedPost));
     });
-    it('WHEN many files are given THEN return all the BlogPosting items', () => {
+    it('WHEN many files are given THEN return all the BlogPosting items', async () => {
       const blogPostingList = [
         BlogPosting.withDateCreated('2018-05-13'),
         BlogPosting.withDateCreated('2011-11-11'),
       ];
       const rawBlogPosting = {headline: 'headline', abstract: 'abstract'};
-      const loadBlogPostingFromFile = () => rawBlogPosting;
-      const completeBlogPostingList = loadBlogPostingList({loadBlogPostingFromFile})(blogPostingList);
+      const loadBlogPostingFromFile = async () => rawBlogPosting;
+      const completeBlogPostingList = await loadBlogPostingList({loadBlogPostingFromFile})(blogPostingList);
 
       const expectedPosts = [
         new BlogPosting({dateCreated: '2018-05-13', ...rawBlogPosting}),
