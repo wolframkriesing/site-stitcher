@@ -41,16 +41,16 @@ describe('Build a list of posts and the intro paragraph', () => {
       ];
       const expectedBlogPostings = [
         BlogPosting.withDateCreated('2010-01-01'),
-        BlogPosting.withDateCreated('2018-05-13'),
-        BlogPosting.withDateCreated('2018-05-13'),
-        BlogPosting.withDateCreated('2018-05-13'),
+        BlogPosting.withDateCreated('2011-02-28'),
+        BlogPosting.withDateCreated('2012-12-31'),
+        BlogPosting.withDateCreated('2018-10-13'),
       ];
       const blogPostingList = buildBlogPostingListFromFiles(files);
       assert.strictEqual(blogPostingList.length, 4);
-      // assert(blogPostingList[0].equals(expectedBlogPostings[0]));
-      // assert(blogPostingList[1].equals(expectedBlogPostings[1]));
-      // assert(blogPostingList[2].equals(expectedBlogPostings[2]));
-      // assert(blogPostingList[3].equals(expectedBlogPostings[3]));
+      assert(blogPostingList[0].equals(expectedBlogPostings[0]));
+      assert(blogPostingList[1].equals(expectedBlogPostings[1]));
+      assert(blogPostingList[2].equals(expectedBlogPostings[2]));
+      assert(blogPostingList[3].equals(expectedBlogPostings[3]));
     });
   });
 });
