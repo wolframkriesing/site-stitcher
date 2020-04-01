@@ -1,17 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {buildBlogPostListFromFiles, BlogPost} from './blog-post-list.js';
-
-const loadBlogPostList = ({loadBlogPostingFromFile}) => async blogPostingList => {
-  const rawPosts = await Promise.all(blogPostingList.map(async () => await loadBlogPostingFromFile(/* TODO pass the date */)));
-  
-  return rawPosts.map((rawPostData, index) => {
-    return new BlogPost({
-      dateCreated: blogPostingList[index].dateCreated,
-      ...rawPostData
-    });
-  });
-};
+import {buildBlogPostListFromFiles, loadBlogPostList, BlogPost} from './blog-post-list.js';
 
 describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN a list of files', () => {
