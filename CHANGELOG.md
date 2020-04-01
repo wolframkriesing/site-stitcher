@@ -19,6 +19,7 @@
 
 # v1 - my website
 - [x] make it run using docker
+- [ ] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
 - [ ] add plausible
 - [ ] deploy site on git push
 - [ ] publish the last post about jscamp
