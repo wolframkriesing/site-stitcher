@@ -1,23 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-
-class BlogPosting {
-  static withDateCreated(dateCreated) {
-    const blogPosting = new BlogPosting();
-    blogPosting.dateCreated = dateCreated;
-    return blogPosting;
-  }
-  equals(blogPosting) {
-    return this.dateCreated === blogPosting.dateCreated;
-  }
-}
-
-const buildBlogPostingListFromFiles = files => {
-  return files.map(file => {
-    const date = file.split('-')[0].replace(/\//g, '-');
-    return BlogPosting.withDateCreated(date);
-  });
-};
+import {buildBlogPostingListFromFiles, BlogPosting} from './blog-posting-list.js';
 
 describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN a list of files', () => {
