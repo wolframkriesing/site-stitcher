@@ -4,10 +4,11 @@
   "description": "The tool I use to build my website, picostitch.com",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha -r esm src/*.spec.js",
     "start": "npm run build && npm run serve",
     "serve": "http-server _output -d -i",
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
+    "dev:test": "npm run test -- --watch",
     "postdev:start": "pkill -f http-server",
     "build": "mkdir -p _output; cp src/* _output/"
   },
