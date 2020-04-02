@@ -11,3 +11,6 @@ to run this project. In there you can `npm install` to install all node deps.
 
 - `./run.sh npm run build` to build the site
 - `./run.sh npm run serve` to serve the site at http://localhost:5000
+- `./run.sh npm run dev:test` to run the tests in watch mode, makes the feedback loop fast
+- `./run.sh npm run dev:start` continuously updates the served files, just reload the browser, useful when developing 
+  the templates etc.
