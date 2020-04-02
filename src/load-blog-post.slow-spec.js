@@ -2,11 +2,14 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {buildBlogPostListFromFiles} from './preload-blog-post.js';
 import {loadBlogPostList} from './load-blog-post.js';
+import * as path from 'path';
+
+const blogPostsDirectory = path.join(__dirname, '../content/blog-posts');
 
 describe('Build posts from real files (tests are slow therefore)', () => {
   it('GIVEN one file WHEN loading works THEN return a complete BlogPost object', async () => {
     const files = ['2018/05/13-jscoderetreat-13-tetris-again.md'];
-    const posts = await loadBlogPostList()(buildBlogPostListFromFiles(files, ''));
+    const posts = await loadBlogPostList()(buildBlogPostListFromFiles(files, blogPostsDirectory));
 
     const expectedAbstract = `It was the second time that we did Tetris as our task for the JSCodeRetreat and I have to say,
 that the participants' comment made me realize that we are on the right track.
