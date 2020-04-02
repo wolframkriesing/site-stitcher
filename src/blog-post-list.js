@@ -1,3 +1,6 @@
+import fs from 'fs';
+import path from 'path';
+
 export class BlogPost {
   static withDateCreated(dateCreated) {
     const blogPost = new BlogPost();
@@ -12,15 +15,14 @@ export class BlogPost {
   }
 }
 
-export const buildBlogPostListFromFiles = files => {
+export const buildBlogPostListFromFiles = (files, dir) => {
   return files.map(file => {
     const date = file.split('-')[0].replace(/\//g, '-');
-    return BlogPost.withDateCreated(date);
+    const blogPost = BlogPost.withDateCreated(date);
+    blogPost.filename = path.join(dir, file);
+    return blogPost;
   });
 };
-
-import fs from 'fs';
-import path from 'path';
 
 const defaultDeps = () => {
   const loadBlogPostFromFile = async (filename = '2018/05/13-jscoderetreat-13-tetris-again.md') => {
