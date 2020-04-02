@@ -39,18 +39,18 @@ describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN load the blog post preview data', () => {
     it('WHEN one file is given THEN return one BlogPost', async () => {
       const blogPostingList = [BlogPost.withDateCreated('2018-05-13')];
-      const rawBlogPosting = {
-        headline: 'This is the first post',
-        abstract: 'the first paragraph of the blog post ...'
-      };
-      const loadBlogPostingFromFile = async () => rawBlogPosting;
+      const loadBlogPostingFromFile = async () => `# This is the first post
+      
+the first paragraph of the blog post ...
+      `;
       const completeBlogPostingList = await loadBlogPostList({loadBlogPostingFromFile})(blogPostingList);
 
       assert.strictEqual(completeBlogPostingList.length, 1);
       const post = completeBlogPostingList[0];
       const expectedPost = new BlogPost({
         dateCreated: '2018-05-13',
-        ...rawBlogPosting
+        headline: 'This is the first post',
+        abstract: 'the first paragraph of the blog post ...',
       });
       assert(post.equals(expectedPost));
     });
@@ -60,7 +60,10 @@ describe('Build a list of posts and the intro paragraph', () => {
         BlogPost.withDateCreated('2011-11-11'),
       ];
       const rawBlogPosting = {headline: 'headline', abstract: 'abstract'};
-      const loadBlogPostingFromFile = async () => rawBlogPosting;
+      const loadBlogPostingFromFile = async () => `# headline
+      
+abstract
+      `;
       const completeBlogPostingList = await loadBlogPostList({loadBlogPostingFromFile})(blogPostingList);
 
       const expectedPosts = [
