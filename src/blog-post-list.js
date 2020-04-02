@@ -24,7 +24,7 @@ import path from 'path';
 
 const defaultDeps = () => {
   const loadBlogPostingFromFile = async (filename = '2018/05/13-jscoderetreat-13-tetris-again.md') => {
-    const path1 = path.join(__dirname, '../blog-posts', filename);
+    const path1 = path.join(__dirname, '../content/blog-posts', filename);
     return fs.promises.readFile(path1, 'utf8');
   };
 
