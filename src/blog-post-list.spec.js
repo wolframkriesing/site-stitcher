@@ -5,13 +5,13 @@ import {buildBlogPostListFromFiles, loadBlogPostList, BlogPost} from './blog-pos
 describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN a list of files', () => {
     it('WHEN the list is empty THEN no posts are returned', () => {
-      const blogPostList = buildBlogPostListFromFiles([]);
+      const blogPostList = buildBlogPostListFromFiles([], '');
       assert.deepStrictEqual(blogPostList, []);
     });
     it('WHEN one file is given THEN return one BlogPost', () => {
       const file = '2018/05/13-post.md';
       const blogPost = BlogPost.withDateCreated('2018-05-13');
-      const blogPostList = buildBlogPostListFromFiles([file]);
+      const blogPostList = buildBlogPostListFromFiles([file], '');
       assert.strictEqual(blogPostList.length, 1);
       assert(blogPostList[0].equals(blogPost));
     });
@@ -28,7 +28,7 @@ describe('Build a list of posts and the intro paragraph', () => {
         BlogPost.withDateCreated('2012-12-31'),
         BlogPost.withDateCreated('2018-10-13'),
       ];
-      const blogPostList = buildBlogPostListFromFiles(files);
+      const blogPostList = buildBlogPostListFromFiles(files, '');
       assert.strictEqual(blogPostList.length, 4);
       assert(blogPostList[0].equals(expectedBlogPosts[0]));
       assert(blogPostList[1].equals(expectedBlogPosts[1]));
