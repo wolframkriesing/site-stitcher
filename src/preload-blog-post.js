@@ -29,6 +29,10 @@ const findFilesInDir = async (dir) => {
   return removeRootBlogPostDirectory(files);
 };
 
+const prodDeps = () => {
+  return {findFilesInDir};
+};
+
 export const buildBlogPostListFromFiles = (files, dir) => {
   return files.map(file => {
     const date = file.split('-')[0].replace(/\//g, '-');
@@ -38,7 +42,7 @@ export const buildBlogPostListFromFiles = (files, dir) => {
   });
 };
 
-export const preloadBlogPostListFromDirectory = () => async (path) => {
+export const preloadBlogPostListFromDirectory = ({findFilesInDir} = prodDeps()) => async (path) => {
   const files = await findFilesInDir(path);
   return buildBlogPostListFromFiles(files, path)
 };
