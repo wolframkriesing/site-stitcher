@@ -14,29 +14,15 @@
     </ul>
   </nav>
 
-  <div class="row">
-    <div class="date">Mar 29, 2020</div>
-    <div class="content">
-      <h2><a href="">Site stitcher made this page</a></h2>
-      <p>
-        I have been through a couple projects to build my blog. None survived, so I
-        just build, just what I need, with just enough code to get it done.
-      </p>
+  {% posts.map(post => { %}
+    <div class="row">
+      <div class="date">{{post.dateCreated}}</div>
+      <div class="content">
+        <h2><a href="">{{post.headline}}</a></h2>
+        <p>{{post.abstract}}</p>
+      </div>
     </div>
-  </div>
-    
-  <div class="row">
-    <div class="date">Mar 29, 2020</div>
-    <div class="content">
-      <h2><a href="">JSCodeRetreat #13, Tetris again</a></h2>
-      <p>
-        It was the second time that we did Tetris as our task for the JSCodeRetreat and I have to say,
-        that the participants' comment made me realize that we are on the right track.
-        Though not all comments were purely in favor of Tetris, I think Tetris is the better
-        task for a (JS) CodeRetreat.
-      </p>
-    </div>
-  </div>
+  {% }) %}
 
 </body>
 </html>

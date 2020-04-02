@@ -21,6 +21,7 @@
     "mocha": "^7.1.1"
   },
   "dependencies": {
-    "marked": "^0.8.2"
+    "marked": "^0.8.2",
+    "tundrajs": "^1.0.0"
   }
 }
