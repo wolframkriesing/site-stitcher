@@ -5,15 +5,15 @@ import {buildBlogPostListFromFiles, loadBlogPostList, BlogPost} from './blog-pos
 describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN a list of files', () => {
     it('WHEN the list is empty THEN no posts are returned', () => {
-      const blogPostingList = buildBlogPostListFromFiles([]);
-      assert.deepStrictEqual(blogPostingList, []);
+      const blogPostList = buildBlogPostListFromFiles([]);
+      assert.deepStrictEqual(blogPostList, []);
     });
     it('WHEN one file is given THEN return one BlogPost', () => {
       const file = '2018/05/13-post.md';
-      const blogPosting = BlogPost.withDateCreated('2018-05-13');
-      const blogPostingList = buildBlogPostListFromFiles([file]);
-      assert.strictEqual(blogPostingList.length, 1);
-      assert(blogPostingList[0].equals(blogPosting));
+      const blogPost = BlogPost.withDateCreated('2018-05-13');
+      const blogPostList = buildBlogPostListFromFiles([file]);
+      assert.strictEqual(blogPostList.length, 1);
+      assert(blogPostList[0].equals(blogPost));
     });
     it('WHEN multiple files are given THEN return all BlogPost items', () => {
       const files = [
@@ -22,31 +22,31 @@ describe('Build a list of posts and the intro paragraph', () => {
         '2012/12/31-post.md',
         '2018/10/13-post.md',
       ];
-      const expectedBlogPostings = [
+      const expectedBlogPosts = [
         BlogPost.withDateCreated('2010-01-01'),
         BlogPost.withDateCreated('2011-02-28'),
         BlogPost.withDateCreated('2012-12-31'),
         BlogPost.withDateCreated('2018-10-13'),
       ];
-      const blogPostingList = buildBlogPostListFromFiles(files);
-      assert.strictEqual(blogPostingList.length, 4);
-      assert(blogPostingList[0].equals(expectedBlogPostings[0]));
-      assert(blogPostingList[1].equals(expectedBlogPostings[1]));
-      assert(blogPostingList[2].equals(expectedBlogPostings[2]));
-      assert(blogPostingList[3].equals(expectedBlogPostings[3]));
+      const blogPostList = buildBlogPostListFromFiles(files);
+      assert.strictEqual(blogPostList.length, 4);
+      assert(blogPostList[0].equals(expectedBlogPosts[0]));
+      assert(blogPostList[1].equals(expectedBlogPosts[1]));
+      assert(blogPostList[2].equals(expectedBlogPosts[2]));
+      assert(blogPostList[3].equals(expectedBlogPosts[3]));
     });
   });
   describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     it('WHEN one post is given THEN load one BlogPost completely', async () => {
-      const blogPostingList = [BlogPost.withDateCreated('2018-05-13')];
-      const loadBlogPostingFromFile = async () => `# This is the first post
+      const blogPostList = [BlogPost.withDateCreated('2018-05-13')];
+      const loadBlogPostFromFile = async () => `# This is the first post
       
 the first paragraph of the blog post ...
       `;
-      const completeBlogPostingList = await loadBlogPostList({loadBlogPostingFromFile})(blogPostingList);
+      const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
 
-      assert.strictEqual(completeBlogPostingList.length, 1);
-      const post = completeBlogPostingList[0];
+      assert.strictEqual(completeBlogPostList.length, 1);
+      const post = completeBlogPostList[0];
       const expectedPost = new BlogPost({
         dateCreated: '2018-05-13',
         headline: 'This is the first post',
@@ -55,24 +55,24 @@ the first paragraph of the blog post ...
       assert(post.equals(expectedPost));
     });
     it('WHEN many files are given THEN load all the BlogPost items', async () => {
-      const blogPostingList = [
+      const blogPostList = [
         BlogPost.withDateCreated('2018-05-13'),
         BlogPost.withDateCreated('2011-11-11'),
       ];
-      const rawBlogPosting = {headline: 'headline', abstract: 'abstract'};
-      const loadBlogPostingFromFile = async () => `# headline
+      const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
+      const loadBlogPostFromFile = async () => `# headline
       
 abstract
       `;
-      const completeBlogPostingList = await loadBlogPostList({loadBlogPostingFromFile})(blogPostingList);
+      const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
 
       const expectedPosts = [
-        new BlogPost({dateCreated: '2018-05-13', ...rawBlogPosting}),
-        new BlogPost({dateCreated: '2011-11-11', ...rawBlogPosting}),
+        new BlogPost({dateCreated: '2018-05-13', ...rawBlogPost}),
+        new BlogPost({dateCreated: '2011-11-11', ...rawBlogPost}),
       ];
-      assert.strictEqual(completeBlogPostingList.length, 2);
-      assert(completeBlogPostingList[0].equals(expectedPosts[0]));
-      assert(completeBlogPostingList[1].equals(expectedPosts[1]));
+      assert.strictEqual(completeBlogPostList.length, 2);
+      assert(completeBlogPostList[0].equals(expectedPosts[0]));
+      assert(completeBlogPostList[1].equals(expectedPosts[1]));
     });
   });
 });

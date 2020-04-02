@@ -23,12 +23,12 @@ import fs from 'fs';
 import path from 'path';
 
 const defaultDeps = () => {
-  const loadBlogPostingFromFile = async (filename = '2018/05/13-jscoderetreat-13-tetris-again.md') => {
+  const loadBlogPostFromFile = async (filename = '2018/05/13-jscoderetreat-13-tetris-again.md') => {
     const path1 = path.join(__dirname, '../content/blog-posts', filename);
     return fs.promises.readFile(path1, 'utf8');
   };
 
-  return {loadBlogPostingFromFile};
+  return {loadBlogPostFromFile};
 };
 
 const parseRawPost = fileContent => {
@@ -38,12 +38,12 @@ const parseRawPost = fileContent => {
   return {headline, abstract};
 };
 
-export const loadBlogPostList = ({loadBlogPostingFromFile} = defaultDeps()) => async blogPostingList => {
-  const rawPosts = await Promise.all(blogPostingList.map(async () => await loadBlogPostingFromFile(/* TODO pass the date */)));
+export const loadBlogPostList = ({loadBlogPostFromFile} = defaultDeps()) => async blogPostList => {
+  const rawPosts = await Promise.all(blogPostList.map(async () => await loadBlogPostFromFile(/* TODO pass the date */)));
   const parsedPosts = rawPosts.map(parseRawPost);
   return parsedPosts.map((parsedPostData, index) => {
     return new BlogPost({
-      dateCreated: blogPostingList[index].dateCreated,
+      dateCreated: blogPostList[index].dateCreated,
       ...parsedPostData
     });
   });
