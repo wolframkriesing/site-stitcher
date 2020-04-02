@@ -1,6 +1,7 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {buildBlogPostListFromFiles, loadBlogPostList} from './blog-post-list.js';
+import {buildBlogPostListFromFiles} from './preload-blog-post.js';
+import {loadBlogPostList} from './load-blog-post.js';
 
 describe('Build posts from real files (tests are slow therefore)', () => {
   it('GIVEN one file WHEN loading works THEN return a complete BlogPost object', async () => {

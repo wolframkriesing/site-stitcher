@@ -1,6 +1,15 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import {buildBlogPostListFromFiles} from './blog-post-list.js';
+import {BlogPost} from "./BlogPost.js";
+
+export const buildBlogPostListFromFiles = (files, dir) => {
+  return files.map(file => {
+    const date = file.split('-')[0].replace(/\//g, '-');
+    const blogPost = BlogPost.withDateCreated(date);
+    blogPost.filename = path.join(dir, file);
+    return blogPost;
+  });
+};
 
 const findFilesInDir = async (dir) => {
   const yearDirectories = (await fs.promises.readdir(dir, {withFileTypes: true}))
