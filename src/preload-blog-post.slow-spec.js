@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
 import * as path from 'path';
-import {preloadBlogPostListFromDirectory} from './preload-blog-post-list.js';
+import {preloadBlogPostListFromDirectory} from './preload-blog-post.js';
 
 describe('Preload blog posts in a given directory (tests are slow, working against a real fs)', () => {
   const blogPostsDirectory = path.join(__dirname, '../content/blog-posts');
