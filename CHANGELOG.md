@@ -16,11 +16,6 @@
   - [ ] kavun (test-stitcher)
 - [ ] show content at the top of the blog post
 - [ ] generate dates (started, published, last changed) from commits
-
-# v1 - my website
-- [x] make it run using docker
-- [ ] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
-- [ ] add plausible
 - [ ] deploy site on git push
 - [ ] publish the last post about jscamp
 - [ ] setup
@@ -28,4 +23,9 @@
   - [ ] type linting JS files using TS
   - [ ] todo-stitcher
 - [ ] add og meta tags (https://ogp.me/)
-  
+
+# v1 - my website
+- [x] make it run using docker
+- [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
+- [ ] add plausible
+- [ ] generate index page from md files
