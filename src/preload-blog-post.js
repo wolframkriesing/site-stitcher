@@ -1,6 +1,33 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import {BlogPost} from "./BlogPost.js";
+import {BlogPost} from './BlogPost.js';
+
+const directoriesWithFullname = (dir) => (entries) => {
+  return entries
+    .filter(f => f.isDirectory())
+    .map(entry => path.join(dir, entry.name))
+};
+const filesWithFullname = (dir) => (entries) => {
+  return entries
+    .filter(f => f.isFile())
+    .map(entry => path.join(dir, entry.name));
+};
+const findFilesInDir = async (dir) => {
+  const directoryEntries = await fs.promises.readdir(dir, {withFileTypes: true});
+  const yearDirectories = directoriesWithFullname(dir)(directoryEntries);
+  const findDirsIn = async (dir) => {
+    return fs.promises.readdir(dir, {withFileTypes: true})
+      .then(directoriesWithFullname(dir));
+  };
+  const monthDirectories = (await Promise.all(yearDirectories.map(findDirsIn))).flat();
+  const findPostsIn = async (dir) => {
+    return fs.promises.readdir(dir, {withFileTypes: true})
+      .then(filesWithFullname(dir));
+  };
+  const files = (await Promise.all(monthDirectories.map(findPostsIn))).flat();
+  const removeRootBlogPostDirectory = files => files.map(file => file.replace(dir, '').replace('/', ''));
+  return removeRootBlogPostDirectory(files);
+};
 
 export const buildBlogPostListFromFiles = (files, dir) => {
   return files.map(file => {
@@ -9,31 +36,6 @@ export const buildBlogPostListFromFiles = (files, dir) => {
     blogPost.filename = path.join(dir, file);
     return blogPost;
   });
-};
-
-const findFilesInDir = async (dir) => {
-  const yearDirectories = (await fs.promises.readdir(dir, {withFileTypes: true}))
-    .filter(f => f.isDirectory())
-    .map(f => path.join(dir, f.name))
-  ;
-  const findDirsIn = async (dir) => {
-    return fs.promises.readdir(dir, {withFileTypes: true})
-      .then(files => files
-        .filter(f => f.isDirectory())
-        .map(f => path.join(dir, f.name))
-      );
-  };
-  const monthDirectories = (await Promise.all(yearDirectories.map(findDirsIn))).flat();
-  const findPostsIn = async (dir) => {
-    return fs.promises.readdir(dir, {withFileTypes: true})
-      .then(files => files
-        .filter(f => f.isFile())
-        .map(f => path.join(dir, f.name))
-      );
-  };
-  const files = (await Promise.all(monthDirectories.map(findPostsIn))).flat();
-  const removeRootBlogPostDirectory = files => files.map(file => file.replace(dir, '').replace('/', ''))
-  return removeRootBlogPostDirectory(files);
 };
 
 export const preloadBlogPostListFromDirectory = () => async (path) => {

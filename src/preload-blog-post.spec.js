@@ -4,7 +4,7 @@ import {describe, it} from 'mocha';
 import {buildBlogPostListFromFiles} from './preload-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
-describe('Build a list of posts and the intro paragraph', () => {
+describe('Preload blog posts from a given directory', () => {
   describe('GIVEN a list of files', () => {
     it('WHEN the list is empty THEN no posts are returned', () => {
       const blogPostList = buildBlogPostListFromFiles([], '');
