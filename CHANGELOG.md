@@ -29,3 +29,7 @@
 - [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
 - [ ] add plausible
 - [ ] generate index page from md files
+  - [ ] sort newest to top
+  - [ ] add all posts
+  - [ ] show "load more" or pagination on first page
+  - [ ] render the schema attributes
