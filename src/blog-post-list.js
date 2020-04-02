@@ -31,10 +31,11 @@ const defaultDeps = () => {
   return {loadBlogPostFromFile};
 };
 
+import marked from 'marked';
 const parseRawPost = fileContent => {
-  const lines = fileContent.split('\n');
-  const headline = lines[0].replace('# ', '');
-  const abstract = lines.slice(2, 7).join('\n');
+  const tokens = marked.lexer(fileContent);
+  const headline = tokens[0].text;
+  const abstract = tokens[1].text;
   return {headline, abstract};
 };
 
