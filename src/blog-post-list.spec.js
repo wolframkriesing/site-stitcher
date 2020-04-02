@@ -4,7 +4,7 @@ import {buildBlogPostListFromFiles, loadBlogPostList, BlogPost} from './blog-pos
 
 describe('Build a list of posts and the intro paragraph', () => {
   describe('GIVEN a list of files', () => {
-    it('WHEN empty THEN no posts are returned', () => {
+    it('WHEN the list is empty THEN no posts are returned', () => {
       const blogPostingList = buildBlogPostListFromFiles([]);
       assert.deepStrictEqual(blogPostingList, []);
     });
@@ -36,8 +36,8 @@ describe('Build a list of posts and the intro paragraph', () => {
       assert(blogPostingList[3].equals(expectedBlogPostings[3]));
     });
   });
-  describe('GIVEN load the blog post preview data', () => {
-    it('WHEN one file is given THEN return one BlogPost', async () => {
+  describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
+    it('WHEN one post is given THEN load one BlogPost completely', async () => {
       const blogPostingList = [BlogPost.withDateCreated('2018-05-13')];
       const loadBlogPostingFromFile = async () => `# This is the first post
       
@@ -54,7 +54,7 @@ the first paragraph of the blog post ...
       });
       assert(post.equals(expectedPost));
     });
-    it('WHEN many files are given THEN return all the BlogPost items', async () => {
+    it('WHEN many files are given THEN load all the BlogPost items', async () => {
       const blogPostingList = [
         BlogPost.withDateCreated('2018-05-13'),
         BlogPost.withDateCreated('2011-11-11'),
