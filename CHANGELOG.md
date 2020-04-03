@@ -33,3 +33,4 @@
   - [ ] add all posts
   - [ ] show "load more" or pagination on first page
   - [ ] render the schema attributes
+  - [ ] render the markdown of the abstract properly into HTML
