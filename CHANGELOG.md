@@ -1,5 +1,6 @@
 # Ideas
 - [ ] add all posts from
+  - [x] picostitch  
   - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
   - [ ] http://www.uxebu.com/blog/index.html
   - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
@@ -27,6 +28,7 @@
 # v1 - my website
 - [x] make it run using docker
 - [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
+- [x] copy all picostitch posts here
 - [ ] if no 1st paragraph show nothing as abstract 
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [ ] add plausible
