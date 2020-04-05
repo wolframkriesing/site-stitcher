@@ -34,7 +34,7 @@
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [ ] add plausible
 - [ ] indieweb auth of my page
-- [ ] host it on hetzner (amazon is just too complicated and I dont like it)
+- [ ] move domain to GH, works smoothly
 - [ ] `npm run new-post` script to create dir and file
 - [ ] generate index page from md files
   - [x] dont fail on invalid files in blog post dirs
