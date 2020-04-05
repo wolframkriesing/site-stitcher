@@ -36,10 +36,16 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     assert(completeBlogPostList[1].equals(expectedPosts[1]));
   });
 
-  describe('GIVEN in the content', () => {
-    it('WHEN the blog post has no first paragraph that can be used as abstract THEN set abstract=""', async () => {
+  describe('GIVEN finding the abstract in the blog post', () => {
+    it('WHEN it has no first paragraph THEN set abstract=""', async () => {
       const blogPostList = [BlogPost.withDateCreated('2001-01-01')];
       const loadBlogPostFromFile = async () => '# headline';
+      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+      assert.strictEqual(loadedBlogPostList[0].abstract, '');
+    });
+    it('WHEN the headline is not followed by a paragraph, e.g. a headline THEN set abstract=""', async () => {
+      const blogPostList = [BlogPost.withDateCreated('2001-01-01')];
+      const loadBlogPostFromFile = async () => '# headline\n## subheadline';
       const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
       assert.strictEqual(loadedBlogPostList[0].abstract, '');
     });

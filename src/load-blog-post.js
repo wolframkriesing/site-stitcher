@@ -8,10 +8,10 @@ const prodDeps = () => {
 };
 
 const findAbstract = (tokens) => {
-  if (tokens.length < 2) {
-    return '';
+  if (tokens.length > 1 && tokens[1].type === 'paragraph') {
+    return tokens[1].text;
   }
-  return tokens[1].text;
+  return '';
 };
 
 const parseRawPost = fileContent => {
