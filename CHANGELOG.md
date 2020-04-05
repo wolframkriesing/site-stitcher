@@ -28,9 +28,14 @@
 - [x] make it run using docker
 - [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
 - [ ] add plausible
+- [ ] indieweb auth of my page
+- [ ] host it on hetzner (amazon is just too complicated and I dont like it)
+- [ ] `npm run new-post` script to create dir and file
 - [ ] generate index page from md files
   - [ ] sort newest to top
   - [ ] add all posts
   - [ ] show "load more" or pagination on first page
   - [ ] render the schema attributes
   - [ ] render the markdown of the abstract properly into HTML
+  - [ ] show the date like this "24 Jan, 2002"
+  - [ ] allow dirs not only md files 04-blog-post/index.md
