@@ -17,3 +17,4 @@ describe('Build posts from real files (tests are slow therefore)', () => {
     assert.strictEqual(posts[0].abstract, expectedAbstract);
   });
 });
+

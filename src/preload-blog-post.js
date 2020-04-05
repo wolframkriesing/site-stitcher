@@ -7,11 +7,18 @@ const directoriesWithFullname = (dir) => (entries) => {
     .filter(f => f.isDirectory())
     .map(entry => path.join(dir, entry.name))
 };
+const filenameStartRegex = /\d\d-/;
 const filesWithFullname = (dir) => (entries) => {
   return entries
     .filter(f => f.isFile())
+    .filter(entry => entry.name.match(filenameStartRegex))
     .map(entry => path.join(dir, entry.name));
 };
+/**
+ * // @typedef {BlogPostFilename} = 2000/01/01-xxxx.md
+ * @param dir
+ * @returns {Promise<BlogPostFilename>}
+ */
 const findFilesInDir = async (dir) => {
   const directoryEntries = await fs.promises.readdir(dir, {withFileTypes: true});
   const yearDirectories = directoriesWithFullname(dir)(directoryEntries);
