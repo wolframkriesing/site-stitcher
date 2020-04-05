@@ -30,13 +30,14 @@
 - [x] make it run using docker
 - [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
 - [x] copy all picostitch posts here
-- [ ] if no 1st paragraph show nothing as abstract 
+- [x] if no 1st paragraph show nothing as abstract 
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [ ] add plausible
 - [ ] indieweb auth of my page
 - [ ] host it on hetzner (amazon is just too complicated and I dont like it)
 - [ ] `npm run new-post` script to create dir and file
 - [ ] generate index page from md files
+  - [x] dont fail on invalid files in blog post dirs
   - [ ] sort newest to top
   - [ ] add all posts
   - [ ] show "load more" or pagination on first page
