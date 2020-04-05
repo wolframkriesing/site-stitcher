@@ -6,10 +6,7 @@ import {BlogPost} from './BlogPost.js';
 describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
   it('WHEN one post is given THEN load one BlogPost completely', async () => {
     const blogPostList = [BlogPost.withDateCreated('2018-05-13')];
-    const loadBlogPostFromFile = async () => `# This is the first post
-      
-the first paragraph of the blog post ...
-      `;
+    const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
     const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
 
     assert.strictEqual(completeBlogPostList.length, 1);
@@ -27,10 +24,7 @@ the first paragraph of the blog post ...
       BlogPost.withDateCreated('2011-11-11'),
     ];
     const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
-    const loadBlogPostFromFile = async () => `# headline
-      
-abstract
-      `;
+    const loadBlogPostFromFile = async () => '# headline\nabstract';
     const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
 
     const expectedPosts = [
