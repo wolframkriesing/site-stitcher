@@ -35,4 +35,13 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     assert(completeBlogPostList[0].equals(expectedPosts[0]));
     assert(completeBlogPostList[1].equals(expectedPosts[1]));
   });
+
+  describe('GIVEN in the content', () => {
+    it('WHEN the blog post has no first paragraph that can be used as abstract THEN set abstract=""', async () => {
+      const blogPostList = [BlogPost.withDateCreated('2001-01-01')];
+      const loadBlogPostFromFile = async () => '# headline';
+      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+      assert.strictEqual(loadedBlogPostList[0].abstract, '');
+    });
+  });
 });

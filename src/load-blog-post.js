@@ -7,10 +7,17 @@ const prodDeps = () => {
   return {loadBlogPostFromFile};
 };
 
+const findAbstract = (tokens) => {
+  if (tokens.length < 2) {
+    return '';
+  }
+  return tokens[1].text;
+};
+
 const parseRawPost = fileContent => {
   const tokens = marked.lexer(fileContent);
   const headline = tokens[0].text;
-  const abstract = tokens[1].text;
+  const abstract = findAbstract(tokens);
   return {headline, abstract};
 };
 
