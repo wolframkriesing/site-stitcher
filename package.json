@@ -12,7 +12,7 @@
     "postdev:start": "pkill -f http-server",
     "build": "mkdir -p _output; cp src/templates/* _output/"
   },
-  "keywords": [],
+  "keywords": ["static site generator", "website"],
   "author": "Wolfram Kriesing",
   "license": "MIT",
   "devDependencies": {
