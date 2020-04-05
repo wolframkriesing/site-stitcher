@@ -24,6 +24,7 @@
   - [ ] type linting JS files using TS
   - [ ] todo-stitcher
 - [ ] add og meta tags (https://ogp.me/)
+- [ ] verify the syntax of a blog post (must start with headline, has an abstract next, ...)
 
 # v1 - my website
 - [x] make it run using docker
