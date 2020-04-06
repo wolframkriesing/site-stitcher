@@ -11,7 +11,7 @@ describe('Preload blog posts from a given directory (tests are slow, working aga
     const posts = await preloadBlogPostListFromDirectory()(blogPostsDirectory);
     assert(posts.length > 0);
     assert.strictEqual(posts[0].dateCreated, '2000-01-01');
-    assert.strictEqual(posts[0].filename, `${blogPostsDirectory}/2000/01/01-normal-post.md`);
+    assert.strictEqual(posts[0].markdownFilename, `${blogPostsDirectory}/2000/01/01-normal-post.md`);
   });
   it('GIVEN a file that does NOT start with a number (the day) THEN dont find it as blog post', async () => {
     const posts = await preloadBlogPostListFromDirectory()(blogPostsDirectory);

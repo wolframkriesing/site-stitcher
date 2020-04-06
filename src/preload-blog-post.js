@@ -44,7 +44,7 @@ export const buildBlogPostListFromFiles = (files, dir) => {
   return files.map(file => {
     const date = file.split('-')[0].replace(/\//g, '-');
     const blogPost = BlogPost.withDateCreated(date);
-    blogPost.filename = path.join(dir, file);
+    blogPost.markdownFilename = path.join(dir, file);
     return blogPost;
   });
 };

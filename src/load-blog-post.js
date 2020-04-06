@@ -23,7 +23,7 @@ const parseRawPost = fileContent => {
 
 export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async blogPostList => {
   const rawPosts = await Promise.all(blogPostList
-    .map(async (blogPost) => await loadBlogPostFromFile(blogPost.filename)));
+    .map(async (blogPost) => await loadBlogPostFromFile(blogPost.markdownFilename)));
   const parsedPosts = rawPosts.map(parseRawPost);
   return parsedPosts.map((parsedPostData, index) => {
     return new BlogPost({
