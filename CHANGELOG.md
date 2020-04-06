@@ -33,7 +33,7 @@
 - [x] copy all picostitch posts here
 - [x] if no 1st paragraph show nothing as abstract 
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
-- [ ] add plausible
+- [x] add plausible
 - [ ] indieweb auth of my page
 - [ ] move domain to GH, works smoothly
 - [ ] `npm run new-post` script to create dir and file
