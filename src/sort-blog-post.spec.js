@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
 import {BlogPost} from './BlogPost.js';
-import {sortBlogPostListByDateCreated} from './sort-blog-post.js';
+import {sortByDateCreatedAsc} from './sort-blog-post.js';
 
 describe('Sort blog posts by date', () => {
   it('GIVEN many unsorted posts WHEN sorted THEN they are in the right order', () => {
@@ -17,7 +17,7 @@ describe('Sort blog posts by date', () => {
       BlogPost.withDateCreated('2002-03-03'),
       BlogPost.withDateCreated('2004-04-04'),
     ];
-    const sorted = sortBlogPostListByDateCreated(unsortedPosts);
+    const sorted = unsortedPosts.sort(sortByDateCreatedAsc);
     assert.deepStrictEqual(sorted, expectedPosts);
   });
 });
