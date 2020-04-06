@@ -39,7 +39,7 @@
 - [ ] `npm run new-post` script to create dir and file
 - [ ] generate index page from md files
   - [x] dont fail on invalid files in blog post dirs
-  - [ ] sort newest to top
+  - [x] sort newest to top
   - [ ] add all posts
   - [ ] show "load more" or pagination on first page
   - [ ] render the schema attributes
