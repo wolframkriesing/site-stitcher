@@ -1,10 +1,7 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {loadBlogPostList} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
-
-const sortBlogPostListByDateCreated = blogPostList =>
-  blogPostList.sort((p1, p2) => p1.dateCreated < p2.dateCreated ? -1 : 1);
+import {sortBlogPostListByDateCreated} from './sort-blog-post.js';
 
 describe('Sort blog posts by date', () => {
   it('GIVEN many unsorted posts WHEN sorted THEN they are in the right order', () => {
