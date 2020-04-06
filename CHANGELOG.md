@@ -5,6 +5,7 @@
   - [ ] http://www.uxebu.com/blog/index.html
   - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
   - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
+  - [ ] microblog
 - [ ] add all my 
   - [ ] conference talks
   - [ ] conference visits
