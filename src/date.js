@@ -17,3 +17,10 @@ export const toReadableDate = dateString => {
   const month = months[date.getMonth()];
   return `${month} ${date.getDate()}, ${date.getFullYear()}`;
 };
+
+export const toWeekday = dateString => {
+  const day = new Date(dateString).getDay();
+  return [
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+  ][day];
+}
