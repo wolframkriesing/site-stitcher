@@ -44,6 +44,6 @@
   - [ ] show "load more" or pagination on first page
   - [ ] render the schema attributes
   - [ ] render the markdown of the abstract properly into HTML
-  - [ ] show the date like this "24 Jan, 2002"
+  - [x] show the date like this "24 Jan, 2002"
   - [ ] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`        

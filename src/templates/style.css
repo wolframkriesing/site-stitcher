@@ -25,9 +25,12 @@ nav {
   .row .date {
     white-space: nowrap;
     color: gray;
+    flex: 1;
+    min-width: 10rem;
   }
   .row .content {
     padding: 0 1rem;
+    flex: 10;
   }
   .row h2 {
     font-size: 1em;
