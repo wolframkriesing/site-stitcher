@@ -17,7 +17,10 @@
 
   {% posts.map(post => { %}
     <div class="row">
-      <div class="date">{{toReadableDate(post.dateCreated)}}</div>
+      <div class="date">
+        {{toReadableDate(post.dateCreated)}}<br/>
+        {{toWeekday(post.dateCreated)}}
+      </div>
       <div class="content">
         <h2><a href="">{{post.headline}}</a></h2>
         <p>{{post.abstract}}</p>
