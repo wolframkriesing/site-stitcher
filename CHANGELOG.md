@@ -38,6 +38,7 @@
 - [ ] move domain to GH, works smoothly
 - [ ] `npm run new-post` script to create dir and file
 - [ ] generate index page from md files
+  - [ ] make it work on mobile
   - [x] dont fail on invalid files in blog post dirs
   - [x] sort newest to top
   - [ ] add all posts
