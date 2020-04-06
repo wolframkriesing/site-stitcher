@@ -14,4 +14,4 @@ Camera access on iOS and macOS "][3].
 [3]: https://www.ryanpickren.com/webcam-hacking
 [4]: https://en.wikipedia.org/wiki/Cross-site_scripting#Related_vulnerabilities
 
-Tags: programming, URL, web, browsers, chrome, iOS, Apple
+Tags: programming, URL, web, browsers, chrome, iOS, Apple, security, hacking
