@@ -1,0 +1,58 @@
+body {
+  font-family: monospace;
+  margin: 2rem;
+}
+
+
+h1 {
+  display: inline;
+}
+nav {
+  display: inline;
+}
+  nav ul {
+    display: inline;
+  }
+  nav li {
+    display: inline;
+  }
+
+
+.row {
+  display: flex;
+  margin: 1rem;
+}
+  .row .date {
+    white-space: nowrap;
+    color: gray;
+    flex: 1;
+    min-width: 10rem;
+  }
+  .row .content {
+    padding: 0 1rem;
+    flex: 10;
+  }
+  .row h2 {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+  }
+  .row p {
+    margin: 0;
+    padding: 0;
+  }
+@media screen and (max-width: 600px) {
+  .row {
+    display: block;
+    margin: 1rem;
+  }
+  .row .date .weekday {
+    display: inline;
+  }
+  .row .date .weekday::before {
+    content: ' - ';
+  }
+  .row .content {
+    padding: 0;
+  }
+}
