@@ -41,12 +41,7 @@ const prodDeps = () => {
 };
 
 export const buildBlogPostListFromFiles = (files, dir) => {
-  return files.map(file => {
-    const date = file.split('-')[0].replace(/\//g, '-');
-    const blogPost = BlogPost.withDateCreated(date);
-    blogPost.markdownFilename = path.join(dir, file);
-    return blogPost;
-  });
+  return files.map(file => BlogPost.withMarkdownFilename(path.join(dir, file)));
 };
 
 export const preloadBlogPostListFromDirectory = ({findFilesInDir} = prodDeps()) => async (path) => {
