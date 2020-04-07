@@ -10,12 +10,18 @@ describe('Preload blog posts from a given directory', () => {
       const blogPostList = buildBlogPostListFromFiles([], '');
       assert.deepStrictEqual(blogPostList, []);
     });
-    it('WHEN one file is given THEN return one BlogPost', () => {
+    describe('WHEN one file is given', () => {
       const file = '2018/05/13-post.md';
       const blogPost = BlogPost.withDateCreated('2018-05-13');
-      const blogPostList = buildBlogPostListFromFiles([file], '');
-      assert.strictEqual(blogPostList.length, 1);
-      assert(blogPostList[0].equals(blogPost));
+      it('THEN return one BlogPost', () => {
+        const blogPostList = buildBlogPostListFromFiles([file], '');
+        assert.strictEqual(blogPostList.length, 1);
+        assert(blogPostList[0].equals(blogPost));
+      });
+      it('THEN set the `url` property correctly', () => {
+        const blogPostList = buildBlogPostListFromFiles([file], '');
+        assert.strictEqual(blogPostList[0].url, '/blog/2018/05/13-post/');
+      });
     });
     it('WHEN multiple files are given THEN return all BlogPost items', () => {
       const files = [
