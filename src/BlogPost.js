@@ -2,8 +2,7 @@ const dateDirectoryAndFilename = markdownFilename => markdownFilename.match(/\d{
 const directoryToIsoDate = s => s.split('-')[0].replace(/\//g, '-');
 const dateCreatedFromMarkdownFilename = (markdownFilename) =>
   directoryToIsoDate(dateDirectoryAndFilename(markdownFilename));
-
-let urlFromMarkdownFilename = function(markdownFilename) {
+const urlFromMarkdownFilename = (markdownFilename) => {
   const extensionToReplace = markdownFilename.endsWith('index.md') ? '/index.md' : '.md';
   return '/blog/' + dateDirectoryAndFilename(markdownFilename).replace(extensionToReplace, '/');
 };
