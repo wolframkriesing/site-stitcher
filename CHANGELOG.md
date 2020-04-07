@@ -35,7 +35,8 @@
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [x] add plausible
 - [ ] indieweb auth of my page
-- [ ] move domain to GH, works smoothly
+- [x] make it deploy on GH
+- [ ] move domain to GH
 - [ ] `npm run new-post` script to create dir and file
 - [ ] generate index page from md files
   - [ ] make it work on mobile
