@@ -22,7 +22,7 @@ describe('Preload blog posts from a given directory', () => {
         const blogPostList = buildBlogPostListFromFiles([file], '');
         assert.strictEqual(blogPostList[0].url, '/blog/2018/05/13-post/');
       });
-      xit('AND the file is the index.md inside a dir THEN set the `url` property correctly', () => {
+      it('AND the file is the index.md inside a dir THEN set the `url` property correctly', () => {
         const file = '2001/01/01-new-post/index.md';
         const blogPostList = buildBlogPostListFromFiles([file], '');
         assert.strictEqual(blogPostList[0].url, '/blog/2001/01/01-new-post/');

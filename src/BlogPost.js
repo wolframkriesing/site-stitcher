@@ -3,6 +3,11 @@ const directoryToIsoDate = s => s.split('-')[0].replace(/\//g, '-');
 const dateCreatedFromMarkdownFilename = (markdownFilename) =>
   directoryToIsoDate(dateDirectoryAndFilename(markdownFilename));
 
+let urlFromMarkdownFilename = function(markdownFilename) {
+  const extensionToReplace = markdownFilename.endsWith('index.md') ? '/index.md' : '.md';
+  return '/blog/' + dateDirectoryAndFilename(markdownFilename).replace(extensionToReplace, '/');
+};
+
 export class BlogPost {
   static withMarkdownFilename(markdownFilename) {
     return new BlogPost({markdownFilename});
@@ -10,7 +15,7 @@ export class BlogPost {
   constructor(attributes = {}) {
     Object.entries(attributes).forEach(([key, value]) => this[key] = value);
 // TODO calculating things here makes attribute `markdownFilename` a required attribute ... IMPROVE this
-    this.url = '/blog/' + dateDirectoryAndFilename(this.markdownFilename).replace('.md', '/');
+    this.url = urlFromMarkdownFilename(this.markdownFilename);
     this.dateCreated = dateCreatedFromMarkdownFilename(this.markdownFilename);
   }
   equals(blogPost) {
