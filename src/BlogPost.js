@@ -9,10 +9,17 @@ export class BlogPost {
   }
   constructor(attributes = {}) {
     Object.entries(attributes).forEach(([key, value]) => this[key] = value);
+// TODO calculating things here makes attribute `markdownFilename` a required attribute ... IMPROVE this
     this.url = '/blog/' + dateDirectoryAndFilename(this.markdownFilename).replace('.md', '/');
     this.dateCreated = dateCreatedFromMarkdownFilename(this.markdownFilename);
   }
   equals(blogPost) {
     return this.dateCreated === blogPost.dateCreated;
+  }
+  cloneAndOverrideWith(overrideData) {
+    const markdownFilename = this.markdownFilename;
+    const clone = new BlogPost({markdownFilename});
+    Object.entries(overrideData).forEach(([key, value]) => clone[key] = value);
+    return clone;
   }
 }

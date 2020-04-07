@@ -26,10 +26,6 @@ export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async b
     .map(async (blogPost) => await loadBlogPostFromFile(blogPost.markdownFilename)));
   const parsedPosts = rawPosts.map(parseRawPost);
   return parsedPosts.map((parsedPostData, index) => {
-    return new BlogPost({
-      dateCreated: blogPostList[index].dateCreated,
-      markdownFilename: blogPostList[index].markdownFilename,
-      ...parsedPostData
-    });
+    return blogPostList[index].cloneAndOverrideWith(parsedPostData);
   });
 };
