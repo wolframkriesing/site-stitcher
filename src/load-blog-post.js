@@ -28,6 +28,7 @@ export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async b
   return parsedPosts.map((parsedPostData, index) => {
     return new BlogPost({
       dateCreated: blogPostList[index].dateCreated,
+      markdownFilename: blogPostList[index].markdownFilename,
       ...parsedPostData
     });
   });

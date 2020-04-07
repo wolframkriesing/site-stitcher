@@ -12,7 +12,7 @@ describe('Preload blog posts from a given directory', () => {
     });
     describe('WHEN one file is given', () => {
       const file = '2018/05/13-post.md';
-      const blogPost = BlogPost.withDateCreated('2018-05-13');
+      const blogPost = BlogPost.withMarkdownFilename('2018/05/13-post.md');
       it('THEN return one BlogPost', () => {
         const blogPostList = buildBlogPostListFromFiles([file], '');
         assert.strictEqual(blogPostList.length, 1);
@@ -21,6 +21,11 @@ describe('Preload blog posts from a given directory', () => {
       it('THEN set the `url` property correctly', () => {
         const blogPostList = buildBlogPostListFromFiles([file], '');
         assert.strictEqual(blogPostList[0].url, '/blog/2018/05/13-post/');
+      });
+      xit('AND the file is the index.md inside a dir THEN set the `url` property correctly', () => {
+        const file = '2001/01/01-new-post/index.md';
+        const blogPostList = buildBlogPostListFromFiles([file], '');
+        assert.strictEqual(blogPostList[0].url, '/blog/2001/01/01-new-post/');
       });
     });
     it('WHEN multiple files are given THEN return all BlogPost items', () => {
@@ -31,10 +36,10 @@ describe('Preload blog posts from a given directory', () => {
         '2018/10/13-post.md',
       ];
       const expectedBlogPosts = [
-        BlogPost.withDateCreated('2010-01-01'),
-        BlogPost.withDateCreated('2011-02-28'),
-        BlogPost.withDateCreated('2012-12-31'),
-        BlogPost.withDateCreated('2018-10-13'),
+        BlogPost.withMarkdownFilename('2010/01/01-post.md'),
+        BlogPost.withMarkdownFilename('2011/02/28-post.md'),
+        BlogPost.withMarkdownFilename('2012/12/31-post.md'),
+        BlogPost.withMarkdownFilename('2018/10/13-post.md'),
       ];
       const blogPostList = buildBlogPostListFromFiles(files, '');
       assert.strictEqual(blogPostList.length, 4);

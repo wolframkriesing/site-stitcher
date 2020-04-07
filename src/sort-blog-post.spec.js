@@ -5,27 +5,27 @@ import {sortByDateCreatedAscending, sortByDateCreatedDescending} from './sort-bl
 
 describe('Sort blog posts by date', () => {
   const unsortedPosts = [
-    BlogPost.withDateCreated('2002-03-03'),
-    BlogPost.withDateCreated('2002-02-02'),
-    BlogPost.withDateCreated('2004-04-04'),
-    BlogPost.withDateCreated('2001-01-01'),
+    BlogPost.withMarkdownFilename('2002/03/03-post.md'),
+    BlogPost.withMarkdownFilename('2002/02/02-post.md'),
+    BlogPost.withMarkdownFilename('2004/04/04-post.md'),
+    BlogPost.withMarkdownFilename('2001/01/01-post.md'),
   ];
   it('GIVEN many unsorted posts WHEN sorted ascending THEN they are in the right order', () => {
     const expectedPosts = [
-      BlogPost.withDateCreated('2001-01-01'),
-      BlogPost.withDateCreated('2002-02-02'),
-      BlogPost.withDateCreated('2002-03-03'),
-      BlogPost.withDateCreated('2004-04-04'),
+      BlogPost.withMarkdownFilename('2001/01/01-post.md'),
+      BlogPost.withMarkdownFilename('2002/02/02-post.md'),
+      BlogPost.withMarkdownFilename('2002/03/03-post.md'),
+      BlogPost.withMarkdownFilename('2004/04/04-post.md'),
     ];
     const sorted = unsortedPosts.sort(sortByDateCreatedAscending);
     assert.deepStrictEqual(sorted, expectedPosts);
   });
   it('GIVEN many unsorted posts WHEN sorted descending THEN they are in the right order', () => {
     const expectedPosts = [
-      BlogPost.withDateCreated('2004-04-04'),
-      BlogPost.withDateCreated('2002-03-03'),
-      BlogPost.withDateCreated('2002-02-02'),
-      BlogPost.withDateCreated('2001-01-01'),
+      BlogPost.withMarkdownFilename('2004/04/04-post.md'),
+      BlogPost.withMarkdownFilename('2002/03/03-post.md'),
+      BlogPost.withMarkdownFilename('2002/02/02-post.md'),
+      BlogPost.withMarkdownFilename('2001/01/01-post.md'),
     ];
     const sorted = unsortedPosts.sort(sortByDateCreatedDescending);
     assert.deepStrictEqual(sorted, expectedPosts);

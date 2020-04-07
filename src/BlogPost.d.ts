@@ -5,6 +5,6 @@ export class BlogPost {
   abstract: string;
   markdownFilename: string;
   url: string;
-  static withDateCreated(dateCreated: DateString): BlogPost;
+  static withMarkdownFilename(markdownFilename: string): BlogPost;
   equals(blogPost: BlogPost): boolean;
 }
