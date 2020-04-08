@@ -116,6 +116,7 @@ tags:
 coderetreat
 jscoderetreat
 ---
+old_urls: /blog/2018/05/jscoderetreat-13/
 related_tweets:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">If Schoppenhauer wrote Javascript: tetris pieces that generate a board by existing, <a href="https://twitter.com/hashtag/jscr13?src=hash&amp;ref_src=twsrc%5Etfw">#jscr13</a> <a href="https://twitter.com/goosebumps4?ref_src=twsrc%5Etfw">@goosebumps4</a></p>&mdash; Daniel Bolívar (@ddanielbee) <a href="https://twitter.com/ddanielbee/status/995265941171855361?ref_src=twsrc%5Etfw">May 12, 2018</a></blockquote>
