@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>JSCodeRetreat #13, Tetris again | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2018/05/13-jscoderetreat-13-tetris-again/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="jscoderetreat-13-tetris-again">JSCodeRetreat #13, Tetris again</h1>
+<p>It was the second time that we did Tetris as our task for the JSCodeRetreat and I have to say,
+that the participants&#39; comment made me realize that we are on the right track.
+Though not all comments were purely in favor of Tetris, I think Tetris is the better
+task for a (JS) CodeRetreat.</p>
+<h2 id="slicing-or-identify-a-first-feature">Slicing, or: Identify a First Feature</h2>
+<p>At a CodeRetreat, no matter which task, I always see that the people need one or two sessions
+to not see the task as the problem anymore. With Game of Life (GoL) people mostly need to properly understand
+it first before they become really productive. With Tetris this is no different. But the game itself
+is way better known and therefore easier to grasp, it seems to me. This does also hook the people
+easier and they believe they have it all under control.</p>
+<p>In the first session I mostly ask the participants to pick one feature of Tetris and try to think of
+a first set of tests for this feature that they might want to implement. It differs a lot what
+people identify as a feature and how detailed they write out the first test descriptions.
+Some people start implementing very early on. In this case I often see the chance to ask them
+to simplify the problem they want to solve. In the first session it rarely happens that people do
+already get into a fast rhythm with a short feedback cycle. This makes it very easy to ask them
+for the second session to try to iterate fast from test to test.</p>
+<p>You see the challenge, right? Slicing a huge problem such as Tetris is possible in soooo many ways.
+I have seen many &quot;first features&quot; that one can solve and could start with. And even those features
+are sometimes way to big. Here lies a lot of potential for us to learn and practice. How can
+we:</p>
+<ul>
+<li>support slicing problems small and also</li>
+<li>try to identify the depth of such a sub-problem and, maybe even more important,</li>
+<li>find out the value of such a sub-problem that we might want to tackle and start building and
+eventually ship to our customer?</li>
+</ul>
+<p>Are we doing the product owner&#39;s job here? Even if, I believe that programmers must look at the big picture
+and figure out what brings customer value. That&#39;s why I walk around in the first session and ask always:
+&quot;What do I, as a player, get from this feature that you chose?&quot;. And if the answer is something like
+&quot;you get a board&quot; or &quot;you can see tetris blocks&quot; than people start re-thinking their choice automatically.</p>
+<h2 id="core-problem">Core Problem</h2>
+<p>Interesting to learn and also to understand for me is: What is the core of the task?
+I have no answer, but when seeing us work on Tetris I always ask myself: Is there some kind of core
+that we have to start with? Can we build everything out of tiny modules and later plug them
+together? Do we run into a wall when we don&#39;t start with the core? Is a set of tiny well-defined
+modules (without any core) always capable of forming a big picture and working piece of software?</p>
+<p>This might seem really stupid to ask. Who knows :). (I don&#39;t.)
+I am not the best software architect, I am more the low-level developer, I love to
+dig deep into the root of things, rather than architecting the big picture.
+Therefore I might have these questions. If you have answers, please throw them over the fence,
+I would love to learn.</p>
+<h2 id="implementation-details">Implementation Details</h2>
+<p>Let me go from the big picture, in the paragraphs above, down into the depth of writing code.
+The temptation to make people not think of arrays for a Tetris board was so big, so often
+during yesterday&#39;s CodeRetreat. But I tried to resist and let people discover this by themselves.
+Marco, one of the participants even mentioned in the closing round that he now also sees
+how Tetris can even be implemented without a board. That was kinda cool.</p>
+<p>Another example that I had seen about implementation detail, was that the pair wanted to
+implement just &quot;the rotation of the I-block&quot; (the test description). So the test was kinda a like this:</p>
+<ul>
+<li>input is <code>[1,1,1,1],[0,0,0,0],[0,0,0,0],[0,0,0,0]</code></li>
+<li>rotate the block and</li>
+<li>check that the result is <code>[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0]</code>.</li>
+</ul>
+<p>I saw this and asked how to make the code more look like the test description. I am a fanatic
+about having test descriptions be as expressive as possible and I have high hopes that they also influence
+the readablity of the code, or even better that the code becomes the test description in the programming language&#39;s syntax.
+So the array of arrays up there seemed not really expressive, I thought. And the problem that was to be
+solved could be written as code in a much simpler form, I believe. For example something like <code>{shape: &#39;I&#39;, angle: 0}</code>
+which becomes <code>{shape: &#39;I&#39;, angle: 90}</code> after rotation.
+It would have the same meaning and be readable. Wouldn&#39;t it?
+That might just be my subjective view and hope ... who knows.</p>
+<p>In one discussion I was asked how to test the implementation details. Remembering my first days
+in TDD, I was testing every implementation detail, and I was convinced it was necessary and right.
+So I asked the questions that eventually might lead to understand that implementation details are
+nothing that a test should care about, because it would just couple the test to tightly to the
+actual code that fulfills what the tests ask for and turn off the ability to refactor. In the
+end that leads to code that rots, because we won&#39;t be able to take care of it.</p>
+<p>Tetris is also a great task, no different to GoL, which allows us to think abstract and put concepts
+into code that are more business concepts than technical concepts. It is very tempting in GoL
+like in Tetris to construct the board as an array. Learning not to do that is a big step, I believe.
+It opens up new ways to think about code and embedding product concepts deeper into the code itself.
+Which in turn again triggers the thinking of how to get the right domain language into the code.
+In the next step this makes us programmers ask ourselves how to cooperate better with the product owners.
+All those logically connected steps make it so necessary and valueable for us programmers to
+practice writing better code, using better words, being expressive ...
+and apply the <a href="https://leanpub.com/4rulesofsimpledesign">four rules of simple design</a>.</p>
+<h2 id="todo">TODO</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> slicing problems small<ul>
+<li><input disabled="" type="checkbox"> give some examples, to make it easier to understand, for what i mean by 1st feature</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> what is the core problem</li>
+<li><input checked="" disabled="" type="checkbox"> what of this big task can i deliver that is valueable? - covered by 1st paragraph</li>
+<li><input checked="" disabled="" type="checkbox"> is the board to be an array an implementation details?</li>
+<li><input checked="" disabled="" type="checkbox"> do i need to think about implementation details early?</li>
+<li><input disabled="" type="checkbox"> it has: user interaction, a tick, visual only data, complex enough logic</li>
+<li><input disabled="" type="checkbox"> if you want to make it more complex: feel free</li>
+<li><input disabled="" type="checkbox"> i think it attracted more newbies - love it</li>
+<li><input disabled="" type="checkbox"> no UI!</li>
+</ul>
+<hr>
+<h2 id="created_at-2018-05-13-1115-cet">created_at: 2018-05-13 11:15 CET</h2>
+<h2 id="post_type-post">post_type: post</h2>
+<p>tags:</p>
+<p>coderetreat
+jscoderetreat</p>
+<hr>
+<p>old_urls: /blog/2018/05/jscoderetreat-13/
+related_tweets:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">If Schoppenhauer wrote Javascript: tetris pieces that generate a board by existing, <a href="https://twitter.com/hashtag/jscr13?src=hash&amp;ref_src=twsrc%5Etfw">#jscr13</a> <a href="https://twitter.com/goosebumps4?ref_src=twsrc%5Etfw">@goosebumps4</a></p>&mdash; Daniel Bolívar (@ddanielbee) <a href="https://twitter.com/ddanielbee/status/995265941171855361?ref_src=twsrc%5Etfw">May 12, 2018</a></blockquote>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">i have a new explaination for why feedback and trying makes lots of sense ... let&#39;s talk tomorrow at <a href="https://twitter.com/hashtag/jscr13?src=hash&amp;ref_src=twsrc%5Etfw">#jscr13</a> <a href="https://twitter.com/jsCodeRetreat?ref_src=twsrc%5Etfw">@jsCodeRetreat</a> <br>cu <a href="https://t.co/AvlrKQVGnr">pic.twitter.com/AvlrKQVGnr</a></p>&mdash; ⪡Web-Componenter⪢ (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/995071651644674053?ref_src=twsrc%5Etfw">May 11, 2018</a></blockquote>
+
+
+</body>
+</html>

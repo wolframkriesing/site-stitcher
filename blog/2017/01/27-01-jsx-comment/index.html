@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Comments inside JSX | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2017/01/27-01-jsx-comment/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="comments-inside-jsx">Comments inside JSX</h1>
+<p>Sometimes I stumble over commenting out a part in my JSX template.
+And I am always again looking for how to do that <code>{#</code> or <code>{--</code>
+or what do I know.</p>
+<p>That&#39;s how it works:</p>
+<pre><code class="language-text">const MyPage = () =&gt; {
+  return (
+    &lt;div&gt;
+      this is visible
+      {/*
+        &lt;div&gt;should NOT { invisibleVar } rendered&lt;/div&gt;
+      */}
+    &lt;/div&gt;
+  );
+}</code></pre>
+<hr>
+<h2 id="created_at-2017-01-27-0011-cet">created_at: 2017-01-27 00:11 CET</h2>
+<p>tags:</p>
+<p>react
+jsx
+comment</p>
+<hr>
+<p>post_type: mini-post</p>
+
+
+</body>
+</html>

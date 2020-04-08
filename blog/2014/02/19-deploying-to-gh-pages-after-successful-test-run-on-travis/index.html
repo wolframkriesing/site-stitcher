@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Deploying to gh-pages after successful test run on travis | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/02/19-deploying-to-gh-pages-after-successful-test-run-on-travis/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="deploying-to-gh-pages-after-successful-test-run-on-travis">Deploying to gh-pages after successful test run on travis</h1>
+<p>I wanted to just push my source code to github&#39;s master branch and all the deployment after that shall be automatic. 
+Every dev-op reading this will say &quot;yeah sure, wtf?&quot;.</p>
+<p>To make it a bit simpler, I have a pure client-side
+app, in this case <a href="http://tddbin.com">http://tddbin.com</a>. So I started searching and tweeting.<br>It all started with this tweet and the initial <a href="https://twitter.com/boennemann/status/568061867052163073">help from Stephan</a> 
+Then I worked through this <a href="https://medium.com/@nthgergo/publishing-gh-pages-with-travis-ci-53a8270e87db">article</a>, which is actually wrong where it states the <code>travis-encrypt</code>
+call. In short it has to be like this: <code>travis-encrypt -r tddbin/tddbin-frontend GH_TOKEN=&lt;the token github gave you&gt;</code>
+and everything behind the repo name will be encrypted, you can also add multiple env vars and then use them.
+Just like <a href="https://github.com/tddbin/tddbin-frontend/blob/23eaa1eb4049da64ee3b941270e92f8fd13b10c0/scripts/deploy-to-ghpages.sh#L5">I did it on tddbin</a>. In order to have the env vars you encoded available 
+you need to put the encrypted secret into the <a href="https://github.com/tddbin/tddbin-frontend/blob/23eaa1eb4049da64ee3b941270e92f8fd13b10c0/.travis.yml#L10-L13">.travis.yml file</a>.</p>
+<hr>
+<h2 id="created_at-2014-02-19-1100-cet">created_at: 2014-02-19 11:00 CET</h2>
+<p>tags:</p>
+<p>gh-pages
+devops
+deploy
+javascript
+travis
+tddbin</p>
+<hr>
+<p>post_type: mini-post</p>
+
+
+</body>
+</html>

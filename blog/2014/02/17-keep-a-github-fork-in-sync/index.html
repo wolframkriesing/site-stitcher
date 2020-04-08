@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Keep a github fork in sync | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/02/17-keep-a-github-fork-in-sync/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="keep-a-github-fork-in-sync">Keep a github fork in sync</h1>
+<p>As often as I look for this, I need to write it down.
+For example for my fork of <a href="https://github.com/Narigo/dropping-spray/">github:dropping-spray</a>, which got inspired by this <a href="https://twitter.com/NarigoDF/status/567572946626297857">tweet</a>
+and the following discussion.</p>
+<pre><code class="language-bash">&gt; # 1 - add the (so called) upstream repo so you can refer to it locally
+&gt; git remote add upstream git@github.com:Narigo/dropping-spray.git
+&gt; #2 - just double check it&#39;s there
+&gt; git remote -v
+origin    git@github.com:wolframkriesing/dropping-spray.git (fetch)
+origin    git@github.com:wolframkriesing/dropping-spray.git (push)
+upstream    git@github.com:Narigo/dropping-spray.git (fetch)
+upstream    git@github.com:Narigo/dropping-spray.git (push)
+&gt; # 3 - get up to date, I think in the flow as listed here its not needed, we are quite up to date
+&gt; git fetch upstream
+&gt; # 4 - fianlly merge in the latest stuff from the original repo
+&gt; git merge upstream/gh-pages</code></pre>
+<h2 id="as-you-can-see-above-i-merged-the-gh-pages-branch-and-not-master">As you can see above, I merged the <code>gh-pages</code> branch and not <code>master</code>!</h2>
+<h2 id="created_at-2014-02-17-1000-cet">created_at: 2014-02-17 10:00 CET</h2>
+<p>tags:</p>
+<p>github
+fork
+remote repo
+sync</p>
+<hr>
+<p>post_type: post</p>
+
+
+</body>
+</html>

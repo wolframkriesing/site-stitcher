@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Problem including mocha into a browserify build | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/02/19-problem-including-mocha-into-a-browserify-build/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="problem-including-mocha-into-a-browserify-build">Problem including mocha into a browserify build</h1>
+<p>I don&#39;t get mocha to build with browserify, I always get</p>
+<pre><code>Error: Cannot find module &#39;../suite&#39; from &#39;/Users/me/tddbin-frontend/node_modules/mocha&#39;</code></pre><p>The problems mentioned in <a href="https://github.com/mochajs/mocha/issues/1316">those</a> <a href="https://github.com/mochajs/mocha/issues/880">issues</a> seem to have no solution provided yet.
+It seems that browserify picks up a built <code>mocha.js</code> and can&#39;t handle some magic done in there.<br>My solution for now is to use <a href="http://cdnjs.com/libraries/mocha">mocha from the CDN</a>, which might not work in all use cases, but does for me now.</p>
+<hr>
+<h2 id="created_at-2014-02-19-1000-cet">created_at: 2014-02-19 10:00 CET</h2>
+<h2 id="intro">intro: </h2>
+<p>tags:</p>
+<p>javascript
+testing
+mocha</p>
+<hr>
+<p>post_type: mini-post</p>
+
+
+</body>
+</html>

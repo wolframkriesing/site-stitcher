@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>The magic dash in a Jinja template block | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2017/01/21-the-magic-dash-in-jinja-template-block/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="the-magic-dash-in-a-jinja-template-block">The magic dash in a Jinja template block</h1>
+<p>What the heck does <code>-%}</code> mean in a Jinja template?</p>
+<p>By using Lektor I need to learn <a href="http://jinja.pocoo.org/">Jinja</a>, the template engine used. And I have to say it has the addons that I had always wished for in Django&#39;s template language (swig). For example there is <code>else</code> for the <code>for</code> loop, which applies when there is nothing to loop over.</p>
+<p>And while looking for a tag system I came across <a href="https://pypi.python.org/pypi/lektor-tags">lektor-tags</a> which looks like the tag power and simplicity I need. While trying to get it to run, I came across this piece of Jinja template:</p>
+<pre><code class="language-jinja">{% for t in this.tags -%}
+  #{{ t }}
+{% endfor %}</code></pre>
+<p>and I saw this typo in there <strong><code>-%}</code></strong>, so I removed the <code>-</code>, since I thought it was a typo. Later I saw it more often, even in an <code>if</code> and in <code>macro</code> and before <code>endmacro</code> too. So I figured it was not a typo. And it wasn&#39;t :).</p>
+<p>So I started hunting the documentation. I found places where <code>-%}</code> was used but it was never described what the dash was for. Until I finally found it, of course by accident. In the <a href="http://jinja.pocoo.org/docs/2.9/templates/#whitespace-control">Jinja docs in the chapter Whitespace Control</a> it says the following:</p>
+<blockquote>
+<p>You can also strip whitespace in templates by hand. If you add a minus sign (-) to the start or end of a block (e.g. a For tag), a comment, or a variable expression, the whitespaces before or after that block will be removed:</p>
+<pre><code class="language-jinja">{% for item in seq -%}
+  {{ item }}
+{%- endfor %}</code></pre>
+</blockquote>
+<p>What a blessing. Something we always wanted in a template language. I remember back in the django days, the verbose <code>{{ spaceless }}</code> was quite noisy. I think this is a smart, simple and great addition. I am just not sure if the trade-off in time I spent to figure out what the magic is good for could be improved. Suggestions and ideas welcome.</p>
+<hr>
+<h2 id="created_at-2017-01-21-1000-cet">created_at: 2017-01-21 10:00 CET</h2>
+<p>tags:</p>
+<p>jinja
+template
+spaceless</p>
+<hr>
+<p>post_type: post</p>
+
+
+</body>
+</html>

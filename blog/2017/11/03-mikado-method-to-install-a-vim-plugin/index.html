@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Mikado Method to install a Vim Plugin | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2017/11/03-mikado-method-to-install-a-vim-plugin/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="mikado-method-to-install-a-vim-plugin">Mikado Method to install a Vim Plugin</h1>
+<p>I just wanted to install a github-flavored markdown plugin for vim. 
+Until today I only used vim as it falls out of the box. So I had to do a couple 
+detours before I got a vim plugin installed. Since I like the simplicity of the Mikado 
+Method I apply it very often (maybe too often). In this case I used a very simple form 
+of it, actually mainly to document all the steps I had to take on this detour. Read more below.</p>
+<h2 id="tmuxs-fault">tmux&#39;s fault</h2>
+<div style="float: left; padding: 1rem;">
+<img src="./tmux-kanban.jpg" alt="personal kanban via tmux" width=200 class="sizeup-onhover-image scale2 origin-left-top" />
+<br/><em>personal kanban using tmux and vim</em>
+</div>
+
+<p>A little bit of background story:
+It all started last night, after another round of discussing an apprenticeship program at HolidayCheck. And since I <a href="http://techblog.holidaycheck.com/post/2017/10/02/learning-from-8thlight">learned at 8th Light</a> that tmux and vim are the two essential tools every apprentice learns, I fianlly wanted to sit down and learn those tools too.<br>I tweeted that I had found a <a href="http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">great tutorial</a> to install tmux (see related-tweets in the side bar). So I went along and actually got started pretty fast on using tmux. I went to bed happily, I had learned all I needed to get started with tmux in less than one hour.<br>And in the morning I had the glorious idea to switch to tmux and vim for maintaining my private kanban board. I wanted to have three panes, the backlog, in progress and done column and in each I have a file open, which I edit using vim. This way I can learn tmux and vim, both at the same time.<br>Actually I had started using vi, not vim. But I switched to vim, when I found no vi plugins, but only vim plugins. And another bit later I found out that vi is no more than a symlink to vim, at least on my machine :).</p>
+<h2 id="vim-plugin-and-mikado-method">Vim Plugin and Mikado Method?</h2>
+<p>Having my three columns prepared I only needed a github-flavored markdown editor for some syntax highlighting. And the github style enables the nice checkbox style (<code>- [ ] ...</code>) that I use even in any regular markdown files. And to highlight those properly, I needed the right plugin for vim.<br>After a while I figured out, this is a rabbit whole for a vim beginner like me.</p>
+<p>Every time I start making two or more extra steps before reaching the actual goal right away (here installing the vim plugin which highlights github-flavored markdown properly) I think of the <a href="https://pragprog.com/magazines/2010-06/the-mikado-method">Mikado Method</a>. It&#39;s for one perfect for documenting all things and also for structuring and not forgetting the essential things when climbing back out of the rabbit hole. Actually it can be applied in many more (complex) contexts as described in the linked article, but I found it also helps structuring in getting things done and not forgetting what I actually wanted to do.</p>
+<p>A couple of dependent steps were necessary to install the vim plugin. And in order to not loose focus and not forget a step that would come next but gets overruled by a sub-step of the current one I use the Mikado Method.</p>
+<h2 id="install-vim-plugin">Install vim-plugin</h2>
+<p>Here are the steps I had to do to explore how to get this vim plugin installed on a &quot;fresh&quot; vim.</p>
+<ul>
+<li>❓I want a github-flavored markdown syntax highlighter for vim<ul>
+<li>first thing: start a <a href="https://duckduckgo.com/?q=github+flavored+vim+plugin">search for &quot;github flavored vim plugin&quot;</a></li>
+<li>the plugin <a href="https://github.com/rhysd/vim-gfm-syntax">vim-gfm-syntax</a> seems the way to go</li>
+<li>❓ I want to install the vim-plugin &#39;vim-gfm-syntax&#39;<ul>
+<li>looking for the <em>Install</em> section on the github page makes me feel dumb, looks like I am the only one who doesn&#39;t know how to install it, that&#39;s why it has not <em>Install</em> section</li>
+<li>❓ I want to learn how to install this vim plugin<ul>
+<li>reading through the readme, I found out that this package is an improvement of the <a href="https://github.com/jtratner/vim-flavored-markdown">vim-flavored-markdown</a></li>
+<li>I figured that I might install instructions there</li>
+<li>I went to the  I have to go to it’s parent package (because vim-gfk-syntax has no install section) <a href="https://github.com/jtratner/vim-flavored-markdown">https://github.com/jtratner/vim-flavored-markdown</a></li>
+<li>there it says: <a href="https://github.com/jtratner/vim-flavored-markdown#best-way---use-pathogen">&quot;Install - Best way - use Pathogen&quot;</a></li>
+<li>❓ I want to understand if pathogen is the vim plugin manager I need<ul>
+<li>so I <a href="https://duckduckgo.com/?q=Pathogen+vim">searched for &quot;vim pathogen&quot;</a></li>
+<li>found <a href="https://github.com/tpope/vim-pathogen">https://github.com/tpope/vim-pathogen</a></li>
+<li>but the first sentence &quot;Manage your &#39;runtimepath&#39; with ease.&quot; means nothing to me</li>
+<li>reading on ... &quot;In practical terms, pathogen.vim makes it super easy to install plugins and runtime files in their own private directories.&quot;</li>
+<li>👍 pathogen is the plugin manager I want</li>
+</ul>
+</li>
+<li>❓ I want to install pathogen, the vim plugin manager<ul>
+<li>installed pathogen as described in <a href="https://github.com/tpope/vim-pathogen#installation">https://github.com/tpope/vim-pathogen#installation</a></li>
+<li>add this to the ~/.vimrc<pre><code>execute pathogen#infect()
+syntax on
+filetype plugin indent on</code></pre>as described here <a href="https://github.com/tpope/vim-pathogen#runtime-path-manipulation">https://github.com/tpope/vim-pathogen#runtime-path-manipulation</a></li>
+<li>&quot;Now any plugins you wish to install can be extracted to a subdirectory under ~/.vim/bundle, and they will be added to the &#39;runtimepath&#39;&quot; ... now runtimepath does also make sense :)</li>
+<li>👍 pathogen is installed</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>👍 in <a href="https://github.com/jtratner/vim-flavored-markdown#best-way---use-pathogen">&quot;Install - Best way - use Pathogen&quot;</a> it says how I install a package !!! watch out we want to install <a href="https://github.com/rhysd/vim-gfm-syntax">https://github.com/rhysd/vim-gfm-syntax</a> though</li>
+</ul>
+</li>
+<li>👍 so I install the plugin<pre><code>$ cd ~/.vim/bundle
+$ git clone https://github.com/rhysd/vim-gfm-syntax.git</code></pre></li>
+</ul>
+</li>
+<li>👍 try it out, open the file via <code>vim some.md</code> (especially one with github-style check boxes <code>- [ ] ...</code> and ... I can see it highlighted ... yeah </li>
+<li>👍 DONE, &quot;pure joy&quot;</li>
+</ul>
+<h2 id="finally">Finally</h2>
+<p>It&#39;s true, the Mikado Method explained in <a href="https://pragprog.com/magazines/2010-06/the-mikado-method">the article</a> is way more sophisticated. But doing those tedious things like learning to install a vim plugin always reminds me of the Mikado Method. And since I usually write down my &quot;Mikado steps&quot; using nested lists, like in here, this is the simplest form of using the Mikado Method.<br>Have fun trying it, it can really safe ones sanity and keep you focused.</p>
+<hr>
+<h2 id="created_at-2017-11-03-1815-cet">created_at: 2017-11-03 18:15 CET</h2>
+<h2 id="post_type-post">post_type: post</h2>
+<p>tags:</p>
+<p>mikado method
+tmux
+vi
+vim
+learning
+apprentice</p>
+<hr>
+<h2 id="_hidden-no">_hidden: no</h2>
+<p>_discoverable: yes</p>
+<hr>
+<p>related_tweets:</p>
+<blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Finally I did `nix-env -i tmux` (install tmux) and running through this nice tutorial. <a href="https://t.co/YlgNPeoddr">https://t.co/YlgNPeoddr</a><br>Easy to be convinced.</p>&mdash; programmer@work (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/926197729931464705?ref_src=twsrc%5Etfw">November 2, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">just 20min later and I got a &quot;Congratulations, you’ve just completed your first tmux session&quot; that feels like achievement :) thx <a href="https://twitter.com/hamvocke?ref_src=twsrc%5Etfw">@hamvocke</a> <a href="https://t.co/fcX2QsPHXH">https://t.co/fcX2QsPHXH</a></p>&mdash; programmer@work (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/926199416872144896?ref_src=twsrc%5Etfw">November 2, 2017</a></blockquote>
+
+
+
+
+</body>
+</html>

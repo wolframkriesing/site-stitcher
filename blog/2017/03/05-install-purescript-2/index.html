@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Installing purescript #2 | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2017/03/05-install-purescript-2/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="installing-purescript-2">Installing purescript #2</h1>
+<p>This post is my 2nd write-down inspired by <a href="https://leanpub.com/purescript/read">&quot;Purescript by Example&quot;</a>,
+the book by <a href="https://twitter.com/paf31">Phil Freeman</a>, the author of purescript.
+Now about chapter 2, where I install Purescript and touch the tools
+for the first time. I am gonna use <code>yarn</code> instead of <code>npm</code>,
+let&#39;s see how that goes :).</p>
+<h2 id="preparation">Preparation</h2>
+<p>This post builds up on *&quot;<a href="/blog/2017/03/starting-with-purescript/">Purescript - the semantics of JavaScript with types #1</a>&quot;*
+where I tried to put Purescript into perspective and explain what it is
+and where it comes from. All the knowledge in here is based on the book mentioned
+above and some playing around. The book is also the anchor point for me for
+this series of posts around Purescript.</p>
+<p>In order to get Purescript up and running, you need to have nodejs and npm
+installed. Well, I assume if you landed on this blog for some strange reason,
+you either know how to do that or have it installed already. So let&#39;s go.</p>
+<p>Before we get started. In order to not having to install all npm packages globally, I
+normally prefer to keep all dependencies local to the current project.
+<a href="/blog/2015/03/globally-installed-npm-packages-equals-evil/">Globally installed npm packages are evil.</a> Period.
+And to make working with local packages easier I have the following in my environment setup.</p>
+<pre><code class="language-shell">&gt; export PATH=$PATH:./node_modules/.bin</code></pre>
+<p>This makes the executable of any package installed locally in the current
+npm project executable just by typing the executable name. Ha? What?
+An example: instead of having to type <code>./node_modules/.bin/psc</code> to execute 
+the <code>psc</code> executable I can just write <code>psc</code> since I had added 
+<code>./node_modules/.bin</code> to the PATH where executables are searched for.</p>
+<p>And: I am going to use <a href="https://yarnpkg.com/">yarn</a> instead of <a href="https://www.npmjs.com/">npm</a> to install Purescript. Why?
+Just because I can. And I need to practice a bit, why not
+learn two things at a time :).</p>
+<h2 id="install-the-purescript-compiler">Install the Purescript compiler</h2>
+<p>I create a directory <code>purescript-series</code> which will become a npm-package (or yarn package)
+where all the Purescript stuff gets installed into.</p>
+<pre><code class="language-shell">&gt; mkdir purescript-series
+&gt; cd purescript-series
+&gt; yarn init
+# ... many lines later
+success Saved package.json
+✨  Done in 5.66s.</code></pre>
+<p>Now the directory is a proper package, where I can install stuff into.
+After having been reminded, that yarn is is growing up and now has it&#39;s own language
+<code>`install` has been replaced with `add`</code>, I got Purescript installed, like so:<br>NOTE: If you still prefer installing it globally, use
+<a href="https://yarnpkg.com/en/docs/cli/global"><em><code>yarn global</code></em></a> instead of <code>yarn</code> for running yarn commands.</p>
+<pre><code class="language-shell">&gt; yarn add purescript --save # &quot;--save&quot; stores this dependency in package.json
+yarn add v0.15.1
+# ... many lines later
+✨  Done in 4.40s.
+
+&gt; psc # Trying out the executable we have installed
+psc: No input files.</code></pre>
+<p>Ok, <code>psc</code> the Purescript compiler is installed. Before I am going to use it a short reminder.
+Let&#39;s inspect where the <code>psc</code> command comes from:</p>
+<pre><code class="language-shell">&gt; which psc
+./node_modules/.bin/psc</code></pre>
+<p>Aha, it comes from the current package&#39;s <code>node_modules</code> directory. Just as
+I configured it before (remember I enhanced the <code>PATH</code> environment variable).<br>So, what can I do now, with Purescript, the <code>psc</code> executable?</p>
+<pre><code class="language-shell">&gt; psc --help
+psc - Compiles PureScript to Javascript
+
+Usage: psc [FILE] [-o|--output ARG] [--no-tco] [--no-magic-do] [--no-opts]
+           [-v|--verbose-errors] [-c|--comments] [--source-maps] [--dump-corefn]
+           [-p|--no-prefix] [--json-errors]
+
+Available options:
+  --version                Show the version number
+  # ...snip...
+  FILE                     The input .purs file(s)
+  # ...snip...
+  -c,--comments            Include comments in the generated code
+  # ...snip...
+
+psc 0.10.7</code></pre>
+<p>We already see the current version
+on the last line of the help output, no need to try out <code>psc --version</code> again, we won&#39;t
+be surprised :).</p>
+<p>The Purescript compiler takes a <code>*.purs</code> file and compiles it into JavaScript code and
+the file lands in the directory <code>output/</code>. So let&#39;s do it.</p>
+<h2 id="my-first-purescript-program">My first Purescript program</h2>
+<p>I am going to create a file <code>src/Main.purs</code> and put the simplest working
+source code in there, that I was able to come up with.</p>
+<pre><code class="language-shell">&gt; mkdir src
+&gt; echo &quot;module Main where&quot; &gt; src/Main.purs
+&gt; psc src/Main.purs 
+Compiling Main</code></pre>
+<p>I have just written my first Purescript file and compiled it.
+Let&#39;s look at it in detail. The Purescript file <code>src/Main.purs</code> contains only
+the minimal thing needed:</p>
+<pre><code class="language-text">module Main where</code></pre>
+<p>Nothing more! It compiles without any error and warning. Hip hip Hurray!
+But it also doesn&#39;t really do much. Though it will show us what the compiler
+produces from our source code. The resulting source code is what I want to see. 
+As said before, it lands in the directory <code>output</code>:</p>
+<pre><code class="language-shell">&gt; cat output/Main/index.js
+// Generated by psc version 0.10.7
+&quot;use strict&quot;;
+module.exports = {};</code></pre>
+<p>I want a little bit more. Actually I would want a hello-world, but printing out
+something requires a bit more work, since that is a side-effect and in Purescript
+this is done via monads (if I got all the things right :)) which is something 
+I will cover a bit later, the earliest when I understand them properly in order
+to explain them properly here (let&#39;s see when that is the case).</p>
+<p>From the book I understand that <code>main</code> is kinda like the default program.
+That&#39;s why I will extend my compiling source code to contain the following code
+to at least return a &quot;hello world&quot; (and not output it yet).
+I will try it by simply assigning a string to the variable <code>main</code>.
+<code>Main.purs</code> looks like this now</p>
+<pre><code class="language-text">-- src/Main.purs (this line is a comment, started by `--` in purescript)
+module Main where
+
+main = &quot;hello world&quot;</code></pre>
+<p>I would expect this now to provide <code>main</code> in the <code>exports</code> as string
+containing &quot;hello world&quot;. Let&#39;s see if this compiles something that looks like
+that.</p>
+<pre><code class="language-shell">&gt; psc src/Main.purs 
+Compiling Main
+Warning found:
+in module Main
+at /Users/wk/purescript-series/src/Main.purs line 4, column 1 - line 4, column 8
+
+  No type declaration was provided for the top-level declaration of main.
+  It is good practice to provide type declarations as a form of documentation.
+  The inferred type of main was:
+
+    String
+</code></pre>
+<p>Oh, a warning. Tbh I kinda was waiting for that, since in a strictly typed language
+the <code>main = &lt;a string&gt;</code> could do it via type inference but that is an external interface
+and in order to &quot;know&quot; the type of the program it should have a proper signature, I assume.
+And the <a href="https://github.com/purescript/documentation/blob/master/language/Syntax.md#top-level-declarations">docs also state</a> 
+*&quot;Type signatures are not required for top-level declarations in general, but is good practice to do so.&quot;*
+so my gut was not wrong :). But let&#39;s look at the output anyways.</p>
+<pre><code class="language-shell">&gt; cat output/Main/index.js 
+// Generated by psc version 0.10.7
+&quot;use strict&quot;;
+var main = &quot;hello world&quot;;
+module.exports = {
+    main: main
+};</code></pre>
+<p>And there it is. The variable <code>main</code> gets exported in <a href="https://en.wikipedia.org/wiki/CommonJS">CommonJS</a> style
+which means the compiled file could now be required and used by any normal
+commonjs compatible file, such as a nodejs script. Wow, this opens up quite
+some possibilities I would say.<br>Possibilities? Well, as mentioned in <a href="/blog/2017/03/starting-with-purescript/">#1 of this series</a> we could just
+write part of our application (or our tests) in Purescript which we then
+import wherever we need to.</p>
+<h2 id="adding-my-first-type-annotation">Adding my first type annotation</h2>
+<p>The warning up there, is still a bit bothering me a bit. Looking up how to add typing to
+the code, I quickly found out that the right thing to do is:</p>
+<pre><code class="language-text">-- src/Main.purs (this line is a comment, started by `--` in purescript)
+module Main where
+
+main :: String
+main = &quot;hello world&quot;</code></pre>
+<p>Compiling the file and outputing the result is as expected, no error and the 
+same JavaScript source code as before. Good.</p>
+<pre><code class="language-shell">&gt; psc src/Main.purs 
+Compiling Main
+&gt; cat output/Main/index.js 
+// Generated by psc version 0.10.7
+&quot;use strict&quot;;
+var main = &quot;hello world&quot;;
+module.exports = {
+    main: main
+};</code></pre>
+<p>Reading a bit in the Syntax docs I read that <a href="https://github.com/purescript/documentation/blob/master/language/Types.md#type-annotations">type annotations</a>
+can also be done right on the value by adding <code>::</code> after it. So let&#39;s rewrite the code
+to annotate the string with the type, instead of the variable <code>main</code></p>
+<pre><code class="language-text">main = &quot;hello world&quot; :: String</code></pre>
+<p>Perfect, this compiles and results in the same expected code.</p>
+<h2 id="whitespace-matters">Whitespace matters</h2>
+<p>While reading about the Purescript syntax I saw that <a href="https://github.com/purescript/documentation/blob/master/language/Syntax.md#whitespace-rules">whitespace matters</a>. Which
+reminded me of two languages Python and Red. In Purescript whitespace matter for
+e.g. for multiline declarations, best to be explained by an example:</p>
+<pre><code class="language-text">-- valid
+main = 
+  &quot;hello world&quot;</code></pre>
+<p>this compiles without an error. Just as I understood it from the syntax docs.</p>
+<pre><code class="language-text">-- invalid
+main = 
+&quot;hello world&quot;</code></pre>
+<p>When compiling this it fails like this:</p>
+<pre><code class="language-shell">&gt; psc src/Main.purs 
+Error found:
+at /Users/wk/purescript-series/src/Main.purs line 6, column 1 - line 6, column 1
+
+  Unable to parse module:
+  expecting indentation past column 1</code></pre>
+<p>Enough learnings for now.<br>Next we will look at <a href="https://github.com/bodil/pulp"><code>pulp</code></a> a Purescript build tool, written by <a href="https://twitter.com/bodil">Bodil</a> it seems,
+at least it on github under her account. So I guess she had kicked it off.</p>
+<hr>
+<h2 id="created_at-2017-03-05-2215-cet">created_at: 2017-03-05 22:15 CET</h2>
+<h2 id="post_type-post">post_type: post</h2>
+<p>tags:</p>
+<p>purescript
+notes
+yarn
+npm
+nodejs</p>
+<hr>
+<h2 id="_hidden-no">_hidden: no</h2>
+<h2 id="_discoverable-yes">_discoverable: yes</h2>
+<p>related_tweets:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I installed <a href="https://twitter.com/hashtag/Purescript?src=hash">#Purescript</a> using <a href="https://twitter.com/hashtag/yarn?src=hash">#yarn</a> and wrote my first script that compiles :) read about how =&gt;   <a href="https://t.co/BMiizTD3fQ">https://t.co/BMiizTD3fQ</a></p>&mdash; pico stitch (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/838698426929860608">March 6, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/wolframkriesing">@wolframkriesing</a> you can also install purescript using yarn at the global level. It&#39;s working for our team.</p>&mdash; Sudhir Kumar ⚛ (@sudhirvkumar) <a href="https://twitter.com/sudhirvkumar/status/838810514897702912">March 6, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/wolframkriesing">@wolframkriesing</a> thanks for the blog. We need more blogs to promote PureScript.</p>&mdash; Sudhir Kumar ⚛ (@sudhirvkumar) <a href="https://twitter.com/sudhirvkumar/status/838810635001528320">March 6, 2017</a></blockquote>
+
+
+</body>
+</html>

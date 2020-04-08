@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Cookie libs for (node)js | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/02/11-cookie-libs-for-nodejs/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="cookie-libs-for-nodejs">Cookie libs for (node)js</h1>
+<p>If you want to dive into cookies, here is the <a href="http://tools.ietf.org/html/rfc6265">RFC6265</a>. I was looking around for some decent cookie libraries. There seem to be some
+of them.</p>
+<p>And it is very irritating that some are as young as from last year.
+I thought this topic is old enough so that there is one standard solution
+and done. But I seem to be wrong. 
+What all of them have in common is their quality of testing is quite interesting.
+From nothing at all to hard core integration tests. Lot&#39;s of potential for 
+refactoring projects.</p>
+<p><a href="https://github.com/jshttp/cookie">https://github.com/jshttp/cookie</a><br>The simplest cookie lib ever, I guess. Also great for understanding cookies well,
+if it is complete - I don&#39;t know.</p>
+<blockquote>
+<p>cookie is a basic cookie parser and serializer. It doesn&#39;t make assumptions about how you are going to deal with your cookies. It basically just provides a way to read and write the HTTP cookie headers.</p>
+</blockquote>
+<p><a href="https://github.com/Ajnasz/ajncookie">https://github.com/Ajnasz/ajncookie</a><br>Basically the same feature set as the one above, though I really like
+the API, it&#39;s so close to the request/response.</p>
+<blockquote>
+<p>A very simple cookie manager</p>
+</blockquote>
+<p><a href="https://github.com/pillarjs/cookies">https://github.com/pillarjs/cookies</a><br>Seems to be pretty complex. Uses Keygrip underneath, so the actual lib is quite small. </p>
+<blockquote>
+<p>Cookies is a node.js module for getting and setting HTTP(S) cookies. Cookies can be signed to prevent tampering, using Keygrip. It can be used with the built-in node.js HTTP library, or as Connect/Express middleware.</p>
+</blockquote>
+<p><a href="https://github.com/goinstant/tough-cookie">https://github.com/goinstant/tough-cookie</a><br>The biggest one, that even implements cookieJar (a way to bundle and kinda anonymize/hide cookies). </p>
+<blockquote>
+<p>RFC6265 Cookies and CookieJar for Node.js</p>
+</blockquote>
+<hr>
+<h2 id="created_at-2014-02-11-1000-cet">created_at: 2014-02-11 10:00 CET</h2>
+<p>tags:</p>
+<p>cookie
+javascript
+library</p>
+<hr>
+<p>post_type: post</p>
+
+
+</body>
+</html>

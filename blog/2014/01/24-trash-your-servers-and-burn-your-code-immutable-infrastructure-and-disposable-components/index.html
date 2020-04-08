@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/01/24-trash-your-servers-and-burn-your-code-immutable-infrastructure-and-disposable-components/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="trash-your-servers-and-burn-your-code-immutable-infrastructure-and-disposable-components">Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components</h1>
+<p><a href="https://www.youtube.com/watch?v=DVSNsAei0VE">a talk by Chad Fowler</a></p>
+<blockquote>
+<p>Software gets too complex, tests slow, test coverage doesn&#39;t make you feel good, so you deploy less.
+The less often you deploy the scarrier it becomes.</p>
+</blockquote>
+<p>I was just about to quote him on</p>
+<blockquote>
+<p>comments are a code smell, there is just no way to validate them</p>
+</blockquote>
+<p>which I strongly agree on. And just one sentence later he says this</p>
+<blockquote>
+<p>Tests are also a design smell. If you find yourself more time in your tests,
+and I don&#39;t mean in the design of your system.</p>
+</blockquote>
+<p>which I just can&#39;t follow along. Because I think the test as your first user of the
+code is doing exactly that for you &quot;driving your design&quot;. Especially when your code is so
+small and modular that you think you are doing great design that&#39;s when a test
+is so easy to write and a simple way to also verify the code later (as opposed to comments)
+which is the value the tests add. They serve as the docs for what your tiny-modules-composition
+does, they allow others to go in change requirements and learn where they have to be implemented.
+And so on. Don&#39;t they? Maybe I will get to that stage of understanding it at some point.</p>
+<p>And Chad saying</p>
+<blockquote>
+<p>My intention is to write code that can&#39;t possibly break.</p>
+</blockquote>
+<p>I admire him! I think I still have lot&#39;s to learn.</p>
+<blockquote>
+<p>TDD is a great way to do design, but it is not a great way to prevent bugs</p>
+</blockquote>
+<p>I think we agree basically :)
+<a href="https://www.youtube.com/watch?v=DVSNsAei0VE">Watch his talk</a>, it is really very good and contains enough brain food!</p>
+<hr>
+<h2 id="created_at-2014-01-24-1000-cet">created_at: 2014-01-24 10:00 CET</h2>
+<p>tags:</p>
+<p>testing
+video</p>
+<hr>
+<h2 id="youtube_id-dvsnsaei0ve">youtube_id: DVSNsAei0VE</h2>
+<p>post_type: summary</p>
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>More explicit assert with hamjest | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2017/01/31-more-explicit-assert-with-hamjest/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="more-explicit-assert-with-hamjest">More explicit assert with hamjest</h1>
+<p>An undone blog post - More explicit assert with hamjest</p>
+<pre><code>  it(&#39;is true for a day that is a specialDay&#39;, () =&gt; {
+    const isSpecialDay = specialDays()[2].isSpecialDay;
+    assertThat(isSpecialDay, equalTo(true));
+  });
+
+  it(&#39;provides the special day\&#39;s `name`&#39;, () =&gt; {
+    const specialDay = specialDays()[2].specialDay;
+    assertThat(specialDay, equalTo({ name: specialDayName }));
+  });</code></pre><p>vs.</p>
+<pre><code>  it(&#39;is true for a day that is a specialDay&#39;, () =&gt; {
+    const day = specialDays()[2];
+    assertThat(day, hasProperty(&#39;isSpecialDay&#39;, equalTo(true)));
+  });
+
+  it(&#39;provides the special day\&#39;s `name`&#39;, () =&gt; {
+    const day = specialDays()[2];
+    assertThat(day, hasProperty(&#39;specialDay&#39;, equalTo({ name: specialDayName })));
+  });</code></pre><p>there is even a simple transformation in it</p>
+<pre><code>assertThat(isSpecialDay, equalTo(true));</code></pre><p>transforms into</p>
+<pre><code>assertThat(day.isSpecialDay, equalTo(true));</code></pre><p>makes it obvious, that when the lookup <code>day.isSpecialDay</code> fails we will get an error
+message like <code>undefined does not equal to true</code> :(
+so let&#39;s tranform it into</p>
+<pre><code>assertThat(day, hasProperty(&#39;isSpecialDay&#39;, equalTo(true)));</code></pre><p>and we will get: day has no property <code>isSpecialDay</code> which should equal to <code>true</code></p>
+<p>You might say, that&#39;s two assertion in on test, but I am fine with that
+as long as the test reporter tells me all the things that are wrong.
+Otherwise I would have to figure out in which order to solve failing tests.</p>
+<h2 id="_discoverable-no">_discoverable: no</h2>
+<hr>
+<h2 id="created_at-2017-01-31-1811-cet">created_at: 2017-01-31 18:11 CET</h2>
+<p>TTTTtags:</p>
+
+
+</body>
+</html>

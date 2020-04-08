@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Don't make objects that end with 'er' | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/02/04-dont-make-objects-that-end-with-er/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="dont-make-objects-that-end-with-er">Don&#39;t make objects that end with &#39;er&#39;</h1>
+<p>I was about to write a &quot;Handler&quot; class. But I remembered that the &quot;er&quot; classes
+are not so good.</p>
+<p>And I mean, think about it. Even if it is a <code>RequestHandler</code> 
+it still can do lots of things and can have many reasons to change, which breaks
+the Single Responsibility Principle.
+So I searched for it and found <a href="http://objology.blogspot.de/2011/09/one-of-best-bits-of-programming-advice.html">this article</a>.</p>
+<blockquote>
+<p>the jst of OOP is that we bind behavior to data</p>
+</blockquote>
+<p>noted</p>
+<blockquote>
+<p>in nearly every &quot;er&quot; object case, there was a better name for it. And that giving it a better name would tend to make the design more encapsulated, less spaghetti code, in short more object oriented</p>
+</blockquote>
+<p>now we are getting to the meat :)</p>
+<blockquote>
+<p>Take some sort of &quot;Loader&quot; for example. The focus here is on the unit of work it does. 
+[...] Now instead replace that with a LoadRecord and a LoadStream. 
+I&#39;m reasonably confident you&#39;ll end up with something that is more akin to what the 
+original Founding Fathers of OOP had in mind.</p>
+</blockquote>
+<p>A simple example: Loader =&gt; LoadRecord</p>
+<blockquote>
+<p>Until you apply the mindset for a while though, you&#39;ll never really know.</p>
+</blockquote>
+<p>That is so true for a lot of things, and also a good reason why I do believe that
+katas have a value.<br>Just <a href="http://objology.blogspot.de/2011/09/one-of-best-bits-of-programming-advice.html">read the article</a>, it&#39;s quite short and compact but has some nice examples in it.</p>
+<hr>
+<h2 id="created_at-2014-02-04-1000-cet">created_at: 2014-02-04 10:00 CET</h2>
+<p>tags:</p>
+<p>oop
+software design</p>
+<hr>
+<p>post_type: summary</p>
+
+
+</body>
+</html>

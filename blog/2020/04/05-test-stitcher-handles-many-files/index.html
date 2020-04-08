@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>TestStitcher can handle many files | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2020/04/05-test-stitcher-handles-many-files/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="teststitcher-can-handle-many-files">TestStitcher can handle many files</h1>
+<p><a href="https://github.com/wolframkriesing/test-stitcher">TestStitcher</a> can now not only handle one file but any number of files
+(see <a href="https://github.com/wolframkriesing/test-stitcher/commit/c885965fe81529e38a0577d76f87f5faa74191e1">the commit that finished it</a>) and show the tests in a structured way, 
+see <a href="https://github.com/wolframkriesing/test-stitcher#test-stitcher">the README</a> for all details.</p>
+<p>While doing that I discovered that passing too many argument to the file seems
+to stop at some point, it just doesn&#39;t do anything. Reading <a href="https://www.in-ulm.de/~mascheck/various/argmax/">here</a> this seems
+not to be the issue, I ran <code>getconf ARG_MAX</code> and it&#39;s above 200k, 
+so that should not have been the issue.
+Anyways, thinking about it for a while I thought of making TestStitcher read a 
+<code>.test-stitcher.config.json</code> of a project, which lists all files that shall be read by TestStitcher. 
+In the future it might also contain whatever configurations.</p>
+<h2 id="what-is-teststitcher">What is TestStitcher?</h2>
+<p>Test stitcher, a small project that I had in my head for years, is taking shape.
+Test-sticher reads test files and spits out the test descriptions in a structured 
+way. I am a big fan of readable and useful tests. Starting with well structured
+test descriptions sounds like a great start. But that is just the start, I got
+quite some ideas and a vision behind this one, watch this site for more info.</p>
+
+
+</body>
+</html>

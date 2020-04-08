@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>Git rebase, an explaination I like | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2014/02/07-git-rebase-an-explaination-i-like/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="git-rebase-an-explaination-i-like">Git rebase, an explaination I like</h1>
+<p>I asked myself what branch rebase refers to. The one I want to rebase on or
+the one I want to rebase from?</p>
+<blockquote>
+<p>Also notice that, like the git merge command, git rebase requires you to be on the branch that you want to move.</p>
+</blockquote>
+<p>Thanks to the great <a href="http://rypress.com/tutorials/git/rebasing">Rebasing</a> article I know now :). (And store it here, to know where to look it up).</p>
+<p>In short. If I want to get my branch <code>about</code> to be back on top of master, I have
+to rebase it onto master, like this:</p>
+<pre><code>git checkout about
+git rebase master</code></pre><p>As with everything, behave when rebasing! I believe that rebase is not meant for 
+all situations. Sometimes it is much better to have a history visible in the commit
+history.</p>
+<hr>
+<h2 id="created_at-2014-02-07-1000-cet">created_at: 2014-02-07 10:00 CET</h2>
+<p>tags:</p>
+<p>git
+rebase</p>
+<hr>
+<p>post_type: mini-post</p>
+
+
+</body>
+</html>

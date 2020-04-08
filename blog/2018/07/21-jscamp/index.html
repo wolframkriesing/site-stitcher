@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <title>JSCamp Barcelona - Recap | picostitch - stuff about crafting (and) JavaScript</title>
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2018/07/21-jscamp/">
+</head>
+<body>
+  <nav aria-labelledby="primary-navigation">
+    h1 picostitch blog /h1
+    <ul>
+      <li><a href="/">Blog</a></li>
+    </ul>
+  </nav>
+
+  <h1 id="jscamp-barcelona---recap">JSCamp Barcelona - Recap</h1>
+<p>It is over, the JSCamp in Barcelona, formerly named Angular Camp. These had been two intense days of JavaScript, organized
+by <a href="https://twitter.com/davidpich">David Pich</a>. This year about 500 people came together to spend two days in a single 
+track conference, listening to topics like v8, webpack, nodejs, npm, Rust, ionic, nextjs, a lot of vuejs and much more.</p>
+<p>Besides the main track some an <strong><em>parallel unconference, called DeepDive sessions</em></strong> had been held. 
+Those session are the ones that this post will focus on. I will try to recap the things (I) 
+learned there and that I feel need to be stated (again).<br>Unfortunately the location was not easy to
+find from the main location and it was announced only around noon of the first day. The 
+people who found it and knew what an unconference has to offer did appreciate it a lot, I believe.</p>
+<p>At JS Kongress last year in Munich the InDeep Track, the parallel unconference, was a great success.
+David Pich had been there too. I believe this fact and the JSCamp&#39;s roots being a BarCamp convinced 
+David to also run a parallel unconference at JSCamp. He called it #DeepDiveInJS.</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Try out and learn more about the talk topics at <a href="https://twitter.com/hashtag/DeepDiveinJS?src=hash&amp;ref_src=twsrc%5Etfw">#DeepDiveinJS</a>  <a href="https://twitter.com/jscamptech?ref_src=twsrc%5Etfw">@jscamptech</a> Great idea! Would be useful in many conferences! <a href="https://t.co/rZuac1G5oS">pic.twitter.com/rZuac1G5oS</a></p>&mdash; Carme Mias Studio (@CarmeMiasStudio) <a href="https://twitter.com/CarmeMiasStudio/status/1019888247995068416?ref_src=twsrc%5Etfw">July 19, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<h2 id="organizational">Organizational</h2>
+<p>Because the DeepDive track did not start until the afternoon of the first conference day, it meant we had enough
+time to put up signs and announce it on the big stage. Efficiently this had left two time slots for day one.
+Two rooms, so we had four session slots. So we did a quick marketplace and filled the time slots.
+<a href="https://twitter.com/jowe">Johannes</a> had a genious idea of building a backlog column for the next day, so people could propose
+sessions but run them the next day. That had two really cool advantages 1) the people saw what might
+come up on the second day and 2) the urge to find a slot for day 1 was gone.</p>
+<p><a href="https://twitter.com/jscamptech/status/1020222454067875840">https://twitter.com/jscamptech/status/1020222454067875840</a>
+<a href="https://twitter.com/CarmeMiasStudio/status/1019888247995068416">https://twitter.com/CarmeMiasStudio/status/1019888247995068416</a></p>
+<p>On day two we had a marketplace in the morning. <a href="https://twitter.com/littledan">Daniel Ehrenberg</a> had already announced a lot of interesting
+topics in the backlog the day before, so we got a day planned with interesting TC39 insights.</p>
+<h2 id="session-bringing-back-pure-javascript">Session: Bringing back pure JavaScript</h2>
+<p><a href="https://twitter.com/byteadventures/status/1019962874012356608">https://twitter.com/byteadventures/status/1019962874012356608</a></p>
+<p>Before day 2 started we had the afternoon of day 1 and one of the topics that attracted about 10 people was
+&quot;bringing back pure JavaScript&quot;. I joined the session a little bit too late and therefore missed the kickoff.
+When I joined I got the impression that the discussion was focusing on the fear of giving up control over
+JavaScript and that companies like Microsoft will move it into a direction that is interesting for shareholders,
+not for the community. Another thing that I heard, was that people who get payed don&#39;t follow their heart anymore,
+but become motivated by money.</p>
+<p>It was an interesting discussion, even though it became a bit too idealistic at times (for my taste). But still
+it showed that there are people who deeply care about our community, the ecosystem and the people working with it.
+I pointed out, that I believe open source is something quite advanced as opposed to other industry sectors.
+Those try to keep as many secrets as possible and are afraid of loosing any market share to competitors if 
+too much information leaks out. I believe the IT world is on the forefront of being open and trying to speed
+up innovation by sharing and learning with and from each other. And big companies are an important part of it.
+Now we either have the chance to believe that companies like Microsoft are doing good for our community, which 
+I believe, or we split away from them, which might also mean that the relevance in the market and therefore
+the interest and community attraction for such a topic (like JavaScript) would diminish.
+(JavaScript as an example for loosing market relevance is kind of very unrealistic, it&#39;s the lingua franca of the web, 
+no matter what we do.) 
+So we have to make sure that we get the balance right.</p>
+<h2 id="session-big-numbers-in-javascript-bigint">Session: Big numbers in JavaScript, BigInt</h2>
+<p>The calculation with big numbers in JavaScript (and many other languages) is not as easy as it seems.
+I remember a friend telling me that he worked on his PhD writing a large numbers library for Java. 
+Back then I had no clue why this was such a big thing. But seeing so many people being interested and
+discussing the topic so intensively proved again that it is important.
+After some introduction and the explaination of a real life scenarios, <a href="https://twitter.com/littledan">Dan</a> explained
+how one can work with BigInts and what the expactations shall be. To be honest, I don&#39;t remember
+all the details and I was also not paying very close attention. But find more info at the [TC39 proposal][bigint-proposal].</p>
+<p><a href="https://twitter.com/andrei_antal/status/1020224627103199232">https://twitter.com/andrei_antal/status/1020224627103199232</a></p>
+<h2 id="day-2">Day 2</h2>
+<p>The market place in the morning ended up with the following session</p>
+<ul>
+<li>12:00 TC39 community involvement, by @littledan</li>
+<li>12:40 Class fields and private methods, by @littledan</li>
+<li>14:40 Decorators, behavior injection, by @k1r0s</li>
+<li>15:20 Decorators by @littledan</li>
+<li>16:30 Typescript AND/OR Flowtype, which I proposed (but didn&#39;t take place due to ongoing interest in TC39 sessions started before)</li>
+<li>17:00 Observers, Proxies, Object.observe, by Alfonso Coretti (session has been moved)</li>
+</ul>
+<p>And things had been left in the backlog, so there was enough room for more sessions and potential to 
+ramp up this format. Let&#39;s try again!</p>
+<h2 id="session-how-to-contribute-to-tc39">Session: How to contribute to TC39</h2>
+<p><a href="https://twitter.com/wolframkriesing/status/1020245103204601856">https://twitter.com/wolframkriesing/status/1020245103204601856</a>
+<a href="https://twitter.com/wolframkriesing/status/1020259962461835264">https://twitter.com/wolframkriesing/status/1020259962461835264</a></p>
+<p>Dan gave a presentation about the TC39 process. He explained how proposals go through stages (from stage 1 to stage 4)
+and what those stages mean. My biggest take away was when he said &quot;contributing can not only be done by writing a new proposal&quot;.
+This was eye-opening for me. Because I also kinda thought this is the best I could do. He kept going by suggesting
+that people who like to contribute could also think about:</p>
+<p>1) commenting on existing proposals, open issues, discuss on issues, participate, give the community of users a voice
+   and make it visible, and</p>
+<p>1) write tests for a new proposal.</p>
+<p><strong><em>Writing tests</em></strong> sounds boring? No, not at all, I believe we all write tests in our heads and just do not often enough
+dump them into code. All the time we try to play through a feature or (TC39) proposal, we try to exectue it in our
+heads and try to see what might fail, what edge case we might discover or try to feel what using it will be like.
+The same will be needed for a proposal to go to stage 3 anyways. Dan also mentioned that unfortunately tests get written
+last mostly. The proposal authors do need support there, that&#39;s why this is one way we can help and contribute.
+How to write a test? There is the <a href="https://github.com/tc39/test262">repo test262</a> where you can also find lots <a href="https://github.com/tc39/test262/pull/1590">of</a> <a href="https://github.com/tc39/test262/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+label%3Awaiting-author+">insightful</a> <a href="https://github.com/tc39/test262/pull/888">PRs</a>, 
+some also for proposal. Unfortunately I don&#39;t remember exact details about the process in this repo.</p>
+<h2 id="session-new-class-features">Session: New class features</h2>
+<h3 id="decorators">Decorators</h3>
+<h3 id="privates">Privates</h3>
+<p>Daniel </p>
+<h2 id="session-observers-proxies-objectobserve">Session: Observers, Proxies, Object.observe</h2>
+<p>Alfonso had a real life example, where he had the issue that <code>Object.observe</code> would have been his solution, but
+had been removed from the standard, unfortunately. He had an <code>&lt;input&gt;</code> tag that he wanted to listen on 
+attribute changes that were made via JavaScript. The DOM APIs (addEventListener) do not fire when attributes
+are changed from a script source, but only user-triggered changes do fire. Alfonso&#39;s issue was, that his
+element was not directly modified but indirectly, by some user modification, which again triggered his script
+to modify the node he wants to listen on.
+Fortunately lots of people who know the specification inside out and had been working on it too had been 
+at the conf, so <a href="https://twitter.com/k1r0s">Ciro</a> pinged <a href="https://twitter.com/kennethrohde">Kenneth</a>, who came and joined the discussion. (That&#39;s how unconfs tick.
+Awesome.) Since I had left the room, I only heard later that Kenneth&#39;s suggestion was to bring it up as an issue
+against the spec, maybe there is more interest in it and there will be a proposal that fixes this use case.</p>
+<p>Aren&#39;t customized built-in elements the solution for it or MutationObserver? /me calling Alfonso ...</p>
+<p>[bigint-proposal]: </p>
+<hr>
+<h2 id="created_at-2018-07-21-190000-0200">created_at: 2018-07-21 19:00:00 +0200</h2>
+<h2 id="post_type-post">post_type: post</h2>
+<p>tags:</p>
+<p>events
+unconference
+open space</p>
+<hr>
+<h2 id="_hidden-no">_hidden: no</h2>
+<h2 id="_discoverable-yes">_discoverable: yes</h2>
+
+
+</body>
+</html>
