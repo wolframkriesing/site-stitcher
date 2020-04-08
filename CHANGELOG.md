@@ -37,6 +37,8 @@
 - [x] add plausible
 - [ ] build the post page
   - [ ] provide the old URLs as used on picostitch now and redirect to the new one
+  - [ ] 301 from the old url to the new one
+  - [ ] render [x][y] links properly, seems not to work
 - [ ] indieweb auth of my page
 - [x] make it deploy on GH
 - [ ] move domain to GH
