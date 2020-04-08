@@ -10,7 +10,7 @@
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
-    "build": "mkdir -p _output; cp src/templates/* _output/; node -r esm src/index.js > _output/index.html"
+    "build": "mkdir -p _output; cp src/templates/* _output/; node -r esm src/index.js"
   },
   "keywords": [
     "static site generator",
