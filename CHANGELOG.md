@@ -4,6 +4,7 @@
   - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
   - [ ] http://www.uxebu.com/blog/index.html
   - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
+    - [ ] redirect the old URL to the new one
   - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
   - [ ] microblog
 - [ ] add all my 
@@ -34,6 +35,8 @@
 - [x] if no 1st paragraph show nothing as abstract 
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [x] add plausible
+- [ ] build the post page
+  - [ ] provide the old URLs as used on picostitch now and redirect to the new one
 - [ ] indieweb auth of my page
 - [x] make it deploy on GH
 - [ ] move domain to GH
