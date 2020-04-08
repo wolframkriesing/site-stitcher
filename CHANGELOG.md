@@ -38,7 +38,12 @@
 - [ ] build the post page
   - [ ] provide the old URLs as used on picostitch now and redirect to the new one
   - [ ] 301 from the old url to the new one
-  - [ ] render [x][y] links properly, seems not to work
+  - [x] render [x][y] links properly, seems not to work - newline before was missing
+- [ ] provide meta data
+  - [ ] use multimarkdown style, just key-value pairs at the top
+  - [ ] update all posts to use it
+  - [ ] add the metadata to BlogPost
+  - [ ] render the metadata if needed (e.g. on the post page)
 - [ ] learn and apply a11y properly
 - [ ] indieweb auth of my page
 - [x] make it deploy on GH
