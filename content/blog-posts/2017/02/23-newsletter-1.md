@@ -1,4 +1,4 @@
-# 2017-02 Newsletter #1
+# Newsletter #1
 
 Welcome to the newsletter #1 - about crafting (and) JavaScript - February 28th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...
 
