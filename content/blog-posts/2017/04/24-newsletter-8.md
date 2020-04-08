@@ -8,6 +8,7 @@ So let's get started with the newsletter...
 ## Crafting
 
 If you are not blogging yet and don't want to do it, think about this: ***["Writing is hard because it often ends up being the process through which you realize that you don't actually understand something."][writing-tweet]***
+
 [writing-tweet]: https://twitter.com/sean_a_rose/status/856191267679502336
 
 ## Various
