@@ -9,7 +9,7 @@ before_deploy:
 deploy:
   provider: pages
   local_dir: _output
-  cleanup: false        # this does NOT git-stash (for cleaning up) before deploying
+  skip_cleanup: true    # this does NOT git-stash (for cleaning up) before deploying
   name: Auto Deploy through Travis
   target_branch: gh-pages
   token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
