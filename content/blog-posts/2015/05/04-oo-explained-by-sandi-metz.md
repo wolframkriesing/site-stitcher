@@ -1,3 +1,9 @@
+dateCreated: 2015-05-04 11:36 CET
+postTypes: summary
+tags: oop, object-oriented design
+videoStartTime: 28470
+youtubeId: LdWMcs9EEOE
+
 # OO (with Message passing) - explained by Sandi Metz
 
 I have been titled as a [Sandi Metz] fanboy, I am :).
@@ -26,16 +32,3 @@ I also like to quote her on
 [poodr]: http://poodr.com
 [54]: https://www.youtube.com/watch?v=LdWMcs9EEOE&feature=youtu.be&t=28470
 [55]: https://www.youtube.com/watch?v=LdWMcs9EEOE&feature=youtu.be&t=27765
----
-created_at: 2015-05-04 11:36 CET
----
-post_type: summary
----
-tags:
-
-oop
-object-oriented design
----
-video_start_time: 28470
----
-youtube_id: LdWMcs9EEOE

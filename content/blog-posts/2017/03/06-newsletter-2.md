@@ -1,3 +1,5 @@
+dateCreated: 2017-03-06 20:01 CET
+
 # Newsletter #2
 
 Welcome to the newsletter #2 - about crafting (and) JavaScript - March 6th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...
@@ -36,6 +38,3 @@ Welcome to the newsletter #2 - about crafting (and) JavaScript - March 6th, 2017
 ***[Fraktus]*** - A random german movie. If you care about electronic music and it's history, watch this movie without reading about it and have fun! I guess it exists in german only.
 
 [Fraktus]: https://de.wikipedia.org/wiki/Fraktus
-
----
-created_at: 2017-03-06 20:01 CET

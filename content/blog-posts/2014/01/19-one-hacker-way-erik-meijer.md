@@ -13,12 +13,8 @@ But nevertheless it's very entertaining!
 Those statements are actually the funny parts of his talk, though
 I am not sure how funny they are meant :).
 
----
-created_at: 2014-01-19 11:00 CET
----
-tags:
-
-agile
+dateCreated: 2014-01-19 11:00 CET
+tags: agile
 video
 ---
-vimeo_id: 110554082
+vimeoId: 110554082

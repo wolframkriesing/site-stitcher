@@ -1,3 +1,7 @@
+dateCreated: 2017-11-05 18:54 CET
+postTypes: post
+tags: mikado method
+
 # Mikado Method Essentials
 
 In preparation for my last post [Mikado Method to install a Vim Plugin][last-post] I just had to read one of [the good articles about the Mikado Method][mikado-method] again. And when something really grabs my attention and I think there are relevant things in such an article (or video) I usually tweet the things I find most essential. So here is a collection of (some of) the things I find most relevant in that article.
@@ -7,20 +11,7 @@ In preparation for my last post [Mikado Method to install a Vim Plugin][last-pos
 
 See the side-bar section "related tweets" where I list them all. ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️ ➡️️
 
----
-created_at: 2017-11-05 18:54 CET
----
-post_type: post
----
-tags:
 
-mikado method
----
-_hidden: no
----
-_discoverable: yes
-
----
 related_tweets:
 
 ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ <br/><br/>

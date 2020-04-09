@@ -1,3 +1,5 @@
+tags: purescript
+
 # Unfinished - Purescript compiling for the browser #5
 
 And to build the source code for the browser run
@@ -43,9 +45,3 @@ readFloat :: String -> Number
 
 readInt :: Int -> String -> Number
 ```
-
-
----
-tags:
-
-purescript

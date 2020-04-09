@@ -1,3 +1,6 @@
+dateCreated: 2017-03-20 18:01 CET
+tags: lint, eslint, react-native, refactoring, code quality, github, audio, playground, classes
+
 # Newsletter #4
 
 This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...
@@ -42,18 +45,3 @@ This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Ever
 ***[Avoid pull requests][pr-post]*** because they are "a bad smell of team dynamics" and I strongly agree with the author that "pairing is much better than reviewing". And I agree also that "pull requests are great, especially when your team is not colocated". But they are not all bad, especially in open source PRs are great, where people don't sit beside one another.
 
 [pr-post]: http://vgaltes.com/teamwork/Avoid-pull-requests/
-
----
-created_at: 2017-03-20 18:01 CET
----
-will be tags:
-
-lint
-eslint
-react-native
-refactoring
-code quality
-github
-audio
-playground
-classes

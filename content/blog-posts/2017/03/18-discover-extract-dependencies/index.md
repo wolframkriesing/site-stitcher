@@ -1,3 +1,7 @@
+dateCreated: 2017-03-18 11:05 CET
+tags: javascript, dependency injection, testing
+postTypes: post
+
 # Discover and extract dependencies
 
 While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
@@ -255,20 +259,3 @@ drinking from the same bottle, in order to not share all germs. It's pure hygien
 [inject-fetch-commit]: https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/9d808180666de271e1c7a37e4e2a4f96add0b08f
 [integrated-test-commit]: https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/5f18dfbdc69fc38f4ee636f04aac286072ecdac8
 [default-deps-commit]: https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/b58a9de0424f16b58a50b422c6c49e27d8f0c101
-
----
-created_at: 2017-03-18 11:05 CET
----
-tags:
-
-javascript
-dependency injection
-testing
----
-intro:
-
----
-body:
-
----
-post_type: post

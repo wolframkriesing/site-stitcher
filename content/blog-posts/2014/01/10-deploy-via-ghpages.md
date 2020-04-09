@@ -10,12 +10,8 @@ Like so:
 
 found at [gsferreira.com](http://gsferreira.com/archive/2014/06/update-github-pages-using-a-project-subfolder/)
 
----
-created_at: 2014-01-10 10:00 CET
----
-tags:
-
-git
+dateCreated: 2014-01-10 10:00 CET
+tags: git
 github
 ---
-post_type: mini-post
+postTypes: mini-post

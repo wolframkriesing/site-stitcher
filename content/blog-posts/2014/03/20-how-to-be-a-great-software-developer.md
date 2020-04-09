@@ -1,3 +1,7 @@
+dateCreated: 2014-03-20 10:00 CET
+tags: testing ,refactoring, good developer, good code
+postTypes: summary
+
 # How to be a great software developer
 
 [How to be a great software developer][31] is a looong read, but it's worth reading, since it contains lots of truths.
@@ -27,15 +31,3 @@ Just discussed the last two days what are the right tests to write, etc. and her
 > Take the time to understand what really needs tests and how to write good tests. Take the time to see when tests add value and what the least you need from them really is. 
 
 [31]:  http://peternixey.com/post/83510597580/how-to-be-a-great-software-developer
-
----
-created_at: 2014-03-20 10:00 CET
----
-tags:
-
-testing
-refactoring
-good developer
-good code
----
-post_type: summary

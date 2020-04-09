@@ -1,3 +1,7 @@
+dateCreated: 2014-03-20 12:00 CET
+tags: dvcs, git, svn
+postTypes: summary
+
 # Unorthodocs: Abandon your DVCS and Return to Sanity
 
 [A nice read about DVCSes][32], let me mention here the two things I like best.
@@ -13,13 +17,3 @@ today with github PRs. In short, it used to be
 Excuse me, I have to go back and install mercurial now :).
 
 [32]: http://bitquabit.com/post/unorthodocs-abandon-your-dvcs-and-return-to-sanity/
----
-created_at: 2014-03-20 12:00 CET
----
-tags:
-
-dvcs
-git
-svn
----
-post_type: summary

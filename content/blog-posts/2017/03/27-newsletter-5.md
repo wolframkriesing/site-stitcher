@@ -1,3 +1,6 @@
+dateCreated: 2017-03-27 21:01 CET
+tags: css, open source ,tests, micorservices, mentoring, react, nodejs
+
 # Newsletter #5
 
 This is newsletter #5 - about crafting (and) JavaScript - March 27th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...
@@ -45,16 +48,3 @@ It went like this: First was [tweeted that "there are many educators in React co
 
 [dan-tweet]: https://twitter.com/dan_abramov/status/843638863906136064
 [axel-tweet]: https://twitter.com/rauschma/status/843736747733405697
-
----
-created_at: 2017-03-27 21:01 CET
----
-will be tags:
-
-css
-open source
-tests
-micorservices
-mentoring
-react
-nodejs

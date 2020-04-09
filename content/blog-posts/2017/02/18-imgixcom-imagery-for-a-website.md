@@ -13,13 +13,9 @@ detection and auto-enhance image quality if desired.
 
 What I don't get yet is how painless and really no-work this will be.
 Sounds all good, but also sounds like I would just do the work somewhere else then on my computer.
----
-created_at: 2017-02-18 11:55 CET
----
-tags:
-
-images
+dateCreated: 2017-02-18 11:55 CET
+tags: images
 website
 online service
 ---
-post_type: summary
+postTypes: summary

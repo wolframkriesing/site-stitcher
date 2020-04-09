@@ -1,3 +1,7 @@
+dateCreated: 2015-05-11 11:09 CET
+postTypes: summary
+tags: oop, object calisthenics, inheritance
+
 # Alan Kay On Messaging
 
 On the famous [c2 wiki] find ["Alan Kay On Messaging"][56].
@@ -44,13 +48,3 @@ And work on improving what he calls to be
 [57-1]: https://www.youtube.com/results?search_query=sandi+metz
 [56]: http://c2.com/cgi/wiki?AlanKayOnMessaging
 [c2 wiki]: http://c2.com/cgi/wiki
----
-created_at: 2015-05-11 11:09 CET
----
-post_type: summary
----
-tags:
-
-oop
-object calisthenics
-inheritance

@@ -1,3 +1,5 @@
+tags: programming, URL, web, browsers, chrome, iOS, Apple, security, hacking
+
 # Learn about URL parsing in real life
 
 There is a [uXSS][4] bug in Chrome on iOS, which is actually a WebKit bug. But Chrome fixes it on iOS by crashing the browser,
@@ -13,5 +15,3 @@ Camera access on iOS and macOS "][3].
 [2]: https://www.youtube.com/watch?v=0uejy9aCNbI
 [3]: https://www.ryanpickren.com/webcam-hacking
 [4]: https://en.wikipedia.org/wiki/Cross-site_scripting#Related_vulnerabilities
-
-Tags: programming, URL, web, browsers, chrome, iOS, Apple, security, hacking

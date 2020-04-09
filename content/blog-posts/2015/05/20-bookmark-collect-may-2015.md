@@ -1,3 +1,7 @@
+dateCreated: 2015-05-20 10:00 CET
+postTypes: link-list
+tags: collect, links
+
 # Bookmark collect May 2015
 
 ## Crafting, Development, Tools
@@ -48,12 +52,3 @@ suggested by [David](http://twitter.com/void_0).
 [ES6 spec](http://people.mozilla.org/~jorendorff/es6-draft.html) - not an easy read :).
 
 [ES6 katas]: http://es6katas.org
----
-created_at: 2015-05-20 10:00 CET
----
-post_type: link-list
----
-tags:
-
-collect
-links

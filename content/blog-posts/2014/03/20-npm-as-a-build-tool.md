@@ -1,3 +1,7 @@
+dateCreated: 2014-03-20 14:00 CET
+tags: npm, tool, nodejs, javascript
+postTypes: summary
+
 # How to Use npm as a Build Tool
 
 I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it's Slack in better).
@@ -27,14 +31,3 @@ Version bumping is baked into NPM.
 [38]: http://flowdock.com
 [uxebu]: http://uxebu.com
 [39]: http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/
----
-created_at: 2014-03-20 14:00 CET
----
-tags:
-
-npm
-tool
-nodejs
-javascript
----
-post_type: summary

@@ -1,3 +1,6 @@
+dateCreated: 2014-01-19 14:00 CET
+tags: reactive programming, rx, rxjs, javascript, functional
+
 # The introduction to Reactive Programming you've been missing
 
 The introduction to Reactive Programming you've been missing
@@ -8,14 +11,3 @@ The introduction to Reactive Programming you've been missing
 
 Find [the Rx tutorial here](https://gist.github.com/staltz/868e7e9bc2a7b8c1f754),
 watch out it gets you hooked :)
----
-created_at: 2014-01-19 14:00 CET
----
-tags:
-
-reactive programming
-rx
-rxjs
-javascript
-functional
-

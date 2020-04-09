@@ -27,13 +27,9 @@ What a blessing. Something we always wanted in a template language. I remember b
 [lektor-tags]: https://pypi.python.org/pypi/lektor-tags
 [jinja-whitespace-control]: http://jinja.pocoo.org/docs/2.9/templates/#whitespace-control
 
----
-created_at: 2017-01-21 10:00 CET
----
-tags:
-
-jinja
+dateCreated: 2017-01-21 10:00 CET
+tags: jinja
 template
 spaceless
 ---
-post_type: post
+postTypes: post

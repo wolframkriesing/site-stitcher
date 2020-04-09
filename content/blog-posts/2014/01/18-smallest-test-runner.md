@@ -12,8 +12,7 @@ test runner there is, it runs on the command line, like this:
 
 it assumes of course, your tests can be run via `npm test`.
 
----
-created_at: 2014-01-18 10:00 CET
+dateCreated: 2014-01-18 10:00 CET
 ---
 tags:
 tdd

@@ -1,3 +1,7 @@
+dateCreated: 2014-02-24 11:00 CET
+tags: icons, logos, graphics, design, brand
+postTypes: mini-post
+
 # Brand assets - the logo (sets) of a company or service
 
 For [TDDBin] I was just looking for all the icons to use on the website, icons from 
@@ -6,17 +10,3 @@ images/graphics are called __brand assets__. Next time you search for them, don'
 use "brand assets".
 
 [TDDBin]: http://tddbin.com
-
----
-created_at: 2014-02-24 11:00 CET
----
-tags:
-
-icons
-logos
-graphics
-design
-brand
-
----
-post_type: mini-post

@@ -1,3 +1,7 @@
+dateCreated: 2014-02-06 10:00 CET
+tags: naming, links, must read, smalltalk, oop
+postTypes: link-list
+
 # Links about naming things
 
 Links about naming things
@@ -20,15 +24,3 @@ While reading about naming classes, etc. I came across the obligatory
 [15]: http://www.carlopescio.com/2012/12/ask-not-what-object-is-but.html
 [16]: http://www.infoq.com/presentations/It-Is-Possible-to-Do-OOP-in-Java
 [@KevlinHenney]: https://twitter.com/KevlinHenney
----
-created_at: 2014-02-06 10:00 CET
----
-tags:
-
-naming
-links
-must read
-smalltalk
-oop
----
-post_type: link-list

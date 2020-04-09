@@ -1,3 +1,7 @@
+dateCreated: 2014-02-19 10:00 CET
+tags: javascript, testing, mocha
+postTypes: mini-post
+
 # Problem including mocha into a browserify build
 
 I don't get mocha to build with browserify, I always get
@@ -13,15 +17,4 @@ My solution for now is to use [mocha from the CDN][24], which might not work in 
 [22]: https://github.com/mochajs/mocha/issues/1316
 [23]: https://github.com/mochajs/mocha/issues/880
 [24]: http://cdnjs.com/libraries/mocha
----
-created_at: 2014-02-19 10:00 CET
----
-intro: 
----
-tags:
 
-javascript
-testing
-mocha
----
-post_type: mini-post

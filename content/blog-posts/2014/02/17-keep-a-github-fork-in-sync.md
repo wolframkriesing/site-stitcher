@@ -1,3 +1,7 @@
+dateCreated: 2014-02-17 10:00 CET
+tags: github, fork, remote repo, sync
+postTypes: post
+
 # Keep a github fork in sync
 
 As often as I look for this, I need to write it down.
@@ -23,14 +27,3 @@ upstream	git@github.com:Narigo/dropping-spray.git (push)
 ```
 
 As you can see above, I merged the `gh-pages` branch and not `master`!
----
-created_at: 2014-02-17 10:00 CET
----
-tags:
-
-github
-fork
-remote repo
-sync
----
-post_type: post

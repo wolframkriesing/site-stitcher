@@ -1,3 +1,7 @@
+dateCreated: 2014-02-11 10:00 CET
+tags: cookie, javascript, library
+postTypes: post
+
 # Cookie libs for (node)js
 
 If you want to dive into cookies, here is the [RFC6265]. I was looking around for some decent cookie libraries. There seem to be some
@@ -29,13 +33,3 @@ Seems to be pretty complex. Uses Keygrip underneath, so the actual lib is quite 
 https://github.com/goinstant/tough-cookie  
 The biggest one, that even implements cookieJar (a way to bundle and kinda anonymize/hide cookies). 
 > RFC6265 Cookies and CookieJar for Node.js
----
-created_at: 2014-02-11 10:00 CET
----
-tags:
-
-cookie
-javascript
-library
----
-post_type: post

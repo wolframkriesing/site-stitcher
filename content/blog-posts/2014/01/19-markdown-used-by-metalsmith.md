@@ -9,11 +9,7 @@ that is also supports
 [github flavored markdown](https://help.github.com/articles/github-flavored-markdown/).
 (I was actually just looking for how to strikeout things :)).
 
----
-created_at: 2014-01-19 10:00 CET
----
-tags:
-
-metalsmith
+dateCreated: 2014-01-19 10:00 CET
+tags: metalsmith
 markdown
 

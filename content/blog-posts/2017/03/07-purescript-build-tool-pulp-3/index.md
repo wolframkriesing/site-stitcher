@@ -1,3 +1,7 @@
+dateCreated: 2017-03-07 22:31 CET
+tags: purescript, notes, yarn, pulp, build tool
+postTypes: post
+
 # Purescript build tool - pulp #3
 
 In the last [part #2 of the purescript series][ps#2] I got Purescript and it's executable
@@ -178,16 +182,3 @@ such as building it with browserify for a browser compatible JS file.
 [pulp]: https://github.com/bodil/pulp
 [book-install]: https://github.com/paf31/purescript-book/blob/master/text/chapter2.md#installing-tools
 [yarn-global]: https://yarnpkg.com/en/docs/cli/global
-
----
-created_at: 2017-03-07 22:31 CET
----
-post_type: post
----
-tags:
-
-purescript
-notes
-yarn
-pulp
-build tool

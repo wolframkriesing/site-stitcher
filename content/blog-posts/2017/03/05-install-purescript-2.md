@@ -1,3 +1,7 @@
+dateCreated: 2017-03-05 22:15 CET
+postTypes: post
+tags: purescript, notes, yarn, npm, nodejs
+
 # Installing purescript #2
 
 This post is my 2nd write-down inspired by ["Purescript by Example"][ps-book],
@@ -256,23 +260,6 @@ at least it on github under her account. So I guess she had kicked it off.
 [pulp-github]: https://github.com/bodil/pulp
 [toplevel-signature]: https://github.com/purescript/documentation/blob/master/language/Syntax.md#top-level-declarations
 
----
-created_at: 2017-03-05 22:15 CET
----
-post_type: post
----
-tags:
-
-purescript
-notes
-yarn
-npm
-nodejs
----
-_hidden: no
----
-_discoverable: yes
----
 related_tweets:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I installed <a href="https://twitter.com/hashtag/Purescript?src=hash">#Purescript</a> using <a href="https://twitter.com/hashtag/yarn?src=hash">#yarn</a> and wrote my first script that compiles :) read about how =&gt;   <a href="https://t.co/BMiizTD3fQ">https://t.co/BMiizTD3fQ</a></p>&mdash; pico stitch (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/838698426929860608">March 6, 2017</a></blockquote>

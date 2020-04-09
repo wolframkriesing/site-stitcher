@@ -1,3 +1,9 @@
+dateCreated: 2015-04-13 12:54 CET
+tags: oop, object-oriented, functional, get-prefix, imperative, must watch, video
+videoStartTime: 2331
+youtubeId: lNKXTlCOGEc
+postTypes: summary
+
 # "I made it object-oriented"
 
 Another pearl by [@KevlinHenney] in his [Functional Programming You Already Know][43]
@@ -22,25 +28,6 @@ But getting a year from a `Date` object does not move/change anything.
 [43]: https://www.youtube.com/watch?v=lNKXTlCOGEc
 [45]: https://www.youtube.com/watch?v=lNKXTlCOGEc&feature=youtu.be&t=2331
 
----
-created_at: 2015-04-13 12:54 CET
----
-tags:
-
-oop
-object-oriented
-functional
-get-prefix
-imperative
-must watch
-video
----
-video_start_time: 2331
----
-youtube_id: lNKXTlCOGEc
----
-post_type: summary
----
 related_tweets:
 
 <blockquote class="twitter-tweet" data-conversation="none" data-cards="hidden" data-partner="tweetdeck"><p lang="en" dir="ltr">.<a href="https://twitter.com/wolframkriesing">@wolframkriesing</a> <a href="https://twitter.com/KevlinHenney">@KevlinHenney</a> disagree strongly. Get is both a grouping word and a consistency issue.  Makes objects more discoverable</p>&mdash; Llewellyn Falco (@LlewellynFalco) <a href="https://twitter.com/LlewellynFalco/status/833992383494778880">February 21, 2017</a></blockquote>

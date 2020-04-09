@@ -1,3 +1,7 @@
+dateCreated: 2017-11-25 19:15 CET
+postTypes: post
+tags: coderetreat, jscoderetreat
+
 # JSCodeRetreat #12 using Tetris
 
 It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
@@ -161,25 +165,6 @@ They even had their own posters designed so people would find the location easie
 
 [futurice]: https://twitter.com/futurice
 
-
-
-
-
----
-created_at: 2017-11-25 19:15 CET
----
-post_type: post
----
-tags:
-
-coderetreat
-jscoderetreat
----
-_hidden: no
----
-_discoverable: yes
-
----
 related_tweets:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I like the approach we went for in our last <a href="https://twitter.com/hashtag/jscr12?src=hash&amp;ref_src=twsrc%5Etfw">#jscr12</a> session for implementing <a href="https://twitter.com/hashtag/tetris?src=hash&amp;ref_src=twsrc%5Etfw">#tetris</a>. <br>We started quite simple and had some valueable discussions, imho. <a href="https://t.co/3i0UQPmNX5">pic.twitter.com/3i0UQPmNX5</a></p>&mdash; programmer@work (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/934480043711127554?ref_src=twsrc%5Etfw">November 25, 2017</a></blockquote>

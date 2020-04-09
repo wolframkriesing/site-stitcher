@@ -1,3 +1,7 @@
+dateCreated: 2014-03-20 11:00 CET
+tags: functional, functional programming, logic programming
+postTypes: summary
+
 # Microkanrens
 
 I first heard [@bodil] talk at the 2014 craftconf in Budapest where I saw her presentation 
@@ -22,14 +26,3 @@ I actually came across because I was once again hunting ES6 stuff. And found
 [33]: http://minikanren.org/
 [34]: https://github.com/bodil/microkanrens/blob/master/mk.js
 [35]: https://github.com/bodil/microkanrens
----
-created_at: 2014-03-20 11:00 CET
----
-tags:
-
-functional
-functional programming
-logic programming
-
----
-post_type: summary

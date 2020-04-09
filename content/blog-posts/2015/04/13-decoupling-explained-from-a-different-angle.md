@@ -1,3 +1,7 @@
+dateCreated: 2015-04-13 12:17 CET
+tags: functional, programming, video
+youtubeId: lNKXTlCOGEc
+
 # Decoupling explained from a different angle
 
 [@KevlinHenney] is always worth watching, so there is [Functional Programming You Already Know][43] by him.
@@ -10,14 +14,3 @@ He says:
 [@KevlinHenney]: https://twitter.com/kevlinhenney
 [43]: https://www.youtube.com/watch?v=lNKXTlCOGEc
 [44]: https://www.youtube.com/watch?v=lNKXTlCOGEc&feature=youtu.be&t=1485
-
----
-created_at: 2015-04-13 12:17 CET
----
-tags:
-
-functional
-programming
-video
----
-youtube_id: lNKXTlCOGEc

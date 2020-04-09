@@ -1,3 +1,7 @@
+dateCreated: 2015-03-23 21:22 CET
+tags: github, github-pages, static page, deploy
+postTypes: summary
+
 # surge.sh - gh-pages.next?
 
 surge.sh - gh-pages.next?
@@ -27,15 +31,3 @@ of setup. What do I miss? I guess I just expected much more :).
 
 [40]: https://surge.sh/
 [41]: https://medium.com/surge-sh/introducing-surge-the-cdn-for-front-end-developers-b4a50a61bcfc
----
-created_at: 2015-03-23 21:22 CET
----
-tags:
-
-github
-github-pages
-static page
-deploy
-
----
-post_type: summary

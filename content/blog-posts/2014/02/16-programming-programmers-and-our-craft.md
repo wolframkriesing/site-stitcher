@@ -1,3 +1,8 @@
+dateCreated: 2014-02-16 10:00 CET
+tags: programmer, craft, video
+vimeoId: 13914482
+postTypes: summary
+
 # Programming, Programmers and our craft
 
 This is a [very nice interview (video)][18] with JB Rainsberger and
@@ -9,15 +14,3 @@ as much as I can.
 They are talking about the passion of being a programmer, how to become one
 and how they think that a programmer can become better. They share
 a lot of personal experience. Well worth your time.
----
-created_at: 2014-02-16 10:00 CET
----
-tags:
-
-programmer
-craft
-video
----
-vimeo_id: 13914482
----
-post_type: summary

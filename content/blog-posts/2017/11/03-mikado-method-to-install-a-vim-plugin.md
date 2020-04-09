@@ -1,3 +1,7 @@
+dateCreated: 2017-11-03 18:15 CET
+postTypes: post
+tags: mikado method, tmux, vi, vim, learning, apprentice
+
 # Mikado Method to install a Vim Plugin
 
 I just wanted to install a github-flavored markdown plugin for vim. 
@@ -84,25 +88,6 @@ Here are the steps I had to do to explore how to get this vim plugin installed o
 It's true, the Mikado Method explained in [the article][mikado-method] is way more sophisticated. But doing those tedious things like learning to install a vim plugin always reminds me of the Mikado Method. And since I usually write down my "Mikado steps" using nested lists, like in here, this is the simplest form of using the Mikado Method.  
 Have fun trying it, it can really safe ones sanity and keep you focused.
 
----
-created_at: 2017-11-03 18:15 CET
----
-post_type: post
----
-tags:
-
-mikado method
-tmux
-vi
-vim
-learning
-apprentice
----
-_hidden: no
----
-_discoverable: yes
-
----
 related_tweets:
 
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Finally I did `nix-env -i tmux` (install tmux) and running through this nice tutorial. <a href="https://t.co/YlgNPeoddr">https://t.co/YlgNPeoddr</a><br>Easy to be convinced.</p>&mdash; programmer@work (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/926197729931464705?ref_src=twsrc%5Etfw">November 2, 2017</a></blockquote>

@@ -1,3 +1,6 @@
+dateCreated: 2017-04-03 21:41 CET
+tags: css, open source, tests, micorservices, mentoring, react, nodejs
+
 # Newsletter #6
 
 This is newsletter #6 - about crafting (and) JavaScript - April 3rd, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...
@@ -42,17 +45,3 @@ If you can't make it this week to [SoCraTes Canaries][socracan] you might want t
 
 [socracan]: https://www.socracan.com/
 [socrates17]: https://www.socrates-conference.de/
-
----
-created_at: 2017-04-03 21:41 CET
-
----
-will be tags:
-
-css
-open source
-tests
-micorservices
-mentoring
-react
-nodejs

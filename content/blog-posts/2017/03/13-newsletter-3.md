@@ -1,5 +1,5 @@
-created_at: 2017-03-13 18:01 CET  
-tags:       css, grid, grid layout, browser, wasm, webassembly
+dateCreated: 2017-03-13 18:01 CET  
+tags: css, grid, grid layout, browser, wasm, webassembly
 
 # Newsletter #3
 

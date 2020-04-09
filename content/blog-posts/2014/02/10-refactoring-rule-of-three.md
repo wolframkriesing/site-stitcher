@@ -1,3 +1,7 @@
+dateCreated: 2014-02-10 10:00 CET
+tags: refactoring
+postTypes: mini-post
+
 # Refactoring Rule of Three
 
 [is a post][18] by [Adrian Bolboaca][@adibolb]
@@ -8,9 +12,3 @@
 
 [18]: http://blog.adrianbolboaca.ro/2015/02/refactoring-rule-of-three/
 [@adibolb]: https://twitter.com/adibolb
----
-created_at: 2014-02-10 10:00 CET
----
-tags: refactoring
----
-post_type: mini-post

@@ -1,3 +1,7 @@
+dateCreated: 2014-02-07 10:00 CET
+tags: git, rebase
+postTypes: mini-post
+
 # Git rebase, an explaination I like
 
 I asked myself what branch rebase refers to. The one I want to rebase on or
@@ -19,12 +23,3 @@ all situations. Sometimes it is much better to have a history visible in the com
 history.
 
 [17]: http://rypress.com/tutorials/git/rebasing
----
-created_at: 2014-02-07 10:00 CET
----
-tags:
-
-git
-rebase
----
-post_type: mini-post

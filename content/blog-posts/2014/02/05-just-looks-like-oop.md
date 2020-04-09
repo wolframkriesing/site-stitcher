@@ -1,3 +1,7 @@
+dateCreated: 2014-02-05 10:00 CET
+tags: oop, naming, class name, software design, jscr
+postTypes: summary
+
 # Just looks like OOP ...
 
 Linked in the [comments of this][8] I found [another great article][9], which
@@ -32,15 +36,3 @@ example.
 [8]: http://objology.blogspot.de/2011/09/one-of-best-bits-of-programming-advice.html
 [9]: http://www.carlopescio.com/2011/04/your-coding-conventions-are-hurting-you.html
 [jscr]: http://jscoderetreat.com
----
-created_at: 2014-02-05 10:00 CET
----
-tags:
-
-oop
-naming
-class name
-software design
-jscr
----
-post_type: summary

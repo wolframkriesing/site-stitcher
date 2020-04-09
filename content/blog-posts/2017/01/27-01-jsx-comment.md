@@ -19,13 +19,9 @@ const MyPage = () => {
 }
 ```
 
----
-created_at: 2017-01-27 00:11 CET
----
-tags:
-
-react
+dateCreated: 2017-01-27 00:11 CET
+tags: react
 jsx
 comment
 ---
-post_type: mini-post
+postTypes: mini-post

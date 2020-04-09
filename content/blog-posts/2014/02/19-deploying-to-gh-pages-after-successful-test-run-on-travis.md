@@ -1,3 +1,7 @@
+dateCreated: 2014-02-19 11:00 CET
+tags: gh-pages, devops, deploy, javascript, travis, tddbin
+postTypes: mini-post
+
 # Deploying to gh-pages after successful test run on travis
 
 I wanted to just push my source code to github's master branch and all the deployment after that shall be automatic. 
@@ -16,16 +20,3 @@ you need to put the encrypted secret into the [.travis.yml file][24d].
 [24b]: https://twitter.com/boennemann/status/568061867052163073
 [24c]: https://github.com/tddbin/tddbin-frontend/blob/23eaa1eb4049da64ee3b941270e92f8fd13b10c0/scripts/deploy-to-ghpages.sh#L5
 [24d]: https://github.com/tddbin/tddbin-frontend/blob/23eaa1eb4049da64ee3b941270e92f8fd13b10c0/.travis.yml#L10-L13
----
-created_at: 2014-02-19 11:00 CET
----
-tags:
-
-gh-pages
-devops
-deploy
-javascript
-travis
-tddbin
----
-post_type: mini-post

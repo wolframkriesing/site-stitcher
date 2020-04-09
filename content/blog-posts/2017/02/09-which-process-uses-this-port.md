@@ -74,17 +74,13 @@ of a `lsof` run will also show you quite a big number of lines.
 
 [article]: https://debian-administration.org/article/184/How_to_find_out_which_process_is_listening_upon_a_port
 
----
-created_at: 2017-02-09 18:00 CET
----
-tags:
-
-command line
+dateCreated: 2017-02-09 18:00 CET
+tags: command line
 linux
 tooling
 lsof
 ---
-post_type: post
+postTypes: post
 ---
 related_tweets:
 

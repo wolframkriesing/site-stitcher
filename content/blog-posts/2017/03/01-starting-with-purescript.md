@@ -62,14 +62,10 @@ I would like to generalize the last bullet point on the list a bit more. You can
 [ps-book]: https://leanpub.com/purescript/read
 [phil-freeman]: https://twitter.com/paf31
 
+dateCreated: 2017-03-01 20:02 CET
 ---
-created_at: 2017-03-01 20:02 CET
----
-post_type: post
----
-tags:
-
-purescript
+postTypes: post
+tags: purescript
 javascript
 functional
 typing

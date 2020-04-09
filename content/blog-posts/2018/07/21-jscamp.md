@@ -1,3 +1,7 @@
+dateCreated: 2018-07-21 19:00:00 CET
+postTypes: post
+tags: events, unconference, open space
+
 # JSCamp Barcelona - Recap
 
 It is over, the JSCamp in Barcelona, formerly named Angular Camp. These had been two intense days of JavaScript, organized
@@ -139,22 +143,3 @@ Aren't customized built-in elements the solution for it or MutationObserver? /me
 [jowe]: https://twitter.com/jowe
 [littledan]: https://twitter.com/littledan
 [bigint-proposal]: 
-
-
-
-
----
-created_at: 2018-07-21 19:00:00 +0200
----
-post_type: post
----
-tags:
-
-events
-unconference
-open space
----
-_hidden: no
----
-_discoverable: yes
----

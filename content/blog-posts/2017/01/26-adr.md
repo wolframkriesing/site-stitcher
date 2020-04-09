@@ -15,14 +15,10 @@ myself into the rabbit hole :).
 [post]: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
 [mikado]: https://www.infoq.com/news/2012/02/mikado-method
 
----
-created_at: 2017-01-26 23:11 CET
----
-tags:
-
-organizing
+dateCreated: 2017-01-26 23:11 CET
+tags: organizing
 mikado method
 adr
 documentation
 ---
-post_type: mini-post
+postTypes: mini-post

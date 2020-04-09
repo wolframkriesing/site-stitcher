@@ -1,3 +1,7 @@
+dateCreated: 2015-05-04 11:36 CET
+postTypes: mini-post
+tags: npm, package.json, javascript
+
 # `browser` field in npm's package.json
 
 `browser` field in npm's package.json
@@ -7,14 +11,3 @@
 Read [this file][53] for all the details.
 
 [53]: https://gist.github.com/defunctzombie/4339901
-
----
-created_at: 2015-05-04 11:36 CET
----
-post_type: mini-post
----
-tags:
-
-npm
-package.json
-javascript

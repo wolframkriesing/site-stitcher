@@ -6,8 +6,7 @@ and also a more linux focused one
 as given as reference
 in the article.
 
----
-created_at: 2014-01-10 10:00 CET
+dateCreated: 2014-01-10 10:00 CET
 ---
 tags:
 makefile

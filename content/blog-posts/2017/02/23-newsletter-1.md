@@ -45,5 +45,4 @@ While writing this newsletter I wanted to know again how to do quoting right and
 [citing-correctly]: https://letterpile.com/writing/Using-and-Citing-Sources-Correctly
 
 
----
-created_at: 2017-02-23 22:22 CET
+dateCreated: 2017-02-23 22:22 CET

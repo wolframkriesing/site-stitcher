@@ -1,3 +1,6 @@
+dateCreated: 2017-04-17 21:15 CET
+tags: pwa, jscc17, jscraftcamp, code formatting, technical debt, exception, abstraction, history
+
 # Newsletter #7
 
 This is newsletter #7 - about crafting (and) JavaScript - April 17rd, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**.
@@ -43,18 +46,3 @@ In ***[Replacing Throwing Exceptions with Notification in Validations][exception
 Robert Taylor ***[took a million dollars out of the ballistic missile defense budget][robtaylorpost]*** and made the internet happen, slowly. That was in 1966. He had just died, one of the pioneers of the internet and many other inventions that we take for granted today.
 
 [robtaylorpost]: https://mobile.nytimes.com/2017/04/14/technology/robert-taylor-innovator-who-shaped-modern-computing-dies-at-85.html
-
----
-created_at: 2017-04-17 21:15 CET
-
----
-will be tags:
-
-pwa
-jscc17
-jscraftcamp
-code formatting
-technical debt
-exception
-abstraction
-history

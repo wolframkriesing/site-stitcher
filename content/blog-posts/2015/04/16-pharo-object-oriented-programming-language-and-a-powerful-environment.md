@@ -1,3 +1,9 @@
+dateCreated: 2015-04-16 14:11 CET
+postTypes: summary
+tags: programming language, ide, refactoring, oop, video
+youtubeId: Nmcou_5um2s
+privateTags: must watch
+
 # Pharo - object-oriented programming language and a powerful environment
 
 Pharo - object-oriented programming language and a powerful environment
@@ -12,20 +18,3 @@ looks really interesting, I am adding it to my "must watch" list :).
 [50]: http://pharo.org/
 [51]: https://www.youtube.com/watch?v=Nmcou_5um2s
 [52]: http://agiletuesday.org
-
----
-created_at: 2015-04-16 14:11 CET
----
-post_type: summary
----
-tags:
-
-programming language
-ide
-refactoring
-oop
-video
----
-youtube_id: Nmcou_5um2s
----
-private_tags: must watch

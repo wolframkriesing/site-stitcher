@@ -1,3 +1,7 @@
+dateCreated: 2014-02-24 12:00 CET
+tags: security, browser, javascript, client-side
+postTypes: mini-post
+
 # Make your site a bit safer
 
 Any browser project should [have a look at DOMPurify][29] at least, if not apply it right away.
@@ -8,14 +12,3 @@ more about this field, when security issues hit you it might be too late.
 > DOMPurify is written by security people who have vast background in web attacks and XSS.
 
 [29]: https://github.com/cure53/DOMPurify
----
-created_at: 2014-02-24 12:00 CET
----
-tags:
-
-security
-browser
-javascript
-client-side
----
-post_type: mini-post

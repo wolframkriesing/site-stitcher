@@ -1,3 +1,7 @@
+dateCreated: 2014-02-04 10:00 CET
+tags: oop, software design
+postTypes: summary
+
 # Don't make objects that end with 'er'
 
 I was about to write a "Handler" class. But I remembered that the "er" classes
@@ -30,12 +34,3 @@ katas have a value.
 Just [read the article][8], it's quite short and compact but has some nice examples in it.
 
 [8]: http://objology.blogspot.de/2011/09/one-of-best-bits-of-programming-advice.html
----
-created_at: 2014-02-04 10:00 CET
----
-tags:
-
-oop
-software design
----
-post_type: summary
