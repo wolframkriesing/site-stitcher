@@ -34,9 +34,16 @@ describe('Load a blog post completely, with all data ready to render', () => {
       const post = await loadPost({fileContent: '# headline\n## subheadline'});
       assert.strictEqual(post.abstract, '');
     });
-    it('WHEN it has metadata, headline and an abstract THEN find the abstract', async () => {
-      const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
-      assert.strictEqual(post.abstract, 'abstract, yeah');
+    describe('WHEN it has metadata', async () => {
+      it('AND headline and an abstract THEN find the headline and the abstract', async () => {
+        const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
+        assertThat(post, hasProperties({headline: 'headline', abstract: 'abstract, yeah'}));
+      });
+      xit('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
+        const dateCreated = '2001-01-01 01:01 CET';
+        const post = await loadPost({fileContent: `dateCreated: ${dateCreated}\n\n# headline\nabstract, yeah`});
+        assert.strictEqual(post.dateCreated, dateCreated);
+      });
     });
   });
 });
@@ -61,10 +68,5 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     assert.strictEqual(completeBlogPostList.length, 2);
     assert(completeBlogPostList[0].equals(expectedPosts[0]));
     assert(completeBlogPostList[1].equals(expectedPosts[1]));
-  });
-
-  xdescribe('GIVEN finding the metadata in a blog post', () => {
-    it('WHEN it has none THEN none are set (no dateCreated, no author, no tags, ...)', async () => {
-    });
   });
 });

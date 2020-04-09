@@ -7,29 +7,28 @@ const prodDeps = () => {
   return {loadBlogPostFromFile};
 };
 
-const findParagraphAfterH1 = (tokens) => {
+const findHeadlineAndAbstract = (tokens) => {
   let tokenIndex = 0;
-  let h1Found = false;
-  while (tokenIndex < tokens.length && !h1Found) {
+  let headline = '';
+  while (tokenIndex < tokens.length && headline === '') {
     const t = tokens[tokenIndex];
-    if (t.type === 'heading' && t.depth === 1) h1Found = true;
+    if (t.type === 'heading' && t.depth === 1) headline = t.text;
     tokenIndex++;
   }
 
-  let paragraphAfterH1 = '';
-  while (tokenIndex < tokens.length && paragraphAfterH1 === '') {
+  let abstract = '';
+  while (tokenIndex < tokens.length && abstract === '') {
     const t = tokens[tokenIndex];
-    if (t.type === 'paragraph') paragraphAfterH1 = t.text;
+    if (t.type === 'paragraph') abstract = t.text;
     tokenIndex++;
   }
 
-  return paragraphAfterH1;
+  return {headline, abstract};
 }
 
 const parseRawPost = fileContent => {
   const tokens = marked.lexer(fileContent);
-  const headline = tokens[0].text;
-  const abstract = findParagraphAfterH1(tokens);
+  const {headline, abstract} = findHeadlineAndAbstract(tokens);
   return {headline, abstract};
 };
 
