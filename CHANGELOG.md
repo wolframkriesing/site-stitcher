@@ -59,7 +59,7 @@
   - [ ] 301 from the old url to the new one
         maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
   - [x] render [x][y] links properly, seems not to work - newline before was missing
-- [ ] provide meta data
+- [x] provide meta data
   - [x] use multimarkdown style, just key-value pairs at the top
   - [x] update all posts to use it
   - [x] add the metadata to BlogPost
