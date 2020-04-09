@@ -2,10 +2,7 @@
 
 {[ block pagename ]}home{[ endblock ]}
 
-{[ block head ]}
-  <link rel="canonical" href="https://picostitch.com">
-  <title>Blog | picostitch - stuff about crafting (and) JavaScript</title>
-{[ endblock ]}
+{[ block pageTitlePrefix ]}Blog{[ endblock ]}
 
 {[ block content ]}
   {% posts.map(post => { %}

@@ -1,11 +1,8 @@
 @extends(src/templates/_base.html)
 
 {[ block pagename ]}post{[ endblock ]}
-
-{[ block head ]}
-  <link rel="canonical" href="https://picostitch.com{{post.url}}">
-  <title>{{post.headline}} | picostitch - stuff about crafting (and) JavaScript</title>
-{[ endblock ]}
+{[ block canonicalUrl ]}{{post.url}}{[ endblock ]}
+{[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
 {[ block content ]}
   <h1>{{post.headline}}</h1>
