@@ -36,7 +36,7 @@ describe('Load a blog post completely, with all data ready to render', () => {
     });
     it('WHEN it has NO metadata THEN the data set via metadata are either empty or have the right type', async () => {
       const post = await loadPost({fileContent: '# headline only'});
-      assertThat(post, hasProperties({tags: []}));
+      assertThat(post, hasProperties({tags: [], oldUrls: []}));
     });
     describe('WHEN it has metadata', async () => {
       it('AND headline and an abstract THEN find the headline and the abstract', async () => {
@@ -55,6 +55,10 @@ describe('Load a blog post completely, with all data ready to render', () => {
       it('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post stays', async () => {
         const post = await loadPost({fileContent: `noDateCreated: :)\n\n# no dateCreated metadata`, markdownFilename: '2001/01/01-mmm.md'});
         assertThat(post, hasProperties({dateCreated: '2001-01-01'}));
+      });
+      it('WHEN it has `oldUrls` THEN provide them', async () => {
+        const post = await loadPost({fileContent: 'oldUrls: /blog/old.html /blog/old1.html\n\n# headline'});
+        assertThat(post, hasProperties({oldUrls: ['/blog/old.html', '/blog/old1.html']}));
       });
     });
   });

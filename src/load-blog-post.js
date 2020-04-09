@@ -10,25 +10,32 @@ const prodDeps = () => {
 const findDateCreated = (lines) => {
   const foundLines = lines.filter(line => line.startsWith('dateCreated:'));
   if (foundLines.length === 0) return '';
-  return foundLines[0].replace('dateCreated: ', '').trim();
+  return foundLines[0].replace('dateCreated:', '').trim();
 };
 const findTags = (lines) => {
   const foundLines = lines.filter(line => line.startsWith('tags:'));
   if (foundLines.length === 0) return '';
-  const tagsString = foundLines[0].replace('tags: ', '').trim();
+  const tagsString = foundLines[0].replace('tags:', '').trim();
   return tagsString.split(',').map(tag => tag.trim());
+};
+const findOldUrls = (lines) => {
+  const foundLines = lines.filter(line => line.startsWith('oldUrls:'));
+  if (foundLines.length === 0) return '';
+  const tagsString = foundLines[0].replace('oldUrls:', '').trim();
+  return tagsString.split(' ').map(tag => tag.trim());
 };
 /**
  * @param tokens
  * @returns {BlogPostMetadata}
  */
 const parseMetadata = (tokens) => {
-  const metadata = {tags: []};
+  const metadata = {tags: [], oldUrls: []};
   if (tokens[0].type === 'paragraph') {
     const lines = tokens[0].text.split('\n');
     const dateCreated = findDateCreated(lines);
     if (dateCreated) metadata.dateCreated = dateCreated;
     metadata.tags = findTags(lines);
+    metadata.oldUrls = findOldUrls(lines);
   }
   return metadata;
 }
