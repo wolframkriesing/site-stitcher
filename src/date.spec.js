@@ -12,7 +12,10 @@ describe('Convert date to a readable string', () => {
 });
 
 describe('Return the weekday for a date', () => {
-  it('GIVEN a date THEN return the weekday', () => {
+  it('GIVEN a date only THEN return the weekday', () => {
     assert.strictEqual(toWeekday('2001-01-01'), 'Monday');
+  });
+  it('GIVEN a date+time only THEN return the weekday', () => {
+    assert.strictEqual(toWeekday('2001-01-01 10:00 CET'), 'Monday');
   });
 });

@@ -1,3 +1,12 @@
+const toDate = s => {
+  const parts = s.split(' ');
+  if (parts.length > 1) {
+    const validDate = `${parts[0]}T${parts[1]}+01:00`; // NOTE: Timezone CET is assumed always!!!!
+    return new Date(validDate);
+  }
+  return new Date(s);
+}
+
 const months = [
   'January',
   'February',
@@ -19,7 +28,7 @@ export const toReadableDate = dateString => {
 };
 
 export const toWeekday = dateString => {
-  const day = new Date(dateString).getDay();
+  const day = toDate(dateString).getDay();
   return [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   ][day];
