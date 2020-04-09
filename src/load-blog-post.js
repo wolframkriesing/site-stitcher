@@ -66,13 +66,22 @@ const findHeadlineAndAbstract = (tokens) => {
   return {headline, abstract, abstractToken};
 }
 
+const removeEnclosingPTag = s => s
+  .trim()
+  .replace(/^<p>/, '')
+  .replace(/<\/p>$/, '')
+;
+const renderAbstractContentAsHtml = (abstractToken, links) => {
+  const renderableAbstract = [abstractToken];
+  renderableAbstract.links = links;
+  const abstractAsHtml = marked.parser(renderableAbstract);
+  return removeEnclosingPTag(abstractAsHtml);
+};
 const parseRawPost = tokens => {
   const {headline, abstract, abstractToken} = findHeadlineAndAbstract(tokens);
   const metadata = parseMetadata(tokens);
-  const renderableAbstract = [abstractToken];
-  renderableAbstract.links = tokens.links;
-  const abstractAsHtml = marked.parser(renderableAbstract);
-  return {headline, abstract, abstractAsHtml, ...metadata};
+  const abstractContentAsHtml = renderAbstractContentAsHtml(abstractToken, tokens.links);
+  return {headline, abstract, abstractContentAsHtml, ...metadata};
 };
 const findBodyToRender = tokens => {
   // DANGER we are modifying `tokens` here, since it has some properties, like `links`
