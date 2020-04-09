@@ -31,7 +31,8 @@
   - [ ] todo-stitcher
 - [ ] add og meta tags (https://ogp.me/)
 - [ ] lint/verify the syntax of a blog post
-  - [ ] can have meta tags at the top only 
+  - [ ] can have meta tags at the top only
+  - [ ] the syntax of the metadata is defined, see BlogPostMetadata type 
   - [ ] must start with headline, has an abstract next
 - [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
   - [ ] word count, lines of code, programming language, etc.
