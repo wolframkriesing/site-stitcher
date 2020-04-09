@@ -7,17 +7,30 @@ const prodDeps = () => {
   return {loadBlogPostFromFile};
 };
 
+const findDateCreated = (lines) => {
+  const foundLines = lines.filter(line => line.startsWith('dateCreated:'));
+  if (foundLines.length === 0) return '';
+  return foundLines[0].replace('dateCreated: ', '').trim();
+};
+const findTags = (lines) => {
+  const foundLines = lines.filter(line => line.startsWith('tags:'));
+  if (foundLines.length === 0) return '';
+  const tagsString = foundLines[0].replace('tags: ', '').trim();
+  return tagsString.split(',').map(tag => tag.trim());
+};
 /**
  * @param tokens
  * @returns {BlogPostMetadata}
  */
 const parseMetadata = (tokens) => {
+  const metadata = {tags: []};
   if (tokens[0].type === 'paragraph') {
     const lines = tokens[0].text.split('\n');
-    const dateCreated = lines.filter(line => line.startsWith('dateCreated:')).map(s => s.replace('dateCreated: ', '').trim())[0];
-    return {dateCreated};
+    const dateCreated = findDateCreated(lines);
+    if (dateCreated) metadata.dateCreated = dateCreated;
+    metadata.tags = findTags(lines);
   }
-  return {};
+  return metadata;
 }
 
 const findHeadlineAndAbstract = (tokens) => {

@@ -34,6 +34,10 @@ describe('Load a blog post completely, with all data ready to render', () => {
       const post = await loadPost({fileContent: '# headline\n## subheadline'});
       assert.strictEqual(post.abstract, '');
     });
+    it('WHEN it has NO metadata THEN the data set via metadata are either empty or have the right type', async () => {
+      const post = await loadPost({fileContent: '# headline only'});
+      assertThat(post, hasProperties({tags: []}));
+    });
     describe('WHEN it has metadata', async () => {
       it('AND headline and an abstract THEN find the headline and the abstract', async () => {
         const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
@@ -42,7 +46,15 @@ describe('Load a blog post completely, with all data ready to render', () => {
       it('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
         const dateCreated = '2001-01-01 01:01 CET';
         const post = await loadPost({fileContent: `dateCreated: ${dateCreated}\n\n# headline\nabstract, yeah`});
-        assert.strictEqual(post.dateCreated, dateCreated);
+        assertThat(post, hasProperties({dateCreated}));
+      });
+      it('WHEN it has the metadata `tags` THEN set the property accordingly', async () => {
+        const post = await loadPost({fileContent: `tags: tag1, tag2\n\n# headline\nabstract, yeah`});
+        assertThat(post, hasProperties({tags: ['tag1', 'tag2']}));
+      });
+      xit('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post stays', async () => {
+        const post = await loadPost({fileContent: `noDateCreated: :)\n\n# no dateCreated metadata`, markdownFilename: '2001/01/01-mmm.md'});
+        assertThat(post, hasProperties({dateCreated: '2001-01-01'}));
       });
     });
   });

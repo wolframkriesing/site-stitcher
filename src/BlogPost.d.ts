@@ -11,7 +11,7 @@ export class BlogPost {
 }
 
 export type BlogPostMetadata = {
-  dateCreated: DateString | DateTimeString;
+  dateCreated?: DateString | DateTimeString;
   tags: string[];
   oldUrls: string[];
 }
