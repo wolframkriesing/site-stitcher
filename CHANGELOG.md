@@ -1,4 +1,8 @@
 # Ideas
+- [ ] learn and apply a11y properly
+- [ ] `npm run new-post` script to create dir and file
+- [ ] show "load more" or pagination on first page
+- [ ] render the schema attributes
 - [ ] add all posts from
   - [x] picostitch  
   - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
@@ -14,10 +18,9 @@
   - [ ] events I ran (jscc, jscr, jslang, ...)
   - [ ] the jobs i had  
 - [ ] make useful (and talk about)
-  - [ ] tests2text (tests-stitcher)
+  - [ ] tests-stitcher
   - [ ] to-do-list-checker (todo-stitcher)
-  - [ ] kavun (test-stitcher)
-- [ ] show content at the top of the blog post
+  - [ ] kavun (pico-test)
 - [ ] generate dates (started, published, last changed) from commits
 - [ ] deploy site on git push
 - [ ] publish the last post about jscamp
@@ -26,7 +29,15 @@
   - [ ] type linting JS files using TS
   - [ ] todo-stitcher
 - [ ] add og meta tags (https://ogp.me/)
-- [ ] verify the syntax of a blog post (must start with headline, has an abstract next, ...)
+- [ ] lint/verify the syntax of a blog post
+  - [ ] can have meta tags at the top only 
+  - [ ] must start with headline, has an abstract next
+- [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
+  - [ ] download size of the page
+  - [ ] amount of HTML, CSS, JS on the page
+  - [ ] 3rd party URLs loaded on the page
+  - [ ] number of requests, etc.
+- [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
 
 # v1 - my website
 - [x] make it run using docker
@@ -44,19 +55,16 @@
   - [ ] update all posts to use it
   - [ ] add the metadata to BlogPost
   - [ ] render the metadata if needed (e.g. on the post page)
-- [ ] learn and apply a11y properly
 - [ ] indieweb auth of my page
 - [x] make it deploy on GH
 - [ ] move domain to GH
-- [ ] `npm run new-post` script to create dir and file
+- [ ] add footer and imprint
 - [ ] generate index page from md files
   - [ ] make it work on mobile
   - [x] dont fail on invalid files in blog post dirs
   - [x] sort newest to top
-  - [ ] add all posts
-  - [ ] show "load more" or pagination on first page
-  - [ ] render the schema attributes
   - [ ] render the markdown of the abstract properly into HTML
   - [x] show the date like this "24 Jan, 2002"
   - [ ] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`        
+        
