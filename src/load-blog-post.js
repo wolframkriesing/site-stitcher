@@ -7,17 +7,29 @@ const prodDeps = () => {
   return {loadBlogPostFromFile};
 };
 
-const findAbstract = (tokens) => {
-  if (tokens.length > 1 && tokens[1].type === 'paragraph') {
-    return tokens[1].text;
+const findParagraphAfterH1 = (tokens) => {
+  let tokenIndex = 0;
+  let h1Found = false;
+  while (tokenIndex < tokens.length && !h1Found) {
+    const t = tokens[tokenIndex];
+    if (t.type === 'heading' && t.depth === 1) h1Found = true;
+    tokenIndex++;
   }
-  return '';
-};
+
+  let paragraphAfterH1 = '';
+  while (tokenIndex < tokens.length && paragraphAfterH1 === '') {
+    const t = tokens[tokenIndex];
+    if (t.type === 'paragraph') paragraphAfterH1 = t.text;
+    tokenIndex++;
+  }
+
+  return paragraphAfterH1;
+}
 
 const parseRawPost = fileContent => {
   const tokens = marked.lexer(fileContent);
   const headline = tokens[0].text;
-  const abstract = findAbstract(tokens);
+  const abstract = findParagraphAfterH1(tokens);
   return {headline, abstract};
 };
 

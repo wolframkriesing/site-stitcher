@@ -50,5 +50,11 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
       const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
       assert.strictEqual(loadedBlogPostList[0].abstract, '');
     });
+    it('WHEN it has metadata, headline and an abstract THEN find the abstract', async () => {
+      const blogPostList = [BlogPost.withMarkdownFilename('2001/01/01-post.md')];
+      const loadBlogPostFromFile = async () => 'meta: data\n\n# headline\nabstract, yeah';
+      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+      assert.strictEqual(loadedBlogPostList[0].abstract, 'abstract, yeah');
+    });
   });
 });
