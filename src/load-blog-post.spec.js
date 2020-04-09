@@ -1,16 +1,14 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {loadBlogPostList} from './load-blog-post.js';
+import {loadBlogPostList, loadBlogPost} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Load a blog post completely, with all data ready to render', () => {
   it('GIVEN a post with headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
-    const blogPostList = [BlogPost.withMarkdownFilename('2001/01/01-post.md')];
+    const preloadedPost = BlogPost.withMarkdownFilename('2001/01/01-post.md');
     const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
-    const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+    const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
 
-    assert.strictEqual(completeBlogPostList.length, 1);
-    const post = completeBlogPostList[0];
     const expectedPost = new BlogPost({
       dateCreated: '2001-01-01',
       markdownFilename: '2001/01/01-post.md',
@@ -22,6 +20,9 @@ describe('Load a blog post completely, with all data ready to render', () => {
 });
 
 describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
+  xit('WHEN loading one post', () => {
+    assert.strictEqual(completeBlogPostList.length, 1);
+  });
   it('WHEN many files are given THEN load all the BlogPost items', async () => {
     const blogPostList = [
       BlogPost.withMarkdownFilename('2018/05/13-post.md'),

@@ -34,10 +34,12 @@ const parseRawPost = fileContent => {
 };
 
 export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async blogPostList => {
-  const rawPosts = await Promise.all(blogPostList
-    .map(async (blogPost) => await loadBlogPostFromFile(blogPost.markdownFilename)));
-  const parsedPosts = rawPosts.map(parseRawPost);
-  return parsedPosts.map((parsedPostData, index) => {
-    return blogPostList[index].cloneAndOverrideWith(parsedPostData);
-  });
+  const loadPost = loadBlogPost({loadBlogPostFromFile});
+  return await Promise.all(blogPostList.map(async (blogPost) => await loadPost(blogPost)));
 };
+
+export const loadBlogPost = ({loadBlogPostFromFile}) => async (blogPost) => {
+  const rawPost = await loadBlogPostFromFile(blogPost.markdownFilename);
+  const parsedPostData = parseRawPost(rawPost);
+  return blogPost.cloneAndOverrideWith(parsedPostData);
+}
