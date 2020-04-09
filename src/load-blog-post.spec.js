@@ -57,4 +57,9 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
       assert.strictEqual(loadedBlogPostList[0].abstract, 'abstract, yeah');
     });
   });
+
+  xdescribe('GIVEN finding the metadata in a blog post', () => {
+    it('WHEN it has none THEN none are set (no dateCreated, no author, no tags, ...)', async () => {
+    });
+  });
 });
