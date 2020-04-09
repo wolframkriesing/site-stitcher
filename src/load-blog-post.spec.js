@@ -60,6 +60,18 @@ describe('Load a blog post completely, with all data ready to render', () => {
         const post = await loadPost({fileContent: 'oldUrls: /blog/old.html /blog/old1.html\n\n# headline'});
         assertThat(post, hasProperties({oldUrls: ['/blog/old.html', '/blog/old1.html']}));
       });
+      it('WHEN it has `youtubeId` THEN provide it', async () => {
+        const post = await loadPost({fileContent: 'youtubeId: 12345\n\n# headline'});
+        assertThat(post, hasProperties({youtubeId: '12345'}));
+      });
+      it('WHEN it has `vimeoId` THEN provide it', async () => {
+        const post = await loadPost({fileContent: 'vimeoId: 12345\n\n# headline'});
+        assertThat(post, hasProperties({vimeoId: '12345'}));
+      });
+      it('WHEN it has `videoStartTime` THEN provide it', async () => {
+        const post = await loadPost({fileContent: 'videoStartTime: 42\n\n# headline'});
+        assertThat(post, hasProperties({videoStartTime: '42'}));
+      });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
       const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';

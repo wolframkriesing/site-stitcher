@@ -39,6 +39,9 @@ const parseMetadata = (tokens) => {
     if (dateCreated) metadata.dateCreated = dateCreated;
     metadata.tags = findMetadataByKeyAsArray(lines, 'tags', ',');
     metadata.oldUrls = findMetadataByKeyAsArray(lines, 'oldUrls', ' ');
+    metadata.youtubeId = findMetadataByKeyAsString(lines, 'youtubeId');
+    metadata.vimeoId = findMetadataByKeyAsString(lines, 'vimeoId');
+    metadata.videoStartTime = findMetadataByKeyAsString(lines, 'videoStartTime');
   }
   return metadata;
 }

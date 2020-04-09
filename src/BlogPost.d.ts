@@ -8,6 +8,10 @@ export class BlogPost {
   url: string;
   abstractAsHtml: string;
   bodyAsHtml: string;
+  youtubeId?: string;
+  vimeoId?: string;
+  videoStartTime?: string;
+
   static preload(markdownFilename: string): BlogPost;
   equals(blogPost: BlogPost): boolean;
 }
