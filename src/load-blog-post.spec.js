@@ -52,7 +52,7 @@ describe('Load a blog post completely, with all data ready to render', () => {
         const post = await loadPost({fileContent: `tags: tag1, tag2\n\n# headline\nabstract, yeah`});
         assertThat(post, hasProperties({tags: ['tag1', 'tag2']}));
       });
-      xit('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post stays', async () => {
+      it('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post stays', async () => {
         const post = await loadPost({fileContent: `noDateCreated: :)\n\n# no dateCreated metadata`, markdownFilename: '2001/01/01-mmm.md'});
         assertThat(post, hasProperties({dateCreated: '2001-01-01'}));
       });
