@@ -1,24 +1,10 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
-  <link rel="stylesheet" href="/style.css" type="text/css">
-  <title>{{post.headline}} | picostitch - stuff about crafting (and) JavaScript</title>
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-  <link rel="canonical" href="https://picostitch.com{{post.url}}">
-</head>
-<body class="page-post">
-  <nav aria-labelledby="primary-navigation">
-    h1 picostitch blog /h1
-    <ul>
-      <li><a href="/">Blog</a></li>
-    </ul>
-  </nav>
+@extends(src/templates/_base.html)
 
+{[ block pagename ]}post{[ endblock ]}
+{[ block canonicalUrl ]}{{post.url}}{[ endblock ]}
+{[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
+
+{[ block content ]}
   <h1>{{post.headline}}</h1>
   <p class="metadata">
     Wolfram Kriesing
@@ -30,5 +16,11 @@
 
   {!post.bodyAsHtml!}
 
-</body>
-</html>
+  {% if (post.youtubeId) { %}
+    <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/{{ post.youtubeId }}?start={{ post.videoStartTime }}" frameborder="0" allowfullscreen></iframe>
+  {% } %}
+  {% if (post.vimeoId) { %}
+    <iframe src="https://player.vimeo.com/video/{{ post.vimeoId }}" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  {% } %}
+
+{[ endblock ]}

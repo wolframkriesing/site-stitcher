@@ -1,24 +1,36 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
   <link rel="stylesheet" href="/style.css" type="text/css">
-  <title>Purescript - the semantics of JavaScript with types #1 | picostitch - stuff about crafting (and) JavaScript</title>
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">
+  <title>Purescript - the semantics of JavaScript with types #1 | picostitch - stuff about crafting (and) JavaScript</title>
+  
 </head>
 <body class="page-post">
-  <nav aria-labelledby="primary-navigation">
-    h1 picostitch blog /h1
-    <ul>
-      <li><a href="/">Blog</a></li>
-    </ul>
-  </nav>
 
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
+
+  
   <h1>Purescript - the semantics of JavaScript with types #1</h1>
   <p class="metadata">
     Wolfram Kriesing
@@ -28,8 +40,7 @@
     
   </p>
 
-  <p>I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.
-[primitive-obsession]: <a href="http://wiki.c2.com/?PrimitiveObsession">http://wiki.c2.com/?PrimitiveObsession</a></p>
+  <p>I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the <a href="http://wiki.c2.com/?PrimitiveObsession">primitive obsession</a>? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.</p>
 <p>Purescript is bringing that to JavaScript while having an (I would say) tiny footprint in the compiled (JavaScript) code. Yes, Purescript compiles down to JavaScript, actually to very well readable JavaScript code (see for yourself towards the end of this post). Read on to get a quick intro on what it is.</p>
 <p>The following quotes are from the book <a href="https://leanpub.com/purescript/read">&quot;PureScript by Example&quot;</a> by <a href="https://twitter.com/paf31">Phil Freeman</a>. I will try to extract what Purescript is, using quotes mixed with my own words.</p>
 <blockquote>
@@ -73,6 +84,11 @@ module.exports = {
 </ul>
 </blockquote>
 <p>I would like to generalize the last bullet point on the list a bit more. You can simply import the actual production code into your tests and just write them in Purescript. Just look at the generated JavaScript above and you see the <code>require</code>, which looks like an easy to use hook to existing JS code, and that is the case. I think writing tests in Purescript is a great way to start using Purescript and learn by using it in a less critical part of your application. I think this less critical part, the tests, will soon become the driving force for the source code, since the power of Purescript will shine through quite fast.</p>
+
+
+  
+  
+
 
 
 </body>

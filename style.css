@@ -1,12 +1,36 @@
 body {
-  font-family: monospace;
   margin: 2rem;
+  font-family: sans-serif;
 }
+
+header {
+  display: flex;
+}
+  header .sitename {
+    flex: 1;
+    text-align: center;
+  }
+    header .sitename a {
+      font-size: 2rem;
+    }
+    header .sitename .subtitle {
+    }
+  header nav {
+    flex: 2;
+  }
 
 
 .page-home h1 {
   display: inline;
 }
+.page-home p.abstract a {
+  color: inherit;
+}
+.latest-post {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
 nav {
   display: inline;
 }

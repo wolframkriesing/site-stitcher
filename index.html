@@ -8,30 +8,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
   <link rel="stylesheet" href="/style.css" type="text/css">
-  <title>Blog | picostitch - stuff about crafting (and) JavaScript</title>
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com">
+  <title>Blog | picostitch - stuff about crafting (and) JavaScript</title>
+  
 </head>
 <body class="page-home">
-  <nav aria-labelledby="primary-navigation">
-    <h1>picostitch blog</h1>
-    <ul>
-      <li><a href="/">Blog</a></li>
-    </ul>
-  </nav>
 
-  
-    <div class="row">
-      <div class="date">
-        April 6, 2020
-        <div class="weekday">Monday</div>
-      </div>
-      <div class="content">
-        <h2><a href="/blog/2020/04/06-learn-about-url-parsing/">Learn about URL parsing in real life</a></h2>
-        <p>There is a [uXSS][4] bug in Chrome on iOS, which is actually a WebKit bug. But Chrome fixes it on iOS by crashing the browser,
-because this was the fastest way to fix it. Alright ...</p>
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
       </div>
     </div>
+  </header>
+
+  
+  <div class="latest-post">
+    <h1><a href="/blog/2020/04/06-learn-about-url-parsing/">Learn about URL parsing in real life</a></h1>
+    <p class="metadata">
+      Wolfram Kriesing
+      - 2020-04-06
+      
+        - tagged with: #programming #URL #web #browsers #chrome #iOS #Apple #security #hacking
+      
+    </p>
+
+    <p class="abstract">There is a <a href="https://en.wikipedia.org/wiki/Cross-site_scripting#Related_vulnerabilities">uXSS</a> bug in Chrome on iOS, which is actually a WebKit bug. But Chrome fixes it on iOS by crashing the browser,
+because this was the fastest way to fix it. Alright ...</p>
+    <a href="/blog/2020/04/06-learn-about-url-parsing/">Read more ...</a>
+  </div>
+
   
     <div class="row">
       <div class="date">
@@ -40,9 +54,9 @@ because this was the fastest way to fix it. Alright ...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2020/04/05-test-stitcher-handles-many-files/">TestStitcher can handle many files</a></h2>
-        <p>[TestStitcher][3] can now not only handle one file but any number of files
-(see [the commit that finished it][1]) and show the tests in a structured way, 
-see [the README][2] for all details.</p>
+        <p class="abstract"><a href="https://github.com/wolframkriesing/test-stitcher">TestStitcher</a> can now not only handle one file but any number of files
+(see <a href="https://github.com/wolframkriesing/test-stitcher/commit/c885965fe81529e38a0577d76f87f5faa74191e1">the commit that finished it</a>) and show the tests in a structured way, 
+see <a href="https://github.com/wolframkriesing/test-stitcher#test-stitcher">the README</a> for all details.</p>
       </div>
     </div>
   
@@ -53,7 +67,7 @@ see [the README][2] for all details.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2020/03/29-site-stitcher-made-this-page/">Site stitcher made this page</a></h2>
-        <p>I have been through a couple projects to build my blog. None survived, so I
+        <p class="abstract">I have been through a couple projects to build my blog. None survived, so I
 just build, just what I need, with just enough code to get it done.</p>
       </div>
     </div>
@@ -65,8 +79,8 @@ just build, just what I need, with just enough code to get it done.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2018/07/21-jscamp/">JSCamp Barcelona - Recap</a></h2>
-        <p>It is over, the JSCamp in Barcelona, formerly named Angular Camp. These had been two intense days of JavaScript, organized
-by [David Pich][david-pich]. This year about 500 people came together to spend two days in a single 
+        <p class="abstract">It is over, the JSCamp in Barcelona, formerly named Angular Camp. These had been two intense days of JavaScript, organized
+by <a href="https://twitter.com/davidpich">David Pich</a>. This year about 500 people came together to spend two days in a single 
 track conference, listening to topics like v8, webpack, nodejs, npm, Rust, ionic, nextjs, a lot of vuejs and much more.</p>
       </div>
     </div>
@@ -78,8 +92,8 @@ track conference, listening to topics like v8, webpack, nodejs, npm, Rust, ionic
       </div>
       <div class="content">
         <h2><a href="/blog/2018/05/13-jscoderetreat-13-tetris-again/">JSCodeRetreat #13, Tetris again</a></h2>
-        <p>It was the second time that we did Tetris as our task for the JSCodeRetreat and I have to say,
-that the participants' comment made me realize that we are on the right track.
+        <p class="abstract">It was the second time that we did Tetris as our task for the JSCodeRetreat and I have to say,
+that the participants&#39; comment made me realize that we are on the right track.
 Though not all comments were purely in favor of Tetris, I think Tetris is the better
 task for a (JS) CodeRetreat.</p>
       </div>
@@ -92,7 +106,7 @@ task for a (JS) CodeRetreat.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/11/05-mikado-method-essentials/">Mikado Method Essentials</a></h2>
-        <p>In preparation for my last post [Mikado Method to install a Vim Plugin][last-post] I just had to read one of [the good articles about the Mikado Method][mikado-method] again. And when something really grabs my attention and I think there are relevant things in such an article (or video) I usually tweet the things I find most essential. So here is a collection of (some of) the things I find most relevant in that article.</p>
+        <p class="abstract">In preparation for my last post <a href="/blog/2017/11/mikado-method-to-install-a-vim-plugin/">Mikado Method to install a Vim Plugin</a> I just had to read one of <a href="https://pragprog.com/magazines/2010-06/the-mikado-method">the good articles about the Mikado Method</a> again. And when something really grabs my attention and I think there are relevant things in such an article (or video) I usually tweet the things I find most essential. So here is a collection of (some of) the things I find most relevant in that article.</p>
       </div>
     </div>
   
@@ -103,7 +117,7 @@ task for a (JS) CodeRetreat.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/11/03-mikado-method-to-install-a-vim-plugin/">Mikado Method to install a Vim Plugin</a></h2>
-        <p>I just wanted to install a github-flavored markdown plugin for vim. 
+        <p class="abstract">I just wanted to install a github-flavored markdown plugin for vim. 
 Until today I only used vim as it falls out of the box. So I had to do a couple 
 detours before I got a vim plugin installed. Since I like the simplicity of the Mikado 
 Method I apply it very often (maybe too often). In this case I used a very simple form 
@@ -118,8 +132,8 @@ of it, actually mainly to document all the steps I had to take on this detour. R
       </div>
       <div class="content">
         <h2><a href="/blog/2017/04/24-newsletter-8/">Newsletter #8</a></h2>
-        <p>This is newsletter #8 - about crafting (and) JavaScript - April 24th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**.
-So let's get started with the newsletter...</p>
+        <p class="abstract">This is newsletter #8 - about crafting (and) JavaScript - April 24th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>.
+So let&#39;s get started with the newsletter...</p>
       </div>
     </div>
   
@@ -130,7 +144,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/04/17-newsletter-7/">Newsletter #7</a></h2>
-        <p>This is newsletter #7 - about crafting (and) JavaScript - April 17rd, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**.</p>
+        <p class="abstract">This is newsletter #7 - about crafting (and) JavaScript - April 17rd, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>.</p>
       </div>
     </div>
   
@@ -141,7 +155,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/04/03-newsletter-6/">Newsletter #6</a></h2>
-        <p>This is newsletter #6 - about crafting (and) JavaScript - April 3rd, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...</p>
+        <p class="abstract">This is newsletter #6 - about crafting (and) JavaScript - April 3rd, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
       </div>
     </div>
   
@@ -152,7 +166,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/27-newsletter-5/">Newsletter #5</a></h2>
-        <p>This is newsletter #5 - about crafting (and) JavaScript - March 27th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...</p>
+        <p class="abstract">This is newsletter #5 - about crafting (and) JavaScript - March 27th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
       </div>
     </div>
   
@@ -163,7 +177,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/20-newsletter-4/">Newsletter #4</a></h2>
-        <p>This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...</p>
+        <p class="abstract">This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
       </div>
     </div>
   
@@ -174,7 +188,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/13-newsletter-3/">Newsletter #3</a></h2>
-        <p>This is newsletter #3 - about crafting (and) JavaScript - March 13th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...</p>
+        <p class="abstract">This is newsletter #3 - about crafting (and) JavaScript - March 13th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
       </div>
     </div>
   
@@ -185,7 +199,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/11-purescript-5/">Unfinished - Purescript compiling for the browser #5</a></h2>
-        <p>And to build the source code for the browser run</p>
+        <p class="abstract">And to build the source code for the browser run</p>
       </div>
     </div>
   
@@ -196,7 +210,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/10-purescript-4/">Unfinished - Purescript #4</a></h2>
-        <p>Unfinished - Purescript #4</p>
+        <p class="abstract">Unfinished - Purescript #4</p>
       </div>
     </div>
   
@@ -207,7 +221,7 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/06-newsletter-2/">Newsletter #2</a></h2>
-        <p>Welcome to the newsletter #2 - about crafting (and) JavaScript - March 6th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...</p>
+        <p class="abstract">Welcome to the newsletter #2 - about crafting (and) JavaScript - March 6th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
       </div>
     </div>
   
@@ -218,11 +232,11 @@ So let's get started with the newsletter...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/05-install-purescript-2/">Installing purescript #2</a></h2>
-        <p>This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
-the book by [Phil Freeman][phil-freeman], the author of purescript.
+        <p class="abstract">This post is my 2nd write-down inspired by <a href="https://leanpub.com/purescript/read">&quot;Purescript by Example&quot;</a>,
+the book by <a href="https://twitter.com/paf31">Phil Freeman</a>, the author of purescript.
 Now about chapter 2, where I install Purescript and touch the tools
-for the first time. I am gonna use `yarn` instead of `npm`,
-let's see how that goes :).</p>
+for the first time. I am gonna use <code>yarn</code> instead of <code>npm</code>,
+let&#39;s see how that goes :).</p>
       </div>
     </div>
   
@@ -233,8 +247,7 @@ let's see how that goes :).</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/03/01-starting-with-purescript/">Purescript - the semantics of JavaScript with types #1</a></h2>
-        <p>I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.
-[primitive-obsession]: http://wiki.c2.com/?PrimitiveObsession</p>
+        <p class="abstract">I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the <a href="http://wiki.c2.com/?PrimitiveObsession">primitive obsession</a>? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.</p>
       </div>
     </div>
   
@@ -245,7 +258,7 @@ let's see how that goes :).</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/02/23-newsletter-1/">Newsletter #1</a></h2>
-        <p>Welcome to the newsletter #1 - about crafting (and) JavaScript - February 28th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...</p>
+        <p class="abstract">Welcome to the newsletter #1 - about crafting (and) JavaScript - February 28th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
       </div>
     </div>
   
@@ -256,7 +269,7 @@ let's see how that goes :).</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/02/18-imgixcom-imagery-for-a-website/">imgix.com - imagery for a website</a></h2>
-        <p>I just stumbled over https://imgix.com  which looks like it could speed up a website building process and reduce the time one needs to invest in preparing images.</p>
+        <p class="abstract">I just stumbled over <a href="https://imgix.com">https://imgix.com</a>  which looks like it could speed up a website building process and reduce the time one needs to invest in preparing images.</p>
       </div>
     </div>
   
@@ -267,10 +280,10 @@ let's see how that goes :).</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/02/09-which-process-uses-this-port/">Find out which process listens on which port</a></h2>
-        <p>The annoying `port 8080 is already in use` message and not knowing which
-process is occupying this port sucks. I knew it was `lsof` that can help me.
+        <p class="abstract">The annoying <code>port 8080 is already in use</code> message and not knowing which
+process is occupying this port sucks. I knew it was <code>lsof</code> that can help me.
 But how exactly?
-TL;DR: ``ps -p `lsof -i :8080 -t` -o command=`` (on Mac OSX)</p>
+TL;DR: <code>ps -p `lsof -i :8080 -t` -o command=</code> (on Mac OSX)</p>
       </div>
     </div>
   
@@ -281,7 +294,7 @@ TL;DR: ``ps -p `lsof -i :8080 -t` -o command=`` (on Mac OSX)</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/02/05-gitup-rox/">GitUp rox</a></h2>
-        <p>gitup makes branches easy to understand
+        <p class="abstract">gitup makes branches easy to understand
 show perfect overivew</p>
       </div>
     </div>
@@ -293,7 +306,7 @@ show perfect overivew</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/01/31-more-explicit-assert-with-hamjest/">More explicit assert with hamjest</a></h2>
-        <p>An undone blog post - More explicit assert with hamjest</p>
+        <p class="abstract">An undone blog post - More explicit assert with hamjest</p>
       </div>
     </div>
   
@@ -304,8 +317,8 @@ show perfect overivew</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/01/27-01-jsx-comment/">Comments inside JSX</a></h2>
-        <p>Sometimes I stumble over commenting out a part in my JSX template.
-And I am always again looking for how to do that `{#` or `{--`
+        <p class="abstract">Sometimes I stumble over commenting out a part in my JSX template.
+And I am always again looking for how to do that <code>{#</code> or <code>{--</code>
 or what do I know.</p>
       </div>
     </div>
@@ -317,7 +330,7 @@ or what do I know.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/01/26-adr/">ADR for documenting decisions</a></h2>
-        <p>ADR is a way to document decisions, reminds me of python's PEP.</p>
+        <p class="abstract">ADR is a way to document decisions, reminds me of python&#39;s PEP.</p>
       </div>
     </div>
   
@@ -328,7 +341,7 @@ or what do I know.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2017/01/21-the-magic-dash-in-jinja-template-block/">The magic dash in a Jinja template block</a></h2>
-        <p>What the heck does `-%}` mean in a Jinja template?</p>
+        <p class="abstract">What the heck does <code>-%}</code> mean in a Jinja template?</p>
       </div>
     </div>
   
@@ -339,7 +352,7 @@ or what do I know.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2015/10/06-estimation-is-evil/">Estimation is evil</a></h2>
-        <p>[A long article][60] by [@RonJeffries] about &quot;overcoming the estimation obsession&quot;.</p>
+        <p class="abstract"><a href="https://pragprog.com/magazines/2013-02/estimation-is-evil">A long article</a> by <a href="https://twitter.com/RonJeffries">@RonJeffries</a> about &quot;overcoming the estimation obsession&quot;.</p>
       </div>
     </div>
   
@@ -350,7 +363,7 @@ or what do I know.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2015/05/20-bookmark-collect-may-2015/">Bookmark collect May 2015</a></h2>
-        <p>[Tooling is Not the Problem of the Web](https://medium.com/@sebmarkbage/tooling-is-not-the-problem-of-the-web-cb0ae1fdbbc6)</p>
+        <p class="abstract"><a href="https://medium.com/@sebmarkbage/tooling-is-not-the-problem-of-the-web-cb0ae1fdbbc6">Tooling is Not the Problem of the Web</a></p>
       </div>
     </div>
   
@@ -360,9 +373,9 @@ or what do I know.</p>
         <div class="weekday">Monday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2015/05/11-cohesion-and-coupling-explained/">Cohesion and Coupling explained</a></h2>
-        <p>Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
-And about ***coupling*** it says [*how closely connected two routines or modules are*][coupling].</p>
+        <h2><a href="/blog/2015/05/11-cohesion-and-coupling-explained/">Cohesion and Coupling explained</a> 📺</h2>
+        <p class="abstract">Wikipedia says about <strong><em>cohesion</em></strong>, it <a href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)"><em>refers to the degree to which the elements of a module belong together</em></a>.  
+And about <strong><em>coupling</em></strong> it says <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)"><em>how closely connected two routines or modules are</em></a>.</p>
       </div>
     </div>
   
@@ -372,8 +385,8 @@ And about ***coupling*** it says [*how closely connected two routines or modules
         <div class="weekday">Monday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2015/05/11-the-keynote-of-keynotes/">The keynote of keynotes</a></h2>
-        <p>[Alan Kay at OOPSLA 1997 - The computer revolution hasnt happened yet](https://www.youtube.com/watch?v=oKg1hTOQXoY)</p>
+        <h2><a href="/blog/2015/05/11-the-keynote-of-keynotes/">The keynote of keynotes</a> 📺</h2>
+        <p class="abstract"><a href="https://www.youtube.com/watch?v=oKg1hTOQXoY">Alan Kay at OOPSLA 1997 - The computer revolution hasnt happened yet</a></p>
       </div>
     </div>
   
@@ -384,7 +397,7 @@ And about ***coupling*** it says [*how closely connected two routines or modules
       </div>
       <div class="content">
         <h2><a href="/blog/2015/05/04-browser-field-in-npms-packagejson/">`browser` field in npm's package.json</a></h2>
-        <p>`browser` field in npm's package.json</p>
+        <p class="abstract"><code>browser</code> field in npm&#39;s package.json</p>
       </div>
     </div>
   
@@ -394,9 +407,9 @@ And about ***coupling*** it says [*how closely connected two routines or modules
         <div class="weekday">Monday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2015/05/04-oo-explained-by-sandi-metz/">OO (with Message passing) - explained by Sandi Metz</a></h2>
-        <p>I have been titled as a [Sandi Metz] fanboy, I am :).
-I use &quot;send to&quot; and &quot;plays the role&quot; since I read her book [poodr].</p>
+        <h2><a href="/blog/2015/05/04-oo-explained-by-sandi-metz/">OO (with Message passing) - explained by Sandi Metz</a> 📺</h2>
+        <p class="abstract">I have been titled as a <a href="https://twitter.com/sandimetz">Sandi Metz</a> fanboy, I am :).
+I use &quot;send to&quot; and &quot;plays the role&quot; since I read her book <a href="http://poodr.com">poodr</a>.</p>
       </div>
     </div>
   
@@ -406,8 +419,8 @@ I use &quot;send to&quot; and &quot;plays the role&quot; since I read her book [
         <div class="weekday">Thursday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2015/04/16-pharo-object-oriented-programming-language-and-a-powerful-environment/">Pharo - object-oriented programming language and a powerful environment</a></h2>
-        <p>Pharo - object-oriented programming language and a powerful environment</p>
+        <h2><a href="/blog/2015/04/16-pharo-object-oriented-programming-language-and-a-powerful-environment/">Pharo - object-oriented programming language and a powerful environment</a> 📺</h2>
+        <p class="abstract">Pharo - object-oriented programming language and a powerful environment</p>
       </div>
     </div>
   
@@ -418,10 +431,9 @@ I use &quot;send to&quot; and &quot;plays the role&quot; since I read her book [
       </div>
       <div class="content">
         <h2><a href="/blog/2015/04/13-reappio/">reapp.io</a></h2>
-        <p>The new [dojo][49]? I started with dojo about 10 years ago, or so.
-Now I see [reapp][48] which seems to be the same as dojo, lots of widgets,
-just around react and transferred 10 years ahead and to mobile.  
-Good stuff? Or not?</p>
+        <p class="abstract">The new <a href="http://dojotoolkit.org/">dojo</a>? I started with dojo about 10 years ago, or so.
+Now I see <a href="https://github.com/reapp/reapp-ui">reapp</a> which seems to be the same as dojo, lots of widgets,
+just around react and transferred 10 years ahead and to mobile.<br>Good stuff? Or not?</p>
       </div>
     </div>
   
@@ -432,8 +444,7 @@ Good stuff? Or not?</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2015/04/13-typeslab/">Typeslab</a></h2>
-        <p>With [typeslab.com][47] you can write poster like text.  
-![for slides maybe?][46]</p>
+        <p class="abstract">With <a href="http://typeslab.com/">typeslab.com</a> you can write poster like text.<br><img src="http://i.imgur.com/CpDxngp.png" alt="for slides maybe?"></p>
       </div>
     </div>
   
@@ -443,10 +454,10 @@ Good stuff? Or not?</p>
         <div class="weekday">Monday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2015/04/13-i-made-it-object-oriented/">&quot;I made it object-oriented&quot;</a></h2>
-        <p>Another pearl by [@KevlinHenney] in his [Functional Programming You Already Know][43]
-is [his explaination of why we actually should leave out prefixes][45] to our functions, such as `get`
-and `set`.</p>
+        <h2><a href="/blog/2015/04/13-i-made-it-object-oriented/">&quot;I made it object-oriented&quot;</a> 📺</h2>
+        <p class="abstract">Another pearl by <a href="https://twitter.com/KevlinHenney">@KevlinHenney</a> in his <a href="https://www.youtube.com/watch?v=lNKXTlCOGEc">Functional Programming You Already Know</a>
+is <a href="https://www.youtube.com/watch?v=lNKXTlCOGEc&amp;feature=youtu.be&amp;t=2331">his explaination of why we actually should leave out prefixes</a> to our functions, such as <code>get</code>
+and <code>set</code>.</p>
       </div>
     </div>
   
@@ -456,9 +467,9 @@ and `set`.</p>
         <div class="weekday">Monday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2015/04/13-decoupling-explained-from-a-different-angle/">Decoupling explained from a different angle</a></h2>
-        <p>[@KevlinHenney] is always worth watching, so there is [Functional Programming You Already Know][43] by him.
-I would like to extract this one piece where [he explains decoupling][44] in a great way, I think.</p>
+        <h2><a href="/blog/2015/04/13-decoupling-explained-from-a-different-angle/">Decoupling explained from a different angle</a> 📺</h2>
+        <p class="abstract"><a href="https://twitter.com/kevlinhenney">@KevlinHenney</a> is always worth watching, so there is <a href="https://www.youtube.com/watch?v=lNKXTlCOGEc">Functional Programming You Already Know</a> by him.
+I would like to extract this one piece where <a href="https://www.youtube.com/watch?v=lNKXTlCOGEc&amp;feature=youtu.be&amp;t=1485">he explains decoupling</a> in a great way, I think.</p>
       </div>
     </div>
   
@@ -469,7 +480,7 @@ I would like to extract this one piece where [he explains decoupling][44] in a g
       </div>
       <div class="content">
         <h2><a href="/blog/2015/03/23-globally-installed-npm-packages-equals-evil/">Globally installed npm packages = evil</a></h2>
-        <p>Nothing to add to [this post][42]</p>
+        <p class="abstract">Nothing to add to <a href="https://medium.com/@brianleroux/es6-modules-amd-and-commonjs-c1acefbe6fc0">this post</a></p>
       </div>
     </div>
   
@@ -480,7 +491,7 @@ I would like to extract this one piece where [he explains decoupling][44] in a g
       </div>
       <div class="content">
         <h2><a href="/blog/2015/03/23-surgesh-gh-pagesnext/">surge.sh - gh-pages.next?</a></h2>
-        <p>surge.sh - gh-pages.next?</p>
+        <p class="abstract">surge.sh - gh-pages.next?</p>
       </div>
     </div>
   
@@ -491,8 +502,8 @@ I would like to extract this one piece where [he explains decoupling][44] in a g
       </div>
       <div class="content">
         <h2><a href="/blog/2014/03/20-npm-as-a-build-tool/">How to Use npm as a Build Tool</a></h2>
-        <p>I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it's Slack in better).
-[@Tobias] knows all the tools.</p>
+        <p class="abstract">I am sure my uxebu-partner <a href="http://twitter.com/tklipstein">@Tobias</a> posted this link in our internal <a href="http://flowdock.com">flowdock</a> (never used it? do it now! it&#39;s Slack in better).
+<a href="http://twitter.com/tklipstein">@Tobias</a> knows all the tools.</p>
       </div>
     </div>
   
@@ -503,7 +514,7 @@ I would like to extract this one piece where [he explains decoupling][44] in a g
       </div>
       <div class="content">
         <h2><a href="/blog/2014/03/20-fish-shell/">Fish shell</a></h2>
-        <p>[Another tool I have to look at!?][36] Just found via [this article][37].</p>
+        <p class="abstract"><a href="http://fishshell.com/">Another tool I have to look at!?</a> Just found via <a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">this article</a>.</p>
       </div>
     </div>
   
@@ -514,7 +525,7 @@ I would like to extract this one piece where [he explains decoupling][44] in a g
       </div>
       <div class="content">
         <h2><a href="/blog/2014/03/20-abandon-your-dvcs/">Unorthodocs: Abandon your DVCS and Return to Sanity</a></h2>
-        <p>[A nice read about DVCSes][32], let me mention here the two things I like best.</p>
+        <p class="abstract"><a href="http://bitquabit.com/post/unorthodocs-abandon-your-dvcs-and-return-to-sanity/">A nice read about DVCSes</a>, let me mention here the two things I like best.</p>
       </div>
     </div>
   
@@ -525,7 +536,7 @@ I would like to extract this one piece where [he explains decoupling][44] in a g
       </div>
       <div class="content">
         <h2><a href="/blog/2014/03/20-microkanrens/">Microkanrens</a></h2>
-        <p>I first heard [@bodil] talk at the 2014 craftconf in Budapest where I saw her presentation 
+        <p class="abstract">I first heard <a href="https://twitter.com/bodil">@bodil</a> talk at the 2014 craftconf in Budapest where I saw her presentation 
 where she was live coding in at least 10 languages on stage. </p>
       </div>
     </div>
@@ -537,7 +548,7 @@ where she was live coding in at least 10 languages on stage. </p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/03/20-how-to-be-a-great-software-developer/">How to be a great software developer</a></h2>
-        <p>[How to be a great software developer][31] is a looong read, but it's worth reading, since it contains lots of truths.</p>
+        <p class="abstract"><a href="http://peternixey.com/post/83510597580/how-to-be-a-great-software-developer">How to be a great software developer</a> is a looong read, but it&#39;s worth reading, since it contains lots of truths.</p>
       </div>
     </div>
   
@@ -548,7 +559,7 @@ where she was live coding in at least 10 languages on stage. </p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/03/17-you-had-one-job/">You had one job</a></h2>
-        <p>I think [this][30] is a collection of funny accidents that I have to remember, might come in 
+        <p class="abstract">I think this is <a href="https://twitter.com/_youhadonejob">a collection of funny accidents</a> that I have to remember, might come in 
 handy for a next slide set.</p>
       </div>
     </div>
@@ -560,7 +571,7 @@ handy for a next slide set.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/24-make-your-site-a-bit-safer/">Make your site a bit safer</a></h2>
-        <p>Any browser project should [have a look at DOMPurify][29] at least, if not apply it right away.
+        <p class="abstract">Any browser project should <a href="https://github.com/cure53/DOMPurify">have a look at DOMPurify</a> at least, if not apply it right away.
 This might not be what you want to apply right away, but maybe it triggers you to learn
 more about this field, when security issues hit you it might be too late.</p>
       </div>
@@ -573,9 +584,9 @@ more about this field, when security issues hit you it might be too late.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/24-brand-assets-the-logo-sets-of-a-company-or-service/">Brand assets - the logo (sets) of a company or service</a></h2>
-        <p>For [TDDBin] I was just looking for all the icons to use on the website, icons from 
+        <p class="abstract">For <a href="http://tddbin.com">TDDBin</a> I was just looking for all the icons to use on the website, icons from 
 github, trello and twitter to embed them. And I found out that the collection of those
-images/graphics are called __brand assets__. Next time you search for them, don't use the term logo, 
+images/graphics are called <strong>brand assets</strong>. Next time you search for them, don&#39;t use the term logo, 
 use &quot;brand assets&quot;.</p>
       </div>
     </div>
@@ -586,8 +597,8 @@ use &quot;brand assets&quot;.</p>
         <div class="weekday">Monday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2014/02/24-driven-to-tests-by-kevlin-henney/">&quot;Driven to Tests&quot; by Kevlin Henney</a></h2>
-        <p>This is a great talk by [@KevlinHenney]</p>
+        <h2><a href="/blog/2014/02/24-driven-to-tests-by-kevlin-henney/">&quot;Driven to Tests&quot; by Kevlin Henney</a> 📺</h2>
+        <p class="abstract">This is a great talk by <a href="https://twitter.com/KevlinHenney">@KevlinHenney</a></p>
       </div>
     </div>
   
@@ -598,8 +609,8 @@ use &quot;brand assets&quot;.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/23-sound-generation-in-the-browser/">Sound generation in the browser</a></h2>
-        <p>It's not additional synthesis, as I would interpret the headline first, 
-but it's pretty hard core cool what is possible in the browser already.</p>
+        <p class="abstract">It&#39;s not additional synthesis, as I would interpret the headline first, 
+but it&#39;s pretty hard core cool what is possible in the browser already.</p>
       </div>
     </div>
   
@@ -610,7 +621,7 @@ but it's pretty hard core cool what is possible in the browser already.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/20-bash-scripting-if-explained-in-short/">Bash scripting &quot;if&quot; explained in short</a></h2>
-        <p>http://stackoverflow.com/a/18220301/21050</p>
+        <p class="abstract"><a href="http://stackoverflow.com/a/18220301/21050">http://stackoverflow.com/a/18220301/21050</a></p>
       </div>
     </div>
   
@@ -621,7 +632,7 @@ but it's pretty hard core cool what is possible in the browser already.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/19-deploying-to-gh-pages-after-successful-test-run-on-travis/">Deploying to gh-pages after successful test run on travis</a></h2>
-        <p>I wanted to just push my source code to github's master branch and all the deployment after that shall be automatic. 
+        <p class="abstract">I wanted to just push my source code to github&#39;s master branch and all the deployment after that shall be automatic. 
 Every dev-op reading this will say &quot;yeah sure, wtf?&quot;.</p>
       </div>
     </div>
@@ -633,7 +644,7 @@ Every dev-op reading this will say &quot;yeah sure, wtf?&quot;.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/19-problem-including-mocha-into-a-browserify-build/">Problem including mocha into a browserify build</a></h2>
-        <p>I don't get mocha to build with browserify, I always get</p>
+        <p class="abstract">I don&#39;t get mocha to build with browserify, I always get</p>
       </div>
     </div>
   
@@ -643,9 +654,9 @@ Every dev-op reading this will say &quot;yeah sure, wtf?&quot;.</p>
         <div class="weekday">Tuesday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2014/02/18-refactoring-knowledge/">Refactoring knowledge</a></h2>
-        <p>A Coding Dojo with [@XaV1uzz] doing [the Kata Mars Rover][20]
-and another one where he shows [how to refactor the bowling kata to patterns][21].</p>
+        <h2><a href="/blog/2014/02/18-refactoring-knowledge/">Refactoring knowledge</a> 📺</h2>
+        <p class="abstract">A Coding Dojo with <a href="http://twitter.com/XaV1uzz">@XaV1uzz</a> doing <a href="https://www.youtube.com/watch?v=saNHzjHwbsc">the Kata Mars Rover</a>
+and another one where he shows <a href="http://www.decharlas.uji.es/es/refactorizando-a-patrones-kata-bowling">how to refactor the bowling kata to patterns</a>.</p>
       </div>
     </div>
   
@@ -656,8 +667,8 @@ and another one where he shows [how to refactor the bowling kata to patterns][21
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/17-keep-a-github-fork-in-sync/">Keep a github fork in sync</a></h2>
-        <p>As often as I look for this, I need to write it down.
-For example for my fork of [github:dropping-spray], which got inspired by this [tweet][19]
+        <p class="abstract">As often as I look for this, I need to write it down.
+For example for my fork of <a href="https://github.com/Narigo/dropping-spray/">github:dropping-spray</a>, which got inspired by this <a href="https://twitter.com/NarigoDF/status/567572946626297857">tweet</a>
 and the following discussion.</p>
       </div>
     </div>
@@ -668,8 +679,8 @@ and the following discussion.</p>
         <div class="weekday">Sunday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2014/02/16-programming-programmers-and-our-craft/">Programming, Programmers and our craft</a></h2>
-        <p>This is a [very nice interview (video)][18] with JB Rainsberger and
+        <h2><a href="/blog/2014/02/16-programming-programmers-and-our-craft/">Programming, Programmers and our craft</a> 📺</h2>
+        <p class="abstract">This is a <a href="http://vimeo.com/13914482">very nice interview (video)</a> with JB Rainsberger and
 Corey Haines, two of the people I closely follow and try to learn from
 as much as I can.</p>
       </div>
@@ -682,7 +693,7 @@ as much as I can.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/11-cookie-libs-for-nodejs/">Cookie libs for (node)js</a></h2>
-        <p>If you want to dive into cookies, here is the [RFC6265]. I was looking around for some decent cookie libraries. There seem to be some
+        <p class="abstract">If you want to dive into cookies, here is the <a href="http://tools.ietf.org/html/rfc6265">RFC6265</a>. I was looking around for some decent cookie libraries. There seem to be some
 of them.</p>
       </div>
     </div>
@@ -694,7 +705,7 @@ of them.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/10-refactoring-rule-of-three/">Refactoring Rule of Three</a></h2>
-        <p>[is a post][18] by [Adrian Bolboaca][@adibolb]</p>
+        <p class="abstract"><a href="http://blog.adrianbolboaca.ro/2015/02/refactoring-rule-of-three/">is a post</a> by <a href="https://twitter.com/adibolb">Adrian Bolboaca</a></p>
       </div>
     </div>
   
@@ -705,7 +716,7 @@ of them.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/10-shell-in-javascript/">Shell in JavaScript</a></h2>
-        <p>I don't know why [shelljs] hasn't found me earlier :(</p>
+        <p class="abstract">I don&#39;t know why <a href="https://github.com/arturadib/shelljs">shelljs</a> hasn&#39;t found me earlier :(</p>
       </div>
     </div>
   
@@ -716,7 +727,7 @@ of them.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/07-git-rebase-an-explaination-i-like/">Git rebase, an explaination I like</a></h2>
-        <p>I asked myself what branch rebase refers to. The one I want to rebase on or
+        <p class="abstract">I asked myself what branch rebase refers to. The one I want to rebase on or
 the one I want to rebase from?</p>
       </div>
     </div>
@@ -728,7 +739,7 @@ the one I want to rebase from?</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/06-links-about-naming-things/">Links about naming things</a></h2>
-        <p>Links about naming things</p>
+        <p class="abstract">Links about naming things</p>
       </div>
     </div>
   
@@ -739,7 +750,7 @@ the one I want to rebase from?</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/05-just-looks-like-oop/">Just looks like OOP ...</a></h2>
-        <p>Linked in the [comments of this][8] I found [another great article][9], which
+        <p class="abstract">Linked in the <a href="http://objology.blogspot.de/2011/09/one-of-best-bits-of-programming-advice.html">comments of this</a> I found <a href="http://www.carlopescio.com/2011/04/your-coding-conventions-are-hurting-you.html">another great article</a>, which
 I just have to quote.</p>
       </div>
     </div>
@@ -751,7 +762,7 @@ I just have to quote.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/02/04-dont-make-objects-that-end-with-er/">Don't make objects that end with 'er'</a></h2>
-        <p>I was about to write a &quot;Handler&quot; class. But I remembered that the &quot;er&quot; classes
+        <p class="abstract">I was about to write a &quot;Handler&quot; class. But I remembered that the &quot;er&quot; classes
 are not so good.</p>
       </div>
     </div>
@@ -762,8 +773,8 @@ are not so good.</p>
         <div class="weekday">Friday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2014/01/24-trash-your-servers-and-burn-your-code-immutable-infrastructure-and-disposable-components/">Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components</a></h2>
-        <p>[a talk by Chad Fowler][7]</p>
+        <h2><a href="/blog/2014/01/24-trash-your-servers-and-burn-your-code-immutable-infrastructure-and-disposable-components/">Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components</a> 📺</h2>
+        <p class="abstract"><a href="https://www.youtube.com/watch?v=DVSNsAei0VE">a talk by Chad Fowler</a></p>
       </div>
     </div>
   
@@ -774,7 +785,7 @@ are not so good.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/23-beyond-solid-the-dependency-elimination-principle/">Beyond SOLID: The Dependency Elimination Principle</a></h2>
-        <p>There is always more to learn about any topic, also about SOLID.</p>
+        <p class="abstract">There is always more to learn about any topic, also about SOLID.</p>
       </div>
     </div>
   
@@ -785,7 +796,7 @@ are not so good.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/22-refactor-to-functional/">Refactor to functional</a></h2>
-        <p>Refactor to functional</p>
+        <p class="abstract">Refactor to functional</p>
       </div>
     </div>
   
@@ -796,10 +807,10 @@ are not so good.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/22-riotjs-a-react-like-lib/">riot.js, a react-like lib</a></h2>
-        <p>I read it first in my personal trending twitter search, then I saw it on [hacker news][1] 
-and I pulled [the repo][2] and being intrigued by the minimal size, compared to react and polymer
-I thought I try out the demo, didn't work. So I looked a the code, very opinionated.
-My conclusion after having spent about just 1h on it I summed up in [this tweet][3].</p>
+        <p class="abstract">I read it first in my personal trending twitter search, then I saw it on <a href="https://news.ycombinator.com/item?id=8928433">hacker news</a> 
+and I pulled <a href="https://github.com/muut/riotjs">the repo</a> and being intrigued by the minimal size, compared to react and polymer
+I thought I try out the demo, didn&#39;t work. So I looked a the code, very opinionated.
+My conclusion after having spent about just 1h on it I summed up in <a href="https://twitter.com/wolframkriesing/status/558248934985195520">this tweet</a>.</p>
       </div>
     </div>
   
@@ -810,10 +821,10 @@ My conclusion after having spent about just 1h on it I summed up in [this tweet]
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/21-getting-to-know-metalsmith/">Getting to know metalsmith</a></h2>
-        <p>[I have to read this](http://www.robinthrift.com/posts/getting-to-know-metalsmith/), 
+        <p class="abstract"><a href="http://www.robinthrift.com/posts/getting-to-know-metalsmith/">I have to read this</a>, 
 I just want to parse the data a bit
-and I fail. I smell that I don't get the concept fully yet,
-or that I am using it in a different way than it's meant.</p>
+and I fail. I smell that I don&#39;t get the concept fully yet,
+or that I am using it in a different way than it&#39;s meant.</p>
       </div>
     </div>
   
@@ -824,7 +835,7 @@ or that I am using it in a different way than it's meant.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-feature-injection-three-steps-to-success/">Feature Injection: three steps to success</a></h2>
-        <p>Feature Injection is a business analysis process framework</p>
+        <p class="abstract">Feature Injection is a business analysis process framework</p>
       </div>
     </div>
   
@@ -835,7 +846,7 @@ or that I am using it in a different way than it's meant.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-cson-json-with-coffeescript-flavor/">CSON (JSON with CoffeeScript flavor)</a></h2>
-        <p>JSON with CoffeeScript flavor</p>
+        <p class="abstract">JSON with CoffeeScript flavor</p>
       </div>
     </div>
   
@@ -846,9 +857,9 @@ or that I am using it in a different way than it's meant.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-a-meta-project/">A meta project</a></h2>
-        <p>In order to keep all your meta data of your project in one place
+        <p class="abstract">In order to keep all your meta data of your project in one place
 and only create files that actually just copy those data
-you can use [projectz](https://github.com/bevry/projectz)
+you can use <a href="https://github.com/bevry/projectz">projectz</a>
 where you maintain data like title, description, author(s), badges, ...
 in one CSON file and with a special markup you can update
 fill in the templates files like README, package.json, ...</p>
@@ -862,7 +873,7 @@ fill in the templates files like README, package.json, ...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-complexity-is-outside-the-code/">Complexity is outside the code</a></h2>
-        <p>Complexity is outside the code</p>
+        <p class="abstract">Complexity is outside the code</p>
       </div>
     </div>
   
@@ -873,9 +884,9 @@ fill in the templates files like README, package.json, ...</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-infodeck/">Infodeck</a></h2>
-        <p>Martin Fowler named interactive or more online consumable slides
-infodeck, [writes about it here](http://martinfowler.com/bliki/Infodeck.html)
-and he [is building a frontend](https://github.com/martinfowler/mfweb)
+        <p class="abstract">Martin Fowler named interactive or more online consumable slides
+infodeck, <a href="http://martinfowler.com/bliki/Infodeck.html">writes about it here</a>
+and he <a href="https://github.com/martinfowler/mfweb">is building a frontend</a>
 for it which you can feed via XML.</p>
       </div>
     </div>
@@ -887,8 +898,8 @@ for it which you can feed via XML.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-workflows-of-refactoring/">Workflows of Refactoring</a></h2>
-        <p>Martin Fowler lists the kinds of refactoring, the reasons 
-why we refactor code, [in his infodeck](http://martinfowler.com/articles/workflowsOfRefactoring/#2hats).</p>
+        <p class="abstract">Martin Fowler lists the kinds of refactoring, the reasons 
+why we refactor code, <a href="http://martinfowler.com/articles/workflowsOfRefactoring/#2hats">in his infodeck</a>.</p>
       </div>
     </div>
   
@@ -899,7 +910,7 @@ why we refactor code, [in his infodeck](http://martinfowler.com/articles/workflo
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/20-some-coding-katas/">Some coding katas</a></h2>
-        <p>[found on stackoverflow](http://stackoverflow.com/questions/1432485/coding-katas-for-practicing-the-refactoring-of-legacy-code)</p>
+        <p class="abstract"><a href="http://stackoverflow.com/questions/1432485/coding-katas-for-practicing-the-refactoring-of-legacy-code">found on stackoverflow</a></p>
       </div>
     </div>
   
@@ -910,7 +921,7 @@ why we refactor code, [in his infodeck](http://martinfowler.com/articles/workflo
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-webdriver-api/">webdriver API</a></h2>
-        <p>[The webdriver API is here][api]</p>
+        <p class="abstract"><a href="http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html">The webdriver API is here</a></p>
       </div>
     </div>
   
@@ -921,7 +932,7 @@ why we refactor code, [in his infodeck](http://martinfowler.com/articles/workflo
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-transducersjs/">Transducers(.js)</a></h2>
-        <p>Transducers(.js)</p>
+        <p class="abstract">Transducers(.js)</p>
       </div>
     </div>
   
@@ -932,9 +943,9 @@ why we refactor code, [in his infodeck](http://martinfowler.com/articles/workflo
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-testing-and-refactoring-legacy-code/">Testing and refactoring legacy code</a></h2>
-        <p>Very useful and right-away applicable insights 
-into [refactoring legacy code](http://virtualjug.com/testing-and-refactoring-legacy-code/).
-Seems the [VJUG has lot's good content](http://virtualjug.com/all-posts/).</p>
+        <p class="abstract">Very useful and right-away applicable insights 
+into <a href="http://virtualjug.com/testing-and-refactoring-legacy-code/">refactoring legacy code</a>.
+Seems the <a href="http://virtualjug.com/all-posts/">VJUG has lot&#39;s good content</a>.</p>
       </div>
     </div>
   
@@ -945,7 +956,7 @@ Seems the [VJUG has lot's good content](http://virtualjug.com/all-posts/).</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-the-introduction-to-reactive-programming-youve-been-missing/">The introduction to Reactive Programming you've been missing</a></h2>
-        <p>The introduction to Reactive Programming you've been missing</p>
+        <p class="abstract">The introduction to Reactive Programming you&#39;ve been missing</p>
       </div>
     </div>
   
@@ -956,9 +967,9 @@ Seems the [VJUG has lot's good content](http://virtualjug.com/all-posts/).</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-paxos-algorithm-to-solve-the-consensus-problem/">Paxos, algorithm to solve the consensus problem</a></h2>
-        <p>I came across paxos more often lately.
+        <p class="abstract">I came across paxos more often lately.
 The first time was at a meetup group &quot;Papers we love&quot; 
-there was a [meetup in December about paxos](http://www.meetup.com/Papers-We-Love-Munich/events/213339452/).</p>
+there was a <a href="http://www.meetup.com/Papers-We-Love-Munich/events/213339452/">meetup in December about paxos</a>.</p>
       </div>
     </div>
   
@@ -969,7 +980,7 @@ there was a [meetup in December about paxos](http://www.meetup.com/Papers-We-Lov
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-angular-reviews/">Angular reviews</a></h2>
-        <p>Lately they don't turn out so good, or is it my blurred vision?</p>
+        <p class="abstract">Lately they don&#39;t turn out so good, or is it my blurred vision?</p>
       </div>
     </div>
   
@@ -979,8 +990,8 @@ there was a [meetup in December about paxos](http://www.meetup.com/Papers-We-Lov
         <div class="weekday">Sunday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2014/01/19-one-hacker-way-erik-meijer/">One Hacker Way - Erik Meijer</a></h2>
-        <p>I really appreciate the things I learnt from Erik Meijer, but I am
+        <h2><a href="/blog/2014/01/19-one-hacker-way-erik-meijer/">One Hacker Way - Erik Meijer</a> 📺</h2>
+        <p class="abstract">I really appreciate the things I learnt from Erik Meijer, but I am
 not so sure I can follow all his opinions.</p>
       </div>
     </div>
@@ -992,7 +1003,7 @@ not so sure I can follow all his opinions.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-mocks-arent-stubs/">Mocks Aren't Stubs</a></h2>
-        <p>Mocks Aren't Stubs</p>
+        <p class="abstract">Mocks Aren&#39;t Stubs</p>
       </div>
     </div>
   
@@ -1002,11 +1013,11 @@ not so sure I can follow all his opinions.</p>
         <div class="weekday">Sunday</div>
       </div>
       <div class="content">
-        <h2><a href="/blog/2014/01/19-sandi-metz-the-design-of-tests/">Sandi Metz - The Design of Tests</a></h2>
-        <p>Watch the author of [poodr] describing
-[how to solve the problem of mocks and real code running out of sync](https://www.youtube.com/watch?v=qT5iriwidRg)!
+        <h2><a href="/blog/2014/01/19-sandi-metz-the-design-of-tests/">Sandi Metz - The Design of Tests</a> 📺</h2>
+        <p class="abstract">Watch the author of <a href="http://poodr.com">poodr</a> describing
+<a href="https://www.youtube.com/watch?v=qT5iriwidRg">how to solve the problem of mocks and real code running out of sync</a>!
 (And lots of goodies about testing and stuff.)
-Watch it twice, it's worth it :)</p>
+Watch it twice, it&#39;s worth it :)</p>
       </div>
     </div>
   
@@ -1017,7 +1028,7 @@ Watch it twice, it's worth it :)</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-worlds-first-known-bootkit-for-os-x-can-permanently-backdoor-macs/">World’s first (known) bootkit for OS X can permanently backdoor Macs</a></h2>
-        <p>My lack of knowledge and understanding and knowing it scares me most</p>
+        <p class="abstract">My lack of knowledge and understanding and knowing it scares me most</p>
       </div>
     </div>
   
@@ -1028,13 +1039,13 @@ Watch it twice, it's worth it :)</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-markdown-used-by-metalsmith/">Markdown used by metalsmith</a></h2>
-        <p>As I just found in the docs metalsmith, which again uses
-[the package metalsmith-markdown](https://github.com/segmentio/metalsmith-markdown)
+        <p class="abstract">As I just found in the docs metalsmith, which again uses
+<a href="https://github.com/segmentio/metalsmith-markdown">the package metalsmith-markdown</a>
 which in again uses
-[the package marked](https://github.com/chjj/marked)
-describes [in the readme](https://github.com/chjj/marked#philosophy-behind-marked)
+<a href="https://github.com/chjj/marked">the package marked</a>
+describes <a href="https://github.com/chjj/marked#philosophy-behind-marked">in the readme</a>
 that is also supports
-[github flavored markdown](https://help.github.com/articles/github-flavored-markdown/).
+<a href="https://help.github.com/articles/github-flavored-markdown/">github flavored markdown</a>.
 (I was actually just looking for how to strikeout things :)).</p>
       </div>
     </div>
@@ -1046,7 +1057,7 @@ that is also supports
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/19-myth-the-simpler-css-transformer/">Myth - the simpler CSS transformer?</a></h2>
-        <p>[Myth](http://www.myth.io/) - a simpler alternative to all the CSS transformers out there?</p>
+        <p class="abstract"><a href="http://www.myth.io/">Myth</a> - a simpler alternative to all the CSS transformers out there?</p>
       </div>
     </div>
   
@@ -1057,8 +1068,8 @@ that is also supports
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/18-building-a-parallel-browser/">Building a Parallel Browser</a></h2>
-        <p>Servo is an experimental browser engine for modern multi-core hardware written in an experimental memory safe language called Rust.
-[Maybe the future Firefox engine?](https://www.youtube.com/watch?v=7q9vIMXSTzc)</p>
+        <p class="abstract">Servo is an experimental browser engine for modern multi-core hardware written in an experimental memory safe language called Rust.
+<a href="https://www.youtube.com/watch?v=7q9vIMXSTzc">Maybe the future Firefox engine?</a></p>
       </div>
     </div>
   
@@ -1069,7 +1080,7 @@ that is also supports
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/18-smallest-test-runner/">Smallest test runner</a></h2>
-        <p>IDEs are awesome, but sometimes in my way and setting up test runners
+        <p class="abstract">IDEs are awesome, but sometimes in my way and setting up test runners
 sometimes defeats the purpose of being fast with tests, which also
 means having feedback constantly and continuously.</p>
       </div>
@@ -1082,10 +1093,10 @@ means having feedback constantly and continuously.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/17-speed-up-mac-os-x-yosemite/">Speed up Mac OS X Yosemite</a></h2>
-        <p>I expected my new 15&quot; Retina MacBook Pro to just blow my mind
-in terms of speed. But it didn't ... until now I am pretty
-disappointed. So I finally did [some cleanup this weekend
-that promises to speed up](https://discussions.apple.com/thread/6623697), I am hoping.</p>
+        <p class="abstract">I expected my new 15&quot; Retina MacBook Pro to just blow my mind
+in terms of speed. But it didn&#39;t ... until now I am pretty
+disappointed. So I finally did <a href="https://discussions.apple.com/thread/6623697">some cleanup this weekend
+that promises to speed up</a>, I am hoping.</p>
       </div>
     </div>
   
@@ -1096,11 +1107,11 @@ that promises to speed up](https://discussions.apple.com/thread/6623697), I am h
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/15-markdown-syntax-the-spec/">Markdown syntax, the spec</a></h2>
-        <p>I never knew which is _the_ right markdown syntax, I took the five minutes to find out
-now I know, it [seems to be this one here](http://daringfireball.net/projects/markdown/syntax).
+        <p class="abstract">I never knew which is <em>the</em> right markdown syntax, I took the five minutes to find out
+now I know, it <a href="http://daringfireball.net/projects/markdown/syntax">seems to be this one here</a>.
 At least following the link chain that lead me from
-[metalsmith](http://www.metalsmith.io/),
-which I [use here to create this site](https://github.com/wolframkriesing/wolfram.kriesing.de/blob/7bd5d8af1b4e3652290900b1eeb4c5dada7a6bfc/package.json#L23-L24)
+<a href="http://www.metalsmith.io/">metalsmith</a>,
+which I <a href="https://github.com/wolframkriesing/wolfram.kriesing.de/blob/7bd5d8af1b4e3652290900b1eeb4c5dada7a6bfc/package.json#L23-L24">use here to create this site</a>
 to the markdown syntax.</p>
       </div>
     </div>
@@ -1112,7 +1123,7 @@ to the markdown syntax.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/10-deploy-via-ghpages/">Deploy built files easier via gh-pages branch on github</a></h2>
-        <p>I found it always painful to only update the gh-pages branch for
+        <p class="abstract">I found it always painful to only update the gh-pages branch for
 deploying to a custom domain, an easy solution is pushing a
 subdirectory to gh-pages branch.</p>
       </div>
@@ -1125,14 +1136,15 @@ subdirectory to gh-pages branch.</p>
       </div>
       <div class="content">
         <h2><a href="/blog/2014/01/10-purpose-of-phony-in-makefile/">Purpose of .PHONY in a Makefile</a></h2>
-        <p>The [answer on stackoverflow][stackoverflow-link]
+        <p class="abstract">The <a href="http://stackoverflow.com/questions/2145590/what-is-the-purpose-of-phony-in-a-makefile">answer on stackoverflow</a>
 and also a more linux focused one
-[on linuxedevcenter.com][linuxdevcenter-link]
+<a href="http://www.linuxdevcenter.com/pub/a/linux/2002/01/31/make_intro.html?page=2">on linuxedevcenter.com</a>
 as given as reference
 in the article.</p>
       </div>
     </div>
   
+
 
 </body>
 </html>

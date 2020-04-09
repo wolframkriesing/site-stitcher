@@ -9,11 +9,15 @@
   <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-  <link rel="canonical" href="https://picostitch.com/blog/2014/01/19-markdown-used-by-metalsmith/">
-  <title>Markdown used by metalsmith | picostitch - stuff about crafting (and) JavaScript</title>
-  
+  <link rel="canonical" href="https://picostitch.com{[ block canonicalUrl ]}
+{[ endblock ]}">
+  <title>{[ block pageTitlePrefix ]}
+{[ endblock ]} | picostitch - stuff about crafting (and) JavaScript</title>
+  {[ block head ]}
+  {[ endblock ]}
 </head>
-<body class="page-post">
+<body class="page-{[ block pagename ]}
+{[ endblock ]}">
 
   <header>
     <nav role="navigation" aria-labelledby="primary-navigation">
@@ -30,31 +34,8 @@
     </div>
   </header>
 
-  
-  <h1>Markdown used by metalsmith</h1>
-  <p class="metadata">
-    Wolfram Kriesing
-    - 2014-01-19
-    
-  </p>
-
-  <p>As I just found in the docs metalsmith, which again uses
-<a href="https://github.com/segmentio/metalsmith-markdown">the package metalsmith-markdown</a>
-which in again uses
-<a href="https://github.com/chjj/marked">the package marked</a>
-describes <a href="https://github.com/chjj/marked#philosophy-behind-marked">in the readme</a>
-that is also supports
-<a href="https://help.github.com/articles/github-flavored-markdown/">github flavored markdown</a>.
-(I was actually just looking for how to strikeout things :)).</p>
-<p>dateCreated: 2014-01-19 10:00 CET
-tags: metalsmith
-markdown</p>
-
-
-  
-  
-
-
+  {[ block content ]}
+  {[ endblock ]}
 
 </body>
 </html>
