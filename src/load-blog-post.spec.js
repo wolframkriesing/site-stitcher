@@ -1,15 +1,23 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
 import {assertThat, hasProperties} from 'hamjest';
-import {loadBlogPostList, loadBlogPost} from './load-blog-post.js';
+import {loadBlogPost, loadBlogPostList} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Load a blog post completely, with all data ready to render', () => {
   describe('GIVEN a valid post', () => {
+    const loadPost = async (params) => {
+      const defaults = {fileContent: '', markdownFilename: '2001/01/01-post.md'};
+      const {fileContent, markdownFilename} = {...defaults, ...params};
+      const preloadedPost = BlogPost.preload(markdownFilename);
+      const loadBlogPostFromFile = async () => fileContent;
+      return await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
+    };
     it('WHEN post has headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
-      const preloadedPost = BlogPost.preload('2001/01/01-post.md');
-      const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
-      const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
+      const post = await loadPost({
+        markdownFilename: '2001/01/01-post.md',
+        fileContent: '# This is the first post\nthe first paragraph of the blog post ...'
+      });
       const expectedProps = {
         dateCreated: '2001-01-01',
         markdownFilename: '2001/01/01-post.md',
@@ -19,9 +27,7 @@ describe('Load a blog post completely, with all data ready to render', () => {
       assertThat(post, hasProperties(expectedProps));
     });
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
-      const preloadedPost = BlogPost.preload('2001/01/01-post.md');
-      const loadBlogPostFromFile = async () => '# headline';
-      const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
+      const post = await loadPost({fileContent: '# headline'});
       assert.strictEqual(post.abstract, '');
     });
     it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
