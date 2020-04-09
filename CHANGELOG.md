@@ -56,9 +56,9 @@
   - [ ] 301 from the old url to the new one
   - [x] render [x][y] links properly, seems not to work - newline before was missing
 - [ ] provide meta data
-  - [ ] use multimarkdown style, just key-value pairs at the top
+  - [x] use multimarkdown style, just key-value pairs at the top
   - [ ] update all posts to use it
-  - [ ] add the metadata to BlogPost
+  - [x] add the metadata to BlogPost
   - [ ] render the metadata if needed (e.g. on the post page)
 - [ ] indieweb auth of my page
 - [x] make it deploy on GH
