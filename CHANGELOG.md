@@ -45,6 +45,7 @@
 - [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
 - [ ] provide thumbnailUrl (see schema) for a post
 - [ ] handle or remove `related_tweets:` which some posts still have
+- [ ] indieweb auth of my page
 
 # v1 - my website
 - [x] make it run using docker
@@ -63,7 +64,6 @@
   - [x] update all posts to use it
   - [x] add the metadata to BlogPost
   - [x] render the metadata if needed (e.g. on the post page)
-- [ ] indieweb auth of my page
 - [x] make it deploy on GH
 - [ ] move domain to GH
 - [ ] add footer and imprint
