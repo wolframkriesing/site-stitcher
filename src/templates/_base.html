@@ -18,12 +18,21 @@
 </head>
 <body class="page-{[ block pagename ]}
 {[ endblock ]}">
-  <nav aria-labelledby="primary-navigation">
-    <h1>picostitch blog</h1>
-    <ul>
-      <li><a href="/">Blog</a></li>
-    </ul>
-  </nav>
+
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
 
   {[ block content ]}
   {[ endblock ]}

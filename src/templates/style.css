@@ -3,6 +3,22 @@ body {
   font-family: sans-serif;
 }
 
+header {
+  display: flex;
+}
+  header .sitename {
+    flex: 1;
+    text-align: center;
+  }
+    header .sitename a {
+      font-size: 2rem;
+    }
+    header .sitename .subtitle {
+    }
+  header nav {
+    flex: 2;
+  }
+
 
 .page-home h1 {
   display: inline;
