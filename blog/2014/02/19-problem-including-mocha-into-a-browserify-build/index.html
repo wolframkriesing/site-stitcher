@@ -11,7 +11,7 @@
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2014/02/19-problem-including-mocha-into-a-browserify-build/">
 </head>
-<body>
+<body class="page-post">
   <nav aria-labelledby="primary-navigation">
     h1 picostitch blog /h1
     <ul>
@@ -19,16 +19,14 @@
     </ul>
   </nav>
 
-  2014-02-19 10:00 CET
-  Author: Wolfram Kriesing
-  Tags: #javascript,#testing,#mocha
+  <h1>Problem including mocha into a browserify build</h1>
+  <p class="metadata">
+    Wolfram Kriesing,
+    2014-02-19 10:00 CET,
+    tagged with: #javascript #testing #mocha
+  </p>
 
-
-  <p>dateCreated: 2014-02-19 10:00 CET
-tags: javascript, testing, mocha
-postTypes: mini-post</p>
-<h1 id="problem-including-mocha-into-a-browserify-build">Problem including mocha into a browserify build</h1>
-<p>I don&#39;t get mocha to build with browserify, I always get</p>
+  <p>I don&#39;t get mocha to build with browserify, I always get</p>
 <pre><code>Error: Cannot find module &#39;../suite&#39; from &#39;/Users/me/tddbin-frontend/node_modules/mocha&#39;</code></pre><p>The problems mentioned in <a href="https://github.com/mochajs/mocha/issues/1316">those</a> <a href="https://github.com/mochajs/mocha/issues/880">issues</a> seem to have no solution provided yet.
 It seems that browserify picks up a built <code>mocha.js</code> and can&#39;t handle some magic done in there.<br>My solution for now is to use <a href="http://cdnjs.com/libraries/mocha">mocha from the CDN</a>, which might not work in all use cases, but does for me now.</p>
 

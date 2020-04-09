@@ -11,7 +11,7 @@
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/01/21-the-magic-dash-in-jinja-template-block/">
 </head>
-<body>
+<body class="page-post">
   <nav aria-labelledby="primary-navigation">
     h1 picostitch blog /h1
     <ul>
@@ -19,16 +19,14 @@
     </ul>
   </nav>
 
-  2017-01-21 10:00 CET
-  Author: Wolfram Kriesing
-  Tags: #jinja,#template,#spaceless
+  <h1>The magic dash in a Jinja template block</h1>
+  <p class="metadata">
+    Wolfram Kriesing,
+    2017-01-21 10:00 CET,
+    tagged with: #jinja #template #spaceless
+  </p>
 
-
-  <p>dateCreated: 2017-01-21 10:00 CET
-tags: jinja, template, spaceless
-postTypes: post</p>
-<h1 id="the-magic-dash-in-a-jinja-template-block">The magic dash in a Jinja template block</h1>
-<p>What the heck does <code>-%}</code> mean in a Jinja template?</p>
+  <p>What the heck does <code>-%}</code> mean in a Jinja template?</p>
 <p>By using Lektor I need to learn <a href="http://jinja.pocoo.org/">Jinja</a>, the template engine used. And I have to say it has the addons that I had always wished for in Django&#39;s template language (swig). For example there is <code>else</code> for the <code>for</code> loop, which applies when there is nothing to loop over.</p>
 <p>And while looking for a tag system I came across <a href="https://pypi.python.org/pypi/lektor-tags">lektor-tags</a> which looks like the tag power and simplicity I need. While trying to get it to run, I came across this piece of Jinja template:</p>
 <pre><code class="language-jinja">{% for t in this.tags -%}

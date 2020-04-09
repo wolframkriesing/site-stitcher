@@ -11,7 +11,7 @@
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/02/09-which-process-uses-this-port/">
 </head>
-<body>
+<body class="page-post">
   <nav aria-labelledby="primary-navigation">
     h1 picostitch blog /h1
     <ul>
@@ -19,16 +19,14 @@
     </ul>
   </nav>
 
-  2017-02-09 18:00 CET
-  Author: Wolfram Kriesing
-  Tags: #command line,#linux,#tooling,#lsof
+  <h1>Find out which process listens on which port</h1>
+  <p class="metadata">
+    Wolfram Kriesing,
+    2017-02-09 18:00 CET,
+    tagged with: #command line #linux #tooling #lsof
+  </p>
 
-
-  <p>dateCreated: 2017-02-09 18:00 CET
-tags: command line, linux, tooling, lsof
-postTypes: post</p>
-<h1 id="find-out-which-process-listens-on-which-port">Find out which process listens on which port</h1>
-<p>The annoying <code>port 8080 is already in use</code> message and not knowing which
+  <p>The annoying <code>port 8080 is already in use</code> message and not knowing which
 process is occupying this port sucks. I knew it was <code>lsof</code> that can help me.
 But how exactly?
 TL;DR: <code>ps -p `lsof -i :8080 -t` -o command=</code> (on Mac OSX)</p>
