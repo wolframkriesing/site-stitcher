@@ -62,12 +62,27 @@ const findHeadlineAndAbstract = (tokens) => {
   return {headline, abstract};
 }
 
-const parseRawPost = fileContent => {
-  const tokens = marked.lexer(fileContent);
+const parseRawPost = tokens => {
   const {headline, abstract} = findHeadlineAndAbstract(tokens);
   const metadata = parseMetadata(tokens);
   return {headline, abstract, ...metadata};
 };
+const findBodyToRender = tokens => {
+  // DANGER we are modifying `tokens` here, since it has some properties, like `links`
+  // set on the object, so it's not a pure array ... therefore we rather just shift() out
+  // elements, instead of cloning it and may fuck up something else of marked's tokens object.
+  while (tokens.length > 0) {
+    if (tokens[0].type === 'heading' && tokens[0].depth === 1) {
+      tokens.shift();
+      return;
+    }
+    tokens.shift();
+  }
+}
+const renderBodyAsHtml = tokens => {
+  findBodyToRender(tokens);
+  return marked.parser(tokens);
+}
 
 export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async blogPostList => {
   const loadPost = loadBlogPost({loadBlogPostFromFile});
@@ -76,6 +91,8 @@ export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async b
 
 export const loadBlogPost = ({loadBlogPostFromFile}) => async (blogPost) => {
   const rawPost = await loadBlogPostFromFile(blogPost.markdownFilename);
-  const parsedPostData = parseRawPost(rawPost);
-  return blogPost.cloneAndOverrideWith(parsedPostData);
+  const tokens = marked.lexer(rawPost);
+  const parsedPostData = parseRawPost(tokens);
+  const bodyAsHtml = renderBodyAsHtml(tokens);
+  return blogPost.cloneAndOverrideWith({...parsedPostData, bodyAsHtml});
 }

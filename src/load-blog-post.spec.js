@@ -61,6 +61,11 @@ describe('Load a blog post completely, with all data ready to render', () => {
         assertThat(post, hasProperties({oldUrls: ['/blog/old.html', '/blog/old1.html']}));
       });
     });
+    it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
+      const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';
+      const post = await loadPost({fileContent});
+      assertThat(post, hasProperties({bodyAsHtml: '<p>first paragraph</p>\n'}));
+    });
   });
 });
 
