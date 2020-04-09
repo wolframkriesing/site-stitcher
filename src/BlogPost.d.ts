@@ -11,6 +11,7 @@ export class BlogPost {
   youtubeId?: string;
   vimeoId?: string;
   videoStartTime?: string;
+  hasVideo: boolean;
 
   static preload(markdownFilename: string): BlogPost;
   equals(blogPost: BlogPost): boolean;

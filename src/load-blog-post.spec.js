@@ -62,15 +62,15 @@ describe('Load a blog post completely, with all data ready to render', () => {
       });
       it('WHEN it has `youtubeId` THEN provide it', async () => {
         const post = await loadPost({fileContent: 'youtubeId: 12345\n\n# headline'});
-        assertThat(post, hasProperties({youtubeId: '12345'}));
+        assertThat(post, hasProperties({youtubeId: '12345', hasVideo: true}));
       });
       it('WHEN it has `vimeoId` THEN provide it', async () => {
         const post = await loadPost({fileContent: 'vimeoId: 12345\n\n# headline'});
-        assertThat(post, hasProperties({vimeoId: '12345'}));
+        assertThat(post, hasProperties({vimeoId: '12345', hasVideo: true}));
       });
       it('WHEN it has `videoStartTime` THEN provide it', async () => {
         const post = await loadPost({fileContent: 'videoStartTime: 42\n\n# headline'});
-        assertThat(post, hasProperties({videoStartTime: '42'}));
+        assertThat(post, hasProperties({videoStartTime: '42', hasVideo: false}));
       });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {

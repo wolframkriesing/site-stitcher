@@ -22,6 +22,9 @@ export class BlogPost {
     // TODO compare properly ...
     return this.dateCreated === blogPost.dateCreated;
   }
+  get hasVideo() {
+    return Boolean(this.youtubeId || this.vimeoId);
+  }
   cloneAndOverrideWith(overrideData) {
     const clone = new BlogPost();
     // TODO clone properly, taking all props into account
