@@ -1,3 +1,7 @@
+dateCreated: 2017-01-21 10:00 CET
+tags: jinja, template, spaceless
+postTypes: post
+
 # The magic dash in a Jinja template block
 
 What the heck does `-%}` mean in a Jinja template?
@@ -26,10 +30,3 @@ What a blessing. Something we always wanted in a template language. I remember b
 [jinja]: http://jinja.pocoo.org/
 [lektor-tags]: https://pypi.python.org/pypi/lektor-tags
 [jinja-whitespace-control]: http://jinja.pocoo.org/docs/2.9/templates/#whitespace-control
-
-dateCreated: 2017-01-21 10:00 CET
-tags: jinja
-template
-spaceless
----
-postTypes: post

@@ -1,3 +1,7 @@
+dateCreated: 2017-01-27 00:11 CET
+tags: react, jsx, comment
+postTypes: mini-post
+
 # Comments inside JSX
 
 Sometimes I stumble over commenting out a part in my JSX template.
@@ -18,10 +22,3 @@ const MyPage = () => {
   );
 }
 ```
-
-dateCreated: 2017-01-27 00:11 CET
-tags: react
-jsx
-comment
----
-postTypes: mini-post

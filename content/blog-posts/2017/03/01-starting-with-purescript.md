@@ -1,3 +1,7 @@
+dateCreated: 2017-03-01 20:02 CET
+postTypes: post
+tags: purescript, javascript, functional, typing
+
 # Purescript - the semantics of JavaScript with types #1
 
 I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *"to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell"*.
@@ -61,11 +65,3 @@ I would like to generalize the last bullet point on the list a bit more. You can
 
 [ps-book]: https://leanpub.com/purescript/read
 [phil-freeman]: https://twitter.com/paf31
-
-dateCreated: 2017-03-01 20:02 CET
----
-postTypes: post
-tags: purescript
-javascript
-functional
-typing

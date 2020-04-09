@@ -1,3 +1,7 @@
+dateCreated: 2017-01-26 23:11 CET
+tags: organizing, mikado method, adr, documentation
+postTypes: mini-post
+
 # ADR for documenting decisions
 
 ADR is a way to document decisions, reminds me of python's PEP.
@@ -14,11 +18,3 @@ myself into the rabbit hole :).
 [tweet]: https://twitter.com/lsmith/status/824593370496565248
 [post]: http://thinkrelevance.com/blog/2011/11/15/documenting-architecture-decisions
 [mikado]: https://www.infoq.com/news/2012/02/mikado-method
-
-dateCreated: 2017-01-26 23:11 CET
-tags: organizing
-mikado method
-adr
-documentation
----
-postTypes: mini-post

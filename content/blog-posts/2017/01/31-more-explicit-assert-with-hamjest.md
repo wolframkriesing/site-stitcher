@@ -1,3 +1,5 @@
+dateCreated: 2017-01-31 18:11 CET
+
 # More explicit assert with hamjest
 
 An undone blog post - More explicit assert with hamjest
@@ -44,13 +46,3 @@ and we will get: day has no property `isSpecialDay` which should equal to `true`
 You might say, that's two assertion in on test, but I am fine with that
 as long as the test reporter tells me all the things that are wrong.
 Otherwise I would have to figure out in which order to solve failing tests.
-
-
-_discoverable: no
----
-
-dateCreated: 2017-01-31 18:11 CET
----
-TTTTtags:
-
-

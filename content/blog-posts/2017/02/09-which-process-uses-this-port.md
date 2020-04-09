@@ -1,3 +1,7 @@
+dateCreated: 2017-02-09 18:00 CET
+tags: command line, linux, tooling, lsof
+postTypes: post
+
 # Find out which process listens on which port
 
 The annoying `port 8080 is already in use` message and not knowing which
@@ -74,14 +78,6 @@ of a `lsof` run will also show you quite a big number of lines.
 
 [article]: https://debian-administration.org/article/184/How_to_find_out_which_process_is_listening_upon_a_port
 
-dateCreated: 2017-02-09 18:00 CET
-tags: command line
-linux
-tooling
-lsof
----
-postTypes: post
----
 related_tweets:
 
 <blockquote class="twitter-tweet" data-conversation="none" data-cards="hidden" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/wolframkriesing">@wolframkriesing</a> Small nitpick: My Linux ps doesn&#39;t know &quot;-p&quot; - Works on FreeBSD, and so I guess you use OSX :)</p>&mdash; My Own Worst Enemy (@anderiasch) <a href="https://twitter.com/anderiasch/status/834859794892730369">February 23, 2017</a></blockquote>

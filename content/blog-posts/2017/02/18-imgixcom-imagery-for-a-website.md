@@ -1,3 +1,7 @@
+dateCreated: 2017-02-18 11:55 CET
+tags: images, website, online service
+postTypes: summary
+
 # imgix.com - imagery for a website
 
 I just stumbled over https://imgix.com  which looks like it could speed up a website building process and reduce the time one needs to invest in preparing images.
@@ -13,9 +17,3 @@ detection and auto-enhance image quality if desired.
 
 What I don't get yet is how painless and really no-work this will be.
 Sounds all good, but also sounds like I would just do the work somewhere else then on my computer.
-dateCreated: 2017-02-18 11:55 CET
-tags: images
-website
-online service
----
-postTypes: summary

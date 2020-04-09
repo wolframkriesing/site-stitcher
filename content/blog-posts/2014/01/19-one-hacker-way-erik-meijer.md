@@ -1,3 +1,7 @@
+dateCreated: 2014-01-19 11:00 CET
+tags: agile, video
+vimeoId: 110554082
+
 # One Hacker Way - Erik Meijer
 
 I really appreciate the things I learnt from Erik Meijer, but I am
@@ -12,9 +16,3 @@ But nevertheless it's very entertaining!
 
 Those statements are actually the funny parts of his talk, though
 I am not sure how funny they are meant :).
-
-dateCreated: 2014-01-19 11:00 CET
-tags: agile
-video
----
-vimeoId: 110554082
