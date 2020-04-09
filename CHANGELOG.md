@@ -41,6 +41,7 @@
   - [ ] 3rd party URLs loaded on the page
   - [ ] number of requests, etc.
 - [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
+- [ ] provide thumbnailUrl (see schema) for a post
 
 # v1 - my website
 - [x] make it run using docker
@@ -70,3 +71,4 @@
   - [x] show the date like this "24 Jan, 2002"
   - [ ] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`        
+- [ ] add licensing on the page!
