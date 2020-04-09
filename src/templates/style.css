@@ -39,6 +39,7 @@ nav {
   }
   nav li {
     display: inline;
+    margin-right: 2rem;
   }
 
 
