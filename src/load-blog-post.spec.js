@@ -44,7 +44,7 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
       const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
       assert.strictEqual(loadedBlogPostList[0].abstract, '');
     });
-    it('WHEN the headline is not followed by a paragraph, e.g. a headline THEN set abstract=""', async () => {
+    it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
       const blogPostList = [BlogPost.withMarkdownFilename('2001/01/01-post.md')];
       const loadBlogPostFromFile = async () => '# headline\n## subheadline';
       const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
