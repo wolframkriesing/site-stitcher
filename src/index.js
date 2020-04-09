@@ -11,13 +11,11 @@ import {toReadableDate, toWeekday} from './date.js';
 tundra.setBase(path.join(__dirname, 'templates'));
 
 import * as fs from 'fs';
-import marked from 'marked';
 const generatePost = (post) => {
   const destDir = path.join(__dirname, '../_output', post.url);
   fs.mkdirSync(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const postHtml = marked(fs.readFileSync(post.markdownFilename, 'utf8'));
-  const renderedFile = tundra.getRender('post.html', {post, postHtml, toReadableDateTime: s => s});
+  const renderedFile = tundra.getRender('post.html', {post, toReadableDateTime: s => s});
   fs.writeFileSync(destFilename, renderedFile);
 console.log("Built ", destFilename);
 }
