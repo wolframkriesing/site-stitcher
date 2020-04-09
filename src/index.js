@@ -17,7 +17,7 @@ const generatePost = (post) => {
   fs.mkdirSync(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const postHtml = marked(fs.readFileSync(post.markdownFilename, 'utf8'));
-  const renderedFile = tundra.getRender('post.html', {post, postHtml});
+  const renderedFile = tundra.getRender('post.html', {post, postHtml, toReadableDateTime: s => s});
   fs.writeFileSync(destFilename, renderedFile);
 console.log("Built ", destFilename);
 }
