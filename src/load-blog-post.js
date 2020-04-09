@@ -7,6 +7,18 @@ const prodDeps = () => {
   return {loadBlogPostFromFile};
 };
 
+/**
+ * @param tokens
+ * @returns {BlogPostMetadata}
+ */
+const parseMetadata = (tokens) => {
+  if (tokens[0].type === 'paragraph') {
+    const dateCreated = '2001-01-01 01:01 CET';
+    return {dateCreated};
+  }
+  return {};
+}
+
 const findHeadlineAndAbstract = (tokens) => {
   let tokenIndex = 0;
   let headline = '';
@@ -29,7 +41,8 @@ const findHeadlineAndAbstract = (tokens) => {
 const parseRawPost = fileContent => {
   const tokens = marked.lexer(fileContent);
   const {headline, abstract} = findHeadlineAndAbstract(tokens);
-  return {headline, abstract};
+  const metadata = parseMetadata(tokens);
+  return {headline, abstract, ...metadata};
 };
 
 export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async blogPostList => {

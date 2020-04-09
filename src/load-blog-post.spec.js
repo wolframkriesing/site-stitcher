@@ -39,7 +39,7 @@ describe('Load a blog post completely, with all data ready to render', () => {
         const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
         assertThat(post, hasProperties({headline: 'headline', abstract: 'abstract, yeah'}));
       });
-      xit('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
+      it('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
         const dateCreated = '2001-01-01 01:01 CET';
         const post = await loadPost({fileContent: `dateCreated: ${dateCreated}\n\n# headline\nabstract, yeah`});
         assert.strictEqual(post.dateCreated, dateCreated);
