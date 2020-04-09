@@ -11,12 +11,12 @@ import {toReadableDate, toWeekday} from './date.js';
 tundra.setBase(path.join(__dirname, 'templates'));
 
 import * as fs from 'fs';
-const generatePost = (post) => {
+const generatePost = async (post) => {
   const destDir = path.join(__dirname, '../_output', post.url);
-  fs.mkdirSync(destDir, {recursive: true});
+  await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const renderedFile = tundra.getRender('post.html', {post, toReadableDateTime: s => s});
-  fs.writeFileSync(destFilename, renderedFile);
+  await fs.promises.writeFile(destFilename, renderedFile);
 console.log("Built ", destFilename);
 }
 
@@ -26,7 +26,7 @@ console.log("Built ", destFilename);
     await loadBlogPostList()(await preloadBlogPostListFromDirectory()(postsDirectory))
   ).sort(sortByDateCreatedDescending);
 
-  posts.forEach(generatePost);
+  await Promise.all(posts.map(generatePost));
 
   const renderedFile = tundra.getRender('index.html', {posts, toReadableDate, toWeekday});
   const destFilename = path.join(__dirname, '../_output', 'index.html');
