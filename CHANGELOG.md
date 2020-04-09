@@ -44,6 +44,7 @@
   - [ ] number of requests, etc.
 - [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
 - [ ] provide thumbnailUrl (see schema) for a post
+- [ ] handle or remove `related_tweets:` which some posts still have
 
 # v1 - my website
 - [x] make it run using docker
