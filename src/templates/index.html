@@ -12,7 +12,7 @@
         <div class="weekday">{{toWeekday(post.dateCreated)}}</div>
       </div>
       <div class="content">
-        <h2><a href="{{post.url}}">{{post.headline}}</a></h2>
+        <h2><a href="{{post.url}}">{{post.headline}}</a>{{ post.hasVideo ? ' 📺' : '' }}</h2>
         <p class="abstract">{!post.abstractContentAsHtml!}</p>
       </div>
     </div>
