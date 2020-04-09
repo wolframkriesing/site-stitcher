@@ -19,12 +19,15 @@
     </ul>
   </nav>
 
-  2017-01-21
+  2017-01-21 10:00 CET
   Author: Wolfram Kriesing
-  Tags: 
+  Tags: #jinja,#template,#spaceless
 
 
-  <h1 id="the-magic-dash-in-a-jinja-template-block">The magic dash in a Jinja template block</h1>
+  <p>dateCreated: 2017-01-21 10:00 CET
+tags: jinja, template, spaceless
+postTypes: post</p>
+<h1 id="the-magic-dash-in-a-jinja-template-block">The magic dash in a Jinja template block</h1>
 <p>What the heck does <code>-%}</code> mean in a Jinja template?</p>
 <p>By using Lektor I need to learn <a href="http://jinja.pocoo.org/">Jinja</a>, the template engine used. And I have to say it has the addons that I had always wished for in Django&#39;s template language (swig). For example there is <code>else</code> for the <code>for</code> loop, which applies when there is nothing to loop over.</p>
 <p>And while looking for a tag system I came across <a href="https://pypi.python.org/pypi/lektor-tags">lektor-tags</a> which looks like the tag power and simplicity I need. While trying to get it to run, I came across this piece of Jinja template:</p>
@@ -40,12 +43,6 @@
 {%- endfor %}</code></pre>
 </blockquote>
 <p>What a blessing. Something we always wanted in a template language. I remember back in the django days, the verbose <code>{{ spaceless }}</code> was quite noisy. I think this is a smart, simple and great addition. I am just not sure if the trade-off in time I spent to figure out what the magic is good for could be improved. Suggestions and ideas welcome.</p>
-<p>dateCreated: 2017-01-21 10:00 CET
-tags: jinja
-template
-spaceless</p>
-<hr>
-<p>postTypes: post</p>
 
 
 </body>
