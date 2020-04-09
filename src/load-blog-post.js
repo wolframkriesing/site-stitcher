@@ -1,28 +1,20 @@
 import marked from 'marked';
 import * as fs from 'fs';
-import {BlogPost} from './BlogPost.js';
 
 const prodDeps = () => {
   const loadBlogPostFromFile = async (filename) => fs.promises.readFile(filename, 'utf8');
   return {loadBlogPostFromFile};
 };
 
-const findDateCreated = (lines) => {
-  const foundLines = lines.filter(line => line.startsWith('dateCreated:'));
+const findMetadataByKeyAsString = (lines, key) => {
+  const prefix = key + ':';
+  const foundLines = lines.filter(line => line.startsWith(prefix));
   if (foundLines.length === 0) return '';
-  return foundLines[0].replace('dateCreated:', '').trim();
+  return foundLines[0].replace(prefix, '').trim();
 };
-const findTags = (lines) => {
-  const foundLines = lines.filter(line => line.startsWith('tags:'));
-  if (foundLines.length === 0) return '';
-  const tagsString = foundLines[0].replace('tags:', '').trim();
-  return tagsString.split(',').map(tag => tag.trim());
-};
-const findOldUrls = (lines) => {
-  const foundLines = lines.filter(line => line.startsWith('oldUrls:'));
-  if (foundLines.length === 0) return '';
-  const tagsString = foundLines[0].replace('oldUrls:', '').trim();
-  return tagsString.split(' ').map(tag => tag.trim());
+const findMetadataByKeyAsArray = (lines, key, separator) => {
+  const string = findMetadataByKeyAsString(lines, key)
+  return string.split(separator).map(tag => tag.trim());
 };
 /**
  * @param tokens
@@ -32,10 +24,10 @@ const parseMetadata = (tokens) => {
   const metadata = {tags: [], oldUrls: []};
   if (tokens[0].type === 'paragraph') {
     const lines = tokens[0].text.split('\n');
-    const dateCreated = findDateCreated(lines);
+    const dateCreated = findMetadataByKeyAsString(lines, 'dateCreated');
     if (dateCreated) metadata.dateCreated = dateCreated;
-    metadata.tags = findTags(lines);
-    metadata.oldUrls = findOldUrls(lines);
+    metadata.tags = findMetadataByKeyAsArray(lines, 'tags', ',');
+    metadata.oldUrls = findMetadataByKeyAsArray(lines, 'oldUrls', ' ');
   }
   return metadata;
 }
