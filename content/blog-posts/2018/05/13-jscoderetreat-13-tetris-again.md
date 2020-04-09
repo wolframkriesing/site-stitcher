@@ -1,6 +1,6 @@
-created_at: 2018-05-13 11:15 CET  
+dateCreated: 2018-05-13 11:15 CET  
 tags: coderetreat, jscoderetreat  
-old_urls: /blog/2018/05/jscoderetreat-13/
+oldUrls: /blog/2018/05/jscoderetreat-13/
 
 # JSCodeRetreat #13, Tetris again
 

@@ -1,3 +1,7 @@
+dateCreated: 2014-01-23 10:00 CET  
+tags: solid, clean code, dependencies  
+postTypes: mini-post  
+
 # Beyond SOLID: The Dependency Elimination Principle
 
 There is always more to learn about any topic, also about SOLID.
@@ -15,15 +19,3 @@ unused.
 [4]: http://qualityisspeed.blogspot.de/2014/08/why-i-dont-teach-solid.html
 [5]: http://qualityisspeed.blogspot.de/2014/09/beyond-solid-dependency-elimination.html
 [6]: http://www.poodr.com/
----
-created_at: 2014-01-23 10:00 CET
----
-intro: 
----
-tags:
-
-solid
-clean code
-dependencies
----
-post_type: mini-post

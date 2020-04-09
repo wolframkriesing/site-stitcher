@@ -1,3 +1,9 @@
+dateCreated: 2014-01-24 10:00 CET  
+tags: testing, video  
+oldUrls: /blog/2014/01/trash-your-servers-and-burn-your-code-immutable-infrastructure-and-disposable-components/  
+postTypes: summary  
+youtubeId: DVSNsAei0VE  
+
 # Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components
 
 [a talk by Chad Fowler][7]
@@ -34,14 +40,3 @@ I think we agree basically :)
 [Watch his talk][7], it is really very good and contains enough brain food!
 
 [7]: https://www.youtube.com/watch?v=DVSNsAei0VE
----
-created_at: 2014-01-24 10:00 CET
----
-tags:
-
-testing
-video
----
-youtube_id: DVSNsAei0VE
----
-post_type: summary
