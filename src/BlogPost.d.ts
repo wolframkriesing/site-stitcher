@@ -5,6 +5,6 @@ export class BlogPost {
   abstract: string;
   markdownFilename: string;
   url: string;
-  static withMarkdownFilename(markdownFilename: string): BlogPost;
+  static preload(markdownFilename: string): BlogPost;
   equals(blogPost: BlogPost): boolean;
 }

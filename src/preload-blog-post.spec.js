@@ -12,7 +12,7 @@ describe('Preload blog posts from a given directory', () => {
     });
     describe('WHEN one file is given', () => {
       const file = '2018/05/13-post.md';
-      const blogPost = BlogPost.withMarkdownFilename('2018/05/13-post.md');
+      const blogPost = BlogPost.preload('2018/05/13-post.md');
       it('THEN return one BlogPost', () => {
         const blogPostList = preloadBlogPostList([file], '');
         assert.strictEqual(blogPostList.length, 1);
@@ -36,10 +36,10 @@ describe('Preload blog posts from a given directory', () => {
         '2018/10/13-post.md',
       ];
       const expectedBlogPosts = [
-        BlogPost.withMarkdownFilename('2010/01/01-post.md'),
-        BlogPost.withMarkdownFilename('2011/02/28-post.md'),
-        BlogPost.withMarkdownFilename('2012/12/31-post.md'),
-        BlogPost.withMarkdownFilename('2018/10/13-post.md'),
+        BlogPost.preload('2010/01/01-post.md'),
+        BlogPost.preload('2011/02/28-post.md'),
+        BlogPost.preload('2012/12/31-post.md'),
+        BlogPost.preload('2018/10/13-post.md'),
       ];
       const blogPostList = preloadBlogPostList(files, '');
       assert.strictEqual(blogPostList.length, 4);

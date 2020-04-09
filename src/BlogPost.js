@@ -8,7 +8,7 @@ const urlFromMarkdownFilename = (markdownFilename) => {
 };
 
 export class BlogPost {
-  static withMarkdownFilename(markdownFilename) {
+  static preload(markdownFilename) {
     return new BlogPost({markdownFilename});
   }
   constructor(attributes = {}) {
