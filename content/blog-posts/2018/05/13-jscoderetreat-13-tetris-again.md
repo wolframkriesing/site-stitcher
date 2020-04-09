@@ -1,3 +1,7 @@
+created_at: 2018-05-13 11:15 CET  
+tags: coderetreat, jscoderetreat  
+old_urls: /blog/2018/05/jscoderetreat-13/
+
 # JSCodeRetreat #13, Tetris again
 
 It was the second time that we did Tetris as our task for the JSCodeRetreat and I have to say,
@@ -104,19 +108,6 @@ and apply the [four rules of simple design][4rules].
 - [ ] i think it attracted more newbies - love it
 - [ ] no UI!
 
-
-
----
-created_at: 2018-05-13 11:15 CET
----
-post_type: post
----
-tags:
-
-coderetreat
-jscoderetreat
----
-old_urls: /blog/2018/05/jscoderetreat-13/
 related_tweets:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">If Schoppenhauer wrote Javascript: tetris pieces that generate a board by existing, <a href="https://twitter.com/hashtag/jscr13?src=hash&amp;ref_src=twsrc%5Etfw">#jscr13</a> <a href="https://twitter.com/goosebumps4?ref_src=twsrc%5Etfw">@goosebumps4</a></p>&mdash; Daniel Bolívar (@ddanielbee) <a href="https://twitter.com/ddanielbee/status/995265941171855361?ref_src=twsrc%5Etfw">May 12, 2018</a></blockquote>
