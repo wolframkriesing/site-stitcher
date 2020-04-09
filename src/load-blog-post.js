@@ -13,7 +13,8 @@ const prodDeps = () => {
  */
 const parseMetadata = (tokens) => {
   if (tokens[0].type === 'paragraph') {
-    const dateCreated = '2001-01-01 01:01 CET';
+    const lines = tokens[0].text.split('\n');
+    const dateCreated = lines.filter(line => line.startsWith('dateCreated:')).map(s => s.replace('dateCreated: ', '').trim())[0];
     return {dateCreated};
   }
   return {};
