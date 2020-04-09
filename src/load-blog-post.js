@@ -6,12 +6,23 @@ const prodDeps = () => {
   return {loadBlogPostFromFile};
 };
 
+/**
+ * @param {string[]} lines
+ * @param {string} key
+ * @returns {string}
+ */
 const findMetadataByKeyAsString = (lines, key) => {
   const prefix = key + ':';
   const foundLines = lines.filter(line => line.startsWith(prefix));
   if (foundLines.length === 0) return '';
   return foundLines[0].replace(prefix, '').trim();
 };
+/**
+ * @param {string[]} lines
+ * @param {string} key
+ * @param {string} separator
+ * @returns {string[]}
+ */
 const findMetadataByKeyAsArray = (lines, key, separator) => {
   const string = findMetadataByKeyAsString(lines, key)
   return string.split(separator).map(tag => tag.trim());
