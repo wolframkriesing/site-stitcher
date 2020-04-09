@@ -6,7 +6,7 @@
 
 {[ block content ]}
   <div class="latest-post">
-    <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a></h1>
+    <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}</h1>
     <p class="metadata">
       Wolfram Kriesing
       - {{toReadableDateTime(posts[0].dateCreated)}}
