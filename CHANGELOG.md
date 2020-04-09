@@ -71,7 +71,7 @@
   - [ ] make it work on mobile
   - [x] dont fail on invalid files in blog post dirs
   - [x] sort newest to top
-  - [ ] render the markdown of the abstract properly into HTML
+  - [x] render the markdown of the abstract properly into HTML
   - [x] show the date like this "24 Jan, 2002"
   - [ ] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`        

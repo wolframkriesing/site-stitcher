@@ -66,6 +66,19 @@ describe('Load a blog post completely, with all data ready to render', () => {
       const post = await loadPost({fileContent});
       assertThat(post, hasProperties({bodyAsHtml: '<p>first paragraph</p>\n'}));
     });
+    it('THEN provide `abstractAsHtml` for previewing posts', async () => {
+      const fileContent = [
+        '# headline',
+        '1st paragraph with [a link][1]',
+        '',
+        '2nd paragraph should not be rendered',
+        '',
+        '[1]: http://picostitch.com'
+      ].join('\n');
+      const post = await loadPost({fileContent});
+      const expected = '<p>1st paragraph with <a href="http://picostitch.com">a link</a></p>\n';
+      assertThat(post, hasProperties({abstractAsHtml: expected}));
+    });
   });
 });
 

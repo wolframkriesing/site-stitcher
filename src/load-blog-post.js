@@ -53,19 +53,26 @@ const findHeadlineAndAbstract = (tokens) => {
   }
 
   let abstract = '';
+  let abstractToken = null;
   while (tokenIndex < tokens.length && abstract === '') {
     const t = tokens[tokenIndex];
-    if (t.type === 'paragraph') abstract = t.text;
+    if (t.type === 'paragraph') {
+      abstractToken = t;
+      abstract = t.text;
+    }
     tokenIndex++;
   }
 
-  return {headline, abstract};
+  return {headline, abstract, abstractToken};
 }
 
 const parseRawPost = tokens => {
-  const {headline, abstract} = findHeadlineAndAbstract(tokens);
+  const {headline, abstract, abstractToken} = findHeadlineAndAbstract(tokens);
   const metadata = parseMetadata(tokens);
-  return {headline, abstract, ...metadata};
+  const renderableAbstract = [abstractToken];
+  renderableAbstract.links = tokens.links;
+  const abstractAsHtml = marked.parser(renderableAbstract);
+  return {headline, abstract, abstractAsHtml, ...metadata};
 };
 const findBodyToRender = tokens => {
   // DANGER we are modifying `tokens` here, since it has some properties, like `links`
