@@ -1,4 +1,6 @@
 tags: programming, URL, web, browsers, chrome, iOS, Apple, security, hacking
+youtubeId: 0uejy9aCNbI
+videoStartTime: 658
 
 # Learn about URL parsing in real life
 
