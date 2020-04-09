@@ -62,7 +62,7 @@
   - [x] use multimarkdown style, just key-value pairs at the top
   - [x] update all posts to use it
   - [x] add the metadata to BlogPost
-  - [ ] render the metadata if needed (e.g. on the post page)
+  - [x] render the metadata if needed (e.g. on the post page)
 - [ ] indieweb auth of my page
 - [x] make it deploy on GH
 - [ ] move domain to GH
