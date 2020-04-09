@@ -19,6 +19,11 @@
     </ul>
   </nav>
 
+  {{toReadableDateTime(post.dateCreated)}}
+  Author: Wolfram Kriesing
+  Tags: {{ post.tags.map(tag => `#${tag}`).join(',') }}
+
+
   {!postHtml!}
 
 </body>

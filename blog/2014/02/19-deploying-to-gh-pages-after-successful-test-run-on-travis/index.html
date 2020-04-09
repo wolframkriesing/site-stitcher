@@ -19,7 +19,15 @@
     </ul>
   </nav>
 
-  <h1 id="deploying-to-gh-pages-after-successful-test-run-on-travis">Deploying to gh-pages after successful test run on travis</h1>
+  2014-02-19 11:00 CET
+  Author: Wolfram Kriesing
+  Tags: #gh-pages,#devops,#deploy,#javascript,#travis,#tddbin
+
+
+  <p>dateCreated: 2014-02-19 11:00 CET
+tags: gh-pages, devops, deploy, javascript, travis, tddbin
+postTypes: mini-post</p>
+<h1 id="deploying-to-gh-pages-after-successful-test-run-on-travis">Deploying to gh-pages after successful test run on travis</h1>
 <p>I wanted to just push my source code to github&#39;s master branch and all the deployment after that shall be automatic. 
 Every dev-op reading this will say &quot;yeah sure, wtf?&quot;.</p>
 <p>To make it a bit simpler, I have a pure client-side
@@ -29,17 +37,6 @@ call. In short it has to be like this: <code>travis-encrypt -r tddbin/tddbin-fro
 and everything behind the repo name will be encrypted, you can also add multiple env vars and then use them.
 Just like <a href="https://github.com/tddbin/tddbin-frontend/blob/23eaa1eb4049da64ee3b941270e92f8fd13b10c0/scripts/deploy-to-ghpages.sh#L5">I did it on tddbin</a>. In order to have the env vars you encoded available 
 you need to put the encrypted secret into the <a href="https://github.com/tddbin/tddbin-frontend/blob/23eaa1eb4049da64ee3b941270e92f8fd13b10c0/.travis.yml#L10-L13">.travis.yml file</a>.</p>
-<hr>
-<h2 id="created_at-2014-02-19-1100-cet">created_at: 2014-02-19 11:00 CET</h2>
-<p>tags:</p>
-<p>gh-pages
-devops
-deploy
-javascript
-travis
-tddbin</p>
-<hr>
-<p>post_type: mini-post</p>
 
 
 </body>
