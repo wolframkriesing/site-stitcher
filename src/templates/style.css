@@ -56,3 +56,7 @@ nav {
     padding: 0;
   }
 }
+
+.page-post p.metadata {
+  color: gray;
+}

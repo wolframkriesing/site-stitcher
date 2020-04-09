@@ -11,7 +11,7 @@
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com{{post.url}}">
 </head>
-<body>
+<body class="page-post">
   <nav aria-labelledby="primary-navigation">
     h1 picostitch blog /h1
     <ul>
@@ -19,10 +19,12 @@
     </ul>
   </nav>
 
-  {{toReadableDateTime(post.dateCreated)}}
-  Author: Wolfram Kriesing
-  Tags: {{ post.tags.map(tag => `#${tag}`).join(',') }}
-
+  <h1>{{post.headline}}</h1>
+  <p class="metadata">
+    Wolfram Kriesing,
+    {{toReadableDateTime(post.dateCreated)}},
+    tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
+  </p>
 
   {!postHtml!}
 
