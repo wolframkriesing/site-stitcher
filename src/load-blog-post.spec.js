@@ -3,22 +3,25 @@ import assert from 'assert';
 import {loadBlogPostList} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
-describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
-  it('WHEN one post is given THEN load one BlogPost completely', async () => {
-    const blogPostList = [BlogPost.withMarkdownFilename('2018/05/13-post.md')];
+describe('Load a blog post completely, with all data ready to render', () => {
+  it('GIVEN a post with headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
+    const blogPostList = [BlogPost.withMarkdownFilename('2001/01/01-post.md')];
     const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
     const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
 
     assert.strictEqual(completeBlogPostList.length, 1);
     const post = completeBlogPostList[0];
     const expectedPost = new BlogPost({
-      dateCreated: '2018-05-13',
-      markdownFilename: '2018/05/13-post.md',
+      dateCreated: '2001-01-01',
+      markdownFilename: '2001/01/01-post.md',
       headline: 'This is the first post',
       abstract: 'the first paragraph of the blog post ...',
     });
     assert(post.equals(expectedPost));
   });
+});
+
+describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
   it('WHEN many files are given THEN load all the BlogPost items', async () => {
     const blogPostList = [
       BlogPost.withMarkdownFilename('2018/05/13-post.md'),
