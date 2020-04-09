@@ -9,6 +9,9 @@ describe('Convert date to a readable string', () => {
   it('GIVEN a date "2042-11-11" WHEN converted THEN return "November 11, 2042"', () => {
     assert.strictEqual(toReadableDate('2042-11-11'), 'November 11, 2042');
   });
+  it('GIVEN a date+time "2042-11-11 10:00 CET" WHEN converted THEN return "November 11, 2042"', () => {
+    assert.strictEqual(toReadableDate('2042-11-11 10:00 CET'), 'November 11, 2042');
+  });
 });
 
 describe('Return the weekday for a date', () => {

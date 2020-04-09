@@ -22,7 +22,7 @@ const months = [
   'December',
 ];
 export const toReadableDate = dateString => {
-  const date = new Date(dateString);
+  const date = toDate(dateString);
   const month = months[date.getMonth()];
   return `${month} ${date.getDate()}, ${date.getFullYear()}`;
 };
