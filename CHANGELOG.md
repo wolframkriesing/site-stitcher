@@ -54,8 +54,9 @@
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [x] add plausible
 - [ ] build the post page
-  - [ ] provide the old URLs as used on picostitch now and redirect to the new one
+  - [x] provide the old URLs as used on picostitch now
   - [ ] 301 from the old url to the new one
+        maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
   - [x] render [x][y] links properly, seems not to work - newline before was missing
 - [ ] provide meta data
   - [x] use multimarkdown style, just key-value pairs at the top
