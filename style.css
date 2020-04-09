@@ -39,6 +39,7 @@ nav {
   }
   nav li {
     display: inline;
+    margin-right: 2rem;
   }
 
 
@@ -69,12 +70,6 @@ nav {
   .row {
     display: block;
     margin: 1rem;
-  }
-  .row .date .weekday {
-    display: inline;
-  }
-  .row .date .weekday::before {
-    content: ' - ';
   }
   .row .content {
     padding: 0;
