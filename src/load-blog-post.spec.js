@@ -31,16 +31,12 @@ describe('Load a blog post completely, with all data ready to render', () => {
       assert.strictEqual(post.abstract, '');
     });
     it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
-      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
-      const loadBlogPostFromFile = async () => '# headline\n## subheadline';
-      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
-      assert.strictEqual(loadedBlogPostList[0].abstract, '');
+      const post = await loadPost({fileContent: '# headline\n## subheadline'});
+      assert.strictEqual(post.abstract, '');
     });
     it('WHEN it has metadata, headline and an abstract THEN find the abstract', async () => {
-      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
-      const loadBlogPostFromFile = async () => 'meta: data\n\n# headline\nabstract, yeah';
-      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
-      assert.strictEqual(loadedBlogPostList[0].abstract, 'abstract, yeah');
+      const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
+      assert.strictEqual(post.abstract, 'abstract, yeah');
     });
   });
 });
