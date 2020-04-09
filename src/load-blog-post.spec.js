@@ -33,8 +33,8 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
 
     const expectedPosts = [
-      new BlogPost({markdownFilename: '2018/05/13-post.md', ...rawBlogPost}),
-      new BlogPost({markdownFilename: '2011/11/11-post.md', ...rawBlogPost}),
+      BlogPost.preload('2018/05/13-post.md').cloneAndOverrideWith(rawBlogPost),
+      BlogPost.preload('2011/11/11-post.md').cloneAndOverrideWith(rawBlogPost),
     ];
     assert.strictEqual(completeBlogPostList.length, 2);
     assert(completeBlogPostList[0].equals(expectedPosts[0]));
