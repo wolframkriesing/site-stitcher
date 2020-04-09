@@ -26,6 +26,11 @@ header {
 .page-home p.abstract a {
   color: inherit;
 }
+.latest-post {
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
 nav {
   display: inline;
 }

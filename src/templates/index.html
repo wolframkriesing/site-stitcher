@@ -5,7 +5,21 @@
 {[ block pageTitlePrefix ]}Blog{[ endblock ]}
 
 {[ block content ]}
-  {% posts.map(post => { %}
+  <div class="latest-post">
+    <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a></h1>
+    <p class="metadata">
+      Wolfram Kriesing
+      - {{toReadableDateTime(posts[0].dateCreated)}}
+      {% if (posts[0].tags.length > 0) { %}
+        - tagged with: {{ posts[0].tags.map(tag => `#${tag}`).join(' ') }}
+      {% } %}
+    </p>
+
+    <p class="abstract">{!posts[0].abstractContentAsHtml!}</p>
+    <a href="{{posts[0].url}}">Read more ...</a>
+  </div>
+
+  {% posts.slice(1).map(post => { %}
     <div class="row">
       <div class="date">
         {{toReadableDate(post.dateCreated)}}
