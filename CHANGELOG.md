@@ -34,7 +34,8 @@
   - [ ] can have meta tags at the top only
   - [ ] the syntax of the metadata is defined, see BlogPostMetadata type 
   - [ ] must start with headline, has an abstract next
-  - [ ] even dates with time MUST end in "... CET" and be formatted like so "2000-01-01 10:00 CET" 
+  - [ ] even dates with time MUST end in "... CET" and be formatted like so "2000-01-01 10:00 CET"
+  - [ ] end metadata line with two spaces 
 - [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
   - [ ] word count, lines of code, programming language, etc.
   - [ ] download size of the page
