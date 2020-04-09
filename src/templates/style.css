@@ -71,12 +71,6 @@ nav {
     display: block;
     margin: 1rem;
   }
-  .row .date .weekday {
-    display: inline;
-  }
-  .row .date .weekday::before {
-    content: ' - ';
-  }
   .row .content {
     padding: 0;
   }
