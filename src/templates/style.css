@@ -1,11 +1,14 @@
 body {
-  font-family: monospace;
   margin: 2rem;
+  font-family: sans-serif;
 }
 
 
 .page-home h1 {
   display: inline;
+}
+.page-home p.abstract a {
+  color: inherit;
 }
 nav {
   display: inline;
