@@ -1,5 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
+import {assertThat, hasProperties} from 'hamjest';
 import {loadBlogPostList, loadBlogPost} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
@@ -9,13 +10,13 @@ describe('Load a blog post completely, with all data ready to render', () => {
     const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
     const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
 
-    const expectedPost = new BlogPost({
+    const expectedProps = {
       dateCreated: '2001-01-01',
       markdownFilename: '2001/01/01-post.md',
       headline: 'This is the first post',
       abstract: 'the first paragraph of the blog post ...',
-    });
-    assert(post.equals(expectedPost));
+    };
+    assertThat(post, hasProperties(expectedProps));
   });
 });
 
