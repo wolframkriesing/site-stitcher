@@ -5,18 +5,37 @@ import {loadBlogPostList, loadBlogPost} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Load a blog post completely, with all data ready to render', () => {
-  it('GIVEN a post with headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
-    const preloadedPost = BlogPost.preload('2001/01/01-post.md');
-    const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
-    const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
-
-    const expectedProps = {
-      dateCreated: '2001-01-01',
-      markdownFilename: '2001/01/01-post.md',
-      headline: 'This is the first post',
-      abstract: 'the first paragraph of the blog post ...',
-    };
-    assertThat(post, hasProperties(expectedProps));
+  describe('GIVEN a valid post', () => {
+    it('WHEN post has headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
+      const preloadedPost = BlogPost.preload('2001/01/01-post.md');
+      const loadBlogPostFromFile = async () => '# This is the first post\nthe first paragraph of the blog post ...';
+      const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
+      const expectedProps = {
+        dateCreated: '2001-01-01',
+        markdownFilename: '2001/01/01-post.md',
+        headline: 'This is the first post',
+        abstract: 'the first paragraph of the blog post ...',
+      };
+      assertThat(post, hasProperties(expectedProps));
+    });
+    it('WHEN it has no first paragraph THEN set abstract=""', async () => {
+      const preloadedPost = BlogPost.preload('2001/01/01-post.md');
+      const loadBlogPostFromFile = async () => '# headline';
+      const post = await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
+      assert.strictEqual(post.abstract, '');
+    });
+    it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
+      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
+      const loadBlogPostFromFile = async () => '# headline\n## subheadline';
+      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+      assert.strictEqual(loadedBlogPostList[0].abstract, '');
+    });
+    it('WHEN it has metadata, headline and an abstract THEN find the abstract', async () => {
+      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
+      const loadBlogPostFromFile = async () => 'meta: data\n\n# headline\nabstract, yeah';
+      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+      assert.strictEqual(loadedBlogPostList[0].abstract, 'abstract, yeah');
+    });
   });
 });
 
@@ -40,27 +59,6 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     assert.strictEqual(completeBlogPostList.length, 2);
     assert(completeBlogPostList[0].equals(expectedPosts[0]));
     assert(completeBlogPostList[1].equals(expectedPosts[1]));
-  });
-
-  describe('GIVEN finding the abstract in the blog post', () => {
-    it('WHEN it has no first paragraph THEN set abstract=""', async () => {
-      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
-      const loadBlogPostFromFile = async () => '# headline';
-      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
-      assert.strictEqual(loadedBlogPostList[0].abstract, '');
-    });
-    it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
-      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
-      const loadBlogPostFromFile = async () => '# headline\n## subheadline';
-      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
-      assert.strictEqual(loadedBlogPostList[0].abstract, '');
-    });
-    it('WHEN it has metadata, headline and an abstract THEN find the abstract', async () => {
-      const blogPostList = [BlogPost.preload('2001/01/01-post.md')];
-      const loadBlogPostFromFile = async () => 'meta: data\n\n# headline\nabstract, yeah';
-      const loadedBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
-      assert.strictEqual(loadedBlogPostList[0].abstract, 'abstract, yeah');
-    });
   });
 
   xdescribe('GIVEN finding the metadata in a blog post', () => {
