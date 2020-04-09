@@ -1,4 +1,5 @@
 # Ideas
+- [ ] use a different font, to also be able to outline and distinguish source code better
 - [ ] learn and apply a11y properly
 - [ ] `npm run new-post` script to create dir and file
 - [ ] show "load more" or pagination on first page
@@ -33,6 +34,7 @@
   - [ ] can have meta tags at the top only 
   - [ ] must start with headline, has an abstract next
 - [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
+  - [ ] word count, lines of code, programming language, etc.
   - [ ] download size of the page
   - [ ] amount of HTML, CSS, JS on the page
   - [ ] 3rd party URLs loaded on the page
@@ -67,4 +69,3 @@
   - [x] show the date like this "24 Jan, 2002"
   - [ ] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`        
-        
