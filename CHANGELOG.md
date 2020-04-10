@@ -78,7 +78,9 @@
         see: `2015/05/11-alan-kay-on-messaging`        
 - [ ] add licensing on the page!
 - [ ] `npm run new-post` script to create dir and file
-  - [ ] create a BlogPost instance
-  - [ ] write markdown file to disk (open it in webstorm?)
+  - [x] create a BlogPost instance
+  - [x] write markdown file to disk
   - [ ] update BlogPost types and Metadata
-  - [ ] implement date fn
+  - [x] implement date fn
+  - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
+- [ ] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
