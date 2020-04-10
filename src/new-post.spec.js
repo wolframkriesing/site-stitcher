@@ -11,7 +11,9 @@ const askForHeadline = async (askUser) => {
 }
 
 const collectBlogPostData = ({askUser}) => async () => {
-  await askForHeadline(askUser);
+  const post = {};
+  post.headline = await askForHeadline(askUser);
+  return post;
 };
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -28,9 +30,9 @@ describe('Script for creating a new blog post skeleton', () => {
     await collectBlogPostData({askUser})();
     assert.deepStrictEqual(questionsAsked, ['Headline: ', 'Headline: ', 'Headline: ', 'Headline: ', 'Headline: ']);
   });
-  xit('WHEN title is given THEN set it as `headline`', () => {
-    const askUser = async question => 'user-entered title';
-    const postData = collectBlogPostData({askUser})();
+  it('WHEN headline is given THEN set it as `headline`', async () => {
+    const askUser = async q => 'user-entered title';
+    const postData = await collectBlogPostData({askUser})();
     assertThat(postData, {headline: 'user-entered title'});
   });
   it('if asking for a title and user enters nothing, ask again', () => {
