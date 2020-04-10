@@ -44,6 +44,16 @@ const enrichNewPostData = ({nowAsDateTimeString}) => (rawPost, blogPostRootDirec
   post.dateCreated = dateCreated;
   return post;
 }
+const blogPostToMarkdown = (post) => {
+  const markdown = ['# ' + post.headline];
+  if (post.abstract) {
+    markdown.push('');
+    markdown.push(post.abstract);
+  }
+  return markdown.join('\n');
+}
+const createMarkdownFileForBlogPost = ({writeFile}) => async (post) => {
+}
 
 describe('Script for creating a new blog post skeleton', () => {
   describe('GIVEN the user is asked for the data for a new post', () => {
@@ -109,6 +119,22 @@ describe('Script for creating a new blog post skeleton', () => {
       const rawPostData = {headline: 'headline', abstract: '', tags: []};
       const post = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
       assertThat(post, instanceOf(BlogPost));
+    });
+  });
+  describe('GIVEN a proper `BlogPost` instance create the markdown file for it', () => {
+    const newPost = (headline = '') => {
+      const post = BlogPost.preload('2000/01/01-post.md');
+      post.headline = headline;
+      return post;
+    };
+    it('WHEN the post has just a headline THEN write a one liner', () => {
+      const post = newPost('Post Headline');
+      assert.strictEqual(blogPostToMarkdown(post), '# Post Headline');
+    });
+    it('WHEN the post has just a headline+abstract THEN write them', () => {
+      const post = newPost('Post Headline');
+      post.abstract = 'A multi\nline\nabstract.';
+      assert.strictEqual(blogPostToMarkdown(post), '# Post Headline\n\nA multi\nline\nabstract.');
     });
   });
 });
