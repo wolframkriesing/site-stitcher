@@ -33,3 +33,18 @@ export const toWeekday = dateString => {
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   ][day];
 }
+
+const twoDigit = s => ('0' + s).substr(-2);
+export const nowAsDateTimeString = (now = new Date()) => {
+  // NOTE only works for CET ... cest la vie ;)
+  const dateParts = [
+    now.getFullYear(),
+    twoDigit(now.getMonth()+1),
+    twoDigit(now.getDate()),
+  ];
+  const timeParts = [
+    twoDigit(now.getUTCHours()+1) + ':' + twoDigit(now.getMinutes()),
+    'CET'
+  ];
+  return [dateParts.join('-'), ...timeParts].join(' ');
+};

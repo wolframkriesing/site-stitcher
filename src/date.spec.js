@@ -1,6 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {toReadableDate, toWeekday} from './date.js';
+import {toReadableDate, toWeekday, nowAsDateTimeString} from './date.js';
 
 describe('Convert date to a readable string', () => {
   it('GIVEN a date "2001-01-01" WHEN converted THEN return "January 1, 2001"', () => {
@@ -20,5 +20,12 @@ describe('Return the weekday for a date', () => {
   });
   it('GIVEN a date+time only THEN return the weekday', () => {
     assert.strictEqual(toWeekday('2001-01-01 10:00 CET'), 'Monday');
+  });
+});
+
+describe('Return now as a DateTime string', () => {
+  it('GIVEN a date instance WHEN converting it to a BlogPost DateTime string THEN do so ;)', () => {
+    const now = new Date('2001-01-01 10:00+01:00');
+    assert.strictEqual(nowAsDateTimeString(now), '2001-01-01 10:00 CET');
   });
 });
