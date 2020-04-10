@@ -64,7 +64,8 @@ const blogPostToMarkdown = (post) => {
   }
   return markdown.join('\n');
 }
-const createMarkdownFileForBlogPost = ({writeFile}) => async (post) => {
+const createMarkdownFileFromBlogPost = ({writeFile}) => (post) => {
+  return writeFile();
 }
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -133,7 +134,7 @@ describe('Script for creating a new blog post skeleton', () => {
       assertThat(post, instanceOf(BlogPost));
     });
   });
-  describe('GIVEN a proper `BlogPost` instance create the markdown file for it', () => {
+  describe('GIVEN a proper `BlogPost` instance create markdown content', () => {
     const newPost = (headline = '') => {
       const post = BlogPost.preload('2000/01/01-post.md');
       post.headline = headline;
@@ -177,6 +178,14 @@ describe('Script for creating a new blog post skeleton', () => {
         '# Post Headline'
       ];
       assert.strictEqual(blogPostToMarkdown(post), expected.join('\n'));
+    });
+  });
+  describe('GIVEN a `BlogPost` write the markdown file', () => {
+    const newPost = () => BlogPost.preload('2000/01/01-post.md');
+    it('WHEN writing succeeds THEN return true', async () => {
+      const writeFile = async () => true;
+      const write = createMarkdownFileFromBlogPost({writeFile});
+      assert.strictEqual(await write(newPost()), true);
     });
   });
 });
