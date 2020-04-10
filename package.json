@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "marked": "^0.8.2",
-    "tundrajs": "^1.0.0"
+    "tundrajs": "^1.0.0",
+    "url-slug": "^2.3.1"
   }
 }

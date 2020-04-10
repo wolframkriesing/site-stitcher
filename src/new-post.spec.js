@@ -1,6 +1,8 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
 import {assertThat, hasProperties} from 'hamjest';
+import * as path from 'path';
+import slugify from 'url-slug';
 
 /**
  * @param {function(): Promise<string>} askUser
@@ -27,7 +29,6 @@ const collectBlogPostDataFromUser = ({askUser}) => async () => {
   return post;
 };
 
-import * as path from 'path';
 /**
  * @param {RawBlogPostData} rawPostData
  * @return {function(): BlogPost}
@@ -35,7 +36,7 @@ import * as path from 'path';
 const enrichNewPostData = ({nowAsDateTimeString}) => (rawPost, blogPostRootDirectory) => {
   const dateCreated = nowAsDateTimeString();
   const pathFromDate = dateCreated.split(' ')[0].replace(/-/g, '/');
-  const markdownFilename = path.join(blogPostRootDirectory, `${pathFromDate}-${rawPost.headline}.md`);
+  const markdownFilename = path.join(blogPostRootDirectory, `${pathFromDate}-${slugify(rawPost.headline)}.md`);
   return {dateCreated, markdownFilename};
 }
 
@@ -91,8 +92,12 @@ describe('Script for creating a new blog post skeleton', () => {
       const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, blogPostRootDirectory);
       assertThat(enriched, hasProperties({markdownFilename: `${blogPostRootDirectory}/2001/01/01-headline.md`}));
     });
-    xit('headline which needs to be sluggified first', () => {
-
+    it('WHEN the headline contains non-URL characters THEN sluggify and remove URL-incompatible once for `markdownFilename`', () => {
+      const nowAsDateTimeString = () => '2001-01-01 11:11 CET';
+      const headline = 'Übergänger 😀 and ❤ Maß é ñ️ ! @ # $ % ^ & * ( ) _ + = { } [ ] : ; " \' < > ? / , . \\ | Ende ';
+      const rawPostData = {headline, abstract: '', tags: []};
+      const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
+      assertThat(enriched, hasProperties({markdownFilename: '2001/01/01-uberganger-and-mass-e-n-ende.md'}));
     });
   });
 });
