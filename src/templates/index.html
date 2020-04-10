@@ -20,12 +20,14 @@
   </div>
 
   {% posts.slice(1).map(post => { %}
-    <div class="row">
-      <div class="date">
+    <div class="row" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="date" itemprop="datePublished">
         {{toReadableDate(post.dateCreated)}}
       </div>
       <div class="content">
-        <h2><a href="{{post.url}}">{{post.headline}}</a>{{ post.hasVideo ? ' 📺' : '' }}</h2>
+        <meta itemprop="name" content="{{post.headline}}">
+        <meta itemprop="headline" content="{{post.headline}}">
+        <h2><a href="{{post.url}}" itemprop="url">{{post.headline}}</a>{{ post.hasVideo ? ' 📺' : '' }}</h2>
         <p class="abstract">{!post.abstractContentAsHtml!}</p>
       </div>
     </div>
