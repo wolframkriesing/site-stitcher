@@ -27,12 +27,14 @@ const collectBlogPostDataFromUser = ({askUser}) => async () => {
   return post;
 };
 
+import * as path from 'path';
 /**
  * @param {RawBlogPostData} rawPostData
  * @return {function(): BlogPost}
  */
-const enrichNewPostData = ({nowAsDateTimeString}) => (rawPostData) => {
-  return {dateCreated: nowAsDateTimeString()};
+const enrichNewPostData = ({nowAsDateTimeString}) => (rawPostData, blogPostRootDirectory) => {
+  const markdownFilename = path.join(blogPostRootDirectory, '2001/01/01-headline.md');
+  return {dateCreated: nowAsDateTimeString(), markdownFilename};
 }
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -77,8 +79,18 @@ describe('Script for creating a new blog post skeleton', () => {
       const dateCreated = '2001-01-01 11:11 CET';
       const nowAsDateTimeString = () => dateCreated;
       const rawPostData = {headline: '', abstract: '', tags: []};
-      const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData);
+      const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
       assertThat(enriched, hasProperties({dateCreated}));
+    });
+    it('WHEN enriching data THEN set the `markdownFilename`', () => {
+      const nowAsDateTimeString = () => '2001-01-01 11:11 CET';
+      const blogPostRootDirectory = '/app/blog-posts'
+      const rawPostData = {headline: 'headline', abstract: '', tags: []};
+      const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, blogPostRootDirectory);
+      assertThat(enriched, hasProperties({markdownFilename: `${blogPostRootDirectory}/2001/01/01-headline.md`}));
+    });
+    xit('headline which needs be sluggified first', () => {
+
     });
   });
 });
