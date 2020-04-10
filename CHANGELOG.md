@@ -47,6 +47,7 @@
 - [ ] handle or remove `related_tweets:` which some posts still have
 - [ ] indieweb auth of my page
 - [ ] render a page with the output of test-stitcher for all the tests that built this site
+- [ ] what about URL incompatible chars in a markdownFilename?
 
 # v1 - my website
 - [x] make it run using docker
