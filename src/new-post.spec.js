@@ -1,8 +1,9 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {assertThat, hasProperties} from 'hamjest';
+import {assertThat, hasProperties, instanceOf} from 'hamjest';
 import * as path from 'path';
 import slugify from 'url-slug';
+import {BlogPost} from "./BlogPost.js";
 
 /**
  * @param {function(): Promise<string>} askUser
@@ -37,7 +38,11 @@ const enrichNewPostData = ({nowAsDateTimeString}) => (rawPost, blogPostRootDirec
   const dateCreated = nowAsDateTimeString();
   const pathFromDate = dateCreated.split(' ')[0].replace(/-/g, '/');
   const markdownFilename = path.join(blogPostRootDirectory, `${pathFromDate}-${slugify(rawPost.headline)}.md`);
-  return {dateCreated, markdownFilename};
+
+  const post = new BlogPost();
+  post.markdownFilename = markdownFilename;
+  post.dateCreated = dateCreated;
+  return post;
 }
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -99,8 +104,11 @@ describe('Script for creating a new blog post skeleton', () => {
       const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
       assertThat(enriched, hasProperties({markdownFilename: '2001/01/01-uberganger-and-mass-e-n-ende.md'}));
     });
-    xit('make a BlogPost instance ...', () => {
-      
+    it('WHEN enriched THEN return a BlogPost instance', () => {
+      const nowAsDateTimeString = () => '2001-01-01 11:11 CET';
+      const rawPostData = {headline: 'headline', abstract: '', tags: []};
+      const post = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
+      assertThat(post, instanceOf(BlogPost));
     });
   });
 });
