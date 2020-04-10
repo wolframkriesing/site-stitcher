@@ -30,15 +30,15 @@ describe('Script for creating a new blog post skeleton', () => {
     });
     describe('WHEN data are entered', async () => {
       const postData = async () => {
-        const answers = ['headline', 'abstract', 'tags'];
+        const answers = ['headline', 'abstract', 'tag1 , tag2  '];
         const askUser = async q => answers.shift();
         return await collectBlogPostDataFromUser({askUser})();
       };
       it('WHEN data are entered THEN return them in the according property', async () => {
         assertThat(await postData(), hasProperties({headline: 'headline', abstract: 'abstract'}));
       });
-      it('THEN tags are returns as array', async () => {
-        assertThat(await postData(), hasProperties({tags: ['tags']}));
+      it('THEN tags are returns as array each item is trimmed', async () => {
+        assertThat(await postData(), hasProperties({tags: ['tag1', 'tag2']}));
       });
     });
   });

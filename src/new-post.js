@@ -23,7 +23,7 @@ export const collectBlogPostDataFromUser = ({askUser}) => async () => {
   const post = {};
   post.headline = await askForRequiredField(askUser)('Headline');
   post.abstract = await askForRequiredField(askUser)('Abstract');
-  post.tags = (await askForRequiredField(askUser)('Tags')).split(',');
+  post.tags = (await askForRequiredField(askUser)('Tags')).split(',').map(s => s.trim());
   return post;
 };
 
