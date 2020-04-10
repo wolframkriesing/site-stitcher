@@ -1,5 +1,5 @@
 dateCreated: 2020-04-10 21:41 CET  
-tags: documentation,  open source  
+tags: documentation, open source  
 
 # Tips and Template for a good README
 

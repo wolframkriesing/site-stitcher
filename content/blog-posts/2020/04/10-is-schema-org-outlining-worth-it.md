@@ -1,5 +1,5 @@
 dateCreated: 2020-04-10 22:16 CET  
-tags: the web,  structured data,  schema.org,  SEO,  search engines  
+tags: the web, structured data, schema.org, SEO, search engines  
 
 # Is schema.org outlining worth it?
 
