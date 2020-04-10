@@ -32,9 +32,11 @@ import * as path from 'path';
  * @param {RawBlogPostData} rawPostData
  * @return {function(): BlogPost}
  */
-const enrichNewPostData = ({nowAsDateTimeString}) => (rawPostData, blogPostRootDirectory) => {
-  const markdownFilename = path.join(blogPostRootDirectory, '2001/01/01-headline.md');
-  return {dateCreated: nowAsDateTimeString(), markdownFilename};
+const enrichNewPostData = ({nowAsDateTimeString}) => (rawPost, blogPostRootDirectory) => {
+  const dateCreated = nowAsDateTimeString();
+  const pathFromDate = dateCreated.split(' ')[0].replace(/-/g, '/');
+  const markdownFilename = path.join(blogPostRootDirectory, `${pathFromDate}-${rawPost.headline}.md`);
+  return {dateCreated, markdownFilename};
 }
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -89,7 +91,7 @@ describe('Script for creating a new blog post skeleton', () => {
       const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, blogPostRootDirectory);
       assertThat(enriched, hasProperties({markdownFilename: `${blogPostRootDirectory}/2001/01/01-headline.md`}));
     });
-    xit('headline which needs be sluggified first', () => {
+    xit('headline which needs to be sluggified first', () => {
 
     });
   });
