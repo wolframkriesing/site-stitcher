@@ -12,7 +12,8 @@
     "postdev:start": "pkill -f http-server",
     "build": "mkdir -p _output; cp src/templates/* _output/; node -r esm src/index.js",
     "typecheck": "tsc",
-    "dev:typecheck": "npm run typecheck -- --watch"
+    "dev:typecheck": "npm run typecheck -- --watch",
+    "new-post": "clear; node -r esm src/new-post.js"
   },
   "keywords": [
     "static site generator",
