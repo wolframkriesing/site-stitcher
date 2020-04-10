@@ -67,3 +67,34 @@ export const blogPostToMarkdown = (post) => {
 export const createMarkdownFileFromBlogPost = ({writeFile}) => async (post) => {
   return await writeFile(post.markdownFilename, blogPostToMarkdown(post));
 }
+
+const isMainModule = module.parent === null;
+if (isMainModule) {
+  (async () => {
+    const readline = require('readline');
+    const fs = require('fs');
+    const {nowAsDateTimeString} = require('./date.js');
+    const {blogPostsDirectory} = require('./config.js');
+
+
+    const askUser = (question) => {
+      const ask = readline.createInterface({
+          input: process.stdin,
+          output: process.stdout
+      });
+      return new Promise((resolve, reject) => {
+        ask.question(question, input => {
+          ask.close();
+          resolve(input);
+        }, reject);
+      });
+    };
+    const writeFile = (filename, content) => {
+      return fs.promises.writeFile(filename, content);
+    };
+
+    const rawPost = await collectBlogPostDataFromUser({askUser})();
+    const post = enrichNewPostData({nowAsDateTimeString})(rawPost, blogPostsDirectory);
+    await createMarkdownFileFromBlogPost({writeFile})(post)
+  })();
+}
