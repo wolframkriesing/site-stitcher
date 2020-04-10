@@ -1,6 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {assertThat, hasProperties, instanceOf} from 'hamjest';
+import {assertThat, hasProperties, instanceOf, endsWith} from 'hamjest';
 import * as path from 'path';
 import slugify from 'url-slug';
 import {BlogPost} from "./BlogPost.js";
@@ -45,7 +45,19 @@ const enrichNewPostData = ({nowAsDateTimeString}) => (rawPost, blogPostRootDirec
   return post;
 }
 const blogPostToMarkdown = (post) => {
-  const markdown = ['# ' + post.headline];
+  const metadata = [
+    'dateCreated: ' + post.dateCreated,
+  ];
+  if (post.tags) metadata.push('tags: ' + post.tags.join(', '));
+  if (post.oldUrls) metadata.push('oldUrls: ' + post.oldUrls.join(' '));
+  if (post.youtubeId) metadata.push('youtubeId: ' + post.youtubeId);
+  if (post.vimeoId) metadata.push('vimeoId: ' + post.vimeoId);
+  if (post.videoStartTime) metadata.push('videoStartTime: ' + post.videoStartTime);
+  const markdown = [
+    ...metadata.map(line => line + '  '),
+    '',
+    '# ' + post.headline
+  ];
   if (post.abstract) {
     markdown.push('');
     markdown.push(post.abstract);
@@ -127,14 +139,44 @@ describe('Script for creating a new blog post skeleton', () => {
       post.headline = headline;
       return post;
     };
-    it('WHEN the post has just a headline THEN write a one liner', () => {
+    it('WHEN the post has just a headline THEN write a one liner content', () => {
       const post = newPost('Post Headline');
-      assert.strictEqual(blogPostToMarkdown(post), '# Post Headline');
+      assertThat(blogPostToMarkdown(post), endsWith('# Post Headline'));
     });
-    it('WHEN the post has just a headline+abstract THEN write them', () => {
+    it('WHEN the post has just a headline+abstract THEN write them as content', () => {
       const post = newPost('Post Headline');
       post.abstract = 'A multi\nline\nabstract.';
-      assert.strictEqual(blogPostToMarkdown(post), '# Post Headline\n\nA multi\nline\nabstract.');
+      assertThat(blogPostToMarkdown(post), endsWith('# Post Headline\n\nA multi\nline\nabstract.'));
+    });
+    it('WHEN metadata `dateCreated` is given THEN add it to the top of the file with spaces at the end of the line', () => {
+      const post = newPost('Post Headline');
+      post.dateCreated = '2000-01-01 10:00 CET';
+      const expected = [
+        'dateCreated: 2000-01-01 10:00 CET  ',
+        '',
+        '# Post Headline'
+      ];
+      assert.strictEqual(blogPostToMarkdown(post), expected.join('\n'));
+    });
+    it('WHEN various metadata are given THEN add them all AND 2 spaces at end of each line', () => {
+      const post = newPost('Post Headline');
+      post.dateCreated = '2000-01-01 10:00 CET';
+      post.tags = ['javascript', 'tdd', 'all that counts'];
+      post.oldUrls = ['/blog/old', '/blog/old-2/'];
+      post.youtubeId = '4223';
+      post.vimeoId = '2342';
+      post.videoStartTime = '123';
+      const expected = [
+        'dateCreated: 2000-01-01 10:00 CET  ',
+        'tags: javascript, tdd, all that counts  ',
+        'oldUrls: /blog/old /blog/old-2/  ',
+        'youtubeId: 4223  ',
+        'vimeoId: 2342  ',
+        'videoStartTime: 123  ',
+        '',
+        '# Post Headline'
+      ];
+      assert.strictEqual(blogPostToMarkdown(post), expected.join('\n'));
     });
   });
 });
