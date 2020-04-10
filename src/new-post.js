@@ -39,6 +39,9 @@ export const enrichNewPostData = ({nowAsDateTimeString}) => (rawPost, blogPostRo
   const post = new BlogPost();
   post.markdownFilename = markdownFilename;
   post.dateCreated = dateCreated;
+  post.headline = rawPost.headline;
+  post.abstract = rawPost.abstract;
+  post.tags = rawPost.tags;
   return post;
 }
 export const blogPostToMarkdown = (post) => {

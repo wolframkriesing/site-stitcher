@@ -1,6 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {assertThat, hasProperties, instanceOf, endsWith} from 'hamjest';
+import {assertThat, hasProperties, hasProperty, instanceOf, endsWith} from 'hamjest';
 
 import {BlogPost} from "./BlogPost.js";
 import {collectBlogPostDataFromUser, blogPostToMarkdown, createMarkdownFileFromBlogPost, enrichNewPostData} from './new-post.js';
@@ -69,6 +69,16 @@ describe('Script for creating a new blog post skeleton', () => {
       const rawPostData = {headline: 'headline', abstract: '', tags: []};
       const post = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
       assertThat(post, instanceOf(BlogPost));
+    });
+    it('WHEN enriched THEN it has all the properties from the raw post', () => {
+      const nowAsDateTimeString = () => '2001-01-01 11:11 CET';
+      const rawPostData = {headline: 'The Headline', abstract: 'abs...', tags: ['one', 'two']};
+      const post = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
+      assertThat(post, hasProperty('dateCreated'));
+      assertThat(post, hasProperty('markdownFilename'));
+      assertThat(post, hasProperty('headline', 'The Headline'));
+      assertThat(post, hasProperty('abstract', 'abs...'));
+      assertThat(post, hasProperty('tags', ['one', 'two']));
     });
   });
   describe('GIVEN a proper `BlogPost` instance create markdown content', () => {
