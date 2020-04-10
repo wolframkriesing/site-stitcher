@@ -1,7 +1,6 @@
 # Ideas
 - [ ] use a different font, to also be able to outline and distinguish source code better
 - [ ] learn and apply a11y properly
-- [ ] `npm run new-post` script to create dir and file
 - [ ] show "load more" or pagination on first page
 - [ ] render the schema attributes
 - [ ] add all posts from
@@ -78,3 +77,8 @@
   - [ ] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`        
 - [ ] add licensing on the page!
+- [ ] `npm run new-post` script to create dir and file
+  - [ ] create a BlogPost instance
+  - [ ] write markdown file to disk (open it in webstorm?)
+  - [ ] update BlogPost types and Metadata
+  - [ ] implement date fn
