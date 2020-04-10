@@ -99,5 +99,8 @@ describe('Script for creating a new blog post skeleton', () => {
       const enriched = enrichNewPostData({nowAsDateTimeString})(rawPostData, '');
       assertThat(enriched, hasProperties({markdownFilename: '2001/01/01-uberganger-and-mass-e-n-ende.md'}));
     });
+    xit('make a BlogPost instance ...', () => {
+      
+    });
   });
 });
