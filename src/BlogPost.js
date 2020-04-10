@@ -19,7 +19,7 @@ export class BlogPost {
     Object.entries(attributes).forEach(([key, value]) => this[key] = value);
   }
   equals(blogPost) {
-    // TODO compare properly ...
+    // TODO compare properly ... or delete this method
     return this.dateCreated === blogPost.dateCreated;
   }
   get hasVideo() {
