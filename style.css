@@ -3,6 +3,10 @@ body {
   font-family: sans-serif;
 }
 
+blockquote {
+  font-style: italic;
+}
+
 header {
   display: flex;
 }
