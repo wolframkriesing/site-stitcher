@@ -1,10 +1,7 @@
-type DateString = string; // can we say: 2000-01-01 as a type?
-type DateTimeString = string; // can we say: "2000-01-01 10:00 CET" as a type? just like in https://schema.org/dateCreated it can also be both
-
 export class BlogPost {
   dateCreated: DateString | DateTimeString;
   abstract: string;
-  markdownFilename: string;
+  markdownFilename: Filename;
   url: string;
   abstractAsHtml: string;
   bodyAsHtml: string;

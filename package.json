@@ -10,7 +10,9 @@
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
-    "build": "mkdir -p _output; cp src/templates/* _output/; node -r esm src/index.js"
+    "build": "mkdir -p _output; cp src/templates/* _output/; node -r esm src/index.js",
+    "typecheck": "tsc",
+    "dev:typecheck": "npm run typecheck -- --watch"
   },
   "keywords": [
     "static site generator",
@@ -22,7 +24,8 @@
     "esm": "^3.2.25",
     "hamjest": "^3.3.1",
     "http-server": "^0.12.1",
-    "mocha": "^7.1.1"
+    "mocha": "^7.1.1",
+    "typescript": "^3.8.3"
   },
   "dependencies": {
     "marked": "^0.8.2",

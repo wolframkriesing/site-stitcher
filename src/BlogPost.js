@@ -1,25 +1,55 @@
+/**
+ * @param {Filename} markdownFilename
+ * @return {Filename}
+ */
 const dateDirectoryAndFilename = markdownFilename => markdownFilename.match(/\d{4}\/\d{2}\/\d{2}-.*/)[0];
+/**
+ * @param {string} s
+ * @return {string}
+ */
 const directoryToIsoDate = s => s.split('-')[0].replace(/\//g, '-');
+/**
+ * @param {Filename} markdownFilename
+ * @return {DateString}
+ */
 const dateCreatedFromMarkdownFilename = (markdownFilename) =>
   directoryToIsoDate(dateDirectoryAndFilename(markdownFilename));
+/**
+ * @param {Filename} markdownFilename
+ * @return {RelativeUrl}
+ */
 const urlFromMarkdownFilename = (markdownFilename) => {
   const extensionToReplace = markdownFilename.endsWith('index.md') ? '/index.md' : '.md';
   return '/blog/' + dateDirectoryAndFilename(markdownFilename).replace(extensionToReplace, '/');
 };
 
 export class BlogPost {
+  /**
+   * @param {Filename} markdownFilename
+   * @return {BlogPost}
+   */
   static preload(markdownFilename) {
     return new BlogPost({
       markdownFilename,
       dateCreated: dateCreatedFromMarkdownFilename(markdownFilename)
     });
   }
+  /**
+   * @return {boolean}
+   */
   get hasVideo() {
     return Boolean(this.youtubeId || this.vimeoId);
   }
+  /**
+   * @return {RelativeUrl}
+   */
   get url() {
     return urlFromMarkdownFilename(this.markdownFilename);
   }
+
+  /**
+   * @param {object} attributes
+   */
   constructor(attributes = {}) {
     Object.entries(attributes).forEach(([key, value]) => this[key] = value);
   }
@@ -27,11 +57,17 @@ export class BlogPost {
     // TODO compare properly ... or delete this method
     return this.dateCreated === blogPost.dateCreated;
   }
+
+  /**
+   * @param {object} overrideData
+   * @return {BlogPost}
+   */
   cloneAndOverrideWith(overrideData) {
     const clone = new BlogPost();
-    // TODO clone properly, taking all props into account
-    const propertiesToClone = ['markdownFilename', 'dateCreated', 'headline', 'abstract'];
-    propertiesToClone.forEach(prop => { clone[prop] = this[prop]; });
+    clone.abstract = this.abstract;
+    clone.dateCreated = this.dateCreated;
+    clone.headline = this.headline;
+    clone.markdownFilename = this.markdownFilename;
     Object.entries(overrideData).forEach(([key, value]) => clone[key] = value);
     return clone;
   }
