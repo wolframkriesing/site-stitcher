@@ -73,7 +73,7 @@ describe('Script for creating a new blog post skeleton', () => {
     });
   });
   describe('GIVEN user-entered data for a new post make a proper `BlogPost` out of them', () => {
-    it('WHEN enriching these data THEN add the current date', () => {
+    it('WHEN enriching these data THEN add the current date as `dateCreated`', () => {
       const dateCreated = '2001-01-01 11:11 CET';
       const nowAsDateTimeString = () => dateCreated;
       const rawPostData = {headline: '', abstract: '', tags: []};
