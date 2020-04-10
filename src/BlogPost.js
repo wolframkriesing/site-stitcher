@@ -29,10 +29,9 @@ export class BlogPost {
    * @return {BlogPost}
    */
   static preload(markdownFilename) {
-    return new BlogPost({
-      markdownFilename,
-      dateCreated: dateCreatedFromMarkdownFilename(markdownFilename)
-    });
+    const blogPost = new BlogPost();
+    blogPost.markdownFilename = markdownFilename;
+    return blogPost;
   }
   /**
    * @return {boolean}
@@ -46,12 +45,11 @@ export class BlogPost {
   get url() {
     return urlFromMarkdownFilename(this.markdownFilename);
   }
-
-  /**
-   * @param {object} attributes
-   */
-  constructor(attributes = {}) {
-    Object.entries(attributes).forEach(([key, value]) => this[key] = value);
+  get dateCreated() {
+    return this._dateCreated || dateCreatedFromMarkdownFilename(this.markdownFilename);
+  }
+  set dateCreated(dateCreated) {
+    this._dateCreated = dateCreated;
   }
   equals(blogPost) {
     // TODO compare properly ... or delete this method
