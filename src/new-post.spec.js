@@ -64,8 +64,8 @@ const blogPostToMarkdown = (post) => {
   }
   return markdown.join('\n');
 }
-const createMarkdownFileFromBlogPost = ({writeFile}) => (post) => {
-  return writeFile();
+const createMarkdownFileFromBlogPost = ({writeFile}) => async (post) => {
+  return await writeFile(post.markdownFilename, blogPostToMarkdown(post));
 }
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -186,6 +186,20 @@ describe('Script for creating a new blog post skeleton', () => {
       const writeFile = async () => true;
       const write = createMarkdownFileFromBlogPost({writeFile});
       assert.strictEqual(await write(newPost()), true);
+    });
+    it('WHEN writing fails THEN return an Error', async () => {
+      const writeFile = async () => new Error('Oh my God!');
+      const write = createMarkdownFileFromBlogPost({writeFile});
+      assertThat(await write(newPost()), instanceOf(Error));
+    });
+    it('WHEN writing THEN write the markdown content to the right file', async () => {
+      const post = BlogPost.preload('2042/12/23-a-new-era.md');
+      post.headline = 'A new Era!'
+      let params = [];
+      const writeFile = async (...args) => params = args;
+      await createMarkdownFileFromBlogPost({writeFile})(post);
+      const expectedContent = 'dateCreated: 2042-12-23  \n\n# A new Era!';
+      assert.deepStrictEqual(params, [post.markdownFilename, expectedContent]);
     });
   });
 });
