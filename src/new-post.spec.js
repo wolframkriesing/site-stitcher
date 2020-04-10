@@ -3,13 +3,15 @@ import assert from 'assert';
 import {assertThat, equalTo, hasProperties} from 'hamjest';
 
 const askForHeadline = async (askUser) => {
-  const headline = await askUser('Headline: ');
-  if (headline === '') return await askUser('Headline: ');
+  let headline = '';
+  while (headline === '') {
+    headline = await askUser('Headline: ');
+  }
   return headline;
 }
 
 const collectBlogPostData = ({askUser}) => async () => {
-  askForHeadline(askUser);
+  await askForHeadline(askUser);
 };
 
 describe('Script for creating a new blog post skeleton', () => {
@@ -19,12 +21,12 @@ describe('Script for creating a new blog post skeleton', () => {
     await collectBlogPostData({askUser})();
     assert.strictEqual(questionAsked, 'Headline: ');
   });
-  it('WHEN user enters no headline THEN ask again', async () => {
+  it('WHEN user enters no headline THEN ask again until there is one', async () => {
     const questionsAsked = [];
-    const answers = ['', 'a headline'];
+    const answers = ['', '', '', '', 'a headline'];
     const askUser = async question => { questionsAsked.push(question); return answers.shift(); };
     await collectBlogPostData({askUser})();
-    assert.deepStrictEqual(questionsAsked, ['Headline: ', 'Headline: ']);
+    assert.deepStrictEqual(questionsAsked, ['Headline: ', 'Headline: ', 'Headline: ', 'Headline: ', 'Headline: ']);
   });
   xit('WHEN title is given THEN set it as `headline`', () => {
     const askUser = async question => 'user-entered title';
