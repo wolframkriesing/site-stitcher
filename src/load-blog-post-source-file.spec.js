@@ -17,13 +17,13 @@ describe('Load blog post source files from a given directory', () => {
       const manySourceFiles = await loadManySourceFiles(noFiles);
       assert.deepStrictEqual(manySourceFiles, []);
     });
-    describe('WHEN one file is given', () => {
-      const file = '2018/05/13-post.md';
-      it('THEN return one BlogPostSourceFile', async () => {
-        const manySourceFiles = await loadManySourceFiles([file]);
-        assert.strictEqual(manySourceFiles.length, 1);
-        assertThat(manySourceFiles[0], hasProperties({markdownFilename: file})); // TODO must be `filename` once its a SourceFile!!!
-      });
+    it('WHEN one file is given THEN return one BlogPostSourceFile', async () => {
+      const manySourceFiles = await loadManySourceFiles(['2018/05/13-post.md']);
+      assert.strictEqual(manySourceFiles.length, 1);
+      assertThat(manySourceFiles[0], hasProperties({
+        markdownFilename: '2018/05/13-post.md',
+        dateCreated: '2018-05-13'
+      })); // TODO must be SourceFile properties!!!
     });
     it('WHEN multiple files are given THEN return all BlogPostSourceFiles', async () => {
       const files = [
