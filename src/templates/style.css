@@ -64,3 +64,13 @@ nav {
   }
 @media screen and (max-width: 600px) {
 }
+
+footer {
+  display: flex;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: lightgray;
+}
+footer div {
+  flex: 1;
+}

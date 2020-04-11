@@ -49,6 +49,7 @@
 - [ ] what about URL incompatible chars in a markdownFilename?
 - [ ] rename `BlogPost#markdownFilename` to `sourceFile`?
 - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
+- [ ] fix BlogPost types and Metadata
 
 # v1 - my website
 - [x] make it run using docker
@@ -69,7 +70,7 @@
   - [x] render the metadata if needed (e.g. on the post page)
 - [x] make it deploy on GH
 - [ ] move domain to GH
-- [ ] add footer and imprint
+- [x] add footer and imprint
 - [ ] generate index page from md files
   - [ ] make it work on mobile
   - [x] dont fail on invalid files in blog post dirs
@@ -83,6 +84,5 @@
   - [x] create a BlogPost instance
   - [x] write markdown file to disk
   - [x] implement date fn
-- [ ] update BlogPost types and Metadata
 - [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
 - [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
