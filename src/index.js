@@ -2,7 +2,7 @@ import * as path from 'path';
 import Tundra from 'tundrajs';
 const tundra = new Tundra();
 
-import {loadManyBlogPostSourceFilesFromFilesystem} from './load-blog-post-source-file.js';
+import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
 
@@ -24,7 +24,7 @@ console.log("Built ", destFilename);
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const posts = (
-    await loadManyBlogPosts()(await loadManyBlogPostSourceFilesFromFilesystem()(postsDirectory))
+    await loadManyBlogPosts()(await loadManyBlogPostSourceFiles()(postsDirectory))
   ).sort(sortByDateCreatedDescending);
 
   await Promise.all(posts.map(generatePost));

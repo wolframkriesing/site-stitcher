@@ -2,14 +2,14 @@ import assert from 'assert';
 import {assertThat, hasProperties} from 'hamjest';
 import {describe, it} from 'mocha';
 
-import {loadManyBlogPostSourceFilesFromFilesystem} from './load-blog-post-source-file.js';
+import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 
 describe('Load blog post source files from a directory', () => {
   describe('GIVEN a list of files', () => {
     const defaultPath = '';
     const loadManySourceFiles = async (files, path = defaultPath) => {
       const findFilesInDir = async () => files;
-      const load = loadManyBlogPostSourceFilesFromFilesystem({findFilesInDir});
+      const load = loadManyBlogPostSourceFiles({findFilesInDir});
       return await load(path);
     };
     it('WHEN the list is empty THEN no source files are returned', async () => {

@@ -41,11 +41,9 @@ const prodDeps = () => {
   return {findFilesInDir};
 };
 
-const toManyBlogPostSourceFiles = (files, dir) => {
-  return files.map(file => BlogPost.preload(path.join(dir, file)));
-};
+const toSourceFile = (filename) => BlogPost.preload(filename);
 
-export const loadManyBlogPostSourceFilesFromFilesystem = ({findFilesInDir} = prodDeps()) => async (path) => {
-  const files = await findFilesInDir(path);
-  return toManyBlogPostSourceFiles(files, path)
+export const loadManyBlogPostSourceFiles = ({findFilesInDir} = prodDeps()) => async (dir) => {
+  const files = await findFilesInDir(dir);
+  return files.map(file => toSourceFile(path.join(dir, file)));
 };
