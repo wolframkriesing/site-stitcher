@@ -17,16 +17,15 @@ const dateCreatedFromMarkdownFilename = (markdownFilename) =>
 
 export class BlogPostSourceFile {
   /**
-   * @param {Filename} markdownFilename
+   * @param {Filename} filename
    * @return {BlogPostSourceFile}
    */
-  static preload(markdownFilename) {
+  static preload(filename) {
     const blogPost = new BlogPostSourceFile();
-    blogPost.markdownFilename = markdownFilename; // deprecate this one, and then move it to BlogPostSourceFile
-    blogPost.filename = markdownFilename;
+    blogPost.filename = filename;
     return blogPost;
   }
   get dateCreated() {
-    return dateCreatedFromMarkdownFilename(this.markdownFilename);
+    return dateCreatedFromMarkdownFilename(this.filename);
   }
 }
