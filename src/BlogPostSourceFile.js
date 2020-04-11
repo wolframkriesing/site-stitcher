@@ -1,19 +1,19 @@
 /**
- * @param {Filename} markdownFilename
+ * @param {Filename} filename
  * @return {Filename}
  */
-const dateDirectoryAndFilename = markdownFilename => markdownFilename.match(/\d{4}\/\d{2}\/\d{2}-.*/)[0];
+const dateDirectoryAndFilename = filename => filename.match(/\d{4}\/\d{2}\/\d{2}-.*/)[0];
 /**
  * @param {string} s
  * @return {string}
  */
 const directoryToIsoDate = s => s.split('-')[0].replace(/\//g, '-');
 /**
- * @param {Filename} markdownFilename
+ * @param {Filename} filename
  * @return {DateString}
  */
-const dateCreatedFromMarkdownFilename = (markdownFilename) =>
-  directoryToIsoDate(dateDirectoryAndFilename(markdownFilename));
+const dateCreatedFromFilename = (filename) =>
+  directoryToIsoDate(dateDirectoryAndFilename(filename));
 
 export class BlogPostSourceFile {
   /**
@@ -26,6 +26,6 @@ export class BlogPostSourceFile {
     return blogPost;
   }
   get dateCreated() {
-    return dateCreatedFromMarkdownFilename(this.filename);
+    return dateCreatedFromFilename(this.filename);
   }
 }
