@@ -1,4 +1,5 @@
 import * as path from 'path';
+import marked from 'marked';
 import Tundra from 'tundrajs';
 const tundra = new Tundra();
 
@@ -23,9 +24,11 @@ const generatePost = async (post) => {
 
 const generateAboutPage = async () => {
   const destDir = path.join(__dirname, '../_output', 'about');
+  const contentDir = path.join(__dirname, '../content');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('about.html', {});
+  const content = marked(await fs.promises.readFile(path.join(contentDir, 'about.md'), 'utf8'));
+  const renderedFile = tundra.getRender('about.html', {content});
   await fs.promises.writeFile(destFilename, renderedFile);
   console.log("Built ", destFilename);
 }
