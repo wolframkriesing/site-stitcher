@@ -24,6 +24,12 @@ const urlFromMarkdownFilename = (markdownFilename) => {
 };
 
 export class BlogPost {
+  static withSourceFile(blogPostSourceFile, rawBlogPostData) {
+    const post = new BlogPost();
+    post.markdownFilename = blogPostSourceFile.filename;
+    Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
+    return post;
+  }
   /**
    * @return {boolean}
    */
@@ -41,11 +47,5 @@ export class BlogPost {
   }
   set dateCreated(dateCreated) {
     this._dateCreated = dateCreated;
-  }
-  static withSourceFile(blogPostSourceFile, rawBlogPostData) {
-    const post = new BlogPost();
-    post.markdownFilename = blogPostSourceFile.filename;
-    Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
-    return post;
   }
 }
