@@ -62,9 +62,6 @@ export class BlogPost {
    */
   cloneAndOverrideWith(overrideData) {
     const clone = new BlogPost();
-    clone.abstract = this.abstract;
-    clone.dateCreated = this.dateCreated;
-    clone.headline = this.headline;
     clone.markdownFilename = this.markdownFilename;
     Object.entries(overrideData).forEach(([key, value]) => clone[key] = value);
     return clone;
