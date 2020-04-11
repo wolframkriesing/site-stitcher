@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import {BlogPost} from './BlogPost.js';
+import {BlogPostSourceFile} from './BlogPostSourceFile.js';
 
 const directoriesWithFullname = (dir) => (entries) => {
   return entries
@@ -41,7 +41,7 @@ const prodDeps = () => {
   return {findFilesInDir};
 };
 
-const toSourceFile = (filename) => BlogPost.preload(filename);
+const toSourceFile = (filename) => BlogPostSourceFile.preload(filename);
 
 export const loadManyBlogPostSourceFiles = ({findFilesInDir} = prodDeps()) => async (dir) => {
   const files = await findFilesInDir(dir);
