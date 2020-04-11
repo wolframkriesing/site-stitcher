@@ -46,15 +46,13 @@ nav {
     margin-right: 2rem;
   }
 
+.metadata {
+  color: gray;
+}
 
 .post {
   margin-top: 2rem;
 }
-  .post .date {
-    white-space: nowrap;
-    color: gray;
-    min-width: 10rem;
-  }
   .post h2 {
     font-size: 1em;
     margin: 0;
@@ -68,8 +66,4 @@ nav {
   .post {
     margin: 1rem;
   }
-}
-
-.page-post p.metadata {
-  color: gray;
 }
