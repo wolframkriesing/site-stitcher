@@ -4,7 +4,7 @@ import {describe, it} from 'mocha';
 
 import {loadManyBlogPostSourceFilesFromFilesystem} from './load-blog-post-source-file.js';
 
-describe('Load blog post source files from a given directory', () => {
+describe('Load blog post source files from a directory', () => {
   describe('GIVEN a list of files', () => {
     const defaultPath = '';
     const loadManySourceFiles = async (files, path = defaultPath) => {

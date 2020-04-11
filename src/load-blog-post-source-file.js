@@ -15,6 +15,7 @@ const filesWithFullname = (dir) => (entries) => {
     .map(entry => path.join(dir, entry.name));
 };
 /**
+ * TODO not sure that this function should also filter the files and folders by name, this might rather be a "biz log" not a dependency logic
  * // @typedef {BlogPostFilename} = 2000/01/01-xxxx.md
  * @param dir
  * @returns {Promise<BlogPostFilename>}
