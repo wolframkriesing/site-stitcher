@@ -20,10 +20,11 @@ describe('Load blog post source files from a directory', () => {
     it('WHEN one file is given THEN return one BlogPostSourceFile', async () => {
       const manySourceFiles = await loadManySourceFiles(['2018/05/13-post.md']);
       assert.strictEqual(manySourceFiles.length, 1);
+      // TODO must be SourceFile instance (or not?)!!!
       assertThat(manySourceFiles[0], hasProperties({
-        markdownFilename: '2018/05/13-post.md',
+        filename: '2018/05/13-post.md',
         dateCreated: '2018-05-13'
-      })); // TODO must be SourceFile properties!!!
+      }));
     });
     it('WHEN multiple files are given THEN return all BlogPostSourceFiles', async () => {
       const files = [
@@ -35,10 +36,10 @@ describe('Load blog post source files from a directory', () => {
       const path = '/the/path';
       const manySourceFiles = await loadManySourceFiles(files, path);
       assert.strictEqual(manySourceFiles.length, 4);
-      assertThat(manySourceFiles[0], hasProperties({markdownFilename: path + '/' + files[0]})); // TODO must be `filename` once its a SourceFile!!!
-      assertThat(manySourceFiles[1], hasProperties({markdownFilename: path + '/' + files[1]})); // TODO must be `filename` once its a SourceFile!!!
-      assertThat(manySourceFiles[2], hasProperties({markdownFilename: path + '/' + files[2]})); // TODO must be `filename` once its a SourceFile!!!
-      assertThat(manySourceFiles[3], hasProperties({markdownFilename: path + '/' + files[3]})); // TODO must be `filename` once its a SourceFile!!!
+      assertThat(manySourceFiles[0], hasProperties({filename: path + '/' + files[0]}));
+      assertThat(manySourceFiles[1], hasProperties({filename: path + '/' + files[1]}));
+      assertThat(manySourceFiles[2], hasProperties({filename: path + '/' + files[2]}));
+      assertThat(manySourceFiles[3], hasProperties({filename: path + '/' + files[3]}));
     });
   });
 });
