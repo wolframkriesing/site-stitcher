@@ -47,6 +47,7 @@
 - [ ] indieweb auth of my page
 - [ ] render a page with the output of test-stitcher for all the tests that built this site
 - [ ] what about URL incompatible chars in a markdownFilename?
+- [ ] rename `BlogPost#markdownFilename` to `sourceFile`?
 
 # v1 - my website
 - [x] make it run using docker
@@ -84,4 +85,3 @@
 - [ ] update BlogPost types and Metadata
 - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
 - [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
-- [ ] rename `markdownFilename` to `sourceFile`

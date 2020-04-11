@@ -26,7 +26,7 @@ const urlFromMarkdownFilename = (markdownFilename) => {
 export class BlogPost {
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
     const post = new BlogPost();
-    post.markdownFilename = blogPostSourceFile.filename;
+    post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
     Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
     return post;
   }
