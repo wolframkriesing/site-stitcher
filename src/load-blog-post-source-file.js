@@ -40,7 +40,7 @@ const prodDeps = () => {
   return {findFilesInDir};
 };
 
-export const toManyBlogPostSourceFiles = (files, dir) => {
+const toManyBlogPostSourceFiles = (files, dir) => {
   return files.map(file => BlogPost.preload(path.join(dir, file)));
 };
 
