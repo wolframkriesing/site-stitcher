@@ -1,30 +1,30 @@
 import assert from 'assert';
 import {describe, it} from 'mocha';
 
-import {preloadBlogPostList} from './load-blog-post-source-file.js';
+import {toManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Preload blog posts from a given directory', () => {
   describe('GIVEN a list of files', () => {
     it('WHEN the list is empty THEN no posts are returned', () => {
-      const blogPostList = preloadBlogPostList([], '');
+      const blogPostList = toManyBlogPostSourceFiles([], '');
       assert.deepStrictEqual(blogPostList, []);
     });
     describe('WHEN one file is given', () => {
       const file = '2018/05/13-post.md';
       const blogPost = BlogPost.preload('2018/05/13-post.md');
       it('THEN return one BlogPost', () => {
-        const blogPostList = preloadBlogPostList([file], '');
+        const blogPostList = toManyBlogPostSourceFiles([file], '');
         assert.strictEqual(blogPostList.length, 1);
         assert(blogPostList[0].equals(blogPost));
       });
       it('THEN set the `url` property correctly', () => {
-        const blogPostList = preloadBlogPostList([file], '');
+        const blogPostList = toManyBlogPostSourceFiles([file], '');
         assert.strictEqual(blogPostList[0].url, '/blog/2018/05/13-post/');
       });
       it('AND the file is the index.md inside a dir THEN set the `url` property correctly', () => {
         const file = '2001/01/01-new-post/index.md';
-        const blogPostList = preloadBlogPostList([file], '');
+        const blogPostList = toManyBlogPostSourceFiles([file], '');
         assert.strictEqual(blogPostList[0].url, '/blog/2001/01/01-new-post/');
       });
     });
@@ -41,7 +41,7 @@ describe('Preload blog posts from a given directory', () => {
         BlogPost.preload('2012/12/31-post.md'),
         BlogPost.preload('2018/10/13-post.md'),
       ];
-      const blogPostList = preloadBlogPostList(files, '');
+      const blogPostList = toManyBlogPostSourceFiles(files, '');
       assert.strictEqual(blogPostList.length, 4);
       assert(blogPostList[0].equals(expectedBlogPosts[0]));
       assert(blogPostList[1].equals(expectedBlogPosts[1]));

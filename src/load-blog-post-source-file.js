@@ -40,11 +40,11 @@ const prodDeps = () => {
   return {findFilesInDir};
 };
 
-export const preloadBlogPostList = (files, dir) => {
+export const toManyBlogPostSourceFiles = (files, dir) => {
   return files.map(file => BlogPost.preload(path.join(dir, file)));
 };
 
-export const preloadBlogPostListFromDirectory = ({findFilesInDir} = prodDeps()) => async (path) => {
+export const loadManyBlogPostSourceFilesFromFilesystem = ({findFilesInDir} = prodDeps()) => async (path) => {
   const files = await findFilesInDir(path);
-  return preloadBlogPostList(files, path)
+  return toManyBlogPostSourceFiles(files, path)
 };
