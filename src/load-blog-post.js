@@ -109,10 +109,10 @@ export const loadBlogPostList = ({readFile} = prodDeps()) => async blogPostList 
 };
 
 export const loadBlogPost = ({readFile}) => async (blogPost) => {
-  const rawPost = await readFile(blogPost.markdownFilename);
+  const sourceFile = {filename: blogPost.markdownFilename};
+  const rawPost = await readFile(sourceFile.filename);
   const tokens = marked.lexer(rawPost);
   const parsedPostData = parseRawPost(tokens);
   const bodyAsHtml = renderBodyAsHtml(tokens);
-  const sourceFile = {filename: blogPost.markdownFilename};
   return BlogPost.withSourceFile(sourceFile, {...parsedPostData, bodyAsHtml})
 }
