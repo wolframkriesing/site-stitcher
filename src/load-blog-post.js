@@ -105,7 +105,7 @@ const renderBodyAsHtml = tokens => {
 
 export const loadBlogPostList = ({readFile} = prodDeps()) => async blogPostList => {
   const loadPost = loadBlogPost({readFile});
-  return await Promise.all(blogPostList.map(async (blogPost) => await loadPost(blogPost)));
+  return Promise.all(blogPostList.map(async (blogPost) => await loadPost(blogPost)));
 };
 
 export const loadBlogPost = ({readFile}) => async (blogPost) => {
