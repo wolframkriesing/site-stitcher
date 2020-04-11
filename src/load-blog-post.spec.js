@@ -10,8 +10,8 @@ describe('Load a blog post completely, with all data ready to render', () => {
       const defaults = {fileContent: '', markdownFilename: '2001/01/01-post.md'};
       const {fileContent, markdownFilename} = {...defaults, ...params};
       const preloadedPost = BlogPost.preload(markdownFilename);
-      const loadBlogPostFromFile = async () => fileContent;
-      return await loadBlogPost({loadBlogPostFromFile})(preloadedPost);
+      const readFile = async () => fileContent;
+      return await loadBlogPost({readFile})(preloadedPost);
     };
     it('WHEN post has headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
       const post = await loadPost({
@@ -104,8 +104,8 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
       BlogPost.preload('2011/11/11-post.md'),
     ];
     const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
-    const loadBlogPostFromFile = async () => '# headline\nabstract';
-    const completeBlogPostList = await loadBlogPostList({loadBlogPostFromFile})(blogPostList);
+    const readFile = async () => '# headline\nabstract';
+    const completeBlogPostList = await loadBlogPostList({readFile})(blogPostList);
 
     const expectedPosts = [
       BlogPost.preload('2018/05/13-post.md').cloneAndOverrideWith(rawBlogPost),

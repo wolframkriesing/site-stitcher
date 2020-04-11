@@ -3,8 +3,8 @@ import * as fs from 'fs';
 import {BlogPost} from "./BlogPost.js";
 
 const prodDeps = () => {
-  const loadBlogPostFromFile = async (filename) => fs.promises.readFile(filename, 'utf8');
-  return {loadBlogPostFromFile};
+  const readFile = async (filename) => fs.promises.readFile(filename, 'utf8');
+  return {readFile};
 };
 
 /**
@@ -104,13 +104,13 @@ const renderBodyAsHtml = tokens => {
   return marked.parser(tokens);
 }
 
-export const loadBlogPostList = ({loadBlogPostFromFile} = prodDeps()) => async blogPostList => {
-  const loadPost = loadBlogPost({loadBlogPostFromFile});
+export const loadBlogPostList = ({readFile} = prodDeps()) => async blogPostList => {
+  const loadPost = loadBlogPost({readFile});
   return await Promise.all(blogPostList.map(async (blogPost) => await loadPost(blogPost)));
 };
 
-export const loadBlogPost = ({loadBlogPostFromFile}) => async (blogPost) => {
-  const rawPost = await loadBlogPostFromFile(blogPost.markdownFilename);
+export const loadBlogPost = ({readFile}) => async (blogPost) => {
+  const rawPost = await readFile(blogPost.markdownFilename);
   const tokens = marked.lexer(rawPost);
   const parsedPostData = parseRawPost(tokens);
   const bodyAsHtml = renderBodyAsHtml(tokens);
