@@ -13,12 +13,13 @@ describe('Load a blog post completely, with all data ready to render', () => {
       const readFile = async () => fileContent;
       return await loadBlogPost({readFile})(sourceFile);
     };
-    it('WHEN post has headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
+    it('WHEN post has headline and first paragraph THEN load and find: url, dateCreated, markdownFilename, headline and abstract', async () => {
       const post = await loadPost({
         markdownFilename: '2001/01/01-post.md',
         fileContent: '# This is the first post\nthe first paragraph of the blog post ...'
       });
       const expectedProps = {
+        url: '/blog/2001/01/01-post/',
         dateCreated: '2001-01-01',
         markdownFilename: '2001/01/01-post.md',
         headline: 'This is the first post',
