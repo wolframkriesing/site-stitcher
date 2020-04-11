@@ -23,9 +23,8 @@ console.log("Built ", destFilename);
 
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
-  const posts = (
-    await loadManyBlogPosts()(await loadManyBlogPostSourceFiles()(postsDirectory))
-  ).sort(sortByDateCreatedDescending);
+  const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
+  const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
 
   await Promise.all(posts.map(generatePost));
 

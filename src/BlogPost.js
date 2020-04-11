@@ -30,7 +30,8 @@ export class BlogPost {
    */
   static preload(markdownFilename) {
     const blogPost = new BlogPost();
-    blogPost.markdownFilename = markdownFilename;
+    blogPost.markdownFilename = markdownFilename; // deprecate this one, and then move it to BlogPostSourceFile
+    blogPost.filename = markdownFilename;
     return blogPost;
   }
   /**
