@@ -9,9 +9,9 @@ describe('Load a blog post completely, with all data ready to render', () => {
     const loadPost = async (params) => {
       const defaults = {fileContent: '', markdownFilename: '2001/01/01-post.md'};
       const {fileContent, markdownFilename} = {...defaults, ...params};
-      const preloadedPost = BlogPost.preload(markdownFilename);
+      const sourceFile = {filename: markdownFilename};
       const readFile = async () => fileContent;
-      return await loadBlogPost({readFile})(preloadedPost);
+      return await loadBlogPost({readFile})(sourceFile);
     };
     it('WHEN post has headline and first paragraph THEN load and find: dateCreated, markdownFilename, headline and abstract', async () => {
       const post = await loadPost({
