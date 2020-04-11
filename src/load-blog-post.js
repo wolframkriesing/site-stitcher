@@ -1,9 +1,8 @@
 import marked from 'marked';
-import * as fs from 'fs';
 import {BlogPost} from "./BlogPost.js";
+import {readFile} from './_deps/fs.js';
 
 const prodDeps = () => {
-  const readFile = async (filename) => fs.promises.readFile(filename, 'utf8');
   return {readFile};
 };
 
