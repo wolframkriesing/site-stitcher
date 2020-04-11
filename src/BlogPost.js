@@ -25,16 +25,6 @@ const urlFromMarkdownFilename = (markdownFilename) => {
 
 export class BlogPost {
   /**
-   * @param {Filename} markdownFilename
-   * @return {BlogPost}
-   */
-  static preload(markdownFilename) {
-    const blogPost = new BlogPost();
-    blogPost.markdownFilename = markdownFilename; // deprecate this one, and then move it to BlogPostSourceFile
-    blogPost.filename = markdownFilename;
-    return blogPost;
-  }
-  /**
    * @return {boolean}
    */
   get hasVideo() {
