@@ -18,19 +18,32 @@ const generatePost = async (post) => {
   const destFilename = path.join(destDir, 'index.html');
   const renderedFile = tundra.getRender('post.html', {post, toReadableDateTime});
   await fs.promises.writeFile(destFilename, renderedFile);
-console.log("Built ", destFilename);
+  console.log("Built ", destFilename);
 }
+
+const generateAboutPage = async () => {
+  const destDir = path.join(__dirname, '../_output', 'about');
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const renderedFile = tundra.getRender('about.html', {});
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built ", destFilename);
+}
+
+const generateHomePage = async (posts) => {
+  const renderedFile = tundra.getRender('index.html', {posts, toReadableDate, toReadableDateTime, toWeekday});
+  const destFilename = path.join(__dirname, '../_output', 'index.html');
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built ", destFilename);
+};
 
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
-
-  await Promise.all(posts.map(generatePost));
-
-  const renderedFile = tundra.getRender('index.html', {posts, toReadableDate, toReadableDateTime, toWeekday});
-  const destFilename = path.join(__dirname, '../_output', 'index.html');
-  fs.writeFileSync(destFilename, renderedFile);
-console.log("Built ", destFilename);
+  Promise.all([
+    ...posts.map(generatePost),
+    generateAboutPage(),
+    generateHomePage(posts),
+  ]);
 })();
-
