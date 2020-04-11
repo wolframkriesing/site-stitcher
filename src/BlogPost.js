@@ -42,21 +42,6 @@ export class BlogPost {
   set dateCreated(dateCreated) {
     this._dateCreated = dateCreated;
   }
-  equals(blogPost) {
-    // TODO compare properly ... or delete this method
-    return this.dateCreated === blogPost.dateCreated;
-  }
-
-  /**
-   * @param {object} overrideData
-   * @return {BlogPost}
-   */
-  cloneAndOverrideWith(overrideData) {
-    const clone = new BlogPost();
-    clone.markdownFilename = this.markdownFilename;
-    Object.entries(overrideData).forEach(([key, value]) => clone[key] = value);
-    return clone;
-  }
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
     const post = new BlogPost();
     post.markdownFilename = blogPostSourceFile.filename;
