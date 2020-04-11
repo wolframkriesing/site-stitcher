@@ -1,14 +1,17 @@
 import assert from 'assert';
 import {describe, it} from 'mocha';
 
-import {toManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
+import {toManyBlogPostSourceFiles, loadManyBlogPostSourceFilesFromFilesystem} from './load-blog-post-source-file.js';
 import {BlogPost} from './BlogPost.js';
 
-describe('Preload blog posts from a given directory', () => {
+describe('Load blog post source files from a given directory', () => {
   describe('GIVEN a list of files', () => {
-    it('WHEN the list is empty THEN no posts are returned', () => {
-      const blogPostList = toManyBlogPostSourceFiles([], '');
-      assert.deepStrictEqual(blogPostList, []);
+    it('WHEN the list is empty THEN no posts are returned', async () => {
+      const noFiles = [];
+      const findFilesInDir = async () => noFiles;
+      const load = loadManyBlogPostSourceFilesFromFilesystem({findFilesInDir});
+      const manySourceFiles = await load('irrelevant path');
+      assert.deepStrictEqual(manySourceFiles, []);
     });
     describe('WHEN one file is given', () => {
       const file = '2018/05/13-post.md';
