@@ -66,4 +66,10 @@ export class BlogPost {
     Object.entries(overrideData).forEach(([key, value]) => clone[key] = value);
     return clone;
   }
+  static withSourceFile(blogPostSourceFile, rawBlogPostData) {
+    const post = new BlogPost();
+    post.markdownFilename = blogPostSourceFile.filename;
+    Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
+    return post;
+  }
 }

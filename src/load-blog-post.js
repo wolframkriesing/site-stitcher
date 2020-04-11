@@ -1,5 +1,6 @@
 import marked from 'marked';
 import * as fs from 'fs';
+import {BlogPost} from "./BlogPost.js";
 
 const prodDeps = () => {
   const loadBlogPostFromFile = async (filename) => fs.promises.readFile(filename, 'utf8');
@@ -113,5 +114,6 @@ export const loadBlogPost = ({loadBlogPostFromFile}) => async (blogPost) => {
   const tokens = marked.lexer(rawPost);
   const parsedPostData = parseRawPost(tokens);
   const bodyAsHtml = renderBodyAsHtml(tokens);
-  return blogPost.cloneAndOverrideWith({...parsedPostData, bodyAsHtml});
+  const sourceFile = {filename: blogPost.markdownFilename};
+  return BlogPost.withSourceFile(sourceFile, {...parsedPostData, bodyAsHtml})
 }
