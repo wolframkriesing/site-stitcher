@@ -2,18 +2,17 @@ import assert from 'assert';
 import {assertThat, hasProperties} from 'hamjest';
 import {describe, it} from 'mocha';
 
-import {loadManyBlogPostSourceFilesFromFilesystem, toManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
-import {BlogPost} from './BlogPost.js';
+import {loadManyBlogPostSourceFilesFromFilesystem} from './load-blog-post-source-file.js';
 
 describe('Load blog post source files from a given directory', () => {
   describe('GIVEN a list of files', () => {
-    const loadManySourceFiles = async (noFiles) => {
-      const findFilesInDir = async () => noFiles;
+    const defaultPath = '';
+    const loadManySourceFiles = async (files, path = defaultPath) => {
+      const findFilesInDir = async () => files;
       const load = loadManyBlogPostSourceFilesFromFilesystem({findFilesInDir});
-      const irrelevantPath = '';
-      return await load(irrelevantPath);
+      return await load(path);
     };
-    it('WHEN the list is empty THEN no posts are returned', async () => {
+    it('WHEN the list is empty THEN no source files are returned', async () => {
       const noFiles = [];
       const manySourceFiles = await loadManySourceFiles(noFiles);
       assert.deepStrictEqual(manySourceFiles, []);
@@ -26,25 +25,20 @@ describe('Load blog post source files from a given directory', () => {
         assertThat(manySourceFiles[0], hasProperties({markdownFilename: file})); // TODO must be `filename` once its a SourceFile!!!
       });
     });
-    it('WHEN multiple files are given THEN return all BlogPost items', () => {
+    it('WHEN multiple files are given THEN return all BlogPostSourceFiles', async () => {
       const files = [
         '2010/01/01-post.md',
         '2011/02/28-post.md',
         '2012/12/31-post.md',
         '2018/10/13-post.md',
       ];
-      const expectedBlogPosts = [
-        BlogPost.preload('2010/01/01-post.md'),
-        BlogPost.preload('2011/02/28-post.md'),
-        BlogPost.preload('2012/12/31-post.md'),
-        BlogPost.preload('2018/10/13-post.md'),
-      ];
-      const blogPostList = toManyBlogPostSourceFiles(files, '');
-      assert.strictEqual(blogPostList.length, 4);
-      assert(blogPostList[0].equals(expectedBlogPosts[0]));
-      assert(blogPostList[1].equals(expectedBlogPosts[1]));
-      assert(blogPostList[2].equals(expectedBlogPosts[2]));
-      assert(blogPostList[3].equals(expectedBlogPosts[3]));
+      const path = '/the/path';
+      const manySourceFiles = await loadManySourceFiles(files, path);
+      assert.strictEqual(manySourceFiles.length, 4);
+      assertThat(manySourceFiles[0], hasProperties({markdownFilename: path + '/' + files[0]})); // TODO must be `filename` once its a SourceFile!!!
+      assertThat(manySourceFiles[1], hasProperties({markdownFilename: path + '/' + files[1]})); // TODO must be `filename` once its a SourceFile!!!
+      assertThat(manySourceFiles[2], hasProperties({markdownFilename: path + '/' + files[2]})); // TODO must be `filename` once its a SourceFile!!!
+      assertThat(manySourceFiles[3], hasProperties({markdownFilename: path + '/' + files[3]})); // TODO must be `filename` once its a SourceFile!!!
     });
   });
 });
