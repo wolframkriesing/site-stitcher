@@ -47,36 +47,26 @@ nav {
   }
 
 
-.row {
-  display: flex;
-  margin: 1rem;
+.post {
+  margin-top: 2rem;
 }
-  .row .date {
+  .post .date {
     white-space: nowrap;
     color: gray;
-    flex: 1;
     min-width: 10rem;
   }
-  .row .content {
-    padding: 0 1rem;
-    flex: 10;
-  }
-  .row h2 {
+  .post h2 {
     font-size: 1em;
     margin: 0;
     padding: 0;
   }
-  .row p {
+  .post p {
     margin: 0;
     padding: 0;
   }
 @media screen and (max-width: 600px) {
-  .row {
-    display: block;
+  .post {
     margin: 1rem;
-  }
-  .row .content {
-    padding: 0;
   }
 }
 

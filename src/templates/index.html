@@ -20,7 +20,7 @@
   </div>
 
   {% posts.slice(1).map(post => { %}
-    <div class="row" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
       <div class="date" itemprop="datePublished">
         {{toReadableDate(post.dateCreated)}}
       </div>
