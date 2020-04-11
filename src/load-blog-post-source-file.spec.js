@@ -1,25 +1,29 @@
 import assert from 'assert';
+import {assertThat, hasProperties} from 'hamjest';
 import {describe, it} from 'mocha';
 
-import {toManyBlogPostSourceFiles, loadManyBlogPostSourceFilesFromFilesystem} from './load-blog-post-source-file.js';
+import {loadManyBlogPostSourceFilesFromFilesystem, toManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Load blog post source files from a given directory', () => {
   describe('GIVEN a list of files', () => {
-    it('WHEN the list is empty THEN no posts are returned', async () => {
-      const noFiles = [];
+    const loadManySourceFiles = async (noFiles) => {
       const findFilesInDir = async () => noFiles;
       const load = loadManyBlogPostSourceFilesFromFilesystem({findFilesInDir});
-      const manySourceFiles = await load('irrelevant path');
+      const irrelevantPath = '';
+      return await load(irrelevantPath);
+    };
+    it('WHEN the list is empty THEN no posts are returned', async () => {
+      const noFiles = [];
+      const manySourceFiles = await loadManySourceFiles(noFiles);
       assert.deepStrictEqual(manySourceFiles, []);
     });
     describe('WHEN one file is given', () => {
       const file = '2018/05/13-post.md';
-      const blogPost = BlogPost.preload('2018/05/13-post.md');
-      it('THEN return one BlogPost', () => {
-        const blogPostList = toManyBlogPostSourceFiles([file], '');
-        assert.strictEqual(blogPostList.length, 1);
-        assert(blogPostList[0].equals(blogPost));
+      it('THEN return one BlogPostSourceFile', async () => {
+        const manySourceFiles = await loadManySourceFiles([file]);
+        assert.strictEqual(manySourceFiles.length, 1);
+        assertThat(manySourceFiles[0], hasProperties({markdownFilename: file})); // TODO must be `filename` once its a SourceFile!!!
       });
       it('THEN set the `url` property correctly', () => {
         const blogPostList = toManyBlogPostSourceFiles([file], '');
