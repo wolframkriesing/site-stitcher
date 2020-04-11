@@ -103,9 +103,9 @@ const renderBodyAsHtml = tokens => {
   return marked.parser(tokens);
 }
 
-export const loadBlogPostList = ({readFile} = prodDeps()) => async blogPostList => {
+export const loadManyBlogPosts = ({readFile} = prodDeps()) => async manyBlogPosts => {
   const loadPost = loadBlogPost({readFile});
-  return Promise.all(blogPostList.map(async (blogPost) =>
+  return Promise.all(manyBlogPosts.map(async (blogPost) =>
     await loadPost({filename: blogPost.markdownFilename})));
 };
 

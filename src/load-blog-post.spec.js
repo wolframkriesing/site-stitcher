@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
 import {assertThat, hasProperties} from 'hamjest';
-import {loadBlogPost, loadBlogPostList} from './load-blog-post.js';
+import {loadBlogPost, loadManyBlogPosts} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Load a blog post completely, with all data ready to render', () => {
@@ -105,7 +105,7 @@ describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
     ];
     const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
     const readFile = async () => '# headline\nabstract';
-    const completeBlogPostList = await loadBlogPostList({readFile})(blogPostList);
+    const completeBlogPostList = await loadManyBlogPosts({readFile})(blogPostList);
 
     const expectedPosts = [
       BlogPost.preload('2018/05/13-post.md').cloneAndOverrideWith(rawBlogPost),
