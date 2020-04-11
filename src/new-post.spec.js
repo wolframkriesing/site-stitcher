@@ -83,7 +83,8 @@ describe('Script for creating a new blog post skeleton', () => {
   });
   describe('GIVEN a proper `BlogPost` instance create markdown content', () => {
     const newPost = (headline = '') => {
-      const post = BlogPost.preload('2000/01/01-post.md');
+      const post = new BlogPost();
+      post.markdownFilename = '2000/01/01-post.md';
       post.headline = headline;
       return post;
     };
@@ -128,7 +129,11 @@ describe('Script for creating a new blog post skeleton', () => {
     });
   });
   describe('GIVEN a `BlogPost` write the markdown file', () => {
-    const newPost = () => BlogPost.preload('2000/01/01-post.md');
+    const newPost = () => {
+      const post = new BlogPost();
+      post.markdownFilename = '2000/01/01-post.md';
+      return post;
+    };
     it('WHEN writing succeeds THEN return true', async () => {
       const writeFile = async () => true;
       const write = createMarkdownFileFromBlogPost({writeFile});
@@ -140,7 +145,8 @@ describe('Script for creating a new blog post skeleton', () => {
       assertThat(await write(newPost()), instanceOf(Error));
     });
     it('WHEN writing THEN write the markdown content to the right file', async () => {
-      const post = BlogPost.preload('2042/12/23-a-new-era.md');
+      const post = new BlogPost();
+      post.markdownFilename = '2042/12/23-a-new-era.md';
       post.headline = 'A new Era!'
       let params = [];
       const writeFile = async (...args) => params = args;
