@@ -1,19 +1,20 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {assertThat, hasProperties} from 'hamjest';
+import {assertThat, hasProperties, instanceOf, everyItem} from 'hamjest';
 import {loadBlogPost, loadManyBlogPosts} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
+import {BlogPostSourceFile} from './BlogPostSourceFile.js';
 
-describe('Load a blog post completely, with all data ready to render', () => {
-  describe('GIVEN a valid post', () => {
+describe('Load a blog post, with all data ready to render', () => {
+  describe('GIVEN one blog post source file', () => {
     const loadPost = async (params) => {
       const defaults = {fileContent: '', markdownFilename: '2001/01/01-post.md'};
       const {fileContent, markdownFilename} = {...defaults, ...params};
-      const sourceFile = {filename: markdownFilename};
+      const sourceFile = BlogPostSourceFile.preload(markdownFilename);
       const readFile = async () => fileContent;
       return await loadBlogPost({readFile})(sourceFile);
     };
-    it('WHEN post has headline and first paragraph THEN load and find: url, dateCreated, markdownFilename, headline and abstract', async () => {
+    it('WHEN post has headline and first paragraph THEN provide: url, dateCreated, markdownFilename, headline and abstract', async () => {
       const post = await loadPost({
         markdownFilename: '2001/01/01-post.md',
         fileContent: '# This is the first post\nthe first paragraph of the blog post ...'
@@ -25,6 +26,7 @@ describe('Load a blog post completely, with all data ready to render', () => {
         headline: 'This is the first post',
         abstract: 'the first paragraph of the blog post ...',
       };
+      assertThat(post, instanceOf(BlogPost));
       assertThat(post, hasProperties(expectedProps));
     });
     it('WHEN source file is inside a directory THEN still get the URL right', async () => {
@@ -34,6 +36,7 @@ describe('Load a blog post completely, with all data ready to render', () => {
       });
       assertThat(post, hasProperties({url: '/blog/2001/01/01-post/'}));
     });
+// the content parsing ...
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline'});
       assert.strictEqual(post.abstract, '');
@@ -100,27 +103,17 @@ describe('Load a blog post completely, with all data ready to render', () => {
       assertThat(post, hasProperties({abstractContentAsHtml: expected}));
     });
   });
-});
-
-describe('GIVEN a list of not-yet-loaded blog posts, load them', () => {
-  xit('WHEN loading one post', () => {
-    assert.strictEqual(completeBlogPostList.length, 1);
-  });
-  it('WHEN many files are given THEN load all the BlogPost items', async () => {
-    const blogPostList = [
-      BlogPost.preload('2018/05/13-post.md'),
-      BlogPost.preload('2011/11/11-post.md'),
+  it('GIVEN many blog post source files THEN load all the BlogPost items', async () => {
+    const manySourceFiles = [
+      BlogPostSourceFile.preload('2018/05/13-post.md'),
+      BlogPostSourceFile.preload('2011/11/11-post.md'),
     ];
     const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
     const readFile = async () => '# headline\nabstract';
-    const completeBlogPostList = await loadManyBlogPosts({readFile})(blogPostList);
-
-    const expectedPosts = [
-      BlogPost.preload('2018/05/13-post.md').cloneAndOverrideWith(rawBlogPost),
-      BlogPost.preload('2011/11/11-post.md').cloneAndOverrideWith(rawBlogPost),
-    ];
-    assert.strictEqual(completeBlogPostList.length, 2);
-    assert(completeBlogPostList[0].equals(expectedPosts[0]));
-    assert(completeBlogPostList[1].equals(expectedPosts[1]));
+    const posts = await loadManyBlogPosts({readFile})(manySourceFiles);
+    assert.strictEqual(posts.length, 2);
+    assertThat(posts, everyItem(instanceOf(BlogPost)));
+    assertThat(posts[0], hasProperties({...rawBlogPost, dateCreated: '2018-05-13'}));
+    assertThat(posts[1], hasProperties({...rawBlogPost, dateCreated: '2011-11-11'}));
   });
 });
