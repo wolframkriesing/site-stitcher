@@ -25,11 +25,6 @@ describe('Load blog post source files from a given directory', () => {
         assert.strictEqual(manySourceFiles.length, 1);
         assertThat(manySourceFiles[0], hasProperties({markdownFilename: file})); // TODO must be `filename` once its a SourceFile!!!
       });
-      it('AND the file is the index.md inside a dir THEN set the `url` property correctly', () => {
-        const file = '2001/01/01-new-post/index.md';
-        const blogPostList = toManyBlogPostSourceFiles([file], '');
-        assert.strictEqual(blogPostList[0].url, '/blog/2001/01/01-new-post/');
-      });
     });
     it('WHEN multiple files are given THEN return all BlogPost items', () => {
       const files = [

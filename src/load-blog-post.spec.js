@@ -27,6 +27,13 @@ describe('Load a blog post completely, with all data ready to render', () => {
       };
       assertThat(post, hasProperties(expectedProps));
     });
+    it('WHEN source file is inside a directory THEN still get the URL right', async () => {
+      const post = await loadPost({
+        markdownFilename: '2001/01/01-post/index.md',
+        fileContent: '# irrelevant'
+      });
+      assertThat(post, hasProperties({url: '/blog/2001/01/01-post/'}));
+    });
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline'});
       assert.strictEqual(post.abstract, '');
