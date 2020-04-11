@@ -46,40 +46,31 @@ nav {
     margin-right: 2rem;
   }
 
-
-.row {
-  display: flex;
-  margin: 1rem;
+.metadata {
+  color: gray;
 }
-  .row .date {
-    white-space: nowrap;
-    color: gray;
-    flex: 1;
-    min-width: 10rem;
-  }
-  .row .content {
-    padding: 0 1rem;
-    flex: 10;
-  }
-  .row h2 {
+
+.post {
+  margin-top: 2rem;
+}
+  .post h2 {
     font-size: 1em;
     margin: 0;
     padding: 0;
   }
-  .row p {
+  .post p {
     margin: 0;
     padding: 0;
   }
 @media screen and (max-width: 600px) {
-  .row {
-    display: block;
-    margin: 1rem;
-  }
-  .row .content {
-    padding: 0;
-  }
 }
 
-.page-post p.metadata {
-  color: gray;
+footer {
+  display: flex;
+  padding: 2rem;
+  margin-top: 2rem;
+  background-color: lightgray;
+}
+footer div {
+  flex: 1;
 }
