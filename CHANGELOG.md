@@ -48,6 +48,7 @@
 - [ ] render a page with the output of test-stitcher for all the tests that built this site
 - [ ] what about URL incompatible chars in a markdownFilename?
 - [ ] rename `BlogPost#markdownFilename` to `sourceFile`?
+- [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
 
 # v1 - my website
 - [x] make it run using docker
@@ -83,5 +84,5 @@
   - [x] write markdown file to disk
   - [x] implement date fn
 - [ ] update BlogPost types and Metadata
-- [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
 - [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
+- [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
