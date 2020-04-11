@@ -1,7 +1,7 @@
 import assert from 'assert';
 import {describe, it} from 'mocha';
 
-import {preloadBlogPostList} from './preload-blog-post.js';
+import {preloadBlogPostList} from './load-blog-post-source-file.js';
 import {BlogPost} from './BlogPost.js';
 
 describe('Preload blog posts from a given directory', () => {

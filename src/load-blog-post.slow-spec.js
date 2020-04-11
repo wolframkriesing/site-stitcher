@@ -1,6 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {preloadBlogPostList} from './preload-blog-post.js';
+import {preloadBlogPostList} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import * as path from 'path';
 

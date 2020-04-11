@@ -2,7 +2,7 @@ import * as path from 'path';
 import Tundra from 'tundrajs';
 const tundra = new Tundra();
 
-import {preloadBlogPostListFromDirectory} from './preload-blog-post.js';
+import {preloadBlogPostListFromDirectory} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
 

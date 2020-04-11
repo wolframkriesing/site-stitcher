@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {assertThat, not, hasItem, hasProperty, endsWith} from 'hamjest';
 import * as path from 'path';
-import {preloadBlogPostListFromDirectory} from './preload-blog-post.js';
+import {preloadBlogPostListFromDirectory} from './load-blog-post-source-file.js';
 
 const blogPostsDirectory = path.join(__dirname, '../test-content/blog-posts');
 
