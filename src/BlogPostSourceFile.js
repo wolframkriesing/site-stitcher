@@ -20,7 +20,7 @@ export class BlogPostSourceFile {
    * @param {Filename} filename
    * @return {BlogPostSourceFile}
    */
-  static preload(filename) {
+  static withFilename(filename) {
     const blogPost = new BlogPostSourceFile();
     blogPost.filename = filename;
     return blogPost;

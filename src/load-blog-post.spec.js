@@ -10,7 +10,7 @@ describe('Load a blog post, with all data ready to render', () => {
     const loadPost = async (params) => {
       const defaults = {fileContent: '', markdownFilename: '2001/01/01-post.md'};
       const {fileContent, markdownFilename} = {...defaults, ...params};
-      const sourceFile = BlogPostSourceFile.preload(markdownFilename);
+      const sourceFile = BlogPostSourceFile.withFilename(markdownFilename);
       const readFile = async () => fileContent;
       return await loadBlogPost({readFile})(sourceFile);
     };
@@ -105,8 +105,8 @@ describe('Load a blog post, with all data ready to render', () => {
   });
   it('GIVEN many blog post source files THEN load all the BlogPost items', async () => {
     const manySourceFiles = [
-      BlogPostSourceFile.preload('2018/05/13-post.md'),
-      BlogPostSourceFile.preload('2011/11/11-post.md'),
+      BlogPostSourceFile.withFilename('2018/05/13-post.md'),
+      BlogPostSourceFile.withFilename('2011/11/11-post.md'),
     ];
     const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
     const readFile = async () => '# headline\nabstract';

@@ -41,7 +41,7 @@ const prodDeps = () => {
   return {findFilesInDir};
 };
 
-const toSourceFile = (filename) => BlogPostSourceFile.preload(filename);
+const toSourceFile = (filename) => BlogPostSourceFile.withFilename(filename);
 
 export const loadManyBlogPostSourceFiles = ({findFilesInDir} = prodDeps()) => async (dir) => {
   const files = await findFilesInDir(dir);

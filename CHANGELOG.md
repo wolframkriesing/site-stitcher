@@ -83,5 +83,5 @@
   - [x] implement date fn
 - [ ] update BlogPost types and Metadata
 - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
-- [ ] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
+- [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
 - [ ] rename `markdownFilename` to `sourceFile`
