@@ -50,6 +50,7 @@
 - [ ] rename `BlogPost#markdownFilename` to `sourceFile`?
 - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
 - [ ] fix BlogPost types and Metadata
+- [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
 
 # v1 - my website
 - [x] make it run using docker
@@ -86,5 +87,6 @@
   - [x] implement date fn
 - [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
 - [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
+  - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
   - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
 - [ ] ensure it runs on HTTPS by default
