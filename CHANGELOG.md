@@ -86,3 +86,5 @@
   - [x] implement date fn
 - [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
 - [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
+  - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
+- [ ] ensure it runs on HTTPS by default
