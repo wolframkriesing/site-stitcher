@@ -134,6 +134,24 @@ nav.secondary {
     }
   }
 
+
+img.sizeup-onhover-image {
+  transition: 1s ease;
+}
+  img.sizeup-onhover-image.scale2:hover {
+    transform: scale(2);
+  }
+  img.sizeup-onhover-image.scale4:hover {
+    transform: scale(4);
+  }
+  img.sizeup-onhover-image.origin-left-top:hover {
+    transform-origin: left top;
+  }
+  img.sizeup-onhover-image.origin-right-top:hover {
+    transform-origin: right top;
+  }
+
+
 blockquote.twitter-tweet {
   font-weight: bold;
   border-color: #eee #ddd #bbb;
