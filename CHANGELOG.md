@@ -51,6 +51,7 @@
 - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
 - [ ] fix BlogPost types and Metadata
 - [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
+- [ ] #SEO create a sitemap.xml
 
 # v1 - my website
 - [x] make it run using docker
@@ -92,3 +93,4 @@
   - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
   - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
 - [ ] ensure it runs on HTTPS by default
+- [ ] a 404 page
