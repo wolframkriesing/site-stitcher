@@ -7,6 +7,15 @@ blockquote {
   font-style: italic;
 }
 
+a {
+  color: #bb6600;
+  text-decoration: none;
+}
+  a:hover {
+    color: black;
+    text-decoration: underline;
+  }
+
 header {
   display: flex;
 }
@@ -26,9 +35,6 @@ header {
 
 .page-home h1 {
   display: inline;
-}
-.page-home p.abstract a {
-  color: inherit;
 }
 .latest-post {
   margin-top: 2rem;
