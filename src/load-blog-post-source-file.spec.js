@@ -8,8 +8,8 @@ describe('Load blog post source files from a directory', () => {
   describe('GIVEN a list of files', () => {
     const defaultPath = '';
     const loadManySourceFiles = async (files, path = defaultPath) => {
-      const findFilesInDir = async () => files;
-      const load = loadManyBlogPostSourceFiles({findFilesInDir});
+      const findBlogPostSourceFilenames = async () => files;
+      const load = loadManyBlogPostSourceFiles({findBlogPostSourceFilenames});
       return await load(path);
     };
     it('WHEN the list is empty THEN no source files are returned', async () => {

@@ -24,7 +24,7 @@ const findOnlyBlogPostSourceFilesOrDirs = (entries) => {
  * @param dir
  * @returns {Promise<BlogPostFilename>}
  */
-export const findFilesInDir = async (dir) => {
+const findBlogPostDirsOrFilesInDir = async (dir) => {
   const findYearDirectories = async (dir) => {
     return await fs.promises.readdir(dir, {withFileTypes: true})
       .then(toAbsoluteDirectoryName(dir));
@@ -47,3 +47,9 @@ export const findFilesInDir = async (dir) => {
   const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
   return files.map(removeRootBlogPostDirectory(dir));
 };
+
+export const findBlogPostSourceFilenames = async (dir) => {
+  return (await findBlogPostDirsOrFilesInDir(dir))
+    .map(file => file.endsWith('.md') ? file : `${file}/index.md`)
+  ;
+}
