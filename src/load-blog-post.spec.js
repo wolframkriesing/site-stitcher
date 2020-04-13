@@ -49,6 +49,16 @@ describe('Load a blog post, with all data ready to render', () => {
       const post = await loadPost({fileContent: '# headline only'});
       assertThat(post, hasProperties({tags: [], oldUrls: []}));
     });
+    it('WHEN it has only invalid metadata THEN the data set via metadata are either empty or have the right type', async () => {
+      const post = await loadPost({fileContent: 'invalidMetadata: psst\n\n# headline only'});
+      assertThat(post, hasProperties({
+        tags: [],
+        oldUrls: [],
+        youtubeId: '',
+        vimeoId: '',
+        videoStartTime: '',
+      }));
+    });
     describe('WHEN it has metadata', async () => {
       it('AND headline and an abstract THEN find the headline and the abstract', async () => {
         const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
@@ -70,6 +80,10 @@ describe('Load a blog post, with all data ready to render', () => {
       it('WHEN it has `oldUrls` THEN provide them', async () => {
         const post = await loadPost({fileContent: 'oldUrls: /blog/old.html /blog/old1.html\n\n# headline'});
         assertThat(post, hasProperties({oldUrls: ['/blog/old.html', '/blog/old1.html']}));
+      });
+      it('WHEN it has NO `oldUrls` (but other metadata) THEN provide an empty array for `oldUrls`', async () => {
+        const post = await loadPost({fileContent: 'tags: none\n\n# headline'});
+        assertThat(post, hasProperties({oldUrls: []}));
       });
       it('WHEN it has `youtubeId` THEN provide it', async () => {
         const post = await loadPost({fileContent: 'youtubeId: 12345\n\n# headline'});

@@ -24,8 +24,9 @@ const findMetadataByKeyAsString = (lines, key) => {
  * @returns {string[]}
  */
 const findMetadataByKeyAsArray = (lines, key, separator) => {
-  const string = findMetadataByKeyAsString(lines, key)
-  return string.split(separator).map(tag => tag.trim());
+  const string = findMetadataByKeyAsString(lines, key).trim();
+  if (string.length === 0) return [];
+  return string.split(separator).map(s => s.trim());
 };
 /**
  * @param tokens
