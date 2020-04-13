@@ -1,11 +1,21 @@
 body {
   margin: 2rem;
   font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 blockquote {
   font-style: italic;
 }
+
+a {
+  color: #bb6600;
+  text-decoration: none;
+}
+  a:hover {
+    color: black;
+    text-decoration: underline;
+  }
 
 header {
   display: flex;
@@ -27,9 +37,6 @@ header {
 .page-home h1 {
   display: inline;
 }
-.page-home p.abstract a {
-  color: inherit;
-}
 .latest-post {
   margin-top: 2rem;
   margin-bottom: 5rem;
@@ -45,6 +52,12 @@ nav {
     display: inline;
     margin-right: 2rem;
   }
+  @media screen and (max-width: 600px) {
+    header nav {
+      display: none;
+    }
+  }
+
 
 .metadata {
   color: gray;
@@ -73,3 +86,72 @@ footer {
 footer div {
   flex: 1;
 }
+
+nav.secondary {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgba(252, 232, 191, 0.9);
+}
+  nav.secondary ul {
+    margin: 0;
+    padding: 0;
+    height: 1rem;
+    width: 1rem;
+    transition: width 0.5s, height 0.5s, opacity 1s; /* transition when the mouse leave */
+    opacity: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  nav.secondary:hover ul {
+    height: 11rem;
+    width: 8rem;
+    transition: height 0.5s, opacity 0s; /* transition when the mouse enter */
+    transition-delay: 0.2s; /* allows the width to jump to full width first */
+    opacity: 1;
+  }
+  nav.secondary ul li {
+    list-style: none;
+    padding: 0.2rem;
+    text-align: center;
+    flex: 1;
+    font-size: 1.5rem;
+  }
+  nav.secondary ul li a.highlight {
+    color: #E8944B;
+  }
+
+  @media screen and (max-width: 600px) {
+    nav.secondary {
+      left: 0;
+      top: 0;
+      bottom: auto;
+      right: auto;
+      margin: 0;
+    }
+  }
+
+blockquote.twitter-tweet {
+  font-weight: bold;
+  border-color: #eee #ddd #bbb;
+  border-style: solid;
+  border-width: 1px;
+  margin-bottom: 1rem;
+  padding: 0 1rem 1rem 1rem;
+}
+  blockquote.twitter-tweet p {
+    font-weight: normal;
+  }
+  blockquote.twitter-tweet a {
+    color: inherit;
+    font-weight: normal;
+    text-decoration: none;
+    outline: 0 none;
+  }
+  blockquote.twitter-tweet a:hover,
+  blockquote.twitter-tweet a:focus {
+    text-decoration: underline;
+  }
