@@ -1,6 +1,7 @@
 dateCreated: 2015-04-13 13:51 CET
 tags: dojo, javascript, framework, UI widgets
 postTypes: mini-post
+oldUrls: /blog/2015/04/reappio/
 
 # reapp.io
 

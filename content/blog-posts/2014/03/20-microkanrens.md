@@ -1,6 +1,7 @@
 dateCreated: 2014-03-20 11:00 CET
 tags: functional, functional programming, logic programming
 postTypes: summary
+oldUrls: /blog/2014/03/microkanrens/
 
 # Microkanrens
 

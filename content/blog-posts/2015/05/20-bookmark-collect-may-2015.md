@@ -1,6 +1,7 @@
-dateCreated: 2015-05-20 10:00 CET
-postTypes: link-list
-tags: collect, links
+dateCreated: 2015-05-20 10:00 CET  
+postTypes: link-list  
+tags: collect, links  
+oldUrls: /blog/2015/05/bookmark-collect-may-2015/  
 
 # Bookmark collect May 2015
 

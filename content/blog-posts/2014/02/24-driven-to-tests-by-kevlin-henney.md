@@ -2,7 +2,8 @@ dateCreated: 2014-02-24 10:00 CET
 tags: testing, video, clean code, tdd
 youtubeId: jGuKz7bNZRU
 videoStartTime: 1440
-postTypes: summary
+postTypes: summary  
+oldUrls: /blog/2014/02/driven-to-tests-by-kevlin-henney/
 
 # "Driven to Tests" by Kevlin Henney
 

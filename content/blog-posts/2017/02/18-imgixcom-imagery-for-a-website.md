@@ -1,6 +1,7 @@
-dateCreated: 2017-02-18 11:55 CET
-tags: images, website, online service
-postTypes: summary
+dateCreated: 2017-02-18 11:55 CET  
+tags: images, website, online service  
+postTypes: summary  
+oldUrls: /blog/2017/02/imgixcom-imagery-for-a-website/  
 
 # imgix.com - imagery for a website
 

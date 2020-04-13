@@ -2,6 +2,7 @@ dateCreated: 2015-10-06 09:00 CET
 postTypes: mini-post
 privateTags: must read
 tags: estimation, agile, article
+oldUrls: /blog/2015/10/estimation-is-evil/  
 
 # Estimation is evil
 

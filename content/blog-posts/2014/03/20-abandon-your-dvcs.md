@@ -1,6 +1,7 @@
 dateCreated: 2014-03-20 12:00 CET
 tags: dvcs, git, svn
 postTypes: summary
+oldUrls: /blog/2014/03/abandon-your-dvcs/  
 
 # Unorthodocs: Abandon your DVCS and Return to Sanity
 

@@ -1,6 +1,7 @@
 dateCreated: 2014-03-20 10:00 CET
 tags: testing ,refactoring, good developer, good code
 postTypes: summary
+oldUrls: /blog/2014/03/how-to-be-a-great-software-developer/
 
 # How to be a great software developer
 

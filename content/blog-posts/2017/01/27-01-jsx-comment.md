@@ -1,6 +1,7 @@
-dateCreated: 2017-01-27 00:11 CET
-tags: react, jsx, comment
-postTypes: mini-post
+dateCreated: 2017-01-27 00:11 CET  
+tags: react, jsx, comment  
+postTypes: mini-post  
+oldUrls: /blog/2017/01/jsx-comment/  
 
 # Comments inside JSX
 

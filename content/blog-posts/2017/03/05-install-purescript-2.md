@@ -1,6 +1,7 @@
-dateCreated: 2017-03-05 22:15 CET
-postTypes: post
-tags: purescript, notes, yarn, npm, nodejs
+dateCreated: 2017-03-05 22:15 CET  
+postTypes: post  
+tags: purescript, notes, yarn, npm, nodejs  
+oldUrls: /blog/2017/03/install-purescript-2/  
 
 # Installing purescript #2
 

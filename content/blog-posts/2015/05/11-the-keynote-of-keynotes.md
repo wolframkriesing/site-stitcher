@@ -2,6 +2,7 @@ dateCreated: 2015-05-11 12:00 CET
 postTypes: mini-post
 youtubeId: oKg1hTOQXoY
 tags: video
+oldUrls: /blog/2015/05/the-keynote-of-keynotes/
 
 # The keynote of keynotes
 

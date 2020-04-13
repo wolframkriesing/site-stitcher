@@ -1,6 +1,7 @@
 dateCreated: 2015-03-23 21:22 CET
 tags: github, github-pages, static page, deploy
 postTypes: summary
+oldUrls: /blog/2015/03/surgesh-gh-pagesnext/
 
 # surge.sh - gh-pages.next?
 

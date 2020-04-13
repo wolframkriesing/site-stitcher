@@ -1,6 +1,7 @@
-dateCreated: 2017-02-09 18:00 CET
-tags: command line, linux, tooling, lsof
-postTypes: post
+dateCreated: 2017-02-09 18:00 CET  
+tags: command line, linux, tooling, lsof  
+postTypes: post  
+oldUrls: /blog/2017/02/which-process-uses-this-port/  
 
 # Find out which process listens on which port
 

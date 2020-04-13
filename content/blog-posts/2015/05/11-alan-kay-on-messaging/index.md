@@ -1,6 +1,7 @@
-dateCreated: 2015-05-11 11:09 CET
-postTypes: summary
-tags: oop, object calisthenics, inheritance
+dateCreated: 2015-05-11 11:09 CET  
+postTypes: summary  
+tags: oop, object calisthenics, inheritance  
+oldUrls: /blog/2015/05/alan-kay-on-messaging/  
 
 # Alan Kay On Messaging
 

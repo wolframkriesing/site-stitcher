@@ -1,6 +1,7 @@
 dateCreated: 2014-03-20 14:00 CET
 tags: npm, tool, nodejs, javascript
 postTypes: summary
+oldUrls: /blog/2014/03/npm-as-a-build-tool/
 
 # How to Use npm as a Build Tool
 

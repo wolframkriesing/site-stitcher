@@ -1,6 +1,7 @@
-dateCreated: 2017-01-21 10:00 CET
-tags: jinja, template, spaceless
-postTypes: post
+dateCreated: 2017-01-21 10:00 CET  
+tags: jinja, template, spaceless  
+postTypes: post  
+oldUrls: /blog/2017/01/the-magic-dash-in-jinja-template-block/  
 
 # The magic dash in a Jinja template block
 

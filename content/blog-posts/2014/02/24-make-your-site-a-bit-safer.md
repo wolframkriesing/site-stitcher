@@ -1,6 +1,7 @@
 dateCreated: 2014-02-24 12:00 CET
 tags: security, browser, javascript, client-side
 postTypes: mini-post
+oldUrls: /blog/2014/02/make-your-site-a-bit-safer/
 
 # Make your site a bit safer
 

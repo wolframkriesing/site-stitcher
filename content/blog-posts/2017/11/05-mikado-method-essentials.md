@@ -1,6 +1,7 @@
-dateCreated: 2017-11-05 18:54 CET
-postTypes: post
-tags: mikado method
+dateCreated: 2017-11-05 18:54 CET  
+postTypes: post  
+tags: mikado method  
+oldUrls: /blog/2017/11/mikado-method-essentials/  
 
 # Mikado Method Essentials
 

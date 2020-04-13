@@ -3,6 +3,7 @@ postTypes: summary
 tags: programming language, ide, refactoring, oop, video
 youtubeId: Nmcou_5um2s
 privateTags: must watch
+oldUrls: /blog/2015/04/pharo-object-oriented-programming-language-and-a-powerful-environment/
 
 # Pharo - object-oriented programming language and a powerful environment
 

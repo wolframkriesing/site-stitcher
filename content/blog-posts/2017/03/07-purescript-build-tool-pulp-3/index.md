@@ -1,6 +1,7 @@
-dateCreated: 2017-03-07 22:31 CET
-tags: purescript, notes, yarn, pulp, build tool
-postTypes: post
+dateCreated: 2017-03-07 22:31 CET  
+tags: purescript, notes, yarn, pulp, build tool  
+postTypes: post  
+oldUrls: /blog/2017/03/purescript-build-tool-pulp-3/  
 
 # Purescript build tool - pulp #3
 

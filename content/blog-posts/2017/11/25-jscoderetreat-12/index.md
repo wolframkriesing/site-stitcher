@@ -1,6 +1,7 @@
-dateCreated: 2017-11-25 19:15 CET
-postTypes: post
-tags: coderetreat, jscoderetreat
+dateCreated: 2017-11-25 19:15 CET  
+postTypes: post  
+tags: coderetreat, jscoderetreat  
+oldUrls: /blog/2017/11/jscoderetreat-12/  
 
 # JSCodeRetreat #12 using Tetris
 

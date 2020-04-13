@@ -3,6 +3,7 @@ postTypes: mini-post
 privateTags: must watch
 tags: oop, coupling, cohesion, classes 
 youtubeId: XCXdsjINP0U
+oldUrls: /blog/2015/05/cohesion-and-coupling-explained/
 
 # Cohesion and Coupling explained
 

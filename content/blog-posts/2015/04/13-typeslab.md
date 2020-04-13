@@ -1,6 +1,7 @@
 dateCreated: 2015-04-13 13:47 CET
 tags: for slides, poster, typography
 postTypes: link-list
+oldUrls: /blog/2015/04/typeslab/
 
 # Typeslab
 

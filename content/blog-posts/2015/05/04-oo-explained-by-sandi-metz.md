@@ -3,6 +3,7 @@ postTypes: summary
 tags: oop, object-oriented design
 videoStartTime: 28470
 youtubeId: LdWMcs9EEOE
+oldUrls: /blog/2015/05/oo-explained-by-sandi-metz/
 
 # OO (with Message passing) - explained by Sandi Metz
 

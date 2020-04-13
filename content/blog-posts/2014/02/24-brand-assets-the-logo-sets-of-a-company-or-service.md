@@ -1,6 +1,7 @@
 dateCreated: 2014-02-24 11:00 CET
 tags: icons, logos, graphics, design, brand
 postTypes: mini-post
+oldUrls: /blog/2014/02/brand-assets-the-logo-sets-of-a-company-or-service/
 
 # Brand assets - the logo (sets) of a company or service
 

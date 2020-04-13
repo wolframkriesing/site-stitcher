@@ -1,6 +1,7 @@
-dateCreated: 2017-03-18 11:05 CET
-tags: javascript, dependency injection, testing
-postTypes: post
+dateCreated: 2017-03-18 11:05 CET  
+tags: javascript, dependency injection, testing  
+postTypes: post  
+oldUrls: /blog/2017/03/discover-extract-dependencies/  
 
 # Discover and extract dependencies
 

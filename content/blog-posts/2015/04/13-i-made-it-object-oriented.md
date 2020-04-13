@@ -3,6 +3,7 @@ tags: oop, object-oriented, functional, get-prefix, imperative, must watch, vide
 videoStartTime: 2331
 youtubeId: lNKXTlCOGEc
 postTypes: summary
+oldUrls: /blog/2015/04/i-made-it-object-oriented/
 
 # "I made it object-oriented"
 

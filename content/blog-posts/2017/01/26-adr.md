@@ -1,6 +1,7 @@
 dateCreated: 2017-01-26 23:11 CET
 tags: organizing, mikado method, adr, documentation
 postTypes: mini-post
+oldUrls: /blog/2017/01/adr/
 
 # ADR for documenting decisions
 

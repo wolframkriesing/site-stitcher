@@ -1,6 +1,7 @@
-dateCreated: 2017-03-01 20:02 CET
-postTypes: post
-tags: purescript, javascript, functional, typing
+dateCreated: 2017-03-01 20:02 CET  
+postTypes: post  
+tags: purescript, javascript, functional, typing  
+oldUrls: /blog/2017/03/starting-with-purescript/  
 
 # Purescript - the semantics of JavaScript with types #1
 

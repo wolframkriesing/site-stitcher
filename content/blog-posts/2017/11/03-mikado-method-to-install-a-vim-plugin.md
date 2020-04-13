@@ -1,6 +1,7 @@
-dateCreated: 2017-11-03 18:15 CET
-postTypes: post
-tags: mikado method, tmux, vi, vim, learning, apprentice
+dateCreated: 2017-11-03 18:15 CET  
+postTypes: post  
+tags: mikado method, tmux, vi, vim, learning, apprentice  
+oldUrls: /blog/2017/11/mikado-method-to-install-a-vim-plugin/  
 
 # Mikado Method to install a Vim Plugin
 

@@ -1,6 +1,7 @@
 dateCreated: 2015-04-13 12:17 CET
 tags: functional, programming, video
 youtubeId: lNKXTlCOGEc
+oldUrls: /blog/2015/04/decoupling-explained-from-a-different-angle/
 
 # Decoupling explained from a different angle
 

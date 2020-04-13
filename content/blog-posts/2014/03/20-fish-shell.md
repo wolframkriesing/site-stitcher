@@ -1,6 +1,7 @@
 dateCreated: 2014-03-20 13:00 CET
 tags: shell ,bash, OS, tool
 postTypes: link-list
+oldUrls: /blog/2014/03/fish-shell/
 
 # Fish shell
 
