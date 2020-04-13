@@ -52,6 +52,7 @@
 - [ ] fix BlogPost types and Metadata
 - [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
 - [ ] #SEO create a sitemap.xml
+- [ ] the image size up jumps at the end of the anim, fix it
 
 # v1 - my website
 - [x] make it run using docker
@@ -86,7 +87,7 @@
   - [x] 301 from the old url to the new one
         maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
   - [x] render [x][y] links properly, seems not to work - newline before was missing
-- [ ] add all oldUrls to the md files
+- [x] add all oldUrls to the md files
 - [ ] move domain to GH
 - [ ] add licensing on the page!
 - [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
