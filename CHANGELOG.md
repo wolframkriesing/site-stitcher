@@ -80,7 +80,7 @@
   - [x] show the date like this "24 Jan, 2002"
   - [x] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`
-  - [ ] copy the assets from the dirs too, like images        
+  - [x] copy the assets from the dirs too, like images        
 - [ ] add licensing on the page!
 - [x] `npm run new-post` script to create dir and file
   - [x] create a BlogPost instance
