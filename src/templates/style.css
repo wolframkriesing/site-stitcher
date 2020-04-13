@@ -1,6 +1,7 @@
 body {
   margin: 2rem;
   font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 blockquote {
