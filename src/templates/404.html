@@ -1,0 +1,36 @@
+@extends(src/templates/_base.html)
+
+{[ block pagename ]}404{[ endblock ]}
+{[ block canonicalUrl ]}/404{[ endblock ]}
+{[ block pageTitlePrefix ]}404{[ endblock ]}
+
+{[ block content ]}
+  <h1>404 - Page not found ...</h1>
+  <p>
+    Sorry, the page you were looking for was not found.
+    Did you mean any of the latest 5 articles, see below?<br/>
+    If not you might restart from <a href="/">the home page</a>.
+  </p>
+  <br/>
+  <br/>
+  <br/>
+  <h2>Latest 5 Articles</h2>
+  {% posts.map(post => { %}
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">{{toReadableDate(post.dateCreated)}}</span>
+        - by Wolfram Kriesing
+        {% if (post.tags.length) : %}
+          - {% post.tags.map(tag => { %}#{{tag}} {% }) %}
+        {% end %}
+      </div>
+      <div class="content">
+        <h2><a href="{{post.url}}" itemprop="url">
+          <span itemprop="name headline">{{post.headline}}</span>
+        </a>{{ post.hasVideo ? ' 📺' : '' }}</h2>
+        <p class="abstract">{!post.abstractContentAsHtml!}</p>
+      </div>
+    </div>
+  {% }) %}
+
+{[ endblock ]}

@@ -93,4 +93,4 @@
   - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
   - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
 - [ ] ensure it runs on HTTPS by default
-- [ ] a 404 page
+- [x] a 404 page

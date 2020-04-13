@@ -41,6 +41,15 @@ const generate301Pages = (post) => {
   }
 }
 
+const generate404Page = async (posts) => {
+  const destDir = path.join(__dirname, '../_output');
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, '404.html');
+  const renderedFile = tundra.getRender('404.html', {...defaultRenderParams, posts});
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built 404 page ", destFilename);
+}
+
 const generatePost = async (post) => {
   const destDir = path.join(__dirname, '../_output', post.url);
   await fs.promises.mkdir(destDir, {recursive: true});
@@ -77,6 +86,7 @@ const generateHomePage = async (posts) => {
     ...posts.map(generate301Pages),
     generateAboutPage(),
     generateHomePage(posts),
+    generate404Page(posts.slice(0, 5)),
   ]).catch(err => {
     console.error(err);
     process.exit(-1);
