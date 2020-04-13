@@ -20,7 +20,6 @@ David Pich had been there too. I believe this fact and the JSCamp's roots being 
 David to also run a parallel unconference at JSCamp. He called it #DeepDiveInJS.
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Try out and learn more about the talk topics at <a href="https://twitter.com/hashtag/DeepDiveinJS?src=hash&amp;ref_src=twsrc%5Etfw">#DeepDiveinJS</a>  <a href="https://twitter.com/jscamptech?ref_src=twsrc%5Etfw">@jscamptech</a> Great idea! Would be useful in many conferences! <a href="https://t.co/rZuac1G5oS">pic.twitter.com/rZuac1G5oS</a></p>&mdash; Carme Mias Studio (@CarmeMiasStudio) <a href="https://twitter.com/CarmeMiasStudio/status/1019888247995068416?ref_src=twsrc%5Etfw">July 19, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ## Organizational
 
