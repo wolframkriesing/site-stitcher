@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/">
+  <title>Discover and extract dependencies | picostitch - stuff about crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-post">
+
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
+
+  
+  <h1>Discover and extract dependencies</h1>
+  <p class="metadata">
+    Wolfram Kriesing
+    - 2017-03-18 11:05 CET
+    
+      - tagged with: #javascript #dependency injection #testing
+    
+  </p>
+
+  <p>While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
+The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
+Read here to find out the steps I found to separate the dependencies.</p>
+<h2 id="the-pattern-that-emerged-the-quick-version">The pattern that emerged (the quick version)</h2>
+<p>From this article you may learn that those steps are all that is necessary in order
+to get a better feeling on the dependencies of your code, how to separate them and
+make the code easy to test.</p>
+<p>The steps are:</p>
+<ol>
+<li>Write a first test</li>
+<li>Find and use first dependency in test</li>
+<li>Isolate dependencies</li>
+<li>Provide production/default dependencies</li>
+</ol>
+<p>And you end up with </p>
+<ul>
+<li>fast and small tests</li>
+<li>separated dependencies</li>
+<li>maybe hints for how to modularize your code</li>
+</ul>
+<h2 id="the-task">The task</h2>
+<div style="float: left; padding: 1rem;">
+<img src="./load-student-flow.png" alt="program flow" width=200 class="sizeup-onhover-image scale4 origin-left-top" />
+<br/><em>loadStudent function flow</em>
+</div>
+
+<p>I want to show how to separate dependencies that might not been obvious at first. And 
+by adding tests I will &quot;feel&quot; them. And I will be pushed to separate them out. Which makes
+my code easier to test and also make me understand what (external) dependencies the code has.</p>
+<p>I broke down the original code, to really make the actual dependencies stick out.
+The code loads some data, a student in this case. To speed up performance
+the student is first read from a cache, if that fails it is loaded from a (slower) backend.</p>
+<p>Let&#39;s get started.<br>This code was <strong>missing tests</strong>. So I will start to add them.
+The starting point was the following code.</p>
+<pre><code class="language-js">import { fetch } from &#39;./backend&#39;;
+
+const cache = {};
+const loadStudent = ({ studentId }) =&gt; {
+  if (!cache[studentId]) {
+    cache[studentId] = fetch({ studentId });
+  }
+  return cache[studentId];
+};</code></pre>
+<h2 id="first-test">First test</h2>
+<p>The first test I wrote was for the cache (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/a3dba52ce7789c5517ceb60f953cfa33bb6ad499">see the commit</a>). Actually I am not sure it&#39;s the right
+test to write, since the fetch is more important. But anyways. I follow
+the code&#39;s flow.</p>
+<pre><code class="language-js">describe(&#39;Load a student&#39;, () =&gt; {
+  it(&#39;from the cache&#39;, () =&gt; {
+    cache[42] = &#39;student 42&#39;;
+    const student = loadStudent({ studentId: 42 });
+    assertThat(student, equalTo(&#39;student 42&#39;));
+  });
+});</code></pre>
+<p>The first thing that jumps out is the sharing of the <strong><em>global</em></strong> <code>cache</code> variable.
+The production code and the test share it now through the access of a global variable. Scary.
+This is not good. In this case I want to have the cache under control, so I need
+to inject it. That is my first conclusion and the first dependency I found.
+NOTE: first dependency <code>cache</code>.</p>
+<h2 id="isolate-first-dependency">Isolate first dependency</h2>
+<p>I rewrite the test (and make it fail), I pass the <code>cache</code> into the function as a parameter 
+(<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/2c485ba353c252e913d8430a49cda39894f30431">see the commit</a>).
+I isolate the first dependency. At least for the test it is isolated now.</p>
+<pre><code class="language-js">it(&#39;from the cache&#39;, () =&gt; {
+  const cache = { 42: &#39;student 42&#39; }; // &lt;&lt;&lt; no more globals :)
+  const student = loadStudent({ studentId: 42, cache });
+  assertThat(student, equalTo(&#39;student 42&#39;));
+});</code></pre>
+<p>To make this test green I need to change the production code. I need to 
+use the cache as given via parameter.</p>
+<p>I am going to change the production code, the function <code>loadStudent()</code> without
+having it fully covered with tests. The <code>fetch()</code> method is not tested yet at
+all. True. I am fine with that for now.</p>
+<pre><code class="language-js">const loadStudent = ({ studentId, cache }) =&gt; {
+  if (!cache[studentId]) {
+    cache[studentId] = fetch({ studentId });
+  }
+  return cache[studentId];
+};</code></pre>
+<p>No more global <code>cache</code> variable. Great for testability. But actually the 
+real cache functionality got lost. Since there is no global cache anymore. Right.
+That is a real issue. I will cover this in a second. Hold on! Let&#39;s clean up a bit first.</p>
+<h2 id="separating-dependencies">Separating dependencies</h2>
+<p>First I would like to refactor the code a little bit. The parameters 
+are nice and the destructuring makes it nice to have named parameters.
+But I think that <code>studentId</code> and <code>cache</code> are two different kind of parameters.
+The <code>studentId</code> is the actual parameter that this function requires in order
+to do something useful. And the <code>cache</code> is an injected dependency.
+I want to make that clear in the function. So I split them (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/a17fec979562c0d58311b87bf431a8542878212f">the commit</a>).</p>
+<pre><code class="language-js">const loadStudent = ({ studentId }, { cache }) =&gt; {
+  // ...
+};  </code></pre>
+<p>And since I am a fan of explicitness I prefer to not destructure the second
+parameter, but to name the entire thing, like so (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/ce657f84069e27a4640c8fa0759b7fe7a5bf2bae">commit</a>):</p>
+<pre><code class="language-js">const loadStudent = ({ studentId }, dependencies) =&gt; {
+  // ...
+};  </code></pre>
+<p>This will bubble through the code and inside the function <code>cache</code> will need
+to be replaced by <code>dependencies.cache</code>. Which is more to write but every 
+reader of the code will benefit from it. It will be clear that the cache 
+is a dependency and is not a main concern of this function. And how the 
+cache works is nothing of importance in here. I personally like that and think
+it adds value to the code for any future reader.</p>
+<h2 id="discover-second-dependency-the-fetch-function">Discover second dependency, the <code>fetch()</code> function</h2>
+<p>Let&#39;s tackle one of the open issues, which is testing the <code>fetch()</code> function.
+It is a global function, currently. So we are treating it as a nasty global
+function for now, and just overriding it in the following test (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/aaf3278c68aaf39b060585b9b309f3a1295a0bbc">commit</a>).</p>
+<pre><code class="language-js">it(&#39;fetch the student if not in the cache&#39;, () =&gt; {
+  let emptyCache = {};
+  fetch = () =&gt; &#39;student 23&#39;;
+  const student = loadStudent({ studentId: 23 }, { cache: emptyCache });
+  assertThat(student, equalTo(&#39;student 23&#39;));
+});</code></pre>
+<p>We <strong>know</strong> now that <code>fetch()</code> is used inside of <code>loadStudent()</code>. And that knowledge
+is not in our test, that is nasty too. We need to make that obvious.</p>
+<h2 id="inject-the-second-dependency">Inject the second dependency</h2>
+<p>We make this obvious by (just say it with me), yes, correct: <strong>injecting the dependency</strong> (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/9d808180666de271e1c7a37e4e2a4f96add0b08f">commit</a>).</p>
+<pre><code class="language-js">it(&#39;fetch the student if not in the cache&#39;, () =&gt; {
+  const emptyCache = {};
+  const dependencies = { cache: emptyCache, fetch: () =&gt; &#39;student 23&#39; };
+  const student = loadStudent({ studentId: 23 }, dependencies);
+  assertThat(student, equalTo(&#39;student 23&#39;));
+});</code></pre>
+<p>See <code>fetch()</code> is passed in the <code>dependencies</code> object. And no global is overridden anymore.</p>
+<h2 id="provide-production-dependencies">Provide production dependencies</h2>
+<p>Now we have all the dependencies identified. We have <code>cache</code> and <code>fetch()</code> (even though <code>fetch</code> is a pretty bad name).
+Those two dependencies can be injected, the function works using them.
+Now we should not just have the tests run, but also the production setup.
+And for that we need to provide the dependencies to it too.</p>
+<p>How? Let&#39;s try an integrated test for it, one that takes a working cache and a working <code>fetch()</code> 
+function as given (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/5f18dfbdc69fc38f4ee636f04aac286072ecdac8">commit</a>).</p>
+<pre><code class="language-js">describe(&#39;Load a student&#39;, () =&gt; {
+  it(&#39;from the cache&#39;, () =&gt; {
+    const student = loadStudent({ studentId: 42 });
+    assertThat(student, equalTo(&#39;&#39;));
+  });
+});</code></pre>
+<p>As you can see, this test assumes 1) there is no student with the ID 42 and 2) a fetch for this student returns 
+an empty string. Yep, we are assuming to have these external dependencies under control that we <strong>know</strong> those
+things. </p>
+<p>Deploying this and having it run in a real CI environment there might be a bit more setup to make
+in order to get those integrated tests provided with the right data. And it might also be a bit more
+work to get them stable. That&#39;s why one should very well figure out what the right set of (mostly happy path)
+tests is. And if you throw many of them at your code, do also think that they must stay maintainable!
+This one here serves as an example for understanding that a safe software might not only consist of 
+tiny and small tests (I am preventing the polluted name &quot;unit tests&quot;).</p>
+<p>To get this test green, we set up the default dependencies that our production environment will use.
+There is many other ways of injecting dependencies. The following worked quite well for me until now (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/b58a9de0424f16b58a50b422c6c49e27d8f0c101">commit</a>).
+Though remember to try to keep the dependencies to be injected as tiny as possible and it will serve you well.</p>
+<pre><code class="language-js">const defaultDependencies = () =&gt; {
+  return { fetch, cache };
+};
+
+const loadStudent = ({ studentId }, dependencies = defaultDependencies()) =&gt; {
+  // ...
+};</code></pre>
+<p>As you see above, I define the <code>defaultDependencies</code> above the function. Mostly those consist
+only of some imported items. One could go further and move this out and just inject a structure into this file.
+I saw it working well until now with this less generic, more explicit approach and allowing 
+the reader (of the code) to see what the dependencies consist of, right where they are used.</p>
+<p>Why a function <code>defaultDependencies()</code> and not just a simple object? Simple answer, a function
+makes it lazy. Until the dependencies are not needed they don&#39;t get resolved, this might 
+dribble down the call stack. And it also allows for configuring a dependency, if necessary.</p>
+<h2 id="whats-left">What&#39;s left?</h2>
+<p>The variable <code>cache</code> is a very simple, very stupid cache now.
+Which is quite cool. But thinking about a cache, there might be more to it.
+I might want to create a simple API for the reading from and writing to the cache.</p>
+<p>The <code>fetch()</code> as such is a very generic name. But it could be named better, something
+like <code>readFromBackend()</code> or <code>loadStudentFromStorage()</code>. That there might just be the
+simple <code>fetch()</code> function behind it, is secondary.</p>
+<p>Maybe making it asynchronous would be a nice add-on. It would be very easy, but unfortunately
+this involves also changes in the test code. But that is the nature of JavaScript, it 
+can not simply hide asynchronicity in code.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>Separating dependencies can be done by writing tests for untested code.
+It looks like it blows up the code? Think again! It also decouples your code in the places
+where you might not want it coupled. Decoupling is just like every person using a different glass when
+drinking from the same bottle, in order to not share all germs. It&#39;s pure hygiene.</p>
+
+
+  
+  
+
+
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <a href="/">Home</a><br/>
+      <a href="/about">About</a><br/>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <a href="https://twitter.com/wolframkriesing">Twitter</a><br/>
+      <a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/>
+    </div>
+    <div></div>
+  </footer>
+
+</body>
+</html>
