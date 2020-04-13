@@ -11,7 +11,6 @@ const filenameStartRegex = /\d\d-/;
 const filesWithFullname = (dir) => (entries) => {
   return entries
     .filter(f => f.isFile())
-    .filter(entry => entry.name.match(filenameStartRegex))
     .map(entry => path.join(dir, entry.name));
 };
 /**
@@ -34,7 +33,8 @@ const findFilesInDir = async (dir) => {
   };
   const files = (await Promise.all(monthDirectories.map(findPostsIn))).flat();
   const removeRootBlogPostDirectory = files => files.map(file => file.replace(dir, '').replace('/', ''));
-  return removeRootBlogPostDirectory(files);
+  const potentialBlogPostFilenames = removeRootBlogPostDirectory(files);
+  return potentialBlogPostFilenames.filter(filename => filename.match(filenameStartRegex));
 };
 
 const prodDeps = () => {
