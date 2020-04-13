@@ -7,16 +7,9 @@ const toAbsoluteDirectoryName = (dir) => (entries) => {
     .filter(f => f.isDirectory())
     .map(entry => path.join(dir, entry.name))
 };
-const toAbsoluteBlogPostSourceFilename = (dir) => (entries) => {
+const toAbsoluteDirectoryOrFilename = (dir) => (entries) => {
   return entries
-    .map(entry => {
-      if (entry.isFile()) {
-        return path.join(dir, entry.name)
-      }
-      if (entry.isDirectory()) {
-        return path.join(dir, entry.name, 'index.md')
-      }
-    })
+    .map(entry => path.join(dir, entry.name))
 };
 const filenameStartRegex = /\d\d-/;
 const findOnlyBlogPostSourceFilesOrDirs = (entries) => {
@@ -42,7 +35,7 @@ const findFilesInDir = async (dir) => {
   const findBlogPostSourceFiles = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
       .then(findOnlyBlogPostSourceFilesOrDirs)
-      .then(toAbsoluteBlogPostSourceFilename(dir))
+      .then(toAbsoluteDirectoryOrFilename(dir))
     ;
   };
   const removeRootBlogPostDirectory = (dir) => (file) =>
@@ -61,6 +54,6 @@ const prodDeps = () => {
 const toSourceFile = (filename) => BlogPostSourceFile.withFilename(filename);
 
 export const loadManyBlogPostSourceFiles = ({findFilesInDir} = prodDeps()) => async (dir) => {
-  const files = await findFilesInDir(dir);
+  const files = (await findFilesInDir(dir)).map(file => file.endsWith('.md') ? file : `${file}/index.md`);
   return files.map(file => toSourceFile(path.join(dir, file)));
 };
