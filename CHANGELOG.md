@@ -59,18 +59,12 @@
 - [x] if no 1st paragraph show nothing as abstract 
       see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
 - [x] add plausible
-- [ ] build the post page
-  - [x] provide the old URLs as used on picostitch now
-  - [ ] 301 from the old url to the new one
-        maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
-  - [x] render [x][y] links properly, seems not to work - newline before was missing
 - [x] provide meta data
   - [x] use multimarkdown style, just key-value pairs at the top
   - [x] update all posts to use it
   - [x] add the metadata to BlogPost
   - [x] render the metadata if needed (e.g. on the post page)
 - [x] make it deploy on GH
-- [ ] move domain to GH
 - [x] add footer and imprint
 - [x] generate index page from md files
   - [x] make it work on mobile
@@ -81,12 +75,19 @@
   - [x] allow dirs not only md files 04-blog-post/index.md
         see: `2015/05/11-alan-kay-on-messaging`
   - [x] copy the assets from the dirs too, like images        
-- [ ] add licensing on the page!
 - [x] `npm run new-post` script to create dir and file
   - [x] create a BlogPost instance
   - [x] write markdown file to disk
   - [x] implement date fn
 - [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
+- [x] build the post page
+  - [x] provide the old URLs as used on picostitch now
+  - [x] 301 from the old url to the new one
+        maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
+  - [x] render [x][y] links properly, seems not to work - newline before was missing
+- [ ] add all oldUrls to the md files
+- [ ] move domain to GH
+- [ ] add licensing on the page!
 - [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
   - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
   - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!

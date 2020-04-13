@@ -26,6 +26,21 @@ const defaultRenderParams = {
 
 tundra.setBase(path.join(__dirname, 'templates'));
 
+const generate301Page = async (oldPath, newPath) => {
+  const destDir = path.join(__dirname, '../_output', oldPath);
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const renderedFile = tundra.getRender('301.html', {...defaultRenderParams, redirectUrl: newPath});
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built 301 page ", destFilename);
+}
+
+const generate301Pages = (post) => {
+  if (post.oldUrls.length > 0) {
+    return Promise.all(post.oldUrls.map(oldUrl => generate301Page(oldUrl, post.url)));
+  }
+}
+
 const generatePost = async (post) => {
   const destDir = path.join(__dirname, '../_output', post.url);
   await fs.promises.mkdir(destDir, {recursive: true});
@@ -59,6 +74,7 @@ const generateHomePage = async (posts) => {
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
   Promise.all([
     ...posts.map(generatePost),
+    ...posts.map(generate301Pages),
     generateAboutPage(),
     generateHomePage(posts),
   ]).catch(err => {
