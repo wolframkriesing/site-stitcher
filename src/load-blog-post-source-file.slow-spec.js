@@ -18,4 +18,8 @@ describe('Load blog post source files from a directory (tests are slow, working 
     assertThat(posts[0], not(hasItem(hasProperty('filename', endsWith('2000/01/not-a-blog-post.txt')))));
     // how can we write this test better, it tests something that is not there ... kinda stupid :)
   });
+  it('GIVEN 2000/01/01-post/index.md (post inside a dir) THEN find it as valid blog post source file', async () => {
+    const posts = await loadManyBlogPostSourceFiles()(blogPostsDirectory);
+    assertThat(posts, hasItem(hasProperty('filename', endsWith('2000/01/02-post-in-dir/index.md'))));
+  });
 });
