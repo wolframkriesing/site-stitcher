@@ -22,8 +22,9 @@
   <header>
     <nav role="navigation" aria-labelledby="primary-navigation">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
+        {% navigationItems.forEach(item => { %}
+          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+        {% }) %}
       </ul>
     </nav>
 

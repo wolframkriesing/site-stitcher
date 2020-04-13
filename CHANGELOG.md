@@ -72,8 +72,8 @@
 - [x] make it deploy on GH
 - [ ] move domain to GH
 - [x] add footer and imprint
-- [ ] generate index page from md files
-  - [ ] make it work on mobile
+- [x] generate index page from md files
+  - [x] make it work on mobile
   - [x] dont fail on invalid files in blog post dirs
   - [x] sort newest to top
   - [x] render the markdown of the abstract properly into HTML
