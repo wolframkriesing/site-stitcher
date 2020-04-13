@@ -88,8 +88,8 @@
         maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
   - [x] render [x][y] links properly, seems not to work - newline before was missing
 - [x] add all oldUrls to the md files
+- [x] add licensing on the page!
 - [ ] move domain to GH
-- [ ] add licensing on the page!
 - [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
   - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
   - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
