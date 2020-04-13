@@ -7,7 +7,7 @@ const toAbsoluteDirectoryName = (dir) => (entries) => {
     .filter(f => f.isDirectory())
     .map(entry => path.join(dir, entry.name))
 };
-const toBlogPostSourceFilename = (dir) => (entries) => {
+const toAbsoluteBlogPostSourceFilename = (dir) => (entries) => {
   return entries
     .map(entry => {
       if (entry.isFile()) {
@@ -19,7 +19,7 @@ const toBlogPostSourceFilename = (dir) => (entries) => {
     })
 };
 const filenameStartRegex = /\d\d-/;
-const filesWithFullname = (entries) => {
+const findOnlyBlogPostSourceFilesOrDirs = (entries) => {
   return entries
     .filter(entry => entry.name.match(filenameStartRegex))
   ;
@@ -40,8 +40,8 @@ const findFilesInDir = async (dir) => {
   const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
   const findBlogPostSourceFiles = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
-      .then(filesWithFullname)
-      .then(toBlogPostSourceFilename(dir))
+      .then(findOnlyBlogPostSourceFilesOrDirs)
+      .then(toAbsoluteBlogPostSourceFilename(dir))
     ;
   };
   const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
