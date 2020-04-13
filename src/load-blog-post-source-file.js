@@ -8,11 +8,11 @@ const toAbsoluteDirectoryName = (dir) => (entries) => {
     .map(entry => path.join(dir, entry.name))
 };
 const filenameStartRegex = /\d\d-/;
-const filesWithFullname = (dir) => (entries) => {
+const filesWithFullname = (entries) => {
   return entries
     .filter(f => f.isFile())
     .filter(entry => entry.name.match(filenameStartRegex))
-    .map(entry => path.join(dir, entry.name));
+  ;
 };
 /**
  * TODO not sure that this function should also filter the files and folders by name, this might rather be a "biz log" not a dependency logic
@@ -30,7 +30,9 @@ const findFilesInDir = async (dir) => {
   const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
   const findBlogPostSourceFiles = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
-      .then(filesWithFullname(dir));
+      .then(filesWithFullname)
+      .then(entries => entries.map(entry => path.join(dir, entry.name)))
+    ;
   };
   const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
   const removeRootBlogPostDirectory = files => files.map(file => file.replace(dir, '').replace('/', ''));
