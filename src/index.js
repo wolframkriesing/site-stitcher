@@ -48,5 +48,8 @@ const generateHomePage = async (posts) => {
     ...posts.map(generatePost),
     generateAboutPage(),
     generateHomePage(posts),
-  ]);
+  ]).catch(err => {
+    console.error(err);
+    process.exit(-1);
+  });
 })();
