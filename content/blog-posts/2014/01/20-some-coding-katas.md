@@ -1,5 +1,6 @@
 dateCreated: 2014-01-20 10:00 CET
 tags: katas
+oldUrls: /blog/2014/01/some-coding-katas/
 
 # Some coding katas
 

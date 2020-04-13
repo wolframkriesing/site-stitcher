@@ -1,8 +1,9 @@
-dateCreated: 2014-02-18 10:00 CET
-tags: refactoring, kata, spanish, video
-privateTags: watch later
-youtubeId: saNHzjHwbsc
-postTypes: mini-post
+dateCreated: 2014-02-18 10:00 CET  
+tags: refactoring, kata, spanish, video  
+privateTags: watch later  
+youtubeId: saNHzjHwbsc  
+postTypes: mini-post  
+oldUrls: /blog/2014/02/refactoring-knowledge/  
 
 # Refactoring knowledge
 

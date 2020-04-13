@@ -1,6 +1,7 @@
 dateCreated: 2014-01-19 13:00 CET
 tags: algorithm
 privateTags: read later
+oldUrls: /blog/2014/01/paxos-algorithm-to-solve-the-consensus-problem/
 
 # Paxos, algorithm to solve the consensus problem
 

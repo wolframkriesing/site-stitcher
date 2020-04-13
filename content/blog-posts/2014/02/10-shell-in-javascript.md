@@ -1,6 +1,7 @@
 dateCreated: 2014-02-10 10:00 CET
 tags: javascript, shell, bash
 postTypes: mini-post
+oldUrls: /blog/2014/02/shell-in-javascript/
 
 # Shell in JavaScript
 

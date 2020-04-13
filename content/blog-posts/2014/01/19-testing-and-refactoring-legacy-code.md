@@ -1,5 +1,6 @@
 dateCreated: 2014-01-19 15:00 CET
 tags: java, refactoring, legacy
+oldUrls: /blog/2014/01/testing-and-refactoring-legacy-code/
 
 # Testing and refactoring legacy code
 

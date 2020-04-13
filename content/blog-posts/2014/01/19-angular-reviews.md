@@ -1,6 +1,7 @@
 dateCreated: 2014-01-19 12:00 CET
 tags: javascript, angularjs, frontend, framework
 postTypes: summary
+oldUrls: /blog/2014/01/angular-reviews/
 
 # Angular reviews
 

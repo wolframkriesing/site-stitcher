@@ -1,6 +1,7 @@
-dateCreated: 2014-02-19 10:00 CET
-tags: javascript, testing, mocha
-postTypes: mini-post
+dateCreated: 2014-02-19 10:00 CET  
+tags: javascript, testing, mocha  
+postTypes: mini-post  
+oldUrls: /blog/2014/02/problem-including-mocha-into-a-browserify-build/  
 
 # Problem including mocha into a browserify build
 

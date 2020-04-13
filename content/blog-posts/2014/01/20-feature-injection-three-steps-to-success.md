@@ -1,6 +1,7 @@
 dateCreated: 2014-01-20 16:00 CET
 privateTags: read later
 postTypes: mini-post
+oldUrls: /blog/2014/01/feature-injection-three-steps-to-success/
 
 # Feature Injection: three steps to success
 

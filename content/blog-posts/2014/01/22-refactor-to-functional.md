@@ -2,6 +2,7 @@ dateCreated: 2014-01-22 10:00 CET
 tags: refactoring, functional, oop, javascript
 privateTags: read later
 postTypes: mini-post
+oldUrls: /blog/2014/01/refactor-to-functional/
 
 # Refactor to functional
 

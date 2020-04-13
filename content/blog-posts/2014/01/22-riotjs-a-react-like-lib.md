@@ -1,6 +1,7 @@
 dateCreated: 2014-01-22 10:00 CET
 tags: reactjs, dom, javascript, framework
 postTypes: summary, mini-post
+oldUrls: /blog/2014/01/riotjs-a-react-like-lib/
 
 # riot.js, a react-like lib
 

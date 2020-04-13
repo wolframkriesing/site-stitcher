@@ -1,5 +1,6 @@
 dateCreated: 2014-01-19 10:00 CET
 tags: mac os, security
+oldUrls: /blog/2014/01/worlds-first-known-bootkit-for-os-x-can-permanently-backdoor-macs/
 
 # World’s first (known) bootkit for OS X can permanently backdoor Macs
 

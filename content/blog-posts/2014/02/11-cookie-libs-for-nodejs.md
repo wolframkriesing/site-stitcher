@@ -1,6 +1,7 @@
-dateCreated: 2014-02-11 10:00 CET
-tags: cookie, javascript, library
-postTypes: post
+dateCreated: 2014-02-11 10:00 CET  
+tags: cookie, javascript, library  
+postTypes: post  
+oldUrls: /blog/2014/02/cookie-libs-for-nodejs/  
 
 # Cookie libs for (node)js
 

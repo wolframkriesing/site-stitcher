@@ -1,5 +1,6 @@
-dateCreated: 2014-01-10 10:00 CET
-tags: makefile
+dateCreated: 2014-01-10 10:00 CET  
+tags: makefile  
+oldUrls: /blog/2014/01/purpose-of-phony-in-makefile/  
 
 # Purpose of .PHONY in a Makefile
 

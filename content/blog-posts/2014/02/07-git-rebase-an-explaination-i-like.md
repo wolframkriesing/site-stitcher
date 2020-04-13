@@ -1,6 +1,7 @@
-dateCreated: 2014-02-07 10:00 CET
-tags: git, rebase
-postTypes: mini-post
+dateCreated: 2014-02-07 10:00 CET  
+tags: git, rebase  
+postTypes: mini-post  
+oldUrls: /blog/2014/02/git-rebase-an-explaination-i-like/  
 
 # Git rebase, an explaination I like
 

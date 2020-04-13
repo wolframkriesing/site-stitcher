@@ -1,5 +1,7 @@
 dateCreated: 2014-01-20 11:00 CET
 tags: refactoring
+postTypes: links
+oldUrls: /blog/2014/01/workflows-of-refactoring/
 
 # Workflows of Refactoring
 

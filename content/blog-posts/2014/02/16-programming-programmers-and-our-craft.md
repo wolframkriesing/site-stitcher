@@ -1,7 +1,8 @@
-dateCreated: 2014-02-16 10:00 CET
-tags: programmer, craft, video
-vimeoId: 13914482
-postTypes: summary
+dateCreated: 2014-02-16 10:00 CET  
+tags: programmer, craft, video  
+vimeoId: 13914482  
+postTypes: summary  
+oldUrls: /blog/2014/02/programming-programmers-and-our-craft/  
 
 # Programming, Programmers and our craft
 

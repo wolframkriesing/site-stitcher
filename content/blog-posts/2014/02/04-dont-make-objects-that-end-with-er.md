@@ -1,6 +1,7 @@
 dateCreated: 2014-02-04 10:00 CET
 tags: oop, software design
 postTypes: summary
+oldUrls: /blog/2014/02/dont-make-objects-that-end-with-er/
 
 # Don't make objects that end with 'er'
 

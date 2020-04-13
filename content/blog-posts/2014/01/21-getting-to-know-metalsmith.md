@@ -2,6 +2,7 @@ dateCreated: 2014-01-21 10:00 CET
 tags: metalsmith, blog
 privateTags: read later
 postTypes: mini-post
+oldUrls: /blog/2014/01/getting-to-know-metalsmith/
 
 # Getting to know metalsmith
 

@@ -1,6 +1,7 @@
 dateCreated: 2014-01-20 15:00 CET
 tags: npm, coffeescript
 postTypes: mini-post
+oldUrls: /blog/2014/01/cson-json-with-coffeescript-flavor/
 
 # CSON (JSON with CoffeeScript flavor)
 

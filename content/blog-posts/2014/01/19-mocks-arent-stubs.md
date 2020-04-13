@@ -1,6 +1,7 @@
 dateCreated: 2014-01-19 10:00 CET
 tags: tdd, mock, stub, testing
 privateTags: read later
+oldUrls: /blog/2014/01/mocks-arent-stubs/
 
 # Mocks Aren't Stubs
 

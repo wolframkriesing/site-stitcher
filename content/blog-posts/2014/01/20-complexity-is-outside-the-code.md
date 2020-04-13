@@ -2,6 +2,7 @@ dateCreated: 2014-01-20 13:00 CET
 tags: complexity, code
 privateTags: watch later
 postTypes: mini-post
+oldUrls: /blog/2014/01/complexity-is-outside-the-code/
 
 # Complexity is outside the code
 

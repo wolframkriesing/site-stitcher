@@ -1,6 +1,7 @@
 dateCreated: 2014-02-19 11:00 CET
 tags: gh-pages, devops, deploy, javascript, travis, tddbin
-postTypes: mini-post
+postTypes: mini-post  
+oldUrls: /blog/2014/02/deploying-to-gh-pages-after-successful-test-run-on-travis/  
 
 # Deploying to gh-pages after successful test run on travis
 

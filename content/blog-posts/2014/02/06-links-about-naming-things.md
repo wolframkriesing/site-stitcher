@@ -1,6 +1,7 @@
 dateCreated: 2014-02-06 10:00 CET
 tags: naming, links, must read, smalltalk, oop
 postTypes: link-list
+oldUrls: /blog/2014/02/links-about-naming-things/
 
 # Links about naming things
 

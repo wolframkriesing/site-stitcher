@@ -1,5 +1,6 @@
 dateCreated: 2014-01-19 16:00 CET
 tags: clojure, reducers, functional
+oldUrls: /blog/2014/01/transducersjs/
 
 # Transducers(.js)
 

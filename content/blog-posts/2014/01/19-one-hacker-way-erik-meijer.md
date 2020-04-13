@@ -1,6 +1,7 @@
 dateCreated: 2014-01-19 11:00 CET
 tags: agile, video
 vimeoId: 110554082
+oldUrls: /blog/2014/01/one-hacker-way-erik-meijer/
 
 # One Hacker Way - Erik Meijer
 

@@ -1,5 +1,6 @@
 dateCreated: 2014-01-18 10:00 CET
 tags: tdd, testing
+oldUrls: /blog/2014/01/smallest-test-runner/
 
 # Smallest test runner
 

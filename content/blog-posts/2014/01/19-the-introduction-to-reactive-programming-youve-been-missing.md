@@ -1,5 +1,6 @@
 dateCreated: 2014-01-19 14:00 CET
 tags: reactive programming, rx, rxjs, javascript, functional
+oldUrls: /blog/2014/01/the-introduction-to-reactive-programming-youve-been-missing/
 
 # The introduction to Reactive Programming you've been missing
 

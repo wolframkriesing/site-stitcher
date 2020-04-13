@@ -1,6 +1,7 @@
 dateCreated: 2014-02-05 10:00 CET
 tags: oop, naming, class name, software design, jscr
 postTypes: summary
+oldUrls: /blog/2014/02/just-looks-like-oop/
 
 # Just looks like OOP ...
 

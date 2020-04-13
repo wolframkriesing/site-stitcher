@@ -1,6 +1,7 @@
-dateCreated: 2014-01-10 10:00 CET
-tags: git, github
-postTypes: mini-post
+dateCreated: 2014-01-10 10:00 CET  
+tags: git, github  
+postTypes: mini-post  
+oldUrls: /blog/2014/01/deploy-via-ghpages/  
 
 # Deploy built files easier via gh-pages branch on github
 

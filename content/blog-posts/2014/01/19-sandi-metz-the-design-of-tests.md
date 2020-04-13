@@ -1,6 +1,7 @@
 dateCreated: 2014-01-19 10:00 CET
 tags: testing, video, mocks
 youtubeId: qT5iriwidRg
+oldUrls: /blog/2014/01/sandi-metz-the-design-of-tests/
 
 # Sandi Metz - The Design of Tests
 

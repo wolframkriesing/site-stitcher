@@ -1,6 +1,7 @@
 dateCreated: 2014-01-18 10:00 CET
 tags: firefox, browser engine ,rust
 postTypes: mini-post
+oldUrls: /blog/2014/01/building-a-parallel-browser/
 
 # Building a Parallel Browser
 
