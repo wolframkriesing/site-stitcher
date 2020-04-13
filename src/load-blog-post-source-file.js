@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import {BlogPostSourceFile} from './BlogPostSourceFile.js';
 
-const directoriesWithFullname = (dir) => (entries) => {
+const toAbsoluteDirectoryName = (dir) => (entries) => {
   return entries
     .filter(f => f.isDirectory())
     .map(entry => path.join(dir, entry.name))
@@ -11,6 +11,7 @@ const filenameStartRegex = /\d\d-/;
 const filesWithFullname = (dir) => (entries) => {
   return entries
     .filter(f => f.isFile())
+    .filter(entry => entry.name.match(filenameStartRegex))
     .map(entry => path.join(dir, entry.name));
 };
 /**
@@ -20,21 +21,20 @@ const filesWithFullname = (dir) => (entries) => {
  * @returns {Promise<BlogPostFilename>}
  */
 const findFilesInDir = async (dir) => {
-  const directoryEntries = await fs.promises.readdir(dir, {withFileTypes: true});
-  const yearDirectories = directoriesWithFullname(dir)(directoryEntries);
-  const findDirsIn = async (dir) => {
+  const yearDirectoryEntries = await fs.promises.readdir(dir, {withFileTypes: true});
+  const yearDirectories = toAbsoluteDirectoryName(dir)(yearDirectoryEntries);
+  const findMonthDirectories = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
-      .then(directoriesWithFullname(dir));
+      .then(toAbsoluteDirectoryName(dir));
   };
-  const monthDirectories = (await Promise.all(yearDirectories.map(findDirsIn))).flat();
-  const findPostsIn = async (dir) => {
+  const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
+  const findBlogPostSourceFiles = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
       .then(filesWithFullname(dir));
   };
-  const files = (await Promise.all(monthDirectories.map(findPostsIn))).flat();
+  const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
   const removeRootBlogPostDirectory = files => files.map(file => file.replace(dir, '').replace('/', ''));
-  const potentialBlogPostFilenames = removeRootBlogPostDirectory(files);
-  return potentialBlogPostFilenames.filter(filename => filename.match(filenameStartRegex));
+  return removeRootBlogPostDirectory(files);
 };
 
 const prodDeps = () => {
