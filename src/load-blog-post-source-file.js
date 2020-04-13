@@ -31,21 +31,22 @@ const findOnlyBlogPostSourceFilesOrDirs = (entries) => {
  * @returns {Promise<BlogPostFilename>}
  */
 const findFilesInDir = async (dir) => {
-  const yearDirectoryEntries = await fs.promises.readdir(dir, {withFileTypes: true});
-  const yearDirectories = toAbsoluteDirectoryName(dir)(yearDirectoryEntries);
   const findMonthDirectories = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
       .then(toAbsoluteDirectoryName(dir));
   };
-  const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
   const findBlogPostSourceFiles = async (dir) => {
     return fs.promises.readdir(dir, {withFileTypes: true})
       .then(findOnlyBlogPostSourceFilesOrDirs)
       .then(toAbsoluteBlogPostSourceFilename(dir))
     ;
   };
-  const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
   const removeRootBlogPostDirectory = files => files.map(file => file.replace(dir, '').replace('/', ''));
+
+  const yearDirectoryEntries = await fs.promises.readdir(dir, {withFileTypes: true});
+  const yearDirectories = toAbsoluteDirectoryName(dir)(yearDirectoryEntries);
+  const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
+  const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
   return removeRootBlogPostDirectory(files);
 };
 
