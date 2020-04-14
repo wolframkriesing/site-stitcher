@@ -53,6 +53,7 @@
 - [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
 - [ ] #SEO create a sitemap.xml
 - [ ] the image size up jumps at the end of the anim, fix it
+- [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
 
 # v1 - my website
 - [x] make it run using docker
@@ -89,9 +90,8 @@
   - [x] render [x][y] links properly, seems not to work - newline before was missing
 - [x] add all oldUrls to the md files
 - [x] add licensing on the page!
+- [x] provide all sites that exist on the current picostitch.com (about, tags, links)
+  - [x] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
 - [ ] move domain to GH
-- [ ] provide all sites that exist on the current picostitch.com (about, tags, links)
-  - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
-  - [ ] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
 - [ ] ensure it runs on HTTPS by default
 - [x] a 404 page
