@@ -3,12 +3,10 @@ import {assertThat, hasItem, hasItems, hasProperties} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 
 const postsByTag = (posts, tag) => posts.filter(post => post.tags.includes(tag));
+const blogPostsGroupedByTag = (tag, posts) => ({tag, blogPosts: postsByTag(posts, tag)});
 const groupBlogPostsByTag = (posts) => {
   const allTags = posts.map(post => post.tags).flat();
-  return allTags.map(tag => {
-    const taggedPosts = postsByTag(posts, tag);
-    return {tag, count: taggedPosts.length, blogPosts: taggedPosts};
-  });
+  return allTags.map(tag => blogPostsGroupedByTag(tag, posts));
 };
 
 describe('Group blog posts by tags', () => {
@@ -21,7 +19,7 @@ describe('Group blog posts by tags', () => {
   it('GIVEN one blog post THEN return one group', () => {
     const posts = [newPost({headline: '', tags: ['js']})];
     const grouped = groupBlogPostsByTag(posts);
-    assertThat(grouped, hasItem(hasProperties({tag: 'js', count: 1, blogPosts: posts})));
+    assertThat(grouped, hasItem(hasProperties({tag: 'js', blogPosts: posts})));
   });
   it('GIVEN two blog posts with different tags THEN return two groups', () => {
     const posts = [
@@ -30,8 +28,8 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, hasItems(
-      hasProperties({tag: 'js', count: 1, blogPosts: [posts[0]]}),
-      hasProperties({tag: 'tdd', count: 1, blogPosts: [posts[1]]}),
+      hasProperties({tag: 'js', blogPosts: [posts[0]]}),
+      hasProperties({tag: 'tdd', blogPosts: [posts[1]]}),
     ));
   });
   it('GIVEN two blog posts with the same tags each THEN return two groups with each post in it', () => {
@@ -41,8 +39,8 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, hasItems(
-      hasProperties({tag: 'js', count: 2, blogPosts: posts}),
-      hasProperties({tag: 'tdd', count: 2, blogPosts: posts}),
+      hasProperties({tag: 'js', blogPosts: posts}),
+      hasProperties({tag: 'tdd', blogPosts: posts}),
     ));
   });
 });
