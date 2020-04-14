@@ -10,11 +10,9 @@ blockquote {
 
 a {
   color: #bb6600;
-  text-decoration: none;
 }
   a:hover {
     color: black;
-    text-decoration: underline;
   }
 
 header {
