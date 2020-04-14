@@ -8,6 +8,7 @@ const tundra = new Tundra();
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
+import {groupBlogPostsByTag} from './group-blog-posts-by-tags.js';
 
 import {toReadableDate, toWeekday} from './date.js';
 const toReadableDateTime = s => s;
@@ -77,6 +78,20 @@ const generateHomePage = async (posts) => {
   console.log("Built ", destFilename);
 };
 
+const generateTagPage = async (group) => {
+  const tag = group.tag;
+  const destDir = path.join(__dirname, '../_output', 'blog/tag', tag);
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const renderedFile = tundra.getRender('tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built ", destFilename);
+};
+
+const generateTagPages = async (postGroups) => {
+  return Promise.all(postGroups.map(generateTagPage));
+};
+
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
@@ -87,6 +102,7 @@ const generateHomePage = async (posts) => {
     generateAboutPage(),
     generateHomePage(posts),
     generate404Page(posts.slice(0, 5)),
+    generateTagPages(groupBlogPostsByTag(posts)),
   ]).catch(err => {
     console.error(err);
     process.exit(-1);
