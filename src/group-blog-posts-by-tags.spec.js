@@ -4,19 +4,17 @@ import {BlogPost} from './BlogPost.js';
 
 const postsByTag = (posts, tag) => posts.filter(post => post.tags.includes(tag));
 const groupBlogPostsByTag = (posts) => {
+  const allTags = posts.map(post => post.tags).flat();
   if (posts[0].tags.length === 2) {
     return [
       {tag: 'js', count: 2, blogPosts: posts},
       {tag: 'tdd', count: 2, blogPosts: posts},
     ];
   }
-  if (posts.length === 2) {
-    const allTags = posts.map(post => post.tags).flat();
-    return allTags.map(tag => {
-      const taggedPosts = postsByTag(posts, tag);
-      return {tag, count: taggedPosts.length, blogPosts: taggedPosts};
-    });
-  }
+  return allTags.map(tag => {
+    const taggedPosts = postsByTag(posts, tag);
+    return {tag, count: taggedPosts.length, blogPosts: taggedPosts};
+  });
   return [{tag: 'js', count: 1, blogPosts: posts}];
 };
 
