@@ -1,13 +1,7 @@
 import {describe, it} from 'mocha';
 import {assertThat, hasItem, hasItems, hasProperties} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
-
-const postsByTag = (posts, tag) => posts.filter(post => post.tags.includes(tag));
-const blogPostsGroupedByTag = (tag, posts) => ({tag, blogPosts: postsByTag(posts, tag)});
-const groupBlogPostsByTag = (posts) => {
-  const allTags = posts.map(post => post.tags).flat();
-  return allTags.map(tag => blogPostsGroupedByTag(tag, posts));
-};
+import {groupBlogPostsByTag} from './group-blog-posts-by-tags.js';
 
 describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
