@@ -11,7 +11,7 @@ const groupBlogPostsByTag = (posts) => {
   });
 };
 
-describe.only('Group blog posts by tags', () => {
+describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
     const post = new BlogPost();
     post.headline = headline;
