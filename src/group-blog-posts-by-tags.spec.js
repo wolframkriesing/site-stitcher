@@ -10,10 +10,12 @@ const groupBlogPostsByTag = (posts) => {
     ];
   }
   if (posts.length === 2) {
-    return [
-      {tag: 'js', count: 1, blogPosts: [posts[0]]},
-      {tag: 'tdd', count: 1, blogPosts: [posts[1]]},
-    ];
+    const allTags = [].concat(posts.map(post => post.tags)).flat();
+    const postsByTag = tag => posts.filter(post => post.tags.includes(tag));
+    return allTags.map(tag => {
+      const posts = postsByTag(tag);
+      return {tag, count: posts.length, blogPosts: posts};
+    });
   }
   return [{tag: 'js', count: 1, blogPosts: posts}];
 };
