@@ -11,7 +11,7 @@
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
     "build": "mkdir -p _output; node -r esm src/index.js && npm run build:assets",
-    "build:assets": "cp src/templates/style.css _output/ && npm run build:images:png && npm run build:images:jpg",
+    "build:assets": "cp CNAME _output; cp src/templates/style.css _output/ && npm run build:images:png && npm run build:images:jpg",
     "build:images:jpg": "cd content/blog-posts; find . -name '*.jpg' -exec cp -v '{}' ../../_output/blog/'{}' \\;",
     "build:images:png": "cd content/blog-posts; find . -name '*.png' -exec cp -v '{}' ../../_output/blog/'{}' \\;",
     "typecheck": "tsc",
