@@ -2,6 +2,7 @@ import {describe, it} from 'mocha';
 import {assertThat, hasItem, hasItems, hasProperties} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 
+const postsByTag = (posts, tag) => posts.filter(post => post.tags.includes(tag));
 const groupBlogPostsByTag = (posts) => {
   if (posts[0].tags.length === 2) {
     return [
@@ -10,17 +11,16 @@ const groupBlogPostsByTag = (posts) => {
     ];
   }
   if (posts.length === 2) {
-    const allTags = [].concat(posts.map(post => post.tags)).flat();
-    const postsByTag = tag => posts.filter(post => post.tags.includes(tag));
+    const allTags = posts.map(post => post.tags).flat();
     return allTags.map(tag => {
-      const posts = postsByTag(tag);
-      return {tag, count: posts.length, blogPosts: posts};
+      const taggedPosts = postsByTag(posts, tag);
+      return {tag, count: taggedPosts.length, blogPosts: taggedPosts};
     });
   }
   return [{tag: 'js', count: 1, blogPosts: posts}];
 };
 
-describe('Group blog posts by tags', () => {
+describe.only('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
     const post = new BlogPost();
     post.headline = headline;
