@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import {assertThat, hasItem, hasItems, hasProperties} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
-import {groupBlogPostsByTag} from './group-blog-posts-by-tags.js';
+import {groupBlogPostsByTag} from './blog-posts-by-tags.js';
 
 describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
