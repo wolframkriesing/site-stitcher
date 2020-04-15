@@ -1,4 +1,5 @@
 # v2
+- [ ] add follow button for twitter
 - [ ] show the tags in a left column
 - [ ] render the schema attributes
 - [ ] add all posts from
@@ -69,6 +70,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] when selected some text open a "tweet this" or "share this" button
 - [ ] use a different font, to also be able to outline and distinguish source code better
 - [ ] learn and apply a11y properly
 - [ ] show "load more" or pagination on first page
