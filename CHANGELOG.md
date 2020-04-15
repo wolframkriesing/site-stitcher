@@ -1,4 +1,29 @@
 # v2
+- [ ] show the tags in a left column
+- [ ] render the schema attributes
+- [ ] add all posts from
+  - [x] picostitch  
+  - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
+  - [ ] http://www.uxebu.com/blog/index.html
+  - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
+    - [ ] redirect the old URL to the new one
+  - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
+  - [ ] microblog
+- [ ] setup
+  - [ ] ADRs
+  - [ ] type linting JS files using TS
+  - [ ] todo-stitcher
+- [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
+  - [ ] word count, lines of code, programming language, etc.
+  - [ ] download size of the page
+  - [ ] amount of HTML, CSS, JS on the page
+  - [ ] 3rd party URLs loaded on the page
+  - [ ] number of requests, etc.
+- [ ] render a page with the output of test-stitcher for all the tests that built this site
+- [ ] fix BlogPost types and Metadata
+- [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
+- [ ] #SEO create a sitemap.xml
+- [ ] the image size up jumps at the end of the anim, fix it
 
 # v1 - page up - finished: 15th April 2020
 - [x] make it run using docker
@@ -40,20 +65,13 @@
 - [x] move domain to GH
 - [x] ensure it runs on HTTPS by default
 - [x] a 404 page
+- [x] deploy site on git push
+- [x] publish the last post about jscamp
 
 # Ideas
 - [ ] use a different font, to also be able to outline and distinguish source code better
 - [ ] learn and apply a11y properly
 - [ ] show "load more" or pagination on first page
-- [ ] render the schema attributes
-- [ ] add all posts from
-  - [x] picostitch  
-  - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
-  - [ ] http://www.uxebu.com/blog/index.html
-  - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
-    - [ ] redirect the old URL to the new one
-  - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
-  - [ ] microblog
 - [ ] add all my 
   - [ ] conference talks
   - [ ] conference visits
@@ -65,12 +83,6 @@
   - [ ] to-do-list-checker (todo-stitcher)
   - [ ] kavun (pico-test)
 - [ ] generate dates (started, published, last changed) from commits
-- [ ] deploy site on git push
-- [ ] publish the last post about jscamp
-- [ ] setup
-  - [ ] ADRs
-  - [ ] type linting JS files using TS
-  - [ ] todo-stitcher
 - [ ] add og meta tags (https://ogp.me/)
 - [ ] lint/verify the syntax of a blog post
   - [ ] can have meta tags at the top only
@@ -78,23 +90,12 @@
   - [ ] must start with headline, has an abstract next
   - [ ] even dates with time MUST end in "... CET" and be formatted like so "2000-01-01 10:00 CET"
   - [ ] end metadata line with two spaces 
-- [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
-  - [ ] word count, lines of code, programming language, etc.
-  - [ ] download size of the page
-  - [ ] amount of HTML, CSS, JS on the page
-  - [ ] 3rd party URLs loaded on the page
-  - [ ] number of requests, etc.
 - [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
 - [ ] provide thumbnailUrl (see schema) for a post
 - [ ] handle or remove `related_tweets:` which some posts still have
 - [ ] indieweb auth of my page
-- [ ] render a page with the output of test-stitcher for all the tests that built this site
 - [ ] what about URL incompatible chars in a markdownFilename?
 - [ ] rename `BlogPost#markdownFilename` to `sourceFile`?
 - [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
-- [ ] fix BlogPost types and Metadata
-- [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
-- [ ] #SEO create a sitemap.xml
-- [ ] the image size up jumps at the end of the anim, fix it
 - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
 
