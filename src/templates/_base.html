@@ -36,8 +36,19 @@
     </div>
   </header>
 
-  {[ block content ]}
-  {[ endblock ]}
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <div class="tags">
+        {% groupedBlogPosts.forEach(group => { %}
+          #{{group.tag}} ({{group.blogPosts.length}})<br/>
+        {% }) %}
+      </div>
+    </div>
+    <div class="content">
+      {[ block content ]}
+      {[ endblock ]}
+    </div>
+  </div>
 
   <footer>
     <div>

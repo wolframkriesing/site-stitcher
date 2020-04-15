@@ -94,13 +94,15 @@ const generateTagPages = async (postGroups) => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
+  const groupedBlogPosts = groupBlogPostsByTag(posts);
+  defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
   Promise.all([
     ...posts.map(generatePost),
     ...posts.map(generate301Pages),
     generateAboutPage(),
     generateHomePage(posts),
     generate404Page(posts.slice(0, 5)),
-    generateTagPages(groupBlogPostsByTag(posts)),
+    generateTagPages(groupedBlogPosts),
   ]).catch(err => {
     console.error(err);
     process.exit(-1);
