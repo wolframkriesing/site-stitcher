@@ -40,7 +40,7 @@
     <div class="sidebar">
       <div class="tags">
         {% groupedBlogPosts.forEach(group => { %}
-          #{{group.tag}} ({{group.blogPosts.length}})<br/>
+        <a href="/blog/tag/{{group.tag}}/">#{{group.tag}} ({{group.blogPosts.length}})</a><br/>
         {% }) %}
       </div>
     </div>

@@ -18,6 +18,11 @@ body {
   overflow-y: scroll;
   white-space: nowrap;
 }
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}
 
 blockquote {
   font-style: italic;
