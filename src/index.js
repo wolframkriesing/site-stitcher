@@ -11,7 +11,6 @@ import {sortByDateCreatedDescending} from './sort-blog-post.js';
 import {groupBlogPostsByTag} from './group-blog-posts-by-tags.js';
 
 import {toReadableDate, toWeekday} from './date.js';
-const toReadableDateTime = s => s;
 
 
 const navigationItems = [
@@ -20,7 +19,6 @@ const navigationItems = [
 ];
 const defaultRenderParams = {
   navigationItems,
-  toReadableDateTime,
   toReadableDate,
   toWeekday,
 };

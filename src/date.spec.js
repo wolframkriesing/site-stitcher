@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {toReadableDate, toWeekday, nowAsDateTimeString} from './date.js';
 
-describe('Convert date to a readable string', () => {
+describe('Convert date (and time) to a readable date string', () => {
   it('GIVEN a date "2001-01-01" WHEN converted THEN return "January 1, 2001"', () => {
     assert.strictEqual(toReadableDate('2001-01-01'), 'January 1, 2001');
   });

@@ -8,7 +8,7 @@
   <h1>{{post.headline}}</h1>
   <p class="metadata">
     Wolfram Kriesing
-    - {{toReadableDateTime(post.dateCreated)}}
+    - {{toReadableDate(post.dateCreated)}}
     {% if (post.tags.length > 0) { %}
       - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
     {% } %}

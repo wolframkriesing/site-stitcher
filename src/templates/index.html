@@ -7,7 +7,7 @@
 {[ block content ]}
   <div class="latest-post">
     <div class="metadata">
-      <span itemprop="datePublished">{{toReadableDateTime(posts[0].dateCreated)}}</span>
+      <span itemprop="datePublished">{{toReadableDate(posts[0].dateCreated)}}</span>
       - by Wolfram Kriesing
       {% if (posts[0].tags.length > 0) { %}
         <br/>
