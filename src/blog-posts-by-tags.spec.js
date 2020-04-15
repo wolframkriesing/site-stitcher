@@ -37,4 +37,17 @@ describe('Group blog posts by tags', () => {
       hasProperties({tag: 'tdd', blogPosts: posts}),
     ));
   });
+  it('GIVEN blog posts with different tags THEN return the groups sorted by the tag counts', () => {
+    const posts = [
+      newPost({headline: '', tags: ['three', 'two', 'one', ]}),
+      newPost({headline: '', tags: ['two', 'one', ]}),
+      newPost({headline: '', tags: ['one', ]}),
+    ];
+    const grouped = groupBlogPostsByTag(posts);
+    assertThat(grouped, contains(
+      hasProperties({tag: 'one'}),
+      hasProperties({tag: 'two'}),
+      hasProperties({tag: 'three'}),
+    ));
+  });
 });
