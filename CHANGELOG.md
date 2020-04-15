@@ -1,3 +1,46 @@
+# v2
+
+# v1 - page up - finished: 15th April 2020
+- [x] make it run using docker
+- [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
+- [x] copy all picostitch posts here
+- [x] if no 1st paragraph show nothing as abstract 
+      see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
+- [x] add plausible
+- [x] provide meta data
+  - [x] use multimarkdown style, just key-value pairs at the top
+  - [x] update all posts to use it
+  - [x] add the metadata to BlogPost
+  - [x] render the metadata if needed (e.g. on the post page)
+- [x] make it deploy on GH
+- [x] add footer and imprint
+- [x] generate index page from md files
+  - [x] make it work on mobile
+  - [x] dont fail on invalid files in blog post dirs
+  - [x] sort newest to top
+  - [x] render the markdown of the abstract properly into HTML
+  - [x] show the date like this "24 Jan, 2002"
+  - [x] allow dirs not only md files 04-blog-post/index.md
+        see: `2015/05/11-alan-kay-on-messaging`
+  - [x] copy the assets from the dirs too, like images        
+- [x] `npm run new-post` script to create dir and file
+  - [x] create a BlogPost instance
+  - [x] write markdown file to disk
+  - [x] implement date fn
+- [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
+- [x] build the post page
+  - [x] provide the old URLs as used on picostitch now
+  - [x] 301 from the old url to the new one
+        maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
+  - [x] render [x][y] links properly, seems not to work - newline before was missing
+- [x] add all oldUrls to the md files
+- [x] add licensing on the page!
+- [x] provide all sites that exist on the current picostitch.com (about, tags, links)
+  - [x] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
+- [x] move domain to GH
+- [x] ensure it runs on HTTPS by default
+- [x] a 404 page
+
 # Ideas
 - [ ] use a different font, to also be able to outline and distinguish source code better
 - [ ] learn and apply a11y properly
@@ -55,43 +98,3 @@
 - [ ] the image size up jumps at the end of the anim, fix it
 - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
 
-# v1 - my website
-- [x] make it run using docker
-- [x] use schema.org types from the beginning, no need to invent any structure, reuse and make discoverable content easy, e.g. https://schema.org/BlogPosting
-- [x] copy all picostitch posts here
-- [x] if no 1st paragraph show nothing as abstract 
-      see `20-bookmark-collect-may-2015.md` and files where abstract and headline is the same
-- [x] add plausible
-- [x] provide meta data
-  - [x] use multimarkdown style, just key-value pairs at the top
-  - [x] update all posts to use it
-  - [x] add the metadata to BlogPost
-  - [x] render the metadata if needed (e.g. on the post page)
-- [x] make it deploy on GH
-- [x] add footer and imprint
-- [x] generate index page from md files
-  - [x] make it work on mobile
-  - [x] dont fail on invalid files in blog post dirs
-  - [x] sort newest to top
-  - [x] render the markdown of the abstract properly into HTML
-  - [x] show the date like this "24 Jan, 2002"
-  - [x] allow dirs not only md files 04-blog-post/index.md
-        see: `2015/05/11-alan-kay-on-messaging`
-  - [x] copy the assets from the dirs too, like images        
-- [x] `npm run new-post` script to create dir and file
-  - [x] create a BlogPost instance
-  - [x] write markdown file to disk
-  - [x] implement date fn
-- [x] instead of BlogPost.preload() extract it to BlogPostSourceFile.*()
-- [x] build the post page
-  - [x] provide the old URLs as used on picostitch now
-  - [x] 301 from the old url to the new one
-        maybe can give a 301 list to the server, so we wont need a page for each ... lets see what/if hetzner can do it
-  - [x] render [x][y] links properly, seems not to work - newline before was missing
-- [x] add all oldUrls to the md files
-- [x] add licensing on the page!
-- [x] provide all sites that exist on the current picostitch.com (about, tags, links)
-  - [x] does https://picostitch.com/blog/tag/jscoderetreat/ work? linked on the about page!
-- [ ] move domain to GH
-- [ ] ensure it runs on HTTPS by default
-- [x] a 404 page
