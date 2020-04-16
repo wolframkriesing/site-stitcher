@@ -16,6 +16,11 @@ describe('Convert date (and time) to a readable date string', () => {
       assert.strictEqual(toReadableDate('2042-11-11 10:00 CET'), 'November 11, 2042');
     });
   });
+  describe('GIVEN a year and month only', () => {
+    it('e.g. "2042-11" WHEN converted THEN return "November 2042"', () => {
+      assert.strictEqual(toReadableDate('2042-11'), 'November 2042');
+    });
+  });
 });
 
 describe('Return the weekday for a date', () => {
