@@ -1,4 +1,5 @@
 # v2
+- [ ] rebuild when a content file changes (not just when code changes doh)
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
     - [ ] consolidate tags
