@@ -1,6 +1,6 @@
 # v2
 - [ ] add follow button for twitter
-- [ ] show the tags in a left column
+- [x] show the tags in a left column
 - [ ] render the schema attributes
 - [ ] add all posts from
   - [x] picostitch  

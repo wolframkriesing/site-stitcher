@@ -14,10 +14,12 @@ body {
 .sidebar .tags {
   max-width: 15rem;
   height: 20.5rem;
-  overflow-x: hidden;
-  overflow-y: scroll;
+  overflow: hidden;
   white-space: nowrap;
 }
+  .sidebar:hover .tags {
+    height: auto;
+  }
 @media screen and (max-width: 600px) {
   .sidebar {
     display: none;
