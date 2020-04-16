@@ -4,6 +4,28 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.content-wrapper {
+  display: flex;
+}
+  .content-wrapper .sidebar {
+    padding: 2rem;
+  }
+
+.sidebar .tags {
+  max-width: 15rem;
+  height: 20.5rem;
+  overflow: hidden;
+  white-space: nowrap;
+}
+  .sidebar:hover .tags {
+    height: auto;
+  }
+@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}
+
 blockquote {
   font-style: italic;
 }
