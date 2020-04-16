@@ -28,13 +28,7 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
       blogPosts
     });
   }
-  const twoDigits = s => ('0' + s).substr(-2);
-  const byYearAndMonthDesc = (group1, group2) => {
-    const date1 = [group1.year, twoDigits(group1.month)].join('-');
-    const date2 = [group2.year, twoDigits(group2.month)].join('-');
-    return date1 > date2 ? -1 : 1;
-  }
-
+  const byYearAndMonthDesc = (group1, group2) => group1.yearAndMonth > group2.yearAndMonth ? -1 : 1;
   const mapByMonth = new Map();
   posts.forEach(addPostToMap(mapByMonth));
   const groups = [];
