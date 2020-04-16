@@ -39,8 +39,14 @@
   <div class="content-wrapper">
     <div class="sidebar">
       <div class="tags">
-        {% groupedBlogPosts.forEach(group => { %}
-        <a href="/blog/tag/{{group.tag}}/">#{{group.tag}} ({{group.blogPosts.length}})</a><br/>
+        {% groupedBlogPosts.byTag.forEach(group => { %}
+        <a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a><br/>
+        {% }) %}
+      </div>
+
+      <div class="months">
+        {% groupedBlogPosts.byMonth.forEach(group => { %}
+          {{toReadableDate(group.yearAndMonth)}}<br/>
         {% }) %}
       </div>
     </div>

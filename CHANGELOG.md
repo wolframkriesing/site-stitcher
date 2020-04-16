@@ -1,4 +1,5 @@
 # v2
+- [ ] rebuild when a content file changes (not just when code changes doh)
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
     - [ ] consolidate tags
@@ -7,6 +8,7 @@
           simply reduce the number of used tags imho
     - [ ] when grouped sort them in the group by name
     - [ ] link each tag in the posts headline to the tag page
+- [ ] group by month
 - [ ] render the schema attributes
 - [ ] add all posts from
   - [x] picostitch  

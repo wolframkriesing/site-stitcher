@@ -3,14 +3,23 @@ import assert from 'assert';
 import {toReadableDate, toWeekday, nowAsDateTimeString} from './date.js';
 
 describe('Convert date (and time) to a readable date string', () => {
-  it('GIVEN a date "2001-01-01" WHEN converted THEN return "January 1, 2001"', () => {
-    assert.strictEqual(toReadableDate('2001-01-01'), 'January 1, 2001');
+  describe('GIVEN a date', () => {
+    it('e.g. "2001-01-01" WHEN converted THEN return "January 1, 2001"', () => {
+      assert.strictEqual(toReadableDate('2001-01-01'), 'January 1, 2001');
+    });
+    it('e.g. "2042-11-11" WHEN converted THEN return "November 11, 2042"', () => {
+      assert.strictEqual(toReadableDate('2042-11-11'), 'November 11, 2042');
+    });
   });
-  it('GIVEN a date "2042-11-11" WHEN converted THEN return "November 11, 2042"', () => {
-    assert.strictEqual(toReadableDate('2042-11-11'), 'November 11, 2042');
+  describe('GIVEN a date+time', () => {
+    it('e.g. "2042-11-11 10:00 CET" WHEN converted THEN return "November 11, 2042"', () => {
+      assert.strictEqual(toReadableDate('2042-11-11 10:00 CET'), 'November 11, 2042');
+    });
   });
-  it('GIVEN a date+time "2042-11-11 10:00 CET" WHEN converted THEN return "November 11, 2042"', () => {
-    assert.strictEqual(toReadableDate('2042-11-11 10:00 CET'), 'November 11, 2042');
+  describe('GIVEN a year and month only', () => {
+    it('e.g. "2042-11" WHEN converted THEN return "November 2042"', () => {
+      assert.strictEqual(toReadableDate('2042-11'), 'November 2042');
+    });
   });
 });
 

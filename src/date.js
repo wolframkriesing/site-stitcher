@@ -22,9 +22,14 @@ const months = [
   'December',
 ];
 export const toReadableDate = dateString => {
+  const isYearAndMonthOnly = dateString.split('-').length === 2;
   const date = toDate(dateString);
   const month = months[date.getMonth()];
-  return `${month} ${date.getDate()}, ${date.getFullYear()}`;
+  const year = date.getFullYear();
+  return isYearAndMonthOnly
+    ? `${month} ${year}`
+    : `${month} ${date.getDate()}, ${year}`
+  ;
 };
 
 export const toWeekday = dateString => {
