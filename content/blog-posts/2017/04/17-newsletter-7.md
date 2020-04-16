@@ -6,7 +6,14 @@ tags: pwa, jscc17, jscraftcamp, code formatting, technical debt, exception, abst
 This is newsletter #7 - about crafting (and) JavaScript - April 17rd, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**.
 
 ## Announcement
-First I would like to announce that I am joining forces with [programmer@work][pawsite] which was started by the incredible [Ricardo Borillo][borillo]. We agreed that we should just throw our stuff into one pot and definitely "programmer@work" fits it much better than "pico stitch". So the pico stitch website and all it's content moves to [programmeratwork.com][pawsite] and will soon redirect there and things will slowly get programmer@work branding. No worries that this goes commercial, nothing close to it. We just do that because we have very common interests and thought that people following what we write/collect/publish profit more from **even more** and better curated content. Let's hope for the best :). We will keep doing our best.
+~~First I would like to announce that I am joining forces with [programmer@work][pawsite] which was started by the 
+incredible [Ricardo Borillo][borillo]. We agreed that we should just throw our stuff into one pot and definitely 
+"programmer@work" fits it much better than "pico stitch". So the pico stitch website and all it's content moves 
+to [programmeratwork.com][pawsite] and will soon redirect there and things will slowly get programmer@work branding. 
+No worries that this goes commercial, nothing close to it. We just do that because we have very common interests and 
+thought that people following what we write/collect/publish profit more from **even more** and better curated content. 
+Let's hope for the best :). We will keep doing our best.~~\
+[UPDATE, April 2020] It didn't happen. Fake news ;)
 
 [borillo]: http://twitter.com/borillo
 [pawsite]: http://programmeratwork.com
