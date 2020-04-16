@@ -11,15 +11,6 @@ export const groupBlogPostsByTag = (posts) => {
 };
 
 export const groupBlogPostsByYearAndMonth = (posts) => {
-  if (posts.length === 6) {
-    return [
-      {year: 2000, month: 1, blogPosts: [posts[0], posts[1]]},
-      {year: 2001, month: 1, blogPosts: [posts[2]]},
-      {year: 2008, month: 12, blogPosts: [posts[3]]},
-      {year: 2009, month: 1, blogPosts: [posts[4]]},
-      {year: 2009, month: 11, blogPosts: [posts[5]]},
-    ];
-  }
   const map = new Map();
   posts.forEach(post => {
     const dateParts = post.dateCreated.split('-');
