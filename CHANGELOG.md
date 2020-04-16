@@ -9,6 +9,7 @@
     - [ ] when grouped sort them in the group by name
     - [ ] link each tag in the posts headline to the tag page
 - [x] group by month
+- [ ] show month-pages and link them
 - [ ] render the schema attributes
 - [ ] add all posts from
   - [x] picostitch  
