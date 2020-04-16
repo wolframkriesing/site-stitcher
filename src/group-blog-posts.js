@@ -26,5 +26,9 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
       {year: 2001, month: 1, blogPosts: [posts[1]]},
     ];
   }
-  return [{year: 2000, month: 1, blogPosts: posts}];
+  const post = posts[0];
+  const dateParts = post.dateCreated.split('-');
+  const year = Number.parseInt(dateParts[0]);
+  const month = Number.parseInt(dateParts[1]);
+  return [{year, month, blogPosts: posts}];
 }
