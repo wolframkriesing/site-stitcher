@@ -17,7 +17,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
 }
-  .sidebar:hover .tags {
+  .sidebar .tags:hover {
     height: auto;
   }
 @media screen and (max-width: 600px) {

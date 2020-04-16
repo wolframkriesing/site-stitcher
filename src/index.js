@@ -8,7 +8,7 @@ const tundra = new Tundra();
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
-import {groupBlogPostsByTag} from './group-blog-posts.js';
+import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
 
 import {toReadableDate, toWeekday} from './date.js';
 
@@ -94,15 +94,18 @@ const generateTagPages = async (postGroups) => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
-  const groupedBlogPosts = groupBlogPostsByTag(posts);
-  defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
+  const groupedBlogPostsByTag = groupBlogPostsByTag(posts);
+  defaultRenderParams.groupedBlogPosts = {
+    byTag: groupedBlogPostsByTag,
+    byMonth: groupBlogPostsByYearAndMonth(posts),
+  };
   Promise.all([
     ...posts.map(generatePost),
     ...posts.map(generate301Pages),
     generateAboutPage(),
     generateHomePage(posts),
     generate404Page(posts.slice(0, 5)),
-    generateTagPages(groupedBlogPosts),
+    generateTagPages(groupedBlogPostsByTag),
   ]).catch(err => {
     console.error(err);
     process.exit(-1);
