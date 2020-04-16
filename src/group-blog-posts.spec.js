@@ -66,7 +66,7 @@ describe('Group blog posts by year+month', () => {
     ];
     const grouped = groupBlogPostsByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({year: 2000, month: 1, blogPosts: posts}),
+      hasProperties({yearAndMonth: '2000-01', blogPosts: posts}),
     ));
   });
   it('GIVEN two blog posts of different months THEN return two groups', () => {
@@ -76,8 +76,8 @@ describe('Group blog posts by year+month', () => {
     ];
     const grouped = groupBlogPostsByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({year: 2001, month: 1, blogPosts: [posts[1]]}),
-      hasProperties({year: 2000, month: 1, blogPosts: [posts[0]]}),
+      hasProperties({yearAndMonth: '2001-01', blogPosts: [posts[1]]}),
+      hasProperties({yearAndMonth: '2000-01', blogPosts: [posts[0]]}),
     ));
   });
   it('GIVEN multiple blog posts of different months THEN return grouped', () => {
@@ -91,11 +91,11 @@ describe('Group blog posts by year+month', () => {
     ];
     const grouped = groupBlogPostsByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({year: 2009, month: 11, blogPosts: [posts[5]]}),
-      hasProperties({year: 2009, month: 1, blogPosts: [posts[4]]}),
-      hasProperties({year: 2008, month: 12, blogPosts: [posts[3]]}),
-      hasProperties({year: 2001, month: 1, blogPosts: [posts[2]]}),
-      hasProperties({year: 2000, month: 1, blogPosts: [posts[0], posts[1]]}),
+      hasProperties({yearAndMonth: '2009-11', blogPosts: [posts[5]]}),
+      hasProperties({yearAndMonth: '2009-01', blogPosts: [posts[4]]}),
+      hasProperties({yearAndMonth: '2008-12', blogPosts: [posts[3]]}),
+      hasProperties({yearAndMonth: '2001-01', blogPosts: [posts[2]]}),
+      hasProperties({yearAndMonth: '2000-01', blogPosts: [posts[0], posts[1]]}),
     ));
   });
   it('GIVEN some posts WHEN grouping them THEN return them sorted chronologically reverse (newest first)', () => {
@@ -109,11 +109,11 @@ describe('Group blog posts by year+month', () => {
     ];
     const grouped = groupBlogPostsByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({year: 2009, month: 11}),
-      hasProperties({year: 2009, month: 1}),
-      hasProperties({year: 2008, month: 12}),
-      hasProperties({year: 2001, month: 1}),
-      hasProperties({year: 2000, month: 1}),
+      hasProperties({yearAndMonth: '2009-11'}),
+      hasProperties({yearAndMonth: '2009-01'}),
+      hasProperties({yearAndMonth: '2008-12'}),
+      hasProperties({yearAndMonth: '2001-01'}),
+      hasProperties({yearAndMonth: '2000-01'}),
     ));
   });
 });

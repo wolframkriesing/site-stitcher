@@ -22,6 +22,7 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
   const addMapEntryToGroups = groups => (blogPosts, key) => {
     const keyParts = key.split('-');
     return groups.push({
+      yearAndMonth: key,
       year: Number.parseInt(keyParts[0]),
       month: Number.parseInt(keyParts[1]),
       blogPosts
