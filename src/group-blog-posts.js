@@ -19,15 +19,7 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
     }
     map.set(key, [...map.get(key), post]);
   };
-  const addMapEntryToGroups = groups => (blogPosts, key) => {
-    const keyParts = key.split('-');
-    return groups.push({
-      yearAndMonth: key,
-      year: Number.parseInt(keyParts[0]),
-      month: Number.parseInt(keyParts[1]),
-      blogPosts
-    });
-  }
+  const addMapEntryToGroups = groups => (blogPosts, key) => { groups.push({yearAndMonth: key, blogPosts}); };
   const byYearAndMonthDesc = (group1, group2) => group1.yearAndMonth > group2.yearAndMonth ? -1 : 1;
   const mapByMonth = new Map();
   posts.forEach(addPostToMap(mapByMonth));
