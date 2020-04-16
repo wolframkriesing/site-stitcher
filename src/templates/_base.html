@@ -46,7 +46,7 @@
 
       <div class="months">
         {% groupedBlogPosts.byMonth.forEach(group => { %}
-          {{group.yearAndMonth}} ({{group.blogPosts.length}})<br/>
+          {{toReadableDate(group.yearAndMonth)}}<br/>
         {% }) %}
       </div>
     </div>
