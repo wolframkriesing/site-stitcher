@@ -28,7 +28,21 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
   }
   const post = posts[0];
   const dateParts = post.dateCreated.split('-');
-  const year = Number.parseInt(dateParts[0]);
-  const month = Number.parseInt(dateParts[1]);
-  return [{year, month, blogPosts: posts}];
+  const key = dateParts.slice(0, 2).join('-');
+  const map = new Map();
+  if (!map.has(key)) {
+    map.set(key, []);
+  }
+  posts.forEach(post => map.set(key, [...map.get(key), post]));
+  const groups = [];
+  const mapEntryToGroup = (blogPosts, key) => {
+    const keyParts = key.split('-');
+    return groups.push({
+      year: Number.parseInt(keyParts[0]),
+      month: Number.parseInt(keyParts[1]),
+      blogPosts
+    });
+  }
+  map.forEach(mapEntryToGroup);
+  return groups;
 }
