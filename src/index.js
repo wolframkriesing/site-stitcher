@@ -8,7 +8,7 @@ const tundra = new Tundra();
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
-import {groupBlogPostsByTag} from './blog-posts-by-tags.js';
+import {groupBlogPostsByTag} from './group-blog-posts.js';
 
 import {toReadableDate, toWeekday} from './date.js';
 
