@@ -84,9 +84,18 @@ const generateTagPage = async (group) => {
   console.log("Built ", destFilename);
 };
 
-const generateTagPages = async (postGroups) => {
-  return Promise.all(postGroups.map(generateTagPage));
+const generateMonthPage = async (group) => {
+  const yearAndMonth = group.yearAndMonth;
+  const destDir = path.join(__dirname, '../_output', 'blog', yearAndMonth.replace('-', '/'));
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const renderedFile = tundra.getRender('month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built ", destFilename);
 };
+
+const generateTagPages = async (postGroups) => Promise.all(postGroups.map(generateTagPage));
+const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
@@ -104,7 +113,7 @@ const generateTagPages = async (postGroups) => {
     generateHomePage(posts),
     generate404Page(posts.slice(0, 5)),
     generateTagPages(groupedBlogPosts.byTag),
-    // generateMonthPages(groupedBlogPosts.byMonth),
+    generateMonthPages(groupedBlogPosts.byMonth),
   ]).catch(err => {
     console.error(err);
     process.exit(-1);
