@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import {assertThat, hasItem, hasItems, hasProperties, contains} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
-import {groupBlogPostsByTag} from './group-blog-posts.js';
+import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
 
 describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
@@ -51,25 +51,6 @@ describe('Group blog posts by tags', () => {
     ));
   });
 });
-
-const groupBlogPostsByYearAndMonth = (posts) => {
-  if (posts.length === 6) {
-    return [
-      {year: 2000, month: 1, blogPosts: [posts[0], posts[1]]},
-      {year: 2001, month: 1, blogPosts: [posts[2]]},
-      {year: 2008, month: 12, blogPosts: [posts[3]]},
-      {year: 2009, month: 1, blogPosts: [posts[4]]},
-      {year: 2009, month: 11, blogPosts: [posts[5]]},
-    ];
-  }
-  if (posts[1].dateCreated.startsWith('2001')) {
-    return [
-      {year: 2000, month: 1, blogPosts: [posts[0]]},
-      {year: 2001, month: 1, blogPosts: [posts[1]]},
-    ];
-  }
-  return [{year: 2000, month: 1, blogPosts: posts}];
-}
 
 describe('Group blog posts by year+month', () => {
   const newPost = (dateCreated) => {
