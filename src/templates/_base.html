@@ -46,7 +46,7 @@
 
       <div class="months">
         {% groupedBlogPosts.byMonth.forEach(group => { %}
-          {{toReadableDate(group.yearAndMonth)}}<br/>
+        <a href="/blog/{{group.yearAndMonth.replace('-', '/')}}/">{{toReadableDate(group.yearAndMonth)}}</a><br/>
         {% }) %}
       </div>
     </div>
