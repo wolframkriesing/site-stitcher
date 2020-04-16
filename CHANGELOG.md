@@ -76,6 +76,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] allow linking headline, esp useful on long article more-html ftw ;)
 - [ ] when selected some text open a "tweet this" or "share this" button
 - [ ] use a different font, to also be able to outline and distinguish source code better
 - [ ] learn and apply a11y properly
