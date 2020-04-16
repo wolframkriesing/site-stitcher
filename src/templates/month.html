@@ -1,0 +1,27 @@
+@extends(src/templates/_base.html)
+
+{[ block pagename ]}month{[ endblock ]}
+
+{[ block pageTitlePrefix ]}{{toReadableDate(yearAndMonth)}}{[ endblock ]}
+
+{[ block content ]}
+  <h1>{{toReadableDate(yearAndMonth)}}</h1>
+
+  {% posts.map(post => { %}
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">{{toReadableDate(post.dateCreated)}}</span>
+        - by Wolfram Kriesing
+        {% if (post.tags.length) : %}
+          - {% post.tags.map(tag => { %}#{{tag}} {% }) %}
+        {% end %}
+      </div>
+      <div class="content">
+        <h2><a href="{{post.url}}" itemprop="url">
+          <span itemprop="name headline">{{post.headline}}</span>
+        </a>{{ post.hasVideo ? ' 📺' : '' }}</h2>
+        <p class="abstract">{!post.abstractContentAsHtml!}</p>
+      </div>
+    </div>
+  {% }) %}
+{[ endblock ]}

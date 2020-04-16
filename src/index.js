@@ -2,9 +2,6 @@ import * as path from 'path';
 import marked from 'marked';
 import Tundra from 'tundrajs';
 import * as fs from 'fs';
-
-const tundra = new Tundra();
-
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
@@ -12,6 +9,7 @@ import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-po
 
 import {toReadableDate, toWeekday} from './date.js';
 
+const tundra = new Tundra();
 
 const navigationItems = [
   {path: '/', name: 'Home'},
@@ -86,26 +84,36 @@ const generateTagPage = async (group) => {
   console.log("Built ", destFilename);
 };
 
-const generateTagPages = async (postGroups) => {
-  return Promise.all(postGroups.map(generateTagPage));
+const generateMonthPage = async (group) => {
+  const yearAndMonth = group.yearAndMonth;
+  const destDir = path.join(__dirname, '../_output', 'blog', yearAndMonth.replace('-', '/'));
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const renderedFile = tundra.getRender('month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
+  await fs.promises.writeFile(destFilename, renderedFile);
+  console.log("Built ", destFilename);
 };
+
+const generateTagPages = async (postGroups) => Promise.all(postGroups.map(generateTagPage));
+const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
-  const groupedBlogPostsByTag = groupBlogPostsByTag(posts);
-  defaultRenderParams.groupedBlogPosts = {
-    byTag: groupedBlogPostsByTag,
+  const groupedBlogPosts = {
+    byTag: groupBlogPostsByTag(posts),
     byMonth: groupBlogPostsByYearAndMonth(posts),
   };
+  defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
   Promise.all([
     ...posts.map(generatePost),
     ...posts.map(generate301Pages),
     generateAboutPage(),
     generateHomePage(posts),
     generate404Page(posts.slice(0, 5)),
-    generateTagPages(groupedBlogPostsByTag),
+    generateTagPages(groupedBlogPosts.byTag),
+    generateMonthPages(groupedBlogPosts.byMonth),
   ]).catch(err => {
     console.error(err);
     process.exit(-1);
