@@ -20,20 +20,15 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
       {year: 2009, month: 11, blogPosts: [posts[5]]},
     ];
   }
-  if (posts[1].dateCreated.startsWith('2001')) {
-    return [
-      {year: 2000, month: 1, blogPosts: [posts[0]]},
-      {year: 2001, month: 1, blogPosts: [posts[1]]},
-    ];
-  }
-  const post = posts[0];
-  const dateParts = post.dateCreated.split('-');
-  const key = dateParts.slice(0, 2).join('-');
   const map = new Map();
-  if (!map.has(key)) {
-    map.set(key, []);
-  }
-  posts.forEach(post => map.set(key, [...map.get(key), post]));
+  posts.forEach(post => {
+    const dateParts = post.dateCreated.split('-');
+    const key = dateParts.slice(0, 2).join('-');
+    if (!map.has(key)) {
+      map.set(key, []);
+    }
+    map.set(key, [...map.get(key), post]);
+  });
   const groups = [];
   const mapEntryToGroup = (blogPosts, key) => {
     const keyParts = key.split('-');
