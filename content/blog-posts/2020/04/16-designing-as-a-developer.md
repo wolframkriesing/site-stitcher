@@ -1,10 +1,10 @@
 dateCreated: 2020-04-16 11:05 CET  
 tags: design, developer  
 
-# Designing as a developer
+# A developer designs
 
 [Uku][1] creator of [plausible.io][4] had a nice article somewhere on how to design things, 
-even though you are a miserable designer as I am. A must read if you suffer from the same skill deficiency ;).
+even though one is a miserable designer, as I am. A must read if you own the same skill deficiency ;).
 
 [In his article][2] Uku is says a couple of simple and good things like "Copy designs you like",
 "Start without code" and "Lose your ego and get some feedback", if you want quick learnings you are done.\
