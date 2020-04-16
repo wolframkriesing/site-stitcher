@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com">
+  <title>January 2014 | picostitch - stuff about crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-month">
+
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <div class="tags">
+        
+        <a href="/blog/tag/javascript/">#javascript</a><br/>
+        
+        <a href="/blog/tag/video/">#video</a><br/>
+        
+        <a href="/blog/tag/oop/">#oop</a><br/>
+        
+        <a href="/blog/tag/refactoring/">#refactoring</a><br/>
+        
+        <a href="/blog/tag/testing/">#testing</a><br/>
+        
+        <a href="/blog/tag/functional/">#functional</a><br/>
+        
+        <a href="/blog/tag/nodejs/">#nodejs</a><br/>
+        
+        <a href="/blog/tag/npm/">#npm</a><br/>
+        
+        <a href="/blog/tag/css/">#css</a><br/>
+        
+        <a href="/blog/tag/github/">#github</a><br/>
+        
+        <a href="/blog/tag/purescript/">#purescript</a><br/>
+        
+        <a href="/blog/tag/git/">#git</a><br/>
+        
+        <a href="/blog/tag/open source/">#open source</a><br/>
+        
+        <a href="/blog/tag/security/">#security</a><br/>
+        
+        <a href="/blog/tag/mikado method/">#mikado method</a><br/>
+        
+        <a href="/blog/tag/react/">#react</a><br/>
+        
+        <a href="/blog/tag/browser/">#browser</a><br/>
+        
+        <a href="/blog/tag/framework/">#framework</a><br/>
+        
+        <a href="/blog/tag/bash/">#bash</a><br/>
+        
+        <a href="/blog/tag/tdd/">#tdd</a><br/>
+        
+        <a href="/blog/tag/design/">#design</a><br/>
+        
+        <a href="/blog/tag/documentation/">#documentation</a><br/>
+        
+        <a href="/blog/tag/programming/">#programming</a><br/>
+        
+        <a href="/blog/tag/coderetreat/">#coderetreat</a><br/>
+        
+        <a href="/blog/tag/jscoderetreat/">#jscoderetreat</a><br/>
+        
+        <a href="/blog/tag/tests/">#tests</a><br/>
+        
+        <a href="/blog/tag/micorservices/">#micorservices</a><br/>
+        
+        <a href="/blog/tag/mentoring/">#mentoring</a><br/>
+        
+        <a href="/blog/tag/classes/">#classes</a><br/>
+        
+        <a href="/blog/tag/notes/">#notes</a><br/>
+        
+        <a href="/blog/tag/yarn/">#yarn</a><br/>
+        
+        <a href="/blog/tag/agile/">#agile</a><br/>
+        
+        <a href="/blog/tag/links/">#links</a><br/>
+        
+        <a href="/blog/tag/deploy/">#deploy</a><br/>
+        
+        <a href="/blog/tag/tool/">#tool</a><br/>
+        
+        <a href="/blog/tag/shell/">#shell</a><br/>
+        
+        <a href="/blog/tag/clean code/">#clean code</a><br/>
+        
+        <a href="/blog/tag/naming/">#naming</a><br/>
+        
+        <a href="/blog/tag/software design/">#software design</a><br/>
+        
+        <a href="/blog/tag/metalsmith/">#metalsmith</a><br/>
+        
+        <a href="/blog/tag/markdown/">#markdown</a><br/>
+        
+        <a href="/blog/tag/developer/">#developer</a><br/>
+        
+        <a href="/blog/tag/the web/">#the web</a><br/>
+        
+        <a href="/blog/tag/structured data/">#structured data</a><br/>
+        
+        <a href="/blog/tag/schema.org/">#schema.org</a><br/>
+        
+        <a href="/blog/tag/SEO/">#SEO</a><br/>
+        
+        <a href="/blog/tag/search engines/">#search engines</a><br/>
+        
+        <a href="/blog/tag/URL/">#URL</a><br/>
+        
+        <a href="/blog/tag/web/">#web</a><br/>
+        
+        <a href="/blog/tag/browsers/">#browsers</a><br/>
+        
+        <a href="/blog/tag/chrome/">#chrome</a><br/>
+        
+        <a href="/blog/tag/iOS/">#iOS</a><br/>
+        
+        <a href="/blog/tag/Apple/">#Apple</a><br/>
+        
+        <a href="/blog/tag/hacking/">#hacking</a><br/>
+        
+        <a href="/blog/tag/events/">#events</a><br/>
+        
+        <a href="/blog/tag/unconference/">#unconference</a><br/>
+        
+        <a href="/blog/tag/open space/">#open space</a><br/>
+        
+        <a href="/blog/tag/tmux/">#tmux</a><br/>
+        
+        <a href="/blog/tag/vi/">#vi</a><br/>
+        
+        <a href="/blog/tag/vim/">#vim</a><br/>
+        
+        <a href="/blog/tag/learning/">#learning</a><br/>
+        
+        <a href="/blog/tag/apprentice/">#apprentice</a><br/>
+        
+        <a href="/blog/tag/pwa/">#pwa</a><br/>
+        
+        <a href="/blog/tag/jscc17/">#jscc17</a><br/>
+        
+        <a href="/blog/tag/jscraftcamp/">#jscraftcamp</a><br/>
+        
+        <a href="/blog/tag/code formatting/">#code formatting</a><br/>
+        
+        <a href="/blog/tag/technical debt/">#technical debt</a><br/>
+        
+        <a href="/blog/tag/exception/">#exception</a><br/>
+        
+        <a href="/blog/tag/abstraction/">#abstraction</a><br/>
+        
+        <a href="/blog/tag/history/">#history</a><br/>
+        
+        <a href="/blog/tag/lint/">#lint</a><br/>
+        
+        <a href="/blog/tag/eslint/">#eslint</a><br/>
+        
+        <a href="/blog/tag/react-native/">#react-native</a><br/>
+        
+        <a href="/blog/tag/code quality/">#code quality</a><br/>
+        
+        <a href="/blog/tag/audio/">#audio</a><br/>
+        
+        <a href="/blog/tag/playground/">#playground</a><br/>
+        
+        <a href="/blog/tag/dependency injection/">#dependency injection</a><br/>
+        
+        <a href="/blog/tag/grid/">#grid</a><br/>
+        
+        <a href="/blog/tag/grid layout/">#grid layout</a><br/>
+        
+        <a href="/blog/tag/wasm/">#wasm</a><br/>
+        
+        <a href="/blog/tag/webassembly/">#webassembly</a><br/>
+        
+        <a href="/blog/tag/pulp/">#pulp</a><br/>
+        
+        <a href="/blog/tag/build tool/">#build tool</a><br/>
+        
+        <a href="/blog/tag/typing/">#typing</a><br/>
+        
+        <a href="/blog/tag/images/">#images</a><br/>
+        
+        <a href="/blog/tag/website/">#website</a><br/>
+        
+        <a href="/blog/tag/online service/">#online service</a><br/>
+        
+        <a href="/blog/tag/command line/">#command line</a><br/>
+        
+        <a href="/blog/tag/linux/">#linux</a><br/>
+        
+        <a href="/blog/tag/tooling/">#tooling</a><br/>
+        
+        <a href="/blog/tag/lsof/">#lsof</a><br/>
+        
+        <a href="/blog/tag/gitup/">#gitup</a><br/>
+        
+        <a href="/blog/tag/tools/">#tools</a><br/>
+        
+        <a href="/blog/tag/jsx/">#jsx</a><br/>
+        
+        <a href="/blog/tag/comment/">#comment</a><br/>
+        
+        <a href="/blog/tag/organizing/">#organizing</a><br/>
+        
+        <a href="/blog/tag/adr/">#adr</a><br/>
+        
+        <a href="/blog/tag/jinja/">#jinja</a><br/>
+        
+        <a href="/blog/tag/template/">#template</a><br/>
+        
+        <a href="/blog/tag/spaceless/">#spaceless</a><br/>
+        
+        <a href="/blog/tag/estimation/">#estimation</a><br/>
+        
+        <a href="/blog/tag/article/">#article</a><br/>
+        
+        <a href="/blog/tag/collect/">#collect</a><br/>
+        
+        <a href="/blog/tag/coupling/">#coupling</a><br/>
+        
+        <a href="/blog/tag/cohesion/">#cohesion</a><br/>
+        
+        <a href="/blog/tag/object calisthenics/">#object calisthenics</a><br/>
+        
+        <a href="/blog/tag/inheritance/">#inheritance</a><br/>
+        
+        <a href="/blog/tag/package.json/">#package.json</a><br/>
+        
+        <a href="/blog/tag/object-oriented design/">#object-oriented design</a><br/>
+        
+        <a href="/blog/tag/programming language/">#programming language</a><br/>
+        
+        <a href="/blog/tag/ide/">#ide</a><br/>
+        
+        <a href="/blog/tag/dojo/">#dojo</a><br/>
+        
+        <a href="/blog/tag/UI widgets/">#UI widgets</a><br/>
+        
+        <a href="/blog/tag/for slides/">#for slides</a><br/>
+        
+        <a href="/blog/tag/poster/">#poster</a><br/>
+        
+        <a href="/blog/tag/typography/">#typography</a><br/>
+        
+        <a href="/blog/tag/object-oriented/">#object-oriented</a><br/>
+        
+        <a href="/blog/tag/get-prefix/">#get-prefix</a><br/>
+        
+        <a href="/blog/tag/imperative/">#imperative</a><br/>
+        
+        <a href="/blog/tag/must watch/">#must watch</a><br/>
+        
+        <a href="/blog/tag/github-pages/">#github-pages</a><br/>
+        
+        <a href="/blog/tag/static page/">#static page</a><br/>
+        
+        <a href="/blog/tag/OS/">#OS</a><br/>
+        
+        <a href="/blog/tag/dvcs/">#dvcs</a><br/>
+        
+        <a href="/blog/tag/svn/">#svn</a><br/>
+        
+        <a href="/blog/tag/functional programming/">#functional programming</a><br/>
+        
+        <a href="/blog/tag/logic programming/">#logic programming</a><br/>
+        
+        <a href="/blog/tag/good developer/">#good developer</a><br/>
+        
+        <a href="/blog/tag/good code/">#good code</a><br/>
+        
+        <a href="/blog/tag/fun/">#fun</a><br/>
+        
+        <a href="/blog/tag/client-side/">#client-side</a><br/>
+        
+        <a href="/blog/tag/icons/">#icons</a><br/>
+        
+        <a href="/blog/tag/logos/">#logos</a><br/>
+        
+        <a href="/blog/tag/graphics/">#graphics</a><br/>
+        
+        <a href="/blog/tag/brand/">#brand</a><br/>
+        
+        <a href="/blog/tag/sound/">#sound</a><br/>
+        
+        <a href="/blog/tag/if/">#if</a><br/>
+        
+        <a href="/blog/tag/gh-pages/">#gh-pages</a><br/>
+        
+        <a href="/blog/tag/devops/">#devops</a><br/>
+        
+        <a href="/blog/tag/travis/">#travis</a><br/>
+        
+        <a href="/blog/tag/tddbin/">#tddbin</a><br/>
+        
+        <a href="/blog/tag/mocha/">#mocha</a><br/>
+        
+        <a href="/blog/tag/kata/">#kata</a><br/>
+        
+        <a href="/blog/tag/spanish/">#spanish</a><br/>
+        
+        <a href="/blog/tag/fork/">#fork</a><br/>
+        
+        <a href="/blog/tag/remote repo/">#remote repo</a><br/>
+        
+        <a href="/blog/tag/sync/">#sync</a><br/>
+        
+        <a href="/blog/tag/programmer/">#programmer</a><br/>
+        
+        <a href="/blog/tag/craft/">#craft</a><br/>
+        
+        <a href="/blog/tag/cookie/">#cookie</a><br/>
+        
+        <a href="/blog/tag/library/">#library</a><br/>
+        
+        <a href="/blog/tag/rebase/">#rebase</a><br/>
+        
+        <a href="/blog/tag/must read/">#must read</a><br/>
+        
+        <a href="/blog/tag/smalltalk/">#smalltalk</a><br/>
+        
+        <a href="/blog/tag/class name/">#class name</a><br/>
+        
+        <a href="/blog/tag/jscr/">#jscr</a><br/>
+        
+        <a href="/blog/tag/solid/">#solid</a><br/>
+        
+        <a href="/blog/tag/dependencies/">#dependencies</a><br/>
+        
+        <a href="/blog/tag/reactjs/">#reactjs</a><br/>
+        
+        <a href="/blog/tag/dom/">#dom</a><br/>
+        
+        <a href="/blog/tag/blog/">#blog</a><br/>
+        
+        <a href="/blog/tag/coffeescript/">#coffeescript</a><br/>
+        
+        <a href="/blog/tag/complexity/">#complexity</a><br/>
+        
+        <a href="/blog/tag/code/">#code</a><br/>
+        
+        <a href="/blog/tag/slides/">#slides</a><br/>
+        
+        <a href="/blog/tag/katas/">#katas</a><br/>
+        
+        <a href="/blog/tag/preprocessor/">#preprocessor</a><br/>
+        
+        <a href="/blog/tag/clojure/">#clojure</a><br/>
+        
+        <a href="/blog/tag/reducers/">#reducers</a><br/>
+        
+        <a href="/blog/tag/java/">#java</a><br/>
+        
+        <a href="/blog/tag/legacy/">#legacy</a><br/>
+        
+        <a href="/blog/tag/reactive programming/">#reactive programming</a><br/>
+        
+        <a href="/blog/tag/rx/">#rx</a><br/>
+        
+        <a href="/blog/tag/rxjs/">#rxjs</a><br/>
+        
+        <a href="/blog/tag/algorithm/">#algorithm</a><br/>
+        
+        <a href="/blog/tag/angularjs/">#angularjs</a><br/>
+        
+        <a href="/blog/tag/frontend/">#frontend</a><br/>
+        
+        <a href="/blog/tag/mock/">#mock</a><br/>
+        
+        <a href="/blog/tag/stub/">#stub</a><br/>
+        
+        <a href="/blog/tag/mocks/">#mocks</a><br/>
+        
+        <a href="/blog/tag/mac os/">#mac os</a><br/>
+        
+        <a href="/blog/tag/firefox/">#firefox</a><br/>
+        
+        <a href="/blog/tag/browser engine/">#browser engine</a><br/>
+        
+        <a href="/blog/tag/rust/">#rust</a><br/>
+        
+        <a href="/blog/tag/macos/">#macos</a><br/>
+        
+        <a href="/blog/tag/speed/">#speed</a><br/>
+        
+        <a href="/blog/tag/makefile/">#makefile</a><br/>
+        
+      </div>
+
+      <div class="months">
+        
+        <a href="/blog/2020/04/">April 2020</a><br/>
+        
+        <a href="/blog/2020/03/">March 2020</a><br/>
+        
+        <a href="/blog/2018/07/">July 2018</a><br/>
+        
+        <a href="/blog/2018/05/">May 2018</a><br/>
+        
+        <a href="/blog/2017/11/">November 2017</a><br/>
+        
+        <a href="/blog/2017/04/">April 2017</a><br/>
+        
+        <a href="/blog/2017/03/">March 2017</a><br/>
+        
+        <a href="/blog/2017/02/">February 2017</a><br/>
+        
+        <a href="/blog/2017/01/">January 2017</a><br/>
+        
+        <a href="/blog/2015/10/">Okt 2015</a><br/>
+        
+        <a href="/blog/2015/05/">May 2015</a><br/>
+        
+        <a href="/blog/2015/04/">April 2015</a><br/>
+        
+        <a href="/blog/2015/03/">March 2015</a><br/>
+        
+        <a href="/blog/2014/03/">March 2014</a><br/>
+        
+        <a href="/blog/2014/02/">February 2014</a><br/>
+        
+        <a href="/blog/2014/01/">January 2014</a><br/>
+        
+      </div>
+    </div>
+    <div class="content">
+      
+  <h1>January 2014</h1>
+
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 24, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #testing #video 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/24-trash-your-servers-and-burn-your-code-immutable-infrastructure-and-disposable-components/" itemprop="url">
+          <span itemprop="name headline">Trash Your Servers and Burn Your Code: Immutable Infrastructure and Disposable Components</span>
+        </a> 📺</h2>
+        <p class="abstract"><a href="https://www.youtube.com/watch?v=DVSNsAei0VE">a talk by Chad Fowler</a></p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 23, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #solid #clean code #dependencies 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/23-beyond-solid-the-dependency-elimination-principle/" itemprop="url">
+          <span itemprop="name headline">Beyond SOLID: The Dependency Elimination Principle</span>
+        </a></h2>
+        <p class="abstract">There is always more to learn about any topic, also about SOLID.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 22, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #refactoring #functional #oop #javascript 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/22-refactor-to-functional/" itemprop="url">
+          <span itemprop="name headline">Refactor to functional</span>
+        </a></h2>
+        <p class="abstract">Refactor to functional</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 22, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #reactjs #dom #javascript #framework 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/22-riotjs-a-react-like-lib/" itemprop="url">
+          <span itemprop="name headline">riot.js, a react-like lib</span>
+        </a></h2>
+        <p class="abstract">I read it first in my personal trending twitter search, then I saw it on <a href="https://news.ycombinator.com/item?id=8928433">hacker news</a> 
+and I pulled <a href="https://github.com/muut/riotjs">the repo</a> and being intrigued by the minimal size, compared to react and polymer
+I thought I try out the demo, didn&#39;t work. So I looked a the code, very opinionated.
+My conclusion after having spent about just 1h on it I summed up in <a href="https://twitter.com/wolframkriesing/status/558248934985195520">this tweet</a>.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 21, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #metalsmith #blog 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/21-getting-to-know-metalsmith/" itemprop="url">
+          <span itemprop="name headline">Getting to know metalsmith</span>
+        </a></h2>
+        <p class="abstract"><a href="http://www.robinthrift.com/posts/getting-to-know-metalsmith/">I have to read this</a>, 
+I just want to parse the data a bit
+and I fail. I smell that I don&#39;t get the concept fully yet,
+or that I am using it in a different way than it&#39;s meant.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-feature-injection-three-steps-to-success/" itemprop="url">
+          <span itemprop="name headline">Feature Injection: three steps to success</span>
+        </a></h2>
+        <p class="abstract">Feature Injection is a business analysis process framework</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #npm #coffeescript 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-cson-json-with-coffeescript-flavor/" itemprop="url">
+          <span itemprop="name headline">CSON (JSON with CoffeeScript flavor)</span>
+        </a></h2>
+        <p class="abstract">JSON with CoffeeScript flavor</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #npm #nodejs #javascript 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-a-meta-project/" itemprop="url">
+          <span itemprop="name headline">A meta project</span>
+        </a></h2>
+        <p class="abstract">In order to keep all your meta data of your project in one place
+and only create files that actually just copy those data
+you can use <a href="https://github.com/bevry/projectz">projectz</a>
+where you maintain data like title, description, author(s), badges, ...
+in one CSON file and with a special markup you can update
+fill in the templates files like README, package.json, ...</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #complexity #code 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-complexity-is-outside-the-code/" itemprop="url">
+          <span itemprop="name headline">Complexity is outside the code</span>
+        </a></h2>
+        <p class="abstract">Complexity is outside the code</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #slides 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-infodeck/" itemprop="url">
+          <span itemprop="name headline">Infodeck</span>
+        </a></h2>
+        <p class="abstract">Martin Fowler named interactive or more online consumable slides
+infodeck, <a href="http://martinfowler.com/bliki/Infodeck.html">writes about it here</a>
+and he <a href="https://github.com/martinfowler/mfweb">is building a frontend</a>
+for it which you can feed via XML.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #refactoring 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-workflows-of-refactoring/" itemprop="url">
+          <span itemprop="name headline">Workflows of Refactoring</span>
+        </a></h2>
+        <p class="abstract">Martin Fowler lists the kinds of refactoring, the reasons 
+why we refactor code, <a href="http://martinfowler.com/articles/workflowsOfRefactoring/#2hats">in his infodeck</a>.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 20, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #katas 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/20-some-coding-katas/" itemprop="url">
+          <span itemprop="name headline">Some coding katas</span>
+        </a></h2>
+        <p class="abstract"><a href="http://stackoverflow.com/questions/1432485/coding-katas-for-practicing-the-refactoring-of-legacy-code">found on stackoverflow</a></p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-webdriver-api/" itemprop="url">
+          <span itemprop="name headline">webdriver API</span>
+        </a></h2>
+        <p class="abstract"><a href="http://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_WebDriver.html">The webdriver API is here</a></p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #css #preprocessor 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-myth-the-simpler-css-transformer/" itemprop="url">
+          <span itemprop="name headline">Myth - the simpler CSS transformer?</span>
+        </a></h2>
+        <p class="abstract"><a href="http://www.myth.io/">Myth</a> - a simpler alternative to all the CSS transformers out there?</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #clojure #reducers #functional 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-transducersjs/" itemprop="url">
+          <span itemprop="name headline">Transducers(.js)</span>
+        </a></h2>
+        <p class="abstract">Transducers(.js)</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #java #refactoring #legacy 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-testing-and-refactoring-legacy-code/" itemprop="url">
+          <span itemprop="name headline">Testing and refactoring legacy code</span>
+        </a></h2>
+        <p class="abstract">Very useful and right-away applicable insights 
+into <a href="http://virtualjug.com/testing-and-refactoring-legacy-code/">refactoring legacy code</a>.
+Seems the <a href="http://virtualjug.com/all-posts/">VJUG has lot&#39;s good content</a>.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #reactive programming #rx #rxjs #javascript #functional 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-the-introduction-to-reactive-programming-youve-been-missing/" itemprop="url">
+          <span itemprop="name headline">The introduction to Reactive Programming you've been missing</span>
+        </a></h2>
+        <p class="abstract">The introduction to Reactive Programming you&#39;ve been missing</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #algorithm 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-paxos-algorithm-to-solve-the-consensus-problem/" itemprop="url">
+          <span itemprop="name headline">Paxos, algorithm to solve the consensus problem</span>
+        </a></h2>
+        <p class="abstract">I came across paxos more often lately.
+The first time was at a meetup group &quot;Papers we love&quot; 
+there was a <a href="http://www.meetup.com/Papers-We-Love-Munich/events/213339452/">meetup in December about paxos</a>.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #javascript #angularjs #frontend #framework 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-angular-reviews/" itemprop="url">
+          <span itemprop="name headline">Angular reviews</span>
+        </a></h2>
+        <p class="abstract">Lately they don&#39;t turn out so good, or is it my blurred vision?</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #agile #video 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-one-hacker-way-erik-meijer/" itemprop="url">
+          <span itemprop="name headline">One Hacker Way - Erik Meijer</span>
+        </a> 📺</h2>
+        <p class="abstract">I really appreciate the things I learnt from Erik Meijer, but I am
+not so sure I can follow all his opinions.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #metalsmith #markdown 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-markdown-used-by-metalsmith/" itemprop="url">
+          <span itemprop="name headline">Markdown used by metalsmith</span>
+        </a></h2>
+        <p class="abstract">As I just found in the docs metalsmith, which again uses
+<a href="https://github.com/segmentio/metalsmith-markdown">the package metalsmith-markdown</a>
+which in again uses
+<a href="https://github.com/chjj/marked">the package marked</a>
+describes <a href="https://github.com/chjj/marked#philosophy-behind-marked">in the readme</a>
+that is also supports
+<a href="https://help.github.com/articles/github-flavored-markdown/">github flavored markdown</a>.
+(I was actually just looking for how to strikeout things :)).</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #tdd #mock #stub #testing 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-mocks-arent-stubs/" itemprop="url">
+          <span itemprop="name headline">Mocks Aren't Stubs</span>
+        </a></h2>
+        <p class="abstract">Mocks Aren&#39;t Stubs</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #testing #video #mocks 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-sandi-metz-the-design-of-tests/" itemprop="url">
+          <span itemprop="name headline">Sandi Metz - The Design of Tests</span>
+        </a> 📺</h2>
+        <p class="abstract">Watch the author of <a href="http://poodr.com">poodr</a> describing
+<a href="https://www.youtube.com/watch?v=qT5iriwidRg">how to solve the problem of mocks and real code running out of sync</a>!
+(And lots of goodies about testing and stuff.)
+Watch it twice, it&#39;s worth it :)</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 19, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #mac os #security 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/19-worlds-first-known-bootkit-for-os-x-can-permanently-backdoor-macs/" itemprop="url">
+          <span itemprop="name headline">World’s first (known) bootkit for OS X can permanently backdoor Macs</span>
+        </a></h2>
+        <p class="abstract">My lack of knowledge and understanding and knowing it scares me most</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 18, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #firefox #browser engine #rust 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/18-building-a-parallel-browser/" itemprop="url">
+          <span itemprop="name headline">Building a Parallel Browser</span>
+        </a></h2>
+        <p class="abstract">Servo is an experimental browser engine for modern multi-core hardware written in an experimental memory safe language called Rust.
+<a href="https://www.youtube.com/watch?v=7q9vIMXSTzc">Maybe the future Firefox engine?</a></p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 18, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #tdd #testing 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/18-smallest-test-runner/" itemprop="url">
+          <span itemprop="name headline">Smallest test runner</span>
+        </a></h2>
+        <p class="abstract">IDEs are awesome, but sometimes in my way and setting up test runners
+sometimes defeats the purpose of being fast with tests, which also
+means having feedback constantly and continuously.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 17, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #macos #speed 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/17-speed-up-mac-os-x-yosemite/" itemprop="url">
+          <span itemprop="name headline">Speed up Mac OS X Yosemite</span>
+        </a></h2>
+        <p class="abstract">I expected my new 15&quot; Retina MacBook Pro to just blow my mind
+in terms of speed. But it didn&#39;t ... until now I am pretty
+disappointed. So I finally did <a href="https://discussions.apple.com/thread/6623697">some cleanup this weekend
+that promises to speed up</a>, I am hoping.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 15, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #markdown 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/15-markdown-syntax-the-spec/" itemprop="url">
+          <span itemprop="name headline">Markdown syntax, the spec</span>
+        </a></h2>
+        <p class="abstract">I never knew which is <em>the</em> right markdown syntax, I took the five minutes to find out
+now I know, it <a href="http://daringfireball.net/projects/markdown/syntax">seems to be this one here</a>.
+At least following the link chain that lead me from
+<a href="http://www.metalsmith.io/">metalsmith</a>,
+which I <a href="https://github.com/wolframkriesing/wolfram.kriesing.de/blob/7bd5d8af1b4e3652290900b1eeb4c5dada7a6bfc/package.json#L23-L24">use here to create this site</a>
+to the markdown syntax.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 10, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #git #github 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/10-deploy-via-ghpages/" itemprop="url">
+          <span itemprop="name headline">Deploy built files easier via gh-pages branch on github</span>
+        </a></h2>
+        <p class="abstract">I found it always painful to only update the gh-pages branch for
+deploying to a custom domain, an easy solution is pushing a
+subdirectory to gh-pages branch.</p>
+      </div>
+    </div>
+  
+    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="metadata">
+        <span itemprop="datePublished">January 10, 2014</span>
+        - by Wolfram Kriesing
+        
+          - #makefile 
+        
+      </div>
+      <div class="content">
+        <h2><a href="/blog/2014/01/10-purpose-of-phony-in-makefile/" itemprop="url">
+          <span itemprop="name headline">Purpose of .PHONY in a Makefile</span>
+        </a></h2>
+        <p class="abstract">The <a href="http://stackoverflow.com/questions/2145590/what-is-the-purpose-of-phony-in-a-makefile">answer on stackoverflow</a>
+and also a more linux focused one
+<a href="http://www.linuxdevcenter.com/pub/a/linux/2002/01/31/make_intro.html?page=2">on linuxedevcenter.com</a>
+as given as reference
+in the article.</p>
+      </div>
+    </div>
+  
+
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <a href="/">Home</a><br/>
+      <a href="/about">About</a><br/>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <a href="https://twitter.com/wolframkriesing">Twitter</a><br/>
+      <a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </nav>
+
+</body>
+</html>
