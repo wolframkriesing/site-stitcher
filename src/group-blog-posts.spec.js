@@ -51,3 +51,26 @@ describe('Group blog posts by tags', () => {
     ));
   });
 });
+
+const groupBlogPostsByYearAndMonth = (posts) => {
+  return [{year: 2000, month: 1, blogPosts: posts}];
+}
+
+describe('Group blog posts by year+month', () => {
+  const newPost = (dateCreated) => {
+    const post = new BlogPost();
+    post.headline = '';
+    post.dateCreated = dateCreated;
+    return post;
+  };
+  it('GIVEN two blog posts of the same month THEN return one group', () => {
+    const posts = [
+      newPost('2000-01-01'),
+      newPost('2000-01-01'),
+    ];
+    const grouped = groupBlogPostsByYearAndMonth(posts);
+    assertThat(grouped, contains(
+      hasProperties({year: 2000, month: 1, blogPosts: posts}),
+    ));
+  });
+});
