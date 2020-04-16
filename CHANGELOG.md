@@ -1,6 +1,12 @@
 # v2
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
+    - [ ] consolidate tags
+    - [ ] group doubles with different casing or spacing (open source = OpenSource)
+    - [ ] coderetreat, jscoderetreat, jscc, jscraftcamp, browsers, chrome, npm, nodejs, package.json, clean code, software design
+          simply reduce the number of used tags imho
+    - [ ] when grouped sort them in the group by name
+    - [ ] link each tag in the posts headline to the tag page
 - [ ] render the schema attributes
 - [ ] add all posts from
   - [x] picostitch  
