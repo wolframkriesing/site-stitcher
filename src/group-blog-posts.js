@@ -12,8 +12,8 @@ export const groupBlogPostsByTag = (posts) => {
 
 export const groupBlogPostsByYearAndMonth = (posts) => {
   const addPostToMap = map => post => {
-    const dateParts = post.dateCreated.split('-');
-    const key = dateParts.slice(0, 2).join('-');
+    const [yearLength, spaceLength, monthLength] = [4, 1, 2];
+    const key = post.dateCreated.substring(0, yearLength + spaceLength + monthLength);
     if (!map.has(key)) {
       map.set(key, []);
     }
