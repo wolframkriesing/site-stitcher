@@ -27,6 +27,14 @@ describe('Find posts related by their headline, automatically', () => {
     const relatedPosts = findRelatedPosts(posts[0], posts);
     assertThat(relatedPosts, equalTo([posts[1], posts[3], posts[5],]));
   });
+  it('GIVEN a comma after the 2nd word WHEN searching for related posts THEN ignore the comma', () => {
+    const posts = [
+      newPost('Bookmarks collect, October 2015'),
+      newPost('Bookmarks collect December 2020'),
+    ];
+    const relatedPosts = findRelatedPosts(posts[0], posts);
+    assertThat(relatedPosts, equalTo([posts[1],]));
+  });
   it('GIVEN unrelated posts WHEN searching for related posts THEN find nothing', () => {
     const post1 = newPost('About JavaScript');
     const post2 = newPost('How to fly');
