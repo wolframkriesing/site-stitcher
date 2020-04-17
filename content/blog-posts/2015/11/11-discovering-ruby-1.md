@@ -1,7 +1,7 @@
 dateCreated: 2015-11-11 12:47 CET
 tags: ruby, learning  
 
-# Me discovering ruby #1
+# Discovering ruby #1
 
 One method three different return types
 

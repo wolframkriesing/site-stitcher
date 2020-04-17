@@ -1,7 +1,7 @@
 dateCreated: 2016-02-07 19:44 CET  
 tags: ruby, learning  
 
-# Me discovering ruby #4
+# Discovering ruby #4
 
 In the [ruby koans](http://www.rubykoans.com/) I now came across array functions. 
 One is `collect` and I thought, this is `map`, and the comment below said

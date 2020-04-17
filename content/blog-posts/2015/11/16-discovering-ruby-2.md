@@ -1,7 +1,7 @@
 dateCreated: 2015-11-16 14:01 CET
 tags: ruby, learning  
 
-# Me discovering ruby #2
+# Discovering ruby #2
 
 I know that the calling of functions can be quite noise-less, no parantheses and commas.
 But it also leaves me baffled at times. I can't get my head around this one either.

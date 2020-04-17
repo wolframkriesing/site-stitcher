@@ -1,7 +1,7 @@
 dateCreated: 2015-11-22 21:52 CET  
 tags: user story
 
-# Me discovering ruby #3
+# Discovering ruby #3
 
 This [article about closures in ruby][discover3-post] started somewhere by saying 
 "Ruby has four different ways of using closures, each of which is a tad bit different, and sometimes nonsensical".
