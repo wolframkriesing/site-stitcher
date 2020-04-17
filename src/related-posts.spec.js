@@ -13,7 +13,7 @@ describe('Find posts related by their headline, automatically', () => {
     const post1 = newPost('My story #1');
     const post2 = newPost('My story #2');
     const relatedPosts = findRelatedPosts(post1, [post1, post2]);
-    assertThat(relatedPosts, equalTo([post2]));
+    assertThat(relatedPosts, equalTo([post1, post2]));
   });
   it('GIVEN multiple related posts WHEN searching for related posts THEN find all where the first two words are the same', () => {
     const posts = [
@@ -25,7 +25,7 @@ describe('Find posts related by their headline, automatically', () => {
       newPost('Bookmarks collect, January 2001'),
     ];
     const relatedPosts = findRelatedPosts(posts[0], posts);
-    assertThat(relatedPosts, equalTo([posts[1], posts[3], posts[5],]));
+    assertThat(relatedPosts, equalTo([posts[0], posts[1], posts[3], posts[5],]));
   });
   it('GIVEN a comma after the 2nd word WHEN searching for related posts THEN ignore the comma', () => {
     const posts = [
@@ -33,7 +33,7 @@ describe('Find posts related by their headline, automatically', () => {
       newPost('Bookmarks collect December 2020'),
     ];
     const relatedPosts = findRelatedPosts(posts[0], posts);
-    assertThat(relatedPosts, equalTo([posts[1],]));
+    assertThat(relatedPosts, equalTo([posts[0], posts[1],]));
   });
   it('GIVEN only one word matches WHEN searching for related posts THEN match on one word', () => {
     const posts = [
@@ -41,12 +41,12 @@ describe('Find posts related by their headline, automatically', () => {
       newPost('Newsletter #2'),
     ];
     const relatedPosts = findRelatedPosts(posts[0], posts);
-    assertThat(relatedPosts, equalTo([posts[1],]));
+    assertThat(relatedPosts, equalTo(posts));
   });
   it('GIVEN unrelated posts WHEN searching for related posts THEN find nothing', () => {
     const post1 = newPost('About JavaScript');
     const post2 = newPost('How to fly');
-    const relatedPosts = findRelatedPosts(post1, [post2]);
-    assertThat(relatedPosts, equalTo([]));
+    const relatedPosts = findRelatedPosts(post1, [post1, post2]);
+    assertThat(relatedPosts, equalTo([post1]));
   });
 });

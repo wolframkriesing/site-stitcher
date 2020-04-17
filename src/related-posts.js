@@ -8,8 +8,7 @@ const findMatchByFirstWord = (post, findIn) => {
   const word = firstWord(post.headline);
   return findIn.filter(p => firstWord(p.headline) === word);
 }
-export const findRelatedPosts = (post, postsToSearchIn) => {
-  const findIn = postsToSearchIn.filter(p => p !== post);
+export const findRelatedPosts = (post, findIn) => {
   const found = findMatchOfFirstTwoWords(findIn, post);
-  return found.length === 0 ? findMatchByFirstWord(post, findIn) : found;
+  return found.length === 1 ? findMatchByFirstWord(post, findIn) : found;
 };
