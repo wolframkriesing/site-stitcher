@@ -1,6 +1,6 @@
 tags: purescript
 
-# Unfinished - Purescript compiling for the browser #5
+# Purescript #5 - Compiling for the browser [Unfinished]
 
 And to build the source code for the browser run
 

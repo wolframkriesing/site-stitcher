@@ -3,7 +3,7 @@ postTypes: post
 tags: purescript, notes, yarn, npm, nodejs  
 oldUrls: /blog/2017/03/install-purescript-2/  
 
-# Installing purescript #2
+# Purescript #2 - Installing
 
 This post is my 2nd write-down inspired by ["Purescript by Example"][ps-book],
 the book by [Phil Freeman][phil-freeman], the author of purescript.

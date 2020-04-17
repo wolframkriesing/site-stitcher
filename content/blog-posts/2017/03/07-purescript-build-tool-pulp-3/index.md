@@ -3,7 +3,7 @@ tags: purescript, notes, yarn, pulp, build tool
 postTypes: post  
 oldUrls: /blog/2017/03/purescript-build-tool-pulp-3/  
 
-# Purescript build tool - pulp #3
+# Purescript #3 - Build tool, pulp
 
 In the last [part #2 of the purescript series][ps#2] I got Purescript and it's executable
 installed, using yarn. Pulp seems to be the default *"build system and package manager for PureScript projects"*
