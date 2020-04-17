@@ -9,9 +9,9 @@ describe('Find posts related by their headline, automatically', () => {
     post.headline = headline;
     return post;
   }
-  it('GIVEN a post "My story #1" WHEN searching for related posts THEN find "My story #2" AND dont find itself', () => {
+  it('GIVEN a post "My story #1" WHEN searching for related posts THEN find "My story #2" AND case insensitive', () => {
     const post1 = newPost('My story #1');
-    const post2 = newPost('My story #2');
+    const post2 = newPost('MY STORY #2');
     const relatedPosts = findRelatedPosts(post1, [post1, post2]);
     assertThat(relatedPosts, equalTo([post1, post2]));
   });
@@ -34,6 +34,24 @@ describe('Find posts related by their headline, automatically', () => {
     ];
     const relatedPosts = findRelatedPosts(posts[0], posts);
     assertThat(relatedPosts, equalTo([posts[0], posts[1],]));
+  });
+  it('GIVEN only one word matches WHEN searching for related posts THEN match on one word AND case insensitive', () => {
+    const posts = [
+      newPost('Newsletter #1'),
+      newPost('NewslettER #2'),
+    ];
+    const relatedPosts = findRelatedPosts(posts[0], posts);
+    assertThat(relatedPosts, equalTo(posts));
+  });
+  xdescribe('ignore stop words at the beginning of the headline', () => {
+    it('GIVEN the searching post starts with a stop word WHEN searching THEN find related ones that start with the second word', () => {
+      const posts = [
+        newPost('The stop word'),
+        newPost('Stop word'),
+      ];
+      const relatedPosts = findRelatedPosts(posts[0], posts);
+      assertThat(relatedPosts, equalTo(posts));
+    });
   });
   it('GIVEN only one word matches WHEN searching for related posts THEN match on one word', () => {
     const posts = [
