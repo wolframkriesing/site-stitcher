@@ -4,6 +4,13 @@
 {[ block canonicalUrl ]}{{post.url}}{[ endblock ]}
 {[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
+{[ block sidebar-right ]}
+  <h3>Related Posts</h3>
+  {% post.relatedPosts.map(p => { %}
+    <a href="{{p.url}}">{{p.headline}}</a><br/>
+  {% }) %}
+{[ endblock ]}
+
 {[ block content ]}
   <h1>{{post.headline}}</h1>
   <p class="metadata">
