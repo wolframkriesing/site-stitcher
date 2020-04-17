@@ -5,10 +5,16 @@
 {[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
 {[ block sidebar-right ]}
-  <h3>Related Posts</h3>
-  {% post.relatedPosts.map(p => { %}
-    <a href="{{p.url}}">{{p.headline}}</a><br/>
-  {% }) %}
+  {% if (post.relatedPosts.length > 1) { %}
+    <h3>Related Posts</h3>
+    {% post.relatedPosts.map(p => { %}
+      {% if (post === p) { %}
+        {{p.headline}}<br/>
+      {% } else { %}
+        <a href="{{p.url}}">{{p.headline}}</a><br/>
+      {% } %}
+    {% }) %}
+  {% } %}
 {[ endblock ]}
 
 {[ block content ]}
