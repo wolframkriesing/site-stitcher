@@ -101,7 +101,8 @@
   - [ ] the syntax of the metadata is defined, see BlogPostMetadata type 
   - [ ] must start with headline, has an abstract next
   - [ ] even dates with time MUST end in "... CET" and be formatted like so "2000-01-01 10:00 CET"
-  - [ ] end metadata line with two spaces 
+  - [ ] end metadata line with two spaces
+  - [ ] has youtube/vimeoId and must have tag #video 
 - [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
 - [ ] provide thumbnailUrl (see schema) for a post
 - [ ] handle or remove `related_tweets:` which some posts still have
