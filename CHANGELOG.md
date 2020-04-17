@@ -1,4 +1,5 @@
 # v2
+- [ ] tags in the sidebar seem unsorted, introduce "Top tags" and "All tags" where they appear sorted, i would say
 - [ ] rebuild when a content file changes (not just when code changes doh)
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
@@ -101,7 +102,8 @@
   - [ ] the syntax of the metadata is defined, see BlogPostMetadata type 
   - [ ] must start with headline, has an abstract next
   - [ ] even dates with time MUST end in "... CET" and be formatted like so "2000-01-01 10:00 CET"
-  - [ ] end metadata line with two spaces 
+  - [ ] end metadata line with two spaces
+  - [ ] has youtube/vimeoId and must have tag #video 
 - [ ] a stats page which sums all the mini-stats from above and shows it for ALL pages of this site
 - [ ] provide thumbnailUrl (see schema) for a post
 - [ ] handle or remove `related_tweets:` which some posts still have

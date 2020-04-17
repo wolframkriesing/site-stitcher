@@ -1,6 +1,6 @@
 dateCreated: 2015-05-04 11:36 CET
 postTypes: summary
-tags: oop, object-oriented design
+tags: oop, object-oriented design, video
 videoStartTime: 28470
 youtubeId: LdWMcs9EEOE
 oldUrls: /blog/2015/05/oo-explained-by-sandi-metz/

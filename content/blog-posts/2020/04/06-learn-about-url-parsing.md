@@ -1,4 +1,4 @@
-tags: programming, URL, web, browsers, chrome, iOS, Apple, security, hacking
+tags: programming, URL, web, browsers, chrome, iOS, Apple, security, hacking, video
 youtubeId: 0uejy9aCNbI
 videoStartTime: 658
 
