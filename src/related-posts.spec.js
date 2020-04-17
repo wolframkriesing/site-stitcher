@@ -1,13 +1,7 @@
 import {describe, it} from 'mocha';
 import {assertThat, equalTo} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
-
-const first2words = s => s.split(' ').slice(0, 2).join(' ');
-const findRelatedPosts = (post, postsToSearchIn) => {
-  const findIn = postsToSearchIn.filter(p => p !== post);
-  const words = first2words(post.headline);
-  return findIn.filter(p => first2words(p.headline) === words);
-};
+import {findRelatedPosts} from './related-posts.js';
 
 describe('Find posts related by their headline, automatically', () => {
   const newPost = (headline) => {
