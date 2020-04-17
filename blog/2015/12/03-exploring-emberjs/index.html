@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2015/12/03-exploring-emberjs/">
+  <title>Exploring emberjs | picostitch - stuff about crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-post">
+
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <div class="tags">
+        
+        <a href="/blog/tag/javascript/">#javascript</a><br/>
+        
+        <a href="/blog/tag/video/">#video</a><br/>
+        
+        <a href="/blog/tag/testing/">#testing</a><br/>
+        
+        <a href="/blog/tag/oop/">#oop</a><br/>
+        
+        <a href="/blog/tag/refactoring/">#refactoring</a><br/>
+        
+        <a href="/blog/tag/functional/">#functional</a><br/>
+        
+        <a href="/blog/tag/nodejs/">#nodejs</a><br/>
+        
+        <a href="/blog/tag/npm/">#npm</a><br/>
+        
+        <a href="/blog/tag/links/">#links</a><br/>
+        
+        <a href="/blog/tag/css/">#css</a><br/>
+        
+        <a href="/blog/tag/github/">#github</a><br/>
+        
+        <a href="/blog/tag/purescript/">#purescript</a><br/>
+        
+        <a href="/blog/tag/git/">#git</a><br/>
+        
+        <a href="/blog/tag/collect/">#collect</a><br/>
+        
+        <a href="/blog/tag/framework/">#framework</a><br/>
+        
+        <a href="/blog/tag/ruby/">#ruby</a><br/>
+        
+        <a href="/blog/tag/tdd/">#tdd</a><br/>
+        
+        <a href="/blog/tag/software design/">#software design</a><br/>
+        
+        <a href="/blog/tag/open source/">#open source</a><br/>
+        
+        <a href="/blog/tag/security/">#security</a><br/>
+        
+        <a href="/blog/tag/mikado method/">#mikado method</a><br/>
+        
+        <a href="/blog/tag/learning/">#learning</a><br/>
+        
+        <a href="/blog/tag/tests/">#tests</a><br/>
+        
+        <a href="/blog/tag/react/">#react</a><br/>
+        
+        <a href="/blog/tag/browser/">#browser</a><br/>
+        
+        <a href="/blog/tag/bash/">#bash</a><br/>
+        
+        <a href="/blog/tag/design/">#design</a><br/>
+        
+        <a href="/blog/tag/documentation/">#documentation</a><br/>
+        
+        <a href="/blog/tag/programming/">#programming</a><br/>
+        
+        <a href="/blog/tag/coderetreat/">#coderetreat</a><br/>
+        
+        <a href="/blog/tag/jscoderetreat/">#jscoderetreat</a><br/>
+        
+        <a href="/blog/tag/micorservices/">#micorservices</a><br/>
+        
+        <a href="/blog/tag/mentoring/">#mentoring</a><br/>
+        
+        <a href="/blog/tag/classes/">#classes</a><br/>
+        
+        <a href="/blog/tag/notes/">#notes</a><br/>
+        
+        <a href="/blog/tag/yarn/">#yarn</a><br/>
+        
+        <a href="/blog/tag/emberjs/">#emberjs</a><br/>
+        
+        <a href="/blog/tag/user story/">#user story</a><br/>
+        
+        <a href="/blog/tag/rails/">#rails</a><br/>
+        
+        <a href="/blog/tag/mocha/">#mocha</a><br/>
+        
+        <a href="/blog/tag/architecture/">#architecture</a><br/>
+        
+        <a href="/blog/tag/algorithm/">#algorithm</a><br/>
+        
+        <a href="/blog/tag/agile/">#agile</a><br/>
+        
+        <a href="/blog/tag/deploy/">#deploy</a><br/>
+        
+        <a href="/blog/tag/tool/">#tool</a><br/>
+        
+        <a href="/blog/tag/shell/">#shell</a><br/>
+        
+        <a href="/blog/tag/clean code/">#clean code</a><br/>
+        
+        <a href="/blog/tag/naming/">#naming</a><br/>
+        
+        <a href="/blog/tag/metalsmith/">#metalsmith</a><br/>
+        
+        <a href="/blog/tag/markdown/">#markdown</a><br/>
+        
+        <a href="/blog/tag/developer/">#developer</a><br/>
+        
+        <a href="/blog/tag/the web/">#the web</a><br/>
+        
+        <a href="/blog/tag/structured data/">#structured data</a><br/>
+        
+        <a href="/blog/tag/schema.org/">#schema.org</a><br/>
+        
+        <a href="/blog/tag/SEO/">#SEO</a><br/>
+        
+        <a href="/blog/tag/search engines/">#search engines</a><br/>
+        
+        <a href="/blog/tag/URL/">#URL</a><br/>
+        
+        <a href="/blog/tag/web/">#web</a><br/>
+        
+        <a href="/blog/tag/browsers/">#browsers</a><br/>
+        
+        <a href="/blog/tag/chrome/">#chrome</a><br/>
+        
+        <a href="/blog/tag/iOS/">#iOS</a><br/>
+        
+        <a href="/blog/tag/Apple/">#Apple</a><br/>
+        
+        <a href="/blog/tag/hacking/">#hacking</a><br/>
+        
+        <a href="/blog/tag/events/">#events</a><br/>
+        
+        <a href="/blog/tag/unconference/">#unconference</a><br/>
+        
+        <a href="/blog/tag/open space/">#open space</a><br/>
+        
+        <a href="/blog/tag/tmux/">#tmux</a><br/>
+        
+        <a href="/blog/tag/vi/">#vi</a><br/>
+        
+        <a href="/blog/tag/vim/">#vim</a><br/>
+        
+        <a href="/blog/tag/apprentice/">#apprentice</a><br/>
+        
+        <a href="/blog/tag/pwa/">#pwa</a><br/>
+        
+        <a href="/blog/tag/jscc17/">#jscc17</a><br/>
+        
+        <a href="/blog/tag/jscraftcamp/">#jscraftcamp</a><br/>
+        
+        <a href="/blog/tag/code formatting/">#code formatting</a><br/>
+        
+        <a href="/blog/tag/technical debt/">#technical debt</a><br/>
+        
+        <a href="/blog/tag/exception/">#exception</a><br/>
+        
+        <a href="/blog/tag/abstraction/">#abstraction</a><br/>
+        
+        <a href="/blog/tag/history/">#history</a><br/>
+        
+        <a href="/blog/tag/lint/">#lint</a><br/>
+        
+        <a href="/blog/tag/eslint/">#eslint</a><br/>
+        
+        <a href="/blog/tag/react-native/">#react-native</a><br/>
+        
+        <a href="/blog/tag/code quality/">#code quality</a><br/>
+        
+        <a href="/blog/tag/audio/">#audio</a><br/>
+        
+        <a href="/blog/tag/playground/">#playground</a><br/>
+        
+        <a href="/blog/tag/dependency injection/">#dependency injection</a><br/>
+        
+        <a href="/blog/tag/grid/">#grid</a><br/>
+        
+        <a href="/blog/tag/grid layout/">#grid layout</a><br/>
+        
+        <a href="/blog/tag/wasm/">#wasm</a><br/>
+        
+        <a href="/blog/tag/webassembly/">#webassembly</a><br/>
+        
+        <a href="/blog/tag/pulp/">#pulp</a><br/>
+        
+        <a href="/blog/tag/build tool/">#build tool</a><br/>
+        
+        <a href="/blog/tag/typing/">#typing</a><br/>
+        
+        <a href="/blog/tag/images/">#images</a><br/>
+        
+        <a href="/blog/tag/website/">#website</a><br/>
+        
+        <a href="/blog/tag/online service/">#online service</a><br/>
+        
+        <a href="/blog/tag/command line/">#command line</a><br/>
+        
+        <a href="/blog/tag/linux/">#linux</a><br/>
+        
+        <a href="/blog/tag/tooling/">#tooling</a><br/>
+        
+        <a href="/blog/tag/lsof/">#lsof</a><br/>
+        
+        <a href="/blog/tag/gitup/">#gitup</a><br/>
+        
+        <a href="/blog/tag/tools/">#tools</a><br/>
+        
+        <a href="/blog/tag/jsx/">#jsx</a><br/>
+        
+        <a href="/blog/tag/comment/">#comment</a><br/>
+        
+        <a href="/blog/tag/organizing/">#organizing</a><br/>
+        
+        <a href="/blog/tag/adr/">#adr</a><br/>
+        
+        <a href="/blog/tag/jinja/">#jinja</a><br/>
+        
+        <a href="/blog/tag/template/">#template</a><br/>
+        
+        <a href="/blog/tag/spaceless/">#spaceless</a><br/>
+        
+        <a href="/blog/tag/GraphQL/">#GraphQL</a><br/>
+        
+        <a href="/blog/tag/REST/">#REST</a><br/>
+        
+        <a href="/blog/tag/API/">#API</a><br/>
+        
+        <a href="/blog/tag/orm/">#orm</a><br/>
+        
+        <a href="/blog/tag/code analytics/">#code analytics</a><br/>
+        
+        <a href="/blog/tag/async/">#async</a><br/>
+        
+        <a href="/blog/tag/es6/">#es6</a><br/>
+        
+        <a href="/blog/tag/babeljs/">#babeljs</a><br/>
+        
+        <a href="/blog/tag/design patterns/">#design patterns</a><br/>
+        
+        <a href="/blog/tag/planning/">#planning</a><br/>
+        
+        <a href="/blog/tag/noestimates/">#noestimates</a><br/>
+        
+        <a href="/blog/tag/software quality/">#software quality</a><br/>
+        
+        <a href="/blog/tag/decoupling/">#decoupling</a><br/>
+        
+        <a href="/blog/tag/C#/">#C#</a><br/>
+        
+        <a href="/blog/tag/sort/">#sort</a><br/>
+        
+        <a href="/blog/tag/paper/">#paper</a><br/>
+        
+        <a href="/blog/tag/db/">#db</a><br/>
+        
+        <a href="/blog/tag/OO/">#OO</a><br/>
+        
+        <a href="/blog/tag/values/">#values</a><br/>
+        
+        <a href="/blog/tag/value object/">#value object</a><br/>
+        
+        <a href="/blog/tag/objects/">#objects</a><br/>
+        
+        <a href="/blog/tag/business object/">#business object</a><br/>
+        
+        <a href="/blog/tag/entities/">#entities</a><br/>
+        
+        <a href="/blog/tag/jskatas/">#jskatas</a><br/>
+        
+        <a href="/blog/tag/TDD/">#TDD</a><br/>
+        
+        <a href="/blog/tag/estimation/">#estimation</a><br/>
+        
+        <a href="/blog/tag/article/">#article</a><br/>
+        
+        <a href="/blog/tag/coupling/">#coupling</a><br/>
+        
+        <a href="/blog/tag/cohesion/">#cohesion</a><br/>
+        
+        <a href="/blog/tag/object calisthenics/">#object calisthenics</a><br/>
+        
+        <a href="/blog/tag/inheritance/">#inheritance</a><br/>
+        
+        <a href="/blog/tag/package.json/">#package.json</a><br/>
+        
+        <a href="/blog/tag/object-oriented design/">#object-oriented design</a><br/>
+        
+        <a href="/blog/tag/programming language/">#programming language</a><br/>
+        
+        <a href="/blog/tag/ide/">#ide</a><br/>
+        
+        <a href="/blog/tag/dojo/">#dojo</a><br/>
+        
+        <a href="/blog/tag/UI widgets/">#UI widgets</a><br/>
+        
+        <a href="/blog/tag/for slides/">#for slides</a><br/>
+        
+        <a href="/blog/tag/poster/">#poster</a><br/>
+        
+        <a href="/blog/tag/typography/">#typography</a><br/>
+        
+        <a href="/blog/tag/object-oriented/">#object-oriented</a><br/>
+        
+        <a href="/blog/tag/get-prefix/">#get-prefix</a><br/>
+        
+        <a href="/blog/tag/imperative/">#imperative</a><br/>
+        
+        <a href="/blog/tag/must watch/">#must watch</a><br/>
+        
+        <a href="/blog/tag/github-pages/">#github-pages</a><br/>
+        
+        <a href="/blog/tag/static page/">#static page</a><br/>
+        
+        <a href="/blog/tag/OS/">#OS</a><br/>
+        
+        <a href="/blog/tag/dvcs/">#dvcs</a><br/>
+        
+        <a href="/blog/tag/svn/">#svn</a><br/>
+        
+        <a href="/blog/tag/functional programming/">#functional programming</a><br/>
+        
+        <a href="/blog/tag/logic programming/">#logic programming</a><br/>
+        
+        <a href="/blog/tag/good developer/">#good developer</a><br/>
+        
+        <a href="/blog/tag/good code/">#good code</a><br/>
+        
+        <a href="/blog/tag/fun/">#fun</a><br/>
+        
+        <a href="/blog/tag/client-side/">#client-side</a><br/>
+        
+        <a href="/blog/tag/icons/">#icons</a><br/>
+        
+        <a href="/blog/tag/logos/">#logos</a><br/>
+        
+        <a href="/blog/tag/graphics/">#graphics</a><br/>
+        
+        <a href="/blog/tag/brand/">#brand</a><br/>
+        
+        <a href="/blog/tag/sound/">#sound</a><br/>
+        
+        <a href="/blog/tag/if/">#if</a><br/>
+        
+        <a href="/blog/tag/gh-pages/">#gh-pages</a><br/>
+        
+        <a href="/blog/tag/devops/">#devops</a><br/>
+        
+        <a href="/blog/tag/travis/">#travis</a><br/>
+        
+        <a href="/blog/tag/tddbin/">#tddbin</a><br/>
+        
+        <a href="/blog/tag/kata/">#kata</a><br/>
+        
+        <a href="/blog/tag/spanish/">#spanish</a><br/>
+        
+        <a href="/blog/tag/fork/">#fork</a><br/>
+        
+        <a href="/blog/tag/remote repo/">#remote repo</a><br/>
+        
+        <a href="/blog/tag/sync/">#sync</a><br/>
+        
+        <a href="/blog/tag/programmer/">#programmer</a><br/>
+        
+        <a href="/blog/tag/craft/">#craft</a><br/>
+        
+        <a href="/blog/tag/cookie/">#cookie</a><br/>
+        
+        <a href="/blog/tag/library/">#library</a><br/>
+        
+        <a href="/blog/tag/rebase/">#rebase</a><br/>
+        
+        <a href="/blog/tag/must read/">#must read</a><br/>
+        
+        <a href="/blog/tag/smalltalk/">#smalltalk</a><br/>
+        
+        <a href="/blog/tag/class name/">#class name</a><br/>
+        
+        <a href="/blog/tag/jscr/">#jscr</a><br/>
+        
+        <a href="/blog/tag/solid/">#solid</a><br/>
+        
+        <a href="/blog/tag/dependencies/">#dependencies</a><br/>
+        
+        <a href="/blog/tag/reactjs/">#reactjs</a><br/>
+        
+        <a href="/blog/tag/dom/">#dom</a><br/>
+        
+        <a href="/blog/tag/blog/">#blog</a><br/>
+        
+        <a href="/blog/tag/coffeescript/">#coffeescript</a><br/>
+        
+        <a href="/blog/tag/complexity/">#complexity</a><br/>
+        
+        <a href="/blog/tag/code/">#code</a><br/>
+        
+        <a href="/blog/tag/slides/">#slides</a><br/>
+        
+        <a href="/blog/tag/katas/">#katas</a><br/>
+        
+        <a href="/blog/tag/preprocessor/">#preprocessor</a><br/>
+        
+        <a href="/blog/tag/clojure/">#clojure</a><br/>
+        
+        <a href="/blog/tag/reducers/">#reducers</a><br/>
+        
+        <a href="/blog/tag/java/">#java</a><br/>
+        
+        <a href="/blog/tag/legacy/">#legacy</a><br/>
+        
+        <a href="/blog/tag/reactive programming/">#reactive programming</a><br/>
+        
+        <a href="/blog/tag/rx/">#rx</a><br/>
+        
+        <a href="/blog/tag/rxjs/">#rxjs</a><br/>
+        
+        <a href="/blog/tag/angularjs/">#angularjs</a><br/>
+        
+        <a href="/blog/tag/frontend/">#frontend</a><br/>
+        
+        <a href="/blog/tag/mock/">#mock</a><br/>
+        
+        <a href="/blog/tag/stub/">#stub</a><br/>
+        
+        <a href="/blog/tag/mocks/">#mocks</a><br/>
+        
+        <a href="/blog/tag/mac os/">#mac os</a><br/>
+        
+        <a href="/blog/tag/firefox/">#firefox</a><br/>
+        
+        <a href="/blog/tag/browser engine/">#browser engine</a><br/>
+        
+        <a href="/blog/tag/rust/">#rust</a><br/>
+        
+        <a href="/blog/tag/macos/">#macos</a><br/>
+        
+        <a href="/blog/tag/speed/">#speed</a><br/>
+        
+        <a href="/blog/tag/makefile/">#makefile</a><br/>
+        
+      </div>
+
+      <div class="months">
+        
+        <a href="/blog/2020/04/">April 2020</a><br/>
+        
+        <a href="/blog/2020/03/">March 2020</a><br/>
+        
+        <a href="/blog/2018/07/">July 2018</a><br/>
+        
+        <a href="/blog/2018/05/">May 2018</a><br/>
+        
+        <a href="/blog/2017/11/">November 2017</a><br/>
+        
+        <a href="/blog/2017/04/">April 2017</a><br/>
+        
+        <a href="/blog/2017/03/">March 2017</a><br/>
+        
+        <a href="/blog/2017/02/">February 2017</a><br/>
+        
+        <a href="/blog/2017/01/">January 2017</a><br/>
+        
+        <a href="/blog/2015/12/">December 2015</a><br/>
+        
+        <a href="/blog/2015/11/">November 2015</a><br/>
+        
+        <a href="/blog/2015/10/">October 2015</a><br/>
+        
+        <a href="/blog/2015/05/">May 2015</a><br/>
+        
+        <a href="/blog/2015/04/">April 2015</a><br/>
+        
+        <a href="/blog/2015/03/">March 2015</a><br/>
+        
+        <a href="/blog/2014/03/">March 2014</a><br/>
+        
+        <a href="/blog/2014/02/">February 2014</a><br/>
+        
+        <a href="/blog/2014/01/">January 2014</a><br/>
+        
+      </div>
+    </div>
+    <div class="content">
+      
+  <h1>Exploring emberjs</h1>
+  <p class="metadata">
+    Wolfram Kriesing
+    - December 3, 2015
+    
+      - tagged with: #emberjs #javascript
+    
+  </p>
+
+  <p>730.975 byte - the size of the main JS file of an empty app that ends up in the dist folder
+after building the app by <code>ember build --environment=production</code>.</p>
+<p>131,7 Mb - the size of the directory and it&#39;s content 
+where I just initialized a new ember app, using <code>ember init</code>.
+Looking into the <code>node_modules</code> folder I see that bower, npm, babel and many others
+are dependencies of ember. Is it creating it&#39;s own eco-system inside an npm package?</p>
+<p>On <a href="http://guides.emberjs.com/v2.2.0/object-model/">the page</a> in the ember guide about the object model, 
+you can read that ember extends the native <code>Array</code> and the <code>String</code> prototypes.
+Accidentally I had seen that <code>Function</code> also gets extended. Did we not learn 
+from history?</p>
+<p>You can&#39;t deny that ember tries to bring things from Ruby and rails to JavaScript.
+There is <code>init()</code> as kind of constructor, monkey-patching Array, String, Function and others?
+The reopening of classes and I guess you can list a couple more. 
+I am sure this makes ember very appealing to all the rails/ruby enthusiasts.
+The prevention of many of the things ES6 provides and &quot;just doing it different&quot;
+makes this framework really move away from the language.</p>
+<p>I see all my knowledge and tools that I learned over the last years becoming almost useless.
+Refactoring will be basically impossible with Ember, computed properties that are used
+as strings all over the place make it basically impossible to find them all and replace them
+correctly. Renaming is such an essential thing in continuously improving software.
+Do I really want to have it take away?</p>
+<p>I stumbled over <code>this</code> usage in mocha in my early days of using ES6 and remembered how I thought
+the new arrow functions actually changed how functions work. The real truth is, <code>function</code>
+did behave wrong until now, because it made <code>this</code> special and not simply a normal variable.
+That was when I realized that arrow functions do it right, now comes ember around the corner
+and does also rely on this relict of <code>this</code> inside a function is special #magic</p>
+<pre><code class="language-js">// works
+Router.map(function() {
+  this.route(&#39;about&#39;);
+});
+
+// does NOT work, TypeError: _this.route is not a function
+Router.map(() =&gt; {
+  this.route(&#39;about&#39;);
+});</code></pre>
+<p>In short: be careful where you use the arrow functions in ember!</p>
+<p>My different view on npm and the usage of packages led me to a <a href="https://github.com/emberjs/website/pull/2425">first pull request</a> 
+for the ember homepage. I just couldn&#39;t see that I was supposed to install ember globally.
+Smashed :).</p>
+<p>Don&#39;t use:</p>
+<ul>
+<li>observers, <a href="http://guides.emberjs.com/v2.2.0/object-model/observers/#toc_observers-and-asynchrony">reasons are explained on the site itself</a> and they are perfect to 
+create hard to find cyclic dependencies, esp. given their synchronous nature, they just call for it.
+Suggested solution: use <code>Ember.run.once</code>, make the framework&#39;s problems my own :( </li>
+<li><a href="http://guides.emberjs.com/v2.2.0/object-model/computed-properties-and-aggregate-data/">deep magic</a>, such as <code>Ember.computed.map</code> (see), creates a listener on an arrar basically and 
+sets up an iterator over it, mixes too much into one thing</li>
+</ul>
+<p>Some interesting finding:</p>
+<blockquote>
+<p>The enumerable API follows ECMAScript specifications as much as possible.</p>
+</blockquote>
+<p>I understand it like this: We follow the spec, unless we know better.</p>
+<blockquote>
+<p>For arbitrary filtering, use the filter() method. The filter method expects the callback to 
+return true if Ember should include it in the final Array, and false or undefined if Ember should not.</p>
+</blockquote>
+<p>This is standard JS, my friend ...</p>
+<p>Ember has an <code>any()</code> method, which is <a href="http://guides.emberjs.com/v2.2.0/object-model/enumerables/#toc_aggregate-information-every-or-any">described as such</a></p>
+<blockquote>
+<p>To find out whether at least one item in an enumerable matches some condition, you can use the <code>any()</code> method:</p>
+</blockquote>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">MDN says about <code>some()</code></a>:</p>
+<blockquote>
+<p>The some() method tests whether some element in the array passes the test implemented by the provided function.</p>
+</blockquote>
+<p>I didn&#39;t even get to build the Game of Life ... it seems.</p>
+
+
+  
+  
+
+
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <a href="/">Home</a><br/>
+      <a href="/about">About</a><br/>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <a href="https://twitter.com/wolframkriesing">Twitter</a><br/>
+      <a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </nav>
+
+</body>
+</html>
