@@ -2,14 +2,14 @@ import {describe, it} from 'mocha';
 import {assertThat, equalTo} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 
+const first2words = s => s.split(' ').slice(0, 2).join(' ');
 const findRelatedPosts = (post, postsToSearchIn) => {
+  const findIn = postsToSearchIn.filter(p => p !== post);
   if (postsToSearchIn.length === 6) {
     return [postsToSearchIn[0], postsToSearchIn[1], postsToSearchIn[3], postsToSearchIn[5],];
   }
-  if (post.headline === 'About JavaScript') {
-    return [];
-  }
-  return postsToSearchIn.filter(p => p !== post);
+  const words = first2words(post.headline);
+  return findIn.filter(p => first2words(p.headline) === words);
 };
 
 describe('Find posts related by their headline, automatically', () => {
