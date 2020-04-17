@@ -5,9 +5,6 @@ import {BlogPost} from './BlogPost.js';
 const first2words = s => s.split(' ').slice(0, 2).join(' ');
 const findRelatedPosts = (post, postsToSearchIn) => {
   const findIn = postsToSearchIn.filter(p => p !== post);
-  if (postsToSearchIn.length === 6) {
-    return [postsToSearchIn[0], postsToSearchIn[1], postsToSearchIn[3], postsToSearchIn[5],];
-  }
   const words = first2words(post.headline);
   return findIn.filter(p => first2words(p.headline) === words);
 };
@@ -34,7 +31,7 @@ describe('Find posts related by their headline, automatically', () => {
       newPost('Bookmarks collect, January 2001'),
     ];
     const relatedPosts = findRelatedPosts(posts[0], posts);
-    assertThat(relatedPosts, equalTo([posts[0], posts[1], posts[3], posts[5],]));
+    assertThat(relatedPosts, equalTo([posts[1], posts[3], posts[5],]));
   });
   it('GIVEN unrelated posts WHEN searching for related posts THEN find nothing', () => {
     const post1 = newPost('About JavaScript');
