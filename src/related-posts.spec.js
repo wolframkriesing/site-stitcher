@@ -43,7 +43,7 @@ describe('Find posts related by their headline, automatically', () => {
     const relatedPosts = findRelatedPosts(posts[0], posts);
     assertThat(relatedPosts, equalTo(posts));
   });
-  xdescribe('ignore stop words at the beginning of the headline', () => {
+  describe('ignore stop words at the beginning of the headline', () => {
     it('GIVEN the searching post starts with a stop word WHEN searching THEN find related ones that start with the second word', () => {
       const posts = [
         newPost('The stop word'),
