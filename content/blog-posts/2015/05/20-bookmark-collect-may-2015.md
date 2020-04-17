@@ -3,7 +3,7 @@ postTypes: link-list
 tags: collect, links  
 oldUrls: /blog/2015/05/bookmark-collect-may-2015/  
 
-# Bookmark collect May 2015
+# Bookmark collect, May 2015
 
 The first section has some links on [crafting, development, tools](/blog/2015/05/20-bookmark-collect-may-2015/#crafting-development-tools)
 and below 8 more links on [JavaScript, mainly ES6](/blog/2015/05/20-bookmark-collect-may-2015/#javascript-es6).

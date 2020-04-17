@@ -2,7 +2,7 @@ dateCreated: 2015-10-06 10:00 CET
 postTypes: link-list  
 tags: collect, links  
 
-# Bookmark collect, October 2015
+# Bookmark collect, October 2015 #1
 
 Just five items, one link and comments to [Reginald Braithwaite's "Invent the future"](/blog/2015/10/06-bookmark-collect-oct-2015/#invent-the-future---reginald-braithwaite)
 and [four others](/blog/2015/10/06-bookmark-collect-oct-2015/#others).
