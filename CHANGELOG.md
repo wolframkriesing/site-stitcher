@@ -1,4 +1,5 @@
 # v2
+- [ ] tags in the sidebar seem unsorted, introduce "Top tags" and "All tags" where they appear sorted, i would say
 - [ ] rebuild when a content file changes (not just when code changes doh)
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
