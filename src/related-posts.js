@@ -8,7 +8,7 @@ const withoutStopWords = s => s.replace(stopWordsRegex, '').trim();
 const first2words = s => s.replace(',', '').split(' ').slice(0, 2).join(' ').toLowerCase();
 const findMatchOfFirstTwoWords = (findIn, post) => {
   const words = first2words(withoutStopWords(post.headline));
-  return findIn.filter(p => p === post || first2words(p.headline) === words);
+  return findIn.filter(p => p === post || first2words(withoutStopWords(p.headline)) === words);
 };
 const firstWord = s => s.replace(',', '').split(' ')[0].toLowerCase();
 const findMatchByFirstWord = (post, findIn) => {
