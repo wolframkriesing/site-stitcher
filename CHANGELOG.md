@@ -1,8 +1,11 @@
 # v2
-- [ ] add related articles, because I have multiple articles of "Me discovering Ruby ..." for example
-  - [ ] find related articles automatically by name
+- [x] add related articles, because I have multiple articles of "Me discovering Ruby ..." for example
+  - [x] find related articles automatically by name
+- [x] rebuild when a content file changes (not just when code changes doh)
+- [x] group by month
+- [x] show month-pages and link them
+- [ ] initial load grows with every post, show just first 100 and load more on scroll, or paginate, ...
 - [ ] tags in the sidebar seem unsorted, introduce "Top tags" and "All tags" where they appear sorted, i would say
-- [ ] rebuild when a content file changes (not just when code changes doh)
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
     - [ ] consolidate tags
@@ -11,8 +14,6 @@
           simply reduce the number of used tags imho
     - [ ] when grouped sort them in the group by name
     - [ ] link each tag in the posts headline to the tag page
-- [x] group by month
-- [ ] show month-pages and link them
 - [ ] render the schema attributes
 - [ ] add all posts from
   - [x] picostitch  
