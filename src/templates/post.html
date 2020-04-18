@@ -4,6 +4,19 @@
 {[ block canonicalUrl ]}{{post.url}}{[ endblock ]}
 {[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
+{[ block sidebar-right ]}
+  {% if (post.relatedPosts.length > 1) { %}
+    <h3>Related Posts</h3>
+    {% post.relatedPosts.map(p => { %}
+      {% if (post === p) { %}
+        {{p.headline}}<br/>
+      {% } else { %}
+        <a href="{{p.url}}">{{p.headline}}</a><br/>
+      {% } %}
+    {% }) %}
+  {% } %}
+{[ endblock ]}
+
 {[ block content ]}
   <h1>{{post.headline}}</h1>
   <p class="metadata">

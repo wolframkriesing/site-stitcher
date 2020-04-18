@@ -2,7 +2,7 @@ dateCreated: 2015-10-23 10:00 CET
 postTypes: link-list  
 tags: collect, links  
 
-# Bookmark collect #2, October 2015
+# Bookmark collect, October 2015 #2
 
 This edition has links about [Constructing a URL](/blog/2015/10/23-bookmark-collect-2-oct-2015/#constructing-a-url),
 [React](/blog/2015/10/23-bookmark-collect-2-oct-2015/#react),

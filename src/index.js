@@ -97,10 +97,12 @@ const generateMonthPage = async (group) => {
 const generateTagPages = async (postGroups) => Promise.all(postGroups.map(generateTagPage));
 const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
+import {findRelatedPosts} from './related-posts.js';
 (async() => {
   const postsDirectory = path.join(__dirname, '../content/blog-posts');
   const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
+  posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
   const groupedBlogPosts = {
     byTag: groupBlogPostsByTag(posts),
     byMonth: groupBlogPostsByYearAndMonth(posts),

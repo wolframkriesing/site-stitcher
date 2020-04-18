@@ -1,4 +1,6 @@
-# Unfinished - Purescript #4
+tags: purescript
+
+# Purescript #4 - [Unfinished]
 
 Unfinished - Purescript #4
 

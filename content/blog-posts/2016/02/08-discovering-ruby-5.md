@@ -1,7 +1,7 @@
 dateCreated: 2016-02-08 10:00 CET  
 tags: ruby, learning  
 
-# Me discovering ruby #5
+# Discovering ruby #5
 
 In Ruby "`and` and `or` are control flow operators, not boolean operators".
 
