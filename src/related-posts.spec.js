@@ -76,6 +76,22 @@ describe('Find posts related by their headline, automatically', () => {
       const relatedPosts = findRelatedPosts(posts[0], posts);
       assertThat(relatedPosts, equalTo(posts));
     });
+    it('GIVEN a stop word and one more word only WHEN searching without success THEN find nothing', () => {
+      const posts = [
+        newPost('The Online Shop'),
+        newPost('The Yoyo Noway'),
+      ];
+      const relatedPosts = findRelatedPosts(posts[0], posts);
+      assertThat(relatedPosts, equalTo([posts[0]]));
+    });
+    it('GIVEN a stop word + one word headline WHEN the searched post starts with a stop word too AND no match THEN find nothing', () => {
+      const posts = [
+        newPost('The Online'),
+        newPost('The Yoyo'),
+      ];
+      const relatedPosts = findRelatedPosts(posts[0], posts);
+      assertThat(relatedPosts, equalTo([posts[0]]));
+    });
   });
   it('GIVEN only one word matches WHEN searching for related posts THEN match on one word', () => {
     const posts = [

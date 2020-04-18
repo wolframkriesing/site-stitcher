@@ -12,8 +12,8 @@ const findMatchOfFirstTwoWords = (findIn, post) => {
 };
 const firstWord = s => s.replace(',', '').split(' ')[0].toLowerCase();
 const findMatchByFirstWord = (post, findIn) => {
-  const word = firstWord(post.headline);
-  return findIn.filter(p => firstWord(p.headline) === word);
+  const word = firstWord(withoutStopWords(post.headline));
+  return findIn.filter(p => firstWord(withoutStopWords(p.headline)) === word);
 }
 export const findRelatedPosts = (post, findIn) => {
   const found = findMatchOfFirstTwoWords(findIn, post);
