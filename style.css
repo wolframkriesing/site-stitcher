@@ -12,12 +12,12 @@ body {
   }
   .sidebar > * {
     margin-bottom: 2rem;
+    white-space: nowrap;
   }
   .sidebar .tags {
     max-width: 15rem;
     height: 20.5rem;
     overflow: hidden;
-    white-space: nowrap;
   }
   .sidebar .tags:hover {
     height: auto;
