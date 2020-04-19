@@ -179,9 +179,79 @@ tundra's stdlib is always loaded, which I don't need. But the approach is what I
 Maybe I get around to help moving it forward a bit, I have ideas. But it's not my project, so there might be other plans
 than mine behind it.
 
+So i turn on the `cache: true`. I do this at the top of the file, where I instanciate the `tundra` variable.
 
+```javascript
+// before
+const tundra = new Tundra();
+// after
+const tundra = new Tundra({cache: true});
+```
 
+That's it. While I am writing this, every time I click "Save" it rebuilds and I am looking at the numbers again.
+`Tags pages: 780.203ms` Wow, let me re-confirm. Change, Save. `Tags pages: 881.162ms`. I have to turn the cache off
+again, I want to see that nothing else has changed (I don't think it has anything to do with me moving to the balcony
+to continue writing under the beautiful sun). Set `cache: false` and `Tags pages: 2.536s`. I am assuming I am on the right
+path. Cool. Went down from **2.4s to 0.8s, 66% faster**. Sounds cool, but also feels like the low hanging fruits are gone.
+Now there is only hard work left, or rather the fun work.
 
+## Conclusion
+
+After this tiny fix, the numbers have improved a lot. Let's look at the overall picture.
+On the console, I see this now.
+
+```text
+Load source files: 143.031ms
+Load blog posts: 257.907ms
+Relate and group posts: 91.02ms
+All posts: 548.666ms
+All 301 pages: 187.044ms
+About page: 28.816ms
+Home page: 32.527ms
+404 page: 24.451ms
+Tags pages: 689.882ms
+Month pages: 122.477ms
+```
+
+compared to the old version:
+
+```text
+Load source files: 134.814ms
+Load blog posts: 314.913ms
+Relate and group posts: 134.019ms
+All posts: 1.533s
+All 301 pages: 537.786ms
+About page: 27.615ms
+Home page: 30.993ms
+404 page: 14.434ms
+Tags pages: 1.802s
+Month pages: 207.332ms
+```
+
+Maybe better as a table, showing the relevant changes:
+
+| action | before | after | win |
+| --- | --- | --- | --- |
+| All posts |               1.533s |    548.666ms | ~1s
+| All 301 pages |           537.786ms | 187.044ms | 350ms
+| Tags pages |              1.802s |    689.882ms | ~1.1s
+| Month pages |             207.332ms | 122.477ms | 85ms
+
+Overall this change made me win 2.5sec with every build. This is about 50% faster on every build. Yeah.
+Great for a first start.
+
+Is that enough to make my fan not spin anymore? No. It is just a good start.
+I have set up some metrics that I can start working with. But I see a lot of things to do.
+I want to
+1. Set up a proper metrics output, sorted by slowest first, so I can just go there and work on the top issue.
+1. Nicer integration in the code, it is pretty much copy+paste and "throw in code" right now.
+1. Open a proper profiler, to get proper insights that I do not get with this simple tooling.
+   I can imagine that there are functions that are easy to optimize and will have a big effect.
+   I am aware that "big effect" from now on does not mean 50% anymore, but maybe I get close to 10% or alike,
+   even though I doubt it. But without measuring I won't know.
+
+Keep an eye on this blog, and/or the repo this is not over yet.\
+Have fun measuring and building faster, just **don't optimize too early**!
 
 
 [1]: https://github.com/wolframkriesing/site-stitcher/tree/466ae04603a99f8d529ec3ec8c9811d27fe0823d#develop
@@ -192,3 +262,12 @@ than mine behind it.
 [6]: https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L50-L57
 [7]: https://github.com/Usbac/tundra/wiki/General#defining-options
 [tundra]: https://github.com/Usbac/tundra
+
+<style>
+td {
+  text-align: right;
+}
+td:first-child {
+  text-align: left;
+}
+</style>

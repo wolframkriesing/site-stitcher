@@ -99,6 +99,10 @@ figure {
   }
 }
 
+td {
+  padding: 0.5rem;
+}
+
 .metadata {
   color: gray;
 }
