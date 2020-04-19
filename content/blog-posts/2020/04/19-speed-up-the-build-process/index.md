@@ -148,7 +148,7 @@ Let's recap quickly what we learned about the easy measurements.
 
 | action | before | after | win | gain |
 | --- | --- | --- | --- | --- |
-| Turn off `fs.promises` functions | 2.4s | 1.4s | 1s | 42% | 
+| Turn off `fs.promises` functions | 2.4s | 1.4s | 1.0s | 42% | 
 | Turn off template rendering | 2.4s | 0.7s | 1.7s | 71% |
 
 There is a lot of potential in the template rendering times. The good thing is, every page render will benefit from that.
@@ -230,15 +230,17 @@ Month pages: 207.332ms
 
 Maybe better as a table, showing the relevant changes:
 
-| action | before | after | win |
-| --- | --- | --- | --- |
-| All posts |               1.533s |    548.666ms | ~1s
-| All 301 pages |           537.786ms | 187.044ms | 350ms
-| Tags pages |              1.802s |    689.882ms | ~1.1s
-| Month pages |             207.332ms | 122.477ms | 85ms
+| action | before | after | win | gain |
+| --- | --- | --- | --- | --- |
+| All posts |               1.53s |    0.54s | ~1.00s | 66% 
+| All 301 pages |           0.54s |    0.18s |  0.40s | 74%
+| Tags pages |              1.80s |    0.69s | ~1.10s | 62%
+| Month pages |             0.21s |    0.12s |  0.09s | 43%
+| | | | | |
+| Overall |                       |          | ~2.59s | 61% 
 
-Overall this change made me win 2.5sec with every build. This is about 50% faster on every build. Yeah.
-Great for a first start.
+Overall this change made me win 2.6sec with every build. This is about 61% faster on every build. Yeah.
+Great for a first start. The potential was 71% and we realized 61% of it, sounds very confirming.
 
 Is that enough to make my fan not spin anymore? No. It is just a good start.
 I have set up some metrics that I can start working with. But I see a lot of things to do.
@@ -269,5 +271,8 @@ td {
 }
 td:first-child {
   text-align: left;
+}
+td:last-child {
+  background-color: lightpink;
 }
 </style>
