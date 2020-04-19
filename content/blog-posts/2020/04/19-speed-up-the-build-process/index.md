@@ -2,13 +2,15 @@ dateCreated: 2020-04-19 11:33 CET
 tags: speed, build process  
 aboutProject: site-stitcher  
 
-# Speed up the build process
+# Speed up the Build Process
 
 The other day in a tweet I meant to say that thinking about how to partially build a project is 
 time spent wrong. Speed up the entire build process instead. That's what I am starting now for 
 [site-stitcher, the project that builds this blog][3].
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">If I start thinking about how to partially build my project my build process is too slow.<br><br>It would just be much more complexity added and try to cover up the actual flaw.</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a></blockquote>
+
+!!!!!!!!!! index goes here !!!!!!!!!!
 
 Here I am. I got to the point that my fan just made my machine take off, at least it sounded like.
 That was while I was running `npm run dev:start` which I use to continuously build the posts you are looking at, 
@@ -85,7 +87,7 @@ It is not surprising that the timings for those parts that really generate the m
 But as I had learned I must always just **optimize the slowest first, measure again and go again for the slowest than**
 (and this time it might be something else that is slowest).
 
-## Quick fixes?
+## Easy and Fast Metrics 
 
 Once I start having numbers I can't stop diving deeper into them.
 So I start by looking at [the code that build the tag pages][5] 
@@ -99,7 +101,7 @@ Both functions just do three "maybe slow" things:
   await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow
 ```
 
-### Optimize filesystem access
+### Measure Filesystem Access
 I will turn off the `fs.promises` things, since they go onto the filesystem and that can not be fast, right?
 The time that it took just now (before I save this change to this blog posts markdown file)
 to build all the tag pages was "2.293s". I ran it a couple of times, it was always around 2.4seconds.
@@ -116,7 +118,7 @@ Now let me comment out the fs operations.
 The last time after (of course) running it a couple of times
 was "1.329s". Roughly each of them was around 1.4seconds. That means about 1 second faster. Nice learning.
 
-### Optimize template rendering
+### Measure Template Rendering
 Though with 1.4 second we are already much better, there is still a lot of beef left.
 Let's look at the third "maybe slow" thing. The template rendering.
 We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
@@ -142,6 +144,45 @@ Running this a couple of times, the numbers did suprise me a little bit. Now the
 "671.773ms" for the last run, in average I saw always numbers around 700ms. There is a huge potential
 here. Very interesting.
 
+Let's recap quickly what we learned about the easy measurements.
+
+| action | before | after | win | gain |
+| --- | --- | --- | --- | --- |
+| Turn off `fs.promises` functions | 2.4s | 1.4s | 1s | 42% | 
+| Turn off template rendering | 2.4s | 0.7s | 1.7s | 71% |
+
+There is a lot of potential in the template rendering times. The good thing is, every page render will benefit from that.
+As calculated above, that is 336 pages, so optimizing this can cause big gains in speed.
+
+## Any Quick Fixes?
+
+Regarding the filesystem access, I have no huge idea right now if there is potential.
+I can think of some little things, but I know that eventually the stuff needs to get written to the filesystem and
+as far as I remember (from the 2009 jsconf) nodejs is already quite good at this.
+Anyways, I can imagine to have a look into the following:
+* Use node workers, kinda WebWorkers just for nodejs, just not sure if this really will speed up fs access.
+* I can pull out the `fs.promises.mkdir` that is currently done for every file and not every file needs a new
+  directory or the directory exists already, so I can pull this out and do it just once per directory, this won't 
+  be a huge gain I assume, but would be nice to clean up anyways.
+* I am not sure if streams can be of help here, I would need to read more into it.
+* More ideas?
+
+The template engine numbers are actually even way more exciting and there I remember that there was a [cache option][7].
+So let me try to turn this on and see what happens.\
+Maybe just one word about the [template engine, tundra][tundra]. I found it while searching for a simple, yet powerful template engine.
+I had a couple of criteria looking for it, one was that I wanted to have all the power of JS available, I wanted
+this inheritance kinda behavior as django's template engine has it and foremost I was looking for one that had
+as little dependencies as possible. I was not interested in the number of downloads and these kinda metrics.
+I am not convinced that following the masses in JS land is often a good choice.  
+I looked into the code of tundra and I have seen globals, I saw every template render does a `new Function()` and
+tundra's stdlib is always loaded, which I don't need. But the approach is what I like, simple and pretty straighforward.
+Maybe I get around to help moving it forward a bit, I have ideas. But it's not my project, so there might be other plans
+than mine behind it.
+
+
+
+
+
 
 [1]: https://github.com/wolframkriesing/site-stitcher/tree/466ae04603a99f8d529ec3ec8c9811d27fe0823d#develop
 [2]: https://github.com/wolframkriesing/site-stitcher/blob/466ae04603a99f8d529ec3ec8c9811d27fe0823d/build-on-file-change.sh#L5
@@ -149,3 +190,5 @@ here. Very interesting.
 [4]: https://github.com/wolframkriesing/site-stitcher/commit/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a
 [5]: https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L77-L85
 [6]: https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L50-L57
+[7]: https://github.com/Usbac/tundra/wiki/General#defining-options
+[tundra]: https://github.com/Usbac/tundra
