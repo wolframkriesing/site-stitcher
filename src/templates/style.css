@@ -80,6 +80,24 @@ nav {
     }
   }
 
+pre {
+  font-size: 1.2rem;
+  background-color: lightyellow;
+}
+
+figcaption {
+  font-style: italic;
+}
+figure {
+}
+  figure.float-right {
+    float: right;
+  }
+@media screen and (max-width: 600px) {
+  figure.float-right {
+    float: none;
+  }
+}
 
 .metadata {
   color: gray;

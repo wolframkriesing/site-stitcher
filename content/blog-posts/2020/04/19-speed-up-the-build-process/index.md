@@ -130,10 +130,10 @@ Now let me comment out only the template rendering code.
   await fs.promises.writeFile(destFilename, 'renderedFile');      // maybe slow
 ```
 
-<div style="float: right; padding: 1rem;">
-<img src="./renders-renderedFile-string.png" alt="no real output" width=200 class="sizeup-onhover-image scale4 origin-left-top" />
-<br/><em>Page really render "renderedFile"</em>
-</div>
+<figure class="float-right">
+    <img src="./renders-renderedFile-string.jpg" alt="no real output" width=200 class="sizeup-onhover-image scale4 origin-right-top" />
+    <figcaption>Page really renders &quot;renderedFile&quot;</figcaption>
+</figure>
 
 It first failed because on the last line I referred to `renderedFile`. After I made this be `'renderedFile'`
 we render files containing only that string, but for the measuring purpose, to understand the gross impact
