@@ -244,7 +244,7 @@ Maybe better as a table, showing the relevant changes:
 | Tags pages |              1.80s |    0.69s | ~1.10s | 62%
 | Month pages |             0.21s |    0.12s |  0.09s | 43%
 | | | | | |
-| Overall |                       |          | ~2.59s | 61% 
+| Overall |                 4.08s |    1.53s | ~2.59s | 61% 
 
 Overall this change made me win 2.6sec with every build. This is about 61% faster on every build. Yeah.
 Great for a first start. The potential was 71% and we realized 61% of it, sounds very confirming.
