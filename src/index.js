@@ -9,7 +9,7 @@ import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-po
 
 import {toReadableDate, toWeekday} from './date.js';
 
-const tundra = new Tundra();
+const tundra = new Tundra({cache: true});
 
 const navigationItems = [
   {path: '/', name: 'Home'},
