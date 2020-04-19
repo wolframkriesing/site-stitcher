@@ -10,7 +10,12 @@ time spent wrong. Speed up the entire build process instead. That's what I am st
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">If I start thinking about how to partially build my project my build process is too slow.<br><br>It would just be much more complexity added and try to cover up the actual flaw.</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a></blockquote>
 
-!!!!!!!!!! index goes here !!!!!!!!!!
+The content of this post:
+* [Deciding what to fix](/blog/2020/04/19-speed-up-the-build-process/#deciding-what-to-fix)
+* [Rough Analysis](/blog/2020/04/19-speed-up-the-build-process/#rough-analysis)
+* [Easy and Fast Metrics](/blog/2020/04/19-speed-up-the-build-process/#easy-and-fast-metrics)
+* [Any Quick Fixes?](/blog/2020/04/19-speed-up-the-build-process/#any-quick-fixes)
+* [Conclusion](/blog/2020/04/19-speed-up-the-build-process/#conclusion)
 
 Here I am. I got to the point that my fan just made my machine take off, at least it sounded like.
 That was while I was running `npm run dev:start` which I use to continuously build the posts you are looking at, 
