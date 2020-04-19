@@ -1,5 +1,5 @@
 dateCreated: 2020-04-19 11:33 CET  
-tags: speed, build process  
+tags: speed, build process, metrics  
 aboutProject: site-stitcher  
 
 # Speed up the Build Process
@@ -15,7 +15,7 @@ time spent wrong. Speed up the entire build process instead. That's what I am st
 Here I am. I got to the point that my fan just made my machine take off, at least it sounded like.
 That was while I was running `npm run dev:start` which I use to continuously build the posts you are looking at, 
 it uses a special [`inotifywait` setup][2] which runs the build process every time one file
-changes, no throttling or anything. Now imagine you switch git branches :). That triggered me to dig into the
+changes, no throttling or anything. Now imagine you switch git branches. That triggered me to dig into the
 speed of the build process.\
 Blame it on me having a Mac and [using a Docker setup][1], 0:1 against me, totally right, but that's a different
 battle field, that I will come back to eventually.
@@ -57,7 +57,7 @@ Let's see how this turns out, since I am writing this before I actually do write
 
 The time it takes to build my entire blog is also too long, I feel. The thing that really sucks is that
 it will become slower with every new post I am writing (like this one) and every feature I add to the blog.
-So I built in the simplest timing I know of, using `console.time()` and `console.timeEnd()`, see [the commit here][4].
+So I added the simplest timing I know of, using `console.time()` and `console.timeEnd()`, see [the commit here][4].
 The output was this:
 
 ```text
@@ -73,7 +73,7 @@ Tags pages: 1.802s
 Month pages: 207.332ms
 ```
 
-At this point in time there are 142 blog posts and 224 tags. Each of them generates at least one page and there
+At this point in time there are 142 blog posts and 224 tags. Each of them generates at least one HTML page and there
 are more pages generated. The following tasks are the most relevant and time consuming:
 
 * A blog has a page each (`All posts: 1.533s`)
@@ -84,8 +84,8 @@ are more pages generated. The following tasks are the most relevant and time con
 
 It is not surprising that the timings for those parts that really generate the most pages
 (all the posts + all tags pages = 142 + 224 = 366 pages) are the slowest.
-But as I had learned I must always just **optimize the slowest first, measure again and go again for the slowest than**
-(and this time it might be something else that is slowest).
+But as I had learned I must always just **optimize the slowest first, measure again and go again for the slowest then**
+(and by then it might be something else that is slowest).
 
 ## Easy and Fast Metrics 
 
@@ -109,17 +109,17 @@ Now let me comment out the fs operations.
 
 ```javascript
   const destDir = path.join(__dirname, '../_output', post.url); // fast
-//  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+//  await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
   const destFilename = path.join(destDir, 'index.html');        // fast
   const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
-//  await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow
+//  await fs.promises.writeFile(destFilename, renderedFile);    // maybe slow
 ```
 
 The last time after (of course) running it a couple of times
 was "1.329s". Roughly each of them was around 1.4seconds. That means about 1 second faster. Nice learning.
+Though with 1.4 second we are already much better, there is still a lot of beef left.
 
 ### Measure Template Rendering
-Though with 1.4 second we are already much better, there is still a lot of beef left.
 Let's look at the third "maybe slow" thing. The template rendering.
 We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
 Now let me comment out only the template rendering code.
@@ -129,7 +129,7 @@ Now let me comment out only the template rendering code.
   await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
   const destFilename = path.join(destDir, 'index.html');        // fast
 //  const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
-  await fs.promises.writeFile(destFilename, 'renderedFile');      // maybe slow
+  await fs.promises.writeFile(destFilename, 'renderedFile');    // maybe slow
 ```
 
 <figure class="float-right">
@@ -144,6 +144,7 @@ Running this a couple of times, the numbers did suprise me a little bit. Now the
 "671.773ms" for the last run, in average I saw always numbers around 700ms. There is a huge potential
 here. Very interesting.
 
+### Recap
 Let's recap quickly what we learned about the easy measurements.
 
 | action | before | after | win | gain |
@@ -172,13 +173,16 @@ So let me try to turn this on and see what happens.\
 Maybe just one word about the [template engine, tundra][tundra]. I found it while searching for a simple, yet powerful template engine.
 I had a couple of criteria looking for it, one was that I wanted to have all the power of JS available, I wanted
 this inheritance kinda behavior as django's template engine has it and foremost I was looking for one that had
-as little dependencies as possible. I was not interested in the number of downloads and these kinda metrics.
+as little dependencies as possible and I didn't see a reason why such a template engine must be huge, so I hoped
+for a small amount of code. Tundra was what matched my search criteria. 
+I was not interested in the number of downloads and these kinda metrics.
 I am not convinced that following the masses in JS land is often a good choice.  
 I looked into the code of tundra and I have seen globals, I saw every template render does a `new Function()` and
 tundra's stdlib is always loaded, which I don't need. But the approach is what I like, simple and pretty straighforward.
 Maybe I get around to help moving it forward a bit, I have ideas. But it's not my project, so there might be other plans
 than mine behind it.
 
+Back to optimizing the build time by using tundr's cache option.
 So i turn on the `cache: true`. I do this at the top of the file, where I instanciate the `tundra` variable.
 
 ```javascript
@@ -194,6 +198,9 @@ again, I want to see that nothing else has changed (I don't think it has anythin
 to continue writing under the beautiful sun). Set `cache: false` and `Tags pages: 2.536s`. I am assuming I am on the right
 path. Cool. Went down from **2.4s to 0.8s, 66% faster**. Sounds cool, but also feels like the low hanging fruits are gone.
 Now there is only hard work left, or rather the fun work.
+
+I am not really sure why tundra doesn't come with the the cache turned on by default.
+Sounds like something I might dig into or open an issue for.
 
 ## Conclusion
 
