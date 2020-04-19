@@ -27,6 +27,12 @@ body {
     display: none;
   }
 }
+@media screen and (max-width: 900px) {
+  /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
+  .sidebar.right {
+    display: none;
+  }
+}
 
 blockquote {
   font-style: italic;
@@ -84,6 +90,7 @@ pre {
   font-size: 1.2rem;
   background-color: lightyellow;
   padding: 1rem;
+  white-space: inherit; /* line-break esp. on narrower screens, to not stop the site from adjusting its width */
 }
 
 figcaption {
