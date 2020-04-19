@@ -1,4 +1,5 @@
 # v2
+- [ ] syntax highlight code
 - [ ] are there schema outlines for related posts?
 - [x] add related articles, because I have multiple articles of "Me discovering Ruby ..." for example
   - [x] find related articles automatically by name
