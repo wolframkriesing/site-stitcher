@@ -1,4 +1,8 @@
 # v2
+- [ ] render the code properly on narrow screen
+- [ ] show embedded code that "commit" link links to, if possible
+- [ ] rename post to "Build, Measure, Speed, Repeat"
+
 - [ ] syntax highlight code
 - [ ] are there schema outlines for related posts?
 - [x] add related articles, because I have multiple articles of "Me discovering Ruby ..." for example
