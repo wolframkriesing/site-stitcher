@@ -1,7 +1,4 @@
 # v2
-- [x] render the code properly on narrow screen
-- [x] rename post to "Build, Measure, Speed, Repeat"
-
 - [ ] syntax highlight code
 - [ ] are there schema outlines for related posts?
 - [x] add related articles, because I have multiple articles of "Me discovering Ruby ..." for example
