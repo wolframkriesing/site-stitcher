@@ -26,7 +26,7 @@ Blame it on me having a Mac and [using a Docker setup][1], 0:1 against me, total
 battle field, that I will come back to eventually.
 
 The worst notable thing is that I start preventing to use `npm run dev:start` the automated rebuild on demand,
-which is actually made for assisting me. Instead I went back to use `npm run start` which does one build
+which I actually made for assisting me. Instead I went back to use `npm run start` which does one build
 and start the webserver to serve my site locally, and I stop and restart this script once I want to see my
 updates being built.
 
@@ -60,7 +60,7 @@ Let's see how this turns out, since I am writing this before I actually do write
 
 ## Rough Analysis
 
-The time it takes to build my entire blog is also too long, I feel. The thing that really sucks is that
+The time the build process needs to build my entire blog is also too long, I feel. The thing that really sucks is that
 it will become slower with every new post I am writing (like this one) and every feature I add to the blog.
 So I added the simplest timing I know of, using `console.time()` and `console.timeEnd()`, see [the commit here][4].
 The output was this:
