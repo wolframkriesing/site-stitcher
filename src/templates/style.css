@@ -90,10 +90,12 @@ nav {
   max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
 }
 pre {
-  font-size: 1.2rem;
-  background-color: lightyellow;
   padding: 1rem;
   overflow: auto; /* make the code scrollable if the width is too narrow */
+}
+pre, p code {
+  font-size: 1.2rem;
+  background-color: lightyellow;
 }
 
 figcaption {
