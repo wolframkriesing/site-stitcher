@@ -2,13 +2,20 @@ dateCreated: 2020-04-19 11:33 CET
 tags: speed, build process, metrics  
 aboutProject: site-stitcher  
 
-# Speed up the Build Process
+# Build, Measure, Speed, Repeat
 
-The other day in a tweet I meant to say that thinking about how to partially build a project is 
-time spent wrong. Speed up the entire build process instead. That's what I am starting now for 
-[site-stitcher, the project that builds this blog][3].
+When my build process slows down my work and I think about how to build just parts of a project instead 
+of the entire project, my time is spent wrong. 
+I should speed up the entire project's build process, not optimize for building parts. 
+Read on about how I build, measured, sped up and will repeat for [site-stitcher, the project that builds this site][3].
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">If I start thinking about how to partially build my project my build process is too slow.<br><br>It would just be much more complexity added and try to cover up the actual flaw.</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a></blockquote>
+<blockquote class="twitter-tweet">
+    <p lang="en" dir="ltr">
+        If I start thinking about how to partially build my project, my build process is too slow.<br><br>
+        It would just be much more complexity added and try to cover up the actual flaw.
+    </p>&mdash; @wolframkriesing 
+    <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a>
+</blockquote>
 
 The content of this post:
 * [Deciding what to fix](/blog/2020/04/19-speed-up-the-build-process/#deciding-what-to-fix)
