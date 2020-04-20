@@ -3,9 +3,9 @@ tags: collect, links
 
 # Bookmark collect, December 2015
 
-This collection has links on [privacy and Edward Snowden](/blog/2015/12/08-bookmark-collect/#stuff-regarding-privacy-and-edward-snowden), 
-[emberjs](/blog/2015/12/08-bookmark-collect/#my-new-job-brought-emberjs-along-so-i-do-dive-into-it-now)
-and [others about HTML5, security, coding, testing, etc.](/blog/2015/12/08-bookmark-collect/#various-other-links).
+This collection has links on [privacy and Edward Snowden](/blog/2015/12/08-bookmark-collect-dec-2015/#stuff-regarding-privacy-and-edward-snowden), 
+[emberjs](/blog/2015/12/08-bookmark-collect-dec-2015/#my-new-job-brought-emberjs-along-so-i-do-dive-into-it-now)
+and [others about HTML5, security, coding, testing, etc.](/blog/2015/12/08-bookmark-collect-dec-2015/#various-other-links).
 
 ## Stuff regarding privacy and Edward Snowden
 * [Edward Snowden explains how to reclaim your privacy](https://theintercept.com/2015/11/12/edward-snowden-explains-how-to-reclaim-your-privacy/)
