@@ -25,7 +25,7 @@
         <span itemprop="datePublished">{{toReadableDate(post.dateCreated)}}</span>
         - by Wolfram Kriesing
         {% if (post.tags.length) : %}
-          - {% post.tags.map(tag => { %}#{{tag}} {% }) %}
+        - {% post.tags.map(tag => { %}#<span itemprop="keywords">{{tag}}</span> {% }) %}
         {% end %}
       </div>
       <div class="content">
