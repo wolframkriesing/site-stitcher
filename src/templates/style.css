@@ -86,11 +86,14 @@ nav {
     }
   }
 
+.content {
+  max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
+}
 pre {
   font-size: 1.2rem;
   background-color: lightyellow;
   padding: 1rem;
-  white-space: inherit; /* line-break esp. on narrower screens, to not stop the site from adjusting its width */
+  overflow: auto; /* make the code scrollable if the width is too narrow */
 }
 
 figcaption {
