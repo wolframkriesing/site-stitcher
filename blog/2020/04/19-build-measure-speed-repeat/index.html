@@ -1,0 +1,922 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2020/04/19-build-measure-speed-repeat/">
+  <title>Build, Measure, Speed, Repeat | picostitch - stuff about crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-post">
+
+  <header>
+    <nav role="navigation" aria-labelledby="primary-navigation">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <div class="sidebar">
+      <div class="tags">
+        
+        <a href="/blog/tag/javascript/">#javascript</a><br/>
+        
+        <a href="/blog/tag/video/">#video</a><br/>
+        
+        <a href="/blog/tag/testing/">#testing</a><br/>
+        
+        <a href="/blog/tag/oop/">#oop</a><br/>
+        
+        <a href="/blog/tag/refactoring/">#refactoring</a><br/>
+        
+        <a href="/blog/tag/functional/">#functional</a><br/>
+        
+        <a href="/blog/tag/links/">#links</a><br/>
+        
+        <a href="/blog/tag/ruby/">#ruby</a><br/>
+        
+        <a href="/blog/tag/nodejs/">#nodejs</a><br/>
+        
+        <a href="/blog/tag/npm/">#npm</a><br/>
+        
+        <a href="/blog/tag/software design/">#software design</a><br/>
+        
+        <a href="/blog/tag/collect/">#collect</a><br/>
+        
+        <a href="/blog/tag/learning/">#learning</a><br/>
+        
+        <a href="/blog/tag/purescript/">#purescript</a><br/>
+        
+        <a href="/blog/tag/css/">#css</a><br/>
+        
+        <a href="/blog/tag/react/">#react</a><br/>
+        
+        <a href="/blog/tag/github/">#github</a><br/>
+        
+        <a href="/blog/tag/git/">#git</a><br/>
+        
+        <a href="/blog/tag/framework/">#framework</a><br/>
+        
+        <a href="/blog/tag/tdd/">#tdd</a><br/>
+        
+        <a href="/blog/tag/open source/">#open source</a><br/>
+        
+        <a href="/blog/tag/security/">#security</a><br/>
+        
+        <a href="/blog/tag/mikado method/">#mikado method</a><br/>
+        
+        <a href="/blog/tag/tests/">#tests</a><br/>
+        
+        <a href="/blog/tag/browser/">#browser</a><br/>
+        
+        <a href="/blog/tag/architecture/">#architecture</a><br/>
+        
+        <a href="/blog/tag/bash/">#bash</a><br/>
+        
+        <a href="/blog/tag/speed/">#speed</a><br/>
+        
+        <a href="/blog/tag/design/">#design</a><br/>
+        
+        <a href="/blog/tag/documentation/">#documentation</a><br/>
+        
+        <a href="/blog/tag/programming/">#programming</a><br/>
+        
+        <a href="/blog/tag/coderetreat/">#coderetreat</a><br/>
+        
+        <a href="/blog/tag/jscoderetreat/">#jscoderetreat</a><br/>
+        
+        <a href="/blog/tag/micorservices/">#micorservices</a><br/>
+        
+        <a href="/blog/tag/mentoring/">#mentoring</a><br/>
+        
+        <a href="/blog/tag/classes/">#classes</a><br/>
+        
+        <a href="/blog/tag/notes/">#notes</a><br/>
+        
+        <a href="/blog/tag/yarn/">#yarn</a><br/>
+        
+        <a href="/blog/tag/API/">#API</a><br/>
+        
+        <a href="/blog/tag/REST/">#REST</a><br/>
+        
+        <a href="/blog/tag/emberjs/">#emberjs</a><br/>
+        
+        <a href="/blog/tag/user story/">#user story</a><br/>
+        
+        <a href="/blog/tag/rails/">#rails</a><br/>
+        
+        <a href="/blog/tag/mocha/">#mocha</a><br/>
+        
+        <a href="/blog/tag/algorithm/">#algorithm</a><br/>
+        
+        <a href="/blog/tag/agile/">#agile</a><br/>
+        
+        <a href="/blog/tag/deploy/">#deploy</a><br/>
+        
+        <a href="/blog/tag/tool/">#tool</a><br/>
+        
+        <a href="/blog/tag/shell/">#shell</a><br/>
+        
+        <a href="/blog/tag/clean code/">#clean code</a><br/>
+        
+        <a href="/blog/tag/naming/">#naming</a><br/>
+        
+        <a href="/blog/tag/metalsmith/">#metalsmith</a><br/>
+        
+        <a href="/blog/tag/markdown/">#markdown</a><br/>
+        
+        <a href="/blog/tag/build process/">#build process</a><br/>
+        
+        <a href="/blog/tag/metrics/">#metrics</a><br/>
+        
+        <a href="/blog/tag/developer/">#developer</a><br/>
+        
+        <a href="/blog/tag/the web/">#the web</a><br/>
+        
+        <a href="/blog/tag/structured data/">#structured data</a><br/>
+        
+        <a href="/blog/tag/schema.org/">#schema.org</a><br/>
+        
+        <a href="/blog/tag/SEO/">#SEO</a><br/>
+        
+        <a href="/blog/tag/search engines/">#search engines</a><br/>
+        
+        <a href="/blog/tag/URL/">#URL</a><br/>
+        
+        <a href="/blog/tag/web/">#web</a><br/>
+        
+        <a href="/blog/tag/browsers/">#browsers</a><br/>
+        
+        <a href="/blog/tag/chrome/">#chrome</a><br/>
+        
+        <a href="/blog/tag/iOS/">#iOS</a><br/>
+        
+        <a href="/blog/tag/Apple/">#Apple</a><br/>
+        
+        <a href="/blog/tag/hacking/">#hacking</a><br/>
+        
+        <a href="/blog/tag/events/">#events</a><br/>
+        
+        <a href="/blog/tag/unconference/">#unconference</a><br/>
+        
+        <a href="/blog/tag/open space/">#open space</a><br/>
+        
+        <a href="/blog/tag/tmux/">#tmux</a><br/>
+        
+        <a href="/blog/tag/vi/">#vi</a><br/>
+        
+        <a href="/blog/tag/vim/">#vim</a><br/>
+        
+        <a href="/blog/tag/apprentice/">#apprentice</a><br/>
+        
+        <a href="/blog/tag/pwa/">#pwa</a><br/>
+        
+        <a href="/blog/tag/jscc17/">#jscc17</a><br/>
+        
+        <a href="/blog/tag/jscraftcamp/">#jscraftcamp</a><br/>
+        
+        <a href="/blog/tag/code formatting/">#code formatting</a><br/>
+        
+        <a href="/blog/tag/technical debt/">#technical debt</a><br/>
+        
+        <a href="/blog/tag/exception/">#exception</a><br/>
+        
+        <a href="/blog/tag/abstraction/">#abstraction</a><br/>
+        
+        <a href="/blog/tag/history/">#history</a><br/>
+        
+        <a href="/blog/tag/lint/">#lint</a><br/>
+        
+        <a href="/blog/tag/eslint/">#eslint</a><br/>
+        
+        <a href="/blog/tag/react-native/">#react-native</a><br/>
+        
+        <a href="/blog/tag/code quality/">#code quality</a><br/>
+        
+        <a href="/blog/tag/audio/">#audio</a><br/>
+        
+        <a href="/blog/tag/playground/">#playground</a><br/>
+        
+        <a href="/blog/tag/dependency injection/">#dependency injection</a><br/>
+        
+        <a href="/blog/tag/grid/">#grid</a><br/>
+        
+        <a href="/blog/tag/grid layout/">#grid layout</a><br/>
+        
+        <a href="/blog/tag/wasm/">#wasm</a><br/>
+        
+        <a href="/blog/tag/webassembly/">#webassembly</a><br/>
+        
+        <a href="/blog/tag/pulp/">#pulp</a><br/>
+        
+        <a href="/blog/tag/build tool/">#build tool</a><br/>
+        
+        <a href="/blog/tag/typing/">#typing</a><br/>
+        
+        <a href="/blog/tag/images/">#images</a><br/>
+        
+        <a href="/blog/tag/website/">#website</a><br/>
+        
+        <a href="/blog/tag/online service/">#online service</a><br/>
+        
+        <a href="/blog/tag/command line/">#command line</a><br/>
+        
+        <a href="/blog/tag/linux/">#linux</a><br/>
+        
+        <a href="/blog/tag/tooling/">#tooling</a><br/>
+        
+        <a href="/blog/tag/lsof/">#lsof</a><br/>
+        
+        <a href="/blog/tag/gitup/">#gitup</a><br/>
+        
+        <a href="/blog/tag/tools/">#tools</a><br/>
+        
+        <a href="/blog/tag/jsx/">#jsx</a><br/>
+        
+        <a href="/blog/tag/comment/">#comment</a><br/>
+        
+        <a href="/blog/tag/organizing/">#organizing</a><br/>
+        
+        <a href="/blog/tag/adr/">#adr</a><br/>
+        
+        <a href="/blog/tag/jinja/">#jinja</a><br/>
+        
+        <a href="/blog/tag/template/">#template</a><br/>
+        
+        <a href="/blog/tag/spaceless/">#spaceless</a><br/>
+        
+        <a href="/blog/tag/JSON/">#JSON</a><br/>
+        
+        <a href="/blog/tag/HTTP/">#HTTP</a><br/>
+        
+        <a href="/blog/tag/SOLID/">#SOLID</a><br/>
+        
+        <a href="/blog/tag/shortfilm/">#shortfilm</a><br/>
+        
+        <a href="/blog/tag/thinking/">#thinking</a><br/>
+        
+        <a href="/blog/tag/egoless/">#egoless</a><br/>
+        
+        <a href="/blog/tag/GraphQL/">#GraphQL</a><br/>
+        
+        <a href="/blog/tag/orm/">#orm</a><br/>
+        
+        <a href="/blog/tag/code analytics/">#code analytics</a><br/>
+        
+        <a href="/blog/tag/async/">#async</a><br/>
+        
+        <a href="/blog/tag/es6/">#es6</a><br/>
+        
+        <a href="/blog/tag/babeljs/">#babeljs</a><br/>
+        
+        <a href="/blog/tag/design patterns/">#design patterns</a><br/>
+        
+        <a href="/blog/tag/planning/">#planning</a><br/>
+        
+        <a href="/blog/tag/noestimates/">#noestimates</a><br/>
+        
+        <a href="/blog/tag/software quality/">#software quality</a><br/>
+        
+        <a href="/blog/tag/decoupling/">#decoupling</a><br/>
+        
+        <a href="/blog/tag/C#/">#C#</a><br/>
+        
+        <a href="/blog/tag/sort/">#sort</a><br/>
+        
+        <a href="/blog/tag/paper/">#paper</a><br/>
+        
+        <a href="/blog/tag/db/">#db</a><br/>
+        
+        <a href="/blog/tag/OO/">#OO</a><br/>
+        
+        <a href="/blog/tag/values/">#values</a><br/>
+        
+        <a href="/blog/tag/value object/">#value object</a><br/>
+        
+        <a href="/blog/tag/objects/">#objects</a><br/>
+        
+        <a href="/blog/tag/business object/">#business object</a><br/>
+        
+        <a href="/blog/tag/entities/">#entities</a><br/>
+        
+        <a href="/blog/tag/jskatas/">#jskatas</a><br/>
+        
+        <a href="/blog/tag/TDD/">#TDD</a><br/>
+        
+        <a href="/blog/tag/estimation/">#estimation</a><br/>
+        
+        <a href="/blog/tag/article/">#article</a><br/>
+        
+        <a href="/blog/tag/coupling/">#coupling</a><br/>
+        
+        <a href="/blog/tag/cohesion/">#cohesion</a><br/>
+        
+        <a href="/blog/tag/object calisthenics/">#object calisthenics</a><br/>
+        
+        <a href="/blog/tag/inheritance/">#inheritance</a><br/>
+        
+        <a href="/blog/tag/package.json/">#package.json</a><br/>
+        
+        <a href="/blog/tag/object-oriented design/">#object-oriented design</a><br/>
+        
+        <a href="/blog/tag/programming language/">#programming language</a><br/>
+        
+        <a href="/blog/tag/ide/">#ide</a><br/>
+        
+        <a href="/blog/tag/dojo/">#dojo</a><br/>
+        
+        <a href="/blog/tag/UI widgets/">#UI widgets</a><br/>
+        
+        <a href="/blog/tag/for slides/">#for slides</a><br/>
+        
+        <a href="/blog/tag/poster/">#poster</a><br/>
+        
+        <a href="/blog/tag/typography/">#typography</a><br/>
+        
+        <a href="/blog/tag/object-oriented/">#object-oriented</a><br/>
+        
+        <a href="/blog/tag/get-prefix/">#get-prefix</a><br/>
+        
+        <a href="/blog/tag/imperative/">#imperative</a><br/>
+        
+        <a href="/blog/tag/must watch/">#must watch</a><br/>
+        
+        <a href="/blog/tag/github-pages/">#github-pages</a><br/>
+        
+        <a href="/blog/tag/static page/">#static page</a><br/>
+        
+        <a href="/blog/tag/OS/">#OS</a><br/>
+        
+        <a href="/blog/tag/dvcs/">#dvcs</a><br/>
+        
+        <a href="/blog/tag/svn/">#svn</a><br/>
+        
+        <a href="/blog/tag/functional programming/">#functional programming</a><br/>
+        
+        <a href="/blog/tag/logic programming/">#logic programming</a><br/>
+        
+        <a href="/blog/tag/good developer/">#good developer</a><br/>
+        
+        <a href="/blog/tag/good code/">#good code</a><br/>
+        
+        <a href="/blog/tag/fun/">#fun</a><br/>
+        
+        <a href="/blog/tag/client-side/">#client-side</a><br/>
+        
+        <a href="/blog/tag/icons/">#icons</a><br/>
+        
+        <a href="/blog/tag/logos/">#logos</a><br/>
+        
+        <a href="/blog/tag/graphics/">#graphics</a><br/>
+        
+        <a href="/blog/tag/brand/">#brand</a><br/>
+        
+        <a href="/blog/tag/sound/">#sound</a><br/>
+        
+        <a href="/blog/tag/if/">#if</a><br/>
+        
+        <a href="/blog/tag/gh-pages/">#gh-pages</a><br/>
+        
+        <a href="/blog/tag/devops/">#devops</a><br/>
+        
+        <a href="/blog/tag/travis/">#travis</a><br/>
+        
+        <a href="/blog/tag/tddbin/">#tddbin</a><br/>
+        
+        <a href="/blog/tag/kata/">#kata</a><br/>
+        
+        <a href="/blog/tag/spanish/">#spanish</a><br/>
+        
+        <a href="/blog/tag/fork/">#fork</a><br/>
+        
+        <a href="/blog/tag/remote repo/">#remote repo</a><br/>
+        
+        <a href="/blog/tag/sync/">#sync</a><br/>
+        
+        <a href="/blog/tag/programmer/">#programmer</a><br/>
+        
+        <a href="/blog/tag/craft/">#craft</a><br/>
+        
+        <a href="/blog/tag/cookie/">#cookie</a><br/>
+        
+        <a href="/blog/tag/library/">#library</a><br/>
+        
+        <a href="/blog/tag/rebase/">#rebase</a><br/>
+        
+        <a href="/blog/tag/must read/">#must read</a><br/>
+        
+        <a href="/blog/tag/smalltalk/">#smalltalk</a><br/>
+        
+        <a href="/blog/tag/class name/">#class name</a><br/>
+        
+        <a href="/blog/tag/jscr/">#jscr</a><br/>
+        
+        <a href="/blog/tag/solid/">#solid</a><br/>
+        
+        <a href="/blog/tag/dependencies/">#dependencies</a><br/>
+        
+        <a href="/blog/tag/reactjs/">#reactjs</a><br/>
+        
+        <a href="/blog/tag/dom/">#dom</a><br/>
+        
+        <a href="/blog/tag/blog/">#blog</a><br/>
+        
+        <a href="/blog/tag/coffeescript/">#coffeescript</a><br/>
+        
+        <a href="/blog/tag/complexity/">#complexity</a><br/>
+        
+        <a href="/blog/tag/code/">#code</a><br/>
+        
+        <a href="/blog/tag/slides/">#slides</a><br/>
+        
+        <a href="/blog/tag/katas/">#katas</a><br/>
+        
+        <a href="/blog/tag/preprocessor/">#preprocessor</a><br/>
+        
+        <a href="/blog/tag/clojure/">#clojure</a><br/>
+        
+        <a href="/blog/tag/reducers/">#reducers</a><br/>
+        
+        <a href="/blog/tag/java/">#java</a><br/>
+        
+        <a href="/blog/tag/legacy/">#legacy</a><br/>
+        
+        <a href="/blog/tag/reactive programming/">#reactive programming</a><br/>
+        
+        <a href="/blog/tag/rx/">#rx</a><br/>
+        
+        <a href="/blog/tag/rxjs/">#rxjs</a><br/>
+        
+        <a href="/blog/tag/angularjs/">#angularjs</a><br/>
+        
+        <a href="/blog/tag/frontend/">#frontend</a><br/>
+        
+        <a href="/blog/tag/mock/">#mock</a><br/>
+        
+        <a href="/blog/tag/stub/">#stub</a><br/>
+        
+        <a href="/blog/tag/mocks/">#mocks</a><br/>
+        
+        <a href="/blog/tag/mac os/">#mac os</a><br/>
+        
+        <a href="/blog/tag/firefox/">#firefox</a><br/>
+        
+        <a href="/blog/tag/browser engine/">#browser engine</a><br/>
+        
+        <a href="/blog/tag/rust/">#rust</a><br/>
+        
+        <a href="/blog/tag/macos/">#macos</a><br/>
+        
+        <a href="/blog/tag/makefile/">#makefile</a><br/>
+        
+      </div>
+
+      <div class="months">
+        
+        <a href="/blog/2020/04/">April 2020</a><br/>
+        
+        <a href="/blog/2020/03/">March 2020</a><br/>
+        
+        <a href="/blog/2018/07/">July 2018</a><br/>
+        
+        <a href="/blog/2018/05/">May 2018</a><br/>
+        
+        <a href="/blog/2017/11/">November 2017</a><br/>
+        
+        <a href="/blog/2017/04/">April 2017</a><br/>
+        
+        <a href="/blog/2017/03/">March 2017</a><br/>
+        
+        <a href="/blog/2017/02/">February 2017</a><br/>
+        
+        <a href="/blog/2017/01/">January 2017</a><br/>
+        
+        <a href="/blog/2016/06/">June 2016</a><br/>
+        
+        <a href="/blog/2016/04/">April 2016</a><br/>
+        
+        <a href="/blog/2016/02/">February 2016</a><br/>
+        
+        <a href="/blog/2015/12/">December 2015</a><br/>
+        
+        <a href="/blog/2015/11/">November 2015</a><br/>
+        
+        <a href="/blog/2015/10/">October 2015</a><br/>
+        
+        <a href="/blog/2015/05/">May 2015</a><br/>
+        
+        <a href="/blog/2015/04/">April 2015</a><br/>
+        
+        <a href="/blog/2015/03/">March 2015</a><br/>
+        
+        <a href="/blog/2014/03/">March 2014</a><br/>
+        
+        <a href="/blog/2014/02/">February 2014</a><br/>
+        
+        <a href="/blog/2014/01/">January 2014</a><br/>
+        
+      </div>
+    </div>
+    <div class="content">
+      
+  <h1>Build, Measure, Speed, Repeat</h1>
+  <p class="metadata">
+    Wolfram Kriesing
+    - April 19, 2020
+    
+      - tagged with: #speed #build process #metrics
+    
+  </p>
+
+  <p>When my build process slows down my work and I think about how to build just parts of a project instead 
+of the entire project, my time is spent wrong. 
+I should speed up the entire project&#39;s build process, not optimize for building parts. 
+Read on about how I build, measured, sped up and will repeat for <a href="https://github.com/wolframkriesing/site-stitcher">site-stitcher, the project that builds this site</a>.</p>
+<blockquote class="twitter-tweet">
+    <p lang="en" dir="ltr">
+        If I start thinking about how to partially build my project, my build process is too slow.<br><br>
+        It would just be much more complexity added and try to cover up the actual flaw.
+    </p>&mdash; @wolframkriesing 
+    <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a>
+</blockquote>
+
+<p>I got to the point that my fan just made my machine take off, at least it sounded like.
+That was while I was running <code>npm run dev:start</code> which I use to continuously build the posts you are looking at, 
+it uses a special <a href="https://github.com/wolframkriesing/site-stitcher/blob/466ae04603a99f8d529ec3ec8c9811d27fe0823d/build-on-file-change.sh#L5"><code>inotifywait</code> setup</a> which runs the build process every time one file
+changes, no throttling or anything. Now imagine you switch git branches and a lot of files change at once.
+That triggered me to dig into the speed of the build process.<br>Blame it on me having a Mac and <a href="https://github.com/wolframkriesing/site-stitcher/tree/466ae04603a99f8d529ec3ec8c9811d27fe0823d#develop">using a Docker setup</a>, 0:1 against me, totally right, but that&#39;s a different
+battle field, that I will come back to eventually.</p>
+<p>The worst notable thing is that I start preventing to use <code>npm run dev:start</code> the automated rebuild on demand,
+which I actually made for assisting me. Instead I went back to use <code>npm run start</code> which does one build
+and start the webserver to serve my site locally, and I stop and restart this script once I want to see my
+updates being built.</p>
+<p>Here is the detailled process of how I went about measuring and fixing the biggest slow down of my build process.
+It is a standard build, measure, learn cycle, and it won&#39;t be done after this blog post.
+Spoiler: I gained more than 50% of speed.</p>
+<ul>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix">Deciding what to fix</a></li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture">The Big Picture</a></li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#measure">Measure</a><ul>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#filesystem-access-speed">Filesystem Access Speed</a></li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#template-rendering-speed">Template Rendering Speed</a></li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#recap">Recap</a></li>
+</ul>
+</li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#solutions-to-speed-up">Solutions to speed up</a></li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#conclusion">Conclusion</a></li>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#epilogue">Epilogue</a></li>
+</ul>
+<h2 id="deciding-what-to-fix">Deciding what to fix</h2>
+<p>The above introduction shows that there is not only one thing I could optimize, there is not only the
+speed of the build process. I could also:</p>
+<ol>
+<li>get a computer where Docker runs faster and more natively, e.g. a Linux machine - that will happen some day</li>
+<li>fix the &quot;inotifywait&quot; usage to use some throttling and build not on every file change but just at most once 
+a second or something like that</li>
+<li>optimize the watcher to build just the changed files and finally</li>
+<li>speeding up the build process itself.</li>
+</ol>
+<p>Item 1. will happen sooner or later (I am saying that to myself for 10 years already, so I am confident, hehe).
+Fixing 2. is something I looked up and did not find an option on &quot;inotifywait&quot; man pages, I might be able to
+do it with linux tooling but I experience myself wasting a lot of time digging into that, so I avoid this
+rabbit hole now.</p>
+<p>I am definitely not going to do 3. since this feels just counter intuitive to me. Why should I circumvent
+the slow process by adding more code that might do it wrong. And that actually just tries to prevent running
+the slow process. Just imagine all the dependencies that there
+are across pages, when a tag changes the according tag pages need to be built, the month pages and others.
+Nope that is the wrong
+way, and I have seen live-reload/rebuild tools do bullshit that makes you either say 
+&quot;oh just restart, the live-reloading has gone mad&quot; which is just another burden, or even worse you start digging
+into your code to figure out what&#39;s broken until you realize the live-reload screwed it up. </p>
+<p>I am going with option 4., I am fixing the actual core of the build process to be faster, I will benefit
+from that in many more ways.
+Let&#39;s see how this turns out, since I am writing this before I actually do write any code.</p>
+<p>Note: After having proof read this post, <a href="https://twitter.com/jacek_smolak">Jacek</a> suggested to have a build just for one 
+page, which would prevent all dependency complexity and shorten the build time while writing one blog post.
+Sounds like a great idea for having a fast build process, accepting the drawback of not building all pages everytime.
+Sometimes a switch in processes can also lead you to a goal, even though you had might not expected to go there.
+But I am not taking that path now, it feels like I would put off work to later.</p>
+<h2 id="the-big-picture">The Big Picture</h2>
+<p>The time the build process needs to build my entire blog is also too long, I feel. The thing that really sucks is that
+it will become slower with every new post I am writing (like this one) and every feature I add to the blog.
+So I added the simplest timing I know of, using <code>console.time()</code> and <code>console.timeEnd()</code>, see <a href="https://github.com/wolframkriesing/site-stitcher/commit/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a">the commit here</a>.
+The output was this:</p>
+<pre><code class="language-text">Load source files: 134.814ms
+Load blog posts: 314.913ms
+Relate and group posts: 134.019ms
+All posts: 1.533s
+All 301 pages: 537.786ms
+About page: 27.615ms
+Home page: 30.993ms
+404 page: 14.434ms
+Tags pages: 1.802s
+Month pages: 207.332ms</code></pre>
+<p>At this point in time there are 142 blog posts and 224 tags. Each of them generates at least one HTML page and there
+are more pages generated. The following tasks are the most relevant and time consuming:</p>
+<ul>
+<li>A blog has a page each (<code>All posts: 1.533s</code>)</li>
+<li>a tag has a page each (<code>Tags pages: 1.802s</code>)</li>
+<li>every month has a page listing all posts of that month (<code>Month pages: 207.332ms</code>)</li>
+<li>some posts had a different URL on the old setup, so I generate 301 pages for the (<code>All 301 pages: 537.786ms</code>)</li>
+<li>before building any HTML page can be done all the blog posts are being loaded (<code>Load blog posts: 314.913ms</code>)</li>
+</ul>
+<p>It is not surprising that the timings for those parts that really generate the most pages
+(all the posts + all tags pages = 142 + 224 = 366 pages) are the slowest.
+But as I had learned I must always just <strong>optimize the slowest first, measure again and go again for the slowest then</strong>
+(and by then it might be something else that is slowest).</p>
+<h2 id="measure">Measure</h2>
+<p>Once I start having numbers I can&#39;t stop diving deeper into them.
+So I start by looking at <a href="https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L77-L85">the code that build the tag pages</a> 
+(it is similarly structured to <a href="https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L50-L57">the code that generates all posts</a>).
+Both functions just do three &quot;maybe slow&quot; things:</p>
+<pre><code class="language-javascript">  const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+  const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
+  const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
+  await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow</code></pre>
+<h3 id="filesystem-access-speed">Filesystem Access Speed</h3>
+<p>I will turn off the <code>fs.promises</code> things, since they go onto the filesystem and that can not be fast, right?
+The time that it took just now (before I save this change to this blog posts markdown file)
+to build all the tag pages was &quot;2.293s&quot;. I ran it a couple of times, it was always around 2.4seconds.
+Now let me comment out the fs operations. </p>
+<pre><code class="language-javascript">  const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+//  await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
+  const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
+  const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
+//  await fs.promises.writeFile(destFilename, renderedFile);    // maybe slow</code></pre>
+<p>The last time after (of course) running it a couple of times
+was &quot;1.329s&quot;. Roughly each of them was around 1.4seconds. That means about 1 second faster. Nice learning.
+The nifty thing is though, I can not remove this part completely, I will have to write to the filesystem
+at some point in time.<br>Though with 1.4s we know there is a potential of speeding it up by 41%. So there is still a lot of beef left, 59%.
+Let&#39;s see if there is some low hanging fruits there.</p>
+<h3 id="template-rendering-speed">Template Rendering Speed</h3>
+<p>The third &quot;maybe slow&quot; thing is the template rendering, the function we call is <code>tundra.getRender(&#39;post.html&#39;, ...)</code>.
+We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
+Now let me comment out only the template rendering code.</p>
+<pre><code class="language-javascript">  const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+  const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
+//  const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
+  await fs.promises.writeFile(destFilename, &#39;renderedFile&#39;);    // maybe slow</code></pre>
+<figure class="float-right">
+    <img src="./renders-renderedFile-string.jpg" alt="no real output" width=200 class="sizeup-onhover-image scale4 origin-right-top" />
+    <figcaption>Page really renders &quot;renderedFile&quot;</figcaption>
+</figure>
+
+<p>It first failed because on the last line I referred to <code>renderedFile</code>. After I made this be <code>&#39;renderedFile&#39;</code>
+we render files containing only that string, but for the measuring purpose, to understand the gross impact
+that is fine, I would say.<br>Running this a couple of times, the numbers did suprise me a little bit. Now the script measures
+&quot;671.773ms&quot; for the last run, in average I saw always numbers around 700ms. There is a huge potential
+here. Very interesting.</p>
+<h3 id="recap">Recap</h3>
+<p>Let&#39;s recap quickly what we learned in the measuring phase.</p>
+<table>
+<thead>
+<tr>
+<th>action</th>
+<th>before</th>
+<th>after</th>
+<th>win</th>
+<th>gain</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Turn off <code>fs.promises</code> functions</td>
+<td>2.4s</td>
+<td>1.4s</td>
+<td>1.0s</td>
+<td>42%</td>
+</tr>
+<tr>
+<td>Turn off template rendering</td>
+<td>2.4s</td>
+<td>0.7s</td>
+<td>1.7s</td>
+<td>71%</td>
+</tr>
+</tbody></table>
+<p>There is a lot of potential in the template rendering times. The good thing is, every page render will benefit from that.
+As calculated above, that is at least 336 pages, so optimizing this can cause big gains in speed.</p>
+<h2 id="solutions-to-speed-up">Solutions to speed up</h2>
+<p>Regarding the filesystem access, I have no huge idea right now if there is potential.
+I can think of some little things, but I know that eventually the stuff needs to get written to the filesystem and
+as far as I remember (from the 2009 jsconf) nodejs is already quite good at this.
+Anyways, I can imagine to have a look into the following:</p>
+<ul>
+<li>Use node workers, kinda WebWorkers just for nodejs, just not sure if this really will speed up fs access.</li>
+<li>I can pull out the <code>fs.promises.mkdir</code> that is currently done for every file and not every file needs a new
+directory or the directory exists already, so I can pull this out and do it just once per directory, this won&#39;t 
+be a huge gain I assume, but would be nice to clean up anyways.</li>
+<li>I am not sure if streams can be of help here, I would need to read more into it.</li>
+<li>More ideas?</li>
+</ul>
+<p>The template engine numbers are actually even way more exciting and there I remember that there was a <a href="https://github.com/Usbac/tundra/wiki/General#defining-options">cache option</a>.
+So let me try to turn this on and see what happens.<br>Maybe just one word about the <a href="https://github.com/Usbac/tundra">template engine, tundra</a>. I found it while searching for a simple, yet powerful template engine.
+I had a couple of criteria looking for it, one was that I wanted to have all the power of JS available, I wanted
+this inheritance kinda behavior as django&#39;s template engine has it and foremost I was looking for one that had
+as little dependencies as possible and I didn&#39;t see a reason why such a template engine must be huge, so I hoped
+for a small amount of code. Tundra was what matched my search criteria. 
+I was not interested in the number of downloads and these kinda metrics.
+I am not convinced that following the masses in JS land is often a good choice.<br>I looked into the code of tundra and I have seen globals, I saw every template render does a <code>new Function()</code> and
+tundra&#39;s stdlib is always loaded, which I don&#39;t need. But the approach is what I like, simple and pretty straighforward.
+Maybe I get around to help moving it forward a bit, I have ideas. But it&#39;s not my project, so there might be other plans
+than mine behind it.</p>
+<p>Back to optimizing the build time by using tundra&#39;s cache option.
+So i turn on the <code>cache: true</code>. I do this at the top of the file, where I instanciate the <code>tundra</code> variable.</p>
+<pre><code class="language-javascript">// before
+const tundra = new Tundra();
+// after
+const tundra = new Tundra({cache: true});</code></pre>
+<p>That&#39;s it. While I am writing this, every time I click &quot;Save&quot; it rebuilds and I am looking at the numbers again.<br><code>Tags pages: 780.203ms</code><br>Wow. Let me re-confirm.<br>Change, Save.<br><code>Tags pages: 881.162ms</code>.<br>I have to turn the cache off
+again, I want to see that nothing else has changed (I don&#39;t think it has anything to do with me moving to the balcony
+to continue writing under the beautiful sun). Set <code>cache: false</code> and<br><code>Tags pages: 2.536s</code>.<br>I am assuming I am on the right
+path. Cool. The time for the build went down from <strong>2.4s to 0.8s, 66% faster</strong>. 
+Sounds cool, but also feels like the last low hanging fruit. But it was worth being picked.
+Now there is only hard work left, or rather the fun work.</p>
+<p>I am not really sure why tundra doesn&#39;t come with the the cache turned on by default.
+Sounds like something I might dig into or open an issue for.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>After this tiny fix, the numbers have improved a lot. Let&#39;s look at the overall picture.
+On the console, I see this now.</p>
+<pre><code class="language-text">Load source files: 143.031ms
+Load blog posts: 257.907ms
+Relate and group posts: 91.02ms
+All posts: 548.666ms
+All 301 pages: 187.044ms
+About page: 28.816ms
+Home page: 32.527ms
+404 page: 24.451ms
+Tags pages: 689.882ms
+Month pages: 122.477ms</code></pre>
+<p>compared to the old version:</p>
+<pre><code class="language-text">Load source files: 134.814ms
+Load blog posts: 314.913ms
+Relate and group posts: 134.019ms
+All posts: 1.533s
+All 301 pages: 537.786ms
+About page: 27.615ms
+Home page: 30.993ms
+404 page: 14.434ms
+Tags pages: 1.802s
+Month pages: 207.332ms</code></pre>
+<p>Maybe better as a table, showing the relevant changes:</p>
+<table>
+<thead>
+<tr>
+<th>action</th>
+<th>before</th>
+<th>after</th>
+<th>win</th>
+<th>gain</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>All posts</td>
+<td>1.53s</td>
+<td>0.54s</td>
+<td>~1.00s</td>
+<td>66%</td>
+</tr>
+<tr>
+<td>All 301 pages</td>
+<td>0.54s</td>
+<td>0.18s</td>
+<td>0.40s</td>
+<td>74%</td>
+</tr>
+<tr>
+<td>Tags pages</td>
+<td>1.80s</td>
+<td>0.69s</td>
+<td>~1.10s</td>
+<td>62%</td>
+</tr>
+<tr>
+<td>Month pages</td>
+<td>0.21s</td>
+<td>0.12s</td>
+<td>0.09s</td>
+<td>43%</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Overall</td>
+<td>4.08s</td>
+<td>1.53s</td>
+<td>~2.59s</td>
+<td>61%</td>
+</tr>
+</tbody></table>
+<p>Overall this change made me win 2.6sec with every build. This is about 61% faster on every build. Yeah.
+Great for a first start. The potential was 71% and we realized 61% of it, sounds very confirming.</p>
+<p>Is that enough to make my fan not spin anymore? No. It is just a good start.
+I have set up some metrics that I can start working with. But I see a lot of things to do.
+I want to</p>
+<ol>
+<li>Set up a proper metrics output, sorted by slowest first, so I can just go there and work on the top issue.</li>
+<li>Nicer integration in the code, it is pretty much copy+paste and &quot;throw in code&quot; right now.</li>
+<li>Open a proper profiler, to get proper insights that I do not get with this simple tooling.
+I can imagine that there are functions that are easy to optimize and will have a big effect.
+I am aware that &quot;big effect&quot; from now on does not mean 50% anymore, but maybe I get close to 10% or alike,
+even though I doubt it. But without measuring I won&#39;t know.</li>
+</ol>
+<p>Keep an eye on this blog, and/or the repo this is not over yet. Have fun building, measuring, speeding and repeating.<br>Just <strong>don&#39;t optimize too early</strong>!</p>
+<h2 id="epilogue">Epilogue</h2>
+<p>I double checked <a href="https://github.com/wolframkriesing/site-stitcher/pull/1">the result of this change</a>, the blog post (you are reading) and the code over all.
+That made me clean up the code a bit and making the timing output a bit nicer. I removed
+some old code, some ugly code and beautified the output (<a href="https://github.com/wolframkriesing/site-stitcher/pull/1/commits/a6ba00c79d03da63111eecbc9341a9f746d8b350">the commit</a>). It is not this code that I would love to see grow without
+being refactored, since it already starts to contain some hard to read parts. The name &quot;software&quot; says it all, it is soft.</p>
+<p>The output looks like this now:</p>
+<pre><code class="language-text">Preparing data
+========
+Load source files: 126.193ms
+Load blog posts: 218.873ms
+Relate and group posts: 82.481ms
+
+Building pages
+========
+All posts: 321.321ms
+All 301 pages: 161.774ms
+All tags pages: 476.84ms
+All month pages: 75.222ms
+Home page: 23.995ms
+About page: 24.028ms
+404 page: 26.203ms
+-----
+Overall: 1.552s
+-----</code></pre>
+<style>
+td {
+  text-align: right;
+}
+td:first-child {
+  text-align: left;
+}
+td:last-child {
+  background-color: lightpink;
+}
+</style>
+
+  
+  
+
+
+    </div>
+    <div class="sidebar right">
+      
+  
+
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <a href="/">Home</a><br/>
+      <a href="/about">About</a><br/>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <a href="https://twitter.com/wolframkriesing">Twitter</a><br/>
+      <a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </nav>
+
+</body>
+</html>

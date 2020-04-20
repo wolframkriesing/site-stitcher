@@ -27,6 +27,12 @@ body {
     display: none;
   }
 }
+@media screen and (max-width: 900px) {
+  /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
+  .sidebar.right {
+    display: none;
+  }
+}
 
 blockquote {
   font-style: italic;
@@ -80,6 +86,36 @@ nav {
     }
   }
 
+.content {
+  max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
+}
+pre {
+  padding: 1rem;
+  overflow: auto; /* make the code scrollable if the width is too narrow */
+}
+pre, p code {
+  font-size: 1.2rem;
+  background-color: lightyellow;
+}
+
+figcaption {
+  font-style: italic;
+}
+figure {
+}
+  figure.float-right {
+    float: right;
+  }
+@media screen and (max-width: 600px) {
+  figure.float-right {
+    float: none;
+  }
+}
+
+td {
+  padding: 0.5rem;
+  background-color: lightgrey;
+}
 
 .metadata {
   color: gray;
