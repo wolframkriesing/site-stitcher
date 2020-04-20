@@ -42,6 +42,7 @@ Spoiler: I gained more than 50% of speed.
     * [Recap](/blog/2020/04/19-build-measure-speed-repeat/#recap)
 * [Solutions to speed up](/blog/2020/04/19-build-measure-speed-repeat/#solutions-to-speed-up)
 * [Conclusion](/blog/2020/04/19-build-measure-speed-repeat/#conclusion)
+* [Epilogue](/blog/2020/04/19-build-measure-speed-repeat/#epilogue)
 
 ## Deciding what to fix
 The above introduction shows that there is not only one thing I could optimize, there is not only the
@@ -141,10 +142,13 @@ Now let me comment out the fs operations.
 
 The last time after (of course) running it a couple of times
 was "1.329s". Roughly each of them was around 1.4seconds. That means about 1 second faster. Nice learning.
-Though with 1.4 second we are already much better, there is still a lot of beef left.
+The nifty thing is though, I can not remove this part completely, I will have to write to the filesystem
+at some point in time.\
+Though with 1.4s we know there is a potential of speeding it up by 41%. So there is still a lot of beef left, 59%.
+Let's see if there is some low hanging fruits there.
 
 ### Template Rendering Speed
-Let's look at the third "maybe slow" thing. The template rendering.
+The third "maybe slow" thing is the template rendering, the function we call is `tundra.getRender('post.html', ...)`.
 We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
 Now let me comment out only the template rendering code.
 
@@ -169,7 +173,7 @@ Running this a couple of times, the numbers did suprise me a little bit. Now the
 here. Very interesting.
 
 ### Recap
-Let's recap quickly what we learned about the easy measurements.
+Let's recap quickly what we learned in the measuring phase.
 
 | action | before | after | win | gain |
 | --- | --- | --- | --- | --- |
@@ -177,7 +181,7 @@ Let's recap quickly what we learned about the easy measurements.
 | Turn off template rendering | 2.4s | 0.7s | 1.7s | 71% |
 
 There is a lot of potential in the template rendering times. The good thing is, every page render will benefit from that.
-As calculated above, that is 336 pages, so optimizing this can cause big gains in speed.
+As calculated above, that is at least 336 pages, so optimizing this can cause big gains in speed.
 
 ## Solutions to speed up
 
@@ -206,7 +210,7 @@ tundra's stdlib is always loaded, which I don't need. But the approach is what I
 Maybe I get around to help moving it forward a bit, I have ideas. But it's not my project, so there might be other plans
 than mine behind it.
 
-Back to optimizing the build time by using tundr's cache option.
+Back to optimizing the build time by using tundra's cache option.
 So i turn on the `cache: true`. I do this at the top of the file, where I instanciate the `tundra` variable.
 
 ```javascript
@@ -216,11 +220,18 @@ const tundra = new Tundra();
 const tundra = new Tundra({cache: true});
 ```
 
-That's it. While I am writing this, every time I click "Save" it rebuilds and I am looking at the numbers again.
-`Tags pages: 780.203ms` Wow, let me re-confirm. Change, Save. `Tags pages: 881.162ms`. I have to turn the cache off
+That's it. While I am writing this, every time I click "Save" it rebuilds and I am looking at the numbers again.\
+`Tags pages: 780.203ms`\
+Wow. Let me re-confirm.\
+Change, Save.\
+`Tags pages: 881.162ms`.\
+I have to turn the cache off
 again, I want to see that nothing else has changed (I don't think it has anything to do with me moving to the balcony
-to continue writing under the beautiful sun). Set `cache: false` and `Tags pages: 2.536s`. I am assuming I am on the right
-path. Cool. Went down from **2.4s to 0.8s, 66% faster**. Sounds cool, but also feels like the low hanging fruits are gone.
+to continue writing under the beautiful sun). Set `cache: false` and\
+`Tags pages: 2.536s`.\
+I am assuming I am on the right
+path. Cool. The time for the build went down from **2.4s to 0.8s, 66% faster**. 
+Sounds cool, but also feels like the last low hanging fruit. But it was worth being picked.
 Now there is only hard work left, or rather the fun work.
 
 I am not really sure why tundra doesn't come with the the cache turned on by default.
@@ -283,8 +294,38 @@ I want to
    I am aware that "big effect" from now on does not mean 50% anymore, but maybe I get close to 10% or alike,
    even though I doubt it. But without measuring I won't know.
 
-Keep an eye on this blog, and/or the repo this is not over yet.\
-Have fun measuring and building faster, just **don't optimize too early**!
+Keep an eye on this blog, and/or the repo this is not over yet. Have fun building, measuring, speeding and repeating.\
+Just **don't optimize too early**!
+
+## Epilogue
+
+I double checked [the result of this change][pr], the blog post (you are reading) and the code over all.
+That made me clean up the code a bit and making the timing output a bit nicer. I removed
+some old code, some ugly code and beautified the output ([the commit][8]). It is not this code that I would love to see grow without
+being refactored, since it already starts to contain some hard to read parts. The name "software" says it all, it is soft.
+
+The output looks like this now:
+
+```text
+Preparing data
+========
+Load source files: 126.193ms
+Load blog posts: 218.873ms
+Relate and group posts: 82.481ms
+
+Building pages
+========
+All posts: 321.321ms
+All 301 pages: 161.774ms
+All tags pages: 476.84ms
+All month pages: 75.222ms
+Home page: 23.995ms
+About page: 24.028ms
+404 page: 26.203ms
+-----
+Overall: 1.552s
+-----
+```
 
 
 [1]: https://github.com/wolframkriesing/site-stitcher/tree/466ae04603a99f8d529ec3ec8c9811d27fe0823d#develop
@@ -296,6 +337,8 @@ Have fun measuring and building faster, just **don't optimize too early**!
 [7]: https://github.com/Usbac/tundra/wiki/General#defining-options
 [tundra]: https://github.com/Usbac/tundra
 [Jacek]: https://twitter.com/jacek_smolak
+[pr]: https://github.com/wolframkriesing/site-stitcher/pull/1
+[8]: https://github.com/wolframkriesing/site-stitcher/pull/1/commits/a6ba00c79d03da63111eecbc9341a9f746d8b350
 
 <style>
 td {
