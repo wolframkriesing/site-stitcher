@@ -17,18 +17,11 @@ Read on about how I build, measured, sped up and will repeat for [site-stitcher,
     <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a>
 </blockquote>
 
-The content of this post:
-* [Deciding what to fix](/blog/2020/04/19-speed-up-the-build-process/#deciding-what-to-fix)
-* [Rough Analysis](/blog/2020/04/19-speed-up-the-build-process/#rough-analysis)
-* [Easy and Fast Metrics](/blog/2020/04/19-speed-up-the-build-process/#easy-and-fast-metrics)
-* [Any Quick Fixes?](/blog/2020/04/19-speed-up-the-build-process/#any-quick-fixes)
-* [Conclusion](/blog/2020/04/19-speed-up-the-build-process/#conclusion)
-
-Here I am. I got to the point that my fan just made my machine take off, at least it sounded like.
+I got to the point that my fan just made my machine take off, at least it sounded like.
 That was while I was running `npm run dev:start` which I use to continuously build the posts you are looking at, 
 it uses a special [`inotifywait` setup][2] which runs the build process every time one file
-changes, no throttling or anything. Now imagine you switch git branches. That triggered me to dig into the
-speed of the build process.\
+changes, no throttling or anything. Now imagine you switch git branches and a lot of files change at once.
+That triggered me to dig into the speed of the build process.\
 Blame it on me having a Mac and [using a Docker setup][1], 0:1 against me, totally right, but that's a different
 battle field, that I will come back to eventually.
 
@@ -36,6 +29,19 @@ The worst notable thing is that I start preventing to use `npm run dev:start` th
 which I actually made for assisting me. Instead I went back to use `npm run start` which does one build
 and start the webserver to serve my site locally, and I stop and restart this script once I want to see my
 updates being built.
+
+Here is the detailled process of how I went about measuring and fixing the biggest slow down of my build process.
+It is a standard build, measure, learn cycle, and it won't be done after this blog post.
+Spoiler: I gained more than 50% of speed.
+
+* [Deciding what to fix](/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix)
+* [The Big Picture](/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture)
+* [Measure](/blog/2020/04/19-build-measure-speed-repeat/#measure)
+    * [Filesystem Access Speed](/blog/2020/04/19-build-measure-speed-repeat/#filesystem-access-speed)
+    * [Template Rendering Speed](/blog/2020/04/19-build-measure-speed-repeat/#template-rendering-speed)
+    * [Recap](/blog/2020/04/19-build-measure-speed-repeat/#recap)
+* [Solutions to speed up](/blog/2020/04/19-build-measure-speed-repeat/#solutions-to-speed-up)
+* [Conclusion](/blog/2020/04/19-build-measure-speed-repeat/#conclusion)
 
 ## Deciding what to fix
 The above introduction shows that there is not only one thing I could optimize, there is not only the
@@ -49,7 +55,7 @@ speed of the build process. I could also:
 
 Item 1. will happen sooner or later (I am saying that to myself for 10 years already, so I am confident, hehe).
 Fixing 2. is something I looked up and did not find an option on "inotifywait" man pages, I might be able to
-do it with linux tooling but I experience myself wasting a lot of time in digging into that, so I avoid this
+do it with linux tooling but I experience myself wasting a lot of time digging into that, so I avoid this
 rabbit hole now.
 
 I am definitely not going to do 3. since this feels just counter intuitive to me. Why should I circumvent
@@ -65,7 +71,13 @@ I am going with option 4., I am fixing the actual core of the build process to b
 from that in many more ways.
 Let's see how this turns out, since I am writing this before I actually do write any code.
 
-## Rough Analysis
+Note: After having proof read this post, [Jacek] suggested to have a build just for one 
+page, which would prevent all dependency complexity and shorten the build time while writing one blog post.
+Sounds like a great idea for having a fast build process, accepting the drawback of not building all pages everytime.
+Sometimes a switch in processes can also lead you to a goal, even though you had might not expected to go there.
+But I am not taking that path now, it feels like I would put off work to later.
+
+## The Big Picture
 
 The time the build process needs to build my entire blog is also too long, I feel. The thing that really sucks is that
 it will become slower with every new post I am writing (like this one) and every feature I add to the blog.
@@ -99,7 +111,7 @@ It is not surprising that the timings for those parts that really generate the m
 But as I had learned I must always just **optimize the slowest first, measure again and go again for the slowest then**
 (and by then it might be something else that is slowest).
 
-## Easy and Fast Metrics 
+## Measure 
 
 Once I start having numbers I can't stop diving deeper into them.
 So I start by looking at [the code that build the tag pages][5] 
@@ -113,7 +125,7 @@ Both functions just do three "maybe slow" things:
   await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow
 ```
 
-### Measure Filesystem Access
+### Filesystem Access Speed
 I will turn off the `fs.promises` things, since they go onto the filesystem and that can not be fast, right?
 The time that it took just now (before I save this change to this blog posts markdown file)
 to build all the tag pages was "2.293s". I ran it a couple of times, it was always around 2.4seconds.
@@ -131,7 +143,7 @@ The last time after (of course) running it a couple of times
 was "1.329s". Roughly each of them was around 1.4seconds. That means about 1 second faster. Nice learning.
 Though with 1.4 second we are already much better, there is still a lot of beef left.
 
-### Measure Template Rendering
+### Template Rendering Speed
 Let's look at the third "maybe slow" thing. The template rendering.
 We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
 Now let me comment out only the template rendering code.
@@ -167,7 +179,7 @@ Let's recap quickly what we learned about the easy measurements.
 There is a lot of potential in the template rendering times. The good thing is, every page render will benefit from that.
 As calculated above, that is 336 pages, so optimizing this can cause big gains in speed.
 
-## Any Quick Fixes?
+## Solutions to speed up
 
 Regarding the filesystem access, I have no huge idea right now if there is potential.
 I can think of some little things, but I know that eventually the stuff needs to get written to the filesystem and
@@ -283,6 +295,7 @@ Have fun measuring and building faster, just **don't optimize too early**!
 [6]: https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L50-L57
 [7]: https://github.com/Usbac/tundra/wiki/General#defining-options
 [tundra]: https://github.com/Usbac/tundra
+[Jacek]: https://twitter.com/jacek_smolak
 
 <style>
 td {

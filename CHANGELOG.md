@@ -1,6 +1,5 @@
 # v2
-- [ ] render the code properly on narrow screen
-- [ ] show embedded code that "commit" link links to, if possible
+- [x] render the code properly on narrow screen
 - [x] rename post to "Build, Measure, Speed, Repeat"
 
 - [ ] syntax highlight code
@@ -89,6 +88,9 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] show embedded code that "commit" link links to, if possible
+      sounds like a nice web component
+- [ ] generate an index, see "Build, Measure, Speed, Repeat" post, that index could be auto generated
 - [ ] allow linking headline, esp useful on long article more-html ftw ;)
 - [ ] when selected some text open a "tweet this" or "share this" button
 - [ ] use a different font, to also be able to outline and distinguish source code better
