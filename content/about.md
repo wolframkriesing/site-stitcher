@@ -4,7 +4,22 @@
 
 Find my notes and thoughts about this page here. I intend to update this continuously. Let's see ;).
 
-April 12th, 2020
+### April 21, 2020 - Tidbits section started
+
+As stated below I want to use this site to share knowledge.
+One thing that I constantly do is searching for this one command, code snippet or alike
+which I need just now, find it on the web, use it and mostly forget it again, until I need it
+again. Since I learned that this happens I am mostly tweeting those kinda things nowadays. 
+One I need this piece of knowledge again, and that happens regularly (that's actually what made me start blogging) 
+I have to go to twitter and search for those things in my tweets. Not always it's easy
+to find things on twitter, it just has it's own will on showing me search results.
+
+Today I started [/tidbits/](/tidbits/) where I will just "throw" the knolwedge pieces
+at. I have no real plan on what it looks like and if there is any categorization or alike.
+I want to have this place to start with, maybe I am moving more towards putting the content 
+there first and tweeting second. I own it. Indieweb ftw, it's just everywhere.
+
+### April 12, 2020 - The Start until picostitch.com
 
 It all started a while ago, around 2005 that I actually started blogging ([see my old pages on archive.org][1]).
 Back then I started blogging I am sure also because many people did it, but my main reason was that I kept

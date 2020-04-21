@@ -13,6 +13,7 @@ const tundra = new Tundra({cache: true});
 
 const navigationItems = [
   {path: '/', name: 'Home'},
+  {path: '/tidbits', name: 'Tidbits'},
   {path: '/about', name: 'About'},
 ];
 const defaultRenderParams = {
@@ -61,6 +62,16 @@ const generateAboutPage = async () => {
   const destFilename = path.join(destDir, 'index.html');
   const content = marked(await fs.promises.readFile(path.join(contentDir, 'about.md'), 'utf8'));
   const renderedFile = tundra.getRender('about.html', {...defaultRenderParams, content});
+  await fs.promises.writeFile(destFilename, renderedFile);
+}
+
+const generateTidbitsPage = async () => {
+  const destDir = path.join(__dirname, '../_output', 'tidbits');
+  const contentDir = path.join(__dirname, '../content');
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const content = marked(await fs.promises.readFile(path.join(contentDir, 'tidbits.md'), 'utf8'));
+  const renderedFile = tundra.getRender('tidbits.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
@@ -124,6 +135,7 @@ import {findRelatedPosts} from './related-posts.js';
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
   await timeIt('Home page', () => generateHomePage(posts));
   await timeIt('About page', () => generateAboutPage());
+  await timeIt('Tidbits page', () => generateTidbitsPage());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   console.log('-----');
   console.timeEnd('Overall');
