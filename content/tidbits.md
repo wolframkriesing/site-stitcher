@@ -48,7 +48,7 @@ Are you sure you want to continue? [y/N] y
 Total reclaimed space: 0B
 ```
 
-Run `docker image prune --all` to gain a lot of disk space with the trade off of removing all your images, which will be downloaded when needed.
+Run `docker image prune --all` to gain a lot of disk space with the trade off of removing all your images, which will be downloaded when needed again.
 
 ## Upgrade npm Package to Latest Version
 
