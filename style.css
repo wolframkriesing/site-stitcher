@@ -36,6 +36,8 @@ body {
 
 blockquote {
   font-style: italic;
+  margin: 0;
+  display: inline-block;
 }
 
 a {
@@ -215,7 +217,6 @@ blockquote.twitter-tweet {
   border-color: #eee #ddd #bbb;
   border-style: solid;
   border-width: 1px;
-  margin-bottom: 1rem;
   padding: 0 1rem 1rem 1rem;
 }
   blockquote.twitter-tweet p {
