@@ -33,13 +33,17 @@ Deleted Containers:
 ...
 ```
 
-## April 21, 2020
+## Upgrade npm package to latest version
 
-`npm install <package>@latest` to update to the latest version of a package, 
-no matter the minor, major version, it always goes to the latest
+Run `npm install <package>@latest` to update to the latest version of a package, 
+no matter the minor, major version, it always goes to the latest.
+
+##  Diff of the files in two directories
 
 `diff --recursive <dir1> <dir2>` to diff the files and their contents in two directories
 I just needed to do some golden master tests after updating a dependency
+
+## MacOS screenshot of the current window only
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">
     MacOS: Woa, I didn&#39;t know you can take screenshots of windows with transparent backround 
