@@ -5,7 +5,12 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
-## Free Disk Space used by Docker
+## Capitalization Rules for Headlines
+
+I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow it.\
+There are a couple (SEO) sites that capitalize your headline, you'll find them when you need 'em.
+
+## Free Disk Space Used by Docker
 
 Use `docker system df` to look at the disk space used by docker, to see if it is worth it, or to be better informed.
 I got this output:
@@ -33,17 +38,17 @@ Deleted Containers:
 ...
 ```
 
-## Upgrade npm package to latest version
+## Upgrade npm Package to Latest Version
 
 Run `npm install <package>@latest` to update to the latest version of a package, 
 no matter the minor, major version, it always goes to the latest.
 
-##  Diff of the files in two directories
+##  Diff of the Files in Two Directories
 
 `diff --recursive <dir1> <dir2>` to diff the files and their contents in two directories
 I just needed to do some golden master tests after updating a dependency
 
-## MacOS screenshot of the current window only
+## MacOS Screenshot of the Current Window Only
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">
     MacOS: Woa, I didn&#39;t know you can take screenshots of windows with transparent backround 
