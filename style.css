@@ -223,10 +223,7 @@ blockquote.twitter-tweet {
     font-weight: normal;
   }
   blockquote.twitter-tweet a {
-    color: inherit;
     font-weight: normal;
-    text-decoration: none;
-    outline: 0 none;
   }
   blockquote.twitter-tweet a:hover,
   blockquote.twitter-tweet a:focus {
