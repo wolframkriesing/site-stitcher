@@ -548,6 +548,7 @@ the wrong code that one could copy ;).</p>
 <h2 id="capitalization-rules-for-headlines">Capitalization Rules for Headlines</h2>
 <p>I didn&#39;t know that for English <a href="https://en.wikipedia.org/wiki/Capitalization#Titles">&quot;sources disagree on the details of capitalizing prepositions&quot;</a>. I read so often &quot;capitalize all words of four letters or more&quot;. What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all &quot;major words&quot;, they call them.<br>There are a couple (SEO) sites that capitalize your headline  correctly, you&#39;ll find them when you need &#39;em.</p>
 <h2 id="free-disk-space-used-by-docker">Free Disk Space Used by Docker</h2>
+<p>TL;DR use any/all of <code>docker system prune</code>, <code>docker container prune</code>, <code>docker image prune</code>,  <code>docker volume prune</code> or <code>docker network prune</code> to free the according space.</p>
 <p>Use <code>docker system df</code> to look at the disk space used by docker, to see if it is worth it, or to be better informed.
 I got this output:</p>
 <pre><code>&gt; docker system df
@@ -566,7 +567,11 @@ WARNING! This will remove:
 Are you sure you want to continue? [y/N] y
 Deleted Containers:
 0b6aafd9ce1d346bec7470f6042b6e1b30516973e096ef1954ccd823f9bb846a
-...</code></pre><h2 id="upgrade-npm-package-to-latest-version">Upgrade npm Package to Latest Version</h2>
+...</code></pre><p>After that  no containers to be removed anymore, proof:</p>
+<pre><code>&gt; docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B</code></pre><h2 id="upgrade-npm-package-to-latest-version">Upgrade npm Package to Latest Version</h2>
 <p>Run <code>npm install &lt;package&gt;@latest</code> to update to the latest version of a package, 
 no matter the minor, major version, it always goes to the latest.</p>
 <h2 id="diff-of-the-files-in-two-directories">Diff of the Files in Two Directories</h2>
