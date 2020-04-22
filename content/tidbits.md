@@ -12,6 +12,8 @@ There are a couple (SEO) sites that capitalize your headline  correctly, you'll 
 
 ## Free Disk Space Used by Docker
 
+TL;DR use any/all of `docker system prune`, `docker container prune`, `docker image prune`,  `docker volume prune` or `docker network prune` to free the according space.
+
 Use `docker system df` to look at the disk space used by docker, to see if it is worth it, or to be better informed.
 I got this output:
 ```
@@ -37,6 +39,15 @@ Deleted Containers:
 0b6aafd9ce1d346bec7470f6042b6e1b30516973e096ef1954ccd823f9bb846a
 ...
 ```
+
+After that  no containers to be removed anymore, proof:
+```
+> docker container prune
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+```
+
 
 ## Upgrade npm Package to Latest Version
 
