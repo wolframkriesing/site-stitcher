@@ -7,8 +7,8 @@ the wrong code that one could copy ;).
 
 ## Capitalization Rules for Headlines
 
-I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow it.\
-There are a couple (SEO) sites that capitalize your headline, you'll find them when you need 'em.
+I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
+There are a couple (SEO) sites that capitalize your headline  correctly, you'll find them when you need 'em.
 
 ## Free Disk Space Used by Docker
 
