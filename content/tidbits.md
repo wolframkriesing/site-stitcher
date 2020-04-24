@@ -8,7 +8,7 @@ the wrong code that one could copy ;).
 ## OKRs are Works in Progress
 
 I read it multiple times already in [Measure What Matters](https://www.goodreads.com/book/show/39286958-measure-what-matters)
-by John Doerr, that OKRs are flexible. I normally underline those things, but now I have to note it somewhere where I can find it again. On page 54 he writes
+by John Doerr, that OKRs are flexible. I normally underline those things, but now I have to note it somewhere where I can find it again without physically needing the book. On page 54 he writes
 
 > Remember that an OKR can be modified or even scrapped at any point in its cycle. Sometimes the "right" key result 
 > surface week or months after a goal is  put into play.
