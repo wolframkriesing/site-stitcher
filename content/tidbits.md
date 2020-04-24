@@ -5,6 +5,18 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## OKRs are Works in Progress
+
+I read it multiple times already in [Measure What Matters](https://www.goodreads.com/book/show/39286958-measure-what-matters)
+by John Doerr, that OKRs are flexible. I normally underline those things, but now I have to note it somewhere where I can find it again. On page 54 he writes
+
+> Remember that an OKR can be modified or even scrapped at any point in its cycle. Sometimes the "right" key result 
+> surface week or months after a goal is  put into play.
+
+The TL;DR for me is the sentence after it
+
+> OKRs are inherently work in progress, not commandments chiseled in stone.
+
 ## Capitalization Rules for Headlines
 
 I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
