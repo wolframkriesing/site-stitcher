@@ -17,6 +17,11 @@ The TL;DR for me is the sentence after it
 
 > OKRs are inherently works in progress, not commandments chiseled in stone.
 
+**Learning and mastering OKRs takes time and practice.** On page 68 Brett Kopf of Remind says:
+
+> OKRs are basically simple, but you don't master the process off the bat. Early on, we'd be off by 
+> miles in our company-level objectives, mostly on the way-too-ambitious side.
+
 ## Capitalization Rules for Headlines
 
 I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
