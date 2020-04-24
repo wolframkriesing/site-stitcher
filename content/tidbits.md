@@ -22,6 +22,11 @@ The TL;DR for me is the sentence after it
 > OKRs are basically simple, but you don't master the process off the bat. Early on, we'd be off by 
 > miles in our company-level objectives, mostly on the way-too-ambitious side.
 
+On page 75 David from Nuna confirms that:
+
+> You're not going to get the system just right the first time around. It's not going to be perfect
+> the second or the third  time, either. But don't get discouraged. Persevere. You need to adapt it to make it your own.
+
 ## Capitalization Rules for Headlines
 
 I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
