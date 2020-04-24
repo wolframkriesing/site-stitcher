@@ -28,6 +28,6 @@ else
   docker run --rm -it \
     --name ${CONTAINER_NAME} \
     --volume $(pwd):/app \
-    --publish 5000:8080 \
+    --publish 5000:5000 \
     ${IMAGE_NAME} $@
 fi
