@@ -3,9 +3,69 @@ tags: jinja, template, spaceless
 postTypes: post  
 oldUrls: /blog/2017/01/the-magic-dash-in-jinja-template-block/  
 
-# The magic dash in a Jinja template block
+# What is `-%}` for, in a Jinja Template? or The Magic Dash in a Jinja Template Block
 
-What the heck does `-%}` mean in a Jinja template?
+What the heck does `-%}` mean in a Jinja template?  
+TL;DR: It removes whitespaces inside a block. The offical docs say it "strip[s] whitespace in templates [...] add a minus sign (-) to the start or end of a block", so `{%- ` at the end of the block works too, but you better [play with around with it to really understand it][try-jinja] the dash is quite flexible.
+
+## Example with all Whitespaces Removed - A lot of Dashes Used
+
+```
+Dear {{- name -}}
+,
+
+{%- if not asleep -%}    
+  <p>
+  Welcome!
+  </p>
+{%- endif -%}
+
+The end
+```
+
+Notice the **six dashes**, not only in blocks `{%-`  and `-%}` but also when rendering variables `{{-` and `-}}`. (I did not find this in the docs though). The above template renders out the following result:
+
+```
+DearJane,<p>
+··Welcome!
+··</p>The·end
+```
+
+## Example with No Whitespaces Removed - no dashes used
+
+The same template, just  **all dashes removed** looking like this:
+
+```
+Dear {{ name }}
+,
+
+{% if not asleep %}    
+  <p>
+  Welcome!
+  </p>
+{% endif %}
+
+The end
+```
+
+renders a lot spaces and newlines:
+
+```
+Dear·Jane
+,
+
+····
+··<p>
+··Welcome!
+··</p>
+
+
+The·end
+```
+
+FYI: I tried all of the above in [jinja.quantprogramming.com][try-jinja].
+
+## I Discovered it Through Lektor
 
 By using Lektor I need to learn [Jinja][jinja], the template engine used. And I have to say it has the addons that I had always wished for in Django's template language (swig). For example there is `else` for the `for` loop, which applies when there is nothing to loop over.
 
@@ -30,4 +90,5 @@ What a blessing. Something we always wanted in a template language. I remember b
 
 [jinja]: http://jinja.pocoo.org/
 [lektor-tags]: https://pypi.python.org/pypi/lektor-tags
-[jinja-whitespace-control]: http://jinja.pocoo.org/docs/2.9/templates/#whitespace-control
+[jinja-whitespace-control]: https://jinja.palletsprojects.com/en/2.11.x/templates/#whitespace-control
+[try-jinja]: http://jinja.quantprogramming.com
