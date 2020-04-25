@@ -4,32 +4,30 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.content-wrapper {
+main {
   display: flex;
 }
-  .sidebar {
+  aside {
     padding: 2rem;
   }
-  .sidebar > * {
+  aside > * {
     margin-bottom: 2rem;
     white-space: nowrap;
   }
-  .sidebar .tags {
+  aside .tags {
     max-width: 15rem;
-    height: 20.5rem;
-    overflow: hidden;
   }
-  .sidebar .tags:hover {
+  aside .tags:hover {
     height: auto;
   }
 @media screen and (max-width: 600px) {
-  .sidebar {
+  aside {
     display: none;
   }
 }
 @media screen and (max-width: 900px) {
   /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
-  .sidebar.right {
+  aside.right {
     display: none;
   }
 }
@@ -45,19 +43,19 @@ a {
     color: black;
   }
 
-header {
+body > header {
   display: flex;
 }
-  header .sitename {
+  body > header .sitename {
     flex: 1;
     text-align: center;
   }
-    header .sitename a {
+    body > header .sitename a {
       font-size: 2rem;
     }
-    header .sitename .subtitle {
+    body > header .sitename .subtitle {
     }
-  header nav {
+  body > header nav.primary {
     flex: 2;
   }
 
@@ -65,26 +63,32 @@ header {
 .page-home h1 {
   display: inline;
 }
-.latest-post {
+article.latest {
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
 
-nav {
+nav.primary {
   display: inline;
 }
-  nav ul {
+  nav.primary ul {
     display: inline;
   }
-  nav li {
+  nav.primary li {
     display: inline;
     margin-right: 2rem;
   }
   @media screen and (max-width: 600px) {
-    header nav {
+    nav.primary {
       display: none;
     }
   }
+
+nav ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 .content {
   max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
@@ -121,17 +125,9 @@ td {
   color: gray;
 }
 
-.post {
-  margin-top: 2rem;
+.page-home article.preview {
+  margin-top: 3rem;
 }
-  .post h2 {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-  }
-  .post p {
-    margin: 0;
-    padding: 0;
-  }
 @media screen and (max-width: 600px) {
 }
 

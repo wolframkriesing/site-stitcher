@@ -18,22 +18,25 @@
 {[ endblock ]}
 
 {[ block content ]}
-  <h1>{{post.headline}}</h1>
-  <p class="metadata">
-    Wolfram Kriesing
-    - {{toReadableDate(post.dateCreated)}}
-    {% if (post.tags.length > 0) { %}
-      - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
+  <article>
+    <header>
+      <h1>{{post.headline}}</h1>
+      <p class="metadata">
+        Wolfram Kriesing
+        - {{toReadableDate(post.dateCreated)}}
+        {% if (post.tags.length > 0) { %}
+          - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
+        {% } %}
+      </p>
+    </header>
+
+    {!post.bodyAsHtml!}
+
+    {% if (post.youtubeId) { %}
+      <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/{{ post.youtubeId }}?start={{ post.videoStartTime }}" frameborder="0" allowfullscreen></iframe>
     {% } %}
-  </p>
-
-  {!post.bodyAsHtml!}
-
-  {% if (post.youtubeId) { %}
-    <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/{{ post.youtubeId }}?start={{ post.videoStartTime }}" frameborder="0" allowfullscreen></iframe>
-  {% } %}
-  {% if (post.vimeoId) { %}
-    <iframe src="https://player.vimeo.com/video/{{ post.vimeoId }}" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  {% } %}
-
+    {% if (post.vimeoId) { %}
+      <iframe src="https://player.vimeo.com/video/{{ post.vimeoId }}" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% } %}
+  </article>
 {[ endblock ]}

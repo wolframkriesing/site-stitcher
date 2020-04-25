@@ -5,35 +5,31 @@
 {[ block pageTitlePrefix ]}Blog{[ endblock ]}
 
 {[ block content ]}
-  <div class="latest-post">
-    <div class="metadata">
-      <span itemprop="datePublished">{{toReadableDate(posts[0].dateCreated)}}</span>
-      - by Wolfram Kriesing
-      {% if (posts[0].tags.length > 0) { %}
-        <br/>
-        {{ posts[0].tags.map(tag => `#${tag}`).join(' ') }}
-      {% } %}
-    </div>
-    <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}</h1>
+  <article class="latest">
+    <header>
+      <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}</h1>
+      <p class="metadata">
+        Wolfram Kriesing
+        - {{toReadableDate(posts[0].dateCreated)}}
+        {% if (posts[0].tags.length > 0) { %}
+          - tagged with: {{ posts[0].tags.map(tag => `#${tag}`).join(' ') }}
+        {% } %}
+      </p>
+    </header>
     <p class="abstract">{!posts[0].abstractContentAsHtml!}</p>
     <a href="{{posts[0].url}}">Read more ...</a>
-  </div>
+  </article>
 
   {% posts.slice(1).map(post => { %}
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">{{toReadableDate(post.dateCreated)}}</span>
-        - by Wolfram Kriesing
-        {% if (post.tags.length) : %}
-        - {% post.tags.map(tag => { %}#<span itemprop="keywords">{{tag}}</span> {% }) %}
-        {% end %}
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
         {{ post.hasVideo ? ' 📺' : '' }}</h2>
+      </header>
+      <div class="content">
         <p class="abstract">{!post.abstractContentAsHtml!}</p>
       </div>
-    </div>
+    </article>
   {% }) %}
 {[ endblock ]}
