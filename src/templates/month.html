@@ -8,20 +8,15 @@
   <h1>{{toReadableDate(yearAndMonth)}}</h1>
 
   {% posts.map(post => { %}
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">{{toReadableDate(post.dateCreated)}}</span>
-        - by Wolfram Kriesing
-        {% if (post.tags.length) : %}
-          - {% post.tags.map(tag => { %}#{{tag}} {% }) %}
-        {% end %}
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
         {{ post.hasVideo ? ' 📺' : '' }}</h2>
+      </header>
+      <div class="content">
         <p class="abstract">{!post.abstractContentAsHtml!}</p>
       </div>
-    </div>
+    </article>
   {% }) %}
 {[ endblock ]}
