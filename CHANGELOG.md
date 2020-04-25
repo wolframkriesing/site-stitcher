@@ -1,10 +1,10 @@
 # v2
 - [ ] use semantic html
-  - [ ] use <main>
-  - [ ] use <article> in post
-  - [ ] use <aside>
-  - [ ] use <header> for an article
-  - [ ] each article on the frontpage is an <article>
+  - [x] use <main>
+  - [x] use <article> in post
+  - [x] use <aside>
+  - [x] use <header> for an article
+  - [x] each article on the frontpage is an <article>
   - [ ] add a breadcrumb navigation
 - [x] see learnings branch, there is always many of those little toolies that  learn every day
       and i keep forgetting them, maybe a section on the site for them? https://github.com/wolframkriesing/site-stitcher/pull/2/files
