@@ -38,27 +38,23 @@
 
   <main>
     <aside>
-      <section class="tags">
-        <header><h3>Top Tags</h3></header>
-        <nav>
-          <ol>
-            {% groupedBlogPosts.byTag.slice(0, 10).forEach(group => { %}
-            <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
-            {% }) %}
-          </ol>
-        </nav>
-      </section>
+      <nav class="tags">
+        <header>Top Tags</header>
+        <ol>
+          {% groupedBlogPosts.byTag.slice(0, 10).forEach(group => { %}
+          <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
+          {% }) %}
+        </ol>
+      </nav>
 
-      <section class="months">
-        <header><h3>Posts by Month</h3></header>
-        <nav>
-          <ol>
-            {% groupedBlogPosts.byMonth.forEach(group => { %}
-            <li><a href="/blog/{{group.yearAndMonth.replace('-', '/')}}/">{{toReadableDate(group.yearAndMonth)}}</a></li>
-            {% }) %}
-          </ol>
-        </nav>
-      </section>
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          {% groupedBlogPosts.byMonth.forEach(group => { %}
+          <li><a href="/blog/{{group.yearAndMonth.replace('-', '/')}}/">{{toReadableDate(group.yearAndMonth)}}</a></li>
+          {% }) %}
+        </ol>
+      </nav>
     </aside>
     <div class="content">
       {[ block content ]}
