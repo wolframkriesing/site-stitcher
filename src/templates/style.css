@@ -84,6 +84,12 @@ nav.primary {
     }
   }
 
+nav ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 .content {
   max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
 }
