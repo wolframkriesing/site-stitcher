@@ -37,7 +37,7 @@
   </header>
 
   <main>
-    <div class="sidebar">
+    <aside>
       <div class="tags">
         {% groupedBlogPosts.byTag.forEach(group => { %}
         <a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a><br/>
@@ -49,7 +49,7 @@
         <a href="/blog/{{group.yearAndMonth.replace('-', '/')}}/">{{toReadableDate(group.yearAndMonth)}}</a><br/>
         {% }) %}
       </div>
-    </div>
+    </aside>
     <div class="content">
       {[ block content ]}
       {[ endblock ]}

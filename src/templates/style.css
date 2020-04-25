@@ -7,29 +7,29 @@ body {
 main {
   display: flex;
 }
-  .sidebar {
+  aside {
     padding: 2rem;
   }
-  .sidebar > * {
+  aside > * {
     margin-bottom: 2rem;
     white-space: nowrap;
   }
-  .sidebar .tags {
+  aside .tags {
     max-width: 15rem;
     height: 20.5rem;
     overflow: hidden;
   }
-  .sidebar .tags:hover {
+  aside .tags:hover {
     height: auto;
   }
 @media screen and (max-width: 600px) {
-  .sidebar {
+  aside {
     display: none;
   }
 }
 @media screen and (max-width: 900px) {
   /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
-  .sidebar.right {
+  aside.right {
     display: none;
   }
 }
