@@ -5,6 +5,16 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## HTML: Usage of Headings, Sections
+
+Wondering how to layout and use `<section>`, `<h1>`, `<h2>`, etc. I came across
+the first place one should read on MDN
+[Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
+also very insightful and more specific is this on the W3C wiki
+[HTML/Usage/Headings/Missing](https://www.w3.org/wiki/HTML/Usage/Headings/Missing).
+If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp's 
+[Semantic Elements and Structure](https://www.youtube.com/watch?v=-dQ2Big9ueg) a very well explained video.
+
 ## OKRs are Works in Progress
 
 I read it multiple times already in [Measure What Matters](https://www.goodreads.com/book/show/39286958-measure-what-matters)
