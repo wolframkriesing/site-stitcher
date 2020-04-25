@@ -5,7 +5,7 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
-## HTML: Usage of Headings, Sections
+## Semantic HTML: Usage of Headings, Sections
 
 Wondering how to layout and use `<section>`, `<h1>`, `<h2>`, etc. I came across
 the first place one should read on MDN
