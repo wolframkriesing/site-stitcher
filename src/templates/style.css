@@ -125,17 +125,9 @@ td {
   color: gray;
 }
 
-.post {
-  margin-top: 2rem;
+.page-home article.preview {
+  margin-top: 3rem;
 }
-  .post h2 {
-    font-size: 1rem;
-    margin: 0.5rem 0;
-  }
-  .post p {
-    margin: 0;
-    padding: 0;
-  }
 @media screen and (max-width: 600px) {
 }
 
