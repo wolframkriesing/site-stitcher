@@ -100,6 +100,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] provide data for rich snippets https://search.google.com/test/rich-results 
 - [ ] the tidbits are not SEO indexed
 - [ ] video links could have a video-icon behind it, would be cool
 - [ ] show embedded code that "commit" link links to, if possible
