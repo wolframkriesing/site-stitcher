@@ -21,6 +21,8 @@ https://diveinto.html5doctor.com/ a must read!
   [they say](http://linter.structured-data.org/about/)
 * [yandex's Structured data validator](https://yandex.com/support/webmaster/yandex-indexing/validator.html)
   "it also checks if the markup meets the requirements of Yandex's services".
+* [Bing Markup Validator](https://www.bing.com/toolbox/markup-validator) requires a sign-in and than it
+  "shows the markup we’ve discovered, including HTML Microdata, Microformats, RDFa, Schema.org, and OpenGraph".    
 * [Google's structured data testing tool](https://search.google.com/structured-data/testing-tool)
   verifies the schema.org (structured data) validity, I assume they validate as it is relevant for their search engine.    
 
