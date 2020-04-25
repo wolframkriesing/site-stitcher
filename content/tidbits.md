@@ -5,6 +5,12 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Web Accessibility in Mind
+
+https://webaim.org/
+with lots of interesting [resources](https://webaim.org/resources/)
+and stuff to learn.
+
 ## Dive into HTML5 - Mark Pilgrim (and community)
 
 I read the real book a long time ago, but I just moved this blog to use
