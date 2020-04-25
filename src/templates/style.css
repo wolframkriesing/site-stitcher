@@ -43,19 +43,19 @@ a {
     color: black;
   }
 
-header {
+body > header {
   display: flex;
 }
-  header .sitename {
+  body > header .sitename {
     flex: 1;
     text-align: center;
   }
-    header .sitename a {
+    body > header .sitename a {
       font-size: 2rem;
     }
-    header .sitename .subtitle {
+    body > header .sitename .subtitle {
     }
-  header nav {
+  body > header nav {
     flex: 2;
   }
 
@@ -79,7 +79,7 @@ nav {
     margin-right: 2rem;
   }
   @media screen and (max-width: 600px) {
-    header nav {
+    body > header nav {
       display: none;
     }
   }
