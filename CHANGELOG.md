@@ -9,8 +9,8 @@
   - [x] make tag.html use semantic 
   - [ ] make tidbits.html use semantic 
   - [ ] make about.html use semantic 
-  - [ ] make 301.html use semantic 
-  - [ ] make 404.html use semantic 
+  - [x] ~~make 301.html use semantic~~ not necessary 
+  - [x] make 404.html use semantic 
   - [x] make month.html use semantic 
 - [x] see learnings branch, there is always many of those little toolies that  learn every day
       and i keep forgetting them, maybe a section on the site for them? https://github.com/wolframkriesing/site-stitcher/pull/2/files
