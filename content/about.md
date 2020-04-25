@@ -10,7 +10,7 @@ As stated below I want to use this site to share knowledge.
 One thing that I constantly do is searching for this one command, code snippet or alike
 which I need just now, find it on the web, use it and mostly forget it again, until I need it
 again. Since I learned that this happens I am mostly tweeting those kinda things nowadays. 
-One I need this piece of knowledge again, and that happens regularly (that's actually what made me start blogging) 
+Once I need this piece of knowledge again, and that happens regularly (that's actually what made me start blogging) 
 I have to go to twitter and search for those things in my tweets. Not always it's easy
 to find things on twitter, it just has it's own will on showing me search results.
 
