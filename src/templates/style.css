@@ -55,7 +55,7 @@ body > header {
     }
     body > header .sitename .subtitle {
     }
-  body > header nav {
+  body > header nav.primary {
     flex: 2;
   }
 
@@ -68,18 +68,18 @@ article.latest {
   margin-bottom: 5rem;
 }
 
-nav {
+nav.primary {
   display: inline;
 }
-  nav ul {
+  nav.primary ul {
     display: inline;
   }
-  nav li {
+  nav.primary li {
     display: inline;
     margin-right: 2rem;
   }
   @media screen and (max-width: 600px) {
-    body > header nav {
+    nav.primary {
       display: none;
     }
   }
