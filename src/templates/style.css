@@ -16,8 +16,6 @@ main {
   }
   aside .tags {
     max-width: 15rem;
-    height: 20.5rem;
-    overflow: hidden;
   }
   aside .tags:hover {
     height: auto;
