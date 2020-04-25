@@ -5,6 +5,25 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Dive into HTML5 - Mark Pilgrim (and community)
+
+I read the real book a long time ago, but I just moved this blog to use
+proper `<aside>`, `<article>` and alikes today, I had forgotten a lot.
+But I remember it being the best HTML(5) in depth I ever saw.
+https://diveinto.html5doctor.com/ a must read!
+
+## HTML Validators
+
+* [validator.nu](https://validator.nu/) seems to be the same used at [validator.w3.org](https://validator.w3.org/).
+  Describes itself as ["Validator.nu is validation 2.0"](https://about.validator.nu/).
+* [Structured Data Linter, linter.structured-data.org](http://linter.structured-data.org/)
+  "The Linter understands the microdata, JSON-LD and RDFa formats according to their latest specifications."
+  [they say](http://linter.structured-data.org/about/)
+* [yandex's Structured data validator](https://yandex.com/support/webmaster/yandex-indexing/validator.html)
+  "it also checks if the markup meets the requirements of Yandex's services".
+* [Google's structured data testing tool](https://search.google.com/structured-data/testing-tool)
+  verifies the schema.org (structured data) validity, I assume they validate as it is relevant for their search engine.    
+
 ## &lt;details&gt; HTML element
 
 Click below to see the code which creates this kinda dropdown, it is the `<details>` element.
