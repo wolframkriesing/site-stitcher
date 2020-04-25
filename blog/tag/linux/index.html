@@ -119,24 +119,19 @@
   <h1>Tagged with #linux</h1>
 
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 9, 2017</span>
-        - by Wolfram Kriesing
-        
-          - #command line #linux #tooling #lsof 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2017/02/09-which-process-uses-this-port/" itemprop="url">
           <span itemprop="name headline">Find out which process listens on which port</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">The annoying <code>port 8080 is already in use</code> message and not knowing which
 process is occupying this port sucks. I knew it was <code>lsof</code> that can help me.
 But how exactly?
 TL;DR: <code>ps -p `lsof -i :8080 -t` -o command=</code> (on Mac OSX)</p>
       </div>
-    </div>
+    </article>
   
 
     </div>

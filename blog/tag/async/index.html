@@ -119,18 +119,13 @@
   <h1>Tagged with #async</h1>
 
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">November 10, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #async 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/11/10-dont-promisify-fs-exists/" itemprop="url">
           <span itemprop="name headline">Don't promisify `fs.exists`</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Don&#39;t promisify <code>fs.exists</code> since this does not play by the rules of node style callback params,
 where the first one should be err and then data. It seems this does return only the data, which
 <a href="https://github.com/digitaldesignlabs/es6-promisify">promisify</a> understands as an error and does throw right away. Instead do what the 
@@ -138,7 +133,7 @@ where the first one should be err and then data. It seems this does return only 
 too and use <code>fs.access</code> instead, like so: <code>promisify(fs.access)(aPath, fs.R_OK)</code>.
 See it in action [here in the cosmowiki].</p>
       </div>
-    </div>
+    </article>
   
 
     </div>

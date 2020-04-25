@@ -119,72 +119,52 @@
   <h1>Tagged with #javascript</h1>
 
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">March 18, 2017</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #dependency injection #testing 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2017/03/18-discover-extract-dependencies/" itemprop="url">
           <span itemprop="name headline">Discover and extract dependencies</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">March 1, 2017</span>
-        - by Wolfram Kriesing
-        
-          - #purescript #javascript #functional #typing 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2017/03/01-starting-with-purescript/" itemprop="url">
           <span itemprop="name headline">Purescript #1 - the semantics of JavaScript with types</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the <a href="http://wiki.c2.com/?PrimitiveObsession">primitive obsession</a>? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 16, 2016</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #react 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2016/02/16-react-lifecycle/" itemprop="url">
           <span itemprop="name headline">React LifeCycle</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Actually we are currently discussing and evaluating to use react or alike
 and this react lifecycle comes in perfectly and somehow
 also makes the point stronger that a well documented, cared and widely used
 project is a good thing to be using.
 Decided!</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">December 8, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #emberjs #javascript #framework 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/12/08-ember-computed-props/" itemprop="url">
           <span itemprop="name headline">How Ember methods become computed properties</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">At this point in the <a href="https://youtu.be/1NjWozl8bps?t=257">EmberJS Framework Basics Part 2 video</a> 
 the author explains how you can make (computed) properties out of &#39;normal&#39; methods
 by using what the ember.js <code>Ember.Object</code> offers.
@@ -194,37 +174,27 @@ like this <code>friend.get(&#39;age&#39;)</code>.
 How is that done? Well, ember extends the native prototype of <code>Function</code>, so
 you can write this inside an ember object definition <code>age: function (){}.property()</code>.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">December 3, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #emberjs #javascript 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/12/03-exploring-emberjs/" itemprop="url">
           <span itemprop="name headline">Exploring emberjs</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">730.975 byte - the size of the main JS file of an empty app that ends up in the dist folder
 after building the app by <code>ember build --environment=production</code>.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">November 10, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #async 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/11/10-dont-promisify-fs-exists/" itemprop="url">
           <span itemprop="name headline">Don't promisify `fs.exists`</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Don&#39;t promisify <code>fs.exists</code> since this does not play by the rules of node style callback params,
 where the first one should be err and then data. It seems this does return only the data, which
 <a href="https://github.com/digitaldesignlabs/es6-promisify">promisify</a> understands as an error and does throw right away. Instead do what the 
@@ -232,241 +202,171 @@ where the first one should be err and then data. It seems this does return only 
 too and use <code>fs.access</code> instead, like so: <code>promisify(fs.access)(aPath, fs.R_OK)</code>.
 See it in action [here in the cosmowiki].</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">November 10, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #es6 #babeljs 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/11/10-babel/" itemprop="url">
           <span itemprop="name headline">Get Babel 6 up and running</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Since lots of things changed in babel6, it has <a href="http://babeljs.io/blog/2015/10/29/6.0.0/">become a platform</a>
 there is some stuff you need to do to set up your project to use babel6.
 All is best described in <a href="http://jamesknelson.com/the-six-things-you-need-to-know-about-babel-6/">&quot;The Six Things You Need To Know About Babel 6&quot;</a>.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">May 4, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #npm #package.json #javascript 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/05/04-browser-field-in-npms-packagejson/" itemprop="url">
           <span itemprop="name headline">`browser` field in npm's package.json</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract"><code>browser</code> field in npm&#39;s package.json</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">April 13, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #dojo #javascript #framework #UI widgets 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/04/13-reappio/" itemprop="url">
           <span itemprop="name headline">reapp.io</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">The new <a href="http://dojotoolkit.org/">dojo</a>? I started with dojo about 10 years ago, or so.
 Now I see <a href="https://github.com/reapp/reapp-ui">reapp</a> which seems to be the same as dojo, lots of widgets,
 just around react and transferred 10 years ahead and to mobile.<br>Good stuff? Or not?</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">March 23, 2015</span>
-        - by Wolfram Kriesing
-        
-          - #npm #nodejs #javascript 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2015/03/23-globally-installed-npm-packages-equals-evil/" itemprop="url">
           <span itemprop="name headline">Globally installed npm packages = evil</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Nothing to add to <a href="https://medium.com/@brianleroux/es6-modules-amd-and-commonjs-c1acefbe6fc0">this post</a></p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">March 20, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #npm #tool #nodejs #javascript 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/03/20-npm-as-a-build-tool/" itemprop="url">
           <span itemprop="name headline">How to Use npm as a Build Tool</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">I am sure my uxebu-partner <a href="http://twitter.com/tklipstein">@Tobias</a> posted this link in our internal <a href="http://flowdock.com">flowdock</a> (never used it? do it now! it&#39;s Slack in better).
 <a href="http://twitter.com/tklipstein">@Tobias</a> knows all the tools.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 24, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #security #browser #javascript #client-side 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/02/24-make-your-site-a-bit-safer/" itemprop="url">
           <span itemprop="name headline">Make your site a bit safer</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Any browser project should <a href="https://github.com/cure53/DOMPurify">have a look at DOMPurify</a> at least, if not apply it right away.
 This might not be what you want to apply right away, but maybe it triggers you to learn
 more about this field, when security issues hit you it might be too late.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 23, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #sound #javascript #browser 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/02/23-sound-generation-in-the-browser/" itemprop="url">
           <span itemprop="name headline">Sound generation in the browser</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">It&#39;s not additional synthesis, as I would interpret the headline first, 
 but it&#39;s pretty hard core cool what is possible in the browser already.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 19, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #gh-pages #devops #deploy #javascript #travis #tddbin 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/02/19-deploying-to-gh-pages-after-successful-test-run-on-travis/" itemprop="url">
           <span itemprop="name headline">Deploying to gh-pages after successful test run on travis</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">I wanted to just push my source code to github&#39;s master branch and all the deployment after that shall be automatic. 
 Every dev-op reading this will say &quot;yeah sure, wtf?&quot;.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 19, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #testing #mocha 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/02/19-problem-including-mocha-into-a-browserify-build/" itemprop="url">
           <span itemprop="name headline">Problem including mocha into a browserify build</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">I don&#39;t get mocha to build with browserify, I always get</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 11, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #cookie #javascript #library 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/02/11-cookie-libs-for-nodejs/" itemprop="url">
           <span itemprop="name headline">Cookie libs for (node)js</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">If you want to dive into cookies, here is the <a href="http://tools.ietf.org/html/rfc6265">RFC6265</a>. I was looking around for some decent cookie libraries. There seem to be some
 of them.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">February 10, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #shell #bash 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/02/10-shell-in-javascript/" itemprop="url">
           <span itemprop="name headline">Shell in JavaScript</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">I don&#39;t know why <a href="https://github.com/arturadib/shelljs">shelljs</a> hasn&#39;t found me earlier :(</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">January 22, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #refactoring #functional #oop #javascript 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/01/22-refactor-to-functional/" itemprop="url">
           <span itemprop="name headline">Refactor to functional</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Refactor to functional</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">January 22, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #reactjs #dom #javascript #framework 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/01/22-riotjs-a-react-like-lib/" itemprop="url">
           <span itemprop="name headline">riot.js, a react-like lib</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">I read it first in my personal trending twitter search, then I saw it on <a href="https://news.ycombinator.com/item?id=8928433">hacker news</a> 
 and I pulled <a href="https://github.com/muut/riotjs">the repo</a> and being intrigued by the minimal size, compared to react and polymer
 I thought I try out the demo, didn&#39;t work. So I looked a the code, very opinionated.
 My conclusion after having spent about just 1h on it I summed up in <a href="https://twitter.com/wolframkriesing/status/558248934985195520">this tweet</a>.</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">January 20, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #npm #nodejs #javascript 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/01/20-a-meta-project/" itemprop="url">
           <span itemprop="name headline">A meta project</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">In order to keep all your meta data of your project in one place
 and only create files that actually just copy those data
 you can use <a href="https://github.com/bevry/projectz">projectz</a>
@@ -474,39 +374,29 @@ where you maintain data like title, description, author(s), badges, ...
 in one CSON file and with a special markup you can update
 fill in the templates files like README, package.json, ...</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">January 19, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #reactive programming #rx #rxjs #javascript #functional 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/01/19-the-introduction-to-reactive-programming-youve-been-missing/" itemprop="url">
           <span itemprop="name headline">The introduction to Reactive Programming you've been missing</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">The introduction to Reactive Programming you&#39;ve been missing</p>
       </div>
-    </div>
+    </article>
   
-    <div class="post" itemscope itemtype="http://schema.org/BlogPosting">
-      <div class="metadata">
-        <span itemprop="datePublished">January 19, 2014</span>
-        - by Wolfram Kriesing
-        
-          - #javascript #angularjs #frontend #framework 
-        
-      </div>
-      <div class="content">
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <h2><a href="/blog/2014/01/19-angular-reviews/" itemprop="url">
           <span itemprop="name headline">Angular reviews</span></a>
         </h2>
+      </header>
+      <div class="content">
         <p class="abstract">Lately they don&#39;t turn out so good, or is it my blurred vision?</p>
       </div>
-    </div>
+    </article>
   
 
     </div>
