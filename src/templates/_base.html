@@ -20,7 +20,7 @@
 {[ endblock ]}">
 
   <header>
-    <nav class="primary" role="navigation" aria-labelledby="primary-navigation">
+    <nav class="primary">
       <ul>
         {% navigationItems.forEach(item => { %}
           <li><a href="{{ item.path }}">{{ item.name }}</a></li>
@@ -38,27 +38,23 @@
 
   <main>
     <aside>
-      <section class="tags">
+      <nav class="tags">
         <header>Top Tags</header>
-        <nav>
-          <ol>
-            {% groupedBlogPosts.byTag.slice(0, 10).forEach(group => { %}
-            <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
-            {% }) %}
-          </ol>
-        </nav>
-      </section>
+        <ol>
+          {% groupedBlogPosts.byTag.slice(0, 10).forEach(group => { %}
+          <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
+          {% }) %}
+        </ol>
+      </nav>
 
-      <section class="months">
+      <nav class="months">
         <header>Posts by Month</header>
-        <nav>
-          <ol>
-            {% groupedBlogPosts.byMonth.forEach(group => { %}
-            <li><a href="/blog/{{group.yearAndMonth.replace('-', '/')}}/">{{toReadableDate(group.yearAndMonth)}}</a></li>
-            {% }) %}
-          </ol>
-        </nav>
-      </section>
+        <ol>
+          {% groupedBlogPosts.byMonth.forEach(group => { %}
+          <li><a href="/blog/{{group.yearAndMonth.replace('-', '/')}}/">{{toReadableDate(group.yearAndMonth)}}</a></li>
+          {% }) %}
+        </ol>
+      </nav>
     </aside>
     <div class="content">
       {[ block content ]}

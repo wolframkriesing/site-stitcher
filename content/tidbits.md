@@ -5,6 +5,53 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Dive into HTML5 - Mark Pilgrim (and community)
+
+I read the real book a long time ago, but I just moved this blog to use
+proper `<aside>`, `<article>` and alikes today, I had forgotten a lot.
+But I remember it being the best HTML(5) in depth I ever saw.
+https://diveinto.html5doctor.com/ a must read!
+
+## HTML Validators
+
+* [validator.nu](https://validator.nu/) seems to be the same used at [validator.w3.org](https://validator.w3.org/).
+  Describes itself as ["Validator.nu is validation 2.0"](https://about.validator.nu/).
+* [Structured Data Linter, linter.structured-data.org](http://linter.structured-data.org/)
+  "The Linter understands the microdata, JSON-LD and RDFa formats according to their latest specifications."
+  [they say](http://linter.structured-data.org/about/)
+* [yandex's Structured data validator](https://yandex.com/support/webmaster/yandex-indexing/validator.html)
+  "it also checks if the markup meets the requirements of Yandex's services".
+* [Bing Markup Validator](https://www.bing.com/toolbox/markup-validator) requires a sign-in and than it
+  "shows the markup we’ve discovered, including HTML Microdata, Microformats, RDFa, Schema.org, and OpenGraph".    
+* [Google's structured data testing tool](https://search.google.com/structured-data/testing-tool)
+  verifies the schema.org (structured data) validity, I assume they validate as it is relevant for their search engine.    
+
+## &lt;details&gt; HTML element
+
+Click below to see the code which creates this kinda dropdown, it is the `<details>` element.
+<details>
+    <summary>A &lt;details&gt; code example (click here)</summary>
+    <pre>
+        &lt;details&gt;
+            &lt;summary&gt;A &amp;lt;details&amp;gt; code example (click here)&lt;/summary&gt;
+            ... too much recursion ... ;)
+        &lt;/details&gt;
+    </pre>        
+</details>
+
+The `<details>` element "creates a disclosure widget in which information is visible only when the widget is 
+toggled into an "open" state" [MDN says](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
+
+## Semantic HTML: Usage of Headings, Sections
+
+Wondering how to layout and use `<section>`, `<h1>`, `<h2>`, etc. I came across
+the first place one should read on MDN
+[Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
+also very insightful and more specific is this on the W3C wiki
+[HTML/Usage/Headings/Missing](https://www.w3.org/wiki/HTML/Usage/Headings/Missing).
+If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp's 
+[Semantic Elements and Structure](https://www.youtube.com/watch?v=-dQ2Big9ueg) a very well explained video.
+
 ## OKRs are Works in Progress
 
 I read it multiple times already in [Measure What Matters](https://www.goodreads.com/book/show/39286958-measure-what-matters)
