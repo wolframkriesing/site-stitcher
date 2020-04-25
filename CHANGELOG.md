@@ -5,6 +5,7 @@
   - [ ] use <aside>
   - [ ] use <header> for an article
   - [ ] each article on the frontpage is an <article>
+  - [ ] add a breadcrumb navigation
 - [x] see learnings branch, there is always many of those little toolies that  learn every day
       and i keep forgetting them, maybe a section on the site for them? https://github.com/wolframkriesing/site-stitcher/pull/2/files
 - [ ] syntax highlight code
