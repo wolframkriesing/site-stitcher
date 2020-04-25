@@ -5,6 +5,22 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## &lt;details&gt; HTML element
+
+Click below to see the code which creates this kinda dropdown, it is the `<details>` element.
+<details>
+    <summary>A &lt;details&gt; code example (click here)</summary>
+    <pre>
+        &lt;details&gt;
+            &lt;summary&gt;A &amp;lt;details&amp;gt; code example (click here)&lt;/summary&gt;
+            ... too much recursion ... ;)
+        &lt;/details&gt;
+    </pre>        
+</details>
+
+The `<details>` element "creates a disclosure widget in which information is visible only when the widget is 
+toggled into an "open" state" [MDN says](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
+
 ## Semantic HTML: Usage of Headings, Sections
 
 Wondering how to layout and use `<section>`, `<h1>`, `<h2>`, etc. I came across
