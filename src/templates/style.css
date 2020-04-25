@@ -4,7 +4,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.content-wrapper {
+main {
   display: flex;
 }
   .sidebar {

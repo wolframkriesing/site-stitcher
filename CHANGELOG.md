@@ -1,5 +1,6 @@
 # v2
 - [ ] use semantic html
+  - [ ] use <main>
   - [ ] use <article> in post
   - [ ] use <aside>
   - [ ] use <header> for an article
