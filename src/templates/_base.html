@@ -39,7 +39,7 @@
   <main>
     <aside>
       <section class="tags">
-        <header>Top Tags</header>
+        <header><h3>Top Tags</h3></header>
         <nav>
           <ol>
             {% groupedBlogPosts.byTag.slice(0, 10).forEach(group => { %}
@@ -50,7 +50,7 @@
       </section>
 
       <section class="months">
-        <header>Posts by Month</header>
+        <header><h3>Posts by Month</h3></header>
         <nav>
           <ol>
             {% groupedBlogPosts.byMonth.forEach(group => { %}

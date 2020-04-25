@@ -20,6 +20,10 @@ main {
   aside .tags:hover {
     height: auto;
   }
+  aside h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
 @media screen and (max-width: 600px) {
   aside {
     display: none;
