@@ -63,7 +63,7 @@ body > header {
 .page-home h1 {
   display: inline;
 }
-.latest-post {
+article.latest {
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
