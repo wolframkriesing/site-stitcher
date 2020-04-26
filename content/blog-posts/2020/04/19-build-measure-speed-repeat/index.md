@@ -9,14 +9,6 @@ of the entire project, my time is spent wrong.
 I should speed up the entire project's build process, not optimize for building parts. 
 Read on about how I build, measured, sped up and will repeat for [site-stitcher, the project that builds this site][3].
 
-<blockquote class="twitter-tweet">
-    <p lang="en" dir="ltr">
-        If I start thinking about how to partially build my project, my build process is too slow.<br><br>
-        It would just be much more complexity added and try to cover up the actual flaw.
-    </p>&mdash; @wolframkriesing 
-    <a href="https://twitter.com/wolframkriesing/status/1250736234189766657?ref_src=twsrc%5Etfw">April 16, 2020</a>
-</blockquote>
-
 I got to the point that my fan just made my machine take off, at least it sounded like.
 That was while I was running `npm run dev:start` which I use to continuously build the posts you are looking at, 
 it uses a special [`inotifywait` setup][2] which runs the build process every time one file
