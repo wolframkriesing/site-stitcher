@@ -191,6 +191,7 @@ nav.secondary {
 
 img.sizeup-onhover-image {
   transition: 0.3s linear;
+  transition-delay: 0.5s;
 }
   img.sizeup-onhover-image:hover {
     box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.2);
