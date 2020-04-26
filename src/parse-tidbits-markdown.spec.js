@@ -22,6 +22,11 @@ const tidbitMarkdownToHtml = (markdown) => {
   const [heading, tagParagraph] = [tokens[1], tokens[2]];
   tokens[1] = tagParagraph;
   tokens[2] = heading;
+  if (tokens.length > 5) {
+    const [heading, tagParagraph] = [tokens[6], tokens[7]];
+    tokens[6] = tagParagraph;
+    tokens[7] = heading;
+  }
   return marked.parser(tokens, {...marked.defaults.renderer.options, renderer: tidbitsRenderer});
 };
 
@@ -38,7 +43,7 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       '',
       'tag: javascript',
       '',
-      'tidbit content'
+      'tidbit content',
     ].join('\n');
     it('THEN render the tag like this <span>#tag</span> (and not the <p> anymore)', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
@@ -51,6 +56,35 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       const headingHtml = '<h2 id="a-tidbit">A Tidbit</h2>';
       const tagHtml = '<span>#javascript</span>';
       assertThat(html, containsString(tagHtml + headingHtml));
+    });
+  });
+  describe('missing tag wont fail', () => {
+  });
+  describe('GIVEN multiple H2s with a tag WHEN rendered', () => {
+    const tidbitMarkdown = [
+      '# H1 headline',
+      '',
+      '## Tidbit 1',
+      '',
+      'tag: tag1',
+      '',
+      'tidbit 1 content',
+      '',
+      '## Tidbit 2',
+      '',
+      'tag: tag2',
+      '',
+      'tidbit 2 content',
+      '',
+    ].join('\n');
+    it('THEN renders all SPANs before the H2s', () => {
+      const html = tidbitMarkdownToHtml(tidbitMarkdown);
+      const heading1Html = '<h2 id="tidbit-1">Tidbit 1</h2>';
+      const tag1Html = '<span>#tag1</span>';
+      assertThat(html, containsString(tag1Html + heading1Html));
+      const heading2Html = '<h2 id="tidbit-2">Tidbit 2</h2>';
+      const tag2Html = '<span>#tag2</span>';
+      assertThat(html, containsString(tag2Html + heading2Html));
     });
   });
 });
