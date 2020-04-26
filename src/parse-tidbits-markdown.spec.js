@@ -19,7 +19,10 @@ tidbitsRenderer.paragraph = (text) => {
  */
 const tidbitMarkdownToHtml = (markdown) => {
   const tokens = marked.lexer(markdown);
-  return new marked.Parser({renderer: tidbitsRenderer}).parse(tokens);
+  const [heading, tagParagraph] = [tokens[1], tokens[2]];
+  tokens[1] = tagParagraph;
+  tokens[2] = heading;
+  return marked.parser(tokens, {...marked.defaults.renderer.options, renderer: tidbitsRenderer});
 };
 
 describe('A tidbits-markdown file has an H2 followed by a tag', () => {
@@ -43,6 +46,11 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       assertThat(html, containsString(tagHtml));
       assertThat(html, not(containsString('<p>tag: javascript</p>')));
     });
-      // const tidbitHeadlineHtml = '<h2 id="a-tidbit">A Tidbit</h2>';
+    it('THEN renders the SPAN before the H2', () => {
+      const html = tidbitMarkdownToHtml(tidbitMarkdown);
+      const headingHtml = '<h2 id="a-tidbit">A Tidbit</h2>';
+      const tagHtml = '<span>#javascript</span>';
+      assertThat(html, containsString(tagHtml + headingHtml));
+    });
   });
 });
