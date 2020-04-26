@@ -5,6 +5,16 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Than vs. Then
+
+I always struggled with it. Actually I looked it up a couple days ago and until today I was under
+the assumption "than" was for time and ordering, I had been confused and wrong.
+
+> **Then** is for time or ordering  
+> **Than** is for comparing
+
+The long version, very well explained is at https://ell.stackexchange.com/a/80756
+
 ## Web Accessibility in Mind
 
 https://webaim.org/
