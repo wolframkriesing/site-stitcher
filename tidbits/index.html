@@ -41,7 +41,7 @@
   <main>
     <aside>
       <nav class="tags">
-        <header>Top Tags</header>
+        <header>Top Blog Tags</header>
         <ol>
           
           <li><a href="/blog/tag/javascript/">#javascript</a></li>
@@ -125,6 +125,27 @@ Find tiny pieces of code, commands, snippets, stuff that I find interesting, use
 or where I know that I will search for it again but it&#39;s not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).</p>
+<span class="tag" data-tag="linux">#linux</span><h2 id="find-and-execute-command-with-found-files">Find and Execute Command with Found Files</h2>
+<p>You need to </p>
+<ol>
+<li>Find files and</li>
+<li>Execute a command with each found file</li>
+</ol>
+<p>This is how it works:<br><code>find . -name &#39;*.jpg&#39; -exec cp &#39;{}&#39; ../_output&#39;{}&#39; \;</code></p>
+<p>The command finds all <code>*.jpg</code>s via <code>find . -name &#39;*.jpg&#39;</code>.
+Next with <code>-exec cp</code> it is told to execute the command <code>cp</code> for every file found.
+The <code>{}</code> is the placeholder for the filename that find returns.
+Play around with each part of the command to see the output.
+Maybe for learning start with <code>find . -name &#39;*.jpg&#39; -exec echo &quot;file1: {}&quot; \;</code>.
+You will also find out how important the <code>\;</code> at the end is!</p>
+<span class="tag" data-tag="docker">#docker</span><h2 id="very-fast-docker-image-build---without-context">Very Fast Docker Image Build - Without Context</h2>
+<p>I use docker images to provide the environment for development. My nodejs
+is installed only inside the docker image. That means I always map my working directory
+into the container. This means I don&#39;t need to send no build context to the docker deamon.</p>
+<p>Before my <strong>slow docker build</strong> started like this:<br><code>Sending build context to Docker daemon</code> <strong><code>88.67MB</code></strong> VERY SLOW<br>that happens when you use<br><code>docker build -t ${IMAGE_NAME} -f Dockerfile .</code> and it takes forever.</p>
+<p>I got the <strong>fast docker build</strong> after I discovered in the docker docs, that one can also not send the context,
+now the context is tiny:<br><code>Sending build context to Docker daemon</code> <strong><code>2.048kB</code></strong> VERY FAST.<br>Build your image like this:<br><code>docker build -t ${IMAGE_NAME} - &lt; Dockerfile</code><br>Remember: you get no context in the container, so either you don&#39;t need it
+or you map in volumes, or you know ...</p>
 <span class="tag" data-tag="devtools">#devtools</span><h2 id="-and----shortcut-for-documentqueryselectorall"><code>$</code> and <code>$$</code> - Shortcut for <code>document.querySelector[All]()</code></h2>
 <p>I still often type <code>document.querySelector()</code> or <code>document.querySelectorAll()</code>
 even though even before this was available in the browser the developer consoles, FireBugs or whatever
