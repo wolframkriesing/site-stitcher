@@ -19,13 +19,9 @@ tidbitsRenderer.paragraph = (text) => {
  */
 const tidbitMarkdownToHtml = (markdown) => {
   const tokens = marked.lexer(markdown);
-  const [heading, tagParagraph] = [tokens[1], tokens[2]];
-  tokens[1] = tagParagraph;
-  tokens[2] = heading;
+  [tokens[2], tokens[1]] = [tokens[1], tokens[2]];
   if (tokens.length > 5) {
-    const [heading, tagParagraph] = [tokens[6], tokens[7]];
-    tokens[6] = tagParagraph;
-    tokens[7] = heading;
+    [tokens[7], tokens[6]] = [tokens[6], tokens[7]];
   }
   return marked.parser(tokens, {...marked.defaults.renderer.options, renderer: tidbitsRenderer});
 };
