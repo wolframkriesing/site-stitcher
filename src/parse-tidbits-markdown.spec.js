@@ -28,6 +28,11 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       const tagHtml = '<span class="tag" data-tag="javascript">#javascript</span>';
       assertThat(html, containsString(tagHtml + headingHtml));
     });
+    it('THEN trim the tag when setting in `data-tag` attribute', () => {
+      const html = tidbitMarkdownToHtml('tag: many words   ');
+      const tagHtml = '<span class="tag" data-tag="many words">#many words</span>';
+      assertThat(html, containsString(tagHtml));
+    });
   });
   describe('GIVEN H1 and H2s without tags', () => {
     it('WHEN rendered THEN they are rendered as normal', () => {

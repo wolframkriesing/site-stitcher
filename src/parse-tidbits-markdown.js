@@ -3,7 +3,7 @@ const defaultRenderer = new marked.Renderer();
 const tidbitsRenderer = new marked.Renderer();
 tidbitsRenderer.paragraph = (text) => {
   if (text.startsWith('tag: ')) {
-    const tag = text.split('tag: ')[1];
+    const tag = text.split('tag: ')[1].trim();
     return `<span class="tag" data-tag="${tag}">#${tag}</span>`;
   }
   return defaultRenderer.paragraph(text);
