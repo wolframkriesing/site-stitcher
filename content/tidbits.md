@@ -7,6 +7,27 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Very Fast Docker Image Build - Without Context
+
+tag: docker
+
+I use docker images to provide the environment for development. My nodejs
+is installed only inside the docker image. That means I always map my working directory
+into the container. This means I don't need to send no build context to the docker deamon.
+
+Before my **slow docker build** started like this:\
+`Sending build context to Docker daemon  ` **` 88.67MB`** VERY SLOW\
+that happens when you use\
+`docker build -t ${IMAGE_NAME} -f Dockerfile .` and it takes forever.
+
+I got the **fast docker build** after I discovered in the docker docs, that one can also not send the context,
+now the context is tiny:\
+`Sending build context to Docker daemon  ` **` 2.048kB`** VERY FAST.\
+Build your image like this:\
+`docker build -t ${IMAGE_NAME} - < Dockerfile`\
+Remember: you get no context in the container, so either you don't need it
+or you map in volumes, or you know ...
+
 ## `$` and `$$` - Shortcut for `document.querySelector[All]()`
 
 tag: devtools  
