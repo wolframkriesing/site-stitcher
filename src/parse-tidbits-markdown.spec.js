@@ -11,9 +11,7 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
   describe('GIVEN an H1 and H2 with a tag WHEN rendered', () => {
     const tidbitMarkdown = [
       '# H1 headline',
-      '',
       '## A Tidbit',
-      '',
       'tag: javascript',
       '',
       'tidbit content',
@@ -46,19 +44,14 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
   describe('GIVEN multiple H2s with a tag WHEN rendered', () => {
     const tidbitMarkdown = [
       '# H1 headline',
-      '',
       '## Tidbit 1',
-      '',
       'tag: tag1',
       '',
       'tidbit 1 content',
-      '',
       '## Tidbit 2',
-      '',
       'tag: tag2',
       '',
       'tidbit 2 content',
-      '',
     ].join('\n');
     it('THEN renders all SPANs before the H2s', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
