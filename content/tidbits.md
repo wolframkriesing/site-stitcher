@@ -7,6 +7,24 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Find and Execute Command with Found Files
+
+tag: linux
+
+You need to 
+1. Find files and
+2. Execute a command with each found file
+
+This is how it works:\
+`find . -name '*.jpg' -exec cp '{}' ../_output'{}' \;`
+
+The command finds all `*.jpg`s via `find . -name '*.jpg'`.
+Next with `-exec cp` it is told to execute the command `cp` for every file found.
+The `{}` is the placeholder for the filename that find returns.
+Play around with each part of the command to see the output.
+Maybe for learning start with `find . -name '*.jpg' -exec echo "file1: {}" \;`.
+You will also find out how important the `\;` at the end is!
+
 ## Very Fast Docker Image Build - Without Context
 
 tag: docker
