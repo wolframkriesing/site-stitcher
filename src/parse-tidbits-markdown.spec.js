@@ -1,5 +1,5 @@
 import {describe, it} from 'mocha';
-import {assertThat, containsString} from 'hamjest';
+import {assertThat, not, containsString} from 'hamjest';
 
 import marked from 'marked';
 const defaultRenderer = new marked.Renderer();
@@ -33,10 +33,11 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       '',
       'tidbit content'
     ].join('\n');
-    it('THEN render the tag like this <span>#tag</span>', () => {
+    it('THEN render the tag like this <span>#tag</span> (and not the <p> anymore)', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
       const tagHtml = '<span>#javascript</span>';
       assertThat(html, containsString(tagHtml));
+      assertThat(html, not(containsString('<p>tag: javascript</p>')));
     });
       // const tidbitHeadlineHtml = '<h2 id="a-tidbit">A Tidbit</h2>';
   });
