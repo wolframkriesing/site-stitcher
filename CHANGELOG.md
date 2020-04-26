@@ -100,6 +100,8 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] webcomponent to show last changes to the content, load it from gh, just pass it a url like so
+      <pico-changelog source="https://github.com/wolframkriesing/site-stitcher/content/tidbits.md" />
 - [ ] provide data for rich snippets https://search.google.com/test/rich-results 
 - [ ] the tidbits are not SEO indexed
 - [ ] video links could have a video-icon behind it, would be cool
