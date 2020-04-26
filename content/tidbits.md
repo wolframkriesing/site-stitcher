@@ -7,6 +7,8 @@ the wrong code that one could copy ;).
 
 ## `$` and `$$` - Shortcut for `document.querySelector[All]()`
 
+tags: devtools, javascript, console  
+
 I still often type `document.querySelector()` or `document.querySelectorAll()`
 even though even before this was available in the browser the developer consoles, FireBugs or whatever
 they were called had a shorter version available `$` and `$$`. Yep, it works almost exactly the
@@ -21,6 +23,8 @@ See the image below for how it works in Firefox.
 
 ## Than vs. Then
 
+tags: english  
+
 I always struggled with it. Actually I looked it up a couple days ago and until today I was under
 the assumption "than" was for time and ordering, I had been confused and wrong.
 
@@ -31,11 +35,15 @@ The long version, very well explained is at https://ell.stackexchange.com/a/8075
 
 ## Web Accessibility in Mind
 
+tags: a11y  
+
 https://webaim.org/
 with lots of interesting [resources](https://webaim.org/resources/)
 and stuff to learn.
 
 ## Dive into HTML5 - Mark Pilgrim (and community)
+
+tags: html  
 
 I read the real book a long time ago, but I just moved this blog to use
 proper `<aside>`, `<article>` and alikes today, I had forgotten a lot.
@@ -43,6 +51,8 @@ But I remember it being the best HTML(5) in depth I ever saw.
 https://diveinto.html5doctor.com/ a must read!
 
 ## HTML Validators
+
+tags: html  
 
 * [validator.nu](https://validator.nu/) seems to be the same used at [validator.w3.org](https://validator.w3.org/).
   Describes itself as ["Validator.nu is validation 2.0"](https://about.validator.nu/).
@@ -57,6 +67,8 @@ https://diveinto.html5doctor.com/ a must read!
   verifies the schema.org (structured data) validity, I assume they validate as it is relevant for their search engine.    
 
 ## &lt;details&gt; HTML element
+
+tags: html  
 
 Click below to see the code which creates this kinda dropdown, it is the `<details>` element.
 <details>
@@ -73,6 +85,8 @@ The `<details>` element "creates a disclosure widget in which information is vis
 toggled into an "open" state" [MDN says](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
 
 ## Semantic HTML: Usage of Headings, Sections
+
+tags: html  
 
 Wondering how to layout and use `<section>`, `<h1>`, `<h2>`, etc. I came across
 the first place one should read on MDN
@@ -106,10 +120,14 @@ On page 75 David from Nuna confirms that:
 
 ## Capitalization Rules for Headlines
 
+tags: english  
+
 I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
 There are a couple (SEO) sites that capitalize your headline  correctly, you'll find them when you need 'em.
 
 ## Free Disk Space Used by Docker
+
+tags: docker  
 
 TL;DR use any/all of `docker system prune`, `docker container prune`, `docker image prune`,  `docker volume prune` or `docker network prune` to free the according space.
 
@@ -151,15 +169,21 @@ Run `docker image prune --all` to gain a lot of disk space with the trade off of
 
 ## Upgrade npm Package to Latest Version
 
+tags: npm  
+
 Run `npm install <package>@latest` to update to the latest version of a package, 
 no matter the minor, major version, it always goes to the latest.
 
 ##  Diff of the Files in Two Directories
 
+tags: linux  
+
 `diff --recursive <dir1> <dir2>` to diff the files and their contents in two directories
 I just needed to do some golden master tests after updating a dependency
 
 ## MacOS Screenshot of the Current Window Only
+
+tags: macos  
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">
     MacOS: Woa, I didn&#39;t know you can take screenshots of windows with transparent backround 
