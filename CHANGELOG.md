@@ -1,4 +1,5 @@
 # v2
+- [ ] see `npm run build:images:gif` it only builds for tidbits, unify and simplify building assets for all dirs
 - [ ] use semantic html
   - [x] use <main>
   - [x] use <article> in post
