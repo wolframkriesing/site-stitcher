@@ -65,12 +65,13 @@ const generateAboutPage = async () => {
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
+import {tidbitMarkdownToHtml} from './parse-tidbits-markdown.js';
 const generateTidbitsPage = async () => {
   const destDir = path.join(__dirname, '../_output', 'tidbits');
   const contentDir = path.join(__dirname, '../content');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const content = marked(await fs.promises.readFile(path.join(contentDir, 'tidbits.md'), 'utf8'));
+  const content = tidbitMarkdownToHtml(await fs.promises.readFile(path.join(contentDir, 'tidbits.md'), 'utf8'));
   const renderedFile = tundra.getRender('tidbits.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 }

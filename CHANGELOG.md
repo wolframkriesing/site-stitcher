@@ -1,5 +1,6 @@
 # v2
-- [ ] see `npm run build:images:gif` it only builds for tidbits, unify and simplify building assets for all dirs
+- [ ] add tags to the tidbits and render them on the page for easier reading and grouping
+  - [ ] maybe even a page per tag
 - [ ] use semantic html
   - [x] use <main>
   - [x] use <article> in post
@@ -23,7 +24,7 @@
 - [x] group by month
 - [x] show month-pages and link them
 - [ ] initial load grows with every post, show just first 100 and load more on scroll, or paginate, ...
-- [ ] tags in the sidebar seem unsorted, introduce "Top tags" and "All tags" where they appear sorted, i would say
+- [x] tags in the sidebar seem unsorted, introduce "Top tags" and "All tags" where they appear sorted, i would say
 - [ ] add follow button for twitter
 - [x] show the tags in a left column
     - [ ] consolidate tags
@@ -101,6 +102,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] see `npm run build:images:gif` it only builds for tidbits, unify and simplify building assets for all dirs
 - [ ] webcomponent to show last changes to the content, load it from gh, just pass it a url like so
       <pico-changelog source="https://github.com/wolframkriesing/site-stitcher/content/tidbits.md" />
 - [ ] provide data for rich snippets https://search.google.com/test/rich-results 

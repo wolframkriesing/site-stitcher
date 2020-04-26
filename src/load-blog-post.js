@@ -57,17 +57,18 @@ const findHeadlineAndAbstract = (tokens) => {
   }
 
   let abstract = '';
-  let abstractToken = null;
+  const abstractTokens = [];
+  abstractTokens.links = tokens.links;
   while (tokenIndex < tokens.length && abstract === '') {
     const t = tokens[tokenIndex];
     if (t.type === 'paragraph') {
-      abstractToken = t;
+      abstractTokens.push(t);
       abstract = t.text;
     }
     tokenIndex++;
   }
 
-  return {headline, abstract, abstractToken};
+  return {headline, abstract, abstractTokens};
 }
 
 const removeEnclosingPTag = s => s
@@ -75,16 +76,14 @@ const removeEnclosingPTag = s => s
   .replace(/^<p>/, '')
   .replace(/<\/p>$/, '')
 ;
-const renderAbstractContentAsHtml = (abstractToken, links) => {
-  const renderableAbstract = [abstractToken];
-  renderableAbstract.links = links;
-  const abstractAsHtml = marked.parser(renderableAbstract);
+const renderAbstractContentAsHtml = (abstractTokens) => {
+  const abstractAsHtml = marked.parser(abstractTokens);
   return removeEnclosingPTag(abstractAsHtml);
 };
 const parseRawPost = tokens => {
-  const {headline, abstract, abstractToken} = findHeadlineAndAbstract(tokens);
+  const {headline, abstract, abstractTokens} = findHeadlineAndAbstract(tokens);
   const metadata = parseMetadata(tokens);
-  const abstractContentAsHtml = renderAbstractContentAsHtml(abstractToken, tokens.links);
+  const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokens);
   return {headline, abstract, abstractContentAsHtml, ...metadata};
 };
 const findBodyToRender = tokens => {

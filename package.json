@@ -11,7 +11,7 @@
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
     "build": "mkdir -p _output; node -r esm src/index.js && npm run build:assets",
-    "build:assets": "cp CNAME _output; cp src/templates/style.css _output/ && npm run build:images:png && npm run build:images:jpg && npm run build:images:gif",
+    "build:assets": "cp CNAME _output; cp src/templates/*.css _output/ && npm run build:images:png && npm run build:images:jpg && npm run build:images:gif",
     "build:images:jpg": "cd content/blog-posts; find . -name '*.jpg' -exec cp -v '{}' ../../_output/blog/'{}' \\;",
     "build:images:png": "cd content/blog-posts; find . -name '*.png' -exec cp -v '{}' ../../_output/blog/'{}' \\;",
     "build:images:gif": "cd content/tidbits; find . -name '*.gif' -exec cp -v '{}' ../../_output/tidbits/'{}' \\;",
@@ -33,7 +33,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
-    "marked": "^0.8.2",
+    "marked": "^1.0.0",
     "tundrajs": "^1.0.0",
     "url-slug": "^2.3.1"
   }
