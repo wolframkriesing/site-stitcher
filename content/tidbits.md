@@ -5,6 +5,20 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## `$` and `$$` - Shortcut for `document.querySelector[All]()`
+
+I still often type `document.querySelector()` or `document.querySelectorAll()`
+even though even before this was available in the browser the developer consoles, FireBugs or whatever
+they were called had a shorter version available `$` and `$$`. Yep, it works almost exactly the
+same, just that one returns a `NodeList` the other an array. Just try it.
+It works in all browsers as far as I know, I tried Firefox, Safari, Chrome and Edge.
+See the image below for how it works in Firefox.
+
+<figure>
+    <img src="./dollar-and-dollardollar.gif" alt="no real output" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
+    <figcaption>$ and $$ vs document.querySelector[All]()</figcaption>
+</figure>
+
 ## Than vs. Then
 
 I always struggled with it. Actually I looked it up a couple days ago and until today I was under
