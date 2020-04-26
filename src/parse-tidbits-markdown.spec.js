@@ -31,7 +31,17 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       assertThat(html, containsString(tagHtml + headingHtml));
     });
   });
-  describe('missing tag wont fail', () => {
+  describe('GIVEN H1 and H2s without tags', () => {
+    it('WHEN rendered THEN they are rendered as normal', () => {
+      const normalMarkdown = [
+        '# Heading 1',
+        '## Heading 1.1',
+        'paragraph 1.1',
+        '## Heading 1.2',
+        'paragraph 1.2',
+      ].join('\n');
+      assertThat(tidbitMarkdownToHtml(normalMarkdown), marked(normalMarkdown));
+    });
   });
   describe('GIVEN multiple H2s with a tag WHEN rendered', () => {
     const tidbitMarkdown = [
