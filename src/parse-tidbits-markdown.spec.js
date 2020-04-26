@@ -18,14 +18,14 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
     ].join('\n');
     it('THEN render the tag like this <span>#tag</span> (and not the <p> anymore)', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
-      const tagHtml = '<span class="tag">#javascript</span>';
+      const tagHtml = '<span class="tag" data-tag="javascript">#javascript</span>';
       assertThat(html, containsString(tagHtml));
       assertThat(html, not(containsString('<p>tag: javascript</p>')));
     });
     it('THEN renders the SPAN before the H2', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
       const headingHtml = '<h2 id="a-tidbit">A Tidbit</h2>';
-      const tagHtml = '<span class="tag">#javascript</span>';
+      const tagHtml = '<span class="tag" data-tag="javascript">#javascript</span>';
       assertThat(html, containsString(tagHtml + headingHtml));
     });
   });
@@ -57,11 +57,11 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
 
       const heading1Html = '<h2 id="tidbit-1">Tidbit 1</h2>';
-      const tag1Html = '<span class="tag">#tag1</span>';
+      const tag1Html = '<span class="tag" data-tag="tag1">#tag1</span>';
       assertThat(html, containsString(tag1Html + heading1Html));
 
       const heading2Html = '<h2 id="tidbit-2">Tidbit 2</h2>';
-      const tag2Html = '<span class="tag">#tag2</span>';
+      const tag2Html = '<span class="tag" data-tag="tag2">#tag2</span>';
       assertThat(html, containsString(tag2Html + heading2Html));
     });
   });
