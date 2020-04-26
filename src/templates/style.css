@@ -190,8 +190,11 @@ nav.secondary {
 
 
 img.sizeup-onhover-image {
-  transition: 1s ease;
+  transition: 0.3s linear;
 }
+  img.sizeup-onhover-image:hover {
+    box-shadow: 0.3em 0.3em 1em rgba(0, 0, 0, 0.2);
+  }
   img.sizeup-onhover-image.scale2:hover {
     transform: scale(2);
   }
@@ -200,6 +203,9 @@ img.sizeup-onhover-image {
   }
   img.sizeup-onhover-image.origin-left-top:hover {
     transform-origin: left top;
+  }
+  img.sizeup-onhover-image.origin-left-center:hover {
+    transform-origin: left center;
   }
   img.sizeup-onhover-image.origin-right-top:hover {
     transform-origin: right top;
