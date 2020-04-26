@@ -1,5 +1,7 @@
 # Tidbits
 
+Here are the things I would tweet but I see too valuable to just give away to twitter, so I store them
+here as tidbits. 
 Find tiny pieces of code, commands, snippets, stuff that I find interesting, useful
 or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
