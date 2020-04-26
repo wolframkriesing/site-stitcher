@@ -1,5 +1,5 @@
 import {describe, it} from 'mocha';
-import {assertThat, not, containsString} from 'hamjest';
+import {assertThat, not, containsString, equalTo} from 'hamjest';
 
 import marked from 'marked';
 const defaultRenderer = new marked.Renderer();
@@ -23,6 +23,10 @@ const tidbitMarkdownToHtml = (markdown) => {
 };
 
 describe('A tidbits-markdown file has an H2 followed by a tag', () => {
+  it('GIVEN tidbit parser works THEN dont break the default markdown parser', () => {
+    assertThat(marked('## Not a Tidbit'), equalTo('<h2 id="not-a-tidbit">Not a Tidbit</h2>\n'));
+    assertThat(marked('tag: looks like a tidbit'), equalTo('<p>tag: looks like a tidbit</p>\n'));
+  });
   describe('GIVEN an H1 and H2 with a tag WHEN rendered', () => {
     const tidbitMarkdown = [
       '# H1 headline',
