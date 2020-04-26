@@ -19,10 +19,16 @@ tidbitsRenderer.paragraph = (text) => {
  */
 const tidbitMarkdownToHtml = (markdown) => {
   const tokens = marked.lexer(markdown);
-  [tokens[2], tokens[1]] = [tokens[1], tokens[2]];
-  if (tokens.length > 5) {
-    [tokens[7], tokens[6]] = [tokens[6], tokens[7]];
-  }
+  const tidbitHeadingWithTagIndex = tokens.map((token, index) => {
+    if (token.type === 'paragraph' && token.text.startsWith('tag: ') && !token.text.includes('\n')) {
+      const previousToken = tokens[index - 1];
+      if (index > 0 && previousToken.type === 'heading' && previousToken.depth === 2) {
+        return index - 1;
+      }
+    }
+    return -1;
+  }).filter(index => index !== -1);
+  tidbitHeadingWithTagIndex.forEach(idx => { [tokens[idx + 1], tokens[idx]] = [tokens[idx], tokens[idx + 1]]; });
   return marked.parser(tokens, {...marked.defaults.renderer.options, renderer: tidbitsRenderer});
 };
 
@@ -75,9 +81,11 @@ describe('A tidbits-markdown file has an H2 followed by a tag', () => {
     ].join('\n');
     it('THEN renders all SPANs before the H2s', () => {
       const html = tidbitMarkdownToHtml(tidbitMarkdown);
+
       const heading1Html = '<h2 id="tidbit-1">Tidbit 1</h2>';
       const tag1Html = '<span>#tag1</span>';
       assertThat(html, containsString(tag1Html + heading1Html));
+
       const heading2Html = '<h2 id="tidbit-2">Tidbit 2</h2>';
       const tag2Html = '<span>#tag2</span>';
       assertThat(html, containsString(tag2Html + heading2Html));
