@@ -125,6 +125,20 @@ Find tiny pieces of code, commands, snippets, stuff that I find interesting, use
 or where I know that I will search for it again but it&#39;s not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).</p>
+<h2 id="install-chromium-or-a-package-that-needs-it-inside-docker">Install Chromium (or a Package that needs it) inside Docker</h2>
+<p>I found a couple hints, but this one might be the best one.
+<a href="https://github.com/puppeteer/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker">https://github.com/puppeteer/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker</a>
+I actually changed parts</p>
+<pre><code>RUN npm i puppeteer \
+    # Add user so we don&#39;t need --no-sandbox.
+    # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
+    &amp;&amp; groupadd -r pptruser &amp;&amp; useradd -r -g pptruser -G audio,video pptruser \</code></pre><p>I replaced with</p>
+<pre><code>RUN mkdir /app/node_modules
+RUN groupadd -r pptruser &amp;&amp; useradd -r -g pptruser -G audio,video pptruser \</code></pre><p>So that I let <code>npm install</code> install the package that has Chromium as a dependency (it might not be puppeteer itself).</p>
+<p>Also I had to replace </p>
+<pre><code>     &amp;&amp; chown -R pptruser:pptruser /node_modules</code></pre><p>by</p>
+<pre><code>     &amp;&amp; chown -R pptruser:pptruser /app/node_modules</code></pre><p>since my <code>WORKDIR=/app</code> so <code>node_modules</code> will be inside that directory.
+Works well.</p>
 <span class="tag" data-tag="linux">#linux</span><h2 id="find-and-execute-command-with-found-files">Find and Execute Command with Found Files</h2>
 <p>You need to </p>
 <ol>
