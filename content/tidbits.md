@@ -9,6 +9,8 @@ the wrong code that one could copy ;).
 
 ## Install Chromium (or a Package that needs it) inside Docker
 
+tag: docker
+
 I found a couple hints, but this one might be the best one.
 https://github.com/puppeteer/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker
 I actually changed parts
