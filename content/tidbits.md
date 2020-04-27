@@ -7,6 +7,43 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Install Chromium (or a Package that needs it) inside Docker
+
+I found a couple hints, but this one might be the best one.
+https://github.com/puppeteer/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker
+I actually changed parts
+
+```
+RUN npm i puppeteer \
+    # Add user so we don't need --no-sandbox.
+    # same layer as npm install to keep re-chowned files from using up several hundred MBs more space
+    && groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
+```
+
+I replaced with
+
+```
+RUN mkdir /app/node_modules
+RUN groupadd -r pptruser && useradd -r -g pptruser -G audio,video pptruser \
+```
+
+So that I let `npm install` install the package that has Chromium as a dependency (it might not be puppeteer itself).
+
+Also I had to replace 
+```
+     && chown -R pptruser:pptruser /node_modules
+```
+
+by
+
+```
+     && chown -R pptruser:pptruser /app/node_modules
+```
+
+since my `WORKDIR=/app` so `node_modules` will be inside that directory.
+Works well.
+
+
 ## Find and Execute Command with Found Files
 
 tag: linux
