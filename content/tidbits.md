@@ -18,6 +18,12 @@ For example on graceful degradation:
 
 > On the World Wide Web, authors are often reluctant to use new language features that cause problems in older user agents, or that do not provide some sort of graceful fallback. HTML 5 document conformance requirements should be designed so that Web content can degrade gracefully in older or less capable user agents, even when making use of new elements, attributes, APIs and content models.
 
+A nice hack for making shiny stuff not show up on older user agents:
+
+> The default presentation of the proposed irrelevant attribute can be emulated through the CSS rule `[irrelevant] { display: none; }`.
+
+Any tag that might be misunderstood by newer browsers or would just be useless add the attribute `irrelevant` like so `<div irrelevant>This content is not necessary and can only be shown by modern user agents.</div>`
+
 https://www.w3.org/TR/html-design-principles/#degrade-gracefully
 
 ## Developer Experience over User Experience - Ouch
