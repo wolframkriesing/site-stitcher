@@ -7,6 +7,20 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## Developer Experience over User Experience - Ouch
+
+Jeremy Keith nailed it again:
+
+> But as a general principle, I think this works:
+>    User experience, even over developer experience.
+> Sadly, I think the current state of “modern” web development reverses that principle.
+
+another one
+
+> user has to pay when developers choose to use megabytes of JavaScript
+
+[Read "Principles and priorities" on his blog adactio.com ...](https://adactio.com/journal/16811)
+
 ## The End User Always has Ultimate Control
 
 tag: a11y
