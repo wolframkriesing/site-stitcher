@@ -147,7 +147,7 @@ or you map in volumes, or you know ...
 
 ## `$` and `$$` - Shortcut for `document.querySelector[All]()`
 
-tag: devtools  
+tag: tools  
 
 I still often type `document.querySelector()` or `document.querySelectorAll()`
 even though even before this was available in the browser the developer consoles, FireBugs or whatever
