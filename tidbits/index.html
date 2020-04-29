@@ -132,6 +132,11 @@ November 2007 and they are not outdated!</p>
 <blockquote>
 <p>On the World Wide Web, authors are often reluctant to use new language features that cause problems in older user agents, or that do not provide some sort of graceful fallback. HTML 5 document conformance requirements should be designed so that Web content can degrade gracefully in older or less capable user agents, even when making use of new elements, attributes, APIs and content models.</p>
 </blockquote>
+<p>A nice hack for making shiny stuff not show up on older user agents:</p>
+<blockquote>
+<p>The default presentation of the proposed irrelevant attribute can be emulated through the CSS rule <code>[irrelevant] { display: none; }</code>.</p>
+</blockquote>
+<p>Any tag that might be misunderstood by newer browsers or would just be useless add the attribute <code>irrelevant</code> like so <code>&lt;div irrelevant&gt;This content is not necessary and can only be shown by modern user agents.&lt;/div&gt;</code></p>
 <p><a href="https://www.w3.org/TR/html-design-principles/#degrade-gracefully">https://www.w3.org/TR/html-design-principles/#degrade-gracefully</a></p>
 <h2 id="developer-experience-over-user-experience---ouch">Developer Experience over User Experience - Ouch</h2>
 <p>Jeremy Keith nailed it again:</p>
