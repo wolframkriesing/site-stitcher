@@ -7,6 +7,19 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## The End User Always has Ultimate Control
+
+tag: a11y
+
+While hunting for accessibility resources, especially the reasons why designs need to be flexible
+I came across this article [Accessible CSS](https://webaim.org/techniques/css/) on [WebAIM.org](https://WebAIM.org).
+And their warning side just needs to be shown around the web even more.
+
+<figure>
+    <img src="./webaim-quote-accessible-web.gif" alt="user is in control warning" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+    <figcaption>Warning that the user has ultimate control</figcaption>
+</figure>
+
 ## Install Chromium (or a Package that needs it) inside Docker
 
 tag: docker
