@@ -13,12 +13,14 @@ tag: a11y
 
 While hunting for accessibility resources, especially the reasons why designs need to be flexible
 I came across this article [Accessible CSS](https://webaim.org/techniques/css/) on [WebAIM.org](https://WebAIM.org).
-And their warning side just needs to be shown around the web even more.
+And their warning sign just needs to be shown around the web even more.
 
 <figure>
     <img src="./webaim-quote-accessible-web.gif" alt="user is in control warning" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
     <figcaption>Warning that the user has ultimate control</figcaption>
 </figure>
+
+[Read "Accessible CSS" on WebAIM.org ...](https://webaim.org/techniques/css/)
 
 ## Install Chromium (or a Package that needs it) inside Docker
 
