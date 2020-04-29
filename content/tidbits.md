@@ -7,6 +7,18 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## GitUp v1.1.3 is out
+
+tag: tools
+
+My favourite git tool GitUp, which allows me to do everything with the keyboard and still has a UI has just received an update
+and if I had not read the [release notes](https://github.com/git-up/GitUp/releases) I wouldn't have known that now
+the "Fix double clicking title not expanding window" landed.
+I had already trained my muscle memory and would probably not have realized.
+
+Read your tools' release notes and changelogs, they make you more productive!
+Learned it from [JB](https://twitter.com/jbrains).
+
 ## HTML Design Principles
 
 tag: html
