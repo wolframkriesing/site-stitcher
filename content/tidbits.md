@@ -7,6 +7,19 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
+## HTML Design Principles
+
+tag: html
+
+There is nothing new about websites being backwards compatible. The HMTL Design Principles from the W3C are from
+November 2007 and they are not outdated!
+
+For example on graceful degradation:
+
+> On the World Wide Web, authors are often reluctant to use new language features that cause problems in older user agents, or that do not provide some sort of graceful fallback. HTML 5 document conformance requirements should be designed so that Web content can degrade gracefully in older or less capable user agents, even when making use of new elements, attributes, APIs and content models.
+
+https://www.w3.org/TR/html-design-principles/#degrade-gracefully
+
 ## Developer Experience over User Experience - Ouch
 
 Jeremy Keith nailed it again:
