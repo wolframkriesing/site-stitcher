@@ -19,7 +19,7 @@ export const tidbitMarkdownToHtml = (markdown) => {
   const tidbitHeadingWithTagIndex = tokens.map((token, index) => {
     if (token.type === 'paragraph' && token.text.startsWith('tag: ') && !token.text.includes('\n')) {
       const previousToken = tokens[index - 1];
-      if (index > 0 && previousToken.type === 'heading' && previousToken.depth === 2) {
+      if (index > 0 && previousToken.type === 'heading' && previousToken.depth === 3) {
         return index - 1;
       }
     }
