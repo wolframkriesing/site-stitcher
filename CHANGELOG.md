@@ -1,4 +1,9 @@
 # v2
+- [ ] make tidbits have a page each
+  - [ ] separate them into files per month
+  - [ ] create a page per tidbit, to have a link to each and show related ones on the page too
+  - [ ] revamp the /tidbits page to have just the tidbit headlines and tags
+  - [ ] make the tidbit on the overview page colapsable (without JS it links to the tidbit page)
 - [ ] add tags to the tidbits and render them on the page for easier reading and grouping
   - [ ] maybe even a page per tag
 - [ ] use semantic html
