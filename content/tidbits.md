@@ -7,7 +7,9 @@ or where I know that I will search for it again but it's not worth writing an
 entire blog post about. Just make it findable. My private stackoverflow, without
 the wrong code that one could copy ;).
 
-## Accessibility (and) Tools
+## May 1, 2020
+
+### Accessibility (and) Tools
 
 tag: a11y
 
@@ -40,7 +42,9 @@ with annontations on the page, see the image below.
     <figcaption>WAVE, Accessibility Tool Result</figcaption>
 </figure>
 
-## GitUp v1.1.3 is out
+## April 29, 2020
+
+### GitUp v1.1.3 is out
 
 tag: tools
 
@@ -52,7 +56,7 @@ I had already trained my muscle memory and would probably not have realized.
 Read your tools' release notes and changelogs, they make you more productive!
 Learned it from [JB](https://twitter.com/jbrains).
 
-## HTML Design Principles
+### HTML Design Principles
 
 tag: html
 
@@ -71,7 +75,7 @@ Any tag that might be misunderstood by newer browsers or would just be useless a
 
 https://www.w3.org/TR/html-design-principles/#degrade-gracefully
 
-## Developer Experience over User Experience - Ouch
+### Developer Experience over User Experience - Ouch
 
 Jeremy Keith nailed it again:
 
@@ -85,7 +89,7 @@ another one
 
 [Read "Principles and priorities" on his blog adactio.com ...](https://adactio.com/journal/16811)
 
-## The End User Always has Ultimate Control
+### The End User Always has Ultimate Control
 
 tag: a11y
 
@@ -100,7 +104,9 @@ And their warning sign just needs to be shown around the web even more.
 
 [Read "Accessible CSS" on WebAIM.org ...](https://webaim.org/techniques/css/)
 
-## Install Chromium (or a Package that needs it) inside Docker
+## April 27, 2020
+
+### Install Chromium (or a Package that needs it) inside Docker
 
 tag: docker
 
@@ -138,8 +144,7 @@ by
 since my `WORKDIR=/app` so `node_modules` will be inside that directory.
 Works well.
 
-
-## Find and Execute Command with Found Files
+### Find and Execute Command with Found Files
 
 tag: linux
 
@@ -157,7 +162,7 @@ Play around with each part of the command to see the output.
 Maybe for learning start with `find . -name '*.jpg' -exec echo "file1: {}" \;`.
 You will also find out how important the `\;` at the end is!
 
-## Very Fast Docker Image Build - Without Context
+### Very Fast Docker Image Build - Without Context
 
 tag: docker
 
@@ -178,7 +183,9 @@ Build your image like this:\
 Remember: you get no context in the container, so either you don't need it
 or you map in volumes, or you know ...
 
-## `$` and `$$` - Shortcut for `document.querySelector[All]()`
+## April 26, 2020
+
+### `$` and `$$` - Shortcut for `document.querySelector[All]()`
 
 tag: tools  
 
@@ -194,7 +201,7 @@ See the image below for how it works in Firefox.
     <figcaption>$ and $$ vs document.querySelector[All]()</figcaption>
 </figure>
 
-## Than vs. Then
+### Than vs. Then
 
 tag: english  
 
@@ -206,7 +213,7 @@ the assumption "than" was for time and ordering, I had been confused and wrong.
 
 The long version, very well explained is at https://ell.stackexchange.com/a/80756
 
-## Web Accessibility in Mind
+### Web Accessibility in Mind
 
 tag: a11y  
 
@@ -214,7 +221,9 @@ https://webaim.org/
 with lots of interesting [resources](https://webaim.org/resources/)
 and stuff to learn.
 
-## Dive into HTML5 - Mark Pilgrim (and community)
+## April 25, 2020
+
+### Dive into HTML5 - Mark Pilgrim (and community)
 
 tag: html  
 
@@ -223,7 +232,7 @@ proper `<aside>`, `<article>` and alikes today, I had forgotten a lot.
 But I remember it being the best HTML(5) in depth I ever saw.
 https://diveinto.html5doctor.com/ a must read!
 
-## HTML Validators
+### HTML Validators
 
 tag: html  
 
@@ -239,7 +248,7 @@ tag: html
 * [Google's structured data testing tool](https://search.google.com/structured-data/testing-tool)
   verifies the schema.org (structured data) validity, I assume they validate as it is relevant for their search engine.    
 
-## &lt;details&gt; HTML element
+### &lt;details&gt; HTML element
 
 tag: html  
 
@@ -257,7 +266,7 @@ Click below to see the code which creates this kinda dropdown, it is the `<detai
 The `<details>` element "creates a disclosure widget in which information is visible only when the widget is 
 toggled into an "open" state" [MDN says](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
 
-## Semantic HTML: Usage of Headings, Sections
+### Semantic HTML: Usage of Headings, Sections
 
 tag: html  
 
@@ -269,7 +278,9 @@ also very insightful and more specific is this on the W3C wiki
 If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp's 
 [Semantic Elements and Structure](https://www.youtube.com/watch?v=-dQ2Big9ueg) a very well explained video.
 
-## OKRs are Works in Progress
+## April 24, 2020
+
+### OKRs are Works in Progress
 
 I read it multiple times already in [Measure What Matters](https://www.goodreads.com/book/show/39286958-measure-what-matters)
 by John Doerr, that OKRs are flexible. I normally underline those things, but now I have to note it somewhere where I can find it again without physically needing the book. On page 54 he writes
@@ -291,14 +302,16 @@ On page 75 David from Nuna confirms that:
 > You're not going to get the system just right the first time around. It's not going to be perfect
 > the second or the third  time, either. But don't get discouraged. Persevere. You need to adapt it to make it your own.
 
-## Capitalization Rules for Headlines
+## April 22, 2020
+
+### Capitalization Rules for Headlines
 
 tag: english  
 
 I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
 There are a couple (SEO) sites that capitalize your headline  correctly, you'll find them when you need 'em.
 
-## Free Disk Space Used by Docker
+### Free Disk Space Used by Docker
 
 tag: docker  
 
@@ -340,21 +353,23 @@ Total reclaimed space: 0B
 
 Run `docker image prune --all` to gain a lot of disk space with the trade off of removing all your images, which will be downloaded when needed again.
 
-## Upgrade npm Package to Latest Version
+## April 21, 2020
+
+### Upgrade npm Package to Latest Version
 
 tag: npm  
 
 Run `npm install <package>@latest` to update to the latest version of a package, 
 no matter the minor, major version, it always goes to the latest.
 
-##  Diff of the Files in Two Directories
+###  Diff of the Files in Two Directories
 
 tag: linux  
 
 `diff --recursive <dir1> <dir2>` to diff the files and their contents in two directories
 I just needed to do some golden master tests after updating a dependency
 
-## MacOS Screenshot of the Current Window Only
+### MacOS Screenshot of the Current Window Only
 
 tag: macos  
 
