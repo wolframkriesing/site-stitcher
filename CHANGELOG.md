@@ -9,7 +9,7 @@
   - [ ] handle `tags` and `dateCreated` metadata (see 2019)
   - [ ] find tags in the text (and use them)? see 2019/11.md (no need for `tags:` metadata)
   - [ ] render image in md as figure, currently done by hand all the time
-  - [ ] 
+  - [ ] move blog post code into /src/load-blog-post maybe even /src/render-blog-post' ...
 - [ ] add tags to the tidbits and render them on the page for easier reading and grouping
   - [ ] maybe even a page per tag
 - [ ] use semantic html
