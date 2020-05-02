@@ -5,7 +5,8 @@ import * as path from 'path';
 import * as fs from 'fs';
 export const readFile = async (filename) => fs.promises.readFile(filename, 'utf8');
 const loadManyTidbitSourceFiles = () => async (dir) => {
-  const file = await readFile(path.join(dir, '2000/01/index.md'));
+  await readFile(path.join(dir, '2000/01/index.md'));
+  await readFile(path.join(dir, '2042/12/index.md'));
   return [
     {filename: `${dir}/2000/01/index.md`, monthAndYear: '2000-01'},
     {filename: `${dir}/2042/12/index.md`, monthAndYear: '2042-12'},
