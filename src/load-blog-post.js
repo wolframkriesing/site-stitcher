@@ -32,10 +32,10 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
  * @param tokens
  * @returns {BlogPostMetadata}
  */
-const parseMetadata = (tokens) => {
+const parseMetadata = (token) => {
   const metadata = {tags: [], oldUrls: []};
-  if (tokens[0].type === 'paragraph') {
-    const lines = tokens[0].text.split('\n');
+  if (token.type === 'paragraph') {
+    const lines = token.text.split('\n');
     const dateCreated = findMetadataByKeyAsString(lines, 'dateCreated');
     if (dateCreated) metadata.dateCreated = dateCreated;
     metadata.tags = findMetadataByKeyAsArray(lines, 'tags', ',');
@@ -82,7 +82,7 @@ const renderAbstractContentAsHtml = (abstractTokens) => {
 };
 const parseRawPost = tokens => {
   const {headline, abstract, abstractTokens} = findHeadlineAndAbstract(tokens);
-  const metadata = parseMetadata(tokens);
+  const metadata = parseMetadata(tokens[0]);
   const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokens);
   return {headline, abstract, abstractContentAsHtml, ...metadata};
 };
