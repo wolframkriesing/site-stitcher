@@ -2,7 +2,8 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} from 'hamjest';
 import * as path from 'path';
-import {loadManyTidbitSourceFiles, TidbitSourceFile} from './load-tidbit-source-file.js';
+import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
+import {TidbitSourceFile} from './TidbitSourceFile.js';
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
 
