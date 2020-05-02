@@ -1,13 +1,8 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
 import * as path from 'path';
+import {findTidbitSourceFilenames} from '../_deps/fs.js';
 
-const findTidbitSourceFilenames = async (dir) => {
-  return [
-    path.join(dir, '2000/01/index.md'),
-    path.join(dir, '2042/12/index.md'),
-  ];
-}
 const loadManyTidbitSourceFiles = () => async (dir) => {
   const files = await findTidbitSourceFilenames(dir);
   return files.map(file => ({filename: file, monthAndYear: file.split('/').slice(-3, -1).join('-')}));

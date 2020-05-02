@@ -18,6 +18,11 @@ const findOnlyBlogPostSourceFilesOrDirs = (entries) => {
     .filter(entry => entry.name.match(filenameStartRegex))
   ;
 };
+const findOnlyTidbitSourceFiles = (entries) => {
+  return entries
+    .filter(entry => entry.name === 'index.md')
+  ;
+};
 /**
  * TODO not sure that this function should also filter the files and folders by name, this might rather be a "biz log" not a dependency logic
  * // @typedef {BlogPostFilename} = 2000/01/01-xxxx.md
@@ -52,4 +57,29 @@ export const findBlogPostSourceFilenames = async (dir) => {
   return (await findBlogPostDirsOrFilesInDir(dir))
     .map(file => file.endsWith('.md') ? file : `${file}/index.md`)
   ;
+}
+
+const findTidbitFilesInDir = async (dir) => {
+  const findYearDirectories = async (dir) => {
+    return await fs.promises.readdir(dir, {withFileTypes: true})
+      .then(toAbsoluteDirectoryName(dir));
+  };
+  const findMonthDirectories = async (dir) => {
+    return fs.promises.readdir(dir, {withFileTypes: true})
+      .then(toAbsoluteDirectoryName(dir));
+  };
+  const findTidbitSourceFiles = async (dir) => {
+    return fs.promises.readdir(dir, {withFileTypes: true})
+      .then(findOnlyTidbitSourceFiles)
+      .then(toAbsoluteDirectoryOrFilename(dir))
+    ;
+  };
+  const yearDirectories = await findYearDirectories(dir);
+  const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
+  const files = (await Promise.all(monthDirectories.map(findTidbitSourceFiles))).flat();
+  return files;
+};
+
+export const findTidbitSourceFilenames = async (dir) => {
+  return await findTidbitFilesInDir(dir);
 }
