@@ -26,8 +26,7 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
  */
 export const parseMetadata = (token) => {
   const metadata = {tags: [], oldUrls: []};
-  if (token.type === 'paragraph') {
-    const lines = token.text.split('\n');
+  const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
     const configs = [
       {key: 'dateCreated', type: 'string'},
       {key: 'oldUrls', type: 'array', separator: ' '},
@@ -46,6 +45,5 @@ export const parseMetadata = (token) => {
           break;
       }
     });
-  }
   return metadata;
 }
