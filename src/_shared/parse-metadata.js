@@ -25,7 +25,7 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
  * @returns {BlogPostMetadata}
  */
 export const parseMetadata = (token) => {
-  const metadata = {tags: [], oldUrls: []};
+  const metadata = {};
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
   const configs = [
     {key: 'dateCreated', type: 'string'},
