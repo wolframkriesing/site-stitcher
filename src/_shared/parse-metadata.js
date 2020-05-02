@@ -21,18 +21,11 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
   return string.split(separator).map(s => s.trim());
 };
 /**
- * @param 
+ * @param marked token
+ * @param {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
  * @returns {BlogPostMetadata}
  */
-export const parseMetadata = (token) => {
-  const configs = [
-    {key: 'dateCreated', type: 'string'},
-    {key: 'oldUrls', type: 'array', separator: ' '},
-    {key: 'tags', type: 'array', separator: ','},
-    {key: 'videoStartTime', type: 'string'},
-    {key: 'vimeoId', type: 'string'},
-    {key: 'youtubeId', type: 'string'},
-  ];
+export const parseMetadata = (token, configs) => {
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
   const metadata = configs.map(config => {
     switch (config.type) {

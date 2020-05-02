@@ -40,9 +40,17 @@ const renderAbstractContentAsHtml = (abstractTokens) => {
   const abstractAsHtml = marked.parser(abstractTokens);
   return removeEnclosingPTag(abstractAsHtml);
 };
+const metadataParseConfigs = [
+  {key: 'dateCreated', type: 'string'},
+  {key: 'oldUrls', type: 'array', separator: ' '},
+  {key: 'tags', type: 'array', separator: ','},
+  {key: 'videoStartTime', type: 'string'},
+  {key: 'vimeoId', type: 'string'},
+  {key: 'youtubeId', type: 'string'},
+];
 const parseRawPost = tokens => {
   const {headline, abstract, abstractTokens} = findHeadlineAndAbstract(tokens);
-  const metadata = parseMetadata(tokens[0]);
+  const metadata = parseMetadata(tokens[0], metadataParseConfigs);
   const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokens);
   return {headline, abstract, abstractContentAsHtml, ...metadata};
 };
