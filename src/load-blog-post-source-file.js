@@ -10,5 +10,5 @@ const toSourceFile = (filename) => BlogPostSourceFile.withFilename(filename);
 
 export const loadManyBlogPostSourceFiles = ({findBlogPostSourceFilenames} = prodDeps()) => async (dir) => {
   const files = await findBlogPostSourceFilenames(dir);
-  return files.map(file => toSourceFile(path.join(dir, file)));
+  return files.map(toSourceFile);
 };

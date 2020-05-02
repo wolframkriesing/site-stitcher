@@ -44,13 +44,10 @@ const findBlogPostDirsOrFilesInDir = async (dir) => {
       .then(toAbsoluteDirectoryOrFilename(dir))
     ;
   };
-  const removeRootBlogPostDirectory = (dir) => (file) =>
-    file.replace(`${dir}/`, '');
-
   const yearDirectories = await findYearDirectories(dir);
   const monthDirectories = (await Promise.all(yearDirectories.map(findMonthDirectories))).flat();
   const files = (await Promise.all(monthDirectories.map(findBlogPostSourceFiles))).flat();
-  return files.map(removeRootBlogPostDirectory(dir));
+  return files;
 };
 
 export const findBlogPostSourceFilenames = async (dir) => {
