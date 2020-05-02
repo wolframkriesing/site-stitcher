@@ -1,8 +1,15 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
+import {assertThat, instanceOf} from 'hamjest';
+
+class Tidbit {
+  static withRawData() {
+    return new Tidbit();
+  }
+}
 
 const loadTidbitFile = () => {
-  return [{}];
+  return [Tidbit.withRawData({})];
 }
 
 describe('Load a tidbit file (one month)', () => {
@@ -17,6 +24,9 @@ describe('Load a tidbit file (one month)', () => {
     };
     it('THEN find one tidbit', () => {
       assert.equal(load().length, 1);
+    });
+    it('THEN this one be a Tidbit instance', () => {
+      assertThat(load()[0], instanceOf(Tidbit));
     });
     // tags
     // main tag
