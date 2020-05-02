@@ -20,6 +20,17 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
   if (string.length === 0) return [];
   return string.split(separator).map(s => s.trim());
 };
+
+const parseMetadataKey = (lines, keyConfig) => {
+  const key = keyConfig.key;
+  switch (keyConfig.type) {
+    case 'string':
+      return [key, findMetadataByKeyAsString(lines, key)];
+    case 'array':
+      return [key, findMetadataByKeyAsArray(lines, key, keyConfig.separator)];
+  };
+}
+
 /**
  * @param marked token
  * @param {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
@@ -27,13 +38,6 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
  */
 export const parseMetadata = (token, configs) => {
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
-  const metadata = configs.map(config => {
-    switch (config.type) {
-      case 'string': 
-        return [config.key, findMetadataByKeyAsString(lines, config.key)];
-      case 'array': 
-        return [config.key, findMetadataByKeyAsArray(lines, config.key, config.separator)];
-    }
-  });
+  const metadata = configs.map(keyConfig => parseMetadataKey(lines, keyConfig));
   return Object.fromEntries(metadata);
 }
