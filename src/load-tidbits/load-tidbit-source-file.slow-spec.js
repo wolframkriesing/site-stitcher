@@ -12,7 +12,7 @@ const loadManyTidbitSourceFiles = () => async (dir) => {
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
 
 describe('Load tidbit source files from a directory (tests are slow, working against a real fs)', () => {
-  describe('GIVEN a tidbits-directory WHEN loading the files THEN return objects with expected `monthAndYear` and `filename`', async () => {
+  describe('GIVEN a tidbits-directory WHEN loading the files', () => {
     it('THEN return objects with expected `monthAndYear` and `filename`', async () => {
       const posts = await loadManyTidbitSourceFiles()(tidbitDirectory);
       assert(posts.length > 0);
