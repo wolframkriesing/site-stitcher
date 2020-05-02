@@ -2,12 +2,7 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import {assertThat, not, hasProperty, hasItem, endsWith} from 'hamjest';
 import * as path from 'path';
-import {findTidbitSourceFilenames} from '../_deps/fs.js';
-
-const loadManyTidbitSourceFiles = () => async (dir) => {
-  const files = await findTidbitSourceFilenames(dir);
-  return files.map(file => ({filename: file, monthAndYear: file.split('/').slice(-3, -1).join('-')}));
-}
+import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
 
