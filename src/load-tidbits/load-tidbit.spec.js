@@ -3,14 +3,12 @@ import assert from 'assert';
 import {assertThat, instanceOf, hasProperties} from 'hamjest';
 
 class Tidbit {
-  constructor() {
-    this.tags = [];
-  }
   static withRawData(raw) {
     const tidbit = new Tidbit();
     tidbit.headline = raw.headline;
     tidbit.abstract = raw.abstract;
     tidbit.dateCreated = raw.dateCreated;
+    tidbit.tags = raw.tags;
     return tidbit;
   }
   get url() {
@@ -24,10 +22,14 @@ import marked from 'marked';
 import {parseMetadata} from '../_shared/parse-metadata.js';
 const loadTidbitFile = (markdown) => {
   const tokens = marked.lexer(markdown);
+  const metadataParseConfigss = [
+    {key: 'dateCreated', type: 'string'},
+    {key: 'tags', type: 'array'},
+  ];
   const data = {
     headline: tokens[0].text,
     abstract: tokens[3].text,
-    ...parseMetadata(tokens[1], [{key: 'dateCreated', type: 'string'}])
+    ...parseMetadata(tokens[1], metadataParseConfigss)
   };
   return [Tidbit.withRawData(data)];
 }
