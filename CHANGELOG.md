@@ -52,7 +52,7 @@
   - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
     - [ ] redirect the old URL to the new one
   - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
-  - [ ] microblog
+  - [x] microblog
 - [ ] setup
   - [ ] ADRs
   - [ ] type linting JS files using TS

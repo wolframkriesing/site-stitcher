@@ -1,7 +1,13 @@
-## May 1, 2020
+# My micro.blog Export
 
-### Accessibility (and) Tools
+dateCreated: 2020-05-02 15:23 CET
+tags: indieweb
 
+I just [exported the small number of posts as JSON (12 KB)](./my-microblog-export.json) I had on micro.blog.
+
+# Accessibility (and) Tools
+
+dateCreated: 2020-05-01
 tag: a11y
 
 Diving into the topic of accessibility I found so much more than I expected.

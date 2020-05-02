@@ -1,0 +1,201 @@
+{
+  "version": "https://jsonfeed.org/version/1",
+  "title": "Micro.blog - Replies",
+  "home_page_url": "https://micro.blog/",
+  "feed_url": "https://micro.blog/account/export/replies",
+  "_microblog": {
+    "about": "https://micro.blog/about/api",
+    "id": "41333",
+    "username": "wolframkriesing",
+    "bio": "I am a web developer, I love all things web, barcamps, the community and hacking on jskatas.org ...",
+    "is_following": true,
+    "is_you": true
+  },
+  "author": {
+    "name": "Wolfram Kriesing",
+    "url": "http://wolframkriesing.micro.blog/",
+    "avatar": "https://micro.blog/wolframkriesing/avatar.jpg"
+  },
+  "items": [
+    {
+      "id": "7427615",
+      "content_html": "<p>precompiled regex does use less heap. And now I have a test that ensures that. (Try <code>process.memoryUsage().heapUsed</code>)\n<code>() =&amp;gt; { const regex= /bla/; regex.test() }</code> is worse than <code>const regex= /bla/; () =&amp;gt; regex.test()</code>, regards to heap.\nLet&#39;s see when this bites me ;)</p>\n\n<h1>makesSense</h1>\n",
+      "url": "https://micro.blog/wolframkriesing/7427615",
+      "date_published": "2019-12-26T11:25:45+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-12-26  1:25 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6822675",
+      "content_html": "<p><a href=\"https://micro.blog/ajennische\">@ajennische</a> if you are interested, there is a &quot;privacy-conscious minimalists&quot; service like Google analytics, it&#39;s <a href=\"https://plausible.io/\">plausible.io</a> \nIf you want to see what it look like go to <a href=\"http://tddbin.com\">tddbin.com</a> at the top there is a link to the public view of the stats of that site</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6822675",
+      "date_published": "2019-11-28T19:42:59+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-28  9:42 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6804587",
+      "content_html": "<p><a href=\"https://micro.blog/romyxanais\">@romyxanais</a> look at this https://indieweb.org/wiki/index.php?diff=66714&amp;oldid=66682 ... TikTok goes around ;)</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6804587",
+      "date_published": "2019-11-27T20:21:49+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-27 10:21 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6782545",
+      "content_html": "<p><a href=\"https://micro.blog/manton\">@manton</a> ah,  that  is what I already did and expected to work :) cool that you are planning that. Keep it up!<br>\nOne more thing: I am using a local style sheet  to use the full width of  the  screen, since I am kinda ignorant about whitespace :) ... do  you take contributions somehow?</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6782545",
+      "date_published": "2019-11-26T16:46:53+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-26  6:46 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6782120",
+      "content_html": "<p><a href=\"https://micro.blog/manton\">@manton</a> I just figured out the difference between my microblog and the micro.blog/* page!  thx<br>\nconversation thread  on my blog is cool!!! :+1:<br>\nCan you explain what you mean to update a blog post based on the  replies? I can alrerady do that, right? Seeing a thread is different, that&#39;s what you mean?</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6782120",
+      "date_published": "2019-11-26T16:12:11+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-26  6:12 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6781634",
+      "content_html": "<p><a href=\"https://micro.blog/manton\">@manton</a> when I reply on a post, creating (what twitter calls) threads\n1) it can only be seen by micro.blog followers\n2) doesnt show up in &quot;posts&quot; and\n3) does not get cross posted to twitter\nis that right and intended, or something that is planned?</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6781634",
+      "date_published": "2019-11-26T15:49:07+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-26  5:49 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6780476",
+      "content_html": "<p>If you want to get the most out of the test and learn it all yourself, remove the code written inside the <code>it</code> function and write it yourself.\n4/4</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6780476",
+      "date_published": "2019-11-26T15:07:38+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-26  5:07 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6780456",
+      "content_html": "<p>Every <code>describe</code> block sums up tests for a piece of  learning. Every <code>it</code> should state explicitly what one can learn from the test code. The assertions are inteded to be as explicit as possible to learn the one thing intended.\n3/</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6780456",
+      "date_published": "2019-11-26T15:05:49+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-26  5:05 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    },
+    {
+      "id": "6780438",
+      "content_html": "<p>How to use the #jslang code to learn with/from it?\nInside each folder you find at least one *.spec.js file. Each file contains a set of tests. We tried very well describing what we wanted to learn with this test.\n2/</p>\n",
+      "url": "https://micro.blog/wolframkriesing/6780438",
+      "date_published": "2019-11-26T14:59:34+00:00",
+      "author": {
+        "name": "Wolfram Kriesing",
+        "url": "http://wolframkriesing.micro.blog/",
+        "avatar": "https://micro.blog/wolframkriesing/avatar.jpg",
+        "_microblog": {
+          "username": "wolframkriesing"
+        }
+      },
+      "_microblog": {
+        "date_relative": "2019-11-26  4:59 pm",
+        "is_favorite": false,
+        "is_deletable": true,
+        "is_conversation": true
+      }
+    }
+  ]
+}
