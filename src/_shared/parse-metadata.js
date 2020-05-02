@@ -20,7 +20,11 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
   if (string.length === 0) return [];
   return string.split(separator).map(s => s.trim());
 };
-
+/**
+ * @param lines {string[]}
+ * @param {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
+ * @returns {[*, string]|[*, string[]]}
+ */
 const parseMetadataKey = (lines, keyConfig) => {
   const key = keyConfig.key;
   switch (keyConfig.type) {
@@ -30,10 +34,9 @@ const parseMetadataKey = (lines, keyConfig) => {
       return [key, findMetadataByKeyAsArray(lines, key, keyConfig.separator)];
   };
 }
-
 /**
  * @param marked token
- * @param {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
+ * @param {[{key: string, type: 'string'} | {key: string, type: 'array', separator: string}]}
  * @returns {BlogPostMetadata}
  */
 export const parseMetadata = (token, configs) => {
