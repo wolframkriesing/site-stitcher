@@ -2,15 +2,15 @@ import {describe, it} from 'mocha';
 import assert from 'assert';
 import * as path from 'path';
 
-import * as fs from 'fs';
-export const readFile = async (filename) => fs.promises.readFile(filename, 'utf8');
-const loadManyTidbitSourceFiles = () => async (dir) => {
-  await readFile(path.join(dir, '2000/01/index.md'));
-  await readFile(path.join(dir, '2042/12/index.md'));
+const findTidbitSourceFilenames = async (dir) => {
   return [
-    {filename: `${dir}/2000/01/index.md`, monthAndYear: '2000-01'},
-    {filename: `${dir}/2042/12/index.md`, monthAndYear: '2042-12'},
+    path.join(dir, '2000/01/index.md'),
+    path.join(dir, '2042/12/index.md'),
   ];
+}
+const loadManyTidbitSourceFiles = () => async (dir) => {
+  const files = await findTidbitSourceFilenames(dir);
+  return files.map(file => ({filename: file, monthAndYear: file.split('/').slice(-3, -1).join('-')}));
 }
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
