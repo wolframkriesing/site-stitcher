@@ -34,7 +34,12 @@ export const parseMetadata = (token) => {
     metadata.oldUrls = findMetadataByKeyAsArray(lines, 'oldUrls', ' ');
     metadata.youtubeId = findMetadataByKeyAsString(lines, 'youtubeId');
     metadata.vimeoId = findMetadataByKeyAsString(lines, 'vimeoId');
-    metadata.videoStartTime = findMetadataByKeyAsString(lines, 'videoStartTime');
+    const configs = [
+      {key: 'videoStartTime', type: 'string', optional: false},
+    ];
+    configs.forEach(config => {
+      metadata[config.key] = findMetadataByKeyAsString(lines, config.key);
+    });
   }
   return metadata;
 }
