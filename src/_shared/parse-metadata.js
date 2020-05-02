@@ -32,10 +32,10 @@ export const parseMetadata = (token) => {
     if (dateCreated) metadata.dateCreated = dateCreated;
     metadata.tags = findMetadataByKeyAsArray(lines, 'tags', ',');
     metadata.oldUrls = findMetadataByKeyAsArray(lines, 'oldUrls', ' ');
-    metadata.youtubeId = findMetadataByKeyAsString(lines, 'youtubeId');
-    metadata.vimeoId = findMetadataByKeyAsString(lines, 'vimeoId');
     const configs = [
       {key: 'videoStartTime', type: 'string', optional: false},
+      {key: 'vimeoId', type: 'string', optional: false},
+      {key: 'youtubeId', type: 'string', optional: false},
     ];
     configs.forEach(config => {
       metadata[config.key] = findMetadataByKeyAsString(lines, config.key);
