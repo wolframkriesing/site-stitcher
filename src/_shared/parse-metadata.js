@@ -25,8 +25,6 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
  * @returns {BlogPostMetadata}
  */
 export const parseMetadata = (token) => {
-  const metadata = {};
-  const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
   const configs = [
     {key: 'dateCreated', type: 'string'},
     {key: 'oldUrls', type: 'array', separator: ' '},
@@ -35,15 +33,14 @@ export const parseMetadata = (token) => {
     {key: 'vimeoId', type: 'string'},
     {key: 'youtubeId', type: 'string'},
   ];
-  configs.forEach(config => {
+  const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
+  const metadata = configs.map(config => {
     switch (config.type) {
       case 'string': 
-        metadata[config.key] = findMetadataByKeyAsString(lines, config.key);
-        break;
+        return [config.key, findMetadataByKeyAsString(lines, config.key)];
       case 'array': 
-        metadata[config.key] = findMetadataByKeyAsArray(lines, config.key, config.separator);
-        break;
+        return [config.key, findMetadataByKeyAsArray(lines, config.key, config.separator)];
     }
   });
-  return metadata;
+  return Object.fromEntries(metadata);
 }
