@@ -4,8 +4,6 @@ import {assertThat, instanceOf, hasProperties} from 'hamjest';
 
 class Tidbit {
   constructor() {
-    this.url = '/tidbit/2111/11/a-tidbit/';
-    this.sourceFilename = '/app/test-content/tidbit/2111/11/index.md';
     this.tags = [];
   }
   static withRawData(raw) {
@@ -14,6 +12,11 @@ class Tidbit {
     tidbit.abstract = raw.abstract;
     tidbit.dateCreated = raw.dateCreated;
     return tidbit;
+  }
+  get url() {
+    const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
+    const slug = new marked.Slugger().slug(this.headline);
+    return '/tidbit/' + datePart + '/' + slug + '/';
   }
 }
 
