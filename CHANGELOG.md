@@ -2,7 +2,7 @@
 - [x] move my microblog stuff here, these were just tidbits (small things)
 - [ ] **improve tidbits** (to become my source to feed twitter)
   - [ ] make tidbits have a page each
-    - [ ] separate them into files per month
+    - [x] separate them into files per month
     - [ ] create a page per tidbit, to have a link to each and show related ones on the page too
     - [ ] revamp the /tidbits page to have just the tidbit headlines and tags
     - [ ] make the tidbit on the overview page colapsable, just show the first paragraph/line (without JS it links to the tidbit page)
