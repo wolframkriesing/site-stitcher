@@ -7,17 +7,26 @@ class Tidbit {
     this.url = '/tidbit/2111/a-tidbit/';
     this.dateCreated = '2111-11-11 11:11 CET';
     this.sourceFilename = '/app/test-content/tidbit/2000/01/index.md';
-    this.headline = 'A Tidbit';
-    this.abstract = 'One paragraph';
     this.tags = [];
   }
-  static withRawData() {
-    return new Tidbit();
+  static withRawData(raw) {
+    const tidbit = new Tidbit();
+    tidbit.headline = raw.headline;
+    tidbit.abstract = raw.abstract;
+    return tidbit;
   }
 }
 
-const loadTidbitFile = () => {
-  return [Tidbit.withRawData({})];
+import marked from 'marked';
+const loadTidbitFile = (markdown) => {
+  const tokens = marked.lexer(markdown);
+console.log("tokens= ", tokens);  
+  // marked.parser(tokens);
+  const data = {
+    headline: tokens[0].text,
+    abstract: tokens[3].text,
+  };
+  return [Tidbit.withRawData(data)];
 }
 
 describe('Load a tidbit file (one month)', () => {
@@ -27,7 +36,7 @@ describe('Load a tidbit file (one month)', () => {
         '# A Tidbit', '',
         'dateCreated: 2111-11-11 11:11 CET', '',
         'One paragraph'
-      ];
+      ].join('\n');
       return loadTidbitFile(fileContent);
     };
     it('THEN find one tidbit', () => {
@@ -53,5 +62,6 @@ describe('Load a tidbit file (one month)', () => {
     });
     // tags
     // main tag
+    // oldUrls
   });
 });
