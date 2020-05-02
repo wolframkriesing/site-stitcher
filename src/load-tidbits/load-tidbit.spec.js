@@ -4,8 +4,8 @@ import {assertThat, instanceOf, hasProperties} from 'hamjest';
 
 class Tidbit {
   constructor() {
-    this.url = '/tidbit/2111/a-tidbit/';
-    this.sourceFilename = '/app/test-content/tidbit/2000/01/index.md';
+    this.url = '/tidbit/2111/11/a-tidbit/';
+    this.sourceFilename = '/app/test-content/tidbit/2111/11/index.md';
     this.tags = [];
   }
   static withRawData(raw) {
@@ -51,8 +51,8 @@ describe('Load a tidbit file (one month)', () => {
     it('THEN it has the dateCreated = 2111-11-11 11:11 CET', () => {
       assertThat(load()[0].dateCreated, '2111-11-11 11:11 CET');
     });
-    it('THEN it has the url = /tidbit/2111/a-tidbit/', () => {
-      assertThat(load()[0].url, '/tidbit/2111/a-tidbit/');
+    it('THEN it has the url = /tidbit/2111/11/a-tidbit/', () => {
+      assertThat(load()[0].url, '/tidbit/2111/11/a-tidbit/');
     });
     it('THEN it has the abstract = "One paragraph"', () => {
       assertThat(load()[0].abstract, 'One paragraph');

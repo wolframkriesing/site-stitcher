@@ -12,7 +12,7 @@ describe('Load a tidbit file (one month)', () => {
       const filename = path.join(tidbitDirectory, '2000/01/index.md');
       const tidbit = await loadTidbits([TidbitSourceFile.withFilename(filename)]);
       const expectedProps = {
-        url: '/tidbit/2000/a-tidbit/',
+        url: '/tidbit/2000/01/a-tidbit/',
         dateCreated: '2000-01-01 10:00 CET',
         sourceFilename: filename,
         headline: 'A Tidbit',
