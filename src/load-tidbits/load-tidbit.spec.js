@@ -5,7 +5,6 @@ import {assertThat, instanceOf, hasProperties} from 'hamjest';
 class Tidbit {
   constructor() {
     this.url = '/tidbit/2111/a-tidbit/';
-    this.dateCreated = '2111-11-11 11:11 CET';
     this.sourceFilename = '/app/test-content/tidbit/2000/01/index.md';
     this.tags = [];
   }
@@ -13,18 +12,19 @@ class Tidbit {
     const tidbit = new Tidbit();
     tidbit.headline = raw.headline;
     tidbit.abstract = raw.abstract;
+    tidbit.dateCreated = raw.dateCreated;
     return tidbit;
   }
 }
 
 import marked from 'marked';
+import {parseMetadata} from '../_shared/parse-metadata.js';
 const loadTidbitFile = (markdown) => {
   const tokens = marked.lexer(markdown);
-console.log("tokens= ", tokens);  
-  // marked.parser(tokens);
   const data = {
     headline: tokens[0].text,
     abstract: tokens[3].text,
+    ...parseMetadata(tokens[1], [{key: 'dateCreated', type: 'string'}])
   };
   return [Tidbit.withRawData(data)];
 }
