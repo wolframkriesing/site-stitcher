@@ -1,3 +1,58 @@
+# WebStorm Live Templates Rock (Again)
+
+tags: tools
+dateCreated: 2020-05-02 15:27 CET
+
+I created a [Live Template](https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html) 
+to auto complete `dateC`+<kbd>TAB</kbd> to `dateCreated: 2020-05-02 15:27 CET`.
+
+<figure>
+    <img src="./live-tpl-video.gif" alt="See Live Template in Action" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+    <figcaption>See Live Template in Action</figcaption>
+</figure>
+
+
+I got tired of writing the metadata, I am using here in my tidbits ([see the source](https://github.com/wolframkriesing/site-stitcher/tree/master/content))
+over and over again, metadata such as the current `dateCreated`, as seen before.
+
+How to create this Live Template?
+
+1. <kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>A</kbd> (for "Find Action")
+2. Type "Live Template"
+3. Select the one with "Preferences" behind it
+    <figure>
+        <img src="./live-tpl-find-action.gif" alt="Find Action screen in WebStorm" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
+        <figcaption>Find Action screen in WebStorm</figcaption>
+    </figure>
+4. Create a new Live Template, <kbd>Cmd</kbd> + <kbd>N</kbd>, choose "Live Template"
+5. Fill it in as in the image
+    <figure>
+        <img src="./live-tpl-edit.gif" alt="The editor for the live template" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
+        <figcaption>The editor for the live template</figcaption>
+    </figure>
+6. Make sure to set "Applicable ..." below the fields.
+   Since I am using it in markdown files, which has no own section I chose "Other", see image
+    <figure>
+        <img src="./live-tpl-type.gif" alt="Edit live template type" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
+        <figcaption>Edit live template type</figcaption>
+    </figure>
+7. Note the `$NOW$`. This is a variable which does NOT exist yet, so let's create it to return 
+   the `dateCreated` in the format you have seen above (`2020-05-02 15:27 CET`).
+8. Click "Edit variables" on the right.
+9. Reading a little bit in [the JetBrains docs](https://www.jetbrains.com/help/webstorm/2020.1/edit-template-variables-dialog.html)
+   I found out very quickly that I need to set the value of the variable `NOW`
+   to `concat(date("Y-MM-dd HH:mm"), " CET")`.
+    <figure>
+        <img src="./live-tpl-edit-variable.gif" alt="Edit live template variable" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
+        <figcaption>Edit live template variable</figcaption>
+    </figure>
+10. If you tick "Skip if defined" the value will just auto complete and the Live Template is done (otherwise the inserted
+    value of `NOW` would be selected for editing, which we don't need here)
+11. Save and apply ... just close all the dialogs :)
+12. Voila, now when I type dateC`+<kbd>TAB</kbd> in my markdown file I get the date.
+
+    dateCreated: 2020-05-02 15:54 CET
+
 # My micro.blog Export
 
 dateCreated: 2020-05-02 15:23 CET

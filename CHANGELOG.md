@@ -5,7 +5,7 @@
     - [ ] separate them into files per month
     - [ ] create a page per tidbit, to have a link to each and show related ones on the page too
     - [ ] revamp the /tidbits page to have just the tidbit headlines and tags
-    - [ ] make the tidbit on the overview page colapsable (without JS it links to the tidbit page)
+    - [ ] make the tidbit on the overview page colapsable, just show the first paragraph/line (without JS it links to the tidbit page)
   - [ ] handle `tags` and `dateCreated` metadata (see 2019)
   - [ ] find tags in the text (and use them)? see 2019/11.md (no need for `tags:` metadata)
   - [ ] render image in md as figure, currently done by hand all the time
