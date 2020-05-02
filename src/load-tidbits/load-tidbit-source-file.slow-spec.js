@@ -1,8 +1,8 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {assertThat, not, hasProperty, hasItem, endsWith} from 'hamjest';
+import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} from 'hamjest';
 import * as path from 'path';
-import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
+import {loadManyTidbitSourceFiles, TidbitSourceFile} from './load-tidbit-source-file.js';
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
 
@@ -19,6 +19,10 @@ describe('Load tidbit source files from a directory (tests are slow, working aga
     it('AND the image file does NOT show up as tidbit file', async () => {
       const posts = await loadManyTidbitSourceFiles()(tidbitDirectory);
       assertThat(posts, not(hasItem(hasProperty('filename', endsWith('empty-image.gif')))));
+    });
+    it('AND each file is a TidbitSourceFile instance', async () => {
+      const posts = await loadManyTidbitSourceFiles()(tidbitDirectory);
+      assertThat(posts, everyItem(instanceOf(TidbitSourceFile)));
     });
   });
 });
