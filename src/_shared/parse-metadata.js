@@ -28,14 +28,13 @@ export const parseMetadata = (token) => {
   const metadata = {tags: [], oldUrls: []};
   if (token.type === 'paragraph') {
     const lines = token.text.split('\n');
-    const dateCreated = findMetadataByKeyAsString(lines, 'dateCreated');
-    if (dateCreated) metadata.dateCreated = dateCreated;
     metadata.tags = findMetadataByKeyAsArray(lines, 'tags', ',');
     metadata.oldUrls = findMetadataByKeyAsArray(lines, 'oldUrls', ' ');
     const configs = [
-      {key: 'videoStartTime', type: 'string', optional: false},
-      {key: 'vimeoId', type: 'string', optional: false},
-      {key: 'youtubeId', type: 'string', optional: false},
+      {key: 'dateCreated', type: 'string'},
+      {key: 'videoStartTime', type: 'string'},
+      {key: 'vimeoId', type: 'string'},
+      {key: 'youtubeId', type: 'string'},
     ];
     configs.forEach(config => {
       metadata[config.key] = findMetadataByKeyAsString(lines, config.key);
