@@ -1,22 +1,8 @@
 import {describe, it} from 'mocha';
-import {assertThat, hasProperties, instanceOf, everyItem} from 'hamjest';
+import {assertThat, hasProperties, instanceOf} from 'hamjest';
 import * as path from 'path';
 import {TidbitSourceFile} from './TidbitSourceFile.js';
-
-class Tidbit {
-  constructor() {
-    this.url = '/tidbit/2000/a-tidbit/';
-    this.dateCreated = '2000-01-01 10:00 CET';
-    this.sourceFilename = '/app/test-content/tidbit/2000/01/index.md';
-    this.headline = 'A Tidbit';
-    this.abstract = 'This tidbit has ONLY the required data.';
-  }
-}
-import {readFile} from '../_deps/fs.js';
-const loadTidbits = async (sourceFiles) => {
-  await readFile(sourceFiles[0].filename);
-  return [new Tidbit()];
-}
+import {loadTidbits, Tidbit} from './load-tidbit.js';
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
 
