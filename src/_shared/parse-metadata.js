@@ -28,16 +28,23 @@ export const parseMetadata = (token) => {
   const metadata = {tags: [], oldUrls: []};
   if (token.type === 'paragraph') {
     const lines = token.text.split('\n');
-    metadata.tags = findMetadataByKeyAsArray(lines, 'tags', ',');
-    metadata.oldUrls = findMetadataByKeyAsArray(lines, 'oldUrls', ' ');
     const configs = [
       {key: 'dateCreated', type: 'string'},
+      {key: 'oldUrls', type: 'array', separator: ' '},
+      {key: 'tags', type: 'array', separator: ','},
       {key: 'videoStartTime', type: 'string'},
       {key: 'vimeoId', type: 'string'},
       {key: 'youtubeId', type: 'string'},
     ];
     configs.forEach(config => {
-      metadata[config.key] = findMetadataByKeyAsString(lines, config.key);
+      switch (config.type) {
+        case 'string': 
+          metadata[config.key] = findMetadataByKeyAsString(lines, config.key);
+          break;
+        case 'array': 
+          metadata[config.key] = findMetadataByKeyAsArray(lines, config.key, config.separator);
+          break;
+      }
     });
   }
   return metadata;
