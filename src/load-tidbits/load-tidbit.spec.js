@@ -26,7 +26,7 @@ const loadTidbitFile = (markdown) => {
     headline: tokens[0].text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs),
-    bodyAsHtml: tokens[3].text,
+    bodyAsHtml: marked.parse(tokens[3].text),
   };
   return [Tidbit.withRawData(data)];
 }
@@ -75,8 +75,8 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN can be rendered as an H4', () => {
         assert.strictEqual(load()[0].headlineAsHtml(4), '<h4 id="a-tidbit">A Tidbit</h4>\n');
       });
-      it('THEN get the content as rendered', () => {
-        assert.strictEqual(load()[0].bodyAsHtml, 'One paragraph');
+      it('THEN get the content as rendered, via `bodyAsHtml`', () => {
+        assert.strictEqual(load()[0].bodyAsHtml, '<p>One paragraph</p>');
       });
     });
     describe('WHEN tidbit has a lot of data, not just the required ones', () => {
