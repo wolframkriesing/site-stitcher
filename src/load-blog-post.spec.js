@@ -24,7 +24,7 @@ describe('Load a blog post, with all data ready to render', () => {
         dateCreated: '2001-01-01',
         markdownFilename: '2001/01/01-post.md',
         headline: 'This is the first post',
-        abstract: 'the first paragraph of the blog post ...',
+        abstractContentAsHtml: 'the first paragraph of the blog post ...',
       };
       assertThat(post, instanceOf(BlogPost));
       assertThat(post, hasProperties(expectedProps));
@@ -39,11 +39,11 @@ describe('Load a blog post, with all data ready to render', () => {
 // the content parsing ...
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline'});
-      assert.strictEqual(post.abstract, '');
+      assert.strictEqual(post.abstractContentAsHtml, '');
     });
     it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline\n## subheadline'});
-      assert.strictEqual(post.abstract, '');
+      assert.strictEqual(post.abstractContentAsHtml, '');
     });
     it('WHEN it has NO metadata THEN the data set via metadata are either empty or have the right type', async () => {
       const post = await loadPost({fileContent: '# headline only'});
@@ -62,7 +62,7 @@ describe('Load a blog post, with all data ready to render', () => {
     describe('WHEN it has metadata', async () => {
       it('AND headline and an abstract THEN find the headline and the abstract', async () => {
         const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
-        assertThat(post, hasProperties({headline: 'headline', abstract: 'abstract, yeah'}));
+        assertThat(post, hasProperties({headline: 'headline', abstractContentAsHtml: 'abstract, yeah'}));
       });
       it('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
         const dateCreated = '2001-01-01 01:01 CET';

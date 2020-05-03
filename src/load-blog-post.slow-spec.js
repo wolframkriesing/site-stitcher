@@ -1,5 +1,5 @@
 import {describe, it} from 'mocha';
-import assert from 'assert';
+import {assertThat, hasProperties} from 'hamjest';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import * as path from 'path';
@@ -12,8 +12,10 @@ describe('Build posts from real files (tests are slow therefore)', () => {
     const posts = await loadManyBlogPosts()(sourceFiles);
 
     const expectedAbstract = `Abstract`;
-    assert.strictEqual(posts[0].dateCreated, '2000-01-01');
-    assert.strictEqual(posts[0].headline, 'Simplest Post');
-    assert.strictEqual(posts[0].abstract, expectedAbstract);
+    assertThat(posts[0], hasProperties({
+      dateCreated: '2000-01-01',
+      headline: 'Simplest Post',
+      abstractContentAsHtml: expectedAbstract,
+    }));
   });
 });

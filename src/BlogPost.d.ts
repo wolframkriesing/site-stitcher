@@ -1,9 +1,8 @@
 export class BlogPost {
   dateCreated: DateString | DateTimeString;
-  abstract: string;
+  abstractContentAsHtml: string;
   markdownFilename: Filename;
   url: string;
-  abstractAsHtml: string;
   bodyAsHtml: string;
   youtubeId?: string;
   vimeoId?: string;

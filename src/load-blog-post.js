@@ -23,12 +23,11 @@ const findHeadlineAndAbstract = (tokens) => {
     const t = tokens[tokenIndex];
     if (t.type === 'paragraph') {
       abstractTokens.push(t);
-      abstract = t.text;
     }
     tokenIndex++;
   }
 
-  return {headline, abstract, abstractTokens};
+  return {headline, abstractTokens};
 }
 
 const removeEnclosingPTag = s => s
