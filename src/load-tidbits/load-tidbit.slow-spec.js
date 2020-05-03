@@ -2,7 +2,8 @@ import {describe, it} from 'mocha';
 import {assertThat, hasProperties, instanceOf} from 'hamjest';
 import * as path from 'path';
 import {TidbitSourceFile} from './TidbitSourceFile.js';
-import {loadTidbits, Tidbit} from './load-tidbit.js';
+import {loadTidbits} from './load-tidbit.js';
+import {Tidbit} from './Tidbit.js';
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
 
@@ -12,16 +13,14 @@ describe('Load a tidbit file (one month)', () => {
       const filename = path.join(tidbitDirectory, '2000/01/index.md');
       const tidbit = await loadTidbits([TidbitSourceFile.withFilename(filename)]);
       const expectedProps = {
-        url: '/tidbit/2000/01/a-tidbit/',
+        // url: '/tidbit/2000/01/a-tidbit/',
         dateCreated: '2000-01-01 10:00 CET',
-        sourceFilename: filename,
+        // sourceFilename: filename,
         headline: 'A Tidbit',
-        abstract: 'This tidbit has ONLY the required data.',
+        abstractAsHtml: 'This tidbit has ONLY the required data.',
       };
       assertThat(tidbit[0], instanceOf(Tidbit));
       assertThat(tidbit[0], hasProperties(expectedProps));
     });
-    // tags
-    // main tag
   });
 });

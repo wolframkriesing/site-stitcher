@@ -2,40 +2,7 @@ import {describe, it} from 'mocha';
 import * as assert from 'assert';
 import {assertThat, instanceOf, hasProperties} from 'hamjest';
 import {Tidbit} from './Tidbit.js';
-
-import * as marked from 'marked';
-import {parseMetadata} from '../_shared/parse-metadata.js';
-import {renderAbstractAsHtml} from '../_shared/markdown.js';
-/**
- * @param markdown {string}
- * @return {[Tidbit]}
- */
-const loadTidbitFile = (markdown) => {
-  /** @type {marked.TokensList} */
-  const tokens = marked.lexer(markdown);
-  /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
-  const metadataParseConfigs = [
-    {key: 'dateCreated', type: 'string'},
-    {key: 'tags', type: 'array', separator: ','},
-    {key: 'oldUrls', type: 'array', separator: ' '},
-  ];
-  const abstractTokens = /** @type {marked.TokensList} */ ([tokens[3]]);
-  abstractTokens.links = tokens.links;
-  const bodyTokens = /** @type {marked.TokensList} */ (tokens.slice(3));
-  bodyTokens.links = tokens.links;
-  const data = {
-    headline: tokens[0].text,
-    abstractAsHtml: renderAbstractAsHtml(abstractTokens),
-    ...parseMetadata(tokens[1], metadataParseConfigs),
-    bodyAsHtml: marked.parser(bodyTokens),
-  };
-  const tidbits = [Tidbit.withRawData(data)];
-  if (tokens.filter(t => t.type === 'heading').length === 2) {
-    tidbits.push({headline: 'Tidbit Two'});
-  }
-  return tidbits;
-}
-
+import {loadTidbitFile} from './load-tidbit.js';
 
 describe('Load a tidbit file (one month)', () => {
   describe('GIVEN one tidbit in it', () => {
