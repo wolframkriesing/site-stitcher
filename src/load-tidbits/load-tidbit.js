@@ -53,10 +53,6 @@ export const loadTidbitFile = (markdown) => {
  * @return {Promise<Tidbit[]>}
  */
 export const loadTidbits = async (sourceFiles) => {
-  const file = await readFile(sourceFiles[0].filename);
-  if (sourceFiles.length === 2) {
-    const markdown = await readFile(sourceFiles[1].filename);
-    return [...loadTidbitFile(file), ...loadTidbitFile(markdown)];
-  }
-  return loadTidbitFile(file);
+  const files = await Promise.allSettled(sourceFiles.map(f => readFile(f.filename)));
+  return files.map(({value}) => loadTidbitFile(value)).flat();
 }
