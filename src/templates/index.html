@@ -16,7 +16,7 @@
         {% } %}
       </p>
     </header>
-    <p class="abstract">{!posts[0].abstractContentAsHtml!}</p>
+    <p class="abstract">{!posts[0].abstractAsHtml!}</p>
     <a href="{{posts[0].url}}">Read more ...</a>
   </article>
 
@@ -28,7 +28,7 @@
         {{ post.hasVideo ? ' 📺' : '' }}</h2>
       </header>
       <div class="content">
-        <p class="abstract">{!post.abstractContentAsHtml!}</p>
+        <p class="abstract">{!post.abstractAsHtml!}</p>
       </div>
     </article>
   {% }) %}

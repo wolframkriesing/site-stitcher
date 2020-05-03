@@ -24,7 +24,7 @@ describe('Load a blog post, with all data ready to render', () => {
         dateCreated: '2001-01-01',
         markdownFilename: '2001/01/01-post.md',
         headline: 'This is the first post',
-        abstractContentAsHtml: 'the first paragraph of the blog post ...',
+        abstractAsHtml: 'the first paragraph of the blog post ...',
       };
       assertThat(post, instanceOf(BlogPost));
       assertThat(post, hasProperties(expectedProps));
@@ -39,11 +39,11 @@ describe('Load a blog post, with all data ready to render', () => {
 // the content parsing ...
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline'});
-      assert.strictEqual(post.abstractContentAsHtml, '');
+      assert.strictEqual(post.abstractAsHtml, '');
     });
     it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline\n## subheadline'});
-      assert.strictEqual(post.abstractContentAsHtml, '');
+      assert.strictEqual(post.abstractAsHtml, '');
     });
     it('WHEN it has NO metadata THEN the data set via metadata are either empty or have the right type', async () => {
       const post = await loadPost({fileContent: '# headline only'});
@@ -62,7 +62,7 @@ describe('Load a blog post, with all data ready to render', () => {
     describe('WHEN it has metadata', async () => {
       it('AND headline and an abstract THEN find the headline and the abstract', async () => {
         const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
-        assertThat(post, hasProperties({headline: 'headline', abstractContentAsHtml: 'abstract, yeah'}));
+        assertThat(post, hasProperties({headline: 'headline', abstractAsHtml: 'abstract, yeah'}));
       });
       it('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
         const dateCreated = '2001-01-01 01:01 CET';
@@ -103,7 +103,7 @@ describe('Load a blog post, with all data ready to render', () => {
       const post = await loadPost({fileContent});
       assertThat(post, hasProperties({bodyAsHtml: '<p>first paragraph</p>\n'}));
     });
-    it('THEN provide `abstractContentAsHtml` for previewing posts', async () => {
+    it('THEN provide `abstractAsHtml` for previewing posts', async () => {
       const fileContent = [
         '# headline',
         '1st paragraph with [a link][1]',
@@ -114,7 +114,7 @@ describe('Load a blog post, with all data ready to render', () => {
       ].join('\n');
       const post = await loadPost({fileContent});
       const expected = '1st paragraph with <a href="http://picostitch.com">a link</a>';
-      assertThat(post, hasProperties({abstractContentAsHtml: expected}));
+      assertThat(post, hasProperties({abstractAsHtml: expected}));
     });
   });
   it('GIVEN many blog post source files THEN load all the BlogPost items', async () => {
@@ -125,7 +125,7 @@ describe('Load a blog post, with all data ready to render', () => {
     const readFile = async () => '# headline\nabstract';
     const posts = await loadManyBlogPosts({readFile})(manySourceFiles);
     assert.strictEqual(posts.length, 2);
-    const expectedAttributes = {headline: 'headline', abstractContentAsHtml: 'abstract'};
+    const expectedAttributes = {headline: 'headline', abstractAsHtml: 'abstract'};
     assertThat(posts, everyItem(instanceOf(BlogPost)));
     assertThat(posts[0], hasProperties({...expectedAttributes, dateCreated: '2018-05-13'}));
     assertThat(posts[1], hasProperties({...expectedAttributes, dateCreated: '2011-11-11'}));

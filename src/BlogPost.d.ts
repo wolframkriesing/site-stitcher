@@ -1,6 +1,6 @@
 export class BlogPost {
   dateCreated: DateString | DateTimeString;
-  abstractContentAsHtml: string;
+  abstractAsHtml: string;
   markdownFilename: Filename;
   url: string;
   bodyAsHtml: string;

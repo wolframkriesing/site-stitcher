@@ -15,7 +15,7 @@ describe('Build posts from real files (tests are slow therefore)', () => {
     assertThat(posts[0], hasProperties({
       dateCreated: '2000-01-01',
       headline: 'Simplest Post',
-      abstractContentAsHtml: expectedAbstract,
+      abstractAsHtml: expectedAbstract,
     }));
   });
 });

@@ -36,7 +36,7 @@ const removeEnclosingPTag = s => s
   .replace(/^<p>/, '')
   .replace(/<\/p>$/, '')
 ;
-const renderAbstractContentAsHtml = (abstractTokensList) => {
+const renderAbstractAsHtml = (abstractTokensList) => {
   const abstractAsHtml = marked.parser(abstractTokensList);
   return removeEnclosingPTag(abstractAsHtml);
 };
@@ -51,8 +51,8 @@ const metadataParseConfigs = [
 const parseRawPost = tokensList => {
   const {headline, abstractTokensList} = findHeadlineAndAbstract(tokensList);
   const metadata = parseMetadata(tokensList[0], metadataParseConfigs);
-  const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokensList);
-  return {headline, abstractContentAsHtml, ...metadata};
+  const abstractAsHtml = renderAbstractAsHtml(abstractTokensList);
+  return {headline, abstractAsHtml, ...metadata};
 };
 const findBodyToRender = tokensList => {
   // DANGER we are modifying `tokensList` here, since it has some properties, like `links`
