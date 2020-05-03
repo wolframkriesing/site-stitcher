@@ -4,21 +4,6 @@ import {parseMetadata} from '../_shared/parse-metadata.js';
 import {renderAbstractAsHtml} from '../_shared/markdown.js';
 import {Tidbit} from './Tidbit.js';
 
-/**
- * @param sourceFiles {import("./TidbitSourceFile").TidbitSourceFile[]}
- * @return {Promise<Tidbit[]>}
- */
-export const loadTidbits = async (sourceFiles) => {
-  await readFile(sourceFiles[0].filename);
-  const data = {
-    // url: '/tidbit/2000/01/a-tidbit/',
-    dateCreated: '2000-01-01 10:00 CET',
-    // sourceFilename: '/app/test-content/tidbit/2000/01/index.md',
-    headline: 'A Tidbit',
-    abstractAsHtml: 'This tidbit has ONLY the required data.',
-  };
-  return [Tidbit.withRawData(data)];
-}
 /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
 const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
@@ -62,4 +47,12 @@ export const loadTidbitFile = (markdown) => {
     }
     return parseTidbitTokens(tokens.slice(value));
   });
+}
+/**
+ * @param sourceFiles {import("./TidbitSourceFile").TidbitSourceFile[]}
+ * @return {Promise<Tidbit[]>}
+ */
+export const loadTidbits = async (sourceFiles) => {
+  const file = await readFile(sourceFiles[0].filename);
+  return loadTidbitFile(file);
 }
