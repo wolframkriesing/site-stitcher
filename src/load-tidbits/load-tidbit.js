@@ -19,20 +19,17 @@ export const loadTidbits = async (sourceFiles) => {
   };
   return [Tidbit.withRawData(data)];
 }
-
+/** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
+const metadataParseConfigs = [
+  {key: 'dateCreated', type: 'string'},
+  {key: 'tags', type: 'array', separator: ','},
+  {key: 'oldUrls', type: 'array', separator: ' '},
+];
 /**
- * @param markdown {string}
- * @return {[Tidbit]}
+ * @param tokens {marked.TokensList}
+ * @return {Tidbit}
  */
-export const loadTidbitFile = (markdown) => {
-  /** @type {marked.TokensList} */
-  const tokens = marked.lexer(markdown);
-  /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
-  const metadataParseConfigs = [
-    {key: 'dateCreated', type: 'string'},
-    {key: 'tags', type: 'array', separator: ','},
-    {key: 'oldUrls', type: 'array', separator: ' '},
-  ];
+const parseTidbitTokens = tokens => {
   const abstractTokens = /** @type {marked.TokensList} */ ([tokens[3]]);
   abstractTokens.links = tokens.links;
   const bodyTokens = /** @type {marked.TokensList} */ (tokens.slice(3));
@@ -43,7 +40,18 @@ export const loadTidbitFile = (markdown) => {
     ...parseMetadata(tokens[1], metadataParseConfigs),
     bodyAsHtml: marked.parser(bodyTokens),
   };
-  const tidbits = [Tidbit.withRawData(data)];
+  const tidbit = Tidbit.withRawData(data);
+  return tidbit;
+};
+/**
+ * @param markdown {string}
+ * @return {[Tidbit]}
+ */
+export const loadTidbitFile = (markdown) => {
+  /** @type {marked.TokensList} */
+  const tokens = marked.lexer(markdown);
+  const tidbit = parseTidbitTokens(tokens);
+  const tidbits = [tidbit];
   if (tokens.filter(t => t.type === 'heading').length === 2) {
     tidbits.push({headline: 'Tidbit Two'});
   }
