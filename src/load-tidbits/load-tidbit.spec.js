@@ -11,7 +11,7 @@ import {parseMetadata} from '../_shared/parse-metadata.js';
  * @return {[Tidbit]}
  */
 const loadTidbitFile = (markdown) => {
-  /** @type {marked.Token[]} */
+  /** @type {marked.TokensList} */
   const tokens = marked.lexer(markdown);
   /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
   const metadataParseConfigs = [
@@ -19,10 +19,9 @@ const loadTidbitFile = (markdown) => {
     {key: 'tags', type: 'array', separator: ','},
     {key: 'oldUrls', type: 'array', separator: ' '},
   ];
-  /** @type {marked.Token[]} */
-  const abstractTokens = [];
+  /** @type {marked.TokensList} */
+  const abstractTokens = [tokens[3]];
   abstractTokens.links = tokens.links;
-  abstractTokens.push(tokens[3]);
   const data = {
     headline: tokens[0].text,
     abstract: tokens[3].text,
