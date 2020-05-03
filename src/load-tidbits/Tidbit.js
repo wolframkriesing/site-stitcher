@@ -15,7 +15,6 @@ export class Tidbit {
     tidbit.oldUrls = raw.oldUrls;
     return tidbit;
   }
-
   /**
    * @return {RelativeUrl}
    */
@@ -23,5 +22,8 @@ export class Tidbit {
     const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
     const slug = new marked.Slugger().slug(this.headline);
     return '/tidbit/' + datePart + '/' + slug + '/';
+  }
+  headlineAsHtml(depth) {
+    return marked.parse('## ' + this.headline);
   }
 }
