@@ -93,7 +93,7 @@ describe('Load a tidbit file (one month)', () => {
         it('oldUrls', () => {
           assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
         });
-        it('abstract with a link-ref (not a direct link in the paragraph)', () => {
+        it('abstract with a link-ref (not a direct link in the paragraph, but at the end of the section)', () => {
           assertThat(load()[0].abstractAsHtml,
             'One paragraph\n' +
             'with two lines and a <a href="http://home.de">link</a>.'
