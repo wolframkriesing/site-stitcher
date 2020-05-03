@@ -69,7 +69,7 @@ describe('Load a tidbit file (one month)', () => {
           '# A Bigger Tidbit', '',
           'dateCreated: 2111-11-11 11:11 CET  ',
           'tags: nodejs, javascript, etc  ',
-          'oldUrls: /blog/old/url/  ',
+          'oldUrls: /blog/old/url/ /blog/old/url1/  ',
           '',
           'One paragraph',
           'with two lines.',
@@ -82,6 +82,9 @@ describe('Load a tidbit file (one month)', () => {
       describe('THEN find the metadata', () => {
         it('all the tags "nodejs, javascript, etc"', () => {
           assert.deepStrictEqual(load()[0].tags, ['nodejs', 'javascript', 'etc']);
+        });
+        it('oldUrls', () => {
+          assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
         });
       });
     });
