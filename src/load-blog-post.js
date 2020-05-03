@@ -12,15 +12,10 @@ const prodDeps = () => {
  * @return {[] | [marked.Token]}
  */
 const findNextParagraphTokens = tokens => {
-  const nextParagraph = [];
-  tokens.some(t => {
-    if (t.type === 'paragraph') {
-      nextParagraph.push(t);
-      return true;
-    }
-    return false;
-  });
-  return nextParagraph;
+  return tokens
+    .filter(t => t.type === 'paragraph')
+    .slice(0, 1)
+  ;
 };
 
 const findHeadlineAndAbstract = (tokens) => {
