@@ -11,7 +11,7 @@
     "lib": ["esnext"],
     "target": "ESNext"
   },
-  "include": ["src/typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared",
+  "include": ["src/typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared", "src/_deps",
     "src/load-tidbits/Tidbit.d.ts",
     "src/load-tidbits/load-tidbit.spec.js"
   ]

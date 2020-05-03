@@ -4,6 +4,10 @@ import {parseMetadata} from '../_shared/parse-metadata.js';
 import {renderAbstractAsHtml} from '../_shared/markdown.js';
 import {Tidbit} from './Tidbit.js';
 
+/**
+ * @param sourceFiles {import("./TidbitSourceFile").TidbitSourceFile[]}
+ * @return {Promise<Tidbit[]>}
+ */
 export const loadTidbits = async (sourceFiles) => {
   await readFile(sourceFiles[0].filename);
   const data = {
