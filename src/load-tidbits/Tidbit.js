@@ -11,6 +11,7 @@ export class Tidbit {
     tidbit.abstract = raw.abstract;
     tidbit.dateCreated = raw.dateCreated;
     tidbit.tags = raw.tags;
+    tidbit.oldUrls = raw.oldUrls;
     return tidbit;
   }
 

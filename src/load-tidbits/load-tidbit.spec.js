@@ -17,6 +17,7 @@ const loadTidbitFile = (markdown) => {
   const metadataParseConfigs = [
     {key: 'dateCreated', type: 'string'},
     {key: 'tags', type: 'array', separator: ','},
+    {key: 'oldUrls', type: 'array', separator: ' '},
   ];
   const data = {
     headline: tokens[0].text,
@@ -58,9 +59,9 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN it has not tags', () => {
         assertThat(load()[0], hasProperties({tags: []}));
       });
-// tags
-// main tag
-// oldUrls
+      it('THEN it has no oldUrls', () => {
+        assertThat(load()[0], hasProperties({oldUrls: []}));
+      });
     });
     describe('WHEN tidbit has a lot of data, not just the required ones', () => {
       const load = () => {
