@@ -1,37 +1,17 @@
 import {describe, it} from 'mocha';
 import * as assert from 'assert';
 import {assertThat, instanceOf, hasProperties} from 'hamjest';
-
-/**
- * @type {import("./Tidbit").Tidbit}
- */
-class Tidbit {
-  /**
-   * @param raw {PlainObject}
-   * @return {import("./Tidbit").Tidbit}
-   */
-  static withRawData(raw) {
-    const tidbit = new Tidbit();
-    tidbit.headline = raw.headline;
-    tidbit.abstract = raw.abstract;
-    tidbit.dateCreated = raw.dateCreated;
-    tidbit.tags = raw.tags;
-    return tidbit;
-  }
-
-  /**
-   * @return {RelativeUrl}
-   */
-  get url() {
-    const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
-    const slug = new marked.Slugger().slug(this.headline);
-    return '/tidbit/' + datePart + '/' + slug + '/';
-  }
-}
+import {Tidbit} from './Tidbit.js';
 
 import * as marked from 'marked';
 import {parseMetadata} from '../_shared/parse-metadata.js';
+
+/**
+ * @param markdown {string}
+ * @return {[Tidbit]}
+ */
 const loadTidbitFile = (markdown) => {
+  /** @type {marked.Token[]} */
   const tokens = marked.lexer(markdown);
   /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
   const metadataParseConfigs = [
