@@ -45,15 +45,20 @@ const parseTidbitTokens = tokens => {
 };
 /**
  * @param markdown {string}
- * @return {[Tidbit]}
+ * @return {Tidbit[]}
  */
 export const loadTidbitFile = (markdown) => {
   /** @type {marked.TokensList} */
   const tokens = marked.lexer(markdown);
-  const tidbit = parseTidbitTokens(tokens);
-  const tidbits = [tidbit];
-  if (tokens.filter(t => t.type === 'heading').length === 2) {
-    tidbits.push({headline: 'Tidbit Two'});
-  }
-  return tidbits;
+  const isH1 = t => t.type === 'heading' && t.depth === 1;
+  const indexesWhereTidbitsStart = tokens
+    .map((t, idx) => isH1(t) ? idx : -1)
+    .filter(idx => idx !== -1)
+  ;
+  return indexesWhereTidbitsStart.map((value, idx) => {
+    if (tokens.length >= idx + 1) {
+      return parseTidbitTokens(tokens.slice(value, indexesWhereTidbitsStart[idx + 1]));
+    }
+    return parseTidbitTokens(tokens.slice(value));
+  });
 }
