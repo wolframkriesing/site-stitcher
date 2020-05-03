@@ -122,12 +122,12 @@ describe('Load a blog post, with all data ready to render', () => {
       BlogPostSourceFile.withFilename('2018/05/13-post.md'),
       BlogPostSourceFile.withFilename('2011/11/11-post.md'),
     ];
-    const rawBlogPost = {headline: 'headline', abstract: 'abstract'};
     const readFile = async () => '# headline\nabstract';
     const posts = await loadManyBlogPosts({readFile})(manySourceFiles);
     assert.strictEqual(posts.length, 2);
+    const expectedAttributes = {headline: 'headline', abstractContentAsHtml: 'abstract'};
     assertThat(posts, everyItem(instanceOf(BlogPost)));
-    assertThat(posts[0], hasProperties({...rawBlogPost, dateCreated: '2018-05-13'}));
-    assertThat(posts[1], hasProperties({...rawBlogPost, dateCreated: '2011-11-11'}));
+    assertThat(posts[0], hasProperties({...expectedAttributes, dateCreated: '2018-05-13'}));
+    assertThat(posts[1], hasProperties({...expectedAttributes, dateCreated: '2011-11-11'}));
   });
 });
