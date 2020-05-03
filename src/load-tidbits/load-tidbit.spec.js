@@ -33,14 +33,15 @@ import * as marked from 'marked';
 import {parseMetadata} from '../_shared/parse-metadata.js';
 const loadTidbitFile = (markdown) => {
   const tokens = marked.lexer(markdown);
-  const metadataParseConfigss = [
+  /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
+  const metadataParseConfigs = [
     {key: 'dateCreated', type: 'string'},
-    {key: 'tags', type: 'array'},
+    {key: 'tags', type: 'array', separator: ','},
   ];
   const data = {
     headline: tokens[0].text,
     abstract: tokens[3].text,
-    ...parseMetadata(tokens[1], metadataParseConfigss)
+    ...parseMetadata(tokens[1], metadataParseConfigs)
   };
   return [Tidbit.withRawData(data)];
 }
@@ -80,6 +81,28 @@ describe('Load a tidbit file (one month)', () => {
 // tags
 // main tag
 // oldUrls
+    });
+    describe('WHEN tidbit has a lot of data, not just the required ones', () => {
+      const load = () => {
+        const fileContent = [
+          '# A Bigger Tidbit', '',
+          'dateCreated: 2111-11-11 11:11 CET  ',
+          'tags: nodejs, javascript, etc  ',
+          'oldUrls: /blog/old/url/  ',
+          '',
+          'One paragraph',
+          'with two lines.',
+          '',
+          '> and a blog quote',
+          '> on many lines',
+        ].join('\n');
+        return loadTidbitFile(fileContent);
+      };
+      describe('THEN find the metadata', () => {
+        it('all the tags "nodejs, javascript, etc"', () => {
+          assert.deepStrictEqual(load()[0].tags, ['nodejs', 'javascript', 'etc']);
+        });
+      });
     });
   });
 });
