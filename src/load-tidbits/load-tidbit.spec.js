@@ -19,14 +19,15 @@ const loadTidbitFile = (markdown) => {
     {key: 'tags', type: 'array', separator: ','},
     {key: 'oldUrls', type: 'array', separator: ' '},
   ];
-  /** @type {marked.TokensList} */
   const abstractTokens = /** @type {marked.TokensList} */ ([tokens[3]]);
   abstractTokens.links = tokens.links;
+  const bodyTokens = /** @type {marked.TokensList} */ (tokens.slice(3));
+  bodyTokens.links = tokens.links;
   const data = {
     headline: tokens[0].text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs),
-    bodyAsHtml: marked.parser(tokens.slice(3)),
+    bodyAsHtml: marked.parser(bodyTokens),
   };
   return [Tidbit.withRawData(data)];
 }
