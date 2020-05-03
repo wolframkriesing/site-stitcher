@@ -9,6 +9,7 @@ export class Tidbit {
     const tidbit = new Tidbit();
     tidbit.headline = raw.headline;
     tidbit.abstract = raw.abstract;
+    tidbit.abstractAsHtml = raw.abstractAsHtml;
     tidbit.dateCreated = raw.dateCreated;
     tidbit.tags = raw.tags;
     tidbit.oldUrls = raw.oldUrls;

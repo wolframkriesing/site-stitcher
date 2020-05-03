@@ -19,13 +19,24 @@ const loadTidbitFile = (markdown) => {
     {key: 'tags', type: 'array', separator: ','},
     {key: 'oldUrls', type: 'array', separator: ' '},
   ];
+  /** @type {marked.Token[]} */
+  const abstractTokens = [];
+  abstractTokens.links = tokens.links;
+  abstractTokens.push(tokens[3]);
   const data = {
     headline: tokens[0].text,
     abstract: tokens[3].text,
+    abstractAsHtml: removeEnclosingPTag(marked.parser(abstractTokens)),
     ...parseMetadata(tokens[1], metadataParseConfigs)
   };
   return [Tidbit.withRawData(data)];
 }
+const removeEnclosingPTag = s => s
+  .trim()
+  .replace(/^<p>/, '')
+  .replace(/<\/p>$/, '')
+;
+
 
 describe('Load a tidbit file (one month)', () => {
   describe('GIVEN one tidbit in it', () => {
@@ -72,10 +83,12 @@ describe('Load a tidbit file (one month)', () => {
           'oldUrls: /blog/old/url/ /blog/old/url1/  ',
           '',
           'One paragraph',
-          'with two lines.',
+          'with two lines and a [link][1].',
           '',
           '> and a blog quote',
           '> on many lines',
+          '',
+          '[1]: http://home.de',
         ].join('\n');
         return loadTidbitFile(fileContent);
       };
@@ -85,6 +98,12 @@ describe('Load a tidbit file (one month)', () => {
         });
         it('oldUrls', () => {
           assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
+        });
+        it('abstract', () => {
+          assertThat(load()[0].abstractAsHtml,
+            'One paragraph\n' +
+            'with two lines and a <a href="http://home.de">link</a>.'
+          );
         });
       });
     });
