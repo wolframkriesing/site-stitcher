@@ -1,3 +1,21 @@
+# Make `arr[0]` Fail Safe
+
+dateCreated: 2020-05-03 18:07 CET
+tags: javascript
+
+I was just filtering a list `list.filter(someCondition)`
+and I only wanted the first element **in case there is one**.
+Doing `list.filter(someCondition)[0]` fails when the filtered list
+is empty. So I am using `slice(0, 1)`, which returns the first element
+if there is one, an empty list otherwise.
+Now I do `list.filter(someCondition).slice(0, 1)` and never `list.filter(someCondition)[0]`.
+Such small things. 
+
+Here one gets reminded again where functions shine, instead of syntax.
+Just like `Reflect.defineProperty()` which return a bool and not like
+`Object.defineProperty()` which throws when it didn't work. Less noisy, more explicit code.
+Which gets me into why exception throwing sux, but that's a whole topic of its own.
+
 # WebStorm Live Templates Rock (Again)
 
 tags: tools
