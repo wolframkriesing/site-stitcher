@@ -115,11 +115,9 @@ describe('Load a tidbit file (one month)', () => {
         '',
         '[pcstt]: http://picostitch.com',
         '# Tidbit Three',
-        '',
         'dateCreated: 3333-03-03 03:03 CET  ',
         '',
         'Three paragraph `code`',
-        '',
       ].join('\n');
       return loadTidbitFile(fileContent);
     };
