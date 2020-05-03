@@ -80,7 +80,7 @@ I just [exported the small number of posts as JSON (12 KB)](./my-microblog-expor
 
 # Accessibility (and) Tools
 
-dateCreated: 2020-05-01
+dateCreated: 2020-05-01 19:13 CET
 tag: a11y
 
 Diving into the topic of accessibility I found so much more than I expected.
