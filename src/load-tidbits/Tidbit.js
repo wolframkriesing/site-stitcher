@@ -7,8 +7,8 @@ export class Tidbit {
    */
   static withRawData(raw) {
     const tidbit = new Tidbit();
+    tidbit.bodyAsHtml = raw.bodyAsHtml;
     tidbit.headline = raw.headline;
-    tidbit.abstract = raw.abstract;
     tidbit.abstractAsHtml = raw.abstractAsHtml;
     tidbit.dateCreated = raw.dateCreated;
     tidbit.tags = raw.tags;

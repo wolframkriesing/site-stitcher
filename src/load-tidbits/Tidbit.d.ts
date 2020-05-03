@@ -1,7 +1,7 @@
 export class Tidbit {
-  headline: string;
-  abstract: string;
   abstractAsHtml: string;
+  bodyAsHtml: string;
+  headline: string;
   sourceFilename: Filename;
   url: RelativeUrl;
 

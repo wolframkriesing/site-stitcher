@@ -24,9 +24,9 @@ const loadTidbitFile = (markdown) => {
   abstractTokens.links = tokens.links;
   const data = {
     headline: tokens[0].text,
-    abstract: tokens[3].text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
-    ...parseMetadata(tokens[1], metadataParseConfigs)
+    ...parseMetadata(tokens[1], metadataParseConfigs),
+    bodyAsHtml: tokens[3].text,
   };
   return [Tidbit.withRawData(data)];
 }
@@ -37,8 +37,10 @@ describe('Load a tidbit file (one month)', () => {
     describe('WHEN tidbit has all required data (headline, dateCreated, paragraph)', () => {
       const load = () => {
         const fileContent = [
-          '# A Tidbit', '',
-          'dateCreated: 2111-11-11 11:11 CET', '',
+          '# A Tidbit',
+          '',
+          'dateCreated: 2111-11-11 11:11 CET',
+          '',
           'One paragraph'
         ].join('\n');
         return loadTidbitFile(fileContent);
@@ -58,8 +60,8 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN it has the url = /tidbit/2111/11/a-tidbit/', () => {
         assertThat(load()[0].url, '/tidbit/2111/11/a-tidbit/');
       });
-      it('THEN it has the abstract = "One paragraph"', () => {
-        assertThat(load()[0].abstract, 'One paragraph');
+      it('THEN it has the abstractAsHtml = "One paragraph"', () => {
+        assertThat(load()[0].abstractAsHtml, 'One paragraph');
       });
       it('THEN it has not tags', () => {
         assertThat(load()[0], hasProperties({tags: []}));
@@ -72,6 +74,9 @@ describe('Load a tidbit file (one month)', () => {
       });
       it('THEN can be rendered as an H4', () => {
         assert.strictEqual(load()[0].headlineAsHtml(4), '<h4 id="a-tidbit">A Tidbit</h4>\n');
+      });
+      it('THEN get the content as rendered', () => {
+        assert.strictEqual(load()[0].bodyAsHtml, 'One paragraph');
       });
     });
     describe('WHEN tidbit has a lot of data, not just the required ones', () => {
