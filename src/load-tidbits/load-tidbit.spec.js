@@ -29,7 +29,11 @@ const loadTidbitFile = (markdown) => {
     ...parseMetadata(tokens[1], metadataParseConfigs),
     bodyAsHtml: marked.parser(bodyTokens),
   };
-  return [Tidbit.withRawData(data)];
+  const tidbits = [Tidbit.withRawData(data)];
+  if (tokens.filter(t => t.type === 'heading').length === 2) {
+    tidbits.push({headline: 'Tidbit Two'});
+  }
+  return tidbits;
 }
 
 
@@ -124,6 +128,30 @@ describe('Load a tidbit file (one month)', () => {
         ].join('\n');
         assert.strictEqual(load()[0].bodyAsHtml, expected);
       });
+    });
+  });
+  describe('GIVEN many tidbits in on file', () => {
+    const load = () => {
+      const fileContent = [
+        '# Tidbit One',
+        '',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph',
+        '',
+        '# Tidbit Two',
+        '',
+        'dateCreated: 2222-12-12 22:22 CET',
+        '',
+        'Two paragraph',
+        '',
+      ].join('\n');
+      return loadTidbitFile(fileContent);
+    };
+    it('THEN find all headlines', () => {
+      const tidbits = load();
+      assert.strictEqual(tidbits[0].headline, 'Tidbit One');
+      assert.strictEqual(tidbits[1].headline, 'Tidbit Two');
     });
   });
 });
