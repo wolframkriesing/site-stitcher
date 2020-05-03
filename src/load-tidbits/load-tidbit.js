@@ -33,22 +33,25 @@ const parseTidbitTokens = tokens => {
   const abstractTokens = [tokens[3]];
   const bodyTokens = tokens.slice(3);
   const data = {
-    headline: tokens[0].text,
+    headline: /** @type {marked.Tokens.Heading} */ (tokens[0]).text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs),
-    bodyAsHtml: marked.parser(bodyTokens),
+    bodyAsHtml: marked.parser(/** @type {marked.TokensList} */(bodyTokens)),
   };
   const tidbit = Tidbit.withRawData(data);
   return tidbit;
 };
 /**
+ * @param t {marked.Token}
+ * @return {boolean}
+ */
+const isH1 = t => t.type === 'heading' && t.depth === 1;
+/**
  * @param markdown {string}
  * @return {Tidbit[]}
  */
 export const loadTidbitFile = (markdown) => {
-  /** @type {marked.TokensList} */
   const tokens = marked.lexer(markdown);
-  const isH1 = t => t.type === 'heading' && t.depth === 1;
   const indexesWhereTidbitsStart = tokens
     .map((t, idx) => isH1(t) ? idx : -1)
     .filter(idx => idx !== -1)

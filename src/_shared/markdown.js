@@ -6,24 +6,14 @@ import * as marked from 'marked';
  */
 const isParagraph = t => t.type === 'paragraph';
 /**
- * @param tokensList {marked.Token[]}
+ * @param tokens {marked.Token[]}
  * @return {marked.Token[]}
  */
-const findNextParagraphTokens = tokensList => {
-  return tokensList
+export const findNextParagraphTokens = tokens => {
+  return tokens
     .filter(isParagraph)
     .slice(0, 1)
   ;
-};
-/**
- * @param tokensAfterHeadline {marked.Token[]}
- * @param tokensList {marked.TokensList}
- * @return {marked.TokensList}
- */
-export const nextParagraphAsTokensList = (tokensAfterHeadline, tokensList) => {
-  const abstractTokensList = /** @type {marked.TokensList} */ (findNextParagraphTokens(tokensAfterHeadline));
-  abstractTokensList.links = tokensList.links;
-  return abstractTokensList;
 };
 /**
  * @param s {string}
@@ -35,10 +25,10 @@ const removeEnclosingPTag = s => s
   .replace(/<\/p>$/, '')
 ;
 /**
- * @param abstractTokensList {marked.TokensList}
+ * @param abstractTokens {marked.Token[]}
  * @return {string}
  */
-export const renderAbstractAsHtml = (abstractTokensList) => {
-  const abstractAsHtml = marked.parser(abstractTokensList);
+export const renderAbstractAsHtml = (abstractTokens) => {
+  const abstractAsHtml = marked.parser(/** @type {marked.TokensList} */(abstractTokens));
   return removeEnclosingPTag(abstractAsHtml);
 };
