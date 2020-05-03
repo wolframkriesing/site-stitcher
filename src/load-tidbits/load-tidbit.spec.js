@@ -1,8 +1,15 @@
 import {describe, it} from 'mocha';
-import assert from 'assert';
+import * as assert from 'assert';
 import {assertThat, instanceOf, hasProperties} from 'hamjest';
 
+/**
+ * @type {import("./Tidbit").Tidbit}
+ */
 class Tidbit {
+  /**
+   * @param raw {PlainObject}
+   * @return {import("./Tidbit").Tidbit}
+   */
   static withRawData(raw) {
     const tidbit = new Tidbit();
     tidbit.headline = raw.headline;
@@ -11,6 +18,10 @@ class Tidbit {
     tidbit.tags = raw.tags;
     return tidbit;
   }
+
+  /**
+   * @return {RelativeUrl}
+   */
   get url() {
     const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
     const slug = new marked.Slugger().slug(this.headline);
@@ -18,7 +29,7 @@ class Tidbit {
   }
 }
 
-import marked from 'marked';
+import * as marked from 'marked';
 import {parseMetadata} from '../_shared/parse-metadata.js';
 const loadTidbitFile = (markdown) => {
   const tokens = marked.lexer(markdown);

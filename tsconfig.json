@@ -8,7 +8,11 @@
     "noUnusedLocals": true,
     "strict": true,
     "downlevelIteration": true,
-    "lib": ["esnext"]
+    "lib": ["esnext"],
+    "target": "ESNext"
   },
-  "include": ["typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared"]
+  "include": ["typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared",
+    "src/load-tidbits/Tidbit.d.ts",
+    "src/load-tidbits/load-tidbit.spec.js"
+  ]
 }
