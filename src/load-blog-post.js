@@ -2,20 +2,10 @@ import marked from 'marked';
 import {BlogPost} from "./BlogPost.js";
 import {readFile} from './_deps/fs.js';
 import {parseMetadata} from './_shared/parse-metadata.js';
+import {nextParagraphAsTokensList, renderAbstractAsHtml} from './_shared/markdown.js';
 
 const prodDeps = () => {
   return {readFile};
-};
-
-/**
- * @param tokensList {marked.TokensList}
- * @return {[] | [marked.Token]}
- */
-const findNextParagraphTokens = tokensList => {
-  return tokensList
-    .filter(t => t.type === 'paragraph')
-    .slice(0, 1)
-  ;
 };
 
 const findHeadlineAndAbstract = (tokensList) => {
@@ -26,20 +16,11 @@ const findHeadlineAndAbstract = (tokensList) => {
     if (t.type === 'heading' && t.depth === 1) headline = t.text;
     tokenIndex++;
   }
-  const abstractTokensList = findNextParagraphTokens(tokensList.slice(tokenIndex));
-  abstractTokensList.links = tokensList.links;
+  const tokensAfterHeadline = tokensList.slice(tokenIndex);
+  const abstractTokensList = nextParagraphAsTokensList(tokensAfterHeadline, tokensList);
   return {headline, abstractTokensList};
 }
 
-const removeEnclosingPTag = s => s
-  .trim()
-  .replace(/^<p>/, '')
-  .replace(/<\/p>$/, '')
-;
-const renderAbstractAsHtml = (abstractTokensList) => {
-  const abstractAsHtml = marked.parser(abstractTokensList);
-  return removeEnclosingPTag(abstractAsHtml);
-};
 const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
   {key: 'oldUrls', type: 'array', separator: ' '},
