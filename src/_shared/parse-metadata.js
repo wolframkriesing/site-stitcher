@@ -22,7 +22,7 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
 };
 /**
  * @param lines {string[]}
- * @param {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
+ * @param keyConfig {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
  * @returns {[*, string]|[*, string[]]}
  */
 const parseMetadataKey = (lines, keyConfig) => {
@@ -32,12 +32,12 @@ const parseMetadataKey = (lines, keyConfig) => {
       return [key, findMetadataByKeyAsString(lines, key)];
     case 'array':
       return [key, findMetadataByKeyAsArray(lines, key, keyConfig.separator)];
-  };
+  }
 }
 /**
- * @param marked token
- * @param {[{key: string, type: 'string'} | {key: string, type: 'array', separator: string}]}
- * @returns {BlogPostMetadata}
+ * @param token {marked.Token}
+ * @param configs {[{key: string, type: 'string'} | {key: string, type: 'array', separator: string}]}
+ * @returns {import("../BlogPost").BlogPostMetadata}
  */
 export const parseMetadata = (token, configs) => {
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
