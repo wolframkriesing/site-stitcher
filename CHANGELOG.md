@@ -113,6 +113,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] BUG H1s have no id, since I manually render them :(
 - [ ] see `npm run build:images:gif` it only builds for tidbits, unify and simplify building assets for all dirs
 - [ ] webcomponent to show last changes to the content, load it from gh, just pass it a url like so
       <pico-changelog source="https://github.com/wolframkriesing/site-stitcher/content/tidbits.md" />
