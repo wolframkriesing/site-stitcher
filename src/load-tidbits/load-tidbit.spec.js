@@ -26,7 +26,7 @@ const loadTidbitFile = (markdown) => {
     headline: tokens[0].text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs),
-    bodyAsHtml: marked.parse(tokens[3].text),
+    bodyAsHtml: marked.parser(tokens.slice(3)),
   };
   return [Tidbit.withRawData(data)];
 }
@@ -76,7 +76,7 @@ describe('Load a tidbit file (one month)', () => {
         assert.strictEqual(load()[0].headlineAsHtml(4), '<h4 id="a-tidbit">A Tidbit</h4>\n');
       });
       it('THEN get the content as rendered, via `bodyAsHtml`', () => {
-        assert.strictEqual(load()[0].bodyAsHtml, '<p>One paragraph</p>');
+        assert.strictEqual(load()[0].bodyAsHtml, '<p>One paragraph</p>\n');
       });
     });
     describe('WHEN tidbit has a lot of data, not just the required ones', () => {
@@ -110,6 +110,18 @@ describe('Load a tidbit file (one month)', () => {
             'with two lines and a <a href="http://home.de">link</a>.'
           );
         });
+      });
+      it('THEN get the content as rendered, via `bodyAsHtml`', () => {
+        const expected = [
+          '<p>One paragraph',
+          'with two lines and a <a href="http://home.de">link</a>.</p>',
+          '<blockquote>',
+          '<p>and a blog quote',
+          'on many lines</p>',
+          '</blockquote>',
+          ''
+        ].join('\n');
+        assert.strictEqual(load()[0].bodyAsHtml, expected);
       });
     });
   });
