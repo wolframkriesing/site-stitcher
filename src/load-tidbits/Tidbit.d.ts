@@ -1,11 +1,14 @@
 export class Tidbit {
+  headline: string;
   abstract: string;
   sourceFilename: Filename;
-  url: string;
+  url: RelativeUrl;
 
   dateCreated: DateTimeString;
   tags: string[];
   oldUrls: string[];
+
+  static withRawData(raw: PlainObject): Tidbit;
 }
 
 // actually this is a duplicate of what is in `Tidbit` too mmmh
