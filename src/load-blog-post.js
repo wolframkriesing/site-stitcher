@@ -23,6 +23,7 @@ const findHeadlineAndAbstract = (tokens) => {
     const t = tokens[tokenIndex];
     if (t.type === 'paragraph') {
       abstractTokens.push(t);
+      break;
     }
     tokenIndex++;
   }
@@ -48,10 +49,10 @@ const metadataParseConfigs = [
   {key: 'youtubeId', type: 'string'},
 ];
 const parseRawPost = tokens => {
-  const {headline, abstract, abstractTokens} = findHeadlineAndAbstract(tokens);
+  const {headline, abstractTokens} = findHeadlineAndAbstract(tokens);
   const metadata = parseMetadata(tokens[0], metadataParseConfigs);
   const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokens);
-  return {headline, abstract, abstractContentAsHtml, ...metadata};
+  return {headline, abstractContentAsHtml, ...metadata};
 };
 const findBodyToRender = tokens => {
   // DANGER we are modifying `tokens` here, since it has some properties, like `links`
