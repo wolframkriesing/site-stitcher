@@ -5,7 +5,7 @@ import {Tidbit} from './Tidbit.js';
 
 import * as marked from 'marked';
 import {parseMetadata} from '../_shared/parse-metadata.js';
-
+import {renderAbstractAsHtml} from '../_shared/markdown.js';
 /**
  * @param markdown {string}
  * @return {[Tidbit]}
@@ -20,21 +20,16 @@ const loadTidbitFile = (markdown) => {
     {key: 'oldUrls', type: 'array', separator: ' '},
   ];
   /** @type {marked.TokensList} */
-  const abstractTokens = [tokens[3]];
+  const abstractTokens = /** @type {marked.TokensList} */ ([tokens[3]]);
   abstractTokens.links = tokens.links;
   const data = {
     headline: tokens[0].text,
     abstract: tokens[3].text,
-    abstractAsHtml: removeEnclosingPTag(marked.parser(abstractTokens)),
+    abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs)
   };
   return [Tidbit.withRawData(data)];
 }
-const removeEnclosingPTag = s => s
-  .trim()
-  .replace(/^<p>/, '')
-  .replace(/<\/p>$/, '')
-;
 
 
 describe('Load a tidbit file (one month)', () => {
