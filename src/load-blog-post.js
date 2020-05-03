@@ -8,27 +8,27 @@ const prodDeps = () => {
 };
 
 /**
- * @param tokens {marked.TokensList}
+ * @param tokensList {marked.TokensList}
  * @return {[] | [marked.Token]}
  */
-const findNextParagraphTokens = tokens => {
-  return tokens
+const findNextParagraphTokens = tokensList => {
+  return tokensList
     .filter(t => t.type === 'paragraph')
     .slice(0, 1)
   ;
 };
 
-const findHeadlineAndAbstract = (tokens) => {
+const findHeadlineAndAbstract = (tokensList) => {
   let tokenIndex = 0;
   let headline = '';
-  while (tokenIndex < tokens.length && headline === '') {
-    const t = tokens[tokenIndex];
+  while (tokenIndex < tokensList.length && headline === '') {
+    const t = tokensList[tokenIndex];
     if (t.type === 'heading' && t.depth === 1) headline = t.text;
     tokenIndex++;
   }
-  const abstractTokensList = findNextParagraphTokens(tokens.slice(tokenIndex));
-  abstractTokensList.links = tokens.links;
-  return {headline, abstractTokens: abstractTokensList};
+  const abstractTokensList = findNextParagraphTokens(tokensList.slice(tokenIndex));
+  abstractTokensList.links = tokensList.links;
+  return {headline, abstractTokensList};
 }
 
 const removeEnclosingPTag = s => s
@@ -36,8 +36,8 @@ const removeEnclosingPTag = s => s
   .replace(/^<p>/, '')
   .replace(/<\/p>$/, '')
 ;
-const renderAbstractContentAsHtml = (abstractTokens) => {
-  const abstractAsHtml = marked.parser(abstractTokens);
+const renderAbstractContentAsHtml = (abstractTokensList) => {
+  const abstractAsHtml = marked.parser(abstractTokensList);
   return removeEnclosingPTag(abstractAsHtml);
 };
 const metadataParseConfigs = [
@@ -48,27 +48,27 @@ const metadataParseConfigs = [
   {key: 'vimeoId', type: 'string'},
   {key: 'youtubeId', type: 'string'},
 ];
-const parseRawPost = tokens => {
-  const {headline, abstractTokens} = findHeadlineAndAbstract(tokens);
-  const metadata = parseMetadata(tokens[0], metadataParseConfigs);
-  const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokens);
+const parseRawPost = tokensList => {
+  const {headline, abstractTokensList} = findHeadlineAndAbstract(tokensList);
+  const metadata = parseMetadata(tokensList[0], metadataParseConfigs);
+  const abstractContentAsHtml = renderAbstractContentAsHtml(abstractTokensList);
   return {headline, abstractContentAsHtml, ...metadata};
 };
-const findBodyToRender = tokens => {
-  // DANGER we are modifying `tokens` here, since it has some properties, like `links`
+const findBodyToRender = tokensList => {
+  // DANGER we are modifying `tokensList` here, since it has some properties, like `links`
   // set on the object, so it's not a pure array ... therefore we rather just shift() out
-  // elements, instead of cloning it and may fuck up something else of marked's tokens object.
-  while (tokens.length > 0) {
-    if (tokens[0].type === 'heading' && tokens[0].depth === 1) {
-      tokens.shift();
+  // elements, instead of cloning it and may fuck up something else of marked's tokensList object.
+  while (tokensList.length > 0) {
+    if (tokensList[0].type === 'heading' && tokensList[0].depth === 1) {
+      tokensList.shift();
       return;
     }
-    tokens.shift();
+    tokensList.shift();
   }
 }
-const renderBodyAsHtml = tokens => {
-  findBodyToRender(tokens);
-  return marked.parser(tokens);
+const renderBodyAsHtml = tokensList => {
+  findBodyToRender(tokensList);
+  return marked.parser(tokensList);
 }
 
 export const loadManyBlogPosts = ({readFile} = prodDeps()) => async manySourceFiles => {
@@ -78,8 +78,8 @@ export const loadManyBlogPosts = ({readFile} = prodDeps()) => async manySourceFi
 
 export const loadBlogPost = ({readFile}) => async (sourceFile) => {
   const rawPost = await readFile(sourceFile.filename);
-  const tokens = marked.lexer(rawPost);
-  const parsedPostData = parseRawPost(tokens);
-  const bodyAsHtml = renderBodyAsHtml(tokens);
+  const tokensList = marked.lexer(rawPost);
+  const parsedPostData = parseRawPost(tokensList);
+  const bodyAsHtml = renderBodyAsHtml(tokensList);
   return BlogPost.withSourceFile(sourceFile, {...parsedPostData, bodyAsHtml})
 }
