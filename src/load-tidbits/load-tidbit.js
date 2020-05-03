@@ -26,14 +26,12 @@ const metadataParseConfigs = [
   {key: 'oldUrls', type: 'array', separator: ' '},
 ];
 /**
- * @param tokens {marked.TokensList}
+ * @param tokens {marked.Token[]}
  * @return {Tidbit}
  */
 const parseTidbitTokens = tokens => {
-  const abstractTokens = /** @type {marked.TokensList} */ ([tokens[3]]);
-  abstractTokens.links = tokens.links;
-  const bodyTokens = /** @type {marked.TokensList} */ (tokens.slice(3));
-  bodyTokens.links = tokens.links;
+  const abstractTokens = [tokens[3]];
+  const bodyTokens = tokens.slice(3);
   const data = {
     headline: tokens[0].text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),

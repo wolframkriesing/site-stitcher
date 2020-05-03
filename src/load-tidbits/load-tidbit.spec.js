@@ -104,13 +104,21 @@ describe('Load a tidbit file (one month)', () => {
         '',
         'dateCreated: 2111-11-11 11:11 CET',
         '',
-        'One paragraph',
+        'One [paragraph][pcstt]',
         '',
         '# Tidbit Two',
         '',
-        'dateCreated: 2222-12-12 22:22 CET',
+        'dateCreated: 2222-12-12 22:22 CET  ',
+        'tags: one, two',
         '',
         'Two paragraph',
+        '',
+        '[pcstt]: http://picostitch.com',
+        '# Tidbit Three',
+        '',
+        'dateCreated: 3333-03-03 03:03 CET  ',
+        '',
+        'Three paragraph `code`',
         '',
       ].join('\n');
       return loadTidbitFile(fileContent);
@@ -119,6 +127,20 @@ describe('Load a tidbit file (one month)', () => {
       const tidbits = load();
       assert.strictEqual(tidbits[0].headline, 'Tidbit One');
       assert.strictEqual(tidbits[1].headline, 'Tidbit Two');
+      assert.strictEqual(tidbits[2].headline, 'Tidbit Three');
+    });
+    it('THEN find each metadata', () => {
+      const tidbits = load();
+      assert.strictEqual(tidbits[0].dateCreated, '2111-11-11 11:11 CET');
+      assert.strictEqual(tidbits[1].dateCreated, '2222-12-12 22:22 CET');
+      assert.strictEqual(tidbits[2].dateCreated, '3333-03-03 03:03 CET');
+      assert.deepStrictEqual(tidbits[1].tags, ['one', 'two']);
+    });
+    it('THEN find all `bodyAsHtml`', () => {
+      const tidbits = load();
+      assert.strictEqual(tidbits[0].bodyAsHtml, '<p>One <a href="http://picostitch.com">paragraph</a></p>\n');
+      assert.strictEqual(tidbits[1].bodyAsHtml, '<p>Two paragraph</p>\n');
+      assert.strictEqual(tidbits[2].bodyAsHtml, '<p>Three paragraph <code>code</code></p>\n');
     });
   });
 });
