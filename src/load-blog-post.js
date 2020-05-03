@@ -7,6 +7,22 @@ const prodDeps = () => {
   return {readFile};
 };
 
+/**
+ * @param tokens {marked.TokensList}
+ * @return {[] | [marked.Token]}
+ */
+const findNextParagraphTokens = tokens => {
+  const nextParagraph = [];
+  tokens.some(t => {
+    if (t.type === 'paragraph') {
+      nextParagraph.push(t);
+      return true;
+    }
+    return false;
+  });
+  return nextParagraph;
+};
+
 const findHeadlineAndAbstract = (tokens) => {
   let tokenIndex = 0;
   let headline = '';
@@ -15,20 +31,9 @@ const findHeadlineAndAbstract = (tokens) => {
     if (t.type === 'heading' && t.depth === 1) headline = t.text;
     tokenIndex++;
   }
-
-  let abstract = '';
-  const abstractTokens = [];
-  abstractTokens.links = tokens.links;
-  while (tokenIndex < tokens.length && abstract === '') {
-    const t = tokens[tokenIndex];
-    if (t.type === 'paragraph') {
-      abstractTokens.push(t);
-      break;
-    }
-    tokenIndex++;
-  }
-
-  return {headline, abstractTokens};
+  const abstractTokensList = findNextParagraphTokens(tokens.slice(tokenIndex));
+  abstractTokensList.links = tokens.links;
+  return {headline, abstractTokens: abstractTokensList};
 }
 
 const removeEnclosingPTag = s => s
