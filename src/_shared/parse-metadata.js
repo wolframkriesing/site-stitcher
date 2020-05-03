@@ -22,7 +22,7 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
 };
 /**
  * @param lines {string[]}
- * @param keyConfig {{key: string, type: 'string'} | {key: string, type: 'array', separator: string}}
+ * @param keyConfig {import("./parse-metadata").MetadataParseConfig}
  * @returns {[*, string]|[*, string[]]}
  */
 const parseMetadataKey = (lines, keyConfig) => {
@@ -36,8 +36,8 @@ const parseMetadataKey = (lines, keyConfig) => {
 }
 /**
  * @param token {marked.Token}
- * @param configs {[{key: string, type: 'string'} | {key: string, type: 'array', separator: string}]}
- * @returns {import("../BlogPost").BlogPostMetadata}
+ * @param configs {import("./parse-metadata").MetadataParseConfig[]}
+ * @returns {import("../BlogPost").BlogPostMetadata | import("../load-tidbits/Tidbit").TidbitMetadata}
  */
 export const parseMetadata = (token, configs) => {
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
