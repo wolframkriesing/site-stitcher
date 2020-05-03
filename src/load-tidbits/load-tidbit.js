@@ -54,5 +54,9 @@ export const loadTidbitFile = (markdown) => {
  */
 export const loadTidbits = async (sourceFiles) => {
   const file = await readFile(sourceFiles[0].filename);
+  if (sourceFiles.length === 2) {
+    const markdown = await readFile(sourceFiles[1].filename);
+    return [...loadTidbitFile(file), ...loadTidbitFile(markdown)];
+  }
   return loadTidbitFile(file);
 }

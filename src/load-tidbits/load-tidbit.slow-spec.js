@@ -3,6 +3,7 @@ import {assertThat, hasProperties, instanceOf} from 'hamjest';
 import * as path from 'path';
 import {TidbitSourceFile} from './TidbitSourceFile.js';
 import {loadTidbits} from './load-tidbit.js';
+import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
 import {Tidbit} from './Tidbit.js';
 
 const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
@@ -22,5 +23,19 @@ describe('Load a tidbit file (one month)', () => {
       assertThat(tidbit[0], instanceOf(Tidbit));
       assertThat(tidbit[0], hasProperties(expectedProps));
     });
+  });
+});
+
+describe('Load many tidbits', () => {
+  it('GIVEN a dir with many tidbits THEN load and provide them all', async () => {
+    const sourceFiles = await loadManyTidbitSourceFiles()(tidbitDirectory);
+    const tidbits = await loadTidbits(sourceFiles);
+    const expectedProps = {
+      dateCreated: '2000-01-01 10:00 CET',
+      headline: 'A Tidbit',
+      abstractAsHtml: 'This tidbit has ONLY the required data.',
+    };
+    assertThat(tidbits[0], hasProperties(expectedProps));
+    assertThat(tidbits[1], hasProperties({headline: 'Empty', abstractAsHtml: ':('}));
   });
 });
