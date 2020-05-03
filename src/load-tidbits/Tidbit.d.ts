@@ -10,6 +10,7 @@ export class Tidbit {
   oldUrls: string[];
 
   static withRawData(raw: PlainObject): Tidbit;
+  headlineAsHtml(depth: number): string;
 }
 
 // actually this is a duplicate of what is in `Tidbit` too mmmh

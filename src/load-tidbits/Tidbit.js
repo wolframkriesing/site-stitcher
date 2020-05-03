@@ -24,6 +24,7 @@ export class Tidbit {
     return '/tidbit/' + datePart + '/' + slug + '/';
   }
   headlineAsHtml(depth) {
-    return marked.parse('## ' + this.headline);
+    const headingPrefix = new Array(depth).fill('#').join('') + ' ';
+    return marked.parse(headingPrefix + this.headline);
   }
 }

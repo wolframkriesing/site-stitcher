@@ -70,6 +70,9 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN can be rendered as an H2', () => {
         assert.strictEqual(load()[0].headlineAsHtml(2), '<h2 id="a-tidbit">A Tidbit</h2>\n');
       });
+      it('THEN can be rendered as an H4', () => {
+        assert.strictEqual(load()[0].headlineAsHtml(4), '<h4 id="a-tidbit">A Tidbit</h4>\n');
+      });
     });
     describe('WHEN tidbit has a lot of data, not just the required ones', () => {
       const load = () => {
