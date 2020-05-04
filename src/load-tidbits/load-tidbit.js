@@ -2,6 +2,7 @@ import * as marked from 'marked';
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata} from '../_shared/parse-metadata.js';
 import {renderAbstractAsHtml} from '../_shared/markdown.js';
+import {sortByDateCreatedDescending} from './sort-tidbit.js';
 import {Tidbit} from './Tidbit.js';
 
 const prodDeps = () => {
@@ -60,6 +61,6 @@ export const loadTidbits = ({readFile} = prodDeps()) => async (sourceFiles) => {
   return (await Promise.allSettled(sourceFiles.map(f => readFile(f.filename))))
     .map(({value}) => loadTidbitFile(value))
     .flat()
-    .sort((t1, t2) => t1.dateCreated < t2.dateCreated ? 1 : -1)
+    .sort(sortByDateCreatedDescending)
   ;
 }
