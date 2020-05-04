@@ -151,12 +151,19 @@ describe('Load many tidbit files (many months)', () => {
         TidbitSourceFile.withFilename('tidbits/2000/01/index.md'),
         TidbitSourceFile.withFilename('tidbits/2222/01/index.md'),
       ];
+      /**
+       * @type {{[key: string]: string}}
+       */
       const fileContents = {
         'tidbits/2000/01/index.md': '# Tidbit 2000\ndateCreated: 2000-01-01 10:00 CET\n\nparagraph\n',
         'tidbits/2222/01/index.md':
           '# Tidbit 2222-1\ndateCreated: 2222-01-22 22:22 CET\n\nparagraph\n' +
           '# Tidbit 2222-2\ndateCreated: 3333-01-22 22:22 CET\n\nparagraph\n'
       };
+      /**
+       * @param filename {Filename}
+       * @return {Promise<string>}
+       */
       const readFile = async (filename) => fileContents[filename];
       const tidbits = await loadTidbits({readFile})(fakeSourceFiles);
 
