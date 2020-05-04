@@ -2,7 +2,8 @@ import {describe, it} from 'mocha';
 import * as assert from 'assert';
 import {assertThat, instanceOf, hasProperties} from 'hamjest';
 import {Tidbit} from './Tidbit.js';
-import {loadTidbitFile} from './load-tidbit.js';
+import {loadTidbitFile, loadTidbits} from './load-tidbit.js';
+import {TidbitSourceFile} from "./TidbitSourceFile.js";
 
 describe('Load a tidbit file (one month)', () => {
   describe('GIVEN one tidbit in it', () => {
@@ -145,8 +146,20 @@ describe('Load a tidbit file (one month)', () => {
 
 describe('Load many tidbit files (many months)', () => {
   describe('GIVEN many files with many tidbits inside WHEN successfully loading them', () => {
-    it('THEN all loaded tidbits are sorted newest first', () => {
+    it('THEN all loaded tidbits are sorted newest first', async () => {
+      const fakeSourceFiles = [
+        TidbitSourceFile.withFilename('tidbits/2000/01/index.md'),
+        TidbitSourceFile.withFilename('tidbits/2222/01/index.md'),
+      ];
+      const fileContents = {
+        'tidbits/2000/01/index.md': '# Tidbit 2000\ndateCreated: 2000-01-01 10:00 CET\n\nparagraph\n',
+        'tidbits/2222/01/index.md': '# Tidbit 2222-1\ndateCreated: 2222-01-22 22:22 CET\n\nparagraph\n'
+      };
+      const readFile = async (filename) => fileContents[filename];
+      const tidbits = await loadTidbits({readFile})(fakeSourceFiles);
 
+      assert.strictEqual(tidbits[0].dateCreated, '2222-01-22 22:22 CET');
+      assert.strictEqual(tidbits[1].dateCreated, '2000-01-01 10:00 CET');
     });
   });
 });

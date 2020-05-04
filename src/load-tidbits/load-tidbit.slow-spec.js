@@ -35,7 +35,7 @@ describe('Load many tidbits', () => {
       headline: 'A Tidbit',
       abstractAsHtml: 'This tidbit has ONLY the required data.',
     };
-    assertThat(tidbits[0], hasProperties(expectedProps));
-    assertThat(tidbits[1], hasProperties({headline: 'Empty', abstractAsHtml: ':('}));
+    assertThat(tidbits[1], hasProperties(expectedProps));
+    assertThat(tidbits[0], hasProperties({headline: 'Empty', abstractAsHtml: ':('}));
   });
 });

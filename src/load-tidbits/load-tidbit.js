@@ -57,6 +57,10 @@ export const loadTidbitFile = (markdown) => {
  * @return {function(import("./TidbitSourceFile").TidbitSourceFile[]): Promise<Tidbit[]>}
  */
 export const loadTidbits = ({readFile} = prodDeps()) => async (sourceFiles) => {
-  const files = await Promise.allSettled(sourceFiles.map(f => readFile(f.filename)));
+  const fileReaders = sourceFiles
+    .sort((sf1, sf2) => sf1.monthAndYear < sf2.monthAndYear ? 1 : -1)
+    .map(f => { console.log(f); return readFile(f.filename);})
+  ;
+  const files = await Promise.allSettled(fileReaders);
   return files.map(({value}) => loadTidbitFile(value)).flat();
 }
