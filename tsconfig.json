@@ -12,11 +12,11 @@
     "target": "ESNext"
   },
   "include": ["src/typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared", "src/_deps",
-    "src/load-tidbits/Tidbit.d.ts",
-    "src/load-tidbits/TidbitSourceFile.d.ts",
-    "src/load-tidbits/load-tidbit.spec.js",
-    "src/load-tidbits/load-tidbit.slow-spec.js",
-    "src/load-tidbits/load-tidbit.js",
-    "src/load-tidbits/sort-tidbit.js"
+    "src/load-tidbit/Tidbit.d.ts",
+    "src/load-tidbit/TidbitSourceFile.d.ts",
+    "src/load-tidbit/load-tidbit.spec.js",
+    "src/load-tidbit/load-tidbit.slow-spec.js",
+    "src/load-tidbit/load-tidbit.js",
+    "src/load-tidbit/sort-tidbit.js"
   ]
 }

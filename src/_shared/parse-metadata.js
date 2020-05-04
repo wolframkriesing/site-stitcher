@@ -37,7 +37,7 @@ const parseMetadataKey = (lines, keyConfig) => {
 /**
  * @param token {marked.Token}
  * @param configs {import("./parse-metadata").MetadataParseConfig[]}
- * @returns {import("../BlogPost").BlogPostMetadata | import("../load-tidbits/Tidbit").TidbitMetadata}
+ * @returns {import("../BlogPost").BlogPostMetadata | import("../load-tidbit/Tidbit").TidbitMetadata}
  */
 export const parseMetadata = (token, configs) => {
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];
