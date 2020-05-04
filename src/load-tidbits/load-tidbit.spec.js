@@ -142,3 +142,11 @@ describe('Load a tidbit file (one month)', () => {
     });
   });
 });
+
+describe('Load many tidbit files (many months)', () => {
+  describe('GIVEN many files with many tidbits inside WHEN successfully loading them', () => {
+    it('THEN all loaded tidbits are sorted newest first', () => {
+
+    });
+  });
+});

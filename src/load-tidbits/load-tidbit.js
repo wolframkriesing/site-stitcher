@@ -4,6 +4,10 @@ import {parseMetadata} from '../_shared/parse-metadata.js';
 import {renderAbstractAsHtml} from '../_shared/markdown.js';
 import {Tidbit} from './Tidbit.js';
 
+const prodDeps = () => {
+  return {readFile};
+};
+
 /** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
 const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
@@ -49,10 +53,10 @@ export const loadTidbitFile = (markdown) => {
   });
 }
 /**
- * @param sourceFiles {import("./TidbitSourceFile").TidbitSourceFile[]}
- * @return {Promise<Tidbit[]>}
+ * @param prodDeps {{readFile: function(Filename): Promise<string>}}
+ * @return {function(import("./TidbitSourceFile").TidbitSourceFile[]): Promise<Tidbit[]>}
  */
-export const loadTidbits = async (sourceFiles) => {
+export const loadTidbits = ({readFile} = prodDeps()) => async (sourceFiles) => {
   const files = await Promise.allSettled(sourceFiles.map(f => readFile(f.filename)));
   return files.map(({value}) => loadTidbitFile(value)).flat();
 }

@@ -12,7 +12,7 @@ describe('Load a tidbit file (one month)', () => {
   describe('GIVEN one source file with one tidbit in it', () => {
     it('WHEN tidbit has headline and first paragraph only THEN provide: url, dateCreated, sourceFilename, headline and abstract', async () => {
       const filename = path.join(tidbitDirectory, '2000/01/index.md');
-      const tidbit = await loadTidbits([TidbitSourceFile.withFilename(filename)]);
+      const tidbit = await loadTidbits()([TidbitSourceFile.withFilename(filename)]);
       const expectedProps = {
         // url: '/tidbit/2000/01/a-tidbit/',
         dateCreated: '2000-01-01 10:00 CET',
@@ -29,7 +29,7 @@ describe('Load a tidbit file (one month)', () => {
 describe('Load many tidbits', () => {
   it('GIVEN a dir with many tidbits THEN load and provide them all', async () => {
     const sourceFiles = await loadManyTidbitSourceFiles()(tidbitDirectory);
-    const tidbits = await loadTidbits(sourceFiles);
+    const tidbits = await loadTidbits()(sourceFiles);
     const expectedProps = {
       dateCreated: '2000-01-01 10:00 CET',
       headline: 'A Tidbit',
