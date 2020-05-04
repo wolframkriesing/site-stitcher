@@ -4,9 +4,9 @@ export class TidbitSourceFile {
    * @return {TidbitSourceFile}
    */
   static withFilename(filename) {
-    const blogPost = new TidbitSourceFile();
-    blogPost.filename = filename;
-    return blogPost;
+    const sourceFile = new TidbitSourceFile();
+    sourceFile.filename = filename;
+    return sourceFile;
   }
   get monthAndYear() {
     return this.filename.split('/').slice(-3, -1).join('-');

@@ -1,5 +1,6 @@
 export class TidbitSourceFile {
-  static withFilename(filename: Filename): TidbitSourceFile;
   filename: Filename;
   monthAndYear: string;
+
+  static withFilename(filename: Filename): TidbitSourceFile;
 }
