@@ -8,6 +8,13 @@ import * as path from 'path';
 export const readFile = async (filename) =>
   fs.promises.readFile(filename, 'utf8');
 /**
+ * @param filename {Filename}
+ * @param content {string}
+ * @return {Promise<void>}
+ */
+export const writeFile = async (filename, content) =>
+  fs.promises.writeFile(filename, content, 'utf8');
+/**
  * @param dir {Path}
  * @return {function(fs.Dirent[]): string[]}
  */
