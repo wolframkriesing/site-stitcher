@@ -4,6 +4,7 @@ export class Tidbit {
   headline: string;
   sourceFilename: Filename;
   url: RelativeUrl;
+  slug: string;
 
   dateCreated: DateTimeString;
   tags: string[];

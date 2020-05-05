@@ -33,6 +33,9 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN it has the url = /tidbit/2111/11/a-tidbit/', () => {
         assertThat(load()[0].url, '/tidbit/2111/11/a-tidbit/');
       });
+      it('THEN it has the slug = a-tidbit', () => {
+        assertThat(load()[0].slug, 'a-tidbit');
+      });
       it('THEN it has the abstractAsHtml = "One paragraph"', () => {
         assertThat(load()[0].abstractAsHtml, 'One paragraph');
       });
