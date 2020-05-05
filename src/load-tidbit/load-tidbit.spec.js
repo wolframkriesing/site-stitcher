@@ -42,12 +42,6 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN it has no oldUrls', () => {
         assertThat(load()[0], hasProperties({oldUrls: []}));
       });
-      it('THEN can be rendered as an H2', () => {
-        assert.strictEqual(load()[0].headlineAsHtml(2), '<h2 id="a-tidbit">A Tidbit</h2>\n');
-      });
-      it('THEN can be rendered as an H4', () => {
-        assert.strictEqual(load()[0].headlineAsHtml(4), '<h4 id="a-tidbit">A Tidbit</h4>\n');
-      });
       it('THEN get the content as rendered, via `bodyAsHtml`', () => {
         assert.strictEqual(load()[0].bodyAsHtml, '<p>One paragraph</p>\n');
       });

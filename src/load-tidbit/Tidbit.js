@@ -23,8 +23,4 @@ export class Tidbit {
     const slug = new marked.Slugger().slug(this.headline);
     return '/tidbit/' + datePart + '/' + slug + '/';
   }
-  headlineAsHtml(depth) {
-    const headingPrefix = new Array(depth).fill('#').join('') + ' ';
-    return marked.parse(headingPrefix + this.headline);
-  }
 }
