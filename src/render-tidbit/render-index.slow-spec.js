@@ -64,7 +64,7 @@ describe('Render tidbits pages', () => {
       });
     });
     describe('THEN render a page per tidbit', () => {
-      it('AND write to "/tidbits/2000/01/a-tidbit/index.html"', () => {
+      it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', () => {
         const tidbits = [
           Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: []}),
         ];
@@ -72,6 +72,21 @@ describe('Render tidbits pages', () => {
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
         renderTidbits({writeFile})(tidbits);
         assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
+      });
+      xit('AND write a file per tidbit', () => {
+        const tidbits = [
+          Tidbit.withRawData({headline: 'Tidbit 1', dateCreated: '2001-01-01 11:00 CET', tags: []}),
+          Tidbit.withRawData({headline: 'Tidbit 2', dateCreated: '2002-02-01 12:00 CET', tags: []}),
+          Tidbit.withRawData({headline: 'Tidbit 3', dateCreated: '2003-03-01 13:00 CET', tags: []}),
+          Tidbit.withRawData({headline: 'Tidbit 4', dateCreated: '2004-04-01 14:00 CET', tags: []}),
+        ];
+        const writtenToFilenames = [];
+        const writeFile = async (filename, _) => writtenToFilenames.push(filename);
+        renderTidbits({writeFile})(tidbits);
+        assertThat(writtenToFilenames, hasItem('/tidbits/2001/01/tidbit-1/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2002/02/tidbit-2/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2003/03/tidbit-3/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2004/04/tidbit-4/index.html'));
       });
     });
   });
