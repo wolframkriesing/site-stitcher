@@ -13,17 +13,28 @@ const prodDeps = () => {
 
 const tundra = new Tundra({cache: false});
 tundra.setBase(path.join(__dirname, '../templates'));
-const render = (data) => {
+const renderIndexPage = (data) => {
   try {
     return tundra.getRender('tidbit/index.html', data);
   } catch (e) {
     return 'ERROR rendering: ' + e;
   }
 }
+const renderTidbitPage = (data) => {
+  try {
+    return tundra.getRender('tidbit/page.html', data);
+  } catch (e) {
+    return 'ERROR rendering: ' + e;
+  }
+}
 
-const renderTidbits = ({writeFile = prodDeps()}) => async (tidbits) => {
-  await writeFile('/tidbits/index.html', render({tidbits}));
-  await writeFile('/tidbits/2000/01/a-tidbit/index.html', render({tidbits}));
+const renderAndWriteTidbitsIndexPage = ({writeFile = prodDeps()}) => async (tidbits) => {
+  await writeFile('/tidbit/index.html', renderIndexPage({tidbits}));
+};
+
+const renderAndWriteTidbitPage = ({writeFile = prodDeps()}) => async (tidbits) => {
+  const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderTidbitPage({tidbit: t})));
+  await Promise.all(pageWriters);
 };
 
 describe('Render tidbits pages', () => {
@@ -31,7 +42,7 @@ describe('Render tidbits pages', () => {
     const renderResult = async tidbits => {
       let writtenToFile = '';
       const writeFile = async (filename, content) => writtenToFile = content;
-      await renderTidbits({writeFile})(tidbits);
+      await renderAndWriteTidbitsIndexPage({writeFile})(tidbits);
       return writtenToFile;
     };
     describe('THEN render the tidbits overview/index page', () => {
@@ -55,25 +66,25 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="one">#one</span>'));
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
       });
-      it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
+      it('AND write to "/tidbit/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
         const noTidbits = [];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
-        await renderTidbits({writeFile})(noTidbits);
-        assertThat(writtenToFilenames, hasItem('/tidbits/index.html'));
+        await renderAndWriteTidbitsIndexPage({writeFile})(noTidbits);
+        assertThat(writtenToFilenames, hasItem('/tidbit/index.html'));
       });
     });
     describe('THEN render a page per tidbit', () => {
-      it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', async () => {
+      it('AND write one tidbit to "/tidbit/2000/01/a-tidbit/index.html"', async () => {
         const tidbits = [
           Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: []}),
         ];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
-        await renderTidbits({writeFile})(tidbits);
-        assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
+        await renderAndWriteTidbitPage({writeFile})(tidbits);
+        assertThat(writtenToFilenames, hasItem('/tidbit/2000/01/a-tidbit/index.html'));
       });
-      xit('AND write a file per tidbit', () => {
+      it('AND write a file per tidbit', async () => {
         const tidbits = [
           Tidbit.withRawData({headline: 'Tidbit 1', dateCreated: '2001-01-01 11:00 CET', tags: []}),
           Tidbit.withRawData({headline: 'Tidbit 2', dateCreated: '2002-02-01 12:00 CET', tags: []}),
@@ -82,11 +93,11 @@ describe('Render tidbits pages', () => {
         ];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
-        renderTidbits({writeFile})(tidbits);
-        assertThat(writtenToFilenames, hasItem('/tidbits/2001/01/tidbit-1/index.html'));
-        assertThat(writtenToFilenames, hasItem('/tidbits/2002/02/tidbit-2/index.html'));
-        assertThat(writtenToFilenames, hasItem('/tidbits/2003/03/tidbit-3/index.html'));
-        assertThat(writtenToFilenames, hasItem('/tidbits/2004/04/tidbit-4/index.html'));
+        await renderAndWriteTidbitPage({writeFile})(tidbits);
+        assertThat(writtenToFilenames, hasItem('/tidbit/2001/01/tidbit-1/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbit/2002/02/tidbit-2/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbit/2003/03/tidbit-3/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbit/2004/04/tidbit-4/index.html'));
       });
     });
   });
