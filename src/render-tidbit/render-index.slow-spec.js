@@ -1,5 +1,5 @@
 import {describe, it} from 'mocha';
-import {assertThat, containsString, equalTo, matchesPattern, hasItem} from 'hamjest';
+import {assertThat, containsString, matchesPattern, hasItem} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
 
 import path from 'path';
