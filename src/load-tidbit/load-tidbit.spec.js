@@ -54,7 +54,7 @@ describe('Load a tidbit file (one month)', () => {
         const fileContent = [
           '# A Bigger Tidbit', '',
           'dateCreated: 2111-11-11 11:11 CET  ',
-          'tags: nodejs, javascript, etc  ',
+          'tags: nodejs, JAVA script, etc  ',
           'oldUrls: /blog/old/url/ /blog/old/url1/  ',
           '',
           'One paragraph',
@@ -68,8 +68,9 @@ describe('Load a tidbit file (one month)', () => {
         return loadTidbitFile(fileContent);
       };
       describe('THEN find the metadata', () => {
-        it('all the tags "nodejs, javascript, etc"', () => {
-          assert.deepStrictEqual(load()[0].tags, ['nodejs', 'javascript', 'etc']);
+        it('all the tags "nodejs, JAVA script, etc" AND their slug', () => {
+          assert.deepStrictEqual(load()[0].tags, [
+            {value: 'nodejs', slug: 'nodejs'}, {value: 'JAVA script', slug: 'java-script'}, {value: 'etc', slug: 'etc'}]);
         });
         it('oldUrls', () => {
           assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
@@ -130,7 +131,7 @@ describe('Load a tidbit file (one month)', () => {
       assert.strictEqual(tidbits[0].dateCreated, '2111-11-11 11:11 CET');
       assert.strictEqual(tidbits[1].dateCreated, '2222-12-12 22:22 CET');
       assert.strictEqual(tidbits[2].dateCreated, '3333-03-03 03:03 CET');
-      assert.deepStrictEqual(tidbits[1].tags, ['one', 'two']);
+      assert.deepStrictEqual(tidbits[1].tags, [{value: 'one', slug: 'one'}, {value: 'two', slug: 'two'}]);
     });
     it('THEN find all `bodyAsHtml`', () => {
       const tidbits = load();

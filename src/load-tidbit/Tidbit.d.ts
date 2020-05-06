@@ -1,3 +1,9 @@
+type Slug = string;
+type Tag = {
+  value: string;
+  slug: Slug;
+}
+
 export class Tidbit {
   abstractAsHtml: string;
   bodyAsHtml: string;
@@ -7,7 +13,7 @@ export class Tidbit {
   slug: string;
 
   dateCreated: DateTimeString;
-  tags: string[];
+  tags: Tag[];
   oldUrls: string[];
 
   static withRawData(raw: PlainObject): Tidbit;

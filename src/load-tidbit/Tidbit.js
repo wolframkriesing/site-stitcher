@@ -1,5 +1,7 @@
 import * as marked from "marked";
 
+const slug = s => new marked.Slugger().slug(s);
+
 export class Tidbit {
   /**
    * @param raw {PlainObject}
@@ -11,7 +13,7 @@ export class Tidbit {
     tidbit.headline = raw.headline;
     tidbit.abstractAsHtml = raw.abstractAsHtml;
     tidbit.dateCreated = raw.dateCreated;
-    tidbit.tags = raw.tags;
+    tidbit._tagValues = raw.tags;
     tidbit.oldUrls = raw.oldUrls;
     return tidbit;
   }
@@ -23,6 +25,9 @@ export class Tidbit {
     return '/tidbit/' + datePart + '/' + this.slug + '/';
   }
   get slug() {
-    return new marked.Slugger().slug(this.headline);
+    return slug(this.headline);
+  }
+  get tags() {
+    return this._tagValues.map(t => ({value: t, slug: slug(t)}));
   }
 }
