@@ -25,16 +25,16 @@ const renderTidbits = ({writeFile = prodDeps()}) => async (tidbits) => {
   writeFile('/tidbits/index.html', render({tidbits}));
 };
 
-describe('Render the tidbit index page', () => {
-  describe('GIVEN tidbits WHEN rendering the index page', () => {
+describe('Render tidbits pages', () => {
+  describe('GIVEN some tidbits WHEN rendering them', () => {
     const renderResult = tidbits => {
       let writtenToFile = '';
       const writeFile = async (filename, content) => writtenToFile = content;
       renderTidbits({writeFile})(tidbits);
       return writtenToFile;
     };
-    describe('AND many tidbits are given', () => {
-      it('THEN render the headlines as H2', () => {
+    describe('THEN render the tidbits overview/index page', () => {
+      it('AND render the headlines as H2', () => {
         const writtenToFile = renderResult([
           Tidbit.withRawData({headline: 'Tidbit1', tags: ['1st']}),
           Tidbit.withRawData({headline: 'Tidbit2', tags: ['1st']}),
@@ -44,7 +44,7 @@ describe('Render the tidbit index page', () => {
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit2">.*Tidbit2.*<\/h2>/gms));
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit3">.*Tidbit3.*<\/h2>/gms));
       });
-      it('THEN renders the SPANs for the first tag AND the data-attribute renders the tag`s slug', () => {
+      it('AND renders the SPANs for the first tag AND the data-attribute renders the tag`s slug', () => {
         const writtenToFile = renderResult([
           Tidbit.withRawData({headline: 'irrelevant', tags: ['a11y']}),
           Tidbit.withRawData({headline: 'irrelevant', tags: ['one']}),
@@ -54,13 +54,13 @@ describe('Render the tidbit index page', () => {
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="one">#one</span>'));
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
       });
-    });
-    it('THEN writes to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', () => {
-      const noTidbits = [];
-      let writtenToFilename = '';
-      const writeFile = async (filename, _) => writtenToFilename = filename;
-      renderTidbits({writeFile})(noTidbits);
-      assertThat(writtenToFilename, equalTo('/tidbits/index.html'));
+      it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', () => {
+        const noTidbits = [];
+        let writtenToFilename = '';
+        const writeFile = async (filename, _) => writtenToFilename = filename;
+        renderTidbits({writeFile})(noTidbits);
+        assertThat(writtenToFilename, equalTo('/tidbits/index.html'));
+      });
     });
   });
 });
