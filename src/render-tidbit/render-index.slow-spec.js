@@ -55,7 +55,7 @@ describe('Render the tidbit index page', () => {
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
       });
     });
-    it('THEN writes to "/tidbits/index.html" (even when no tidbits are given)', () => {
+    it('THEN writes to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', () => {
       const noTidbits = [];
       let writtenToFilename = '';
       const writeFile = async (filename, _) => writtenToFilename = filename;
