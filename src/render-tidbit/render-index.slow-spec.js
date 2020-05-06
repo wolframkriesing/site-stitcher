@@ -22,21 +22,21 @@ const render = (data) => {
 }
 
 const renderTidbits = ({writeFile = prodDeps()}) => async (tidbits) => {
-  writeFile('/tidbits/index.html', render({tidbits}));
-  writeFile('/tidbits/2000/01/a-tidbit/index.html', render({tidbits}));
+  await writeFile('/tidbits/index.html', render({tidbits}));
+  await writeFile('/tidbits/2000/01/a-tidbit/index.html', render({tidbits}));
 };
 
 describe('Render tidbits pages', () => {
   describe('GIVEN some tidbits WHEN rendering them', () => {
-    const renderResult = tidbits => {
+    const renderResult = async tidbits => {
       let writtenToFile = '';
       const writeFile = async (filename, content) => writtenToFile = content;
-      renderTidbits({writeFile})(tidbits);
+      await renderTidbits({writeFile})(tidbits);
       return writtenToFile;
     };
     describe('THEN render the tidbits overview/index page', () => {
-      it('AND render the headlines as H2', () => {
-        const writtenToFile = renderResult([
+      it('AND render the headlines as H2', async () => {
+        const writtenToFile = await renderResult([
           Tidbit.withRawData({headline: 'Tidbit1', tags: ['1st']}),
           Tidbit.withRawData({headline: 'Tidbit2', tags: ['1st']}),
           Tidbit.withRawData({headline: 'Tidbit3', tags: ['1st']}),
@@ -45,8 +45,8 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit2">.*Tidbit2.*<\/h2>/gms));
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit3">.*Tidbit3.*<\/h2>/gms));
       });
-      it('AND renders the SPANs for the first tag AND the data-attribute renders the tag`s slug', () => {
-        const writtenToFile = renderResult([
+      it('AND renders the SPANs for the first tag AND the data-attribute renders the tag`s slug', async () => {
+        const writtenToFile = await renderResult([
           Tidbit.withRawData({headline: 'irrelevant', tags: ['a11y']}),
           Tidbit.withRawData({headline: 'irrelevant', tags: ['one']}),
           Tidbit.withRawData({headline: 'irrelevant', tags: ['oh my god']}),
@@ -55,22 +55,22 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="one">#one</span>'));
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
       });
-      it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', () => {
+      it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
         const noTidbits = [];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
-        renderTidbits({writeFile})(noTidbits);
+        await renderTidbits({writeFile})(noTidbits);
         assertThat(writtenToFilenames, hasItem('/tidbits/index.html'));
       });
     });
     describe('THEN render a page per tidbit', () => {
-      it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', () => {
+      it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', async () => {
         const tidbits = [
           Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: []}),
         ];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
-        renderTidbits({writeFile})(tidbits);
+        await renderTidbits({writeFile})(tidbits);
         assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
       });
       xit('AND write a file per tidbit', () => {
