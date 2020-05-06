@@ -1,5 +1,5 @@
 import {describe, it} from 'mocha';
-import {assertThat, containsString, equalTo, matchesPattern} from 'hamjest';
+import {assertThat, containsString, equalTo, matchesPattern, hasItem} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
 
 import path from 'path';
@@ -23,6 +23,7 @@ const render = (data) => {
 
 const renderTidbits = ({writeFile = prodDeps()}) => async (tidbits) => {
   writeFile('/tidbits/index.html', render({tidbits}));
+  writeFile('/tidbits/2000/01/a-tidbit/index.html', render({tidbits}));
 };
 
 describe('Render tidbits pages', () => {
@@ -56,10 +57,21 @@ describe('Render tidbits pages', () => {
       });
       it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', () => {
         const noTidbits = [];
-        let writtenToFilename = '';
-        const writeFile = async (filename, _) => writtenToFilename = filename;
+        const writtenToFilenames = [];
+        const writeFile = async (filename, _) => writtenToFilenames.push(filename);
         renderTidbits({writeFile})(noTidbits);
-        assertThat(writtenToFilename, equalTo('/tidbits/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/index.html'));
+      });
+    });
+    describe('THEN render a page per tidbit', () => {
+      it('AND write to "/tidbits/2000/01/a-tidbit/index.html"', () => {
+        const tidbits = [
+          Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: []}),
+        ];
+        const writtenToFilenames = [];
+        const writeFile = async (filename, _) => writtenToFilenames.push(filename);
+        renderTidbits({writeFile})(tidbits);
+        assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
       });
     });
   });
