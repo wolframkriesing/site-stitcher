@@ -1,9 +1,11 @@
 import path from 'path';
 import Tundra from 'tundrajs';
-import {writeFile} from '../_deps/fs.js';
+import {writeOutputFile} from '../_deps/fs.js';
 
 const prodDeps = () => {
-  return {writeFile};
+  return {
+    writeFile: writeOutputFile
+  };
 }
 
 const tundra = new Tundra({cache: false});
@@ -23,11 +25,11 @@ const renderTidbitPage = (data) => {
   }
 }
 
-export const renderAndWriteTidbitsIndexPage = ({writeFile = prodDeps()}) => async (tidbits) => {
+export const renderAndWriteTidbitsIndexPage = ({writeFile} = prodDeps()) => async (tidbits) => {
   await writeFile('/tidbit/index.html', renderIndexPage({tidbits}));
 };
 
-export const renderAndWriteTidbitPage = ({writeFile = prodDeps()}) => async (tidbits) => {
+export const renderAndWriteTidbitPage = ({writeFile} = prodDeps()) => async (tidbits) => {
   const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderTidbitPage({tidbit: t})));
   await Promise.all(pageWriters);
 };
