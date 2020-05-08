@@ -21,18 +21,18 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/28/there-are-some
 
 # Use #jslang knowledge to dive deeper into #JavaScript
 
-tags: javascript, jslang
+tags: javascript, meetup, jslang
 dateCreated: 2019-11-26 16:48 CET
 
 If I look at all the code (tests=learnings) we created at our #jslang meetups, I think this is quite some knowledge. 
 Feel free to dig deeper into it and learn from it, find it all at https://gitlab.com/wolframkriesing/jslang-meetups
 
 <figure>
-    <img src="./jslang-meetups-code.gif" alt="All the #jslang meetups code" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+    <img src="../jslang-meetups-code.gif" alt="All the #jslang meetups code" height=300 class="sizeup-onhover-image scale2 origin-left-center" />
     <figcaption>All the #jslang meetups code</figcaption>
 </figure>
 <figure>
-    <img src="./jslang-promises-basics-tests.gif" alt="Some #jslang Promises basics code" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+    <img src="../jslang-promises-basics-tests.gif" alt="Some #jslang Promises basics code" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
     <figcaption>Some #jslang Promises basics code</figcaption>
 </figure>
 

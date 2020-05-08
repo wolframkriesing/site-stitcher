@@ -58,7 +58,7 @@ I came across this article [Accessible CSS](https://webaim.org/techniques/css/) 
 And their warning sign just needs to be shown around the web even more.
 
 <figure>
-    <img src="./webaim-quote-accessible-web.gif" alt="user is in control warning" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+    <img src="../webaim-quote-accessible-web.gif" alt="user is in control warning"/>
     <figcaption>Warning that the user has ultimate control</figcaption>
 </figure>
 
@@ -103,7 +103,7 @@ by
 since my `WORKDIR=/app` so `node_modules` will be inside that directory.
 Works well.
 
-# Find and Execute Command with Found Files
+# Find Files and Execute Command with Each
 
 dateCreated: 2020-04-27 00:16 CET  
 tags: linux
@@ -157,7 +157,7 @@ It works in all browsers as far as I know, I tried Firefox, Safari, Chrome and E
 See the image below for how it works in Firefox.
 
 <figure>
-    <img src="./dollar-and-dollardollar.gif" alt="no real output" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
+    <img src="../dollar-and-dollardollar.gif" alt="no real output" width=300 class="sizeup-onhover-image scale4 origin-left-center" />
     <figcaption>$ and $$ vs document.querySelector[All]()</figcaption>
 </figure>
 
