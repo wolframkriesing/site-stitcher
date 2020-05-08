@@ -62,7 +62,7 @@ const generateTidbitsPage = async () => {
   const tidbitsDirectory = path.join(__dirname, '../content/tidbit');
   const sourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
   const tidbits = await loadTidbits()(sourceFiles);
-  await renderAndWriteTidbitsIndexPage()(tidbits);
+  await renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
   await renderAndWriteTidbitPage()(tidbits);
 };
 

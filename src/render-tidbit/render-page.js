@@ -25,8 +25,8 @@ const renderTidbitPage = (data) => {
   }
 }
 
-export const renderAndWriteTidbitsIndexPage = ({writeFile} = prodDeps()) => async (tidbits) => {
-  await writeFile('/tidbits/index.html', renderIndexPage({tidbits}));
+export const renderAndWriteTidbitsIndexPage = ({writeFile} = prodDeps()) => async (tidbits, renderParams) => {
+  await writeFile('/tidbits/index.html', renderIndexPage({...renderParams, tidbits}));
 };
 
 export const renderAndWriteTidbitPage = ({writeFile} = prodDeps()) => async (tidbits) => {

@@ -3,12 +3,14 @@ import {assertThat, containsString, matchesPattern, hasItem} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
 import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPage} from './render-page.js';
 
+const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth: []}};
+
 describe('Render tidbits pages', () => {
   describe('GIVEN some tidbits WHEN rendering them', () => {
     const renderResult = async tidbits => {
       let writtenToFile = '';
       const writeFile = async (filename, content) => writtenToFile = content;
-      await renderAndWriteTidbitsIndexPage({writeFile})(tidbits);
+      await renderAndWriteTidbitsIndexPage({writeFile})(tidbits, renderParams);
       return writtenToFile;
     };
     describe('THEN render the tidbits overview/index page', () => {
