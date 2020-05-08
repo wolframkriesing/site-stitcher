@@ -1,4 +1,6 @@
 # v2
+- [ ] really need error handling, incl. basic validation of the input, parsing, etc. along the way
+      try to remove tags from a tidbit, all fails 
 - [x] move my microblog stuff here, these were just tidbits (small things)
 - [ ] **improve tidbits** (to become my source to feed twitter)
   - [ ] make tidbits have a page each
