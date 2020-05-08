@@ -55,6 +55,17 @@ const generatePost = async (post) => {
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
+import {loadTidbits} from './load-tidbit/load-tidbit.js';
+import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
+import {renderAndWriteTidbitPage, renderAndWriteTidbitsIndexPage} from './render-tidbit/render-page.js';
+const generateTidbitsPage = async () => {
+  const tidbitsDirectory = path.join(__dirname, '../content/tidbit');
+  const sourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
+  const tidbits = await loadTidbits()(sourceFiles);
+  await renderAndWriteTidbitsIndexPage()(tidbits);
+  await renderAndWriteTidbitPage()(tidbits);
+};
+
 const generateAboutPage = async () => {
   const destDir = path.join(__dirname, '../_output', 'about');
   const contentDir = path.join(__dirname, '../content');
@@ -125,7 +136,7 @@ import {findRelatedPosts} from './related-posts.js';
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
   await timeIt('Home page', () => generateHomePage(posts));
   await timeIt('About page', () => generateAboutPage());
-  // await timeIt('Tidbits page', () => generateTidbitsPage());
+  await timeIt('Tidbit pages', () => generateTidbitsPage());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   console.log('-----');
   console.timeEnd('Overall');
