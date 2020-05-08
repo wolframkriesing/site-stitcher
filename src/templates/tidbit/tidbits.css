@@ -1,7 +1,5 @@
-h3 {
-  display: inline;
-}
-span.tag {
+h2 span.tag {
+  font-size: 1rem;
   padding: 0.3rem 0.5rem;
   margin-right: 1rem; /* space to the H2 */
   font-weight: bold;
