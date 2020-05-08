@@ -1,7 +1,6 @@
-h2 {
-  display: inline;
-}
-span.tag {
+h1 span.tag,
+h2 span.tag {
+  font-size: 1rem;
   padding: 0.3rem 0.5rem;
   margin-right: 1rem; /* space to the H2 */
   font-weight: bold;
@@ -11,7 +10,8 @@ span.tag[data-tag="a11y"] { background: linear-gradient(to right, #0000, #bfffad
 span.tag[data-tag="docker"] { background: linear-gradient(to right, #0000, #adc2ff 30%); }
 span.tag[data-tag="english"] { background: linear-gradient(to right, #0000, #ffdaad 30%); }
 span.tag[data-tag="html"] { background: linear-gradient(to right, #0000, #adffff 30%); }
+span.tag[data-tag="indieweb"] { background: linear-gradient(to right, #0000, #a2ef2f 30%); }
+span.tag[data-tag="javascript"] { background: linear-gradient(to right, #0000, #fae96d 30%); }
 span.tag[data-tag="linux"] { background: linear-gradient(to right, #0000, #d6adff 30%); }
 span.tag[data-tag="macos"] { background: linear-gradient(to right, #0000, #d6adff 30%); }
-span.tag[data-tag="npm"] { background: linear-gradient(to right, #0000, #ffadad 30%); }
 span.tag[data-tag="tools"] { background: linear-gradient(to right, #0000, #ffadb9 30%); }

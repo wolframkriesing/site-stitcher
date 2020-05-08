@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com">
+  <title>WebStorm Live Templates Rock (Again) | picostitch - stuff about crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home</a></li>
+        
+          <li><a href="/tidbits">Tidbits</a></li>
+        
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        stuff about <b>crafting</b> (and) <b>JavaScript</b>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <aside>
+      <nav class="tags">
+        <header>Top Blog Tags</header>
+        <ol>
+          
+          <li><a href="/blog/tag/javascript/">#javascript</a></li>
+          
+          <li><a href="/blog/tag/video/">#video</a></li>
+          
+          <li><a href="/blog/tag/testing/">#testing</a></li>
+          
+          <li><a href="/blog/tag/oop/">#oop</a></li>
+          
+          <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
+          
+          <li><a href="/blog/tag/functional/">#functional</a></li>
+          
+          <li><a href="/blog/tag/links/">#links</a></li>
+          
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
+          <li><a href="/blog/tag/nodejs/">#nodejs</a></li>
+          
+          <li><a href="/blog/tag/npm/">#npm</a></li>
+          
+        </ol>
+      </nav>
+
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          
+          <li><a href="/blog/2020/04/">April 2020</a></li>
+          
+          <li><a href="/blog/2020/03/">March 2020</a></li>
+          
+          <li><a href="/blog/2018/07/">July 2018</a></li>
+          
+          <li><a href="/blog/2018/05/">May 2018</a></li>
+          
+          <li><a href="/blog/2017/11/">November 2017</a></li>
+          
+          <li><a href="/blog/2017/04/">April 2017</a></li>
+          
+          <li><a href="/blog/2017/03/">March 2017</a></li>
+          
+          <li><a href="/blog/2017/02/">February 2017</a></li>
+          
+          <li><a href="/blog/2017/01/">January 2017</a></li>
+          
+          <li><a href="/blog/2016/06/">June 2016</a></li>
+          
+          <li><a href="/blog/2016/04/">April 2016</a></li>
+          
+          <li><a href="/blog/2016/02/">February 2016</a></li>
+          
+          <li><a href="/blog/2015/12/">December 2015</a></li>
+          
+          <li><a href="/blog/2015/11/">November 2015</a></li>
+          
+          <li><a href="/blog/2015/10/">October 2015</a></li>
+          
+          <li><a href="/blog/2015/05/">May 2015</a></li>
+          
+          <li><a href="/blog/2015/04/">April 2015</a></li>
+          
+          <li><a href="/blog/2015/03/">March 2015</a></li>
+          
+          <li><a href="/blog/2014/03/">March 2014</a></li>
+          
+          <li><a href="/blog/2014/02/">February 2014</a></li>
+          
+          <li><a href="/blog/2014/01/">January 2014</a></li>
+          
+        </ol>
+      </nav>
+    </aside>
+    <div class="content">
+      
+  <article>
+    <header>
+      <h1>
+        <span class="tag" data-tag="tools">#tools</span>
+        WebStorm Live Templates Rock (Again)
+      </h1>
+      <p class="metadata">
+        Wolfram Kriesing
+        - May 2, 2020
+        
+          - tagged with: #tools
+        
+      </p>
+    </header>
+
+    <p>I created a <a href="https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html">Live Template</a> 
+to auto-complete <code>dateC</code>+<kbd>TAB</kbd> to <code>dateCreated: 2020-05-02 15:27 CET</code>.</p>
+<figure>
+    <img src="../live-tpl-video.gif" alt="See Live Template in Action" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+    <figcaption>See Live Template in Action</figcaption>
+</figure>
+
+
+<p>I got tired of writing the metadata, I am using here in my tidbits (<a href="https://github.com/wolframkriesing/site-stitcher/tree/master/content">see the source</a>)
+over and over again, metadata such as the current <code>dateCreated</code>, as seen before.</p>
+<h3 id="how-to-create-this-live-template">How to create this Live Template?</h3>
+<ol>
+<li><kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>A</kbd> (for &quot;Find Action&quot;)</li>
+<li>Type &quot;Live Template&quot;</li>
+<li>Select the one with &quot;Preferences&quot; behind it <figure>
+     <img src="../live-tpl-find-action.gif" alt="Find Action screen in WebStorm" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+     <figcaption>Find Action screen in WebStorm</figcaption>
+ </figure></li>
+<li>Create a new Live Template, <kbd>Cmd</kbd> + <kbd>N</kbd>, choose &quot;Live Template&quot;</li>
+<li>Fill it in as in the image <figure>
+     <img src="../live-tpl-edit.gif" alt="The editor for the live template" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+     <figcaption>The editor for the live template</figcaption>
+ </figure></li>
+<li>Make sure to set &quot;Applicable ...&quot; below the fields.
+Since I am using it in markdown files, which has no own section I chose &quot;Other&quot;, see image <figure>
+     <img src="../live-tpl-type.gif" alt="Edit live template type" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+     <figcaption>Edit live template type</figcaption>
+ </figure></li>
+<li>Note the <code>$NOW$</code>. This is a variable which does NOT exist yet, so let&#39;s create it to return 
+the <code>dateCreated</code> in the format you have seen above (<code>2020-05-02 15:27 CET</code>).</li>
+<li>Click &quot;Edit variables&quot; on the right.</li>
+<li>Reading a little bit in <a href="https://www.jetbrains.com/help/webstorm/2020.1/edit-template-variables-dialog.html">the JetBrains docs</a>
+I found out very quickly that I need to set the value of the variable <code>NOW</code>
+to <code>concat(date(&quot;Y-MM-dd HH:mm&quot;), &quot; CET&quot;)</code>. <figure>
+     <img src="../live-tpl-edit-variable.gif" alt="Edit live template variable" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
+     <figcaption>Edit live template variable</figcaption>
+ </figure></li>
+<li>If you tick &quot;Skip if defined&quot; the value will just auto complete and the Live Template is done (otherwise the inserted
+value of <code>NOW</code> would be selected for editing, which we don&#39;t need here)</li>
+<li>Save and apply ... just close all the dialogs :)</li>
+<li>Voila, now when I type dateC`+<kbd>TAB</kbd> in my markdown file I get the date.
+<code>dateCreated: 2020-05-02 15:54 CET</code></li>
+</ol>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <a href="/">Home</a><br/>
+      <a href="/about">About</a><br/>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <a href="https://twitter.com/wolframkriesing">Twitter</a><br/>
+      <a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <ul>
+      
+        <li><a href="/">Home</a></li>
+      
+        <li><a href="/tidbits">Tidbits</a></li>
+      
+        <li><a href="/about">About</a></li>
+      
+    </ul>
+  </nav>
+
+</body>
+</html>
