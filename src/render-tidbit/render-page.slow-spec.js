@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import {assertThat, containsString, matchesPattern, hasItem} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
-import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPage} from './render-pages.js';
+import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPage} from './render-page.js';
 
 describe('Render tidbits pages', () => {
   describe('GIVEN some tidbits WHEN rendering them', () => {
