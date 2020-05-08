@@ -34,6 +34,7 @@ https://www.w3.org/TR/html-design-principles/#degrade-gracefully
 # Developer Experience over User Experience - Ouch
 
 dateCreated: 2020-04-29 17:35 CET  
+tags: tools  
 
 Jeremy Keith nailed it again:
 

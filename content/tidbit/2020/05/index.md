@@ -81,7 +81,7 @@ I just [exported the small number of posts as JSON (12 KB)](./my-microblog-expor
 # Accessibility (and) Tools
 
 dateCreated: 2020-05-01 19:13 CET
-tag: a11y
+tags: a11y
 
 Diving into the topic of accessibility I found so much more than I expected.
 The first was the fact that ["About 1 in 5 people has some type of disability."](https://webmaster.tamu.edu/2015/04/28/7-things-you-should-know-about-web-accessibility/).

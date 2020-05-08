@@ -58,6 +58,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/26/if-i-look.html
 # Code Editor with built-in Refactor
 
 dateCreated: 2019-11-26 11:21 CET 
+tags: tools  
 
 what if an code editor had #refactoring as the default when changing variables names, etc. 
 and not as a sub-menu item which one has to search for
