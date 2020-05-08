@@ -13,6 +13,7 @@
   - [ ] move blog post code into /src/load-blog-post maybe even /src/render-blog-post' ...
 - [ ] add tags to the tidbits and render them on the page for easier reading and grouping
   - [ ] maybe even a page per tag
+- [ ] add this project's pages to the site (like ADRs, README, test descriptions, ...)  
 - [ ] use semantic html
   - [x] use <main>
   - [x] use <article> in post
