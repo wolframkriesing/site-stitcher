@@ -4,6 +4,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1 {
+  font-size: 2rem;
+}
 main {
   display: flex;
 }
@@ -59,10 +62,6 @@ body > header {
     flex: 2;
   }
 
-
-.page-home h1 {
-  display: inline;
-}
 article.latest {
   margin-top: 2rem;
   margin-bottom: 5rem;
