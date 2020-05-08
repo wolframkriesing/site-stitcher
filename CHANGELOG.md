@@ -7,7 +7,7 @@
     - [ ] revamp the /tidbits page to have just the tidbit headlines and tags
     - [ ] make the tidbit on the overview page colapsable, just show the first paragraph/line (without JS it links to the tidbit page)
     - [ ] 301 /tidbits/ to /tidbit/ all URLs are singular
-  - [ ] handle `tags` and `dateCreated` metadata (see 2019)
+  - [x] handle `tags` and `dateCreated` metadata (see 2019)
   - [ ] find tags in the text (and use them)? see 2019/11.md (no need for `tags:` metadata)
   - [ ] render image in md as figure, currently done by hand all the time
   - [ ] move blog post code into /src/load-blog-post maybe even /src/render-blog-post' ...
