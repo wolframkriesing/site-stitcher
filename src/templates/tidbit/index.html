@@ -1,8 +1,8 @@
 @extends(src/templates/_base.html)
 
-{[ block pagename ]}home{[ endblock ]}
+{[ block pagename ]}tidbits{[ endblock ]}
 
-{[ block pageTitlePrefix ]}Blog{[ endblock ]}
+{[ block pageTitlePrefix ]}Tidbits{[ endblock ]}
 
 {[ block head ]}
 <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
@@ -23,7 +23,7 @@
       <header>
         <h2 id="{{tidbit.slug}}">
           <span class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</span>
-          {{tidbit.headline}}
+          <a href="{{tidbit.url}}">{{tidbit.headline}}</a>
         </h2>
       </header>
       <p class="abstract">{!tidbit.abstractAsHtml!}</p>
