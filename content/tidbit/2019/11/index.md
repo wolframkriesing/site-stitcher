@@ -40,7 +40,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/26/if-i-look.html
 
 # Mentorship Meetup #3 - November 2019
 
-tags: mentoring, learning, teaching, sharing, caring 
+tags: meetup, mentoring, learning, teaching, sharing, caring 
 dateCreated: 2019-11-26 15:29 CET 
 
 Let us talk about mentorship.

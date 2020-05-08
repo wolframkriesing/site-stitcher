@@ -321,7 +321,7 @@ Run `docker image prune --all` to gain a lot of disk space with the trade off of
 # Upgrade npm Package to Latest Version
 
 dateCreated: 2020-04-22 16:35 CET
-tags: npm  
+tags: javascript, npm  
 
 Run `npm install <package>@latest` to update to the latest version of a package, 
 no matter the minor, major version, it always goes to the latest.
