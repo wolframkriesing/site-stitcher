@@ -14,7 +14,7 @@ const renderIndexPage = (data) => {
   try {
     return tundra.getRender('tidbit/index.html', data);
   } catch (e) {
-    return 'ERROR rendering: ' + e;
+    return `<h1>ERROR rendering this page</h1><pre>${e.stack}</pre>`;
   }
 }
 const renderTidbitPage = (data) => {
