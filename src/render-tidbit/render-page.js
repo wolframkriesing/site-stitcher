@@ -29,7 +29,7 @@ export const renderAndWriteTidbitsIndexPage = ({writeFile} = prodDeps()) => asyn
   await writeFile('/tidbits/index.html', renderIndexPage({...renderParams, tidbits}));
 };
 
-export const renderAndWriteTidbitPage = ({writeFile} = prodDeps()) => async (tidbits) => {
-  const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderTidbitPage({tidbit: t})));
+export const renderAndWriteTidbitPage = ({writeFile} = prodDeps()) => async (tidbits, renderParams) => {
+  const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderTidbitPage({...renderParams, tidbit: t})));
   await Promise.all(pageWriters);
 };

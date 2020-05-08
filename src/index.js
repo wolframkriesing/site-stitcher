@@ -63,7 +63,7 @@ const generateTidbitsPage = async () => {
   const sourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
   const tidbits = await loadTidbits()(sourceFiles);
   await renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
-  await renderAndWriteTidbitPage()(tidbits);
+  await renderAndWriteTidbitPage()(tidbits, defaultRenderParams);
 };
 
 const generateAboutPage = async () => {
