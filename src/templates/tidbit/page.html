@@ -1,0 +1,29 @@
+@extends(src/templates/_base.html)
+
+{[ block pagename ]}tidbit{[ endblock ]}
+
+{[ block pageTitlePrefix ]}{{tidbit.headline}}{[ endblock ]}
+
+{[ block head ]}
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+{[ endblock ]}
+
+{[ block content ]}
+  <article>
+    <header>
+      <h1>
+        <span class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</span>
+        {{tidbit.headline}}
+      </h1>
+      <p class="metadata">
+        Wolfram Kriesing
+        - {{toReadableDate(tidbit.dateCreated)}}
+        {% if (tidbit.tags.length > 0) { %}
+          - tagged with: {{ tidbit.tags.map(tag => `#${tag.value}`).join(' ') }}
+        {% } %}
+      </p>
+    </header>
+
+    {!tidbit.bodyAsHtml!}
+  </article>
+{[ endblock ]}
