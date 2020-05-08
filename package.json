@@ -14,7 +14,7 @@
     "build:assets": "cp CNAME _output; cp src/templates/*.css _output/ && npm run build:images:png && npm run build:images:jpg && npm run build:images:gif",
     "build:images:jpg": "cd content/blog-posts; find . -name '*.jpg' -exec cp -v '{}' ../../_output/blog/'{}' \\;",
     "build:images:png": "cd content/blog-posts; find . -name '*.png' -exec cp -v '{}' ../../_output/blog/'{}' \\;",
-    "build:images:gif": "cd content/tidbits; find . -name '*.gif' -exec cp -v '{}' ../../_output/tidbits/'{}' \\;",
+    "build:images:gif": "cd content/tidbit; find . -name '*.gif' -exec cp -v '{}' ../../_output/tidbits/'{}' \\;",
     "typecheck": "tsc",
     "dev:typecheck": "npm run typecheck -- --watch",
     "new-post": "clear; node -r esm src/new-post.js"
