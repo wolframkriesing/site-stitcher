@@ -30,8 +30,8 @@ describe('Load a tidbit file (one month)', () => {
       it('THEN it has the dateCreated = 2111-11-11 11:11 CET', () => {
         assertThat(load()[0].dateCreated, '2111-11-11 11:11 CET');
       });
-      it('THEN it has the url = /tidbit/2111/11/a-tidbit/', () => {
-        assertThat(load()[0].url, '/tidbit/2111/11/a-tidbit/');
+      it('THEN it has the url = /tidbits/2111/11/a-tidbit/', () => {
+        assertThat(load()[0].url, '/tidbits/2111/11/a-tidbit/');
       });
       it('THEN it has the slug = a-tidbit', () => {
         assertThat(load()[0].slug, 'a-tidbit');

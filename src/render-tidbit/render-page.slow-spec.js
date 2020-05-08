@@ -32,23 +32,23 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="one">#one</span>'));
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
       });
-      it('AND write to "/tidbit/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
+      it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
         const noTidbits = [];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
         await renderAndWriteTidbitsIndexPage({writeFile})(noTidbits);
-        assertThat(writtenToFilenames, hasItem('/tidbit/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/index.html'));
       });
     });
     describe('THEN render a page per tidbit', () => {
-      it('AND write one tidbit to "/tidbit/2000/01/a-tidbit/index.html"', async () => {
+      it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', async () => {
         const tidbits = [
           Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: []}),
         ];
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
         await renderAndWriteTidbitPage({writeFile})(tidbits);
-        assertThat(writtenToFilenames, hasItem('/tidbit/2000/01/a-tidbit/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
       });
       it('AND write a file per tidbit', async () => {
         const tidbits = [
@@ -60,10 +60,10 @@ describe('Render tidbits pages', () => {
         const writtenToFilenames = [];
         const writeFile = async (filename, _) => writtenToFilenames.push(filename);
         await renderAndWriteTidbitPage({writeFile})(tidbits);
-        assertThat(writtenToFilenames, hasItem('/tidbit/2001/01/tidbit-1/index.html'));
-        assertThat(writtenToFilenames, hasItem('/tidbit/2002/02/tidbit-2/index.html'));
-        assertThat(writtenToFilenames, hasItem('/tidbit/2003/03/tidbit-3/index.html'));
-        assertThat(writtenToFilenames, hasItem('/tidbit/2004/04/tidbit-4/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2001/01/tidbit-1/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2002/02/tidbit-2/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2003/03/tidbit-3/index.html'));
+        assertThat(writtenToFilenames, hasItem('/tidbits/2004/04/tidbit-4/index.html'));
       });
     });
   });

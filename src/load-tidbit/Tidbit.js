@@ -22,7 +22,7 @@ export class Tidbit {
    */
   get url() {
     const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
-    return '/tidbit/' + datePart + '/' + this.slug + '/';
+    return '/tidbits/' + datePart + '/' + this.slug + '/';
   }
   get slug() {
     return slug(this.headline);
