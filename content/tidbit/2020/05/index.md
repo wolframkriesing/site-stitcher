@@ -1,3 +1,36 @@
+# snowpack.dev - Bundler Free Development
+
+dateCreated: 2020-05-09 13:35 CET  
+tags: javascript  
+
+Bundler like webpack take up too much of our intention, imho. They should be tools that run in the background and do
+their job. But we spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally.
+
+> At some point in the last decade, JavaScript bundling shifted from being a production nice-to-have optimization to a 
+> full-on dev requirement. Configuration files, plugin ecosystems, extra dependencies, tooling complexity, 
+> code-splitting, waiting to rebundle every save… all of this suddenly became required overhead to do any level of 
+> web development.
+
+Since we always use modern browser during development anyways, doing as snowpack suggests:
+
+> The only requirement is that during development you use a modern browser. Any recent release of Firefox, Chrome, or 
+> Edge will do.
+
+should be a no issue. Just imagine you use all the latest features and you are serving the files as you have them on your 
+filesystem. This even allows you to leverage more of your devtools and there is a lot that will make you more productive.
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Edit your source code in the devtools (and an editor) in parallel.<br>It will render CSS changes without reloads.<br><br>1) Just connect the Filesystem. <br>2) Use &lt;script type=module&gt;<br>3) No transpilers involved<br><br>Welcome to modern web development. <a href="https://t.co/w0kO0kP42o">pic.twitter.com/w0kO0kP42o</a></p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1158123836484837379?ref_src=twsrc%5Etfw">August 4, 2019</a></blockquote>
+
+# The History of the Web
+
+dateCreated: 2020-05-09 13:26 CET  
+tags: web  
+
+In October 17, 1990 IMDb started as a unix script.\
+December 25, 1990 Tim Berners-Lee releases WorldWideWeb (later Nexus) on Christmas day, the first ever browser for the web.\
+August 6, 1991 Tim Berners-Lee responding to a thread on the alt.hypertext Usenet newsgroup, publicly announces the World Wide Web project for the first time.
+[The History of the Web](https://thehistoryoftheweb.com/timeline/) has so interesting stuff. Very worth a read. A great site to spend a lot of time on.
+
 # Brutalist Web Design
 
 dateCreated: 2020-05-09 13:07 CET  
