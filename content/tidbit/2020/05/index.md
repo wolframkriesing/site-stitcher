@@ -3,8 +3,7 @@
 dateCreated: 2020-05-09 13:35 CET  
 tags: javascript  
 
-Bundler like webpack take up too much of our intention, imho. They should be tools that run in the background and do
-their job. But we spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally.
+Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally.
 
 > At some point in the last decade, JavaScript bundling shifted from being a production nice-to-have optimization to a 
 > full-on dev requirement. Configuration files, plugin ecosystems, extra dependencies, tooling complexity, 
