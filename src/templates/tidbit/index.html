@@ -26,7 +26,9 @@
           <a href="{{tidbit.url}}">{{tidbit.headline}}</a>
         </h2>
       </header>
-      <p class="abstract">{!tidbit.abstractAsHtml!}</p>
+      <p class="abstract">{!tidbit.abstractAsHtml!}
+        <a  href="{{tidbit.url}}">Read on ...</a>
+      </p>
     </article>
   {% }) %}
 {[ endblock ]}
