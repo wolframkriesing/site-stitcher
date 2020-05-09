@@ -1,3 +1,20 @@
+# Brutalist Web Design
+
+dateCreated: 2020-05-09 13:07 CET  
+tags: design, a11y  
+
+[Brutalist Web Design](https://brutalist-web.design/) seems quite aligned with Accessibility. The chapters of the guidelines are:
+
+* Content is readable on all reasonable screens and devices.
+* Only hyperlinks and buttons respond to clicks.
+* Hyperlinks are underlined and buttons look like buttons.
+* The back button works as expected.
+* View content by scrolling.
+* Decoration when needed and no unrelated content.
+* Performance is a feature.
+
+Read it all on https://brutalist-web.design/
+
 # Make `arr[0]` Fail Safe
 
 dateCreated: 2020-05-03 18:07 CET
