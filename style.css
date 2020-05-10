@@ -1,12 +1,11 @@
+@import "./heading.css";
+
 body {
   margin: 2rem;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 2rem;
-}
 main {
   display: flex;
 }
@@ -122,12 +121,6 @@ td {
 
 .metadata {
   color: #666;
-}
-
-.page-home article.preview {
-  margin-top: 3rem;
-}
-@media screen and (max-width: 600px) {
 }
 
 footer {
