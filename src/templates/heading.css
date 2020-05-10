@@ -1,0 +1,19 @@
+/*
+Some styling here is the application of the learning from the book "Dont make me think"
+Thanks Uku for suggesting it. See https://picostitch.com/blog/2020/04/16-a-developer-designs/
+For example:
+1) make the headline font sizes very distinct from one another, so the hierarchy is easy to see
+2) move the text after the headline closer to it, instead of have same top+bottom margin for the headline
+*/
+
+h1 {
+  font-size: 2rem;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+}
+h1 + *, h2 + *, h3 + *, h4 + *, h5 + *, h6 + *,
+article header + *,
+article .abstract {
+  margin-top: 0.2rem;
+}

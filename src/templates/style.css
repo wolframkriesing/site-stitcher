@@ -1,12 +1,11 @@
+@import "./heading.css";
+
 body {
   margin: 2rem;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-h1 {
-  font-size: 2rem;
-}
 main {
   display: flex;
 }

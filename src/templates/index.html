@@ -8,13 +8,13 @@
   <article class="latest">
     <header>
       <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}</h1>
-      <p class="metadata">
+      <div class="metadata">
         Wolfram Kriesing
         - {{toReadableDate(posts[0].dateCreated)}}
         {% if (posts[0].tags.length > 0) { %}
           - tagged with: {{ posts[0].tags.map(tag => `#${tag}`).join(' ') }}
         {% } %}
-      </p>
+      </div>
     </header>
     <p class="abstract">{!posts[0].abstractAsHtml!}</p>
     <a href="{{posts[0].url}}">Read more ...</a>
