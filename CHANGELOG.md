@@ -1,6 +1,7 @@
 # v2
 - [x] add emojis to the site, makes it friendlier
 - [x] move the text following a headline closer to the headline, as learned in "Dont make me think"
+- [x] rename links to "Continue Reading ->"
 - [ ] add "Continue Reading ->" to every abstract on home
 - [ ] move tidbits tpls into tidits folder
 - [ ] really need error handling
