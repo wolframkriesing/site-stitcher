@@ -3,8 +3,11 @@ node_js:
 - "13"
 os: linux
 
+script:
+  npm run ci:test
+
 before_deploy:
-- npm run build
+  npm run build
 
 deploy:
   provider: pages

@@ -4,6 +4,7 @@
   "description": "The tool I use to build my website, picostitch.com",
   "main": "index.js",
   "scripts": {
+    "ci:test": "npm run typecheck && npm run test",
     "test": "mocha -r esm src/{,*/}*spec.js",
     "start": "npm run build && npm run serve",
     "serve": "http-server _output -d -i --port 5000",
