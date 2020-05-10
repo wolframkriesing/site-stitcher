@@ -123,12 +123,6 @@ td {
   color: #666;
 }
 
-.page-home article.preview {
-  margin-top: 3rem;
-}
-@media screen and (max-width: 600px) {
-}
-
 footer {
   display: flex;
   padding: 2rem;
