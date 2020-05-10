@@ -9,8 +9,7 @@
     <header>
       <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}</h1>
       <div class="metadata">
-        Wolfram Kriesing
-        - {{toReadableDate(posts[0].dateCreated)}}
+        {{toReadableDate(posts[0].dateCreated)}}
         {% if (posts[0].tags.length > 0) { %}
           - tagged with: {{ posts[0].tags.map(tag => `#${tag}`).join(' ') }}
         {% } %}
@@ -29,9 +28,18 @@
         <h2><a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
         {{ post.hasVideo ? ' 📺' : '' }}</h2>
+        <div class="metadata">
+          {{toReadableDate(post.dateCreated)}}
+          {% if (post.tags.length > 0) { %}
+            - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
+          {% } %}
+        </div>
       </header>
       <div class="content">
-        <p class="abstract">{!post.abstractAsHtml!}</p>
+        <p class="abstract">
+          {!post.abstractAsHtml!}
+          <a href="{{post.url}}">Continue reading →</a>
+        </p>
       </div>
     </article>
   {% }) %}

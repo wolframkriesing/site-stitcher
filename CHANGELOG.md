@@ -2,7 +2,8 @@
 - [x] add emojis to the site, makes it friendlier
 - [x] move the text following a headline closer to the headline, as learned in "Dont make me think"
 - [x] rename links to "Continue Reading ->"
-- [ ] add "Continue Reading ->" to every abstract on home
+- [x] add "Continue Reading ->" to every abstract on home
+- [ ] link the tags
 - [ ] move tidbits tpls into tidits folder
 - [ ] really need error handling
   - [ ] start with basic validation of the input, parsing, etc. along the way
