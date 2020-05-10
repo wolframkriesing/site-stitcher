@@ -12,9 +12,9 @@ import {toReadableDate, toWeekday} from './date.js';
 const tundra = new Tundra({cache: true});
 
 const navigationItems = [
-  {path: '/', name: 'Home'},
-  {path: '/tidbits', name: 'Tidbits'},
-  {path: '/about', name: 'About'},
+  {path: '/', name: 'Home 🏠'},
+  {path: '/tidbits', name: 'Tidbits 😋'},
+  {path: '/about', name: 'About 💡'},
 ];
 const defaultRenderParams = {
   navigationItems,

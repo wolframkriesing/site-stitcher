@@ -1,4 +1,6 @@
 # v2
+- [x] add emojis to the site, makes it friendlier
+- [ ] move tidbits tpls into tidits folder
 - [ ] really need error handling
   - [ ] start with basic validation of the input, parsing, etc. along the way
       try to remove tags from a tidbit, all fails

@@ -1,4 +1,4 @@
-# About picostitch.com
+# About picostitch.com 💡
 
 ## About this page
 
