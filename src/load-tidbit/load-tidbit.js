@@ -59,7 +59,11 @@ export const loadTidbitFile = (markdown) => {
  */
 export const loadTidbits = ({readFile} = prodDeps()) => async (sourceFiles) => {
   return (await Promise.allSettled(sourceFiles.map(f => readFile(f.filename))))
-    .map(({value}) => loadTidbitFile(value))
+    .map(settledPromise => {
+      if (settledPromise.status === 'fulfilled')
+        return loadTidbitFile(settledPromise.value);
+      return []; // TODO we really need a `Result` here!!!
+    })
     .flat()
     .sort(sortByDateCreatedDescending)
   ;

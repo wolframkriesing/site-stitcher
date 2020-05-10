@@ -3,6 +3,10 @@ import * as path from 'path';
 
 const OUTPUT_PATH = path.join(__dirname, '../../_output');
 
+/**
+ * @param dir {Path}
+ * @return {Promise<void>}
+ */
 const mkdirRecursive = async (dir) => {
   await fs.promises.mkdir(dir, {recursive: true});
 }
