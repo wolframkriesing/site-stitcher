@@ -9,9 +9,18 @@ const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth
 
 describe('Render tidbits pages', () => {
   describe('GIVEN some tidbits WHEN rendering them', () => {
+    /**
+     * @param tidbits {Tidbit[]}
+     * @return {Promise<string>}
+     */
     const renderResult = async tidbits => {
       let writtenToFile = '';
-      const writeFile = async (filename, content) => writtenToFile = content;
+      /**
+       * @param filename {Filename}
+       * @param content {string}
+       * @return {Promise<void>}
+       */
+      const writeFile = async (filename, content) => { writtenToFile = content; };
       await renderAndWriteTidbitsIndexPage({writeFile})(tidbits, renderParams);
       return writtenToFile;
     };
@@ -37,9 +46,16 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
       });
       it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
+        /** @type Tidbit[] */
         const noTidbits = [];
+        /** @type Filename[] */
         const writtenToFilenames = [];
-        const writeFile = async (filename, _) => writtenToFilenames.push(filename);
+        /**
+         * @param filename {Filename}
+         * @param _ {string}
+         * @return {Promise<void>}
+         */
+        const writeFile = async (filename, _) => { writtenToFilenames.push(filename); };
         await renderAndWriteTidbitsIndexPage({writeFile})(noTidbits, renderParams);
         assertThat(writtenToFilenames, hasItem('/tidbits/index.html'));
       });
@@ -49,8 +65,14 @@ describe('Render tidbits pages', () => {
         const tidbits = [
           Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: []}),
         ];
+        /** @type Filename[] */
         const writtenToFilenames = [];
-        const writeFile = async (filename, _) => writtenToFilenames.push(filename);
+        /**
+         * @param filename {Filename}
+         * @param _ {string}
+         * @return {Promise<void>}
+         */
+        const writeFile = async (filename, _) => { writtenToFilenames.push(filename); };
         await renderAndWriteTidbitPage({writeFile})(tidbits, renderParams);
         assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
       });
@@ -61,8 +83,14 @@ describe('Render tidbits pages', () => {
           Tidbit.withRawData({headline: 'Tidbit 3', dateCreated: '2003-03-01 13:00 CET', tags: []}),
           Tidbit.withRawData({headline: 'Tidbit 4', dateCreated: '2004-04-01 14:00 CET', tags: []}),
         ];
+        /** @type Filename[] */
         const writtenToFilenames = [];
-        const writeFile = async (filename, _) => writtenToFilenames.push(filename);
+        /**
+         * @param filename {Filename}
+         * @param _ {string}
+         * @return {Promise<void>}
+         */
+        const writeFile = async (filename, _) => { writtenToFilenames.push(filename); };
         await renderAndWriteTidbitPage({writeFile})(tidbits, renderParams);
         assertThat(writtenToFilenames, hasItem('/tidbits/2001/01/tidbit-1/index.html'));
         assertThat(writtenToFilenames, hasItem('/tidbits/2002/02/tidbit-2/index.html'));

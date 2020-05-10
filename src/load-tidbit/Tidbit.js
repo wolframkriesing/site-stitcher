@@ -3,10 +3,6 @@ import * as marked from "marked";
 const slug = s => new marked.Slugger().slug(s);
 
 export class Tidbit {
-  /**
-   * @param raw {PlainObject}
-   * @return {Tidbit}
-   */
   static withRawData(raw) {
     const tidbit = new Tidbit();
     tidbit.bodyAsHtml = raw.bodyAsHtml;
@@ -17,9 +13,6 @@ export class Tidbit {
     tidbit.oldUrls = raw.oldUrls;
     return tidbit;
   }
-  /**
-   * @return {RelativeUrl}
-   */
   get url() {
     const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
     return '/tidbits/' + datePart + '/' + this.slug + '/';

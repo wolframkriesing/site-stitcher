@@ -4,6 +4,12 @@ type Tag = {
   slug: Slug;
 }
 
+type RawTidbit = {
+  headline: string;
+  dateCreated: DateTimeString;
+  tags: string[];
+};
+
 export class Tidbit {
   abstractAsHtml: string;
   bodyAsHtml: string;
@@ -16,7 +22,7 @@ export class Tidbit {
   tags: Tag[];
   oldUrls: string[];
 
-  static withRawData(raw: PlainObject): Tidbit;
+  static withRawData(raw: RawTidbit): Tidbit;
 }
 
 // actually this is a duplicate of what is in `Tidbit` too mmmh
