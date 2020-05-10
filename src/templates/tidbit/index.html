@@ -25,6 +25,12 @@
           <span class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</span>
           <a href="{{tidbit.url}}">{{tidbit.headline}}</a>
         </h2>
+        <div class="metadata">
+          {{toReadableDate(tidbit.dateCreated)}}
+          {% if (tidbit.tags.length > 1) { %}
+            - also tagged with: {{ tidbit.tags.slice(1).map(tag => `#${tag.value}`).join(' ') }}
+          {% } %}
+        </div>
       </header>
       <p class="abstract">{!tidbit.abstractAsHtml!}
         <a  href="{{tidbit.url}}">Continue reading →</a>
