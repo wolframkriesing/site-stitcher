@@ -3,6 +3,7 @@
 - [x] move the text following a headline closer to the headline, as learned in "Dont make me think"
 - [x] rename links to "Continue Reading ->"
 - [x] add "Continue Reading ->" to every abstract on home
+- [ ] add tddbin, katas and jskatas files on the site (files=ADRs, README, etc.)
 - [ ] link the tags
 - [ ] move tidbits tpls into tidits folder
 - [ ] really need error handling
