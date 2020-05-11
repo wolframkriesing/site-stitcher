@@ -1,3 +1,18 @@
+# We don’t give people a website any more
+dateCreated: 2020-05-11 16:46 CET  
+tags: web  
+
+Actually the headline is a quote from the article I just read ["Hammer and Nails"](https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/) by [Stuart Langridge](https://twitter.com/sil) where he nicely states how we make every user's browser a fat client by making them work far beyond rendering some HTML+CSS.
+
+> Instead of an HTML page, you get some templates and some JSON data and some build tools, and then that compiler 
+> runs in your browser and assembles a website out of the component parts. That’s what a “framework” does… it builds 
+> the website, in real time, from separate machine-readable pieces, on the user’s computer, every time they visit the website.
+
+It's sad and I agree so much. That's why I try to keep this blog as lean as possible. Tell me if you see potential to make 
+it better (and for design tips I am most thankful).
+
+Read it all on https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/
+
 # snowpack.dev - Bundler Free Development
 
 dateCreated: 2020-05-09 13:35 CET  
