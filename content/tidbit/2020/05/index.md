@@ -1,3 +1,22 @@
+# Learned From "Don't Make Me Think"
+
+dateCreated: 2020-05-11 19:09 CET  
+tags: web, design, UX
+
+The things I took away for me until now, while I am still reading [the book](https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited):
+* Use more headlines "even if the paragraph is just one sentence"
+* Move the content closer to the according headline (I [did that yesterday](https://github.com/wolframkriesing/site-stitcher/commit/80bfda03f6ab445618ff50fc4e5d9436cefe7971), made a HUGE diff)
+* Remove ~~useless~~ words (I like that one)
+
+<a href="https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited">
+    <figure>
+        <img src="../dontmakemethink.jpeg" alt="Dont Make me Think - by Steve Krug" />
+        <figcaption>Dont Make me Think, by Steve Krug</figcaption>
+    </figure>
+</a>
+
+I learned about this book from Uku, [as I wrote in "A Developer Designs"](/blog/2020/04/16-a-developer-designs/).
+
 # We don’t give people a website any more
 dateCreated: 2020-05-11 16:46 CET  
 tags: web  
