@@ -36,6 +36,9 @@ main {
 
 blockquote {
   font-style: italic;
+  border-left: 1px solid lightgrey;
+  margin: 0;
+  padding: 0 1rem;
 }
 
 a {
