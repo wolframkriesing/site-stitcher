@@ -28,13 +28,13 @@
   <article>
     <header>
       <h1>{{post.headline}}</h1>
-      <p class="metadata">
+      <div class="metadata">
         Wolfram Kriesing
         - {{toReadableDate(post.dateCreated)}}
         {% if (post.tags.length > 0) { %}
           - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
         {% } %}
-      </p>
+      </div>
     </header>
 
     {!post.bodyAsHtml!}
