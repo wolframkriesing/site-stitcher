@@ -1,3 +1,25 @@
+# CSS Reset
+
+dateCreated: 2020-05-11 22:36 CET
+tags: web, CSS
+
+First search result for "CSS reset" is by the mighty
+https://meyerweb.com/eric/tools/css/reset/
+next I came across https://cssreset.com/what-is-a-css-reset/ which nicely explains the whys
+and also states the cons. Unfortunately the latter article is missing a date, so I can't say how old 
+this knowledge is. That's why I was so very keen on having all items properly dated on my blog.
+
+Since it had been quiet around CSS reset lately in my bubble, I needed to refresh my knowledge a bit.
+I take away:
+
+> However, there are multiple benefits of this technique that outweigh any drawbacks, not least the 
+> more logical development progression that it afford: paste in your CSS Reset, paste in your base 
+> styles (if needed), then define everything else from there. It’s also nice to know that you’ve got 
+> your bases covered.
+
+**I will use a CSS Reset only for padding and margin** for the start, to adhere to most of what the
+user agent defined.
+
 # Learned From "Don't Make Me Think"
 
 dateCreated: 2020-05-11 19:09 CET  
