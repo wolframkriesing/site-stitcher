@@ -2,7 +2,7 @@
 dateCreated: 2020-05-11 16:46 CET  
 tags: web  
 
-The headline is a quote from ["Hammer and Nails"](https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/) by [Stuart Langridge](https://twitter.com/sil) where he states how we make every user's browser a "fat client" (I called it that) by making them work far beyond rendering some HTML+CSS.
+The headline is a quote from [Hammer and Nails](https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/) by [Stuart Langridge](https://twitter.com/sil) where he states how we make every user's browser a "fat client" (I called it that) by making them work far beyond rendering some HTML+CSS.
 
 > Instead of an HTML page, you get some templates and some JSON data and some build tools, and then that compiler 
 > runs in your browser and assembles a website out of the component parts. That’s what a “framework” does… it builds 
