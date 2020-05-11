@@ -17,6 +17,12 @@
         <h2><a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
         {{ post.hasVideo ? ' 📺' : '' }}</h2>
+        <div class="metadata">
+          {{toReadableDate(post.dateCreated)}}
+          {% if (post.tags.length > 0) { %}
+            - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
+          {% } %}
+        </div>
       </header>
       <div class="content">
         <p class="abstract">{!post.abstractAsHtml!}</p>
