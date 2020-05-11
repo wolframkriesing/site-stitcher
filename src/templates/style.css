@@ -135,7 +135,8 @@ blockquote.twitter-tweet {
   border-color: #eee #ddd #bbb;
   border-style: solid;
   border-width: 1px;
-  padding: 0 1rem 1rem 1rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
   display: inline-block;
 }
   blockquote.twitter-tweet p {
