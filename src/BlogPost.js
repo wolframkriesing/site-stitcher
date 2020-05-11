@@ -23,11 +23,16 @@ const urlFromMarkdownFilename = (markdownFilename) => {
   return '/blog/' + dateDirectoryAndFilename(markdownFilename).replace(extensionToReplace, '/');
 };
 /**
+ * @param path {RelativeUrl}
+ * @return {RelativeUrl}
+ */
+const removeLastPartOfPath = path => path.split('/').slice(0, -2).join('/') + '/';
+/**
  * @param {Filename} markdownFilename
  * @return {RelativeUrl}
  */
 const urlForMonthFromMarkdownFilename = (markdownFilename) => {
-  return '/blog/' + markdownFilename.split('/').slice(0, -1).join('/') + '/';
+  return removeLastPartOfPath(urlFromMarkdownFilename(markdownFilename));
 };
 
 export class BlogPost {

@@ -30,12 +30,15 @@ describe('Load a blog post, with all data ready to render', () => {
       assertThat(post, instanceOf(BlogPost));
       assertThat(post, hasProperties(expectedProps));
     });
-    it('WHEN source file is inside a directory THEN still get the URL right', async () => {
+    it('WHEN source file is inside a directory THEN still get the URLs right', async () => {
       const post = await loadPost({
         markdownFilename: '2001/01/01-post/index.md',
         fileContent: '# irrelevant'
       });
-      assertThat(post, hasProperties({url: '/blog/2001/01/01-post/'}));
+      assertThat(post, hasProperties({
+        url: '/blog/2001/01/01-post/',
+        urlForMonth: '/blog/2001/01/'
+      }));
     });
 // the content parsing ...
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
