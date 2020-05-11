@@ -1,3 +1,4 @@
+@import "./reset.css";
 @import "./heading.css";
 
 body {
@@ -36,8 +37,7 @@ main {
 
 blockquote {
   border-left: 1px solid lightgrey;
-  margin: 0;
-  padding: 0 1rem;
+  padding-left: 1rem;
 }
 
 a {
@@ -86,8 +86,6 @@ nav.primary {
 
 nav ol {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
 .content {
@@ -154,8 +152,6 @@ nav.secondary {
   background-color: rgba(252, 232, 191, 0.9);
 }
   nav.secondary ul {
-    margin: 0;
-    padding: 0;
     height: 1rem;
     width: 1rem;
     transition: width 0.5s, height 0.5s, opacity 1s; /* transition when the mouse leave */
@@ -188,7 +184,6 @@ nav.secondary {
       top: 0;
       bottom: auto;
       right: auto;
-      margin: 0;
     }
   }
 
@@ -223,7 +218,6 @@ blockquote.twitter-tweet {
   border-style: solid;
   border-width: 1px;
   padding: 0 1rem 1rem 1rem;
-  margin: 0;
   display: inline-block;
 }
   blockquote.twitter-tweet p {
