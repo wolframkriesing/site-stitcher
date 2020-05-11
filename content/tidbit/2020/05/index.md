@@ -3,9 +3,11 @@
 dateCreated: 2020-05-11 22:36 CET
 tags: web, CSS
 
-First search result for "CSS reset" is by the mighty
-https://meyerweb.com/eric/tools/css/reset/
-next I came across https://cssreset.com/what-is-a-css-reset/ which nicely explains the whys
+First search result for "CSS reset" is by the mighty Eric Meyer
+https://meyerweb.com/eric/tools/css/reset/ from quite some time ago.
+And looking up the source of his site I see the reset is not really included, also no modified version
+as far as I saw it.
+Next I came across https://cssreset.com/what-is-a-css-reset/ which nicely explains the whys
 and also states the cons. Unfortunately the latter article is missing a date, so I can't say how old 
 this knowledge is. That's why I was so very keen on having all items properly dated on my blog.
 
@@ -19,6 +21,14 @@ I take away:
 
 **I will use a CSS Reset only for padding and margin** for the start, to adhere to most of what the
 user agent defined.
+
+**[UPDATE]**:\
+I found out why the site cssreset.com has no dates, it's a pure SEO site where someone wants
+to make money with ads. This decreases my trust in what's written there. Mmmmh.
+Reading on https://cssreset.com/privacy/
+"SURESWIFT CAPITAL INC., the owner and provider of this Website https://cssreset.com"
+I think you can get a picture of the trustworthiness of this site.
+
 
 # Learned From "Don't Make Me Think"
 
