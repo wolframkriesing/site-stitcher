@@ -1,3 +1,18 @@
+# Clone Behavior of <script> Tag
+
+dateCreated: 2020-05-12 00:53 CET
+tags: web, javascript, DOM
+
+I wanted to `scriptNode.cloneNode(true)` and expected it to re-evaluate the JS
+of the node, but it didn't.
+
+> Each &lt;script&gt; element has a property flag called "already started".
+
+This flag is already true, so a clone won't reevaluate the script.
+Solution: copy it manually.
+
+Read it all on https://stackoverflow.com/questions/28771542/why-dont-clonenode-script-tags-execute/28771829#28771829
+
 # CSS Reset
 
 dateCreated: 2020-05-11 22:36 CET
