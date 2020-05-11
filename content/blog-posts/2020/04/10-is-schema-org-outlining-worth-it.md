@@ -7,15 +7,17 @@ I am a big fan of structured data and making the data we have on the web more ac
 easier to use, simply more worth it is a very useful thing. How useful is it investing in
 outlining your website's today? I found a couple articles and quotes on the web.
 
+## Structured Data only for Search Engines?
 Structured data is not only useful for search engines. Just imagine all websites that are 
-online can be understood by computers and could be applied to help us and answer questions
+online could be understood by computers and could be applied to help us and answer questions
 we currently still search the web for, read and try to understand things.
 
 Well, I do try to outline my content as good as I can and while doing so I am always
 asking myself: How useful is it? Do only search engines benefit from it? Are there any real
 applications that use structured data?
 
-Here is what I found and thought was interesting, unfortunately no one answer.
+## No Answer, but ...
+Here is what I found and thought was interesting, unfortunately no real answer.
 
 > Structured data's effect on rankings
 >
@@ -41,6 +43,7 @@ One hint I found very useful and we should never forget when applying structured
 
 > Only mark up what a user can see.
 
+## My Conclusion
 I stick to outlining my data, I see (and also hope) it's worth it.
 Not only that, it also made it easy for me [structuring my code, naming attributes][2] like `dateCreated`, `headline`
 and `abstract` for a blog post, on schema.org they have a [type BlogPosting][1] which I leaned on
