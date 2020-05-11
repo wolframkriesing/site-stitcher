@@ -54,6 +54,7 @@ The things I took away for me until now, while I am still reading [the book](htt
 * Use more headlines "even if the paragraph is just one sentence".
 * Move the content closer to the according headline (I [did that yesterday](https://github.com/wolframkriesing/site-stitcher/commit/80bfda03f6ab445618ff50fc4e5d9436cefe7971), made a HUGE diff).
 * Make sure the different headlines are easily distinguishable (see [my commit](https://github.com/wolframkriesing/site-stitcher/commit/63fdd25f399398ab2cee11ba0a4f1cd477a5e04d).
+* Add a breadcrumb, so users of your page know where they are.
 * Remove ~~useless~~ words (I like that one).
 
 <a href="https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited">
