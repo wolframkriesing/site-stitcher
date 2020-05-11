@@ -48,9 +48,9 @@ It's sad and I have this view on web tech too, we just make lives hard ourselves
 That's why I try to keep this blog as lean as possible. Tell me if you see potential to make 
 it better (and for design tips I am most thankful).
 
-Read it all on https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/
-and https://macwright.org/2020/05/10/spa-fatigue.html
-and https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
+Read it all on https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/  
+and https://macwright.org/2020/05/10/spa-fatigue.html  
+and https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag.
 
 # snowpack.dev - Bundler Free Development
 
