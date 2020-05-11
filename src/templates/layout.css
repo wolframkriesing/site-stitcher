@@ -104,6 +104,13 @@ nav.breadcrumb {
   margin-bottom: 2rem;
 }
 
+nav.tags ol, nav.months ol {
+  margin-left: 0;
+}
+nav.tags header, nav.months header {
+  margin-bottom: 0.3rem;
+}
+
 p, ul, ol {
   margin-bottom: 1rem;
 }
