@@ -1,43 +1,13 @@
-@import "./heading.css";
+@import "./reset.css";
+@import "./layout.css";
 
 body {
-  margin: 2rem;
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-main {
-  display: flex;
-}
-  aside {
-    padding: 2rem;
-  }
-  aside > * {
-    margin-bottom: 2rem;
-    white-space: nowrap;
-  }
-  aside .tags {
-    max-width: 15rem;
-  }
-  aside .tags:hover {
-    height: auto;
-  }
-@media screen and (max-width: 600px) {
-  aside {
-    display: none;
-  }
-}
-@media screen and (max-width: 900px) {
-  /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
-  aside.right {
-    display: none;
-  }
-}
-
 blockquote {
   border-left: 1px solid lightgrey;
-  margin: 0;
-  padding: 0 1rem;
 }
 
 a {
@@ -47,56 +17,14 @@ a {
     color: black;
   }
 
-body > header {
-  display: flex;
+body > header .sitename a {
+  font-size: 2rem;
 }
-  body > header .sitename {
-    flex: 1;
-    text-align: center;
-  }
-    body > header .sitename a {
-      font-size: 2rem;
-    }
-    body > header .sitename .subtitle {
-    }
-  body > header nav.primary {
-    flex: 2;
-  }
-
-article.latest {
-  margin-top: 2rem;
-  margin-bottom: 5rem;
-}
-
-nav.primary {
-  display: inline;
-}
-  nav.primary ul {
-    display: inline;
-  }
-  nav.primary li {
-    display: inline;
-    margin-right: 2rem;
-  }
-  @media screen and (max-width: 600px) {
-    nav.primary {
-      display: none;
-    }
-  }
 
 nav ol {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
 
-.content {
-  max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
-}
-pre {
-  padding: 1rem;
-  overflow: auto; /* make the code scrollable if the width is too narrow */
-}
 pre, p code {
   font-size: 1.2rem;
   background-color: lightyellow;
@@ -104,16 +32,6 @@ pre, p code {
 
 figcaption {
   font-style: italic;
-}
-figure {
-}
-  figure.float-right {
-    float: right;
-  }
-@media screen and (max-width: 600px) {
-  figure.float-right {
-    float: none;
-  }
 }
 
 td {
@@ -126,13 +44,7 @@ td {
 }
 
 footer {
-  display: flex;
-  padding: 2rem;
-  margin-top: 2rem;
   border-top: 1px solid lightgrey;
-}
-footer div {
-  flex: 1;
 }
 
 kbd {
@@ -145,6 +57,8 @@ kbd {
   white-space: nowrap;
 }
 
+/*    styling the secondary nav    */
+
 nav.secondary {
   position: fixed;
   right: 0;
@@ -154,8 +68,6 @@ nav.secondary {
   background-color: rgba(252, 232, 191, 0.9);
 }
   nav.secondary ul {
-    margin: 0;
-    padding: 0;
     height: 1rem;
     width: 1rem;
     transition: width 0.5s, height 0.5s, opacity 1s; /* transition when the mouse leave */
@@ -188,10 +100,10 @@ nav.secondary {
       top: 0;
       bottom: auto;
       right: auto;
-      margin: 0;
     }
   }
 
+/*   styling images    */
 
 img.sizeup-onhover-image {
   transition: 0.3s linear;
@@ -216,14 +128,15 @@ img.sizeup-onhover-image {
     transform-origin: right top;
   }
 
+/*   twitter styling    */
 
 blockquote.twitter-tweet {
   font-weight: bold;
   border-color: #eee #ddd #bbb;
   border-style: solid;
   border-width: 1px;
-  padding: 0 1rem 1rem 1rem;
-  margin: 0;
+  padding: 1rem;
+  margin-bottom: 1rem;
   display: inline-block;
 }
   blockquote.twitter-tweet p {

@@ -5,7 +5,7 @@
 h1 span.tag,
 h2 span.tag {
   font-size: 1rem;
-  padding: 0.3rem 0.5rem;
+  padding: 0.1rem 0.5rem;
   margin-right: 1rem; /* space to the H2 */
   font-weight: bold;
 }
@@ -19,3 +19,4 @@ span.tag[data-tag="javascript"] { background: linear-gradient(to right, #0000, #
 span.tag[data-tag="linux"] { background: linear-gradient(to right, #0000, #d6adff 30%); }
 span.tag[data-tag="macos"] { background: linear-gradient(to right, #0000, #d6adff 30%); }
 span.tag[data-tag="tools"] { background: linear-gradient(to right, #0000, #ffadb9 30%); }
+span.tag[data-tag="web"] { background: linear-gradient(to right, #0000, rgba(0, 103, 184, 0.5) 30%); }

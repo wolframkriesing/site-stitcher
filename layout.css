@@ -1,0 +1,132 @@
+/*
+  Layout is
+  positioning, spacing, layouting of elements.
+ */
+
+/*   element selectors   */
+
+body {
+  margin: 2rem 4rem;
+}
+
+body > header {
+  display: flex;
+}
+  body > header .sitename {
+    flex: 1;
+    text-align: center;
+  }
+  body > header nav.primary {
+    flex: 2;
+  }
+
+article.latest {
+  margin-bottom: 5rem;
+}
+
+blockquote {
+  padding-left: 1rem;
+}
+
+figure {
+}
+  figure.float-right {
+    float: right;
+  }
+@media screen and (max-width: 600px) {
+  figure.float-right {
+    float: none;
+  }
+}
+
+footer {
+  display: flex;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid lightgrey;
+}
+  footer div {
+    flex: 1;
+  }
+
+h1 {
+  font-size: 2.5rem;
+}
+
+main {
+  display: flex;
+}
+  aside > * {
+    margin-bottom: 2rem;
+    margin-right: 4rem;
+    white-space: nowrap;
+  }
+  aside .tags {
+    max-width: 15rem;
+  }
+  aside .tags:hover {
+    height: auto;
+  }
+@media screen and (max-width: 600px) {
+  aside {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
+  aside.right {
+    display: none;
+  }
+}
+
+.metadata {
+  margin: 0.2rem 0;
+}
+
+nav.primary {
+  display: inline;
+}
+  nav.primary ul {
+    display: inline;
+    margin: 0;
+  }
+  nav.primary li {
+    display: inline;
+    margin-right: 2rem;
+  }
+  @media screen and (max-width: 600px) {
+    nav.primary {
+      display: none;
+    }
+  }
+
+nav.breadcrumb {
+  margin-bottom: 2rem;
+}
+
+nav.tags ol, nav.months ol {
+  margin-left: 0;
+}
+nav.tags header, nav.months header {
+  margin-bottom: 0.3rem;
+}
+
+p, ul, ol {
+  margin-bottom: 1rem;
+}
+
+pre {
+  padding: 1rem;
+  overflow: auto; /* make the code scrollable if the width is too narrow */
+}
+
+ul, ol {
+  margin-left: 1rem;
+}
+
+/*   other selectors   */
+
+.content {
+  max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
+}
+
