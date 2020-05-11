@@ -139,9 +139,46 @@
 runs in your browser and assembles a website out of the component parts. That’s what a “framework” does… it builds 
 the website, in real time, from separate machine-readable pieces, on the user’s computer, every time they visit the website.</p>
 </blockquote>
-<p>It&#39;s sad and I agree so much. That&#39;s why I try to keep this blog as lean as possible. Tell me if you see potential to make 
+<p>I found this blog post through Brian&#39;s tweet:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">However, there does seem to be a trend toward _casually_ pushing more complexity and dependencies, even for something like my own site, down closer to the user even when that is very unnecessary. That doesn&#39;t really play to the Web&#39;s best strengths for users.</p>&mdash; @briankardell <a href="https://twitter.com/briankardell/status/1259854677421801479?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
+
+<p>which is in a thread that started off linking to the above article.</p>
+<p><a href="https://twitter.com/tmcw">Tom MacWright</a> in <a href="https://macwright.org/2020/05/10/spa-fatigue.html">Second-guessing the modern web</a> 
+he states very rightful a thing I had also thought about a lot, especially since I have seen a 
+project run in a serious SEO issue due to exactly this problem: aging JS files you should keep around.
+He describes it in detail like this:</p>
+<blockquote>
+<p>So if they open the ‘about page’, keep the tab open for a week, and then request the ‘home page’, 
+then the home page that they request is dictated by the index bundle that they downloaded last week. 
+This is a deeply weird and under-discussed situation. There are essentially two solutions to it:</p>
+<ul>
+<li>You keep all generated JavaScript around, forever, and people will see the version of the site that was 
+live at the time of their first page request.</li>
+</ul>
+</blockquote>
+<p>I skipped the second solution, simply because it just makes shit so much more complex. I know we all optimize for pings
+and request run times, etc. but in this case, why not just let this extra ping take place and use <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">ETag</a> as they were meant</p>
+<blockquote>
+<p>The ETag HTTP response header is an identifier for a specific version of a resource. It lets caches be 
+more efficient and save bandwidth, as a web server does not need to resend a full response if the content has not changed.</p>
+</blockquote>
+<p>Most of us don&#39;t run pages or work for companies that run pages the size of Google or Facebook. This one extra
+request might save some overall complexity.</p>
+<p>Tom writes later</p>
+<blockquote>
+<p>And then there’s the authentication story. If you do SSR on any pages that are custom to the user, 
+then you need to forward any cookies or authentication-relevant information to your API backend and make 
+sure that you never cache the server-rendered result.</p>
+</blockquote>
+<p>And I just had to  quote  this part of his article:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">&quot;all of the fancy optimizations are optimizations to get you closer to the performance you would’ve gotten if you just hadn’t used so much technology&quot;<br><br>:nodding: :nodding: :nodding: <a href="https://t.co/Z7Pn2Edyfh">https://t.co/Z7Pn2Edyfh</a></p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1259865810308345856?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
+
+<p>It&#39;s sad and I have this view  on web tech too. 
+That&#39;s why I try to keep this blog as lean as possible. Tell me if you see potential to make 
 it better (and for design tips I am most thankful).</p>
-<p>Read it all on <a href="https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/">https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/</a></p>
+<p>Read it all on <a href="https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/">https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/</a>
+and <a href="https://macwright.org/2020/05/10/spa-fatigue.html">https://macwright.org/2020/05/10/spa-fatigue.html</a>
+and <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag">https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag</a></p>
 
   </article>
 
