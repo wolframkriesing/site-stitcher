@@ -1,6 +1,6 @@
 import {describe, it} from 'mocha';
 import assert from 'assert';
-import {toReadableDate, toWeekday, nowAsDateTimeString} from './date.js';
+import {toReadableDate, toReadableYearAndMonth, toWeekday, nowAsDateTimeString} from './date.js';
 
 describe('Convert date (and time) to a readable date string', () => {
   describe('GIVEN a date', () => {
@@ -36,5 +36,11 @@ describe('Return now as a DateTime string', () => {
   it('GIVEN a date instance WHEN converting it to a BlogPost DateTime string THEN do so ;)', () => {
     const now = new Date('2001-01-01 10:00+01:00');
     assert.strictEqual(nowAsDateTimeString(now), '2001-01-01 10:00 CET');
+  });
+});
+
+describe('Return a readable string containing year+month only', () => {
+  it('GIVEN a date string THEN return something like "January 2001"', () => {
+    assert.strictEqual(toReadableYearAndMonth('2001-01-01'), 'January 2001');
   });
 });

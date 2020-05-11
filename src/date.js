@@ -32,6 +32,9 @@ export const toReadableDate = dateString => {
   ;
 };
 
+export const toReadableYearAndMonth = dateString =>
+  toReadableDate(dateString.split('-').slice(0, 2).join('-'));
+
 export const toWeekday = dateString => {
   const day = toDate(dateString).getDay();
   return [
