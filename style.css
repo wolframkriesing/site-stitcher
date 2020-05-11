@@ -35,7 +35,6 @@ main {
 }
 
 blockquote {
-  font-style: italic;
   border-left: 1px solid lightgrey;
   margin: 0;
   padding: 0 1rem;
@@ -130,7 +129,7 @@ footer {
   display: flex;
   padding: 2rem;
   margin-top: 2rem;
-  background-color: lightgray;
+  border-top: 1px solid lightgrey;
 }
 footer div {
   flex: 1;
