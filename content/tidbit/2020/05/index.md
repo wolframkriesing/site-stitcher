@@ -8,10 +8,50 @@ Actually the headline is a quote from the article I just read ["Hammer and Nails
 > runs in your browser and assembles a website out of the component parts. That’s what a “framework” does… it builds 
 > the website, in real time, from separate machine-readable pieces, on the user’s computer, every time they visit the website.
 
-It's sad and I agree so much. That's why I try to keep this blog as lean as possible. Tell me if you see potential to make 
+I found this blog post through Brian's tweet:
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">However, there does seem to be a trend toward _casually_ pushing more complexity and dependencies, even for something like my own site, down closer to the user even when that is very unnecessary. That doesn&#39;t really play to the Web&#39;s best strengths for users.</p>&mdash; @briankardell <a href="https://twitter.com/briankardell/status/1259854677421801479?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
+
+which is in a thread that started off linking to the above article.
+
+[Tom MacWright](https://twitter.com/tmcw) in [Second-guessing the modern web](https://macwright.org/2020/05/10/spa-fatigue.html) 
+he states very rightful a thing I had also thought about a lot, especially since I have seen a 
+project run in a serious SEO issue due to exactly this problem: aging JS files you should keep around.
+He describes it in detail like this:
+
+> So if they open the ‘about page’, keep the tab open for a week, and then request the ‘home page’, 
+> then the home page that they request is dictated by the index bundle that they downloaded last week. 
+> This is a deeply weird and under-discussed situation. There are essentially two solutions to it:
+>
+> - You keep all generated JavaScript around, forever, and people will see the version of the site that was 
+> live at the time of their first page request.
+
+I skipped the second solution, simply because it just makes shit so much more complex. I know we all optimize for pings
+and request run times, etc. but in this case, why not just let this extra ping take place and use [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) as they were meant
+
+> The ETag HTTP response header is an identifier for a specific version of a resource. It lets caches be 
+> more efficient and save bandwidth, as a web server does not need to resend a full response if the content has not changed.
+
+Most of us don't run pages or work for companies that run pages the size of Google or Facebook. This one extra
+request might save some overall complexity.
+
+Tom writes later
+
+> And then there’s the authentication story. If you do SSR on any pages that are custom to the user, 
+> then you need to forward any cookies or authentication-relevant information to your API backend and make 
+> sure that you never cache the server-rendered result.
+
+And I just had to  quote  this part of his article:
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">&quot;all of the fancy optimizations are optimizations to get you closer to the performance you would’ve gotten if you just hadn’t used so much technology&quot;<br><br>:nodding: :nodding: :nodding: <a href="https://t.co/Z7Pn2Edyfh">https://t.co/Z7Pn2Edyfh</a></p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1259865810308345856?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
+
+It's sad and I have this view  on web tech too. 
+That's why I try to keep this blog as lean as possible. Tell me if you see potential to make 
 it better (and for design tips I am most thankful).
 
 Read it all on https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/
+and https://macwright.org/2020/05/10/spa-fatigue.html
+and https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag
 
 # snowpack.dev - Bundler Free Development
 
