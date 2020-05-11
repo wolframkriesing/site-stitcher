@@ -4,6 +4,10 @@
 
 {[ block pageTitlePrefix ]}{{toReadableDate(yearAndMonth)}}{[ endblock ]}
 
+{[ block breadcrumb ]}
+  <a href="/">Home</a> &raquo; Blog &raquo; {{toReadableDate(yearAndMonth)}}
+{[ endblock ]}
+
 {[ block content ]}
   <h1>{{toReadableDate(yearAndMonth)}}</h1>
 

@@ -7,7 +7,7 @@ import {loadManyBlogPosts} from './load-blog-post.js';
 import {sortByDateCreatedDescending} from './sort-blog-post.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
 
-import {toReadableDate, toWeekday} from './date.js';
+import {toReadableDate, toReadableYearAndMonth, toWeekday} from './date.js';
 
 const tundra = new Tundra({cache: true});
 
@@ -19,6 +19,7 @@ const navigationItems = [
 const defaultRenderParams = {
   navigationItems,
   toReadableDate,
+  toReadableYearAndMonth,
   toWeekday,
 };
 

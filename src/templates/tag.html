@@ -4,6 +4,10 @@
 
 {[ block pageTitlePrefix ]}#{{tag}}{[ endblock ]}
 
+{[ block breadcrumb ]}
+  <a href="/">Home</a> &raquo; Blog &raquo; #{{tag}}
+{[ endblock ]}
+
 {[ block content ]}
   <h1>Tagged with #{{tag}}</h1>
 

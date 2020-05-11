@@ -17,6 +17,13 @@
   {% } %}
 {[ endblock ]}
 
+{[ block breadcrumb ]}
+  <a href="/">Home</a> &raquo;
+  Blog &raquo;
+  <a href="{{post.urlForMonth}}">{{toReadableYearAndMonth(post.dateCreated)}}</a> &raquo;
+  {{post.headline}}
+{[ endblock ]}
+
 {[ block content ]}
   <article>
     <header>
