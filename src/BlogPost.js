@@ -22,6 +22,13 @@ const urlFromMarkdownFilename = (markdownFilename) => {
   const extensionToReplace = markdownFilename.endsWith('index.md') ? '/index.md' : '.md';
   return '/blog/' + dateDirectoryAndFilename(markdownFilename).replace(extensionToReplace, '/');
 };
+/**
+ * @param {Filename} markdownFilename
+ * @return {RelativeUrl}
+ */
+const urlForMonthFromMarkdownFilename = (markdownFilename) => {
+  return '/blog/' + markdownFilename.split('/').slice(0, -1).join('/') + '/';
+};
 
 export class BlogPost {
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
@@ -41,6 +48,9 @@ export class BlogPost {
    */
   get url() {
     return urlFromMarkdownFilename(this.markdownFilename);
+  }
+  get urlForMonth() {
+    return urlForMonthFromMarkdownFilename(this.markdownFilename);
   }
   get dateCreated() {
     return this._dateCreated || dateCreatedFromMarkdownFilename(this.markdownFilename);
