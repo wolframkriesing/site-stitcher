@@ -2,7 +2,7 @@
 dateCreated: 2020-05-11 16:46 CET  
 tags: web  
 
-Actually the headline is a quote from the article I just read ["Hammer and Nails"](https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/) by [Stuart Langridge](https://twitter.com/sil) where he nicely states how we make every user's browser a fat client by making them work far beyond rendering some HTML+CSS.
+The headline is a quote from ["Hammer and Nails"](https://www.kryogenix.org/days/2020/05/06/hammer-and-nails/) by [Stuart Langridge](https://twitter.com/sil) where he states how we make every user's browser a "fat client" (I called it that) by making them work far beyond rendering some HTML+CSS.
 
 > Instead of an HTML page, you get some templates and some JSON data and some build tools, and then that compiler 
 > runs in your browser and assembles a website out of the component parts. That’s what a “framework” does… it builds 
@@ -12,12 +12,10 @@ I found this blog post through Brian's tweet:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">However, there does seem to be a trend toward _casually_ pushing more complexity and dependencies, even for something like my own site, down closer to the user even when that is very unnecessary. That doesn&#39;t really play to the Web&#39;s best strengths for users.</p>&mdash; @briankardell <a href="https://twitter.com/briankardell/status/1259854677421801479?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
 
-which is in a thread that started off linking to the above article.
-
 [Tom MacWright](https://twitter.com/tmcw) in [Second-guessing the modern web](https://macwright.org/2020/05/10/spa-fatigue.html) 
-he states very rightful a thing I had also thought about a lot, especially since I have seen a 
-project run in a serious SEO issue due to exactly this problem: aging JS files you should keep around.
-He describes it in detail like this:
+states very rightful a thing I had also thought about a lot: keep around aging JS files and keep serving them.
+Especially since I had seen this at HolidayCheck when we ran into a serious SEO issue due to exactly this problem.
+He describes it like this:
 
 > So if they open the ‘about page’, keep the tab open for a week, and then request the ‘home page’, 
 > then the home page that they request is dictated by the index bundle that they downloaded last week. 
@@ -26,14 +24,15 @@ He describes it in detail like this:
 > - You keep all generated JavaScript around, forever, and people will see the version of the site that was 
 > live at the time of their first page request.
 
-I skipped the second solution, simply because it just makes shit so much more complex. I know we all optimize for pings
-and request run times, etc. but in this case, why not just let this extra ping take place and use [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) as they were meant
+I skipped the second solution. I know we all optimize for pings
+and request run times, etc. but in this case, why not just let this extra ping take place and use [ETag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag) as they were meant, MDN says this about it:
 
 > The ETag HTTP response header is an identifier for a specific version of a resource. It lets caches be 
 > more efficient and save bandwidth, as a web server does not need to resend a full response if the content has not changed.
 
 Most of us don't run pages or work for companies that run pages the size of Google or Facebook. This one extra
-request might save some overall complexity.
+request might save some overall complexity and allows you to get rid of hashes at the end of every file you ship.
+My 2 cents.
 
 Tom writes later
 
@@ -45,7 +44,7 @@ And I just had to  quote  this part of his article:
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">&quot;all of the fancy optimizations are optimizations to get you closer to the performance you would’ve gotten if you just hadn’t used so much technology&quot;<br><br>:nodding: :nodding: :nodding: <a href="https://t.co/Z7Pn2Edyfh">https://t.co/Z7Pn2Edyfh</a></p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1259865810308345856?ref_src=twsrc%5Etfw">May 11, 2020</a></blockquote>
 
-It's sad and I have this view  on web tech too. 
+It's sad and I have this view on web tech too, we just make lives hard ourselves.
 That's why I try to keep this blog as lean as possible. Tell me if you see potential to make 
 it better (and for design tips I am most thankful).
 
