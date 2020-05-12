@@ -1,3 +1,5 @@
+dateCreated: 2017-02-23 22:22 CET
+
 # Newsletter #1
 
 Welcome to the newsletter #1 - about crafting (and) JavaScript - February 28th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let's get started ...
@@ -43,6 +45,3 @@ It's always good to know [where to find the markdown syntax][markdown-syntax], s
 While writing this newsletter I wanted to know again how to do quoting right and [found this article by Virginia Kearney][citing-correctly], where she basically states that *"When you are writing on the web, you can mention the name of the source at the beginning of your quote, paraphrase or summary and then provide a link."*. So I hope I have done it right :).
 
 [citing-correctly]: https://letterpile.com/writing/Using-and-Citing-Sources-Correctly
-
-
-dateCreated: 2017-02-23 22:22 CET
