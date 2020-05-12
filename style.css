@@ -7,7 +7,8 @@ body {
 }
 
 blockquote {
-  border-left: 1px solid lightgrey;
+  box-shadow: 0 0 10px lightgrey;
+  padding: 1rem;
 }
 
 a {
@@ -48,11 +49,8 @@ footer {
 }
 
 kbd {
-  background-color: #eee;
   border-radius: 3px;
   border: 1px solid #b4b4b4;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
-  color: #333;
   padding: 0.1rem 0.3rem;
   white-space: nowrap;
 }
@@ -132,12 +130,10 @@ img.sizeup-onhover-image {
 
 blockquote.twitter-tweet {
   font-weight: bold;
-  border-color: #eee #ddd #bbb;
-  border-style: solid;
-  border-width: 1px;
   padding: 1rem;
   margin-bottom: 1rem;
   display: inline-block;
+  box-shadow: 0 0 10px lightgrey;
 }
   blockquote.twitter-tweet p {
     font-weight: normal;

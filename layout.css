@@ -26,9 +26,14 @@ article.latest {
 
 blockquote {
   padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 figure {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 10px lightgrey;
+  display: inline-block;
 }
   figure.float-right {
     float: right;
@@ -111,17 +116,20 @@ nav.tags header, nav.months header {
   margin-bottom: 0.3rem;
 }
 
-p, ul, ol {
-  margin-bottom: 1rem;
-}
-
 pre {
   padding: 1rem;
+  margin-bottom: 1rem;
   overflow: auto; /* make the code scrollable if the width is too narrow */
 }
 
+:not(blockquote) > p,
+:not(li) > ul,
+:not(li) > ol { /* The `:not(li) > ` prefix prevents nested lists to have a margin on the sub-levels */
+  margin-bottom: 1rem;
+}
+
 ul, ol {
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 /*   other selectors   */

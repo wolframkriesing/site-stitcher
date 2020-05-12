@@ -135,13 +135,16 @@
         Wolfram Kriesing
         - May 2, 2020
         
-          - tagged with: #tools
+          - tagged with: #tools #webstorm #automation
         
       </p>
     </header>
 
-    <p>I created a <a href="https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html">Live Template</a> 
-to auto-complete <code>dateC</code>+<kbd>TAB</kbd> to <code>dateCreated: 2020-05-02 15:27 CET</code>.</p>
+    <p>WebStorm has this awesome feature they call <a href="https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html">Live Template</a>
+where you can configure a text in a certain filetype to autocomplete
+to something, even dynamic. See how I built the auto-completion for <code>dateC</code> which becomes 
+<code>dateCreated: 2020-05-02 15:27 CET</code>, which is current date of course, in my custom format.</p>
+<p><code>dateC</code> + <kbd>TAB</kbd><br>becomes<br><code>dateCreated: 2020-05-02 15:27 CET</code></p>
 <figure>
     <img src="../live-tpl-video.gif" alt="See Live Template in Action" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
     <figcaption>See Live Template in Action</figcaption>
@@ -150,38 +153,54 @@ to auto-complete <code>dateC</code>+<kbd>TAB</kbd> to <code>dateCreated: 2020-05
 
 <p>I got tired of writing the metadata, I am using here in my tidbits (<a href="https://github.com/wolframkriesing/site-stitcher/tree/master/content">see the source</a>)
 over and over again, metadata such as the current <code>dateCreated</code>, as seen before.</p>
-<h3 id="how-to-create-this-live-template">How to create this Live Template?</h3>
+<h2 id="how-to-create-this-live-template">How to create this Live Template?</h2>
+<p>If you want to create the live template above do the following.</p>
 <ol>
-<li><kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>A</kbd> (for &quot;Find Action&quot;)</li>
-<li>Type &quot;Live Template&quot;</li>
-<li>Select the one with &quot;Preferences&quot; behind it <figure>
+<li><p><kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>A</kbd> (for &quot;Find Action&quot;)</p>
+</li>
+<li><p>Type &quot;Live Template&quot;</p>
+</li>
+<li><p>Select the one with &quot;Preferences&quot; behind it</p>
+ <figure>
      <img src="../live-tpl-find-action.gif" alt="Find Action screen in WebStorm" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
      <figcaption>Find Action screen in WebStorm</figcaption>
  </figure></li>
-<li>Create a new Live Template, <kbd>Cmd</kbd> + <kbd>N</kbd>, choose &quot;Live Template&quot;</li>
-<li>Fill it in as in the image <figure>
+<li><p>Create a new Live Template, <kbd>Cmd</kbd> + <kbd>N</kbd>, choose &quot;Live Template&quot;</p>
+</li>
+<li><p>Fill it in as in the image</p>
+ <figure>
      <img src="../live-tpl-edit.gif" alt="The editor for the live template" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
      <figcaption>The editor for the live template</figcaption>
- </figure></li>
-<li>Make sure to set &quot;Applicable ...&quot; below the fields.
-Since I am using it in markdown files, which has no own section I chose &quot;Other&quot;, see image <figure>
+ </figure>
+</li>
+<li><p>Make sure to set &quot;Applicable ...&quot; below the fields.
+Since I am using it in markdown files, which has no own section I chose &quot;Other&quot;, see image</p>
+ <figure>
      <img src="../live-tpl-type.gif" alt="Edit live template type" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
      <figcaption>Edit live template type</figcaption>
- </figure></li>
-<li>Note the <code>$NOW$</code>. This is a variable which does NOT exist yet, so let&#39;s create it to return 
-the <code>dateCreated</code> in the format you have seen above (<code>2020-05-02 15:27 CET</code>).</li>
-<li>Click &quot;Edit variables&quot; on the right.</li>
-<li>Reading a little bit in <a href="https://www.jetbrains.com/help/webstorm/2020.1/edit-template-variables-dialog.html">the JetBrains docs</a>
+ </figure>
+</li>
+<li><p>Note the <code>$NOW$</code>. This is a variable which does NOT exist yet, so let&#39;s create it to return 
+the <code>dateCreated</code> in the format you have seen above (<code>2020-05-02 15:27 CET</code>).</p>
+</li>
+<li><p>Click &quot;Edit variables&quot; on the right.</p>
+</li>
+<li><p>Reading a little bit in <a href="https://www.jetbrains.com/help/webstorm/2020.1/edit-template-variables-dialog.html">the JetBrains docs</a>
 I found out very quickly that I need to set the value of the variable <code>NOW</code>
-to <code>concat(date(&quot;Y-MM-dd HH:mm&quot;), &quot; CET&quot;)</code>. <figure>
+to <code>concat(date(&quot;Y-MM-dd HH:mm&quot;), &quot; CET&quot;)</code>.</p>
+ <figure>
      <img src="../live-tpl-edit-variable.gif" alt="Edit live template variable" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
      <figcaption>Edit live template variable</figcaption>
- </figure></li>
-<li>If you tick &quot;Skip if defined&quot; the value will just auto complete and the Live Template is done (otherwise the inserted
-value of <code>NOW</code> would be selected for editing, which we don&#39;t need here)</li>
-<li>Save and apply ... just close all the dialogs :)</li>
-<li>Voila, now when I type dateC`+<kbd>TAB</kbd> in my markdown file I get the date.
-<code>dateCreated: 2020-05-02 15:54 CET</code></li>
+ </figure>
+</li>
+<li><p>If you tick &quot;Skip if defined&quot; the value will just auto complete and the Live Template is done (otherwise the inserted
+value of <code>NOW</code> would be selected for editing, which we don&#39;t need here)</p>
+</li>
+<li><p>Save and apply ... just close all the dialogs :)</p>
+</li>
+<li><p>Voila, now when I type <code>dateC</code> + <kbd>TAB</kbd> in my markdown file I get the date.
+<code>dateCreated: 2020-05-02 15:54 CET</code></p>
+</li>
 </ol>
 
   </article>

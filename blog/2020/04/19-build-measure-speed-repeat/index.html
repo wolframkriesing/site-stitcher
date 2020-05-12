@@ -154,19 +154,20 @@ updates being built.</p>
 <p>Here is the detailled process of how I went about measuring and fixing the biggest slow down of my build process.
 It is a standard build, measure, learn cycle, and it won&#39;t be done after this blog post.
 Spoiler: I gained more than 50% of speed.</p>
-<ul>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix">Deciding what to fix</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture">The Big Picture</a></li>
-<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#measure">Measure</a><ul>
+<li><a href="/blog/2020/04/19-build-measure-speed-repeat/#measure">Measure</a><ol>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#filesystem-access-speed">Filesystem Access Speed</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#template-rendering-speed">Template Rendering Speed</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#recap">Recap</a></li>
-</ul>
+</ol>
 </li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#solutions-to-speed-up">Solutions to speed up</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#conclusion">Conclusion</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#epilogue">Epilogue</a></li>
-</ul>
+</ol>
 <h2 id="deciding-what-to-fix">Deciding what to fix</h2>
 <p>The above introduction shows that there is not only one thing I could optimize, there is not only the
 speed of the build process. I could also:</p>
@@ -230,21 +231,21 @@ But as I had learned I must always just <strong>optimize the slowest first, meas
 So I start by looking at <a href="https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L77-L85">the code that build the tag pages</a> 
 (it is similarly structured to <a href="https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L50-L57">the code that generates all posts</a>).
 Both functions just do three &quot;maybe slow&quot; things:</p>
-<pre><code class="language-javascript">  const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
-  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
-  const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
-  const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
-  await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow</code></pre>
+<pre><code class="language-javascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
+const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
+await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow</code></pre>
 <h3 id="filesystem-access-speed">Filesystem Access Speed</h3>
 <p>I will turn off the <code>fs.promises</code> things, since they go onto the filesystem and that can not be fast, right?
 The time that it took just now (before I save this change to this blog posts markdown file)
 to build all the tag pages was &quot;2.293s&quot;. I ran it a couple of times, it was always around 2.4seconds.
 Now let me comment out the fs operations. </p>
-<pre><code class="language-javascript">  const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
-//  await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
-  const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
-  const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
-//  await fs.promises.writeFile(destFilename, renderedFile);    // maybe slow</code></pre>
+<pre><code class="language-javascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+// await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
+const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
+const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
+// await fs.promises.writeFile(destFilename, renderedFile);    // maybe slow</code></pre>
 <p>The last time after (of course) running it a couple of times
 was &quot;1.329s&quot;. Roughly each of them was around 1.4seconds. That means about 1 second faster. Nice learning.
 The nifty thing is though, I can not remove this part completely, I will have to write to the filesystem
@@ -254,11 +255,11 @@ Let&#39;s see if there is some low hanging fruits there.</p>
 <p>The third &quot;maybe slow&quot; thing is the template rendering, the function we call is <code>tundra.getRender(&#39;post.html&#39;, ...)</code>.
 We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
 Now let me comment out only the template rendering code.</p>
-<pre><code class="language-javascript">  const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
-  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
-  const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
-//  const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
-  await fs.promises.writeFile(destFilename, &#39;renderedFile&#39;);    // maybe slow</code></pre>
+<pre><code class="language-javascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
+// const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
+await fs.promises.writeFile(destFilename, &#39;renderedFile&#39;);    // maybe slow</code></pre>
 <figure class="float-right">
     <img src="./renders-renderedFile-string.jpg" alt="no real output" width=200 class="sizeup-onhover-image scale4 origin-right-top" />
     <figcaption>Page really renders &quot;renderedFile&quot;</figcaption>
