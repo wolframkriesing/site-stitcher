@@ -26,15 +26,17 @@ Here is the detailled process of how I went about measuring and fixing the bigge
 It is a standard build, measure, learn cycle, and it won't be done after this blog post.
 Spoiler: I gained more than 50% of speed.
 
-* [Deciding what to fix](/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix)
-* [The Big Picture](/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture)
-* [Measure](/blog/2020/04/19-build-measure-speed-repeat/#measure)
-    * [Filesystem Access Speed](/blog/2020/04/19-build-measure-speed-repeat/#filesystem-access-speed)
-    * [Template Rendering Speed](/blog/2020/04/19-build-measure-speed-repeat/#template-rendering-speed)
-    * [Recap](/blog/2020/04/19-build-measure-speed-repeat/#recap)
-* [Solutions to speed up](/blog/2020/04/19-build-measure-speed-repeat/#solutions-to-speed-up)
-* [Conclusion](/blog/2020/04/19-build-measure-speed-repeat/#conclusion)
-* [Epilogue](/blog/2020/04/19-build-measure-speed-repeat/#epilogue)
+## Table of Contents
+
+1. [Deciding what to fix](/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix)
+1. [The Big Picture](/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture)
+1. [Measure](/blog/2020/04/19-build-measure-speed-repeat/#measure)
+    1. [Filesystem Access Speed](/blog/2020/04/19-build-measure-speed-repeat/#filesystem-access-speed)
+    1. [Template Rendering Speed](/blog/2020/04/19-build-measure-speed-repeat/#template-rendering-speed)
+    1. [Recap](/blog/2020/04/19-build-measure-speed-repeat/#recap)
+1. [Solutions to speed up](/blog/2020/04/19-build-measure-speed-repeat/#solutions-to-speed-up)
+1. [Conclusion](/blog/2020/04/19-build-measure-speed-repeat/#conclusion)
+1. [Epilogue](/blog/2020/04/19-build-measure-speed-repeat/#epilogue)
 
 ## Deciding what to fix
 The above introduction shows that there is not only one thing I could optimize, there is not only the
@@ -111,11 +113,11 @@ So I start by looking at [the code that build the tag pages][5]
 (it is similarly structured to [the code that generates all posts][6]).
 Both functions just do three "maybe slow" things:
 ```javascript
-  const destDir = path.join(__dirname, '../_output', post.url); // fast
-  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
-  const destFilename = path.join(destDir, 'index.html');        // fast
-  const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
-  await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow
+const destDir = path.join(__dirname, '../_output', post.url); // fast
+await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+const destFilename = path.join(destDir, 'index.html');        // fast
+const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
+await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow
 ```
 
 ### Filesystem Access Speed
@@ -125,11 +127,11 @@ to build all the tag pages was "2.293s". I ran it a couple of times, it was alwa
 Now let me comment out the fs operations. 
 
 ```javascript
-  const destDir = path.join(__dirname, '../_output', post.url); // fast
-//  await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
-  const destFilename = path.join(destDir, 'index.html');        // fast
-  const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
-//  await fs.promises.writeFile(destFilename, renderedFile);    // maybe slow
+const destDir = path.join(__dirname, '../_output', post.url); // fast
+// await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
+const destFilename = path.join(destDir, 'index.html');        // fast
+const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
+// await fs.promises.writeFile(destFilename, renderedFile);    // maybe slow
 ```
 
 The last time after (of course) running it a couple of times
@@ -145,11 +147,11 @@ We know the numbers from before, 2.4 seconds it takes about to render all tags p
 Now let me comment out only the template rendering code.
 
 ```javascript
-  const destDir = path.join(__dirname, '../_output', post.url); // fast
-  await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
-  const destFilename = path.join(destDir, 'index.html');        // fast
-//  const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
-  await fs.promises.writeFile(destFilename, 'renderedFile');    // maybe slow
+const destDir = path.join(__dirname, '../_output', post.url); // fast
+await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
+const destFilename = path.join(destDir, 'index.html');        // fast
+// const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post}); // maybe slow
+await fs.promises.writeFile(destFilename, 'renderedFile');    // maybe slow
 ```
 
 <figure class="float-right">
