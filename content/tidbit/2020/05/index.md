@@ -228,7 +228,7 @@ Which gets me into why exception throwing sux, but that's a whole topic of its o
 tags: tools, webstorm, automation, knowledgebase  
 dateCreated: 2020-05-02 15:27 CET
 
-WebStorm has this awesome feature they call [Live Template](https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html)
+WebStorm has this awesome feature they call [Live Templates](https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html)
 where you can configure a text in a certain filetype to autocomplete
 to something, even dynamic. See how I built the auto-completion for `dateC` which becomes 
 `dateCreated: 2020-05-02 15:27 CET`, which is current date of course, in my custom format.
