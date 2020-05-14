@@ -51,6 +51,8 @@
         <header>Top Blog Tags</header>
         <ol>
           
+          <li><a href="/blog/tag/knowledgebase/">#knowledgebase</a></li>
+          
           <li><a href="/blog/tag/javascript/">#javascript</a></li>
           
           <li><a href="/blog/tag/video/">#video</a></li>
@@ -61,15 +63,13 @@
           
           <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
           
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
           <li><a href="/blog/tag/functional/">#functional</a></li>
           
           <li><a href="/blog/tag/links/">#links</a></li>
           
-          <li><a href="/blog/tag/ruby/">#ruby</a></li>
-          
-          <li><a href="/blog/tag/nodejs/">#nodejs</a></li>
-          
-          <li><a href="/blog/tag/npm/">#npm</a></li>
+          <li><a href="/blog/tag/learning/">#learning</a></li>
           
         </ol>
       </nav>
@@ -135,12 +135,24 @@
         Wolfram Kriesing
         - February 20, 2014
         
-          - tagged with: #bash #if
+          - tagged with: #bash #if #knowledgebase
         
       </div>
     </header>
 
-    <p><a href="http://stackoverflow.com/a/18220301/21050">http://stackoverflow.com/a/18220301/21050</a></p>
+    <p>Not sure if  I will ever get bash right, but little helpers like this explaining how &quot;if&quot; works
+are always helpful (to me).</p>
+<pre><code class="language-bash">if [ &quot;$1&quot; == &quot;something&quot; ]; then     ## GOOD
+if [ &quot;$1&quot; = &quot;something&quot; ]; then      ## GOOD
+if [ &quot;$1&quot;=&quot;something&quot; ]; then        ## BAD (operator spacing)
+if [&quot;$1&quot; == &quot;something&quot;]; then       ## BAD (bracket spacing)
+
+if [[ $a == z* ]]; then   # True if $a starts with a &quot;z&quot; (pattern matching).
+if [[ $a == &quot;z*&quot; ]]; then # True if $a is equal to z* (literal matching).
+
+if [ $a == z* ]; then     # File globbing and word splitting take place.
+if [ &quot;$a&quot; == &quot;z*&quot; ]; then # True if $a is equal to z* (literal matching).</code></pre>
+<p><a href="http://stackoverflow.com/a/18220301/21050">http://stackoverflow.com/a/18220301/21050</a></p>
 
 
     
