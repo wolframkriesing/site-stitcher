@@ -1,5 +1,5 @@
 dateCreated: 2015-11-12 10:33 CET  
-tags: testing  
+tags: testing, knowledgebase    
 
 # Approval Testing
 

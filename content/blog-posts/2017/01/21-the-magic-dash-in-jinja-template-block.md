@@ -1,6 +1,6 @@
 dateCreated: 2017-01-21 10:00 CET  
 tags: jinja, template, spaceless  
-postTypes: post  
+postTypes: post, knowledgebase    
 oldUrls: /blog/2017/01/the-magic-dash-in-jinja-template-block/  
 
 # What is `-%}` for, in a Jinja Template? or The Magic Dash in a Jinja Template Block

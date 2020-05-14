@@ -1,5 +1,5 @@
 dateCreated: 2014-02-17 10:00 CET  
-tags: github, fork, remote repo, sync  
+tags: github, fork, remote repo, sync, knowledgebase  
 postTypes: post  
 oldUrls: /blog/2014/02/keep-a-github-fork-in-sync/  
 

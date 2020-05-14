@@ -1,5 +1,5 @@
 dateCreated: 2015-10-23 10:00 CET
-tags: OO, values, value object, objects, business object, entities, jskatas
+tags: OO, values, value object, objects, business object, entities, jskatas, knowledgebase  
 
 # Value Objects and Business Objects or Values and Objects
 

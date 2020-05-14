@@ -1,5 +1,5 @@
 dateCreated: 2014-01-20 14:00 CET
-tags: npm, nodejs, javascript
+tags: npm, nodejs, javascript, knowledgebase
 postTypes: mini-post
 oldUrls: /blog/2014/01/a-meta-project/
 

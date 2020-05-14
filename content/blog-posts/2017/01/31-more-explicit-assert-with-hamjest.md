@@ -1,4 +1,6 @@
 dateCreated: 2017-01-31 18:11 CET
+tags: testing, assertion, tdd, knowledgebase  
+isDraft: true
 
 # More explicit assert with hamjest
 

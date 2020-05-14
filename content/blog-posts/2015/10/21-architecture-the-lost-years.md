@@ -1,5 +1,5 @@
 dateCreated: 2015-10-21 10:00 CET    
-tags: architecture, video, TDD  
+tags: architecture, video, TDD, knowledgebase    
 
 # Uncle Bob - Architecture: The Lost Years
 

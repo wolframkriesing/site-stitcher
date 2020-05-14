@@ -1,5 +1,5 @@
 dateCreated: 2015-11-11 12:47 CET
-tags: ruby, learning  
+tags: ruby, learning, knowledgebase    
 
 # Discovering ruby #1
 

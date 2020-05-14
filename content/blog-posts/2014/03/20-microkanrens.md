@@ -10,7 +10,7 @@ where she was live coding in at least 10 languages on stage.
 
 Of course I started following
 her on twitter back then and from time to time I recap her tweets just to see what
-other interesting are out there in the world of functional stuff that I should look 
+other interesting things are out there in the world of functional stuff that I should look 
 at. And there surely is always enough of it that I either never have heard of or that
 will cost me another couple of unplanned days to dive into in order to not feel so stupid
 anymore :).

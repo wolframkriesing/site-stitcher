@@ -1,7 +1,7 @@
 dateCreated: 2015-05-11 13:00 CET
 postTypes: mini-post
 privateTags: must watch
-tags: oop, coupling, cohesion, classes, video 
+tags: oop, coupling, cohesion, classes, video, knowledgebase   
 youtubeId: XCXdsjINP0U
 oldUrls: /blog/2015/05/cohesion-and-coupling-explained/
 

@@ -1,5 +1,5 @@
 dateCreated: 2015-10-23 10:00 CET  
-tags: algorithm, sort, paper  
+tags: algorithm, sort, paper, knowledgebase    
 
 # Design Patterns for Sorting - a paper
 

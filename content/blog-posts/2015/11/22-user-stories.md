@@ -1,5 +1,5 @@
 dateCreated: 2015-11-22 21:52 CET  
-tags: user story
+tags: user story, knowledgebase  
 
 # User stories
 

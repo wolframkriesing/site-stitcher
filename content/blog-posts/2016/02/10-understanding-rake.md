@@ -1,5 +1,5 @@
 dateCreated: 2016-02-10 10:00 CET  
-tags: ruby  
+tags: ruby, knowledgebase    
 
 # Understanding rake in order to keep on reading "Objects on Rails" 
 

@@ -1,5 +1,5 @@
 dateCreated: 2014-02-04 10:00 CET
-tags: oop, software design
+tags: oop, software design, knowledgebase
 postTypes: summary
 oldUrls: /blog/2014/02/dont-make-objects-that-end-with-er/
 

@@ -1,5 +1,5 @@
 dateCreated: 2014-02-06 10:00 CET
-tags: naming, links, must read, smalltalk, oop
+tags: naming, links, must read, smalltalk, oop, knowledgebase
 postTypes: link-list
 oldUrls: /blog/2014/02/links-about-naming-things/
 

@@ -1,5 +1,5 @@
 dateCreated: 2014-01-18 10:00 CET
-tags: tdd, testing
+tags: tdd, testing, knowledgebase
 oldUrls: /blog/2014/01/smallest-test-runner/
 
 # Smallest test runner

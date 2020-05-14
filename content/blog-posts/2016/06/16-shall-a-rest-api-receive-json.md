@@ -1,5 +1,5 @@
 dateCreated: 2016-06-16 10:00 CET  
-tags: API, software design, JSON, REST, HTTP  
+tags: API, software design, JSON, REST, HTTP, knowledgebase    
 
 # Shall a (rest) API receive JSON or "standard" POST params?
 

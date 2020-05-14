@@ -1,5 +1,5 @@
 dateCreated: 2014-01-15 10:00 CET
-tags: markdown
+tags: markdown, knowledgebase
 postTypes: mini-post
 oldUrls: /blog/2014/01/markdown-syntax-the-spec/
 

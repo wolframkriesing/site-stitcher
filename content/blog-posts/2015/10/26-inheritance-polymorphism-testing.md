@@ -1,5 +1,5 @@
 dateCreated: 2015-10-26 10:00 CET  
-tags: software design, testing  
+tags: software design, testing, knowledgebase    
 
 # Inheritance, Polymorphism & Testing
 

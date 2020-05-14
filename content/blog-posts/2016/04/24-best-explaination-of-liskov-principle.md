@@ -1,5 +1,5 @@
 dateCreated: 2016-04-24 10:00 CET  
-tags: oop, SOLID  
+tags: oop, SOLID, knowledgebase    
 
 # The best explaination of the Liskov Principle - by Allen Holub
 

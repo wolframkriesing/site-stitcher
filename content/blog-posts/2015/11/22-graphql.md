@@ -19,4 +19,3 @@ There is even [a spec][graphql-spec].
 
 [graphql-post]: https://medium.com/@scbarrus/graphql-is-the-king-long-live-the-king-r-i-p-rest-cf04ce38f6c#.9y4n9f18c
 [graphql-spec]: http://facebook.github.io/graphql/
-

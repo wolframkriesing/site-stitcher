@@ -1,5 +1,5 @@
 dateCreated: 2014-01-23 10:00 CET  
-tags: solid, clean code, dependencies  
+tags: solid, clean code, dependencies, knowledgebase  
 postTypes: mini-post  
 oldUrls: /blog/2014/01/beyond-solid-the-dependency-elimination-principle/  
 

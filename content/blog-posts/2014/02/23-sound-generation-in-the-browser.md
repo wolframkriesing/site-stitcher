@@ -1,5 +1,5 @@
 dateCreated: 2014-02-23 10:00 CET  
-tags: sound , javascript, browser  
+tags: sound, javascript, browser, knowledgebase  
 postTypes: summary  
 oldUrls: /blog/2014/02/sound-generation-in-the-browser/  
 

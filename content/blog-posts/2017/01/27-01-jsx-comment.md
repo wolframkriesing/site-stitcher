@@ -1,5 +1,5 @@
 dateCreated: 2017-01-27 00:11 CET  
-tags: react, jsx, comment  
+tags: react, jsx, comment, knowledgebase    
 postTypes: mini-post  
 oldUrls: /blog/2017/01/jsx-comment/  
 

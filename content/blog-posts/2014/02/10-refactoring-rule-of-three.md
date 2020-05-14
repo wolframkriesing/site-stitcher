@@ -1,5 +1,5 @@
 dateCreated: 2014-02-10 10:00 CET  
-tags: refactoring  
+tags: refactoring, knowledgebase  
 postTypes: mini-post  
 oldUrls: /blog/2014/02/refactoring-rule-of-three/  
 

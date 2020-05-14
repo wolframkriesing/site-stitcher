@@ -1,5 +1,5 @@
 dateCreated: 2015-11-16 14:02 CET
-tags: rails, testing  
+tags: rails, testing, knowledgebase    
 
 # Decoupling from Rails
 

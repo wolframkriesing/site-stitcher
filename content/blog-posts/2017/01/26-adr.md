@@ -1,5 +1,5 @@
 dateCreated: 2017-01-26 23:11 CET
-tags: organizing, mikado method, adr, documentation
+tags: organizing, mikado method, adr, documentation, knowledgebase  
 postTypes: mini-post
 oldUrls: /blog/2017/01/adr/
 

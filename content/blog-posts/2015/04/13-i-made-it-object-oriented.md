@@ -1,5 +1,5 @@
 dateCreated: 2015-04-13 12:54 CET
-tags: oop, object-oriented, functional, get-prefix, imperative, must watch, video
+tags: oop, object-oriented, functional, get-prefix, imperative, must watch, video, knowledgebase  
 videoStartTime: 2331
 youtubeId: lNKXTlCOGEc
 postTypes: summary

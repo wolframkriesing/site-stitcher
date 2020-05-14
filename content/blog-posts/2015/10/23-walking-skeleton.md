@@ -1,5 +1,5 @@
 dateCreated: 2015-10-23 10:00 CET  
-tags: software design  
+tags: software design, knowledgebase    
 
 # gr8craft - Walking Skeleton
 

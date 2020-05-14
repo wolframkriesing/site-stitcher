@@ -1,6 +1,6 @@
 dateCreated: 2015-05-04 11:36 CET
 postTypes: mini-post
-tags: npm, package.json, javascript
+tags: npm, package.json, javascript, knowledgebase  
 oldUrls: /blog/2015/05/browser-field-in-npms-packagejson/
 
 # `browser` field in npm's package.json

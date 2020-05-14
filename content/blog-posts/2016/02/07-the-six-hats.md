@@ -1,5 +1,5 @@
 dateCreated: 2016-02-07 19:43 CET  
-tags: thinking, egoless  
+tags: thinking, egoless, knowledgebase    
 
 # The six hats
 
