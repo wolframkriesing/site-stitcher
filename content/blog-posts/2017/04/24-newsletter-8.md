@@ -1,4 +1,5 @@
 dateCreated: 2017-04-24 19:15 CET
+isDraft: true  
 
 # Newsletter #8
 

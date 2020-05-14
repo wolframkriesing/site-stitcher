@@ -1,6 +1,7 @@
 tags: purescript
+isDraft: true  
 
-# Purescript #5 - Compiling for the browser [Unfinished]
+# Purescript #5 - Compiling for the browser
 
 And to build the source code for the browser run
 
