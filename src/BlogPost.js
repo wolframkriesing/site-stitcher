@@ -40,6 +40,7 @@ export class BlogPost {
     const post = new BlogPost();
     post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
     Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
+    post.isDraft = true;
     return post;
   }
   /**

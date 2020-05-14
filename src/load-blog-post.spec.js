@@ -101,6 +101,10 @@ describe('Load a blog post, with all data ready to render', () => {
         const post = await loadPost({fileContent: 'videoStartTime: 42\n\n# headline'});
         assertThat(post, hasProperties({videoStartTime: '42', hasVideo: false}));
       });
+      it('WHEN it has `isDraft: true` THEN provide isDraft=true', async () => {
+        const post = await loadPost({fileContent: 'isDraft: true  \n\n# headline'});
+        assertThat(post, hasProperties({isDraft: true}));
+      });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
       const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';
