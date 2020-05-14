@@ -109,6 +109,10 @@ describe('Load a blog post, with all data ready to render', () => {
         const post = await loadPost({fileContent: 'isDraft: something else but true  \n\n# headline'});
         assertThat(post, hasProperties({isDraft: false}));
       });
+      it('WHEN it has `isDraft: false` THEN provide isDraft=false', async () => {
+        const post = await loadPost({fileContent: 'isDraft: false  \n\n# headline'});
+        assertThat(post, hasProperties({isDraft: false}));
+      });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
       const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';
