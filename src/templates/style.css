@@ -1,6 +1,11 @@
 @import "./reset.css";
 @import "./layout.css";
 
+:root {
+  --spacing-big: 1rem;
+  --spacing-small: 0.3rem;
+}
+
 body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -8,7 +13,7 @@ body {
 
 blockquote {
   box-shadow: 0 0 10px lightgrey;
-  padding: 1rem;
+  padding: var(--spacing-big);
 }
 
 a {
@@ -61,13 +66,13 @@ nav.secondary {
   position: fixed;
   right: 0;
   bottom: 0;
-  margin: 1rem;
-  padding: 1rem;
+  margin: var(--spacing-big);
+  padding: var(--spacing-big);
   background-color: rgba(252, 232, 191, 0.9);
 }
   nav.secondary ul {
-    height: 1rem;
-    width: 1rem;
+    height: var(--spacing-big);
+    width: var(--spacing-big);
     transition: width 0.5s, height 0.5s, opacity 1s; /* transition when the mouse leave */
     opacity: 0;
     overflow: hidden;
@@ -130,8 +135,6 @@ img.sizeup-onhover-image {
 
 blockquote.twitter-tweet {
   font-weight: bold;
-  padding: 1rem;
-  margin-bottom: 1rem;
   display: inline-block;
   box-shadow: 0 0 10px lightgrey;
 }
