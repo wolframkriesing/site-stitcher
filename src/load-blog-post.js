@@ -22,6 +22,7 @@ const findHeadlineAndAbstract = (tokens) => {
 
 const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
+  {key: 'isDraft', type: 'boolean'},
   {key: 'oldUrls', type: 'array', separator: ' '},
   {key: 'tags', type: 'array', separator: ','},
   {key: 'videoStartTime', type: 'string'},
