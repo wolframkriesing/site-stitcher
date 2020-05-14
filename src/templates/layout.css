@@ -25,16 +25,16 @@ article.latest {
 }
 
 blockquote {
-  padding-left: 1rem;
-  margin-bottom: 1rem;
+  padding-left: var(--spacing-big);
+  margin-bottom: var(--spacing-big);
 }
 blockquote :last-child {
   margin-bottom: 0;
 }
 
 figure {
-  margin-bottom: 1rem;
-  padding: 1rem;
+  margin-bottom: var(--spacing-big);
+  padding: var(--spacing-big);
   box-shadow: 0 0 10px lightgrey;
   display: inline-block;
 }
@@ -61,7 +61,7 @@ h1 {
   font-size: 2.5rem;
 }
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 0.3rem;
+  margin-bottom: var(--spacing-small);
 }
 
 
@@ -92,7 +92,7 @@ main {
 }
 
 .metadata {
-  margin-bottom: 0.3rem;
+  margin-bottom: var(--spacing-small);
 }
 
 nav.primary {
@@ -120,19 +120,19 @@ nav.tags ol, nav.months ol {
   margin-left: 0;
 }
 nav.tags header, nav.months header {
-  margin-bottom: 0.3rem;
+  margin-bottom: var(--spacing-small);
 }
 
 pre {
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: var(--spacing-big);
+  margin-bottom: var(--spacing-big);
   overflow: auto; /* make the code scrollable if the width is too narrow */
 }
 
 p,
 :not(li) > ul,
 :not(li) > ol { /* The `:not(li) > ` prefix prevents nested lists to have a margin on the sub-levels */
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-big);
 }
 
 ul, ol {

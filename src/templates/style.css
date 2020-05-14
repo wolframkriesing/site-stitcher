@@ -4,6 +4,8 @@
 :root {
   --spacing-big: 1rem;
   --spacing-small: 0.3rem;
+  --font-color-highlight: #A4131D;
+  --font-color-secondary: #666;
 }
 
 body {
@@ -17,10 +19,10 @@ blockquote {
 }
 
 a {
-  color: #A4131D;
+  color: var(--font-color-highlight);
 }
   a:hover {
-    color: black;
+    color: inherit;
   }
 
 body > header .sitename a {
@@ -46,7 +48,7 @@ td {
 }
 
 .metadata {
-  color: #666;
+  color: var(--font-color-secondary);
 }
 
 footer {
@@ -56,7 +58,7 @@ footer {
 kbd {
   border-radius: 3px;
   border: 1px solid #b4b4b4;
-  padding: 0.1rem 0.3rem;
+  padding: 0.1rem var(--spacing-small);
   white-space: nowrap;
 }
 
