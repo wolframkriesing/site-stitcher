@@ -55,6 +55,12 @@ kbd {
   white-space: nowrap;
 }
 
+.isDraft h2,
+.isDraft h2 a
+{
+  color: #666;
+}
+
 /*    styling the secondary nav    */
 
 nav.secondary {
