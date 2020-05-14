@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2020/05/12-typescript-for-javascript/">
+  <title>TypeScript For JavaScript, Part 1 - Getting Started | picostitch - crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-post">
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo;
+  Blog &raquo;
+  <a href="/blog/2020/05/">May 2020</a> &raquo;
+  TypeScript For JavaScript, Part 1 - Getting Started
+
+  </nav>
+
+  <main>
+    <aside>
+      <nav class="tags">
+        <header>Top Blog Tags</header>
+        <ol>
+          
+          <li><a href="/blog/tag/knowledgebase/">#knowledgebase</a></li>
+          
+          <li><a href="/blog/tag/javascript/">#javascript</a></li>
+          
+          <li><a href="/blog/tag/video/">#video</a></li>
+          
+          <li><a href="/blog/tag/testing/">#testing</a></li>
+          
+          <li><a href="/blog/tag/oop/">#oop</a></li>
+          
+          <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
+          
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
+          <li><a href="/blog/tag/functional/">#functional</a></li>
+          
+          <li><a href="/blog/tag/links/">#links</a></li>
+          
+          <li><a href="/blog/tag/learning/">#learning</a></li>
+          
+        </ol>
+      </nav>
+
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          
+          <li><a href="/blog/2020/05/">May 2020</a></li>
+          
+          <li><a href="/blog/2020/04/">April 2020</a></li>
+          
+          <li><a href="/blog/2020/03/">March 2020</a></li>
+          
+          <li><a href="/blog/2018/07/">July 2018</a></li>
+          
+          <li><a href="/blog/2018/05/">May 2018</a></li>
+          
+          <li><a href="/blog/2017/11/">November 2017</a></li>
+          
+          <li><a href="/blog/2017/04/">April 2017</a></li>
+          
+          <li><a href="/blog/2017/03/">March 2017</a></li>
+          
+          <li><a href="/blog/2017/02/">February 2017</a></li>
+          
+          <li><a href="/blog/2017/01/">January 2017</a></li>
+          
+          <li><a href="/blog/2016/06/">June 2016</a></li>
+          
+          <li><a href="/blog/2016/04/">April 2016</a></li>
+          
+          <li><a href="/blog/2016/02/">February 2016</a></li>
+          
+          <li><a href="/blog/2015/12/">December 2015</a></li>
+          
+          <li><a href="/blog/2015/11/">November 2015</a></li>
+          
+          <li><a href="/blog/2015/10/">October 2015</a></li>
+          
+          <li><a href="/blog/2015/05/">May 2015</a></li>
+          
+          <li><a href="/blog/2015/04/">April 2015</a></li>
+          
+          <li><a href="/blog/2015/03/">March 2015</a></li>
+          
+          <li><a href="/blog/2014/03/">March 2014</a></li>
+          
+          <li><a href="/blog/2014/02/">February 2014</a></li>
+          
+          <li><a href="/blog/2014/01/">January 2014</a></li>
+          
+        </ol>
+      </nav>
+    </aside>
+    <div class="content">
+      
+  <article class="isDraft">
+    <header>
+      <h1>
+        TypeScript For JavaScript, Part 1 - Getting Started
+         [this is a draft]
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - May 12, 2020
+        
+          - tagged with: #javascript #typescript #typing #setup
+        
+      </div>
+    </header>
+
+    <p>Did you know that you don&#39;t need to rename all your &quot;.js&quot; files to &quot;.ts&quot; and go all in on TypeScript,
+but that you can go gradually. Adapt TypeScript step by step, become familiar with it in your existing
+JavaScript project. No need to put on hold development for weeks, while you convert the code base to TypeScript.<br>I have done that many times now, read on how I am doing it for the <a href="https://jskatas.org">jskatas.org</a>
+sourcecode.</p>
+<h2 id="official-docs">Official Docs</h2>
+<p>The TypeScript docs have one page on the topic 
+<a href="https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html">Type Checking JavaScript Files</a>
+but over time, I found out that there is much more to this topic. Thanks to <a href="https://twitter.com/JanMiksovsky">Jan</a> and his project <a href="https://twitter.com/ElixElements/">elix</a> where
+I learned most of the basics on how to apply TypeScript as a type linter on JS files.  </p>
+<h2 id="what-is-typescript-for-javascript-and-why">What is &quot;TypeScript for JavaScript&quot;, and Why?</h2>
+<p>I did a lot of FlowType to type my JavaScript code, but TypeScript seems to be the more active and growing one.
+So I started to investigate how I can use TypeScript, especially on existing JavaScript projects.
+Why? The main reason for me was always development speed. One way to achieve this is that I try to prevent
+all build steps and want to run my code straight without building and bundling, no matter if I run a browser
+or nodejs project. So depending on the TypeScript compiler to compile my files was not an option for me.</p>
+<p>In the following you can see how I set up <strong>TypeScript, basically as a type linter for a pure JavaScript project</strong>.
+This allows me to type lint my code optionally, so if (for whatever reason) I don&#39;t want type safety, I don&#39;t have
+to worry about it.</p>
+<h2 id="how-to-start-with-typescript-for-a-javascript-project">How to start with TypeScript for a JavaScript Project</h2>
+<p>Why should I do it at all, when it is optional? I can just not type lint my files. Yes you can, but here
+are a couple of reasons why you might want to consider it:</p>
+<ul>
+<li>when types get complex, you might want a tool to point out mistakes</li>
+<li>when the domain language forms, you want to name things coherently</li>
+<li>when the team grows, types are more expressive</li>
+<li>exhaustivness checks create safety and prevent bugs</li>
+<li>typing makes you think about your architecture (even if you do them afterwards)</li>
+</ul>
+<h2 id="install-typescript-dependency">Install TypeScript Dependency</h2>
+<figure style="display: inline-block">
+    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="50%"/>
+    <figcaption>The diff in the package.json of installed typescript</figcaption>
+</figure>
+
+
+
+
+    
+    
+  </article>
+
+    </div>
+    <aside class="right">
+      
+  
+
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing">Twitter</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+
+</body>
+</html>
