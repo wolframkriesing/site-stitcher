@@ -28,6 +28,9 @@ blockquote {
   padding-left: 1rem;
   margin-bottom: 1rem;
 }
+blockquote :last-child {
+  margin-bottom: 0;
+}
 
 figure {
   margin-bottom: 1rem;
@@ -85,7 +88,7 @@ main {
 }
 
 .metadata {
-  margin: 0.2rem 0;
+  margin: 0.3rem 0;
 }
 
 nav.primary {
@@ -122,7 +125,7 @@ pre {
   overflow: auto; /* make the code scrollable if the width is too narrow */
 }
 
-:not(blockquote) > p,
+p,
 :not(li) > ul,
 :not(li) > ol { /* The `:not(li) > ` prefix prevents nested lists to have a margin on the sub-levels */
   margin-bottom: 1rem;
