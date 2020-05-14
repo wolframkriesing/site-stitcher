@@ -1,3 +1,25 @@
+# Deno 1.0, TypeScript 3.9
+
+dateCreated: 2020-05-14 10:19 CET  
+tags: tools, web, javascript, typescript  
+
+TypeScript 3.9 was released. Since I am basically a fan of making code safer and better to understand,
+that's what I use types for, I see nothing interesting to me in this release. But I also use TypeScript
+in a much simpler way than the cracks and fans. 
+https://devblogs.microsoft.com/typescript/announcing-typescript-3-9/
+
+The PR for 1.0.0 got merged https://github.com/denoland/deno/pull/5273
+
+> Deno is a simple, modern and secure runtime for JavaScript and TypeScript that uses V8 and is built in Rust.
+> 
+> - Secure by default. No file, network, or environment access, unless explicitly enabled.
+> - Supports TypeScript out of the box.
+> - Ships only a single executable file.
+> - Has built-in utilities like a dependency inspector (deno info) and a code formatter (deno fmt).
+> - Has a set of reviewed (audited) standard modules that are guaranteed to work with Deno: deno.land/std
+
+from [deno.land](https://deno.land/)
+
 # Clone Behavior of <script> Tag
 
 dateCreated: 2020-05-12 00:53 CET
