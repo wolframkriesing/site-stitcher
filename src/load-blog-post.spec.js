@@ -14,7 +14,7 @@ describe('Load a blog post, with all data ready to render', () => {
       const readFile = async () => fileContent;
       return await loadBlogPost({readFile})(sourceFile);
     };
-    it('WHEN post has headline and first paragraph THEN provide: url, urlForMonth, dateCreated, markdownFilename, headline and abstract', async () => {
+    it('WHEN post ONLY has a headline and a first paragraph THEN provide: url, urlForMonth, dateCreated, markdownFilename, headline and abstract', async () => {
       const post = await loadPost({
         markdownFilename: '2001/01/01-post.md',
         fileContent: '# This is the first post\nthe first paragraph of the blog post ...'
@@ -68,16 +68,16 @@ describe('Load a blog post, with all data ready to render', () => {
         const post = await loadPost({fileContent: 'meta: data\n\n# headline\nabstract, yeah'});
         assertThat(post, hasProperties({headline: 'headline', abstractAsHtml: 'abstract, yeah'}));
       });
-      it('WHEN it has the metadata `dateCreated` THEN set the property accordingly', async () => {
+      it('WHEN it has the metadata `dateCreated` THEN provide the property accordingly', async () => {
         const dateCreated = '2001-01-01 01:01 CET';
         const post = await loadPost({fileContent: `dateCreated: ${dateCreated}\n\n# headline\nabstract, yeah`});
         assertThat(post, hasProperties({dateCreated}));
       });
-      it('WHEN it has the metadata `tags` THEN set the property accordingly', async () => {
+      it('WHEN it has the metadata `tags` THEN provide the property accordingly', async () => {
         const post = await loadPost({fileContent: `tags: tag1, tag2\n\n# headline\nabstract, yeah`});
         assertThat(post, hasProperties({tags: ['tag1', 'tag2']}));
       });
-      it('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post stays', async () => {
+      it('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post is provided', async () => {
         const post = await loadPost({fileContent: `noDateCreated: :)\n\n# no dateCreated metadata`, markdownFilename: '2001/01/01-mmm.md'});
         assertThat(post, hasProperties({dateCreated: '2001-01-01'}));
       });
@@ -100,6 +100,22 @@ describe('Load a blog post, with all data ready to render', () => {
       it('WHEN it has `videoStartTime` THEN provide it', async () => {
         const post = await loadPost({fileContent: 'videoStartTime: 42\n\n# headline'});
         assertThat(post, hasProperties({videoStartTime: '42', hasVideo: false}));
+      });
+      it('WHEN it has `isDraft: true` THEN provide isDraft=true', async () => {
+        const post = await loadPost({fileContent: 'isDraft: true  \n\n# headline'});
+        assertThat(post, hasProperties({isDraft: true}));
+      });
+      it('WHEN it has `isDraft: something else but true` THEN provide isDraft=false', async () => {
+        const post = await loadPost({fileContent: 'isDraft: something else but true  \n\n# headline'});
+        assertThat(post, hasProperties({isDraft: false}));
+      });
+      it('WHEN it has `isDraft: false` THEN provide isDraft=false', async () => {
+        const post = await loadPost({fileContent: 'isDraft: false  \n\n# headline'});
+        assertThat(post, hasProperties({isDraft: false}));
+      });
+      it('WHEN it does NOT have `isDraft` THEN provide isDraft=false', async () => {
+        const post = await loadPost({fileContent: '# headline'});
+        assertThat(post, hasProperties({isDraft: false}));
       });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {

@@ -12,6 +12,12 @@ const findMetadataByKeyAsString = (lines, key) => {
 /**
  * @param {string[]} lines
  * @param {string} key
+ * @returns {boolean}
+ */
+const findMetadataByKeyAsBoolean = (lines, key) => findMetadataByKeyAsString(lines, key) === 'true';
+/**
+ * @param {string[]} lines
+ * @param {string} key
  * @param {string} separator
  * @returns {string[]}
  */
@@ -23,11 +29,13 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
 /**
  * @param lines {string[]}
  * @param keyConfig {import("./parse-metadata").MetadataParseConfig}
- * @returns {[*, string]|[*, string[]]}
+ * @returns {[*, string] | [*, string[]] | [*, boolean]}
  */
 const parseMetadataKey = (lines, keyConfig) => {
   const key = keyConfig.key;
   switch (keyConfig.type) {
+    case 'boolean':
+      return [key, findMetadataByKeyAsBoolean(lines, key)];
     case 'string':
       return [key, findMetadataByKeyAsString(lines, key)];
     case 'array':

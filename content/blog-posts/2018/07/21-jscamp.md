@@ -1,6 +1,7 @@
-dateCreated: 2018-07-21 19:00:00 CET
-postTypes: post
-tags: events, unconference, open space
+dateCreated: 2018-07-21 19:00:00 CET  
+postTypes: post  
+tags: events, unconference, open space  
+isDraft: true  
 
 # JSCamp Barcelona - Recap
 

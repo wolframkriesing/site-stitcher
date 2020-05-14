@@ -12,11 +12,13 @@
   <h1>{{toReadableDate(yearAndMonth)}}</h1>
 
   {% posts.map(post => { %}
-    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+    <article class="preview {{post.isDraft ? 'isDraft' : ''}}" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
         <h2><a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
-        {{ post.hasVideo ? ' 📺' : '' }}</h2>
+          {{post.hasVideo ? ' 📺' : ''}}
+          {{post.isDraft ? ' [this is a draft]' : ''}}
+        </h2>
         <div class="metadata">
           {{toReadableDate(post.dateCreated)}}
           {% if (post.tags.length > 0) { %}

@@ -135,7 +135,7 @@ import {findRelatedPosts} from './related-posts.js';
   await timeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
   await timeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
-  await timeIt('Home page', () => generateHomePage(posts));
+  await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false)));
   await timeIt('About page', () => generateAboutPage());
   await timeIt('Tidbit pages', () => generateTidbitsPage());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));

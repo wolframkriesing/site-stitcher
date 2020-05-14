@@ -1,6 +1,7 @@
 tags: purescript
+isDraft: true  
 
-# Purescript #4 - [Unfinished]
+# Purescript #4
 
 Unfinished - Purescript #4
 
