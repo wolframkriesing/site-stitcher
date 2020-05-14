@@ -4,7 +4,7 @@
 - [x] rename links to "Continue Reading ->"
 - [x] add "Continue Reading ->" to every abstract on home
 - [ ] show draft posts somewhere
-  - [ ] add `isDraft` attribute to BlogPost
+  - [x] add `isDraft` attribute to BlogPost
   - [ ] render only the non-draft posts as "normal" posts
   - [ ] show the draft posts (somewhere) on the page
   - [ ] mark the draft posts, so one can clearly see they are draft!
