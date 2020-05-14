@@ -20,13 +20,13 @@
         <span class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</span>
         {{tidbit.headline}}
       </h1>
-      <p class="metadata">
+      <div class="metadata">
         Wolfram Kriesing
         - {{toReadableDate(tidbit.dateCreated)}}
         {% if (tidbit.tags.length > 0) { %}
           - tagged with: {{ tidbit.tags.map(tag => `#${tag.value}`).join(' ') }}
         {% } %}
-      </p>
+      </div>
     </header>
 
     {!tidbit.bodyAsHtml!}
