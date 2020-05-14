@@ -1,3 +1,17 @@
+# TypeScript for JavaScript
+
+dateCreated: 2020-05-14 22:19 CET  
+tags: JavaScript, TypeScript, ts4js 
+
+Looking around for resource for JavaScript developers that get into TypeScript I found this
+[TypeScript for JavaScript Programmers](https://www.typescriptlang.org/v2/docs/handbook/typescript-in-5-minutes.html)
+in the TypeScript handbook.
+
+The quote that sums up TypeScript quite well:
+
+> TypeScript sits as a layer on-top of JavaScript, offering the features of JavaScript and then adds its 
+> own layer on top of that. This layer is the TypeScript type system.
+
 # Deno 1.0, TypeScript 3.9
 
 dateCreated: 2020-05-14 10:19 CET  
@@ -145,7 +159,7 @@ and https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag.
 # snowpack.dev - Bundler Free Development
 
 dateCreated: 2020-05-09 13:35 CET  
-tags: javascript  
+tags: JavaScript  
 
 Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally.
 
@@ -194,7 +208,7 @@ Read it all on https://brutalist-web.design/
 # Make `arr[0]` Fail Safe
 
 dateCreated: 2020-05-03 18:07 CET
-tags: javascript, knowledgebase  
+tags: JavaScript, knowledgebase  
 
 I was just filtering a list `list.filter(someCondition)`
 and I only wanted the first element **in case there is one**.
