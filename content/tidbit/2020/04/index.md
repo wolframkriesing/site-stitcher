@@ -14,7 +14,7 @@ Learned it from [JB](https://twitter.com/jbrains).
 # HTML Design Principles
 
 dateCreated: 2020-04-29 17:45 CET  
-tags: html
+tags: html, knowledgebase  
 
 There is nothing new about websites being backwards compatible. The HMTL Design Principles from the W3C are from
 November 2007 and they are not outdated!
@@ -51,7 +51,7 @@ another one
 # The End User Always has Ultimate Control
 
 dateCreated: 2020-04-29 17:11 CET  
-tags: a11y
+tags: a11y, knowledgebase  
 
 While hunting for accessibility resources, especially the reasons why designs need to be flexible
 I came across this article [Accessible CSS](https://webaim.org/techniques/css/) on [WebAIM.org](https://WebAIM.org).
@@ -67,7 +67,7 @@ And their warning sign just needs to be shown around the web even more.
 # Install Chromium (or a Package that needs it) inside Docker
 
 dateCreated: 2020-04-27 12:52 CET  
-tags: docker
+tags: docker, knowledgebase  
 
 I found a couple hints, but this one might be the best one.
 https://github.com/puppeteer/puppeteer/blob/master/docs/troubleshooting.md#running-puppeteer-in-docker
@@ -125,7 +125,7 @@ You will also find out how important the `\;` at the end is!
 # Very Fast Docker Image Build - Without Context
 
 dateCreated: 2020-04-27 00:08 CET  
-tags: docker
+tags: docker, knowledgebase  
 
 I use docker images to provide the environment for development. My nodejs
 is installed only inside the docker image. That means I always map my working directory
@@ -147,7 +147,7 @@ or you map in volumes, or you know ...
 # `$` and `$$` - Shortcut for `document.querySelector[All]()`
 
 dateCreated: 2020-04-26 14:55 CET  
-tags: tools  
+tags: tools, knowledgebase    
 
 I still often type `document.querySelector()` or `document.querySelectorAll()`
 even though even before this was available in the browser the developer consoles, FireBugs or whatever
@@ -164,7 +164,7 @@ See the image below for how it works in Firefox.
 # Than vs. Then
 
 dateCreated: 2020-04-26 14:55 CET  
-tags: english  
+tags: english, knowledgebase    
 
 I always struggled with it. Actually I looked it up a couple days ago and until today I was under
 the assumption "than" was for time and ordering, I had been confused and wrong.
@@ -177,7 +177,7 @@ The long version, very well explained is at https://ell.stackexchange.com/a/8075
 # Web Accessibility in Mind
 
 dateCreated: 2020-04-26 14:55 CET  
-tags: a11y  
+tags: a11y, knowledgebase    
 
 https://webaim.org/
 with lots of interesting [resources](https://webaim.org/resources/)
@@ -213,7 +213,7 @@ tags: html
 # &lt;details&gt; HTML element
 
 dateCreated: 2020-04-25 22:34 CET  
-tags: html  
+tags: html, knowledgebase    
 
 Click below to see the code which creates this kinda dropdown, it is the `<details>` element.
 <details>
@@ -232,7 +232,7 @@ toggled into an "open" state" [MDN says](https://developer.mozilla.org/en-US/doc
 # Semantic HTML: Usage of Headings, Sections
 
 dateCreated: 2020-04-25 22:02 CET  
-tags: html  
+tags: html, knowledgebase    
 
 Wondering how to layout and use `<section>`, `<h1>`, `<h2>`, etc. I came across
 the first place one should read on MDN
@@ -245,7 +245,7 @@ If you have 27 minutes to learn how to use all those semantic tags watch Brian H
 # OKRs are Works in Progress
 
 dateCreated: 2020-04-24 12:01 CET
-tags: okr
+tags: okr, knowledgebase  
 
 I read it multiple times already in [Measure What Matters](https://www.goodreads.com/book/show/39286958-measure-what-matters)
 by John Doerr, that OKRs are flexible. I normally underline those things, but now I have to note it somewhere where I can find it again without physically needing the book. On page 54 he writes
@@ -270,7 +270,7 @@ On page 75 David from Nuna confirms that:
 # Capitalization Rules for Headlines
 
 dateCreated: 2020-04-22 16:35 CET
-tags: english  
+tags: english, knowledgebase    
 
 I didn't know that for English ["sources disagree on the details of capitalizing prepositions"](https://en.wikipedia.org/wiki/Capitalization#Titles). I read so often "capitalize all words of four letters or more". What an arbitrary rule is that? Ok, I will try to follow this and capitalizing all "major words", they call them.\
 There are a couple (SEO) sites that capitalize your headline  correctly, you'll find them when you need 'em.
@@ -278,7 +278,7 @@ There are a couple (SEO) sites that capitalize your headline  correctly, you'll 
 # Free Disk Space Used by Docker
 
 dateCreated: 2020-04-22 16:35 CET
-tags: docker  
+tags: docker, knowledgebase    
 
 TL;DR use any/all of `docker system prune`, `docker container prune`, `docker image prune`,  `docker volume prune` or `docker network prune` to free the according space.
 
@@ -321,7 +321,7 @@ Run `docker image prune --all` to gain a lot of disk space with the trade off of
 # Upgrade npm Package to Latest Version
 
 dateCreated: 2020-04-22 16:35 CET
-tags: javascript, npm  
+tags: javascript, npm, knowledgebase    
 
 Run `npm install <package>@latest` to update to the latest version of a package, 
 no matter the minor, major version, it always goes to the latest.
@@ -329,7 +329,7 @@ no matter the minor, major version, it always goes to the latest.
 # Diff of the Files in Two Directories
 
 dateCreated: 2020-04-22 16:35 CET
-tags: linux  
+tags: linux, knowledgebase    
 
 `diff --recursive <dir1> <dir2>` to diff the files and their contents in two directories
 I just needed to do some golden master tests after updating a dependency
@@ -337,7 +337,7 @@ I just needed to do some golden master tests after updating a dependency
 # MacOS Screenshot of the Current Window Only
 
 dateCreated: 2020-04-22 16:35 CET
-tags: macos  
+tags: macos, knowledgebase    
 
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">
     MacOS: Woa, I didn&#39;t know you can take screenshots of windows with transparent backround 

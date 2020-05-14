@@ -23,7 +23,7 @@ from [deno.land](https://deno.land/)
 # Clone Behavior of <script> Tag
 
 dateCreated: 2020-05-12 00:53 CET
-tags: web, javascript, DOM
+tags: web, javascript, DOM, knowledgebase  
 
 I wanted to `scriptNode.cloneNode(true)` and expected it to re-evaluate the JS
 of the node, but it didn't.
@@ -38,7 +38,7 @@ Read it all on https://stackoverflow.com/questions/28771542/why-dont-clonenode-s
 # CSS Reset
 
 dateCreated: 2020-05-11 22:36 CET
-tags: web, CSS
+tags: web, CSS, knowledgebase  
 
 First search result for "CSS reset" is by the mighty Eric Meyer
 https://meyerweb.com/eric/tools/css/reset/ from quite some time ago.
@@ -70,7 +70,7 @@ I think you can get a picture of the trustworthiness of this site.
 # Learned From "Don't Make Me Think"
 
 dateCreated: 2020-05-11 19:09 CET  
-tags: web, design, UX
+tags: web, design, UX, knowledgebase  
 
 The things I took away for me until now, while I am still reading [the book](https://www.goodreads.com/book/show/18197267-don-t-make-me-think-revisited):
 * Use more headlines "even if the paragraph is just one sentence".
@@ -167,7 +167,7 @@ filesystem. This even allows you to leverage more of your devtools and there is 
 # The History of the Web
 
 dateCreated: 2020-05-09 13:26 CET  
-tags: web  
+tags: web, knowledgebase    
 
 In October 17, 1990 IMDb started as a unix script.\
 December 25, 1990 Tim Berners-Lee releases WorldWideWeb (later Nexus) on Christmas day, the first ever browser for the web.\
@@ -194,7 +194,7 @@ Read it all on https://brutalist-web.design/
 # Make `arr[0]` Fail Safe
 
 dateCreated: 2020-05-03 18:07 CET
-tags: javascript
+tags: javascript, knowledgebase  
 
 I was just filtering a list `list.filter(someCondition)`
 and I only wanted the first element **in case there is one**.
@@ -211,7 +211,7 @@ Which gets me into why exception throwing sux, but that's a whole topic of its o
 
 # WebStorm Live Templates Rock (Again)
 
-tags: tools, webstorm, automation
+tags: tools, webstorm, automation, knowledgebase  
 dateCreated: 2020-05-02 15:27 CET
 
 WebStorm has this awesome feature they call [Live Template](https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html)
