@@ -8,6 +8,7 @@
   - [x] show no drafts on the home page, but everywhere else it's fine, they will be marked
   - [x] ~~show the draft posts (somewhere) on the page~~ not needed, they will just NOT be on home 
   - [x] mark the draft posts, so one can clearly see they are draft!
+- [ ] generate tweets, and add the tags a post/tidbit has
 - [ ] add tddbin, katas and jskatas files on the site (files=ADRs, README, etc.)
 - [ ] link the tags
 - [ ] move tidbits tpls into tidits folder
