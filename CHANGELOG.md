@@ -3,11 +3,11 @@
 - [x] move the text following a headline closer to the headline, as learned in "Dont make me think"
 - [x] rename links to "Continue Reading ->"
 - [x] add "Continue Reading ->" to every abstract on home
-- [ ] show draft posts somewhere
+- [x] show draft posts somewhere
   - [x] add `isDraft` attribute to BlogPost
   - [x] show no drafts on the home page, but everywhere else it's fine, they will be marked
   - [x] ~~show the draft posts (somewhere) on the page~~ not needed, they will just NOT be on home 
-  - [ ] mark the draft posts, so one can clearly see they are draft!
+  - [x] mark the draft posts, so one can clearly see they are draft!
 - [ ] add tddbin, katas and jskatas files on the site (files=ADRs, README, etc.)
 - [ ] link the tags
 - [ ] move tidbits tpls into tidits folder

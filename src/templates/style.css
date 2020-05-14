@@ -55,6 +55,7 @@ kbd {
   white-space: nowrap;
 }
 
+.isDraft h1,
 .isDraft h2,
 .isDraft h2 a
 {

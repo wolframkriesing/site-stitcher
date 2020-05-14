@@ -25,9 +25,12 @@
 {[ endblock ]}
 
 {[ block content ]}
-  <article>
+  <article class="{{post.isDraft ? 'isDraft' : ''}}">
     <header>
-      <h1>{{post.headline}}</h1>
+      <h1>
+        {{post.headline}}
+        {{post.isDraft ? ' [this is a draft]' : ''}}
+      </h1>
       <div class="metadata">
         Wolfram Kriesing
         - {{toReadableDate(post.dateCreated)}}
