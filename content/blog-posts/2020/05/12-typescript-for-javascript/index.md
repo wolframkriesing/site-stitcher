@@ -23,14 +23,13 @@ But TypeScript seems to be the more active project and the one getting more supp
 from the community (the [activity on][5] [the projects][6] seems to be on par though). 
 Therefore TypeScript currently seems like a very interesting option at this point in time.
 
-So I started to investigate how I can use TypeScript, especially on existing JavaScript projects.
-Why? The main reason for me was always development speed and a small dependency footprint. 
+So I started to investigate how I can use TypeScript on existing JavaScript projects.
+Why not pure TypeScript? The main reason for me was always development speed and a small dependency footprint. 
 One way to achieve this is that I try to prevent all build steps and want to run my code straight without 
 building and bundling, no matter if I run a browser or nodejs project. 
 So depending on the TypeScript compiler to compile my files was not an option for me.
-By the way [deno] can run TypeScript natively.  
 
-In the following you can see how I **set up TypeScript, as a type linter for JavaScript files**, 
+In the following you can see how I **set up TypeScript, as a type linter for JavaScript**, 
 to type check JavaScript files.
 
 [jskatas.org]: https://jskatas.org
@@ -47,18 +46,18 @@ to type check JavaScript files.
 [7]: https://github.com/elix/elix/pull/109#issuecomment-575589440
 
 ## Why "TypeScript for JavaScript"?
-This allows me to type lint my code optionally, so if (for whatever reason) I don't want type safety, I don't have
-to worry about it. With pure TypeScript (.ts files) it is not so easy to opt out (afaik) and not useable in the browser
-without preprocessing.
+This allows me to type lint my code optionally. If (for whatever reason) I don't want type safety, I don't have
+to worry about it. With pure TypeScript (.ts files) it is not so easy to opt out (afaik) and .ts files are not useable 
+in the browser without preprocessing.
 
-Why should I do it at all, when you make it optional for JS files?
-Any linter you use  it optional too, you discipline and interest is required.
-Here are a couple of reasons why I think it is  valueable:
-* when types get complex, I want a tool to point out mistakes
-* when the domain language forms, I want to name things coherently
-* when the team grows, types are more expressive
-* [exhaustivness checks][3] create safety and prevent bugs
-* typing makes me think about the architecture (even if I type the code afterwards)
+Why should I do it at all, when it is optional?
+Any linter is optional too. Discipline and interest are required.
+Here are a couple of reasons why I think it is valueable:
+* When types get complex, I want a tool to point out mistakes.
+* When the domain language forms, I want to name things coherently.
+* When the team grows, types are more expressive
+* [exhaustivness checks][3] create safety and prevent bugs.
+* Typing makes me think about the architecture, even if I type the code afterwards.
 
 ## How to start with TypeScript for a JavaScript Project
 
