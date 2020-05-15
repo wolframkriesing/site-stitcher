@@ -181,7 +181,7 @@ https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340
 https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8
 
 <figure style="display: inline-block">
-    <img src="./" alt="" width="500"/>
+    <img src="./tsconfig-checkjs.gif" alt="" width="500"/>
     <figcaption></figcaption>
 </figure>
 
@@ -212,7 +212,7 @@ Found 24 errors.
 https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a
 
 <figure style="display: inline-block">
-    <img src="./" alt="" width="500"/>
+    <img src="./tsconfig-include-all.gif" alt="" width="500"/>
     <figcaption></figcaption>
 </figure>
 
