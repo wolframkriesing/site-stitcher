@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com">
-  <title>WebStorm Live Templates Rock (Again) | picostitch - crafting (and) JavaScript</title>
+  <title>My new friend: WebStorm's &quot;Split vertically&quot; for the Terminal | picostitch - crafting (and) JavaScript</title>
   
 <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
 
@@ -40,7 +40,7 @@
 
   <nav class="breadcrumb">
     
-  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; WebStorm Live Templates Rock (Again)
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; My new friend: WebStorm's &quot;Split vertically&quot; for the Terminal
 
   </nav>
 
@@ -131,79 +131,26 @@
     <header>
       <h1>
         <span class="tag" data-tag="tools">#tools</span>
-        WebStorm Live Templates Rock (Again)
+        My new friend: WebStorm's &quot;Split vertically&quot; for the Terminal
       </h1>
       <div class="metadata">
         Wolfram Kriesing
-        - May 2, 2020
+        - May 15, 2020
         
-          - tagged with: #tools #webstorm #automation #knowledgebase
+          - tagged with: #tools #WebStorm
         
       </div>
     </header>
 
-    <p>WebStorm has this awesome feature they call <a href="https://www.jetbrains.com/help/webstorm/2020.1/settings-live-templates.html">Live Templates</a>
-where you can configure a text in a certain filetype to autocomplete
-to something, even dynamic. See how I built the auto-completion for <code>dateC</code> which becomes 
-<code>dateCreated: 2020-05-02 15:27 CET</code>, which is current date of course, in my custom format.</p>
-<p><code>dateC</code> + <kbd>TAB</kbd><br>becomes<br><code>dateCreated: 2020-05-02 15:27 CET</code></p>
+    <p>It is a bit more then a month ago that WebStorm has shipped the feature
+<a href="https://blog.jetbrains.com/webstorm/2020/04/webstorm-2020-1/#split-terminal-sessions">Displaying terminal sessions side by side</a>
+and I am using it every day now.</p>
 <figure>
-    <img src="../live-tpl-video.gif" alt="See Live Template in Action" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-    <figcaption>See Live Template in Action</figcaption>
+    <img src="../webstorm-split-vertically.gif" alt="The split terminal view in WebStorm" width="600" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>The split terminal view in WebStorm</figcaption>
 </figure>
 
-
-<p>I got tired of writing the metadata, I am using here in my tidbits (<a href="https://github.com/wolframkriesing/site-stitcher/tree/master/content">see the source</a>)
-over and over again, metadata such as the current <code>dateCreated</code>, as seen before.</p>
-<h2 id="how-to-create-this-live-template">How to create this Live Template?</h2>
-<p>If you want to create the live template above do the following.</p>
-<ol>
-<li><p><kbd>Shift</kbd> + <kbd>Cmd</kbd> + <kbd>A</kbd> (for &quot;Find Action&quot;)</p>
-</li>
-<li><p>Type &quot;Live Template&quot;</p>
-</li>
-<li><p>Select the one with &quot;Preferences&quot; behind it</p>
- <figure>
-     <img src="../live-tpl-find-action.gif" alt="Find Action screen in WebStorm" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>Find Action screen in WebStorm</figcaption>
- </figure></li>
-<li><p>Create a new Live Template, <kbd>Cmd</kbd> + <kbd>N</kbd>, choose &quot;Live Template&quot;</p>
-</li>
-<li><p>Fill it in as in the image</p>
- <figure>
-     <img src="../live-tpl-edit.gif" alt="The editor for the live template" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>The editor for the live template</figcaption>
- </figure>
-</li>
-<li><p>Make sure to set &quot;Applicable ...&quot; below the fields.
-Since I am using it in markdown files, which has no own section I chose &quot;Other&quot;, see image</p>
- <figure>
-     <img src="../live-tpl-type.gif" alt="Edit live template type" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>Edit live template type</figcaption>
- </figure>
-</li>
-<li><p>Note the <code>$NOW$</code>. This is a variable which does NOT exist yet, so let&#39;s create it to return 
-the <code>dateCreated</code> in the format you have seen above (<code>2020-05-02 15:27 CET</code>).</p>
-</li>
-<li><p>Click &quot;Edit variables&quot; on the right.</p>
-</li>
-<li><p>Reading a little bit in <a href="https://www.jetbrains.com/help/webstorm/2020.1/edit-template-variables-dialog.html">the JetBrains docs</a>
-I found out very quickly that I need to set the value of the variable <code>NOW</code>
-to <code>concat(date(&quot;Y-MM-dd HH:mm&quot;), &quot; CET&quot;)</code>.</p>
- <figure>
-     <img src="../live-tpl-edit-variable.gif" alt="Edit live template variable" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>Edit live template variable</figcaption>
- </figure>
-</li>
-<li><p>If you tick &quot;Skip if defined&quot; the value will just auto complete and the Live Template is done (otherwise the inserted
-value of <code>NOW</code> would be selected for editing, which we don&#39;t need here)</p>
-</li>
-<li><p>Save and apply ... just close all the dialogs :)</p>
-</li>
-<li><p>Voila, now when I type <code>dateC</code> + <kbd>TAB</kbd> in my markdown file I get the date.
-<code>dateCreated: 2020-05-02 15:54 CET</code></p>
-</li>
-</ol>
+<p>On the left I have my tests running, and on the right the typechecker (TypeScript) is doing it&#39;s job.<br>Thanks JetBrains!</p>
 
   </article>
 

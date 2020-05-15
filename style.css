@@ -119,7 +119,7 @@ nav.secondary {
 /*   styling images    */
 
 img.sizeup-onhover-image {
-  transition: 0.3s linear;
+  transition: 0.2s linear;
   transition-delay: 0.5s;
 }
   img.sizeup-onhover-image:hover {
