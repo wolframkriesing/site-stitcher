@@ -146,31 +146,39 @@
 Adopt TypeScript step by step, become familiar with it in your existing JavaScript project.
 No need to put development on hold for weeks, while you convert the code base to TypeScript and fix all type errors.
 Read on to see how I adopt TypeScript for JavaScript for the project <a href="https://jskatas.org">jskatas.org</a> sourcecode.</p>
-<p>Let&#39;s type check JavaScript files using TypeScript.</p>
+<p>Let&#39;s type check JavaScript files by using TypeScript.</p>
 <h2 id="official-docs-are-scarce-on-this-topic">Official Docs are Scarce on this Topic</h2>
 <p>The TypeScript docs have one page on the topic 
 <a href="https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html">Type Checking JavaScript Files</a>
 but over time, I found out that there is much more to this topic. Thanks to <a href="https://twitter.com/JanMiksovsky">Jan</a> and his project <a href="https://twitter.com/ElixElements/">elix</a> where
-I learned most of the basics on how to apply TypeScript as a type linter on JS files.  </p>
-<h2 id="what-is-typescript-for-javascript-and-why">What is &quot;TypeScript for JavaScript&quot;, and Why?</h2>
-<p>I did a lot of FlowType to type check my JavaScript code, but TypeScript seems to be the more active and growing one.
-So I started to investigate how I can use TypeScript, especially on existing JavaScript projects.
-Why? The main reason for me was always development speed. One way to achieve this is that I try to prevent
-all build steps and want to run my code straight without building and bundling, no matter if I run a browser
-or nodejs project. So depending on the TypeScript compiler to compile my files was not an option for me.</p>
-<p>In the following you can see how I set up <strong>TypeScript, as a type linter for JavaScript files</strong>, 
-to type check JavaScript files.
-This allows me to type lint my code optionally, so if (for whatever reason) I don&#39;t want type safety, I don&#39;t have
-to worry about it. With TypeScript it is not so easy to opt out (afaik).</p>
+<a href="https://github.com/elix/elix/pull/109#issuecomment-575589440">I learned</a> most of the basics on how to apply TypeScript as a type linter on JS files.  </p>
+<h2 id="what-is-typescript-for-javascript">What is &quot;TypeScript for JavaScript&quot;?</h2>
+<p><a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017">I used to do a lot of</a> <a href="https://flow.org/">Flow</a> to type check my JavaScript code. Meanwhile TypeScript is picking up in features,
+though there are major differences in philosophy between Flow and TypeScript.
+But TypeScript seems to be the more active project and the one getting more support,
+from the community (the <a href="https://github.com/facebook/flow/graphs/commit-activity">activity on</a> <a href="https://github.com/microsoft/TypeScript/graphs/commit-activity">the projects</a> seems to be on par though). 
+Therefore TypeScript currently seems like a very interesting option at this point in time.</p>
+<p>So I started to investigate how I can use TypeScript, especially on existing JavaScript projects.
+Why? The main reason for me was always development speed and a small dependency footprint. 
+One way to achieve this is that I try to prevent all build steps and want to run my code straight without 
+building and bundling, no matter if I run a browser or nodejs project. 
+So depending on the TypeScript compiler to compile my files was not an option for me.
+By the way <a href="https://deno.land">deno</a> can run TypeScript natively.  </p>
+<p>In the following you can see how I <strong>set up TypeScript, as a type linter for JavaScript files</strong>, 
+to type check JavaScript files.</p>
 <h2 id="why-typescript-for-javascript">Why &quot;TypeScript for JavaScript&quot;?</h2>
-<p>Why should I do it at all, when it is optional for JS files? 
-Here are a couple of reasons why you might want to consider it:</p>
+<p>This allows me to type lint my code optionally, so if (for whatever reason) I don&#39;t want type safety, I don&#39;t have
+to worry about it. With pure TypeScript (.ts files) it is not so easy to opt out (afaik) and not useable in the browser
+without preprocessing.</p>
+<p>Why should I do it at all, when you make it optional for JS files?
+Any linter you use  it optional too, you discipline and interest is required.
+Here are a couple of reasons why I think it is  valueable:</p>
 <ul>
-<li>when types get complex, you might want a tool to point out mistakes</li>
-<li>when the domain language forms, you want to name things coherently</li>
+<li>when types get complex, I want a tool to point out mistakes</li>
+<li>when the domain language forms, I want to name things coherently</li>
 <li>when the team grows, types are more expressive</li>
-<li>exhaustivness checks create safety and prevent bugs</li>
-<li>typing makes you think about your architecture (even if you do them afterwards)</li>
+<li><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking">exhaustivness checks</a> create safety and prevent bugs</li>
+<li>typing makes me think about the architecture (even if I type the code afterwards)</li>
 </ul>
 <h2 id="how-to-start-with-typescript-for-a-javascript-project">How to start with TypeScript for a JavaScript Project</h2>
 <h2 id="install-typescript-dependency">Install TypeScript Dependency</h2>
