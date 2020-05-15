@@ -1,3 +1,12 @@
+# mov to gif converter
+
+dateCreated: 2020-05-15 15:37 CET
+tags: tools
+
+Since QuickTime on Mac is great for short screen recordings, but the web can handle animated
+gifs better, I need https://cloudconvert.com/mov-to-gif it's a simple and awesome service!\
+**Pricing**: "absolutely free for up to 25 conversions per day", totally cool. Thanks!
+
 # TypeScript for JavaScript
 
 dateCreated: 2020-05-14 22:19 CET  
@@ -15,7 +24,7 @@ The quote that sums up TypeScript quite well:
 # Deno 1.0, TypeScript 3.9
 
 dateCreated: 2020-05-14 10:19 CET  
-tags: tools, web, javascript, typescript  
+tags: javascript, tools, web, typescript  
 
 TypeScript 3.9 was released. Since I am basically a fan of making code safer and better to understand,
 that's what I use types for, I see nothing interesting to me in this release. But I also use TypeScript
