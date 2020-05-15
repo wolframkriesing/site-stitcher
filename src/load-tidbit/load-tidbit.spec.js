@@ -95,6 +95,16 @@ describe('Load a tidbit file (one month)', () => {
         assert.strictEqual(load()[0].bodyAsHtml, expected);
       });
     });
+    it('WHEN tidbit has only one paragraph THEN provide `hasAbstractOnly=true`', () => {
+      const fileContent = [
+        '# Tidbit',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph'
+      ].join('\n');
+      const tidbits = loadTidbitFile(fileContent);
+      assertThat(tidbits[0], hasProperties({hasAbstractOnly: true}));
+    });
   });
   describe('GIVEN many tidbits in on file', () => {
     const load = () => {

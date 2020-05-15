@@ -23,4 +23,7 @@ export class Tidbit {
   get tags() {
     return this._tagValues.map(t => ({value: t, slug: slug(t)}));
   }
+  get hasAbstractOnly() {
+    return true;
+  }
 }
