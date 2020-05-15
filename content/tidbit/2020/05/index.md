@@ -3,7 +3,7 @@
 dateCreated: 2020-05-15 15:48 CET
 tags: tools, WebStorm
 
-It is a bit more then a month ago that WebStorm has shipped the feature
+It is a bit more than a month ago that WebStorm has shipped the feature
 [Displaying terminal sessions side by side](https://blog.jetbrains.com/webstorm/2020/04/webstorm-2020-1/#split-terminal-sessions)
 and I am using it every day now.
 
