@@ -100,10 +100,22 @@ describe('Load a tidbit file (one month)', () => {
         '# Tidbit',
         'dateCreated: 2111-11-11 11:11 CET',
         '',
-        'One paragraph'
+        'One paragraph',
       ].join('\n');
       const tidbits = loadTidbitFile(fileContent);
       assertThat(tidbits[0], hasProperties({hasAbstractOnly: true}));
+    });
+    it('WHEN tidbit has only more than one paragraph THEN provide `hasAbstractOnly=false`', () => {
+      const fileContent = [
+        '# Tidbit',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph',
+        '',
+        'Two paragraph',
+      ].join('\n');
+      const tidbits = loadTidbitFile(fileContent);
+      assertThat(tidbits[0], hasProperties({hasAbstractOnly: false}));
     });
   });
   describe('GIVEN many tidbits in on file', () => {

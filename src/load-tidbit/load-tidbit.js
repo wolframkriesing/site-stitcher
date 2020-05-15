@@ -27,6 +27,7 @@ const parseTidbitTokens = tokens => {
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs),
     bodyAsHtml: marked.parser(/** @type {marked.TokensList} */(bodyTokens)),
+    hasAbstractOnly: tokens.length === 4,
   };
   const tidbit = Tidbit.withRawData(data);
   return tidbit;
