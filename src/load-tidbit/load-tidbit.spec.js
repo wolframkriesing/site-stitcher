@@ -95,28 +95,6 @@ describe('Load a tidbit file (one month)', () => {
         assert.strictEqual(load()[0].bodyAsHtml, expected);
       });
     });
-    it('WHEN tidbit has only one paragraph THEN provide `hasAbstractOnly=true`', () => {
-      const fileContent = [
-        '# Tidbit',
-        'dateCreated: 2111-11-11 11:11 CET',
-        '',
-        'One paragraph',
-      ].join('\n');
-      const tidbits = loadTidbitFile(fileContent);
-      assertThat(tidbits[0], hasProperties({hasAbstractOnly: true}));
-    });
-    it('WHEN tidbit has only more than one paragraph THEN provide `hasAbstractOnly=false`', () => {
-      const fileContent = [
-        '# Tidbit',
-        'dateCreated: 2111-11-11 11:11 CET',
-        '',
-        'One paragraph',
-        '',
-        'Two paragraph',
-      ].join('\n');
-      const tidbits = loadTidbitFile(fileContent);
-      assertThat(tidbits[0], hasProperties({hasAbstractOnly: false}));
-    });
   });
   describe('GIVEN many tidbits in on file', () => {
     const load = () => {
@@ -160,6 +138,44 @@ describe('Load a tidbit file (one month)', () => {
       assert.strictEqual(tidbits[0].bodyAsHtml, '<p>One <a href="http://picostitch.com">paragraph</a></p>\n');
       assert.strictEqual(tidbits[1].bodyAsHtml, '<p>Two paragraph</p>\n');
       assert.strictEqual(tidbits[2].bodyAsHtml, '<p>Three paragraph <code>code</code></p>\n');
+    });
+    it('WHEN tidbits have only one paragraph THEN provide `hasAbstractOnly=true`', () => {
+      const fileContent = [
+        '# Tidbit',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph',
+        '',
+        '# Tidbit',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph',
+        '',
+      ].join('\n');
+      const tidbits = loadTidbitFile(fileContent);
+      assertThat(tidbits[0], hasProperties({hasAbstractOnly: true}));
+      assertThat(tidbits[1], hasProperties({hasAbstractOnly: true}));
+    });
+    it('WHEN tidbit has only more than one paragraph THEN provide `hasAbstractOnly=false`', () => {
+      const fileContent = [
+        '# Tidbit',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph',
+        '',
+        'Two paragraph',
+        '',
+        '# Tidbit 2',
+        'dateCreated: 2111-11-11 11:11 CET',
+        '',
+        'One paragraph',
+        '',
+        'Two paragraph',
+        '',
+      ].join('\n');
+      const tidbits = loadTidbitFile(fileContent);
+      assertThat(tidbits[0], hasProperties({hasAbstractOnly: false}));
+      assertThat(tidbits[1], hasProperties({hasAbstractOnly: false}));
     });
   });
 });

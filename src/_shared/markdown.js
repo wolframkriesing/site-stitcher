@@ -32,3 +32,13 @@ export const renderAbstractAsHtml = (abstractTokens) => {
   const abstractAsHtml = marked.parser(/** @type {marked.TokensList} */(abstractTokens));
   return removeEnclosingPTag(abstractAsHtml);
 };
+/**
+ * @param tokens {marked.Token[]}
+ * @return {marked.Token[]}
+ */
+export const trimSpaceTokenFromEnd = (tokens) => {
+  if (tokens[tokens.length - 1].type === 'space') {
+    return tokens.slice(0, -1);
+  }
+  return tokens;
+}

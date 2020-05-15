@@ -1,7 +1,7 @@
 import * as marked from 'marked';
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata} from '../_shared/parse-metadata.js';
-import {renderAbstractAsHtml} from '../_shared/markdown.js';
+import {renderAbstractAsHtml, trimSpaceTokenFromEnd} from '../_shared/markdown.js';
 import {sortByDateCreatedDescending} from './sort-tidbit.js';
 import {Tidbit} from './Tidbit.js';
 
@@ -21,13 +21,13 @@ const metadataParseConfigs = [
  */
 const parseTidbitTokens = tokens => {
   const abstractTokens = [tokens[3]];
-  const bodyTokens = tokens.slice(3);
+  const bodyTokens = trimSpaceTokenFromEnd(tokens.slice(3));
   const data = {
     headline: /** @type {marked.Tokens.Heading} */ (tokens[0]).text,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1], metadataParseConfigs),
     bodyAsHtml: marked.parser(/** @type {marked.TokensList} */(bodyTokens)),
-    hasAbstractOnly: tokens.length === 4,
+    hasAbstractOnly: bodyTokens.length === 1,
   };
   const tidbit = Tidbit.withRawData(data);
   return tidbit;

@@ -18,6 +18,7 @@
     "src/load-tidbit/load-tidbit.slow-spec.js",
     "src/load-tidbit/load-tidbit.js",
     "src/load-tidbit/sort-tidbit.js",
-    "src/render-tidbit"
+    "src/render-tidbit",
+    "src/_shared/markdown.js"
   ]
 }
