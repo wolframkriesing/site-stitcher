@@ -12,22 +12,22 @@ Let's type check JavaScript files by using TypeScript.
 
 ## Official Docs are Scarce on this Topic
 The TypeScript docs have one page on the topic 
-[Type Checking JavaScript Files][1]
-but over time, I found out that there is much more to this topic. Thanks to [Jan] and his project [elix] where
-[I learned][7] most of the basics on how to apply TypeScript as a type linter on JS files.  
+[Type Checking JavaScript Files][1].
+But there is a bit more to it. Thanks to [Jan] and his project [elix]
+[I learned][7] the basics and how to apply TypeScript as a type linter on JS files.  
 
-## What is "TypeScript for JavaScript"?
+## What is TypeScript for JavaScript?
 [I used to do a lot of][4] [Flow] to type check my JavaScript code. Meanwhile TypeScript is picking up in features,
 though there are major differences in philosophy between Flow and TypeScript.
 But TypeScript seems to be the more active project and the one getting more support,
 from the community (the [activity on][5] [the projects][6] seems to be on par though). 
-Therefore TypeScript currently seems like a very interesting option at this point in time.
+Therefore TypeScript currently seems like a very interesting option.
 
 So I started to investigate how I can use TypeScript on existing JavaScript projects.
 Why not pure TypeScript? The main reason for me was always development speed and a small dependency footprint. 
 One way to achieve this is that I try to prevent all build steps and want to run my code straight without 
 building and bundling, no matter if I run a browser or nodejs project. 
-So depending on the TypeScript compiler to compile my files was not an option for me.
+So depending on the TypeScript compiler to compile my files before I can run them was not an option for me.
 
 In the following you can see how I **set up TypeScript, as a type linter for JavaScript**, 
 to type check JavaScript files.
@@ -45,30 +45,75 @@ to type check JavaScript files.
 [6]: https://github.com/microsoft/TypeScript/graphs/commit-activity
 [7]: https://github.com/elix/elix/pull/109#issuecomment-575589440
 
-## Why "TypeScript for JavaScript"?
-This allows me to type lint my code optionally. If (for whatever reason) I don't want type safety, I don't have
+## Why TypeScript for JavaScript?
+This allows me to type-lint my code optionally. If (for whatever reason) I don't want type safety, I don't have
 to worry about it. With pure TypeScript (.ts files) it is not so easy to opt out (afaik) and .ts files are not useable 
 in the browser without preprocessing.
 
 Why should I do it at all, when it is optional?
 Any linter is optional too. Discipline and interest are required.
 Here are a couple of reasons why I think it is valueable:
-* When types get complex, I want a tool to point out mistakes.
-* When the domain language forms, I want to name things coherently.
-* When the team grows, types are more expressive
-* [exhaustivness checks][3] create safety and prevent bugs.
-* Typing makes me think about the architecture, even if I type the code afterwards.
+* When data structures get complex, types help a lot and I want a tool to point out mistakes.
+* When the domain language forms, I want to name things coherently across the project, types are very useful.
+* When the team grows, types are more expressive and help staying aligned.
+* [Exhaustivness checks][3] create safety and prevent bugs.
+* Type checking makes me think about the architecture more, even if I type the code afterwards.
 
 ## How to start with TypeScript for a JavaScript Project
+When I started applying TypeScript to JavaScript files I had a couple simple rules:
+1. **JavaScript files stay JavaScript**. Prevent bloat of types mangled into JavaScript syntax.
+   JavaScript can be hard to read already without types in it.
+1. **I want to be able to stop and go back any time** - I didn't want to get stuck with a half baked solution 
+   that stops any development on the code.
+1. **No extra compile/transpile step**, no transpiler, no bundling needed.
+1. I want to **add type checks where needed**. If all files get type checked eventually, 
+   cool, but that's not a must.
+   
+Types can be added via comments. For example a function can be annotated with types like this:
+```javascript
+/**
+ * @param data {PlainObject}
+ * @return {string}
+ */
+const renderTidbitPage = (data) => {}
+```
+Where `PlainObject` is a custom type.
+TypeScript will pick up these type definition and understand them.
+All JavaScript code will stay Javascript code.
+
+Let's start adding and configuring TypeScript to jskatas.org code base.
+It should be very easy to adapt this to any project at any moment.
 
 ## Install TypeScript Dependency
-
-https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d
+Start with `npm i typescript --save-dev`. We don't need typescript during production,
+so at it only to the devDependencies using `--save-dev` or `-D`.
 
 <figure style="display: inline-block">
     <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="70%"/>
     <figcaption>The diff in the package.json of installed typescript</figcaption>
 </figure>
+
+This is [the commit on jskatas.org repo](https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d).
+
+Running `tsc` (the executable for typescript) now does nothing useful with our source code yet,
+it just lists all its options.
+
+```
+> ./node_modules/.bin/tsc
+Version 3.8.3
+Syntax:   tsc [options] [file...]
+
+Examples: tsc hello.ts
+          tsc --outFile file.js file.ts
+          tsc @args.txt
+          tsc --build tsconfig.json
+
+Options:
+ -h, --help                                         Print this message.
+ -w, --watch                                        Watch input files.
+ --pretty                                           Stylize errors and messages u
+...
+```
 
 ## Add npm Script for Type Checking
 
