@@ -1,3 +1,20 @@
+# My new friend: WebStorm's "Split vertically" for the Terminal
+
+dateCreated: 2020-05-15 15:48 CET
+tags: tools, WebStorm
+
+It is a bit more then a month ago that WebStorm has shipped the feature
+[Displaying terminal sessions side by side](https://blog.jetbrains.com/webstorm/2020/04/webstorm-2020-1/#split-terminal-sessions)
+and I am using it every day now.
+
+<figure>
+    <img src="../webstorm-split-vertically.gif" alt="The split terminal view in WebStorm" width="600" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>The split terminal view in WebStorm</figcaption>
+</figure>
+
+On the left I have my tests running, and on the right the typechecker (TypeScript) is doing it's job.\
+Thanks JetBrains!
+
 # mov to gif converter
 
 dateCreated: 2020-05-15 15:37 CET
