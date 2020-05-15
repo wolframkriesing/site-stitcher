@@ -37,7 +37,9 @@
         </div>
       </header>
       <p class="abstract">{!tidbit.abstractAsHtml!}
-        <a  href="{{tidbit.url}}">Continue reading →</a>
+        {% if (!tidbit.hasAbstractOnly) { %}
+          <a  href="{{tidbit.url}}">Continue reading →</a>
+        {% } %}
       </p>
     </article>
   {% }) %}
