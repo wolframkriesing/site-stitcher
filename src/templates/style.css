@@ -4,8 +4,9 @@
 :root {
   --spacing-big: 1rem;
   --spacing-small: 0.3rem;
-  --font-color-highlight: #A4131D;
-  --font-color-secondary: #666;
+  --color-highlight: #A4131D;
+  --color-highlight-rgb: 164, 19, 29;
+  --color-secondary: #666;
 }
 
 body {
@@ -20,7 +21,7 @@ blockquote {
 }
 
 a {
-  color: var(--font-color-highlight);
+  color: var(--color-highlight);
 }
   a:hover {
     color: inherit;
@@ -36,7 +37,7 @@ nav ol {
 
 pre, p code {
   font-size: 1.2rem;
-  background-color: lightyellow;
+  background-color: rgba(var(--color-highlight-rgb), 0.1);
 }
 
 figcaption {
@@ -49,7 +50,7 @@ td {
 }
 
 .metadata {
-  color: var(--font-color-secondary);
+  color: var(--color-secondary);
 }
 
 footer {
