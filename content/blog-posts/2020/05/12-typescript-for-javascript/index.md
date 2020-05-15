@@ -115,46 +115,33 @@ Options:
 ...
 ```
 
-## Add npm Script for Type Checking
-
-https://github.com/wolframkriesing/jskatas.org/commit/11d1fde4673b9204792212fa7d2c98160ad92dcf
+## Add Npm Script for Type Checking
+I added a npm script `npm run typecheck` which is just an alias for `tsc`
+([see the commit](https://github.com/wolframkriesing/jskatas.org/commit/11d1fde4673b9204792212fa7d2c98160ad92dcf)).
+Additionally `npm run dev:typecheck` runs tsc in watch mode (I prefer to prefix my dev scripts with `dev:`).
 
 <figure style="display: inline-block">
     <img src="./add-typecheck-script.gif" alt="" width="70%"/>
     <figcaption></figcaption>
 </figure>
 
-nothing happens yet
+Still nothing happens yet in regards to type checking, tsc is just not yet configured.
+Let's configure tsc.
 
-```bash
-> npm run typecheck
-
-> jskatas.org@2.0.0 typecheck /app
-> tsc
-
-Version 3.8.3
-Syntax:   tsc [options] [file...]
-
-Examples: tsc hello.ts
-          tsc --outFile file.js file.ts
-          tsc @args.txt
-          tsc --build tsconfig.json
-...
-```
-
-tsc is not configured
-
-## Add tsconfig.json
-
-https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b
+## Add TypeScript Confguration in tsconfig.json
+TypeScript's configuration goes into a file `tsconfig.json` normally in the root of the project
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b)).
 
 <figure style="display: inline-block">
     <img src="./empty-tsconfig.gif" alt="" width="300"/>
     <figcaption></figcaption>
 </figure>
 
+I just added an empty `tsconfig.json`. Which gets us a step futher. I am just a fan of baby steps,
+this way I learn bit by bit the effect of every change. I prefer this over throwing a huge config in my
+project which does a zillion things that I did not anticipated. They gonna swing back eventually.
 
-
+Running the type check now gives us a hint what to do next.
 ```
 > npm run typecheck
 
@@ -164,9 +151,11 @@ https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e
 error TS18003: No inputs were found in config file '/app/tsconfig.json'. Specified 'include' paths were '["**/*"]' and 'exclude' paths were '[]'.
 ```
 
-## Add "include" to tsconfig.json
+We will do exactly this next.
 
-https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c
+## Add "include" to tsconfig.json
+Let's start including all JS files from our `src` folder 
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c)).
 
 <figure style="display: inline-block">
     <img src="./tsconfig-with-include.gif" alt="" width="500"/>
@@ -182,9 +171,16 @@ https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a
 error TS18003: No inputs were found in config file '/app/tsconfig.json'. Specified 'include' paths were '["src/*.js"]' and 'exclude' paths were '[]'.
 ```
 
-## allowJs option
+By default tsc looks for `.ts` files. But there are none here, there are
+only `.js` files. That's why the error message did not change much.
+Let's make sure tsc finds our files and starts type checking useful stuff.
 
-https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f320c74571748e8c4
+## Make TypeScript find JS Files - The "allowJs" Option
+TypeScript has quite a number of [compilerOptions](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+they can either be passed as command line arguments or set in the `tsconfig.json`, which is what we will do
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f320c74571748e8c4)).
+We add "allowJs" to "compilerOptions". The [docs describe it](https://www.typescriptlang.org/v2/en/tsconfig#allowJs) like this:
+> Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files.
 
 <figure style="display: inline-block">
     <img src="./tsconfig-allowjs.gif" alt="" width="500"/>
@@ -198,47 +194,54 @@ https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f32
 > tsc
 
 error TS5055: Cannot write file '/app/src/config.js' because it would overwrite input file.
-
 error TS5055: Cannot write file '/app/src/env.js' because it would overwrite input file.
-
 error TS5055: Cannot write file '/app/src/kata.js' because it would overwrite input file.
 
-error TS5055: Cannot write file '/app/src/katabundle.js' because it would overwrite input file.
-
-error TS5055: Cannot write file '/app/src/katagroup.js' because it would overwrite input file.
-
-error TS5055: Cannot write file '/app/src/lit-html.js' because it would overwrite input file.
-
-error TS5055: Cannot write file '/app/src/pagedata.js' because it would overwrite input file.
-
-error TS5055: Cannot write file '/app/src/rawmetadata.js' because it would overwrite input file.
-
-error TS5055: Cannot write file '/app/src/rss-feed.js' because it would overwrite input file.
-
+...
 
 Found 9 errors.
-
 ```
 
-## noEmit - dont generate js files, compile=off ;)
+Oha. What does tsc want to do now? We have not passed the option `outDir` which determines the
+directory where tsc would write the compiled files to. So it tries to write the files to the same
+location where it found them. Fortunately it does not overwrite the existing file.
+Even though, if it would it would still run as expected but the source code would be rewritten,
+and it would be using a lot of `var` and node-style `export.*`, replace ES6 classes with `function` etc.
+basically down-compile the code to ES3.
+Using the [config option `target`](https://www.typescriptlang.org/v2/en/tsconfig#target)
+one can control what the target version of ECMAScript shall be.
 
-https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247
+Actually we don't need no compiled files, so let's turn that off.
+
+## No Compiled Files Needed - The "noEmit" Option
+We are using TypeScript only to verify types, not to convert or compile our source files to 
+anything else, so we add the `noEmit` option to turn off writing files
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247)).
 
 <figure style="display: inline-block">
     <img src="./tsconfig-noemit.gif" alt="" width="500"/>
     <figcaption></figcaption>
 </figure>
 
+Running this:
 
 ```
 > npm run typecheck
 
 > jskatas.org@2.0.0 typecheck /app
 > tsc
-
 ```
 
-##
+There is no output. Thinking (and reading) about what TypeScript actually is and that it is 
+sold that it ["compiles to plain JavaScript"](https://www.typescriptlang.org/), the expected input it a ".ts" file.
+But we have none. That means, we have to configure it to also type check JavaScript file.
+We will do that next using the "checkJs" option.
+
+## Report Type Errors in JS Files - The "checkJs" Option
+[The docs explain the "checkJs" option](https://www.typescriptlang.org/v2/en/tsconfig#checkJs) quite well:
+> Works in tandem with `allowJs`. When `checkJs` is enabled then errors are reported in JavaScript files. 
+> This is the equivalent of including `// @ts-check` at the top of all JavaScript files which are included in your project.
+
 
 https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8
 
