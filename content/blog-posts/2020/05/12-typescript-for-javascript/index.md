@@ -92,8 +92,8 @@ Start with `npm i typescript --save-dev`. We don't need typescript during produc
 so at it only to the devDependencies using `--save-dev` or `-D`.
 
 <figure>
-    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption>The diff in the package.json of installed typescript</figcaption>
+    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>The diff in the package.json of installed typescript.</figcaption>
 </figure>
 
 This is [the commit on the jskatas.org repo](https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d).
@@ -137,8 +137,8 @@ TypeScript's configuration goes into a file `tsconfig.json` normally located in 
 It is a JSON file, so I add the most minimal JSON in it `{}`.
 
 <figure style="display: inline-block">
-    <img src="./empty-tsconfig.gif" alt="" width="150" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption></figcaption>
+    <img src="./empty-tsconfig.gif" alt="Empty 'tsconfig.json' file." width="150" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Empty 'tsconfig.json' file.</figcaption>
 </figure>
 
 I just added an empty `tsconfig.json`. Which gets me a step futher. I am a fan of baby steps,
@@ -157,14 +157,14 @@ error TS18003: No inputs were found in config file '/app/tsconfig.json'. Specifi
 
 I will do exactly this next.
 
-## Configure TypeScript to Search the "src" Directory - The "include" config
+## Configure TypeScript to Search the "src" Directory - The "include" Config
 Let's start including all JS files from our `src` folder, by 
 <morehtml-tldr>adding the one line `"include": ["src/*.js"]` in the `tsconfig.json`</morehtml-tldr> 
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c)).
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-with-include.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption></figcaption>
+    <img src="./tsconfig-with-include.gif" alt="Configure tsc to search the 'src' directory." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Configure tsc to search the 'src' directory.</figcaption>
 </figure>
 
 ```
@@ -180,7 +180,7 @@ By default tsc looks for `.ts` files. But there are none here, there are
 only `.js` files. That's why the error message did not change much.
 Let's make sure tsc finds our files and starts type checking useful stuff.
 
-## Make TypeScript find JS Files - The "allowJs" Option
+## Make TypeScript find JS Files - The "allowJs" Compiler Option
 TypeScript has quite a number of [compilerOptions](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
 they can either be passed as command line arguments or set in the `tsconfig.json`, which is what we will do
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f320c74571748e8c4)).
@@ -188,8 +188,8 @@ We add "allowJs" to "compilerOptions". The [docs describe it](https://www.typesc
 > Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files.
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-allowjs.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption></figcaption>
+    <img src="./tsconfig-allowjs.gif" alt="Set the compiler option 'allowJs=true'." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Set the compiler option 'allowJs=true'.</figcaption>
 </figure>
 
 ```
@@ -218,14 +218,14 @@ one can control what the target version of ECMAScript shall be.
 
 Actually we don't need no compiled files, so let's turn that off.
 
-## No Compiled Files Needed - The "noEmit" Option
+## No Compiled Files Needed - The "noEmit" Compiler Option
 We are using TypeScript only to verify types, not to convert or compile our source files to 
 anything else, so we add the `noEmit` option to turn off writing files
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247)).
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-noemit.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption></figcaption>
+    <img src="./tsconfig-noemit.gif" alt="Set the compiler option 'noEmit=true'." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Set the compiler option 'noEmit=true'.</figcaption>
 </figure>
 
 Running this:
@@ -237,23 +237,32 @@ Running this:
 > tsc
 ```
 
-There is no output. Thinking (and reading) about what TypeScript actually is and that it is 
-sold that it ["compiles to plain JavaScript"](https://www.typescriptlang.org/), the expected input it a ".ts" file.
-But we have none. That means, we have to configure it to also type check JavaScript file.
+There is no output. Thinking (and reading on the TypeScript home page) about what TypeScript actually is and that it 
+"[compiles to plain JavaScript](https://www.typescriptlang.org/)", the expected input is a ".ts" file.
+But we have none. That means, we have to tell it to also type check JavaScript files.
 We will do that next using the "checkJs" option.
 
-## Report Type Errors in JS Files - The "checkJs" Option
+## Report Type Errors in JS Files - The "checkJs" Compiler Option
 [The docs explain the "checkJs" option](https://www.typescriptlang.org/v2/en/tsconfig#checkJs) quite well:
 > Works in tandem with `allowJs`. When `checkJs` is enabled then errors are reported in JavaScript files. 
 > This is the equivalent of including `// @ts-check` at the top of all JavaScript files which are included in your project.
 
-
-([commit](https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8))
+There is not only the `checkJs` option in the `tsconfig.json`
+(see [the commit](https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8)),
+but also a `// @ts-check` comment at the top of a JS file. 
+I stick to having all the config in the `tsconfig.json`.
+Just to make it easier. I also like to try and prevent inline comments that configure the (type) linter, because I believe
+code either adheres to the rules or the rule is useless. I have worked with a lot of code that had so many inline
+comments that turned off configured settings just for a line, that I wondered why it is configured that way at all.
+Often I went and turned off those kind of (lint) options, so the exceptions set via comments could be removed.
+Consistency ftw.
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-checkjs.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption></figcaption>
+    <img src="./tsconfig-checkjs.gif" alt="Set the compiler option 'checkJs=true'." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Set the compiler option 'checkJs=true'.</figcaption>
 </figure>
+
+Feels like we should be getting some useful output from `tsc` now. Let's try:
 
 ```
 > npm run typecheck
@@ -277,13 +286,38 @@ Found 24 errors.
 
 ```
 
-## Check src+scripts dir
+We get useful output now! Unfortunately when starting with TypeScript, I have to say I was struggling to understand what
+the error messages mean. The above ones seem understandable to me now, but it might be because I have
+seen a couple of them already.
 
-([commit](https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a))
+Let's take the first one. What it means is that TypeScript has found something that it identifies as 
+a `type 'BundleConfig'`. I assume it is a `class BundleConfig`. And for some reason it says that `bundleName`
+does not exist as a property on it. I strongly assume, that I am using it 
+[in the code](https://github.com/wolframkriesing/jskatas.org/blob/c34ff1cd44af3b42d25e3706d21db4b3c34748f7/src/config.js#L25-L32) 
+as such, but since there are no annotations for TypeScript to understand my code and it also can just 
+[analyze the AST](https://github.com/microsoft/TypeScript/wiki/Architectural-Overview#overview-of-the-compilation-process)
+of the code it can't figure out that `bundleName` is actually a valid property. So we will have to 
+help TypeScript later figuring that out.
+TypeScript does some basic 
+[type inference](https://www.typescriptlang.org/docs/handbook/type-inference.html) but since JavaScript code
+can be quite arbitrary it was not able to clearly figure out the above correlation between `BundleConfig` and `bundleName`.
+
+I learned to get used to not understanding the error messages, when starting with a new language.
+There is no site, that I have found, that lists all error messages and helps you find solutions (maybe this is an opportunity for starting one).
+The only thing I found in the TypeScript source code that does not really help, is 
+[the JSON file](https://github.com/microsoft/TypeScript/blob/cbf15bb6ed1cd8b30403654a0a1c67baac329d06/src/compiler/diagnosticMessages.json#L1348-L1351)
+that lists all error messages.
+
+## Extend "include" Config to Find all Source Files
+TypeScript found 24 errors, that sounds not too many, it surprised me a bit.
+I found out quickly why that is. I configured to only search the src directory and not all its subdirectories
+and also not the `script` directory. I need to fix that, just to get a feeling of how much type annotation work
+lies before me. So I change the config to `"include": ["src", "scripts"]`
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a)).
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-include-all.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
-    <figcaption></figcaption>
+    <img src="./tsconfig-include-all.gif" alt="Set include config to find 'src' and 'scripts' directories." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Set include config to find 'src' and 'scripts' directories.</figcaption>
 </figure>
 
 ```
@@ -296,3 +330,12 @@ Found 24 errors.
 
 Found 72 errors.
 ```
+
+Voila. 72 errors. That sounds more reasonable.
+Note the difference, before we were just searching for all files directly under `src` by using `"include": ["src/*.js"]`
+now we omitted the `*.js` and added the `scripts` directory the same way, so that all subdirectries are also searched.
+
+Why explicitly list just those two directories by using `"include": ["src", "scripts"]`? Why not just use `"include": ["."]`
+to include all files found in the project?
+If we did that we would get 172 errors. That is because we also type check the `node_modules` and the `dist` folder,
+which is not what we want, since those are not the source files we want to type check.
