@@ -1,3 +1,14 @@
+# The Unicode Character for the Hamburger Menu Icon
+
+dateCreated: 2020-05-16 14:48 CET
+tags: web
+
+In short `&#9776; <!-- Results in ☰ -->`\
+See it in use, here is [the commit](https://github.com/wolframkriesing/site-stitcher/commit/63e6e6159b551df7ab121ec6406cde90276055f4) 
+I just made for this site. Look at the bottom right 
+or top left on smaller screens.
+found at https://www.abeautifulsite.net/the-unicode-character-for-menu-icons
+
 # My new friend: WebStorm's "Split vertically" for the Terminal
 
 dateCreated: 2020-05-15 15:48 CET
