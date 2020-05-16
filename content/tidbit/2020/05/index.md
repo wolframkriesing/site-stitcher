@@ -12,7 +12,7 @@ as good practice to still type **every** function, no matter if public or privat
 > by asking that modules have explicitly typed signatures. (We still infer types for the vast majority of 
 > code “local” to modules.) Coincidentally, developers consider this good software engineering practice anyway.
 
-# The Unicode Character for the Hamburger Menu Icon
+# The Unicode Character for the Hamburger Menu Icon ☰
 
 dateCreated: 2020-05-16 14:48 CET
 tags: web
