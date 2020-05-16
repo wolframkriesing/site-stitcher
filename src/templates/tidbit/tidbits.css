@@ -9,6 +9,12 @@ h2 span.tag {
   margin-right: 1rem; /* space to the H2 */
   font-weight: bold;
 }
+@media screen and (max-width: 600px) {
+  h1 span.tag,
+  h2 span.tag {
+    display: block;
+  }
+}
 
 span.tag[data-tag="a11y"] { background: linear-gradient(to right, #0000, #bfffad 30%); }
 span.tag[data-tag="docker"] { background: linear-gradient(to right, #0000, #adc2ff 30%); }
