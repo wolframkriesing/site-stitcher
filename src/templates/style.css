@@ -6,13 +6,23 @@
   --spacing-small: 0.3rem;
   --color-highlight: #A4131D;
   --color-highlight-rgb: 164, 19, 29;
+  --color-highlight-lighter: rgba(var(--color-highlight-rgb), 0.1);
   --color-secondary: #666;
+  --color-overlay: rgb(252, 232, 191);
 }
 
 body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.4;
+}
+@media screen and (max-width: 600px) {
+  * {
+    line-break: loose;
+  }
+  h1, h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
+    line-break: strict;
+  }
 }
 
 blockquote {
@@ -37,7 +47,7 @@ nav ol {
 
 pre, p code {
   font-size: 1.2rem;
-  background-color: rgba(var(--color-highlight-rgb), 0.1);
+  background-color: var(--color-highlight-lighter);
 }
 
 figcaption {
@@ -77,13 +87,14 @@ nav.secondary {
   position: fixed;
   right: 0;
   bottom: 0;
-  margin: var(--spacing-big);
+  margin: 0;
   padding: var(--spacing-big);
-  background-color: rgba(252, 232, 191, 0.9);
+  background-color: var(--color-overlay);
 }
   nav.secondary ul {
-    height: var(--spacing-big);
+    height: 0;
     width: var(--spacing-big);
+    margin: 0;
     transition: width 0.5s, height 0.5s, opacity 1s; /* transition when the mouse leave */
     opacity: 0;
     overflow: hidden;
@@ -91,11 +102,15 @@ nav.secondary {
     flex-direction: column;
   }
   nav.secondary:hover ul {
+    padding: 2rem; /* move the clickable first menu item out of focus when clicking on the menu-button (hamburger icon) */
     height: 11rem;
     width: 8rem;
     transition: height 0.5s, opacity 0s; /* transition when the mouse enter */
     transition-delay: 0.2s; /* allows the width to jump to full width first */
     opacity: 1;
+  }
+  nav.secondary:hover .menu-button {
+    visibility: hidden;
   }
   nav.secondary ul li {
     list-style: none;
@@ -112,6 +127,7 @@ nav.secondary {
     nav.secondary {
       left: 0;
       top: 0;
+      margin: 0;
       bottom: auto;
       right: auto;
     }
