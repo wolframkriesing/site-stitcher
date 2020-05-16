@@ -157,7 +157,7 @@ Let's configure tsc, by adding a `tsconfig.json`.
 
 ## Configure TypeScript
 Having installed tsc (the TypeScript executable) it needs to be configured.
-Let's see it step by step.
+Let's do it step by step.
 
 ### Add TypeScript Confguration File - tsconfig.json
 TypeScript's configuration goes into a file `tsconfig.json` normally located in the root of the project
