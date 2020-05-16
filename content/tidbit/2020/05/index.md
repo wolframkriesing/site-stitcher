@@ -1,3 +1,17 @@
+# Flow Infers Types "Local" to Modules ❤️
+
+dateCreated: 2020-05-16 17:22 CET
+tags: JavaScript, flow, type checking, typing
+
+I wish to have a type system where I only need to type-hint the published parts (of a module/file)
+and let the type system infer all internal types. Though, I learned that even in Haskell land it is referred to
+as good practice to still type **every** function, no matter if public or private.
+[Flow sounds to be doing what I want](https://flow.org/en/docs/lang/#toc-what-makes-flow-fast).
+
+> Fortunately, JavaScript is already written using files as modules, so we modularize our analysis simply 
+> by asking that modules have explicitly typed signatures. (We still infer types for the vast majority of 
+> code “local” to modules.) Coincidentally, developers consider this good software engineering practice anyway.
+
 # The Unicode Character for the Hamburger Menu Icon
 
 dateCreated: 2020-05-16 14:48 CET
