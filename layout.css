@@ -8,6 +8,11 @@
 body {
   margin: 2rem 4rem;
 }
+@media screen and (max-width: 600px) {
+  body {
+    margin: 1rem;
+  }
+}
 
 body > header {
   display: flex;
@@ -34,6 +39,7 @@ blockquote :last-child {
 
 figure {
   margin-bottom: var(--spacing-big);
+  margin-right: var(--spacing-big);
   padding: var(--spacing-big);
   box-shadow: 0 0 10px lightgrey;
   display: inline-block;
@@ -64,6 +70,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--spacing-small);
 }
 
+@media screen and (max-width: 600px) {
+  img {
+    max-width: 90%;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    text-align: center;
+  }
+}
 
 main {
   display: flex;
@@ -133,6 +147,12 @@ p,
 :not(li) > ul,
 :not(li) > ol { /* The `:not(li) > ` prefix prevents nested lists to have a margin on the sub-levels */
   margin-bottom: var(--spacing-big);
+}
+
+@media screen and (max-width: 600px) {
+  p {
+    text-align: justify;
+  }
 }
 
 ul, ol {
