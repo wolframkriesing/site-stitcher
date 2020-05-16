@@ -63,7 +63,7 @@ Here are a couple of reasons why I think it is valueable:
 When I started applying TypeScript to JavaScript files I had a couple simple rules:
 1. **JavaScript files stay JavaScript**. Prevent bloat of types mangled into JavaScript syntax.
    JavaScript can be hard to read already without types in it.
-1. **I want to be able to stop and go back any time** - I didn't want to get stuck with a half baked solution 
+1. **I want to be able to stop and go back, any time** - I didn't want to get stuck with a half typed solution 
    that stops any development on the code.
 1. **No extra compile/transpile step**, no transpiler, no bundling needed.
 1. I want to **add type checks where needed**. If all files get type checked eventually, 
@@ -82,23 +82,26 @@ TypeScript will pick up these type definition and understand them.
 All JavaScript code will stay Javascript code.
 
 Let's start adding and configuring TypeScript to jskatas.org code base.
-It should be very easy to adapt this to any project at any moment.
+It should be very easy to adapt this to any project at any stage.
+No matter if you have just started or if you have a years old code base, add type checks in the here described way
+will not hinder you to continue work on the code base. That is also always one of my goals, as listed above.
+I want it to become better every day and sometimes type checking certain files will improve it.
 
 ## Install TypeScript Dependency
 Start with `npm i typescript --save-dev`. We don't need typescript during production,
 so at it only to the devDependencies using `--save-dev` or `-D`.
 
-<figure style="display: inline-block">
-    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="70%"/>
+<figure>
+    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption>The diff in the package.json of installed typescript</figcaption>
 </figure>
 
-This is [the commit on jskatas.org repo](https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d).
+This is [the commit on the jskatas.org repo](https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d).
 
 Running `tsc` (the executable for typescript) now does nothing useful with our source code yet,
 it just lists all its options.
 
-```
+```shell
 > ./node_modules/.bin/tsc
 Version 3.8.3
 Syntax:   tsc [options] [file...]
@@ -120,26 +123,27 @@ I added a npm script `npm run typecheck` which is just an alias for `tsc`
 ([see the commit](https://github.com/wolframkriesing/jskatas.org/commit/11d1fde4673b9204792212fa7d2c98160ad92dcf)).
 Additionally `npm run dev:typecheck` runs tsc in watch mode (I prefer to prefix my dev scripts with `dev:`).
 
-<figure style="display: inline-block">
-    <img src="./add-typecheck-script.gif" alt="" width="70%"/>
-    <figcaption></figcaption>
+<figure>
+    <img src="./add-typecheck-script.gif" alt="The git diff for the npm script `typecheck` which runs tsc." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>The git diff for the npm script `typecheck` which runs tsc.</figcaption>
 </figure>
 
 Still nothing happens yet in regards to type checking, tsc is just not yet configured.
-Let's configure tsc.
+Let's configure tsc, by adding a `tsconfig.json`.
 
-## Add TypeScript Confguration in tsconfig.json
-TypeScript's configuration goes into a file `tsconfig.json` normally in the root of the project
+## Add TypeScript Confguration File - tsconfig.json
+TypeScript's configuration goes into a file `tsconfig.json` normally located in the root of the project
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b)).
+It is a JSON file, so I add the most minimal JSON in it `{}`.
 
 <figure style="display: inline-block">
-    <img src="./empty-tsconfig.gif" alt="" width="300"/>
+    <img src="./empty-tsconfig.gif" alt="" width="150" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
-I just added an empty `tsconfig.json`. Which gets us a step futher. I am just a fan of baby steps,
+I just added an empty `tsconfig.json`. Which gets me a step futher. I am a fan of baby steps,
 this way I learn bit by bit the effect of every change. I prefer this over throwing a huge config in my
-project which does a zillion things that I did not anticipated. They gonna swing back eventually.
+project which does a zillion things that I did not anticipated. They gonna kick back eventually.
 
 Running the type check now gives us a hint what to do next.
 ```
@@ -151,14 +155,15 @@ Running the type check now gives us a hint what to do next.
 error TS18003: No inputs were found in config file '/app/tsconfig.json'. Specified 'include' paths were '["**/*"]' and 'exclude' paths were '[]'.
 ```
 
-We will do exactly this next.
+I will do exactly this next.
 
-## Add "include" to tsconfig.json
-Let's start including all JS files from our `src` folder 
+## Configure TypeScript to Search the "src" Directory - The "include" config
+Let's start including all JS files from our `src` folder, by 
+<morehtml-tldr>adding the one line `"include": ["src/*.js"]` in the `tsconfig.json`</morehtml-tldr> 
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c)).
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-with-include.gif" alt="" width="500"/>
+    <img src="./tsconfig-with-include.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -183,7 +188,7 @@ We add "allowJs" to "compilerOptions". The [docs describe it](https://www.typesc
 > Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files.
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-allowjs.gif" alt="" width="500"/>
+    <img src="./tsconfig-allowjs.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -219,7 +224,7 @@ anything else, so we add the `noEmit` option to turn off writing files
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247)).
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-noemit.gif" alt="" width="500"/>
+    <img src="./tsconfig-noemit.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -243,10 +248,10 @@ We will do that next using the "checkJs" option.
 > This is the equivalent of including `// @ts-check` at the top of all JavaScript files which are included in your project.
 
 
-https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8))
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-checkjs.gif" alt="" width="500"/>
+    <img src="./tsconfig-checkjs.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -274,10 +279,10 @@ Found 24 errors.
 
 ## Check src+scripts dir
 
-https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a
+([commit](https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a))
 
 <figure style="display: inline-block">
-    <img src="./tsconfig-include-all.gif" alt="" width="500"/>
+    <img src="./tsconfig-include-all.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
