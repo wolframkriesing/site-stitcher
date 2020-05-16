@@ -1,8 +1,7 @@
 dateCreated: 2020-05-12 18:00 CET  
 tags: javascript, typescript, typing, setup, ts4js  
-isDraft: true
 
-# TypeScript for JavaScript, Part 1 - Getting Started
+# TypeScript for JavaScript, Part 1 - Set it up
 You don't need to rename all your ".js" files to ".ts" to go all in on TypeScript, you can go gradually. 
 Adopt TypeScript step by step, become familiar with it in your existing JavaScript project.
 No need to put development on hold for weeks, while you convert the code base to TypeScript and fix all type errors.
@@ -339,3 +338,14 @@ Why explicitly list just those two directories by using `"include": ["src", "scr
 to include all files found in the project?
 If we did that we would get 172 errors. That is because we also type check the `node_modules` and the `dist` folder,
 which is not what we want, since those are not the source files we want to type check.
+
+## Conclusion
+
+For a start this looks good.
+* I know I can type check my JS files, if my continuous integration environment should not run the type checks yet,
+  I don't have to. 
+* I can start working on fixing type errors. Most of it will start with adding some basic configuration
+for TypeScript to understand my code.
+* **In the next part I will cover where to start type checking**, which files, why these and how to get rid of the first type errors.
+
+You have feedback, questions, input. Please [ping me on twitter](https://twitter.com/wolframkriesing).
