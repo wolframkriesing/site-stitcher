@@ -26,7 +26,7 @@ Here is the detailled process of how I went about measuring and fixing the bigge
 It is a standard build, measure, learn cycle, and it won't be done after this blog post.
 Spoiler: I gained more than 50% of speed.
 
-## Table of Contents
+## Contents
 
 1. [Deciding what to fix](/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix)
 1. [The Big Picture](/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture)
