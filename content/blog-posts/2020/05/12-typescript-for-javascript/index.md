@@ -5,7 +5,7 @@ tags: javascript, typescript, typing, setup, ts4js
 You don't need to rename all your ".js" files to ".ts" to go all in on TypeScript, you can go gradually. 
 Adopt TypeScript step by step, become familiar with it in your existing JavaScript project.
 No need to put development on hold for weeks, while you convert the code base to TypeScript and fix all type errors.
-Read on to see how I adopt TypeScript for JavaScript for the project [jskatas.org] sourcecode.
+Read on to see how I adopt TypeScript for JavaScript for the sourcecode of [jskatas.org].
 
 Let's type check JavaScript files by using TypeScript.
 
@@ -17,16 +17,17 @@ But there is a bit more to it. Thanks to [Jan] and his project [elix]
 
 ## What is TypeScript for JavaScript?
 [I used to do a lot of][4] [Flow] to type check my JavaScript code. Meanwhile TypeScript is picking up in features,
-though there are major differences in philosophy between Flow and TypeScript.
-But TypeScript seems to be the more active project and the one getting more support,
+though there are subtle differences in philosophy between Flow and TypeScript.
+But TypeScript seems to be the more active project and the one getting more support
 from the community (the [activity on][5] [the projects][6] seems to be on par though). 
 Therefore TypeScript currently seems like a very interesting option.
 
-So I started to investigate how I can use TypeScript on existing JavaScript projects.
+I started to investigate how I can use TypeScript on existing JavaScript projects.
 Why not pure TypeScript? The main reason for me was always development speed and a small dependency footprint. 
-One way to achieve this is that I try to prevent all build steps and want to run my code straight without 
-building and bundling, no matter if I run a browser or nodejs project. 
-So depending on the TypeScript compiler to compile my files before I can run them was not an option for me.
+One way to achieve this is to prevent all build steps and run my code straight without 
+transpiling, building or bundling, no matter if I run a browser or nodejs project. 
+Depending on the TypeScript compiler to compile my files before I can run them was not an option for me.
+I went a bit different path.
 
 In the following you can see how I **set up TypeScript, as a type linter for JavaScript**, 
 to type check JavaScript files.
@@ -52,8 +53,8 @@ in the browser without preprocessing.
 Why should I do it at all, when it is optional?
 Any linter is optional too. Discipline and interest are required.
 Here are a couple of reasons why I think it is valueable:
-* When data structures get complex, types help a lot and I want a tool to point out mistakes.
-* When the domain language forms, I want to name things coherently across the project, types are very useful.
+* When data structures get complex, types help a lot and I want a tool to point out my mistakes.
+* When the domain language forms, I want to name things coherently across the entire project, and types help a lot with that.
 * When the team grows, types are more expressive and help staying aligned.
 * [Exhaustivness checks][3] create safety and prevent bugs.
 * Type checking makes me think about the architecture more, even if I type the code afterwards.
@@ -64,11 +65,13 @@ When I started applying TypeScript to JavaScript files I had a couple simple rul
    JavaScript can be hard to read already without types in it.
 1. **I want to be able to stop and go back, any time** - I didn't want to get stuck with a half typed solution 
    that stops any development on the code.
-1. **No extra compile/transpile step**, no transpiler, no bundling needed.
+1. **No extra compile/transpile step**.
 1. I want to **add type checks where needed**. If all files get type checked eventually, 
    cool, but that's not a must.
    
-Types can be added via comments. For example a function can be annotated with types like this:
+I need a way to add the type hints and the code to stay pure JavaScript.
+[Type hints can be added via comments](https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html#supported-jsdoc). 
+For example a function can be annotated with types like this:
 ```javascript
 /**
  * @param data {PlainObject}
@@ -76,15 +79,15 @@ Types can be added via comments. For example a function can be annotated with ty
  */
 const renderTidbitPage = (data) => {}
 ```
-Where `PlainObject` is a custom type.
-TypeScript will pick up these type definition and understand them.
+Where `PlainObject` is a custom type (find the [real code here](https://github.com/wolframkriesing/site-stitcher/blob/2a208630d4e49147fb4a527788a01f69f3b84d56/src/render-tidbit/render-page.js#L27-L37)).
+TypeScript will pick up these type definitions and understand them.
 All JavaScript code will stay Javascript code.
 
 Let's start adding and configuring TypeScript to jskatas.org code base.
 It should be very easy to adapt this to any project at any stage.
 No matter if you have just started or if you have a years old code base, add type checks in the here described way
 will not hinder you to continue work on the code base. That is also always one of my goals, as listed above.
-I want it to become better every day and sometimes type checking certain files will improve it.
+I want the code to become better every day and sometimes type checking certain files will improve it.
 
 ## Install TypeScript Dependency
 Start with `npm i typescript --save-dev`. We don't need typescript during production,
@@ -208,7 +211,7 @@ Found 9 errors.
 
 Oha. What does tsc want to do now? We have not passed the option `outDir` which determines the
 directory where tsc would write the compiled files to. So it tries to write the files to the same
-location where it found them. Fortunately it does not overwrite the existing file.
+location where it found them. Fortunately it does not overwrite the existing files.
 Even though, if it would it would still run as expected but the source code would be rewritten,
 and it would be using a lot of `var` and node-style `export.*`, replace ES6 classes with `function` etc.
 basically down-compile the code to ES3.
@@ -236,7 +239,7 @@ Running this:
 > tsc
 ```
 
-There is no output. Thinking (and reading on the TypeScript home page) about what TypeScript actually is and that it 
+There is no output on the command line. Thinking (and reading on the TypeScript home page) about what TypeScript actually is and that it 
 "[compiles to plain JavaScript](https://www.typescriptlang.org/)", the expected input is a ".ts" file.
 But we have none. That means, we have to tell it to also type check JavaScript files.
 We will do that next using the "checkJs" option.
@@ -246,7 +249,7 @@ We will do that next using the "checkJs" option.
 > Works in tandem with `allowJs`. When `checkJs` is enabled then errors are reported in JavaScript files. 
 > This is the equivalent of including `// @ts-check` at the top of all JavaScript files which are included in your project.
 
-There is not only the `checkJs` option in the `tsconfig.json`
+There is not only the possibility to add the `checkJs` option in the `tsconfig.json`
 (see [the commit](https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8)),
 but also a `// @ts-check` comment at the top of a JS file. 
 I stick to having all the config in the `tsconfig.json`.
@@ -301,8 +304,8 @@ TypeScript does some basic
 [type inference](https://www.typescriptlang.org/docs/handbook/type-inference.html) but since JavaScript code
 can be quite arbitrary it was not able to clearly figure out the above correlation between `BundleConfig` and `bundleName`.
 
-I learned to get used to not understanding the error messages, when starting with a new language.
-There is no site, that I have found, that lists all error messages and helps you find solutions (maybe this is an opportunity for starting one).
+I learned to get used to not understanding the error messages, when starting with a new programming language.
+There is no site in the TypeScript docs, that I have found, that lists all error messages and helps you find solutions (maybe this is an opportunity for starting one).
 The only thing I found in the TypeScript source code that does not really help, is 
 [the JSON file](https://github.com/microsoft/TypeScript/blob/cbf15bb6ed1cd8b30403654a0a1c67baac329d06/src/compiler/diagnosticMessages.json#L1348-L1351)
 that lists all error messages.
@@ -336,7 +339,7 @@ now we omitted the `*.js` and added the `scripts` directory the same way, so tha
 
 Why explicitly list just those two directories by using `"include": ["src", "scripts"]`? Why not just use `"include": ["."]`
 to include all files found in the project?
-If we did that we would get 172 errors. That is because we also type check the `node_modules` and the `dist` folder,
+If we did that we would get 172 errors. That is because we would also type check the `node_modules` and the `dist` folder,
 which is not what we want, since those are not the source files we want to type check.
 
 ## Conclusion
@@ -348,4 +351,5 @@ For a start this looks good.
 for TypeScript to understand my code.
 * **In the next part I will cover where to start type checking**, which files, why these and how to get rid of the first type errors.
 
-You have feedback, questions, input. Please [ping me on twitter](https://twitter.com/wolframkriesing).
+You have fixes, feedback, questions, input or found mistakes or bugs, please [ping me on twitter](https://twitter.com/wolframkriesing).
+Thanks for reading all the way to here 🥳.
