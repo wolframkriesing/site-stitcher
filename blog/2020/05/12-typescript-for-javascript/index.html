@@ -147,6 +147,29 @@ Adopt TypeScript step by step, become familiar with it in your existing JavaScri
 No need to put development on hold for weeks, while you convert the code base to TypeScript and fix all type errors.
 Read on to see how I adopt TypeScript for JavaScript for the sourcecode of <a href="https://jskatas.org">jskatas.org</a>.</p>
 <p>Let&#39;s type check JavaScript files by using TypeScript.</p>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#contents">Contents</a></li>
+<li><a href="#official-docs-are-scarce-on-this-topic">Official Docs are Scarce on this Topic</a></li>
+<li><a href="#what-is-typescript-for-javascript">What is TypeScript for JavaScript?</a></li>
+<li><a href="#why-typescript-for-javascript">Why TypeScript for JavaScript?</a></li>
+<li><a href="#how-to-start-with-typescript-for-a-javascript-project">How to start with TypeScript for a JavaScript Project</a></li>
+<li><a href="#install-typescript">Install TypeScript</a><ol>
+<li><a href="#install-typescript-package">Install TypeScript Package</a></li>
+<li><a href="#add-npm-script-for-type-checking">Add Npm Script for Type Checking</a></li>
+</ol>
+</li>
+<li><a href="#configure-typescript">Configure TypeScript</a><ol>
+<li><a href="#add-typescript-confguration-file---tsconfigjson">Add TypeScript Confguration File - tsconfig.json</a></li>
+<li><a href="#configure-typescript-to-search-the-src-directory---the-include-config">Configure TypeScript to Search the &quot;src&quot; Directory - The &quot;include&quot; Config</a></li>
+<li><a href="#make-typescript-find-js-files---the-allowjs-compiler-option">Make TypeScript find JS Files - The &quot;allowJs&quot; Compiler Option</a></li>
+<li><a href="#no-compiled-files-needed---the-noemit-compiler-option">No Compiled Files Needed - The &quot;noEmit&quot; Compiler Option</a></li>
+<li><a href="#report-type-errors-in-js-files---the-checkjs-compiler-option">Report Type Errors in JS Files - The &quot;checkJs&quot; Compiler Option</a></li>
+<li><a href="#extend-include-config-to-find-all-source-files">Extend &quot;include&quot; Config to Find all Source Files</a></li>
+</ol>
+</li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
 <h2 id="official-docs-are-scarce-on-this-topic">Official Docs are Scarce on this Topic</h2>
 <p>The TypeScript docs have one page on the topic 
 <a href="https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html">Type Checking JavaScript Files</a>.
@@ -207,7 +230,9 @@ It should be very easy to adapt this to any project at any stage.
 No matter if you have just started or if you have a years old code base, add type checks in the here described way
 will not hinder you to continue work on the code base. That is also always one of my goals, as listed above.
 I want the code to become better every day and sometimes type checking certain files will improve it.</p>
-<h2 id="install-typescript-dependency">Install TypeScript Dependency</h2>
+<h2 id="install-typescript">Install TypeScript</h2>
+<p>Let&#39;s start installing TypeScript using npm.</p>
+<h3 id="install-typescript-package">Install TypeScript Package</h3>
 <p>Start with <code>npm i typescript --save-dev</code>. We don&#39;t need typescript during production,
 so at it only to the devDependencies using <code>--save-dev</code> or <code>-D</code>.</p>
 <figure>
@@ -232,7 +257,7 @@ Options:
  -w, --watch                                        Watch input files.
  --pretty                                           Stylize errors and messages u
 ...</code></pre>
-<h2 id="add-npm-script-for-type-checking">Add Npm Script for Type Checking</h2>
+<h3 id="add-npm-script-for-type-checking">Add Npm Script for Type Checking</h3>
 <p>I added a npm script <code>npm run typecheck</code> which is just an alias for <code>tsc</code>
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/11d1fde4673b9204792212fa7d2c98160ad92dcf">see the commit</a>).
 Additionally <code>npm run dev:typecheck</code> runs tsc in watch mode (I prefer to prefix my dev scripts with <code>dev:</code>).</p>
@@ -243,7 +268,10 @@ Additionally <code>npm run dev:typecheck</code> runs tsc in watch mode (I prefer
 
 <p>Still nothing happens yet in regards to type checking, tsc is just not yet configured.
 Let&#39;s configure tsc, by adding a <code>tsconfig.json</code>.</p>
-<h2 id="add-typescript-confguration-file---tsconfigjson">Add TypeScript Confguration File - tsconfig.json</h2>
+<h2 id="configure-typescript">Configure TypeScript</h2>
+<p>Having installed tsc (the TypeScript executable) it needs to be configured.
+Let&#39;s do it step by step.</p>
+<h3 id="add-typescript-confguration-file---tsconfigjson">Add TypeScript Confguration File - tsconfig.json</h3>
 <p>TypeScript&#39;s configuration goes into a file <code>tsconfig.json</code> normally located in the root of the project
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b">commit</a>).
 It is a JSON file, so I add the most minimal JSON in it <code>{}</code>.</p>
@@ -262,7 +290,7 @@ project which does a zillion things that I did not anticipated. They gonna kick 
 &gt; tsc
 
 error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;. Specified &#39;include&#39; paths were &#39;[&quot;**/*&quot;]&#39; and &#39;exclude&#39; paths were &#39;[]&#39;.</code></pre><p>I will do exactly this next.</p>
-<h2 id="configure-typescript-to-search-the-src-directory---the-include-config">Configure TypeScript to Search the &quot;src&quot; Directory - The &quot;include&quot; Config</h2>
+<h3 id="configure-typescript-to-search-the-src-directory---the-include-config">Configure TypeScript to Search the &quot;src&quot; Directory - The &quot;include&quot; Config</h3>
 <p>Let&#39;s start including all JS files from our <code>src</code> folder, by 
 <morehtml-tldr>adding the one line <code>&quot;include&quot;: [&quot;src/*.js&quot;]</code> in the <code>tsconfig.json</code></morehtml-tldr> 
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c">commit</a>).</p>
@@ -279,7 +307,7 @@ error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;.
 error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;. Specified &#39;include&#39; paths were &#39;[&quot;src/*.js&quot;]&#39; and &#39;exclude&#39; paths were &#39;[]&#39;.</code></pre><p>By default tsc looks for <code>.ts</code> files. But there are none here, there are
 only <code>.js</code> files. That&#39;s why the error message did not change much.
 Let&#39;s make sure tsc finds our files and starts type checking useful stuff.</p>
-<h2 id="make-typescript-find-js-files---the-allowjs-compiler-option">Make TypeScript find JS Files - The &quot;allowJs&quot; Compiler Option</h2>
+<h3 id="make-typescript-find-js-files---the-allowjs-compiler-option">Make TypeScript find JS Files - The &quot;allowJs&quot; Compiler Option</h3>
 <p>TypeScript has quite a number of <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">compilerOptions</a>
 they can either be passed as command line arguments or set in the <code>tsconfig.json</code>, which is what we will do
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f320c74571748e8c4">commit</a>).
@@ -312,7 +340,7 @@ basically down-compile the code to ES3.
 Using the <a href="https://www.typescriptlang.org/v2/en/tsconfig#target">config option <code>target</code></a>
 one can control what the target version of ECMAScript shall be.</p>
 <p>Actually we don&#39;t need no compiled files, so let&#39;s turn that off.</p>
-<h2 id="no-compiled-files-needed---the-noemit-compiler-option">No Compiled Files Needed - The &quot;noEmit&quot; Compiler Option</h2>
+<h3 id="no-compiled-files-needed---the-noemit-compiler-option">No Compiled Files Needed - The &quot;noEmit&quot; Compiler Option</h3>
 <p>We are using TypeScript only to verify types, not to convert or compile our source files to 
 anything else, so we add the <code>noEmit</code> option to turn off writing files
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247">commit</a>).</p>
@@ -329,7 +357,7 @@ anything else, so we add the <code>noEmit</code> option to turn off writing file
 &quot;<a href="https://www.typescriptlang.org/">compiles to plain JavaScript</a>&quot;, the expected input is a &quot;.ts&quot; file.
 But we have none. That means, we have to tell it to also type check JavaScript files.
 We will do that next using the &quot;checkJs&quot; option.</p>
-<h2 id="report-type-errors-in-js-files---the-checkjs-compiler-option">Report Type Errors in JS Files - The &quot;checkJs&quot; Compiler Option</h2>
+<h3 id="report-type-errors-in-js-files---the-checkjs-compiler-option">Report Type Errors in JS Files - The &quot;checkJs&quot; Compiler Option</h3>
 <p><a href="https://www.typescriptlang.org/v2/en/tsconfig#checkJs">The docs explain the &quot;checkJs&quot; option</a> quite well:</p>
 <blockquote>
 <p>Works in tandem with <code>allowJs</code>. When <code>checkJs</code> is enabled then errors are reported in JavaScript files. 
@@ -387,7 +415,7 @@ There is no site in the TypeScript docs, that I have found, that lists all error
 The only thing I found in the TypeScript source code that does not really help, is 
 <a href="https://github.com/microsoft/TypeScript/blob/cbf15bb6ed1cd8b30403654a0a1c67baac329d06/src/compiler/diagnosticMessages.json#L1348-L1351">the JSON file</a>
 that lists all error messages.</p>
-<h2 id="extend-include-config-to-find-all-source-files">Extend &quot;include&quot; Config to Find all Source Files</h2>
+<h3 id="extend-include-config-to-find-all-source-files">Extend &quot;include&quot; Config to Find all Source Files</h3>
 <p>TypeScript found 24 errors, that sounds not too many, it surprised me a bit.
 I found out quickly why that is. I configured to only search the src directory and not all its subdirectories
 and also not the <code>script</code> directory. I need to fix that, just to get a feeling of how much type annotation work
