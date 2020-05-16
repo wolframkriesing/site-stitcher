@@ -184,7 +184,7 @@ Here are a couple of reasons why I think it is valueable:</p>
 <ol>
 <li><strong>JavaScript files stay JavaScript</strong>. Prevent bloat of types mangled into JavaScript syntax.
 JavaScript can be hard to read already without types in it.</li>
-<li><strong>I want to be able to stop and go back any time</strong> - I didn&#39;t want to get stuck with a half baked solution 
+<li><strong>I want to be able to stop and go back, any time</strong> - I didn&#39;t want to get stuck with a half typed solution 
 that stops any development on the code.</li>
 <li><strong>No extra compile/transpile step</strong>, no transpiler, no bundling needed.</li>
 <li>I want to <strong>add type checks where needed</strong>. If all files get type checked eventually, 
@@ -200,19 +200,22 @@ const renderTidbitPage = (data) =&gt; {}</code></pre>
 TypeScript will pick up these type definition and understand them.
 All JavaScript code will stay Javascript code.</p>
 <p>Let&#39;s start adding and configuring TypeScript to jskatas.org code base.
-It should be very easy to adapt this to any project at any moment.</p>
+It should be very easy to adapt this to any project at any stage.
+No matter if you have just started or if you have a years old code base, add type checks in the here described way
+will not hinder you to continue work on the code base. That is also always one of my goals, as listed above.
+I want it to become better every day and sometimes type checking certain files will improve it.</p>
 <h2 id="install-typescript-dependency">Install TypeScript Dependency</h2>
 <p>Start with <code>npm i typescript --save-dev</code>. We don&#39;t need typescript during production,
 so at it only to the devDependencies using <code>--save-dev</code> or <code>-D</code>.</p>
-<figure style="display: inline-block">
-    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="70%"/>
+<figure>
+    <img src="./install-typescript.gif" alt="diff in package.json of installed typescript" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption>The diff in the package.json of installed typescript</figcaption>
 </figure>
 
-<p>This is <a href="https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d">the commit on jskatas.org repo</a>.</p>
+<p>This is <a href="https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d">the commit on the jskatas.org repo</a>.</p>
 <p>Running <code>tsc</code> (the executable for typescript) now does nothing useful with our source code yet,
 it just lists all its options.</p>
-<pre><code>&gt; ./node_modules/.bin/tsc
+<pre><code class="language-shell">&gt; ./node_modules/.bin/tsc
 Version 3.8.3
 Syntax:   tsc [options] [file...]
 
@@ -225,40 +228,43 @@ Options:
  -h, --help                                         Print this message.
  -w, --watch                                        Watch input files.
  --pretty                                           Stylize errors and messages u
-...</code></pre><h2 id="add-npm-script-for-type-checking">Add Npm Script for Type Checking</h2>
+...</code></pre>
+<h2 id="add-npm-script-for-type-checking">Add Npm Script for Type Checking</h2>
 <p>I added a npm script <code>npm run typecheck</code> which is just an alias for <code>tsc</code>
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/11d1fde4673b9204792212fa7d2c98160ad92dcf">see the commit</a>).
 Additionally <code>npm run dev:typecheck</code> runs tsc in watch mode (I prefer to prefix my dev scripts with <code>dev:</code>).</p>
-<figure style="display: inline-block">
-    <img src="./add-typecheck-script.gif" alt="" width="70%"/>
-    <figcaption></figcaption>
+<figure>
+    <img src="./add-typecheck-script.gif" alt="The git diff for the npm script `typecheck` which runs tsc." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>The git diff for the npm script `typecheck` which runs tsc.</figcaption>
 </figure>
 
 <p>Still nothing happens yet in regards to type checking, tsc is just not yet configured.
-Let&#39;s configure tsc.</p>
-<h2 id="add-typescript-confguration-in-tsconfigjson">Add TypeScript Confguration in tsconfig.json</h2>
-<p>TypeScript&#39;s configuration goes into a file <code>tsconfig.json</code> normally in the root of the project
-(<a href="https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b">commit</a>).</p>
+Let&#39;s configure tsc, by adding a <code>tsconfig.json</code>.</p>
+<h2 id="add-typescript-confguration-file---tsconfigjson">Add TypeScript Confguration File - tsconfig.json</h2>
+<p>TypeScript&#39;s configuration goes into a file <code>tsconfig.json</code> normally located in the root of the project
+(<a href="https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b">commit</a>).
+It is a JSON file, so I add the most minimal JSON in it <code>{}</code>.</p>
 <figure style="display: inline-block">
-    <img src="./empty-tsconfig.gif" alt="" width="300"/>
+    <img src="./empty-tsconfig.gif" alt="" width="150" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
-<p>I just added an empty <code>tsconfig.json</code>. Which gets us a step futher. I am just a fan of baby steps,
+<p>I just added an empty <code>tsconfig.json</code>. Which gets me a step futher. I am a fan of baby steps,
 this way I learn bit by bit the effect of every change. I prefer this over throwing a huge config in my
-project which does a zillion things that I did not anticipated. They gonna swing back eventually.</p>
+project which does a zillion things that I did not anticipated. They gonna kick back eventually.</p>
 <p>Running the type check now gives us a hint what to do next.</p>
 <pre><code>&gt; npm run typecheck
 
 &gt; jskatas.org@2.0.0 typecheck /app
 &gt; tsc
 
-error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;. Specified &#39;include&#39; paths were &#39;[&quot;**/*&quot;]&#39; and &#39;exclude&#39; paths were &#39;[]&#39;.</code></pre><p>We will do exactly this next.</p>
-<h2 id="add-include-to-tsconfigjson">Add &quot;include&quot; to tsconfig.json</h2>
-<p>Let&#39;s start including all JS files from our <code>src</code> folder 
+error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;. Specified &#39;include&#39; paths were &#39;[&quot;**/*&quot;]&#39; and &#39;exclude&#39; paths were &#39;[]&#39;.</code></pre><p>I will do exactly this next.</p>
+<h2 id="configure-typescript-to-search-the-src-directory---the-include-config">Configure TypeScript to Search the &quot;src&quot; Directory - The &quot;include&quot; config</h2>
+<p>Let&#39;s start including all JS files from our <code>src</code> folder, by 
+<morehtml-tldr>adding the one line <code>&quot;include&quot;: [&quot;src/*.js&quot;]</code> in the <code>tsconfig.json</code></morehtml-tldr> 
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c">commit</a>).</p>
 <figure style="display: inline-block">
-    <img src="./tsconfig-with-include.gif" alt="" width="500"/>
+    <img src="./tsconfig-with-include.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -279,7 +285,7 @@ We add &quot;allowJs&quot; to &quot;compilerOptions&quot;. The <a href="https://
 <p>Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files.</p>
 </blockquote>
 <figure style="display: inline-block">
-    <img src="./tsconfig-allowjs.gif" alt="" width="500"/>
+    <img src="./tsconfig-allowjs.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -308,7 +314,7 @@ one can control what the target version of ECMAScript shall be.</p>
 anything else, so we add the <code>noEmit</code> option to turn off writing files
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247">commit</a>).</p>
 <figure style="display: inline-block">
-    <img src="./tsconfig-noemit.gif" alt="" width="500"/>
+    <img src="./tsconfig-noemit.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -326,9 +332,9 @@ We will do that next using the &quot;checkJs&quot; option.</p>
 <p>Works in tandem with <code>allowJs</code>. When <code>checkJs</code> is enabled then errors are reported in JavaScript files. 
 This is the equivalent of including <code>// @ts-check</code> at the top of all JavaScript files which are included in your project.</p>
 </blockquote>
-<p><a href="https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8">https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8</a></p>
+<p>(<a href="https://github.com/wolframkriesing/jskatas.org/commit/7afb09295f9f66d28510152d4dbb24bc26d726a8">commit</a>)</p>
 <figure style="display: inline-block">
-    <img src="./tsconfig-checkjs.gif" alt="" width="500"/>
+    <img src="./tsconfig-checkjs.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
@@ -351,9 +357,9 @@ src/config.js:29:10 - error TS2339: Property &#39;sourceUrl&#39; does not exist 
 
 Found 24 errors.
 </code></pre><h2 id="check-srcscripts-dir">Check src+scripts dir</h2>
-<p><a href="https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a">https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a</a></p>
+<p>(<a href="https://github.com/wolframkriesing/jskatas.org/commit/374985ef6171733eaea7e85db202705770ad0b6a">commit</a>)</p>
 <figure style="display: inline-block">
-    <img src="./tsconfig-include-all.gif" alt="" width="500"/>
+    <img src="./tsconfig-include-all.gif" alt="" width="400" class="sizeup-onhover-image scale2 origin-left-top" />
     <figcaption></figcaption>
 </figure>
 
