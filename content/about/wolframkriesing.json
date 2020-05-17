@@ -1,12 +1,13 @@
 {
   "jobs": [
     {
+      "id": "job-hc",
       "name": "HolidayCheck",
       "url": "holidaycheck.de",
-      "companyDescription": "Travel portal with a focus on the German-speaking market, especially for packaged travel (Pauschalreisen).",
-      "jobDescription": "",
+      "companyDescription": "Travel portal with a focus on the German-speaking market, focused on selling packaged travel (Pauschalreisen).",
+      "jobDescription": "I started the apprenticeship program at HolidayCheck, where I hired, trained and mentored future software developers. I ran projects, architected, programmed and led teams. I learned how to apply OKRs and understand how they can help steer a company.",
       "technologiesUsed": "Docker, Google Cloud, JavaScript, Postgres, many more",
-      "nonTechSkills": "OKRs, Interviewing, Hiring, Mentor, Product Owner, Architect, ...",
+      "nonTechSkills": "OKRs, Interviewing, Hiring, Mentoring, Product Owner, Architect, ...",
       "positions": ["Senior Principal Engineering"],
       "start": "May 2017",
       "end": "current",
@@ -14,25 +15,27 @@
       "isMostRelevant": true
     },
     {
+      "id": "job-crewmeister",
       "name": "Crewmeister",
       "url": "crewmeister.com",
       "companyDescription": "Time tracking and absence management for SMEs.",
-      "jobDescription": "",
-      "technologiesUsed": "Ruby on Rails, MySQL, JavaScript",
-      "nonTechSkills": "Project Lead, Scrum Master",
+      "jobDescription": "I rearchitected the existing Rails application and built a mobile app with the team.",
+      "technologiesUsed": "Ruby on Rails, React Native, MySQL, JavaScript",
+      "nonTechSkills": "Project Lead, Scrum",
       "positions": ["CTO"],
       "start": "November 2015",
       "end": "April 2017",
       "monthsAtJob": 17,
-      "isMostRelevant": true
+      "isMostRelevant": false
     },
     {
+      "id": "job-uxebu",
       "name": "uxebu",
       "url": "uxebu.com",
       "companyDescription": "JavaScript Consulting Company.",
-      "jobDescription": "I co-founded uxebu with two colleagues, we hired our first employee one year later. We shaped the JavaScript landscape very early on, ran events and hired top devs, who later went to Microsoft, Mozilla, Facebook, etc. We built JavaScript apps for various devices, all with web technologies. Initially people were skeptic, but we started in JavaScript as (one of) the first companies that did only JavaScript.",
-      "technologiesUsed": "JavaScript",
-      "nonTechSkills": "Founder, Employer, Sales, Marketing, all things a founder does",
+      "jobDescription": "I co-founded uxebu with two colleagues, we hired our first employee one year later. We shaped the JavaScript landscape very early on, ran events and hired top devs, who later went to Microsoft, Mozilla, Facebook, etc. We built JavaScript apps for various devices, all with web technologies. Initially people were skeptic, but we started as the first company that did just JavaScript. Nowadays this is a common thing.",
+      "technologiesUsed": "JavaScript, mobile development, TDD",
+      "nonTechSkills": "Founder, Employer, Full Remote Team, Conference hopping, Sales, Marketing, all things a founder does",
       "positions": ["CTO, Co-Founder"],
       "start": "November 2008",
       "end": "October 2015",
@@ -40,12 +43,13 @@
       "isMostRelevant": true
     },
     {
+      "id": "job-bmw",
       "name": "BMW",
       "url": "bmw.de",
       "companyDescription": "Automotive.",
       "jobDescription": "I started the project from scratch, it was a Web2.0 (it was the time!!!) BMW-internal innovation community platform, where BMW employees anonymously collaborated on ideas, some ideas can be found in cars of today.",
       "technologiesUsed": "Django (Python), MySQL (Database), Dojo (JavaScript)",
-      "nonTechSkills": "",
+      "nonTechSkills": "I learned that innovation is not just about ideas, also about collaborating and nurturing this environment.",
       "positions": ["Freelance Software Developer"],
       "start": "January 2007",
       "end": "October 2008",
@@ -53,42 +57,78 @@
       "isMostRelevant": true
     },
     {
+      "id": "job-mysql",
       "name": "MySQL",
       "url": "mysql.com",
       "companyDescription": "The world's most popular open source database.",
       "jobDescription": "",
-      "technologiesUsed": "JavaScript",
-      "nonTechSkills": "",
+      "technologiesUsed": "JavaScript, MySQL",
+      "nonTechSkills": "Working completely remote. During my interview and even the first days of work I had not met a colleague in person. Fortunately in the first week we had a team meeting in Texas.",
       "positions": ["Software Developer"],
       "start": "May 2006",
       "end": "October 2006",
       "monthsAtJob": 6,
+      "isMostRelevant": false
+    },
+    {
+      "id": "job-hypo",
+      "name": "HypoVereinsbank",
+      "url": "hypovereinsbank.de",
+      "companyDescription": "A big bank.",
+      "jobDescription": "I implemented a risk controlling management tool. All subsidaries of the Hypovereinsbank reported their numbers into this tool, every month. Nowadays one would call it a big data application. The tool handled a MySQL DB with ~100GB of data a month. We had to back it up every month, since the maximum size of harddisks at that time was about 120GB.",
+      "technologiesUsed": "PHP, JavaScript, Linux, MySQL",
+      "nonTechSkills": "I had to be dressed like one has to be dressed in a bank, every day.",
+      "positions": ["Freelance Software Developer"],
+      "start": "September 2003",
+      "end": "March 2005",
+      "monthsAtJob": 19,
       "isMostRelevant": true
     },
     {
-      "name": "Division Digital",
-      "companyDescription": "Privately held design studio.",
-      "jobDescription": "",
-      "technologiesUsed": "Oracle, JavaScript",
-      "nonTechSkills": "",
-      "positions": ["Freelance Software Developer"],
-      "start": "????",
-      "end": "???"
+      "id": "job-vp",
+      "name": "vision:produktion",
+      "url": "www.visionproduktion.de",
+      "companyDescription": "A small tech consultancy, we implemented various project from an SMS portal, time tracking to custom projects.",
+      "jobDescription": "I was one of the three founders, did aquisition of customers, but after a year I realized we were not ready for bigger things, so I left the company.",
+      "technologiesUsed": "PHP, JavaScript, Linux, MySQL, Typo3",
+      "nonTechSkills": "Founding, owning and running a company. Legal stuff. A lot of sales and aquisition skills.",
+      "positions": ["CTO, Co-Founder"],
+      "start": "July 2002",
+      "end": "July 2003",
+      "monthsAtJob": 13,
+      "isMostRelevant": false
     },
     {
+      "id": "job-dvd",
+      "name": "Division Digital",
+      "companyDescription": "Privately held design studio.",
+      "jobDescription": "I built a kids portal which tried to trigger the long term customer loyalty, it was a very playful and fun to use online application.",
+      "technologiesUsed": "Oracle, JavaScript",
+      "nonTechSkills": "Collaboration with Designers.",
+      "positions": ["Freelance Software Developer"],
+      "start": "2001",
+      "end": "June 2002",
+      "monthsAtJob": 12,
+      "isMostRelevant": false
+    },
+    {
+      "id": "job-m2",
       "name": "M2 Studio",
       "companyDescription": "Small, privately held design studio with high quality standards.",
       "jobDescription": "I converted a Flash application to JavaScript, so it can run in the Siemens Intranet on the browser Netscape 4.",
       "technologiesUsed": "JavaScript",
-      "nonTechSkills": "",
+      "nonTechSkills": "My first freelancer job, I was so scared that money would not come in. But all went awesomely well.",
       "positions": ["Freelance Software Developer"],
-      "start": "???? 2000",
-      "end": "December 2000"
+      "start": "December 2000",
+      "end": "2001",
+      "monthsAtJob": 12,
+      "isMostRelevant": true
     },
     {
+      "id": "job-records",
       "name": "records.de",
-      "companyDescription": "",
-      "jobDescription": "I led a team of locals and a lot of externals working in India.",
+      "companyDescription": "We tried to build a burn-your-own-CD portal. It failed.",
+      "jobDescription": "I joined a team of locals and a lot of externals working in India.",
       "technologiesUsed": "Java, XSLT, JavaScript",
       "nonTechSkills": "My first Startup experience.",
       "positions": ["Project Lead, Software Developer"],
@@ -97,10 +137,11 @@
       "monthsAtJob": 4
     },
     {
+      "id": "job-gide",
       "name": "Giesecke & Devrient",
       "url": "www.gi-de.com",
       "companyDescription": "G+D offer security technologies, both in the physical and digital. E.g. payment bills, chip cards, payment technology, ...",
-      "jobDescription": "",
+      "jobDescription": "It was my very first job, I learned a lot about the payment industry and how a hierarchically structured company works. The strong focus on quality standards was something that strongly influences me throughout my entire career.",
       "technologiesUsed": "C, Assembler, hardware design",
       "nonTechSkills": "My first job. Payment industry and technologies. Soldering chips on my own circuit board.",
       "positions": ["Software Developer"],
@@ -108,6 +149,32 @@
       "end": "July 2000",
       "monthsAtJob": 35,
       "isMostRelevant": true
+    }
+  ],
+  "education": [
+    {
+      "id": "edu-fhtw",
+      "name": "FHTW Berlin (Fachhochschule für Technik und Wirtschaft, now HTW)",
+      "comment": "Finished with a degree: Dipl. Ing. (FH) Technische Informatik",
+      "start": "March 1993",
+      "end": "May 1997",
+      "monthsDuration": 48
+    },
+    {
+      "id": "edu-usa",
+      "name": "Highschool and College in the USA",
+      "comment": "I went some month to highschool and only a couple of weeks to College. I became fluent in English.",
+      "start": "August 1992",
+      "end": "March 1993",
+      "monthsDuration": 7
+    },
+    {
+      "id": "edu-abi",
+      "name": "Leonard-Bernstein-Oberschule, Gymnasium, Berlin",
+      "comment": "Graduated Abitur with grade 2.3",
+      "start": "September 1990",
+      "end": "July 1992",
+      "monthsDuration": 24
     }
   ]
 }

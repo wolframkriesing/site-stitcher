@@ -10,11 +10,22 @@
       display: block;
     }
     .content {
-      width: 90vw;
+      width: 60vw;
+    }
+    p {
+      text-align: justify;
+    }
+    h3,
+    article p {
+      margin-bottom: 0;
+    }
+    p:last-child {
+      margin-bottom: var(--spacing-big);
     }
   </style>
 
   <header>
+    <nav class="primary"></nav>
     <div class="sitename">
       <a href="/">picostitch</a>
       <div class="subtitle">
@@ -52,12 +63,16 @@
       <nav>
         <ul>
           <li>
-            Companies
+            <a href="#jobs">Work History</a>
             <ul>
               <li>Positions
                 <ul>
-                  <li><label><input type="radio" name="type-positions" checked onclick="showAllPositions()" /> all</label></li>
-                  <li><label><input type="radio" name="type-positions" onclick="showMostRelevantPositions()" /> most relevant</label></li>
+                  <li><label><input type="radio" name="type-positions" checked onclick="showAllPositions()" />
+                    all ({{content.jobs.length}})
+                  </label></li>
+                  <li><label><input type="radio" name="type-positions" onclick="showMostRelevantPositions()" />
+                    most relevant ({{content.jobs.filter(j => j.isMostRelevant).length}})
+                  </label></li>
                 </ul>
               </li>
               <li><label><input type="checkbox" checked onclick="toggleDates(this.checked)" />Dates</label></li>
@@ -66,6 +81,9 @@
               <li><label><input type="checkbox" checked onclick="toggleTechnologiesUsed(this.checked)" />Technologies used</label></li>
               <li><label><input type="checkbox" checked onclick="toggleNonTechSkills(this.checked)" />Non-Tech skills</label></li>
             </ul>
+          </li>
+          <li>
+            <a href="#edu">Education</a>
           </li>
 <!--
           <li>Conferences
@@ -81,10 +99,39 @@
       </nav>
     </aside>
     <div class="content">
-      <h1>About: Wolfram Kriesing</h1>
+      <h1>Wolfram Kriesing</h1>
+      <p>
+        I come from Berlin, moved to Munich in 1997 for my first job.
+        I live in Munich with my wife and two kids. I still have strong roots in Berlin,
+        with a lot of family living there. Also our family in Spain lets us go there very often.
+      </p>
+      <p>
+        I started my first job in the IT industry <a href="#job-gide">in 1997 at Giesecke & Devrient</a>
+        after I had <a href="#edu-fhtw">studied Computer Science</a>.
+        I had wanted to study Computer Science since the second day I had started programming in 1987.
+        In the year 1999 I knew I had to make my day job be about the web. Even though I had made the
+        first website in 1994 at university I didn't pay too much attention to the web back then.
+        <br/>
+        Later I founded <a href="#job-vp">two</a> <a href="#job-uxebu">companies</a> purely about web technologies and services.
+        I <a href="http://jscoderetreat.com/">ran</a>
+        and still
+        <a href="https://jscraftcamp.org">run</a>
+        <a href="https://www.meetup.com/JavaScript-The-Language/">various</a>
+        events, I try to inspire
+        and
+        <a href="https://jskatas.org">share knowledge</a>
+        mostly among the JavaScript community in Munich.
+        <br/>
+        Topics that I care about are easy to find, on
+        <a href="/">this site</a>, which is my blog the
+        <a href="/tidbits">tidbits page</a>, on <a href="https://twitter.com/wolframkriesing">twitter</a> and
+        just by searching the web.
+      </p>
+      <hr/>
+      <h2 id="jobs">Work History</h2>
       {% content.jobs.map((j) => { %}
-        <article data-is-position-most-relevant="{{j.isMostRelevant?'true':'false'}}">
-          <h2>{{j.positions[0]}}</h2>
+        <article id="{{j.id}}" data-is-position-most-relevant="{{j.isMostRelevant?'true':'false'}}">
+          <h3>{{j.positions[0]}}</h3>
           <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{100-(j.monthsAtJob/3 || 0)}}%, var(--color-highlight-lighter) 0%)">
             {{j.start}} - {{j.end}}
           </div>
@@ -110,6 +157,21 @@
           </p>
         </article>
       {% }) %}
+
+      <hr/>
+      <h2 id="edu">Education</h2>
+      {% content.education.map((e) => { %}
+        <article id="{{e.id}}">
+          <h3>{{e.name}}</h3>
+          <div style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{100-(e.monthsDuration/3 || 0)}}%, var(--color-highlight-lighter) 0%)">
+            {{e.start}} - {{e.end}}
+          </div>
+          <p>
+            {{e.comment}}
+          </p>
+        </article>
+      {% }) %}
+
     </div>
   </main>
 {[ endblock ]}
