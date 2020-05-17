@@ -67,14 +67,27 @@ const generateTidbitsPage = async () => {
   await renderAndWriteTidbitPage()(tidbits, defaultRenderParams);
 };
 
-const generateAboutPage = async () => {
+const aboutIndexPage = async () => {
   const destDir = path.join(__dirname, '../_output', 'about');
   const contentDir = path.join(__dirname, '../content');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const content = marked(await fs.promises.readFile(path.join(contentDir, 'about.md'), 'utf8'));
+  const content = marked(await fs.promises.readFile(path.join(contentDir, 'about/index.md'), 'utf8'));
   const renderedFile = tundra.getRender('about.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
+};
+const aboutPersonPage = async () => {
+  const destDir = path.join(__dirname, '../_output', 'about/wolframkriesing');
+  const contentDir = path.join(__dirname, '../content');
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const content = await fs.promises.readFile(path.join(contentDir, 'about/wolframkriesing.json'), 'utf8');
+  const renderedFile = tundra.getRender('about-person.html', {...defaultRenderParams, content: JSON.parse(content)});
+  await fs.promises.writeFile(destFilename, renderedFile);
+};
+const generateAboutPages = async () => {
+  await aboutIndexPage();
+  await aboutPersonPage();
 }
 
 const generateHomePage = async (posts) => {
@@ -136,7 +149,7 @@ import {findRelatedPosts} from './related-posts.js';
   await timeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
   await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false)));
-  await timeIt('About page', () => generateAboutPage());
+  await timeIt('About pages', () => generateAboutPages());
   await timeIt('Tidbit pages', () => generateTidbitsPage());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   console.log('-----');

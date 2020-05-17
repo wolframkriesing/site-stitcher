@@ -1,0 +1,113 @@
+{
+  "jobs": [
+    {
+      "name": "HolidayCheck",
+      "url": "holidaycheck.de",
+      "companyDescription": "Travel portal with a focus on the German-speaking market, especially for packaged travel (Pauschalreisen).",
+      "jobDescription": "",
+      "technologiesUsed": "Docker, Google Cloud, JavaScript, Postgres, many more",
+      "nonTechSkills": "OKRs, Interviewing, Hiring, Mentor, Product Owner, Architect, ...",
+      "positions": ["Senior Principal Engineering"],
+      "start": "May 2017",
+      "end": "current",
+      "monthsAtJob": 37,
+      "isMostRelevant": true
+    },
+    {
+      "name": "Crewmeister",
+      "url": "crewmeister.com",
+      "companyDescription": "Time tracking and absence management for SMEs.",
+      "jobDescription": "",
+      "technologiesUsed": "Ruby on Rails, MySQL, JavaScript",
+      "nonTechSkills": "Project Lead, Scrum Master",
+      "positions": ["CTO"],
+      "start": "November 2015",
+      "end": "April 2017",
+      "monthsAtJob": 17,
+      "isMostRelevant": true
+    },
+    {
+      "name": "uxebu",
+      "url": "uxebu.com",
+      "companyDescription": "JavaScript Consulting Company.",
+      "jobDescription": "I co-founded uxebu with two colleagues, we hired our first employee one year later. We shaped the JavaScript landscape very early on, ran events and hired top devs, who later went to Microsoft, Mozilla, Facebook, etc. We built JavaScript apps for various devices, all with web technologies. Initially people were skeptic, but we started in JavaScript as (one of) the first companies that did only JavaScript.",
+      "technologiesUsed": "JavaScript",
+      "nonTechSkills": "Founder, Employer, Sales, Marketing, all things a founder does",
+      "positions": ["CTO, Co-Founder"],
+      "start": "November 2008",
+      "end": "October 2015",
+      "monthsAtJob": 84,
+      "isMostRelevant": true
+    },
+    {
+      "name": "BMW",
+      "url": "bmw.de",
+      "companyDescription": "Automotive.",
+      "jobDescription": "I started the project from scratch, it was a Web2.0 (it was the time!!!) BMW-internal innovation community platform, where BMW employees anonymously collaborated on ideas, some ideas can be found in cars of today.",
+      "technologiesUsed": "Django (Python), MySQL (Database), Dojo (JavaScript)",
+      "nonTechSkills": "",
+      "positions": ["Freelance Software Developer"],
+      "start": "January 2007",
+      "end": "October 2008",
+      "monthsAtJob": 21,
+      "isMostRelevant": true
+    },
+    {
+      "name": "MySQL",
+      "url": "mysql.com",
+      "companyDescription": "The world's most popular open source database.",
+      "jobDescription": "",
+      "technologiesUsed": "JavaScript",
+      "nonTechSkills": "",
+      "positions": ["Software Developer"],
+      "start": "May 2006",
+      "end": "October 2006",
+      "monthsAtJob": 6,
+      "isMostRelevant": true
+    },
+    {
+      "name": "Division Digital",
+      "companyDescription": "Privately held design studio.",
+      "jobDescription": "",
+      "technologiesUsed": "Oracle, JavaScript",
+      "nonTechSkills": "",
+      "positions": ["Freelance Software Developer"],
+      "start": "????",
+      "end": "???"
+    },
+    {
+      "name": "M2 Studio",
+      "companyDescription": "Small, privately held design studio with high quality standards.",
+      "jobDescription": "I converted a Flash application to JavaScript, so it can run in the Siemens Intranet on the browser Netscape 4.",
+      "technologiesUsed": "JavaScript",
+      "nonTechSkills": "",
+      "positions": ["Freelance Software Developer"],
+      "start": "???? 2000",
+      "end": "December 2000"
+    },
+    {
+      "name": "records.de",
+      "companyDescription": "",
+      "jobDescription": "I led a team of locals and a lot of externals working in India.",
+      "technologiesUsed": "Java, XSLT, JavaScript",
+      "nonTechSkills": "My first Startup experience.",
+      "positions": ["Project Lead, Software Developer"],
+      "start": "August 2000",
+      "end": "November 2000",
+      "monthsAtJob": 4
+    },
+    {
+      "name": "Giesecke & Devrient",
+      "url": "www.gi-de.com",
+      "companyDescription": "G+D offer security technologies, both in the physical and digital. E.g. payment bills, chip cards, payment technology, ...",
+      "jobDescription": "",
+      "technologiesUsed": "C, Assembler, hardware design",
+      "nonTechSkills": "My first job. Payment industry and technologies. Soldering chips on my own circuit board.",
+      "positions": ["Software Developer"],
+      "start": "August 1997",
+      "end": "July 2000",
+      "monthsAtJob": 35,
+      "isMostRelevant": true
+    }
+  ]
+}

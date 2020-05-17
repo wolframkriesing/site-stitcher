@@ -1,0 +1,115 @@
+@extends(src/templates/_empty.html)
+
+{[ block pagename ]}about{[ endblock ]}
+{[ block canonicalUrl ]}/about{[ endblock ]}
+{[ block pageTitlePrefix ]}About{[ endblock ]}
+
+{[ block body ]}
+  <style>
+    li {
+      display: block;
+    }
+    .content {
+      width: 90vw;
+    }
+  </style>
+
+  <header>
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <script type="application/javascript">
+    function showAllPositions() {
+      document.querySelectorAll('article').forEach(a => a.style.display = '');
+    }
+    function showMostRelevantPositions() {
+      document.querySelectorAll('article[data-is-position-most-relevant="false"]').forEach(a => a.style.display = 'none');
+    }
+    function toggleDates(isVisible) {
+      document.querySelectorAll('.dates').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleCompanyDescription(isVisible) {
+      document.querySelectorAll('.companyDescription').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleJobDescription(isVisible) {
+      document.querySelectorAll('.jobDescription').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleTechnologiesUsed(isVisible) {
+      document.querySelectorAll('.technologiesUsed').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleNonTechSkills(isVisible) {
+      document.querySelectorAll('.nonTechSkills').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+  </script>
+
+  <main>
+    <aside>
+      <nav>
+        <ul>
+          <li>
+            Companies
+            <ul>
+              <li>Positions
+                <ul>
+                  <li><label><input type="radio" name="type-positions" checked onclick="showAllPositions()" /> all</label></li>
+                  <li><label><input type="radio" name="type-positions" onclick="showMostRelevantPositions()" /> most relevant</label></li>
+                </ul>
+              </li>
+              <li><label><input type="checkbox" checked onclick="toggleDates(this.checked)" />Dates</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleCompanyDescription(this.checked)" />Company description</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleJobDescription(this.checked)" />Job description</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleTechnologiesUsed(this.checked)" />Technologies used</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleNonTechSkills(this.checked)" />Non-Tech skills</label></li>
+            </ul>
+          </li>
+<!--
+          <li>Conferences
+            <ul>
+              <li><label><input type="checkbox" />I attended</label></li>
+              <li><label><input type="checkbox" />I spoke at</label></li>
+            </ul>
+          </li>
+          <li>Meetups</li>
+          <li>Publications</li>
+-->
+        </ul>
+      </nav>
+    </aside>
+    <div class="content">
+      <h1>About: Wolfram Kriesing</h1>
+      {% content.jobs.map((j) => { %}
+        <article data-is-position-most-relevant="{{j.isMostRelevant?'true':'false'}}">
+          <h2>{{j.positions[0]}}</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{100-(j.monthsAtJob/3 || 0)}}%, var(--color-highlight-lighter) 0%)">
+            {{j.start}} - {{j.end}}
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            {% if (j.url) { %}
+              <a href="https://{{j.url}}">{{j.name}}</a>:
+            {% } else { %}
+              {{j.name}}:
+            {% } %}
+            {{j.companyDescription}}
+          </p>
+          <p class="jobDescription">
+            {{j.jobDescription}}
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: {{j.technologiesUsed}}
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: {{j.nonTechSkills}}
+            </span>
+          </p>
+        </article>
+      {% }) %}
+    </div>
+  </main>
+{[ endblock ]}
