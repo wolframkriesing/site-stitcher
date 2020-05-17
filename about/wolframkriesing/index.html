@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - stitching knowhow for the world, bit by bit">
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/about">
+  <title>About | picostitch - crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-about">
+
+  <style>
+    li {
+      display: block;
+    }
+    .content {
+      width: 90vw;
+    }
+  </style>
+
+  <header>
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <script type="application/javascript">
+    function showAllPositions() {
+      document.querySelectorAll('article').forEach(a => a.style.display = '');
+    }
+    function showMostRelevantPositions() {
+      document.querySelectorAll('article[data-is-position-most-relevant="false"]').forEach(a => a.style.display = 'none');
+    }
+    function toggleDates(isVisible) {
+      document.querySelectorAll('.dates').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleCompanyDescription(isVisible) {
+      document.querySelectorAll('.companyDescription').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleJobDescription(isVisible) {
+      document.querySelectorAll('.jobDescription').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleTechnologiesUsed(isVisible) {
+      document.querySelectorAll('.technologiesUsed').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+    function toggleNonTechSkills(isVisible) {
+      document.querySelectorAll('.nonTechSkills').forEach(a => a.style.display = isVisible ? '' : 'none');
+    }
+  </script>
+
+  <main>
+    <aside>
+      <nav>
+        <ul>
+          <li>
+            Companies
+            <ul>
+              <li>Positions
+                <ul>
+                  <li><label><input type="radio" name="type-positions" checked onclick="showAllPositions()" /> all</label></li>
+                  <li><label><input type="radio" name="type-positions" onclick="showMostRelevantPositions()" /> most relevant</label></li>
+                </ul>
+              </li>
+              <li><label><input type="checkbox" checked onclick="toggleDates(this.checked)" />Dates</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleCompanyDescription(this.checked)" />Company description</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleJobDescription(this.checked)" />Job description</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleTechnologiesUsed(this.checked)" />Technologies used</label></li>
+              <li><label><input type="checkbox" checked onclick="toggleNonTechSkills(this.checked)" />Non-Tech skills</label></li>
+            </ul>
+          </li>
+<!--
+          <li>Conferences
+            <ul>
+              <li><label><input type="checkbox" />I attended</label></li>
+              <li><label><input type="checkbox" />I spoke at</label></li>
+            </ul>
+          </li>
+          <li>Meetups</li>
+          <li>Publications</li>
+-->
+        </ul>
+      </nav>
+    </aside>
+    <div class="content">
+      <h1>About: Wolfram Kriesing</h1>
+      
+        <article data-is-position-most-relevant="true">
+          <h2>Senior Principal Engineering</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 87.66666666666667%, var(--color-highlight-lighter) 0%)">
+            May 2017 - current
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              <a href="https://holidaycheck.de">HolidayCheck</a>:
+            
+            Travel portal with a focus on the German-speaking market, especially for packaged travel (Pauschalreisen).
+          </p>
+          <p class="jobDescription">
+            
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: Docker, Google Cloud, JavaScript, Postgres, many more
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: OKRs, Interviewing, Hiring, Mentor, Product Owner, Architect, ...
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="true">
+          <h2>CTO</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 94.33333333333333%, var(--color-highlight-lighter) 0%)">
+            November 2015 - April 2017
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              <a href="https://crewmeister.com">Crewmeister</a>:
+            
+            Time tracking and absence management for SMEs.
+          </p>
+          <p class="jobDescription">
+            
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: Ruby on Rails, MySQL, JavaScript
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: Project Lead, Scrum Master
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="true">
+          <h2>CTO, Co-Founder</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 72%, var(--color-highlight-lighter) 0%)">
+            November 2008 - October 2015
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              <a href="https://uxebu.com">uxebu</a>:
+            
+            JavaScript Consulting Company.
+          </p>
+          <p class="jobDescription">
+            I co-founded uxebu with two colleagues, we hired our first employee one year later. We shaped the JavaScript landscape very early on, ran events and hired top devs, who later went to Microsoft, Mozilla, Facebook, etc. We built JavaScript apps for various devices, all with web technologies. Initially people were skeptic, but we started in JavaScript as (one of) the first companies that did only JavaScript.
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: JavaScript
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: Founder, Employer, Sales, Marketing, all things a founder does
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="true">
+          <h2>Freelance Software Developer</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 93%, var(--color-highlight-lighter) 0%)">
+            January 2007 - October 2008
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              <a href="https://bmw.de">BMW</a>:
+            
+            Automotive.
+          </p>
+          <p class="jobDescription">
+            I started the project from scratch, it was a Web2.0 (it was the time!!!) BMW-internal innovation community platform, where BMW employees anonymously collaborated on ideas, some ideas can be found in cars of today.
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: Django (Python), MySQL (Database), Dojo (JavaScript)
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: 
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="true">
+          <h2>Software Developer</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 98%, var(--color-highlight-lighter) 0%)">
+            May 2006 - October 2006
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              <a href="https://mysql.com">MySQL</a>:
+            
+            The world's most popular open source database.
+          </p>
+          <p class="jobDescription">
+            
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: JavaScript
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: 
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="false">
+          <h2>Freelance Software Developer</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 100%, var(--color-highlight-lighter) 0%)">
+            ???? - ???
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              Division Digital:
+            
+            Privately held design studio.
+          </p>
+          <p class="jobDescription">
+            
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: Oracle, JavaScript
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: 
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="false">
+          <h2>Freelance Software Developer</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 100%, var(--color-highlight-lighter) 0%)">
+            ???? 2000 - December 2000
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              M2 Studio:
+            
+            Small, privately held design studio with high quality standards.
+          </p>
+          <p class="jobDescription">
+            I converted a Flash application to JavaScript, so it can run in the Siemens Intranet on the browser Netscape 4.
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: JavaScript
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: 
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="false">
+          <h2>Project Lead, Software Developer</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 98.66666666666667%, var(--color-highlight-lighter) 0%)">
+            August 2000 - November 2000
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              records.de:
+            
+            
+          </p>
+          <p class="jobDescription">
+            I led a team of locals and a lot of externals working in India.
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: Java, XSLT, JavaScript
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: My first Startup experience.
+            </span>
+          </p>
+        </article>
+      
+        <article data-is-position-most-relevant="true">
+          <h2>Software Developer</h2>
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent 88.33333333333333%, var(--color-highlight-lighter) 0%)">
+            August 1997 - July 2000
+          </div>
+          <p class="companyDescription" style="color: var(--color-secondary)">
+            
+              <a href="https://www.gi-de.com">Giesecke &amp; Devrient</a>:
+            
+            G+D offer security technologies, both in the physical and digital. E.g. payment bills, chip cards, payment technology, ...
+          </p>
+          <p class="jobDescription">
+            
+          </p>
+          <p>
+            <span class="technologiesUsed">
+              <b>Technologies used</b>: C, Assembler, hardware design
+              <br/>
+            </span>
+            <span class="nonTechSkills">
+              <b>Non-Tech skills</b>: My first job. Payment industry and technologies. Soldering chips on my own circuit board.
+            </span>
+          </p>
+        </article>
+      
+    </div>
+  </main>
+
+</body>
+</html>
