@@ -8,6 +8,13 @@
   - [x] show no drafts on the home page, but everywhere else it's fine, they will be marked
   - [x] ~~show the draft posts (somewhere) on the page~~ not needed, they will just NOT be on home 
   - [x] mark the draft posts, so one can clearly see they are draft!
+- [ ] add meta tags
+  - [ ] add og meta tags (https://ogp.me/)
+  - [ ] for twitter https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
+  - [ ] add <meta name="twitter:description" content="{{abstract}}" />
+  - [ ] <meta property="og:description" content="{{abstract}}">
+  - [ ] add <meta name="keywords" content="{{tags}}">
+  - [ ] image per post? 
 - [ ] generate tweets, and add the tags a post/tidbit has
 - [ ] add tddbin, katas and jskatas files on the site (files=ADRs, README, etc.)
 - [ ] link the tags
@@ -159,7 +166,6 @@
   - [ ] to-do-list-checker (todo-stitcher)
   - [ ] kavun (pico-test)
 - [ ] generate dates (started, published, last changed) from commits
-- [ ] add og meta tags (https://ogp.me/)
 - [ ] lint/verify the syntax of a blog post
   - [ ] can have meta tags at the top only
   - [ ] the syntax of the metadata is defined, see BlogPostMetadata type 
