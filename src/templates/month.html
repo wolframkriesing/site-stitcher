@@ -1,7 +1,7 @@
 @extends(src/templates/_base.html)
 
 {[ block pagename ]}month{[ endblock ]}
-
+{[ block canonicalUrl ]}/blog/{{yearAndMonth.split('-').join('/')}}/{[ endblock ]}
 {[ block pageTitlePrefix ]}{{toReadableDate(yearAndMonth)}}{[ endblock ]}
 
 {[ block breadcrumb ]}
