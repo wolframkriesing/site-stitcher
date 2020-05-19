@@ -31,7 +31,7 @@ Let's type check JavaScript files by using TypeScript.
 ## Official Docs are Scarce on this Topic
 The TypeScript docs have one page on the topic 
 [Type Checking JavaScript Files][1].
-But there is a bit more to it. Thanks to [Jan] and his project [elix]
+But there is a bit more to it. Thanks to [@Jan] and his project [@elix]
 [I learned][7] the basics and how to apply TypeScript as a type linter on JS files.  
 
 ## What is TypeScript for JavaScript?
@@ -52,7 +52,7 @@ In the following you can see how I **set up TypeScript, as a type linter for Jav
 to type check JavaScript files.
 
 [jskatas.org]: https://jskatas.org
-[Jan]: https://twitter.com/JanMiksovsky
+[@Jan]: https://twitter.com/JanMiksovsky
 [elix]: https://twitter.com/ElixElements/
 [Flow]: https://flow.org/
 [deno]: https://deno.land
@@ -214,6 +214,9 @@ they can either be passed as command line arguments or set in the `tsconfig.json
 ([commit](https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f320c74571748e8c4)).
 We add "allowJs" to "compilerOptions". The [docs describe it](https://www.typescriptlang.org/v2/en/tsconfig#allowJs) like this:
 > Allow JavaScript files to be imported inside your project, instead of just .ts and .tsx files.
+
+Thanks to [@Munawwar](https://twitter.com/munawwarfiroz) for pointing out that
+["you can use `jsconfig.json` which is exactly like tsconfig.json but with `allowJs` defaulted to true"](https://twitter.com/munawwarfiroz/status/1262022720180625409).
 
 <figure style="display: inline-block">
     <img src="./tsconfig-allowjs.gif" alt="Set the compiler option 'allowJs=true'." width="400" class="sizeup-onhover-image scale2 origin-left-top" />
