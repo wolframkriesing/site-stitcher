@@ -1,3 +1,31 @@
+# Setting a Cookie: use Max-Age!
+
+dateCreated: 2020-05-20 10:14 CET
+tags: web, browser, javascript
+
+[@Peter Coles](https://twitter.com/lethys) wrote 
+["HTTP Cookies: What's the difference between Max-age and Expires?"](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
+in 2009, but he has updated the article later and there is the answer for wether to use "expires" and/or "max-age" 
+when you set cookies.
+
+**What is "max-age"?**
+> Max-age sets the time in seconds for when a cookie will be deleted (use this, it’s no longer 2009)
+> [...]
+> expires was deprecated and replaced with the easier-to-use max-age
+
+About **browser compatibility**, he states:
+
+> Unfortunately, none of the current versions of Internet Explorer support max-age
+
+MDN does [not confirm that](https://developer.mozilla.org/en-US/docs/Web/API/Document/cookie).
+[caniuse.com states](https://caniuse.com/#search=max-age) that IE 7 did not support it, but IEs after that do.
+
+Not sure when Peter updated his post last, but he closes it with
+
+> UPDATE: just use Max-Age, the web has improved since this was written.
+
+**If you don't write IE7 apps use "max-age"!**
+
 # Flow Infers Types "Local" to Modules ❤️
 
 dateCreated: 2020-05-16 17:22 CET
