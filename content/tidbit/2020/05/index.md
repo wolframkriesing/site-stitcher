@@ -1,4 +1,4 @@
-# How Does JavaScript Behave when Cookies are Disabled
+# How Does JavaScript Behave when Cookies are Disabled?
 
 dateCreated: 2020-05-20 11:14 CET
 tags: web, browser, javascript
