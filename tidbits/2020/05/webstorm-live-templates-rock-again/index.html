@@ -173,44 +173,7 @@ over and over again, metadata such as the current <code>dateCreated</code>, as s
 </li>
 <li><p>Select the one with &quot;Preferences&quot; behind it</p>
  <figure>
-     <img src="../live-tpl-find-action.gif" alt="Find Action screen in WebStorm" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>Find Action screen in WebStorm</figcaption>
- </figure></li>
-<li><p>Create a new Live Template, <kbd>Cmd</kbd> + <kbd>N</kbd>, choose &quot;Live Template&quot;</p>
-</li>
-<li><p>Fill it in as in the image</p>
- <figure>
-     <img src="../live-tpl-edit.gif" alt="The editor for the live template" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>The editor for the live template</figcaption>
- </figure>
-</li>
-<li><p>Make sure to set &quot;Applicable ...&quot; below the fields.
-Since I am using it in markdown files, which has no own section I chose &quot;Other&quot;, see image</p>
- <figure>
-     <img src="../live-tpl-type.gif" alt="Edit live template type" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>Edit live template type</figcaption>
- </figure>
-</li>
-<li><p>Note the <code>$NOW$</code>. This is a variable which does NOT exist yet, so let&#39;s create it to return 
-the <code>dateCreated</code> in the format you have seen above (<code>2020-05-02 15:27 CET</code>).</p>
-</li>
-<li><p>Click &quot;Edit variables&quot; on the right.</p>
-</li>
-<li><p>Reading a little bit in <a href="https://www.jetbrains.com/help/webstorm/2020.1/edit-template-variables-dialog.html">the JetBrains docs</a>
-I found out very quickly that I need to set the value of the variable <code>NOW</code>
-to <code>concat(date(&quot;Y-MM-dd HH:mm&quot;), &quot; CET&quot;)</code>.</p>
- <figure>
-     <img src="../live-tpl-edit-variable.gif" alt="Edit live template variable" width=300 class="sizeup-onhover-image scale2 origin-left-center" />
-     <figcaption>Edit live template variable</figcaption>
- </figure>
-</li>
-<li><p>If you tick &quot;Skip if defined&quot; the value will just auto complete and the Live Template is done (otherwise the inserted
-value of <code>NOW</code> would be selected for editing, which we don&#39;t need here)</p>
-</li>
-<li><p>Save and apply ... just close all the dialogs :)</p>
-</li>
-<li><p>Voila, now when I type <code>dateC</code> + <kbd>TAB</kbd> in my markdown file I get the date.
-<code>dateCreated: 2020-05-02 15:54 CET</code></p>
+     <img src="../live-tpl-
 </li>
 </ol>
 
