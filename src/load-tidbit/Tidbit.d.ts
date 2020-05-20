@@ -15,6 +15,7 @@ export type TidbitMetadata = {
   dateCreated: DateTimeString;
   tags: string[];
   oldUrls: RelativeUrl[];
+  slug: string;
 }
 
 export class Tidbit {
@@ -24,7 +25,7 @@ export class Tidbit {
   headline: string;
   oldUrls: TidbitMetadata['oldUrls'];
   sourceFilename: Filename;
-  slug: string;
+  slug: TidbitMetadata['slug'];
   tags: TidbitMetadata['tags'];
   url: RelativeUrl;
 
