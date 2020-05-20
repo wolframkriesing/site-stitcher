@@ -5,14 +5,14 @@ const slug = s => new marked.Slugger().slug(s);
 export class Tidbit {
   static withRawData(raw) {
     const tidbit = new Tidbit();
-    tidbit.bodyAsHtml = raw.bodyAsHtml;
-    tidbit.headline = raw.headline;
     tidbit.abstractAsHtml = raw.abstractAsHtml;
+    tidbit.bodyAsHtml = raw.bodyAsHtml;
     tidbit.dateCreated = raw.dateCreated;
-    tidbit._tagValues = raw.tags;
+    tidbit.hasAbstractOnly = raw.hasAbstractOnly;
+    tidbit.headline = raw.headline;
     tidbit.oldUrls = raw.oldUrls;
     tidbit.slug = raw.slug;
-    tidbit.hasAbstractOnly = raw.hasAbstractOnly;
+    tidbit._tagValues = raw.tags;
     return tidbit;
   }
   get url() {
