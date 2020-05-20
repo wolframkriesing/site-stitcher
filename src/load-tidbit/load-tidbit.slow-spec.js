@@ -19,6 +19,7 @@ describe('Load a tidbit file (one month)', () => {
         // sourceFilename: filename,
         headline: 'A Tidbit',
         abstractAsHtml: 'This tidbit has ONLY the required data.',
+        slug: 'a-tidbit',
       };
       assertThat(tidbit[0], instanceOf(Tidbit));
       assertThat(tidbit[0], hasProperties(expectedProps));

@@ -12,7 +12,8 @@ describe('Load a tidbit file (one month)', () => {
         const fileContent = [
           '# A Tidbit',
           '',
-          'dateCreated: 2111-11-11 11:11 CET',
+          'slug: a-custom-tidbit  ',
+          'dateCreated: 2111-11-11 11:11 CET  ',
           '',
           'One paragraph'
         ].join('\n');
@@ -31,10 +32,10 @@ describe('Load a tidbit file (one month)', () => {
         assertThat(load()[0].dateCreated, '2111-11-11 11:11 CET');
       });
       it('THEN it has the url = /tidbits/2111/11/a-tidbit/', () => {
-        assertThat(load()[0].url, '/tidbits/2111/11/a-tidbit/');
+        assertThat(load()[0].url, '/tidbits/2111/11/a-custom-tidbit/');
       });
       it('THEN it has the slug = a-tidbit', () => {
-        assertThat(load()[0].slug, 'a-tidbit');
+        assertThat(load()[0].slug, 'a-custom-tidbit');
       });
       it('THEN it has the abstractAsHtml = "One paragraph"', () => {
         assertThat(load()[0].abstractAsHtml, 'One paragraph');

@@ -8,6 +8,7 @@ type RawTidbit = {
   headline: string;
   dateCreated: DateTimeString;
   tags: string[];
+  slug: string;
 };
 
 export type TidbitMetadata = {

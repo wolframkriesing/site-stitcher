@@ -14,6 +14,7 @@ const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
   {key: 'tags', type: 'array', separator: ','},
   {key: 'oldUrls', type: 'array', separator: ' '},
+  {key: 'slug', type: 'string'},
 ];
 /**
  * @param tokens {marked.Token[]}

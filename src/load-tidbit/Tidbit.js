@@ -11,15 +11,13 @@ export class Tidbit {
     tidbit.dateCreated = raw.dateCreated;
     tidbit._tagValues = raw.tags;
     tidbit.oldUrls = raw.oldUrls;
+    tidbit.slug = raw.slug;
     tidbit.hasAbstractOnly = raw.hasAbstractOnly;
     return tidbit;
   }
   get url() {
     const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
     return '/tidbits/' + datePart + '/' + this.slug + '/';
-  }
-  get slug() {
-    return slug(this.headline);
   }
   get tags() {
     return this._tagValues.map(t => ({value: t, slug: slug(t)}));
