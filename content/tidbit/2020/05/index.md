@@ -1,7 +1,16 @@
+# Disclosure Widgets - by Adrian Roselli
+
+dateCreated: 2020-05-20 15:42 CET  
+tags: a11y, web, browser, link  
+
+A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
+See his article for very in depth content on how to use `<details>` and `<summary>` tags. 
+https://adrianroselli.com/2020/05/disclosure-widgets.html
+
 # How Does JavaScript Behave when Cookies are Disabled?
 
-dateCreated: 2020-05-20 11:14 CET
-tags: web, browser, javascript
+dateCreated: 2020-05-20 11:14 CET  
+tags: web, browser, javascript  
 
 With latest privacy awareness I believe cookies are also one sensitive topic. I have no numbers,
 but I guess there are more people who have cookies disabled then we believe. If not, I learned something here.
@@ -29,8 +38,8 @@ See what I tried on the browser console:
 
 # Setting a Cookie: use Max-Age!
 
-dateCreated: 2020-05-20 10:14 CET
-tags: web, browser, javascript
+dateCreated: 2020-05-20 10:14 CET  
+tags: web, browser, javascript  
 
 [@Peter Coles](https://twitter.com/lethys) wrote 
 ["HTTP Cookies: What's the difference between Max-age and Expires?"](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
