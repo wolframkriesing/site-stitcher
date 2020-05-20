@@ -1,5 +1,6 @@
 # Tests using `process.cpuUsage` and `process.memoryUsage`
 
+slug: tests-using-processcpuusage-and-processmemoryusage
 tags: javascript, nodejs, learning, testing, knowledgebase  
 dateCreated: 2019-12-26 13:16 CET
 
@@ -11,6 +12,7 @@ Originally posted at https://wolframkriesing.micro.blog/2019/12/26/learning-stuf
 
 # Mocha's Magic `done` Parameter
 
+slug: mochas-magic-done-parameter
 tags: javascript, nodejs, mocha, testing, knowledgebase  
 dateCreated: 2019-12-02 22:30 CET
 

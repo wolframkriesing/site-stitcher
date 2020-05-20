@@ -1,5 +1,6 @@
 # Disclosure Widgets - by Adrian Roselli
 
+slug: disclosure-widgets-by-adrian-roselli  
 dateCreated: 2020-05-20 15:42 CET  
 tags: a11y, web, browser, link  
 
@@ -9,6 +10,7 @@ https://adrianroselli.com/2020/05/disclosure-widgets.html
 
 # How Does JavaScript Behave when Cookies are Disabled?
 
+slug: how-does-javascript-behave-when-cookies-are-disabled  
 dateCreated: 2020-05-20 11:14 CET  
 tags: web, browser, javascript  
 
@@ -38,6 +40,7 @@ See what I tried on the browser console:
 
 # Setting a Cookie: use Max-Age!
 
+slug: setting-a-cookie-use-max-age  
 dateCreated: 2020-05-20 10:14 CET  
 tags: web, browser, javascript  
 
@@ -66,6 +69,7 @@ Not sure when Peter updated his post last, but he closes it with
 
 # Flow Infers Types "Local" to Modules ❤️
 
+slug: flow-infers-types-local-to-modules
 dateCreated: 2020-05-16 17:22 CET
 tags: JavaScript, flow, type checking, typing
 
@@ -80,6 +84,7 @@ as good practice to still type **every** function, no matter if public or privat
 
 # The Unicode Character for the Hamburger Menu Icon ☰
 
+slug: the-unicode-character-for-the-hamburger-menu-icon
 dateCreated: 2020-05-16 14:48 CET
 tags: web
 
@@ -91,6 +96,7 @@ found at https://www.abeautifulsite.net/the-unicode-character-for-menu-icons
 
 # My new friend: WebStorm's "Split vertically" for the Terminal
 
+slug: my-new-friend-webstorms-split-vertically-for-the-terminal
 dateCreated: 2020-05-15 15:48 CET
 tags: tools, WebStorm
 
@@ -108,6 +114,7 @@ Thanks JetBrains!
 
 # mov to gif converter
 
+slug: mov-to-gif-converter
 dateCreated: 2020-05-15 15:37 CET
 tags: tools
 
@@ -117,6 +124,7 @@ gifs better, I need https://cloudconvert.com/mov-to-gif it's a simple and awesom
 
 # TypeScript for JavaScript
 
+slug: typescript-for-javascript  
 dateCreated: 2020-05-14 22:19 CET  
 tags: JavaScript, TypeScript, ts4js 
 
@@ -131,6 +139,7 @@ The quote that sums up TypeScript quite well:
 
 # Deno 1.0, TypeScript 3.9
 
+slug: deno-10-typescript-39  
 dateCreated: 2020-05-14 10:19 CET  
 tags: javascript, tools, web, typescript  
 
@@ -153,6 +162,7 @@ from [deno.land](https://deno.land/)
 
 # Clone Behavior of <script> Tag
 
+slug: clone-behavior-of-script-tag
 dateCreated: 2020-05-12 00:53 CET
 tags: web, javascript, DOM, knowledgebase  
 
@@ -168,6 +178,7 @@ Read it all on https://stackoverflow.com/questions/28771542/why-dont-clonenode-s
 
 # CSS Reset
 
+slug: css-reset
 dateCreated: 2020-05-11 22:36 CET
 tags: web, CSS, knowledgebase  
 
@@ -200,6 +211,7 @@ I think you can get a picture of the trustworthiness of this site.
 
 # Learned From "Don't Make Me Think"
 
+slug: learned-from-dont-make-me-think
 dateCreated: 2020-05-11 19:09 CET  
 tags: web, design, UX, knowledgebase  
 
@@ -220,6 +232,7 @@ The things I took away for me until now, while I am still reading [the book](htt
 I learned about this book from Uku, [as I wrote in "A Developer Designs"](/blog/2020/04/16-a-developer-designs/).
 
 # We don’t give people a website any more
+slug: we-dont-give-people-a-website-any-more
 dateCreated: 2020-05-11 16:46 CET  
 tags: web  
 
@@ -275,6 +288,7 @@ and https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag.
 
 # snowpack.dev - Bundler Free Development
 
+slug: snowpackdev---bundler-free-development
 dateCreated: 2020-05-09 13:35 CET  
 tags: JavaScript  
 
@@ -297,6 +311,7 @@ filesystem. This even allows you to leverage more of your devtools and there is 
 
 # The History of the Web
 
+slug: the-history-of-the-web
 dateCreated: 2020-05-09 13:26 CET  
 tags: web, knowledgebase    
 
@@ -307,6 +322,7 @@ August 6, 1991 Tim Berners-Lee responding to a thread on the alt.hypertext Usene
 
 # Brutalist Web Design
 
+slug: brutalist-web-design
 dateCreated: 2020-05-09 13:07 CET  
 tags: design, a11y  
 
@@ -324,6 +340,7 @@ Read it all on https://brutalist-web.design/
 
 # Make `arr[0]` Fail Safe
 
+slug: make-arr0-fail-safe
 dateCreated: 2020-05-03 18:07 CET
 tags: JavaScript, knowledgebase  
 
@@ -342,6 +359,7 @@ Which gets me into why exception throwing sux, but that's a whole topic of its o
 
 # WebStorm Live Templates Rock (Again)
 
+slug: webstorm-live-templates-rock-again
 tags: tools, webstorm, automation, knowledgebase  
 dateCreated: 2020-05-02 15:27 CET
 

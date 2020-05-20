@@ -14,9 +14,9 @@
   - [ ] fix all headlines that have <> in them and special chars, that HTML would want escaped
   - [ ] maybe generate a slug and the attribute `urlSlug: slug-bla` so we can also change URLs, which happens
         and slugs are only used for tidbits ... sounds like the better solution
-    - [ ] add a `urlSlug` attribute to all tidbits
-    - [ ] use the `urlSlug` to generate the URLs
-    - [ ] use the `urlSlug` also for the heading-id attribute    
+    - [x] add a `slug` attribute to all tidbits
+    - [ ] use the `slug` to generate the URLs
+    - [ ] use the `slug` also for the heading-id attribute    
 - [ ] add meta tags
   - [ ] add og meta tags (https://ogp.me/)
   - [ ] for twitter https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards

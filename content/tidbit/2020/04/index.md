@@ -1,5 +1,6 @@
 # GitUp v1.1.3 is out
 
+slug: gitup-v113-is-out
 dateCreated: 2020-04-29 22:34 CET  
 tags: tools
 
@@ -13,6 +14,7 @@ Learned it from [JB](https://twitter.com/jbrains).
 
 # HTML Design Principles
 
+slug: html-design-principles
 dateCreated: 2020-04-29 17:45 CET  
 tags: html, knowledgebase  
 
@@ -33,6 +35,7 @@ https://www.w3.org/TR/html-design-principles/#degrade-gracefully
 
 # Developer Experience over User Experience - Ouch
 
+slug: developer-experience-over-user-experience-ouch
 dateCreated: 2020-04-29 17:35 CET  
 tags: tools  
 
@@ -50,6 +53,7 @@ another one
 
 # The End User Always has Ultimate Control
 
+slug: the-end-user-always-has-ultimate-control
 dateCreated: 2020-04-29 17:11 CET  
 tags: a11y, knowledgebase  
 
@@ -66,6 +70,7 @@ And their warning sign just needs to be shown around the web even more.
 
 # Install Chromium (or a Package that needs it) inside Docker
 
+slug: install-chromium-or-a-package-that-needs-it-inside-docker  
 dateCreated: 2020-04-27 12:52 CET  
 tags: docker, knowledgebase  
 
@@ -105,6 +110,7 @@ Works well.
 
 # Find Files and Execute Command with Each
 
+slug: find-files-and-execute-command-with-each  
 dateCreated: 2020-04-27 00:16 CET  
 tags: linux
 
@@ -124,6 +130,7 @@ You will also find out how important the `\;` at the end is!
 
 # Very Fast Docker Image Build - Without Context
 
+slug: very-fast-docker-image-build-without-context
 dateCreated: 2020-04-27 00:08 CET  
 tags: docker, knowledgebase  
 
@@ -146,6 +153,7 @@ or you map in volumes, or you know ...
 
 # `$` and `$$` - Shortcut for `document.querySelector[All]()`
 
+slug: dollar-and-dollardollar-shortcut-for-documentqueryselectorall
 dateCreated: 2020-04-26 14:55 CET  
 tags: tools, knowledgebase    
 
@@ -163,6 +171,7 @@ See the image below for how it works in Firefox.
 
 # Than vs. Then
 
+slug: than-vs-then
 dateCreated: 2020-04-26 14:55 CET  
 tags: english, knowledgebase    
 
@@ -176,6 +185,7 @@ The long version, very well explained is at https://ell.stackexchange.com/a/8075
 
 # Web Accessibility in Mind
 
+slug: web-accessibility-in-mind
 dateCreated: 2020-04-26 14:55 CET  
 tags: a11y, knowledgebase    
 
@@ -185,6 +195,7 @@ and stuff to learn.
 
 # Dive into HTML5 - Mark Pilgrim (and community)
 
+slug: dive-into-html5-mark-pilgrim-and-community
 dateCreated: 2020-04-26 14:55 CET  
 tags: html  
 
@@ -195,6 +206,7 @@ https://diveinto.html5doctor.com/ a must read!
 
 # HTML Validators
 
+slug: html-validators
 dateCreated: 2020-04-26 14:55 CET  
 tags: html  
 
@@ -212,6 +224,7 @@ tags: html
 
 # <details> HTML element
 
+slug: details-html-element
 dateCreated: 2020-04-25 22:34 CET  
 tags: html, knowledgebase    
 
@@ -231,6 +244,7 @@ toggled into an "open" state" [MDN says](https://developer.mozilla.org/en-US/doc
 
 # Semantic HTML: Usage of Headings, Sections
 
+slug: semantic-html-usage-of-headings-sections
 dateCreated: 2020-04-25 22:02 CET  
 tags: html, knowledgebase    
 
@@ -244,6 +258,7 @@ If you have 27 minutes to learn how to use all those semantic tags watch Brian H
 
 # OKRs are Works in Progress
 
+slug: okrs-are-works-in-progress
 dateCreated: 2020-04-24 12:01 CET
 tags: okr, knowledgebase  
 
@@ -269,6 +284,7 @@ On page 75 David from Nuna confirms that:
 
 # Capitalization Rules for Headlines
 
+slug: capitalization-rules-for-headlines
 dateCreated: 2020-04-22 16:35 CET
 tags: english, knowledgebase    
 
@@ -277,6 +293,7 @@ There are a couple (SEO) sites that capitalize your headline  correctly, you'll 
 
 # Free Disk Space Used by Docker
 
+slug: free-disk-space-used-by-docker
 dateCreated: 2020-04-22 16:35 CET
 tags: docker, knowledgebase    
 
@@ -320,6 +337,7 @@ Run `docker image prune --all` to gain a lot of disk space with the trade off of
 
 # Upgrade npm Package to Latest Version
 
+slug: upgrade-npm-package-to-latest-version
 dateCreated: 2020-04-22 16:35 CET
 tags: javascript, npm, knowledgebase    
 
@@ -328,6 +346,7 @@ no matter the minor, major version, it always goes to the latest.
 
 # Diff of the Files in Two Directories
 
+slug: diff-of-the-files-in-two-directories
 dateCreated: 2020-04-22 16:35 CET
 tags: linux, knowledgebase    
 
@@ -336,6 +355,7 @@ I just needed to do some golden master tests after updating a dependency
 
 # MacOS Screenshot of the Current Window Only
 
+slug: macos-screenshot-of-the-current-window-only
 dateCreated: 2020-04-22 16:35 CET
 tags: macos, knowledgebase    
 

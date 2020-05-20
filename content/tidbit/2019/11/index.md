@@ -1,5 +1,6 @@
 # Exploring micro.blog
 
+slug: exploring-microblog
 tags: indieweb
 dateCreated: 2019-11-29 20:23 CET 
 
@@ -11,6 +12,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/29/the-tries-i.ht
 
 # JS People on micro.blog
 
+slug: js-people-on-microblog
 tags: indieweb
 dateCreated: 2019-11-28 21:45 CET 
 
@@ -21,6 +23,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/28/there-are-some
 
 # Use #jslang knowledge to dive deeper into #JavaScript
 
+slug: use-jslang-knowledge-to-dive-deeper-into-javascript
 tags: javascript, meetup, jslang
 dateCreated: 2019-11-26 16:48 CET
 
@@ -40,6 +43,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/26/if-i-look.html
 
 # Mentorship Meetup #3 - November 2019
 
+slug: mentorship-meetup-3---november-2019
 tags: meetup, mentoring, learning, teaching, sharing, caring 
 dateCreated: 2019-11-26 15:29 CET 
 
@@ -57,6 +61,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/26/if-i-look.html
 
 # Code Editor with built-in Refactor
 
+slug: code-editor-with-built-in-refactor
 dateCreated: 2019-11-26 11:21 CET 
 tags: tools  
 
@@ -67,6 +72,7 @@ Originally posted at http://wolframkriesing.micro.blog/2019/11/26/what-if-an.htm
 
 # Hello micro.blog
 
+slug: hello-microblog
 tags: indieweb
 dateCreated: 2019-11-26 09:31 CET 
 
