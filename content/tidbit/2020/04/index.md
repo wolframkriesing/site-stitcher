@@ -210,7 +210,7 @@ tags: html
 * [Google's structured data testing tool](https://search.google.com/structured-data/testing-tool)
   verifies the schema.org (structured data) validity, I assume they validate as it is relevant for their search engine.    
 
-# &lt;details&gt; HTML element
+# `<details>` HTML element
 
 dateCreated: 2020-04-25 22:34 CET  
 tags: html, knowledgebase    
