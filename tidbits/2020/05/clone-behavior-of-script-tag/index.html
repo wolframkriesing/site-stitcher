@@ -10,17 +10,17 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="The Unicode Character for the Hamburger Menu Icon ☰" />
+  <meta name="twitter:title" content="Clone Behavior of &lt;script&gt; Tag" />
 
-  <meta property="og:title" content="The Unicode Character for the Hamburger Menu Icon ☰">
+  <meta property="og:title" content="Clone Behavior of &lt;script&gt; Tag">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://picostitch.com/tidbits/2020/05/the-unicode-character-for-the-hamburger-menu-icon-☰/">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/05/clone-behavior-of-script-tag/">
   <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-  <link rel="canonical" href="https://picostitch.com/tidbits/2020/05/the-unicode-character-for-the-hamburger-menu-icon-☰/">
-  <title>The Unicode Character for the Hamburger Menu Icon ☰ | picostitch - crafting (and) JavaScript</title>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/05/clone-behavior-of-script-tag/">
+  <title>Clone Behavior of &lt;script&gt; Tag | picostitch - crafting (and) JavaScript</title>
   
 <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
 
@@ -49,7 +49,7 @@
 
   <nav class="breadcrumb">
     
-  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; The Unicode Character for the Hamburger Menu Icon ☰
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Clone Behavior of &lt;script&gt; Tag
 
   </nav>
 
@@ -140,21 +140,25 @@
     <header>
       <h1>
         <span class="tag" data-tag="web">#web</span>
-        The Unicode Character for the Hamburger Menu Icon ☰
+        Clone Behavior of &lt;script&gt; Tag
       </h1>
       <div class="metadata">
         Wolfram Kriesing
-        - May 16, 2020
+        - May 11, 2020
         
-          - tagged with: #web
+          - tagged with: #web #javascript #DOM #knowledgebase
         
       </div>
     </header>
 
-    <p>In short <code>&amp;#9776; &lt;!-- Results in ☰ --&gt;</code><br>See it in use, here is <a href="https://github.com/wolframkriesing/site-stitcher/commit/63e6e6159b551df7ab121ec6406cde90276055f4">the commit</a> 
-I just made for this site. Look at the bottom right 
-or top left on smaller screens.
-found at <a href="https://www.abeautifulsite.net/the-unicode-character-for-menu-icons">https://www.abeautifulsite.net/the-unicode-character-for-menu-icons</a></p>
+    <p>I wanted to <code>scriptNode.cloneNode(true)</code> and expected it to re-evaluate the JS
+of the node, but it didn&#39;t.</p>
+<blockquote>
+<p>Each &lt;script&gt; element has a property flag called &quot;already started&quot;.</p>
+</blockquote>
+<p>This flag is already true, so a clone won&#39;t reevaluate the script.
+Solution: copy it manually.</p>
+<p>Read it all on <a href="https://stackoverflow.com/questions/28771542/why-dont-clonenode-script-tags-execute/28771829#28771829">https://stackoverflow.com/questions/28771542/why-dont-clonenode-script-tags-execute/28771829#28771829</a></p>
 
   </article>
 
