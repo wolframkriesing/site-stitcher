@@ -27,6 +27,11 @@ body > header {
   body > header nav.primary {
     flex: 2;
   }
+  @media screen and (max-width: 600px) {
+    body > header {
+      padding-bottom: var(--spacing-bigger);
+    }
+  }
 
 article.latest {
   margin-bottom: 5rem;
@@ -58,8 +63,8 @@ figure {
 
 footer {
   display: flex;
-  padding: 2rem;
-  margin-top: 2rem;
+  padding: var(--spacing-bigger);
+  margin-top: var(--spacing-bigger);
   border-top: 1px solid lightgrey;
 }
   footer div {
@@ -85,20 +90,28 @@ h1, h2, h3, h4, h5, h6 {
 main {
   display: flex;
 }
+  aside {
+    flex: 1;
+    overflow: scroll;
+  }
   aside > * {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-bigger);
     margin-right: 4rem;
     white-space: nowrap;
-  }
-  aside .tags {
-    max-width: 15rem;
   }
   aside .tags:hover {
     height: auto;
   }
 @media screen and (max-width: 600px) {
   aside {
-    display: none;
+    padding: var(--spacing-bigger);
+    text-align: center;
+  }
+    aside > * {
+      margin-right: 0;
+    }
+  main {
+    flex-direction: column-reverse;
   }
 }
 @media screen and (max-width: 900px) {
@@ -121,7 +134,7 @@ nav.primary {
   }
   nav.primary li {
     display: inline;
-    margin-right: 2rem;
+    margin-right: var(--spacing-bigger);
   }
   @media screen and (max-width: 600px) {
     nav.primary {
@@ -130,7 +143,12 @@ nav.primary {
   }
 
 nav.breadcrumb {
-  margin-bottom: 2rem;
+  margin-bottom: var(--spacing-bigger);
+}
+@media screen and (max-width: 600px) {
+  nav.breadcrumb {
+    text-align: center;
+  }
 }
 
 nav.tags ol, nav.months ol {
@@ -159,12 +177,13 @@ p,
 }
 
 ul, ol {
-  margin-left: 2rem;
+  margin-left: var(--spacing-bigger);
 }
 
 /*   other selectors   */
 
+
 .content {
-  max-width: 90vw; /* Needed for the pre's overflow:auto to work and make the code boxes scrollable on narrow devices. */
+  flex: 3;
 }
 
