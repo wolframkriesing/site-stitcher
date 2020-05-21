@@ -5,7 +5,8 @@ oldUrls: /blog/2015/04/typeslab/
 
 # Typeslab
 
-With [typeslab.com][47] you can write poster like text.  
+With [typeslab.com][47] you can write poster like text.
+  
 ![for slides maybe?][46]
 
 [46]: http://i.imgur.com/CpDxngp.png
