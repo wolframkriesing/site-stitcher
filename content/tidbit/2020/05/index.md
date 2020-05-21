@@ -1,3 +1,80 @@
+# Learning reddit
+
+slug: learning-reddit
+dateCreated: 2020-05-21 16:31 CET
+tags: web
+
+I posted the following on reddit, finding out that the bot does not permit it.
+Read how I discovered reddit, finally.
+
+<figure>
+    <img src="../reddit-forbid.gif" alt="The forbid message from the reddit bot" width="150" class="sizeup-onhover-image scale4 origin-left-top" />
+    <figcaption>The forbid message from the reddit bot</figcaption>
+</figure>
+
+> Self-posts (text) must follow the `[AskJS]` guidelines
+
+## What is Self-Post?
+
+A self post is one that "doesn't link outside of reddit. It can also be called a 'text post'".\
+https://www.reddit.com/r/help/comments/16secs/what_is_a_self_post/
+
+## What do the [AskJS] Guidelines say?
+
+What does `[AskJS]` mean at all?\
+The [`[AskJS]` guidelines say](https://www.reddit.com/r/javascript/wiki/index/askjs):
+
+> Generally speaking, it's for the types of posts that StackOverflow doesn't allow. 
+> If your topic can have a "correct" answer, or it can be answered with code, then it should 
+> be posted to r/LearnJavascript or a Q&A site like StackOverflow.
+
+Regarding the last sentence "your topic can have a "correct" answer",
+I would say "No". I am just trying to share knowledge, because I think it's useful.
+No ads on my page, nothing to win for me, just a bit of joy when seeing people use jskatas.org
+and hope to spread the joy of learning.
+
+A bit later it says:
+
+> soliciting advice, sharing opinions, or debating best practices, `[AskJS]` is intended as an 
+> outlet for each of those, and more.
+
+The "and more" makes me hopeful :).
+
+But reading more it gives examples like "Which IDE is your favorite, and why?" and my post is
+definitely not of that type.
+
+## What are "Posts that StackOverflow doesn't allow"?
+At the beginning of the [AskJS] guidelines it said 
+> it's for the types of posts that StackOverflow doesn't allow
+
+Which I have to [look up on stackoverflow](https://stackoverflow.com/help/dont-ask) :).
+
+> You should only ask practical, answerable questions based on actual problems that you face.
+
+So, my post is not of that type.
+
+## "Anything other than a subjective question is also considered off-topic"
+
+The `[AskJS]` guidelines say this a bit further down.
+So I assume my post has no place on reddit.
+
+> All other posts must use the "Submit a new link" option; if additional text is required, add a comment to your post.
+> [...]
+> Learning, Support & Help questions are still off-topic for `[AskJS]`, and should be posted to r/LearnJavascript
+
+Oh maybe my post has a place on reddit. I will try there.
+
+Oh yes, it says on [reddit.com/r/learnjavascript](https://www.reddit.com/r/learnjavascript/)
+
+> This subreddit is for anyone who wants to learn JavaScript or help others do so. 
+
+That's it.\
+So I learned reddit, finally 😎.
+
+And here is the post
+[Discover `Array.prototype.includes()` in depth, through a #jskata](https://www.reddit.com/r/learnjavascript/comments/gny8fr/discover_arrayprototypeincludes_in_depth_through/)
+in r/learnjavascript (whatever the `r/` means).
+
 # Disclosure Widgets - by Adrian Roselli
 
 slug: disclosure-widgets-by-adrian-roselli  
