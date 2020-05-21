@@ -185,5 +185,9 @@ ul, ol {
 
 .content {
   flex: 3;
+
+  /* Needed for the pre's overflow:auto to work and make the code boxes scrollable when they are too wide.
+    learned it at https://stackoverflow.com/questions/36247140/why-dont-flex-items-shrink-past-content-size */
+  min-width: 0;
 }
 
