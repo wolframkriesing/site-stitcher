@@ -48,6 +48,15 @@ I also missed headlines on that page, which I learned in
 make reading easier.\
 I don't mean to rant. I am just writing down my observations and learnings, reflecting on them.
 
+Reading through other sites like [Block Quotations](https://practicaltypography.com/block-quotations.html)
+and [Page Margins](https://practicaltypography.com/page-margins.html)
+on practicaltypography.com, I see that not all sources agree on everything,
+I don't understand inches well enough and not everything makes sense to me.
+Also I see some rules from "Don't make me think" are not applied on his page.
+So in the end, I still have to think, hehe.
+
+Thanks for free resource and the learnings [@Matthew Butterick](https://practicaltypography.com/about-matthew-butterick.html)!
+
 # Learning reddit
 
 slug: learning-reddit
