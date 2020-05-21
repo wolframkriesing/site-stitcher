@@ -3,6 +3,7 @@
 
 :root {
   --spacing-big: 1rem;
+  --spacing-bigger: 2rem;
   --spacing-small: 0.3rem;
   --color-highlight: #A4131D;
   --color-highlight-rgb: 164, 19, 29;
@@ -22,6 +23,9 @@ body {
   }
   h1, h1 *, h2 *, h3 *, h4 *, h5 *, h6 * {
     line-break: strict;
+  }
+  aside {
+    border-top: 1px solid lightgrey;
   }
 }
 
@@ -102,7 +106,7 @@ nav.secondary {
     flex-direction: column;
   }
   nav.secondary:hover ul {
-    padding: 2rem; /* move the clickable first menu item out of focus when clicking on the menu-button (hamburger icon) */
+    padding: var(--spacing-bigger); /* move the clickable first menu item out of focus when clicking on the menu-button (hamburger icon) */
     height: 11rem;
     width: 8rem;
     transition: height 0.5s, opacity 0s; /* transition when the mouse enter */
