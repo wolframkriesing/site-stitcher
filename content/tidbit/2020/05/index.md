@@ -1,3 +1,53 @@
+# Correcting the Line Length
+
+slug: correcting-line-length
+dateCreated: 2020-05-21 20:43 CET
+tags: design
+
+[I asked this morning](https://twitter.com/wolframkriesing/status/1263420825081970688) 
+what I can improve on jskatas.org.
+[Daniel answered](https://twitter.com/d_ir/status/1263440986698637313) 
+with something that I can apply to picostitch too: use the "correct line length".
+He pointed me to [practicaltypography.com](https://practicaltypography.com/line-length.html)
+which states:
+
+> Overly long lines are a common problem, but they’re easy to correct. Shorter lines will make a big 
+> difference in the legibility and professionalism of your layout. [...]
+>
+> Shorter lines are more comfortable to read than longer lines. [...]
+>
+> Aim for an average line length of 45–90 characters, including spaces.
+
+Sounds easy, just do `width: 80rem` right?
+Should be fixed when you read this 😉.
+
+The site also states
+
+> Newspaper columns are very tall, so they also have to be very narrow to make vertical tracking easy.
+
+To be honest, I have been thinking about that a lot before, but never thought of it
+to be such an issue until today, when I got 
+[that response](https://twitter.com/d_ir/status/1263428553506525184) 
+[twice](https://twitter.com/kit_son/status/1263434064377393162) 
+that I should limit the page width
+of the jskatas.org site. So I acted right away, since this seems to be important to people.
+I still want to make sure to not waste too much space on people's wide screens.
+Wouldn't it be an aweful waste of space? Now I will just think the other way around, I make the
+side narrower and will think about how to use the whitespace.
+So I flip the priorities.
+
+## A Note on practicaltypography.com
+Since these notes are just for me, I have to note the following:
+on the practicaltypography.com page the first kinda table "How to use Word Count" confused me totally.
+It took me a while to understand what it was for. On the left it said "Word", "Mac OS Word" and "Pages"
+and I had no idea what was meant. They also used < and > for menu items that I should click.
+I had to read the table three times until I understood what it was. I didn't expect that on
+a site that teaches me about what my site should look like. Surprise.\
+I also missed headlines on that page, which I learned in 
+[Don't make me think](/tidbits/2020/05/learned-from-dont-make-me-think/)
+make reading easier.\
+I don't mean to rant. I am just writing down my observations and learnings, reflecting on them.
+
 # Learning reddit
 
 slug: learning-reddit
