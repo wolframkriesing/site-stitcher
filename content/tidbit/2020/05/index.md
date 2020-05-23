@@ -1,3 +1,47 @@
+# hq - Static Server, No Bundling
+
+slug: hq
+dateCreated: 2020-05-23 14:56 CET
+tags: javascript, web
+
+Lately I am coming a across a couple of those tools that promise to remove the
+bundling overhead and pain from our projects. 
+I already mentioned [snowpack](/tidbits/2020/05/snowpackdev---bundler-free-development/).
+
+This "hq" just looks like it is a preconfigured bundler, I didn't try it, but it
+sounds like every framework "play by its rules and you are fine" but when you leave the
+paths laid out you are on your own.
+
+hq states:
+
+> Lightning fast, zero configuration, web application development server https://hqjs.org
+
+> 🎁️ No bundling  
+> To reflect project structure in the browser and make it easier to understand and develop
+>
+> 🏂 Zero configuration
+
+```
+> npm install -g @hqjs/hq
+...
+> hq
+```
+
+## Besides hq
+
+Google also seems to work on something like that too, sounds like a Cloud9 clone to me.
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck">
+    <p lang="en" dir="ltr">
+        What if you could have a full dev setup + server in a single 150kb JS module?<br><br>
+        What if that setup included ~instant Hot Module Replacement, JSX support, sourcemaps &amp; friendly errors?<br><br>
+        What if you never had to run `npm install` and your node_modules directory was 0 bytes? 
+        <a href="https://t.co/QotoWLQh65">pic.twitter.com/QotoWLQh65</a>
+    </p>
+    &mdash; @_developit
+    <a href="https://twitter.com/_developit/status/1263552118012751874?ref_src=twsrc%5Etfw">May 21, 2020</a>
+</blockquote>
+
 # Correcting the Line Length
 
 slug: correcting-line-length
