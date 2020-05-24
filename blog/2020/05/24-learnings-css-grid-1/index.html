@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Learning CSS Grid - Basics" />
+
+  <meta property="og:title" content="Learning CSS Grid - Basics">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/blog/2020/05/24-learnings-css-grid-1/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2020/05/24-learnings-css-grid-1/">
+  <title>Learning CSS Grid - Basics | picostitch - crafting (and) JavaScript</title>
+  
+</head>
+<body class="page-post">
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo;
+  Blog &raquo;
+  <a href="/blog/2020/05/">May 2020</a> &raquo;
+  Learning CSS Grid - Basics
+
+  </nav>
+
+  <main>
+    <aside>
+      <nav class="tags">
+        <header>Top Blog Tags</header>
+        <ol>
+          
+          <li><a href="/blog/tag/knowledgebase/">#knowledgebase</a></li>
+          
+          <li><a href="/blog/tag/javascript/">#javascript</a></li>
+          
+          <li><a href="/blog/tag/video/">#video</a></li>
+          
+          <li><a href="/blog/tag/testing/">#testing</a></li>
+          
+          <li><a href="/blog/tag/oop/">#oop</a></li>
+          
+          <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
+          
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
+          <li><a href="/blog/tag/learning/">#learning</a></li>
+          
+          <li><a href="/blog/tag/functional/">#functional</a></li>
+          
+          <li><a href="/blog/tag/links/">#links</a></li>
+          
+        </ol>
+      </nav>
+
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          
+          <li><a href="/blog/2020/05/">May 2020</a></li>
+          
+          <li><a href="/blog/2020/04/">April 2020</a></li>
+          
+          <li><a href="/blog/2020/03/">March 2020</a></li>
+          
+          <li><a href="/blog/2018/07/">July 2018</a></li>
+          
+          <li><a href="/blog/2018/05/">May 2018</a></li>
+          
+          <li><a href="/blog/2017/11/">November 2017</a></li>
+          
+          <li><a href="/blog/2017/04/">April 2017</a></li>
+          
+          <li><a href="/blog/2017/03/">March 2017</a></li>
+          
+          <li><a href="/blog/2017/02/">February 2017</a></li>
+          
+          <li><a href="/blog/2017/01/">January 2017</a></li>
+          
+          <li><a href="/blog/2016/06/">June 2016</a></li>
+          
+          <li><a href="/blog/2016/04/">April 2016</a></li>
+          
+          <li><a href="/blog/2016/02/">February 2016</a></li>
+          
+          <li><a href="/blog/2015/12/">December 2015</a></li>
+          
+          <li><a href="/blog/2015/11/">November 2015</a></li>
+          
+          <li><a href="/blog/2015/10/">October 2015</a></li>
+          
+          <li><a href="/blog/2015/05/">May 2015</a></li>
+          
+          <li><a href="/blog/2015/04/">April 2015</a></li>
+          
+          <li><a href="/blog/2015/03/">March 2015</a></li>
+          
+          <li><a href="/blog/2014/03/">March 2014</a></li>
+          
+          <li><a href="/blog/2014/02/">February 2014</a></li>
+          
+          <li><a href="/blog/2014/01/">January 2014</a></li>
+          
+        </ol>
+      </nav>
+    </aside>
+    <div class="content">
+      
+  <article class="isDraft">
+    <header>
+      <h1>
+        Learning CSS Grid - Basics
+         [this is a draft]
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - May 23, 2020
+        
+          - tagged with: #css #html #web #learning #knowledgebase
+        
+      </div>
+    </header>
+
+    <p>Finally I need a CSS grid. Here is my intro to it.
+If you prefer a video <a href="https://www.youtube.com/watch?v=jV8B24rSN5o">this one (28 minutes)</a> explains grid basics very well.
+But before learning CSS grid, I need to answer the question if I need it.
+I know flexbox quite ok, so why not use flexbox. </p>
+<h2 id="the-question-flexbox-or-grid">The Question: Flexbox or Grid?</h2>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout#Grid_and_flexbox">MDN states</a> 
+flexbox best suits for one dimensional (row or column) and grid for two-dimensional layouts.</p>
+<p>The most helpful explanation is given on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout#Content_out_or_layout_in">MDN page</a>,
+distinguishing the two use cases quite well:</p>
+<blockquote>
+<p>An ideal <strong>use case for flexbox</strong> is when you have a set of items and want to space them out 
+evenly in a container. You let the size of the content decide how much individual space each item takes up.</p>
+</blockquote>
+<blockquote>
+<p>When you use <strong>CSS Grid Layout</strong> you create a layout and then you place items into it, or you allow the 
+auto-placement rules to place the items into the grid cells according to that strict grid.</p>
+</blockquote>
+<p>The shorter, but less explicit one is:</p>
+<blockquote>
+<p>A simple question to ask yourself when deciding between grid or flexbox is:</p>
+<ul>
+<li>do I only need to control the layout by row or column – use a flexbox</li>
+<li>do I need to control the layout by row and column – use a grid</li>
+</ul>
+</blockquote>
+<p>I like to start using it as simple as possible, doing baby steps.
+I start with <code>display: grid</code> and <code>grid: ...</code> properties.</p>
+<h2 id="css-property-grid">CSS Property <code>grid</code></h2>
+<p>The CSS property <code>grid</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid">MDN site</a>) 
+is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a>
+perfect for a simple grid setup to learn the power of CSS grid.</p>
+<p>I use a surrounding HTML tag <code>&lt;section&gt;</code> that wraps our grid, it gets the <code>display:grid</code>
+property and the grid&#39;s layout is determined by the <code>grid</code> property:</p>
+<pre><code>&lt;section class=&quot;grid&quot;&gt;
+  &lt;span&gt;&amp;updownarrow; ...&lt;/span&gt;
+  ...
+&lt;/section&gt;
+
+&lt;style&gt;
+  .grid {
+    display: grid;
+    grid: 3rem 100px / 1fr 50px 2fr;
+  }
+&lt;/style&gt;</code></pre><p>It renders like this:</p>
+<style>
+.grid {
+  margin-bottom: var(--spacing-big);
+}
+.grid > * {
+  background-color: lightsalmon;
+  border: 1px solid black;
+}
+.grid.grid1 {
+  display: grid;
+  grid: 3rem 100px / 1fr 150px 2fr; 
+}
+</style>
+<section class="grid grid1">
+    <span>&updownarrow; 3rem &nbsp; &leftarrow; 1fr &rightarrow;</span>
+    <span>&leftarrow; 150px &rightarrow;</span>
+    <span>&leftarrow; 2fr wide &rightarrow; (fr=fraction) </span>
+    <span>&updownarrow; 100px</span>
+    <span></span>
+    <span></span>
+    <span>&updownarrow; auto</span>
+    <span></span>
+    <span></span>
+    <span>&updownarrow; auto</span>
+    <span></span>
+</section>
+
+<p>The <code>/</code> in the <code>grid: ...</code> property separates the definition for the row heights and column widths   </p>
+<pre><code>grid: &lt;row heights&gt; / &lt;column widths&gt;</code></pre><p>The use of the <code>grid</code> shorthand only reflects part of what it can do.
+Some explanations about the above code, if its all obvious skip them:</p>
+<ul>
+<li>The <strong><code>display: grid</code> must be set</strong>, on the container that will be the grid, here the <code>&lt;section&gt;</code>.</li>
+<li>The <strong><code>grid: ...</code> property defines a grid template</strong>, consisting of the columns widths and the rows heights.</li>
+<li>Only every row and column that is defined in the template is rendered with the given dimensions.</li>
+<li>All <strong>row heights after the 2nd row fall back to <code>auto</code></strong>.</li>
+<li>We defined eleven SPANs, the grid template only defined three columns, a new row starts every three columns.</li>
+<li>The unit <code>fr</code> is described <a href="https://drafts.csswg.org/css-grid/#fr-unit">in the spec like this</a>: <blockquote>
+<p>A flexible length or <code>&lt;flex&gt;</code> is a dimension with the <code>fr</code> unit, which represents a fraction of the 
+leftover space in the grid container.</p>
+</blockquote>
+</li>
+</ul>
+<p>The short intro to the <code>grid</code> property makes it already possible to use it and create various grids.</p>
+<h2 id="css-property-grid-template">CSS Property <code>grid-template</code></h2>
+<p>Above we used the shortest shorthand version, the CSS property <code>grid</code>.</p>
+<pre><code>grid: 3rem 100px / 1fr 150px 2fr;</code></pre><p>The following means and renders the same. It is just a bit more explicit, 
+still a shorthand for defining the row and column dimensions.</p>
+<pre><code>grid-template: 3rem 100px / 1fr 150px 2fr;</code></pre><p>The explicit version is the following, and still renders exactly like all above.</p>
+<pre><code>grid-template-rows: 3rem 100px;
+grid-template-columns: 1fr 150px 2fr;</code></pre><p>Let&#39;s see how to be a bit more flexible, using a CSS function <code>repeat</code>.</p>
+<h2 id="css-function-repeat">CSS Function <code>repeat()</code></h2>
+<p>Above I defined very explicit how many columns, how many rows and their dimensions.
+Using the CSS function <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeat"><code>repeat()</code></a>
+allows recurring pattern, like here:</p>
+<pre><code>display: grid;
+grid: repeat(2, 3rem 100px) / repeat(3, 1fr); </code></pre><p>The function <code>repeat(2, 3rem 100px)</code> repeats <code>3rem 100px</code> twice.<br>And <code>repeat(3, 1fr)</code> for the rows it repeats <code>1fr</code> three times.</p>
+<style>
+.grid.grid2 {
+  display: grid;
+  grid: repeat(2, 3rem 100px) / repeat(3, 1fr); 
+}
+.grid.grid2 .marked {
+  background-color: #fdc6b0;
+}
+</style>
+<section class="grid grid2">
+    <span>&updownarrow; 3rem &nbsp; &leftarrow; 1fr &rightarrow;</span>
+    <span>&leftarrow; 1fr &rightarrow;</span>
+    <span>&leftarrow; 1fr &rightarrow; </span>
+    <span>&updownarrow; 100px</span>
+    <span></span>
+    <span></span>
+    <span class="marked">&updownarrow; 3rem<br/>(not <code>auto</code> anymore)</span>
+    <span class="marked"></span>
+    <span class="marked"></span>
+    <span class="marked">&updownarrow; 100px<br/>(not <code>auto</code> anymore)</span>
+    <span class="marked"></span>
+    <span class="marked"></span>
+    <span>&updownarrow; auto</span>
+    <span></span>
+    <span></span>
+    <span>&updownarrow; auto</span>
+    <span></span>
+    <span></span>
+</section>
+
+
+    
+    
+  </article>
+
+    </div>
+    <aside class="right">
+      
+  
+
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing">Twitter</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
