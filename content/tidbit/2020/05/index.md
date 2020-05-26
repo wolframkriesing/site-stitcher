@@ -1,3 +1,21 @@
+# Lets Make the JavaScript World Accessible (Again)
+
+slug: lets-make-the-js-world-accessible-again
+dateCreated: 2020-05-26 18:13 CET
+tags: javascript, web
+
+Lea's article [Today’s Javascript, from an outsider’s perspective](http://lea.verou.me/2020/05/todays-javascript-from-an-outsiders-perspective/)
+states yet another time that our JavaScript environment needs a reboot.
+I also mentioned the topic a couple of times.
+But what shall we do?
+
+Use ES modules only. That would be a good start, and it works there are people doing it, just not the masses.
+Try to develop with ESMs only and without a bundler. You will see how far you can actually get.
+
+Lea ends her article, where she tries to install an npm package with a friend, with the final result why nothing works:
+
+> This is not Javascript, it’s Typescript!! With a .js extension!!
+
 # hq - Static Server, No Bundling
 
 slug: hq
