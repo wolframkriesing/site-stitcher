@@ -1,3 +1,33 @@
+# CSS `writing-mode` Property
+
+slug: css-writing-mode
+dateCreated: 2020-05-30 17:03 CET
+tags: web, css
+
+[MDN says](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)
+about CSS property `writing-mode`:
+> The writing-mode CSS property sets whether lines of text are laid out horizontally or vertically, 
+> as well as the direction in which blocks progress.
+
+Each of the below has the following CSS properties, to visualize the boxes better.
+```css
+width: 10rem;
+border: 1px solid grey;
+writing-mode: <different values>;
+```
+
+## vertical-rl
+
+<div style="writing-mode: vertical-rl; width: 10rem; border: 1px solid grey;">
+style="writing-mode: vertical-rl;"
+</div>
+
+## vertical-lr
+
+<div style="writing-mode: vertical-lr; width: 10rem; border: 1px solid grey;">
+style="writing-mode: vertical-lr;"
+</div>
+
 # Lets Make the JavaScript World Accessible (Again)
 
 slug: lets-make-the-js-world-accessible-again
