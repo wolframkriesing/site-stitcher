@@ -28,8 +28,8 @@
   {% tidbits.map(tidbit => { %}
     <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
+        <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
         <h2 id="{{tidbit.slug}}">
-          <span class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</span>
           <a href="{{tidbit.url}}">{{tidbit.headline}}</a>
         </h2>
         <div class="metadata">
@@ -41,6 +41,7 @@
       </header>
       <p class="abstract">{!tidbit.abstractAsHtml!}
         {% if (!tidbit.hasAbstractOnly) { %}
+          <br/>
           <a  href="{{tidbit.url}}">Continue reading →</a>
         {% } %}
       </p>
