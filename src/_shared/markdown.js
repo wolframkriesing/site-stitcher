@@ -33,6 +33,14 @@ export const renderAbstractAsHtml = (abstractTokens) => {
   return removeEnclosingPTag(abstractAsHtml);
 };
 /**
+ * @param headingToken {marked.Tokens.Heading}
+ * @return {string}
+ */
+export const renderHeadlineAsHtml = (headingToken) => {
+  const asHtml = marked.parse(headingToken.text);
+  return removeEnclosingPTag(asHtml);
+};
+/**
  * @param tokens {marked.Token[]}
  * @return {marked.Token[]}
  */

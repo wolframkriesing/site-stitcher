@@ -99,6 +99,20 @@ describe('Load a tidbit file (one month)', () => {
         assert.strictEqual(load()[0].bodyAsHtml, expected);
       });
     });
+    describe('WHEN tidbit has some special edge case data', () => {
+      it('AND the headline contains code THEN render it as HTML', () => {
+        const fileContent = [
+          '# A piece of `code`',
+          '',
+          'slug: irrelevant  ',
+          'dateCreated: 2111-11-11 11:11 CET  ',
+          '',
+          'irrelevant'
+        ].join('\n');
+        const tidbit = loadTidbitFile(fileContent)[0];
+        assert.strictEqual(tidbit.headlineAsHtml, 'A piece of <code>code</code>');
+      });
+    });
   });
   describe('GIVEN many tidbits in on file', () => {
     const load = () => {
