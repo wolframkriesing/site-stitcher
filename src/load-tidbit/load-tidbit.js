@@ -30,8 +30,10 @@ const parseMetadata = (token) => {
 const parseTidbitTokens = tokens => {
   const abstractTokens = [tokens[3]];
   const bodyTokens = trimSpaceTokenFromEnd(tokens.slice(3));
+  const headlineText = /** @type {marked.Tokens.Heading} */ (tokens[0]).text;
   const data = {
-    headline: /** @type {marked.Tokens.Heading} */ (tokens[0]).text,
+    headline: headlineText,
+    headlineAsHtml: headlineText,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1]),
     bodyAsHtml: marked.parser(/** @type {marked.TokensList} */(bodyTokens)),

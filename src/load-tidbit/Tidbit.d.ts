@@ -23,6 +23,7 @@ export class Tidbit {
   bodyAsHtml: string;
   dateCreated: TidbitMetadata['dateCreated'];
   headline: string;
+  headlineAsHtml: string;
   oldUrls: TidbitMetadata['oldUrls'];
   sourceFilename: Filename;
   slug: TidbitMetadata['slug'];

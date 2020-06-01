@@ -10,6 +10,7 @@ export class Tidbit {
     tidbit.dateCreated = raw.dateCreated;
     tidbit.hasAbstractOnly = raw.hasAbstractOnly;
     tidbit.headline = raw.headline;
+    tidbit.headlineAsHtml = raw.headlineAsHtml;
     tidbit.oldUrls = raw.oldUrls;
     tidbit.slug = raw.slug;
     tidbit._tagValues = raw.tags;

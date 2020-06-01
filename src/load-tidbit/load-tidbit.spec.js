@@ -7,7 +7,7 @@ import {TidbitSourceFile} from "./TidbitSourceFile.js";
 
 describe('Load a tidbit file (one month)', () => {
   describe('GIVEN one tidbit in it', () => {
-    describe('WHEN tidbit has all required data (headline, dateCreated, paragraph)', () => {
+    describe('WHEN tidbit has all required data (headline, slug, dateCreated, paragraph)', () => {
       const load = () => {
         const fileContent = [
           '# A Tidbit',
@@ -27,6 +27,9 @@ describe('Load a tidbit file (one month)', () => {
       });
       it('THEN it has the headline "A Tidbit"', () => {
         assertThat(load()[0].headline, 'A Tidbit');
+      });
+      it('THEN it has the headlineAsHtml "A Tidbit"', () => {
+        assertThat(load()[0].headlineAsHtml, 'A Tidbit');
       });
       it('THEN it has the dateCreated = 2111-11-11 11:11 CET', () => {
         assertThat(load()[0].dateCreated, '2111-11-11 11:11 CET');
