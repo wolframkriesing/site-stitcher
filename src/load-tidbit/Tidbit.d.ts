@@ -6,6 +6,7 @@ type Tag = {
 
 type RawTidbit = {
   headline: string;
+  headlineAsHtml: string;
   dateCreated: DateTimeString;
   tags: string[];
   slug: string;

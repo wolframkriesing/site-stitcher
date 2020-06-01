@@ -7,6 +7,20 @@ import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPage} from './render
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
 const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth: []}, toReadableDate: () => ''};
 
+const defaultRawTidbitData = {
+  headline: '',
+  headlineAsHtml: '',
+  tags: [''],
+  dateCreated: '2000-01-01 10:00 CET',
+  slug: '',
+};
+/**
+ * @param overrideData {PlainObject}
+ * @return {Tidbit}
+ */
+const createTidbit = (overrideData = {}) =>
+  Tidbit.withRawData({...defaultRawTidbitData, ...overrideData});
+
 describe('Render tidbits pages', () => {
   describe('GIVEN some tidbits WHEN rendering them', () => {
     /**
@@ -27,19 +41,19 @@ describe('Render tidbits pages', () => {
     describe('THEN render the tidbits overview/index page', () => {
       it('AND render the headlines as H2', async () => {
         const writtenToFile = await renderResult([
-          Tidbit.withRawData({headline: 'Tidbit1', tags: ['1st'], dateCreated: '2000-01-01 10:00 CET', slug: 'tidbit1'}),
-          Tidbit.withRawData({headline: 'Tidbit2', tags: ['1st'], dateCreated: '2000-01-01 10:00 CET', slug: 'tidbit2'}),
-          Tidbit.withRawData({headline: 'Tidbit3', tags: ['1st'], dateCreated: '2000-01-01 10:00 CET', slug: 'tidbit3'}),
+          createTidbit({headlineAsHtml: 'Tidbit1', slug: 'tidbit1'}),
+          createTidbit({headlineAsHtml: 'Tidbit2', slug: 'tidbit2'}),
+          createTidbit({headlineAsHtml: 'Tidbit3', slug: 'tidbit3'}),
         ]);
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit1">.*Tidbit1.*<\/h2>/gms));
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit2">.*Tidbit2.*<\/h2>/gms));
         assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit3">.*Tidbit3.*<\/h2>/gms));
       });
-      it('AND renders the SPANs for the first tag AND the data-attribute renders the tag`s slug', async () => {
+      it('AND renders the first tag AND the data-attribute contains the tag`s slug', async () => {
         const writtenToFile = await renderResult([
-          Tidbit.withRawData({headline: 'irrelevant', tags: ['a11y'], dateCreated: '2000-01-01 10:00 CET', slug: 'irrelevant'}),
-          Tidbit.withRawData({headline: 'irrelevant', tags: ['one'], dateCreated: '2000-01-01 10:00 CET', slug: 'irrelevant'}),
-          Tidbit.withRawData({headline: 'irrelevant', tags: ['oh my god'], dateCreated: '2000-01-01 10:00 CET', slug: 'irrelevant'}),
+          createTidbit({tags: ['a11y']}),
+          createTidbit({tags: ['one']}),
+          createTidbit({tags: ['oh my god']}),
         ]);
         assertThat(writtenToFile, containsString('<div class="tag" data-tag="a11y">#a11y</div>'));
         assertThat(writtenToFile, containsString('<div class="tag" data-tag="one">#one</div>'));
@@ -63,7 +77,7 @@ describe('Render tidbits pages', () => {
     describe('THEN render a page per tidbit', () => {
       it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', async () => {
         const tidbits = [
-          Tidbit.withRawData({headline: 'A Tidbit', dateCreated: '2000-01-01 10:00 CET', tags: [], slug: 'a-tidbit'}),
+          createTidbit({dateCreated: '2000-01-01 10:00 CET', slug: 'a-tidbit'}),
         ];
         /** @type Filename[] */
         const writtenToFilenames = [];
@@ -78,10 +92,10 @@ describe('Render tidbits pages', () => {
       });
       it('AND write a file per tidbit', async () => {
         const tidbits = [
-          Tidbit.withRawData({headline: 'Tidbit 1', dateCreated: '2001-01-01 11:00 CET', tags: [], slug: 'tidbit-1'}),
-          Tidbit.withRawData({headline: 'Tidbit 2', dateCreated: '2002-02-01 12:00 CET', tags: [], slug: 'tidbit-2'}),
-          Tidbit.withRawData({headline: 'Tidbit 3', dateCreated: '2003-03-01 13:00 CET', tags: [], slug: 'tidbit-3'}),
-          Tidbit.withRawData({headline: 'Tidbit 4', dateCreated: '2004-04-01 14:00 CET', tags: [], slug: 'tidbit-4'}),
+          createTidbit({dateCreated: '2001-01-01 11:00 CET', slug: 'tidbit-1'}),
+          createTidbit({dateCreated: '2002-02-01 12:00 CET', slug: 'tidbit-2'}),
+          createTidbit({dateCreated: '2003-03-01 13:00 CET', slug: 'tidbit-3'}),
+          createTidbit({dateCreated: '2004-04-01 14:00 CET', slug: 'tidbit-4'}),
         ];
         /** @type Filename[] */
         const writtenToFilenames = [];
