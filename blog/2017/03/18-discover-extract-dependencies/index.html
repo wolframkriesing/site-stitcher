@@ -10,9 +10,9 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Discover and extract dependencies" />
+  <meta name="twitter:title" content="Discover and Extract Dependencies" />
 
-  <meta property="og:title" content="Discover and extract dependencies">
+  <meta property="og:title" content="Discover and Extract Dependencies">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/">
   <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/">
-  <title>Discover and extract dependencies | picostitch - crafting (and) JavaScript</title>
+  <title>Discover and Extract Dependencies | picostitch - crafting (and) JavaScript</title>
   
 </head>
 <body class="page-post">
@@ -50,7 +50,7 @@
   <a href="/">Home</a> &raquo;
   Blog &raquo;
   <a href="/blog/2017/03/">March 2017</a> &raquo;
-  Discover and extract dependencies
+  Discover and Extract Dependencies
 
   </nav>
 
@@ -139,7 +139,7 @@
   <article class="">
     <header>
       <h1>
-        Discover and extract dependencies
+        Discover and Extract Dependencies
         
       </h1>
       <div class="metadata">
@@ -154,24 +154,42 @@
     <p>While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies.</p>
-<h2 id="the-pattern-that-emerged-the-quick-version">The pattern that emerged (the quick version)</h2>
-<p>From this article you may learn that those steps are all that is necessary in order
-to get a better feeling on the dependencies of your code, how to separate them and
-make the code easy to test.</p>
-<p>The steps are:</p>
-<ol>
-<li>Write a first test</li>
-<li>Find and use first dependency in test</li>
-<li>Isolate dependencies</li>
-<li>Provide production/default dependencies</li>
-</ol>
-<p>And you end up with </p>
+<h2 id="tldr---the-pattern-that-emerged">TL;DR - The Pattern that Emerged</h2>
+<p>The pattern and the article focus on the steps to <strong>discover and extract dependencies in existing code</strong>
+which </p>
 <ul>
-<li>fast and small tests</li>
-<li>separated dependencies</li>
-<li>maybe hints for how to modularize your code</li>
+<li>improves the code, </li>
+<li>makes it easy to test and </li>
+<li>provides a lot hints for modularization. </li>
 </ul>
-<h2 id="the-task">The task</h2>
+<p><strong>The steps</strong> are:</p>
+<ol>
+<li>Write a first test.</li>
+<li>Find and use first dependency in test.</li>
+<li>Isolate dependencies.</li>
+<li>Provide production/default dependencies.</li>
+</ol>
+<p>In the end <strong>you get</strong>: </p>
+<ul>
+<li>fast and small tests,</li>
+<li>separated dependencies and</li>
+<li>hints for how to modularize your code.
+(You need to practice listening to the code to see the hints! Take your time.)</li>
+</ul>
+<h2 id="contents">Contents</h2>
+<ol>
+<li><a href="#the-task">The Task</a></li>
+<li><a href="#the-first-test">The First Test</a></li>
+<li><a href="#isolate-the-first-dependency">Isolate the First Dependency</a></li>
+<li><a href="#separating-dependencies">Separating Dependencies</a></li>
+<li><a href="#discover-a-second-dependency-the-fetch-function">Discover a Second Dependency, the fetch() Function</a></li>
+<li><a href="#inject-the-second-dependency">Inject the Second Dependency</a></li>
+<li><a href="#provide-production-dependencies">Provide Production Dependencies</a></li>
+<li><a href="#why-inject-default-dependencies-as-a-function">Why Inject Default Dependencies as a Function?</a></li>
+<li><a href="#next-steps">Next Steps</a></li>
+<li><a href="#conclusions">Conclusions</a></li>
+</ol>
+<h2 id="the-task">The Task</h2>
 <div style="float: left; padding: 1rem;">
 <img src="./load-student-flow.png" alt="program flow" width=200 class="sizeup-onhover-image scale4 origin-left-top" />
 <br/><em>loadStudent function flow</em>
@@ -194,7 +212,7 @@ const loadStudent = ({ studentId }) =&gt; {
   }
   return cache[studentId];
 };</code></pre>
-<h2 id="first-test">First test</h2>
+<h2 id="the-first-test">The First Test</h2>
 <p>The first test I wrote was for the cache (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/a3dba52ce7789c5517ceb60f953cfa33bb6ad499">see the commit</a>). Actually I am not sure it&#39;s the right
 test to write, since the fetch is more important. But anyways. I follow
 the code&#39;s flow.</p>
@@ -210,7 +228,7 @@ The production code and the test share it now through the access of a global var
 This is not good. In this case I want to have the cache under control, so I need
 to inject it. That is my first conclusion and the first dependency I found.
 NOTE: first dependency <code>cache</code>.</p>
-<h2 id="isolate-first-dependency">Isolate first dependency</h2>
+<h2 id="isolate-the-first-dependency">Isolate the First Dependency</h2>
 <p>I rewrite the test (and make it fail), I pass the <code>cache</code> into the function as a parameter 
 (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/2c485ba353c252e913d8430a49cda39894f30431">see the commit</a>).
 I isolate the first dependency. At least for the test it is isolated now.</p>
@@ -233,7 +251,7 @@ all. True. I am fine with that for now.</p>
 <p>No more global <code>cache</code> variable. Great for testability. But actually the 
 real cache functionality got lost. Since there is no global cache anymore. Right.
 That is a real issue. I will cover this in a second. Hold on! Let&#39;s clean up a bit first.</p>
-<h2 id="separating-dependencies">Separating dependencies</h2>
+<h2 id="separating-dependencies">Separating Dependencies</h2>
 <p>First I would like to refactor the code a little bit. The parameters 
 are nice and the destructuring makes it nice to have named parameters.
 But I think that <code>studentId</code> and <code>cache</code> are two different kind of parameters.
@@ -254,7 +272,18 @@ reader of the code will benefit from it. It will be clear that the cache
 is a dependency and is not a main concern of this function. And how the 
 cache works is nothing of importance in here. I personally like that and think
 it adds value to the code for any future reader.</p>
-<h2 id="discover-second-dependency-the-fetch-function">Discover second dependency, the <code>fetch()</code> function</h2>
+<p>Update: A common pattern that emerged to inject dependencies is to 
+use currying, where a function gets kinda configured with it&#39;s dependencies
+and returns a function that only receives the actual &quot;business logic&quot; parameters.
+It can look like this:</p>
+<pre><code class="language-js">const makeLoadStudent = (dependencies) =&gt; ({ studentId }) =&gt; {
+  // ...
+}; 
+
+// Use like this: 
+const loadStudent = makeLoadStudent(dependencies);
+loadStudent({studentId: 42});</code></pre>
+<h2 id="discover-a-second-dependency-the-fetch-function">Discover a Second Dependency, the <code>fetch()</code> Function</h2>
 <p>Let&#39;s tackle one of the open issues, which is testing the <code>fetch()</code> function.
 It is a global function, currently. So we are treating it as a nasty global
 function for now, and just overriding it in the following test (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/aaf3278c68aaf39b060585b9b309f3a1295a0bbc">commit</a>).</p>
@@ -266,7 +295,7 @@ function for now, and just overriding it in the following test (<a href="https:/
 });</code></pre>
 <p>We <strong>know</strong> now that <code>fetch()</code> is used inside of <code>loadStudent()</code>. And that knowledge
 is not in our test, that is nasty too. We need to make that obvious.</p>
-<h2 id="inject-the-second-dependency">Inject the second dependency</h2>
+<h2 id="inject-the-second-dependency">Inject the Second Dependency</h2>
 <p>We make this obvious by (just say it with me), yes, correct: <strong>injecting the dependency</strong> (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/9d808180666de271e1c7a37e4e2a4f96add0b08f">commit</a>).</p>
 <pre><code class="language-js">it(&#39;fetch the student if not in the cache&#39;, () =&gt; {
   const emptyCache = {};
@@ -275,7 +304,7 @@ is not in our test, that is nasty too. We need to make that obvious.</p>
   assertThat(student, equalTo(&#39;student 23&#39;));
 });</code></pre>
 <p>See <code>fetch()</code> is passed in the <code>dependencies</code> object. And no global is overridden anymore.</p>
-<h2 id="provide-production-dependencies">Provide production dependencies</h2>
+<h2 id="provide-production-dependencies">Provide Production Dependencies</h2>
 <p>Now we have all the dependencies identified. We have <code>cache</code> and <code>fetch()</code> (even though <code>fetch</code> is a pretty bad name).
 Those two dependencies can be injected, the function works using them.
 Now we should not just have the tests run, but also the production setup.
@@ -311,10 +340,11 @@ const loadStudent = ({ studentId }, dependencies = defaultDependencies()) =&gt; 
 only of some imported items. One could go further and move this out and just inject a structure into this file.
 I saw it working well until now with this less generic, more explicit approach and allowing 
 the reader (of the code) to see what the dependencies consist of, right where they are used.</p>
+<h2 id="why-inject-default-dependencies-as-a-function">Why Inject Default Dependencies as a Function?</h2>
 <p>Why a function <code>defaultDependencies()</code> and not just a simple object? Simple answer, a function
 makes it lazy. Until the dependencies are not needed they don&#39;t get resolved, this might 
 dribble down the call stack. And it also allows for configuring a dependency, if necessary.</p>
-<h2 id="whats-left">What&#39;s left?</h2>
+<h2 id="next-steps">Next Steps</h2>
 <p>The variable <code>cache</code> is a very simple, very stupid cache now.
 Which is quite cool. But thinking about a cache, there might be more to it.
 I might want to create a simple API for the reading from and writing to the cache.</p>
