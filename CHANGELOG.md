@@ -1,5 +1,5 @@
 # v2
-- [ ] render the headlineAsHtml, so <code> outlines are done, also id-attributes get generated, etc.
+- [x] render the headlineAsHtml, so <code> outlines are done, also id-attributes get generated, etc.
       makes it unified
 - [ ] add my web components content to the site (mostly from twitter, some is also in repos)
   - [ ] add the content

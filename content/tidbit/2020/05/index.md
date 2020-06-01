@@ -388,7 +388,7 @@ The PR for 1.0.0 got merged https://github.com/denoland/deno/pull/5273
 
 from [deno.land](https://deno.land/)
 
-# Clone Behavior of <script> Tag
+# Clone Behavior of `<script>` Tag
 
 slug: clone-behavior-of-script-tag
 dateCreated: 2020-05-12 00:53 CET

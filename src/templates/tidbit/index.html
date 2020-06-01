@@ -30,7 +30,7 @@
       <header>
         <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
         <h2 id="{{tidbit.slug}}">
-          <a href="{{tidbit.url}}">{{tidbit.headlineAsHtml}}</a>
+          <a href="{{tidbit.url}}">{!tidbit.headlineAsHtml!}</a>
         </h2>
         <div class="metadata">
           {{toReadableDate(tidbit.dateCreated)}}
