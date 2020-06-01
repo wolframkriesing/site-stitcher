@@ -1,4 +1,8 @@
 # v2
+- [ ] add my web components content to the site (mostly from twitter, some is also in repos)
+  - [ ] add the content
+  - [ ] unify the tags across blog posts and tidbits, so the tag "#Web Components" will show 
+        content of both parts  
 - [x] add emojis to the site, makes it friendlier
 - [x] move the text following a headline closer to the headline, as learned in "Dont make me think"
 - [x] rename links to "Continue Reading ->"
@@ -17,91 +21,36 @@
     - [x] add a `slug` attribute to all tidbits
     - [x] use the `slug` to generate the URLs
     - [x] use the `slug` also for the heading-id attribute    
-- [ ] add meta tags
-  - [ ] add og meta tags (https://ogp.me/)
-  - [ ] for twitter https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
-  - [ ] add <meta name="twitter:description" content="{{abstract}}" />
-  - [ ] <meta property="og:description" content="{{abstract}}">
-  - [ ] add <meta name="keywords" content="{{tags}}">
-  - [ ] image per post? 
-- [ ] generate tweets, and add the tags a post/tidbit has
-- [ ] add tddbin, katas and jskatas files on the site (files=ADRs, README, etc.)
-- [ ] link the tags
-- [ ] move tidbits tpls into tidits folder
-- [ ] really need error handling
-  - [ ] start with basic validation of the input, parsing, etc. along the way
-      try to remove tags from a tidbit, all fails
-  - [ ] error handling for copying assets, when this fails (see commit where i added this line)     
 - [x] move my microblog stuff here, these were just tidbits (small things)
-- [ ] **improve tidbits** (to become my source to feed twitter)
-  - [ ] make tidbits have a page each
-    - [x] separate them into files per month
-    - [ ] create a page per tidbit, to have a link to each and show related ones on the page too
-    - [ ] revamp the /tidbits page to have just the tidbit headlines and tags
-    - [ ] make the tidbit on the overview page colapsable, just show the first paragraph/line (without JS it links to the tidbit page)
+- [x] **improve tidbits** (to become my source to feed twitter)
   - [x] handle `tags` and `dateCreated` metadata (see 2019)
-  - [ ] find tags in the text (and use them)? see 2019/11.md (no need for `tags:` metadata)
-  - [ ] render image in md as figure, currently done by hand all the time
-  - [ ] move blog post code into /src/load-blog-post maybe even /src/render-blog-post' ...
-- [ ] add tags to the tidbits and render them on the page for easier reading and grouping
-  - [ ] maybe even a page per tag
-- [ ] add this project's pages to the site (like ADRs, README, test descriptions, ...)  
+  - [x] make tidbits have a page each
+    - [x] separate them into files per month
+    - [x] create a page per tidbit, to have a link to each and show related ones on the page too
+    - [x] revamp the /tidbits page to have just the tidbit headlines and tags
+    - [x] ~~make the tidbit on the overview page colapsable, just show the first paragraph/line (without JS it links to the tidbit page)~~ nope
 - [ ] use semantic html
   - [x] use <main>
   - [x] use <article> in post
   - [x] use <aside>
   - [x] use <header> for an article
   - [x] each article on the frontpage is an <article>
-  - [ ] add a breadcrumb navigation
+  - [x] add a breadcrumb navigation
   - [x] make tag.html use semantic 
   - [ ] make tidbits.html use semantic 
   - [ ] make about.html use semantic 
   - [x] ~~make 301.html use semantic~~ not necessary 
   - [x] make 404.html use semantic 
   - [x] make month.html use semantic 
-- [x] see learnings branch, there is always many of those little toolies that  learn every day
+- [x] see learnings branch, there is always many of those little toolies that I learn every day
       and i keep forgetting them, maybe a section on the site for them? https://github.com/wolframkriesing/site-stitcher/pull/2/files
-- [ ] syntax highlight code
-- [ ] are there schema outlines for related posts?
+      done with tidbits
 - [x] add related articles, because I have multiple articles of "Me discovering Ruby ..." for example
   - [x] find related articles automatically by name
 - [x] rebuild when a content file changes (not just when code changes doh)
 - [x] group by month
 - [x] show month-pages and link them
-- [ ] initial load grows with every post, show just first 100 and load more on scroll, or paginate, ...
 - [x] tags in the sidebar seem unsorted, introduce "Top tags" and "All tags" where they appear sorted, i would say
-- [ ] add follow button for twitter
-- [x] show the tags in a left column
-    - [ ] consolidate tags
-    - [ ] group doubles with different casing or spacing (open source = OpenSource)
-    - [ ] coderetreat, jscoderetreat, jscc, jscraftcamp, browsers, chrome, npm, nodejs, package.json, clean code, software design
-          simply reduce the number of used tags imho
-    - [ ] when grouped sort them in the group by name
-    - [ ] link each tag in the posts headline to the tag page
-- [ ] render the schema attributes
-- [ ] add all posts from
-  - [x] picostitch  
-  - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
-  - [ ] http://www.uxebu.com/blog/index.html
-  - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
-    - [ ] redirect the old URL to the new one
-  - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
-  - [x] microblog
-- [ ] setup
-  - [ ] ADRs
-  - [ ] type linting JS files using TS
-  - [ ] todo-stitcher
-- [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
-  - [ ] word count, lines of code, programming language, etc.
-  - [ ] download size of the page
-  - [ ] amount of HTML, CSS, JS on the page
-  - [ ] 3rd party URLs loaded on the page
-  - [ ] number of requests, etc.
-- [ ] render a page with the output of test-stitcher for all the tests that built this site
-- [ ] fix BlogPost types and Metadata
-- [ ] if a post has `datePublished` respect it and dont publis before, meaning dont build it
-- [ ] #SEO create a sitemap.xml
-- [ ] the image size up jumps at the end of the anim, fix it
 
 # v1 - page up - finished: 15th April 2020
 - [x] make it run using docker
@@ -147,6 +96,63 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] add meta tags
+  - [ ] add og meta tags (https://ogp.me/)
+  - [ ] for twitter https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
+  - [ ] add <meta name="twitter:description" content="{{abstract}}" />
+  - [ ] <meta property="og:description" content="{{abstract}}">
+  - [ ] add <meta name="keywords" content="{{tags}}">
+  - [ ] image per post? 
+- [ ] generate tweets, and add the tags a post/tidbit has
+- [ ] add tddbin, katas and jskatas files on the site (files=ADRs, README, etc.)
+- [ ] link the tags
+- [ ] move tidbits tpls into tidits folder
+- [ ] really need error handling
+  - [ ] start with basic validation of the input, parsing, etc. along the way
+      try to remove tags from a tidbit, all fails
+  - [ ] error handling for copying assets, when this fails (see commit where i added this line)     
+- [ ] **improve tidbits** (to become my source to feed twitter)
+  - [ ] find tags in the text (and use them)? see 2019/11.md (no need for `tags:` metadata)
+  - [ ] render image in md as figure, currently done by hand all the time
+- [ ] move blog post code into /src/load-blog-post maybe even /src/render-blog-post' ...
+- [ ] add tags to the tidbits and render them on the page for easier reading and grouping
+  - [ ] maybe even a page per tag
+- [ ] add this project's pages to the site (like ADRs, README, test descriptions, ...)  
+- [ ] syntax highlight code, build a CBE <code is=more-code>
+- [ ] are there schema outlines for related posts?
+- [x] show the tags in a left column
+    - [ ] consolidate tags
+    - [ ] group doubles with different casing or spacing (open source = OpenSource)
+    - [ ] coderetreat, jscoderetreat, jscc, jscraftcamp, browsers, chrome, npm, nodejs, package.json, clean code, software design
+          simply reduce the number of used tags imho
+    - [ ] when grouped sort them in the group by name
+    - [ ] link each tag in the posts headline to the tag page
+- [ ] initial load grows with every post, show just first 100 and load more on scroll, or paginate, ...
+- [ ] add follow button for twitter
+- [ ] render the schema attributes
+- [ ] add all posts from
+  - [x] picostitch  
+  - [ ] https://techblog.holidaycheck.com/author/wolframkriesing/
+  - [ ] http://www.uxebu.com/blog/index.html
+  - [ ] https://web.archive.org/web/20110102022119/http://wolfram.kriesing.de/blog/index.php/2009/04
+    - [ ] redirect the old URL to the new one
+  - [ ] https://github.com/wolframkriesing/wolfram.kriesing.de/blob/use-react/content/tech.md
+  - [x] microblog
+- [ ] setup
+  - [x] ADRs
+  - [ ] type linting JS files using TS
+  - [ ] todo-stitcher
+- [ ] show mini stats at the bottom of every page (maybe later as a chart over time)
+  - [ ] word count, lines of code, programming language, etc.
+  - [ ] download size of the page
+  - [ ] amount of HTML, CSS, JS on the page
+  - [ ] 3rd party URLs loaded on the page
+  - [ ] number of requests, etc.
+- [ ] render a page with the output of test-stitcher for all the tests that built this site
+- [ ] fix BlogPost types and Metadata
+- [ ] if a post has `datePublished` respect it and dont publish before, meaning dont build it
+- [ ] #SEO create a sitemap.xml
+- [ ] the image size up jumps at the end of the anim, fix it
 - [ ] 301 /tidbits/ to /tidbit/ all URLs are singular
 - [ ] BUG H1s have no id, since I manually render them :(
 - [ ] see `npm run build:images:gif` it only builds for tidbits, unify and simplify building assets for all dirs
