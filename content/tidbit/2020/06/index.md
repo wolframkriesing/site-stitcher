@@ -1,4 +1,4 @@
-# `:defined` Pseudo-Class Under the Hood
+# Pseudo-Class `:defined` Under the Hood
 
 slug: defined-pseudo-class-under-the-hood
 dateCreated: 2020-06-01 13:16 CET
