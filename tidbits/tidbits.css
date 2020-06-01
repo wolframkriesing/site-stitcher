@@ -2,27 +2,21 @@
   background: none;
 }
 
-h1 span.tag,
-h2 span.tag {
+header .tag {
   font-size: 1rem;
   padding: 0.1rem 0.5rem;
   margin-right: 1rem; /* space to the H2 */
   font-weight: bold;
-}
-@media screen and (max-width: 600px) {
-  h1 span.tag,
-  h2 span.tag {
-    display: block;
-  }
+  width: 3rem;
 }
 
-span.tag[data-tag="a11y"] { background: linear-gradient(to right, #0000, #bfffad 30%); }
-span.tag[data-tag="docker"] { background: linear-gradient(to right, #0000, #adc2ff 30%); }
-span.tag[data-tag="english"] { background: linear-gradient(to right, #0000, #ffdaad 30%); }
-span.tag[data-tag="html"] { background: linear-gradient(to right, #0000, #adffff 30%); }
-span.tag[data-tag="indieweb"] { background: linear-gradient(to right, #0000, #a2ef2f 30%); }
-span.tag[data-tag="javascript"] { background: linear-gradient(to right, #0000, #fae96d 30%); }
-span.tag[data-tag="linux"] { background: linear-gradient(to right, #0000, #d6adff 30%); }
-span.tag[data-tag="macos"] { background: linear-gradient(to right, #0000, #d6adff 30%); }
-span.tag[data-tag="tools"] { background: linear-gradient(to right, #0000, #ffadb9 30%); }
-span.tag[data-tag="web"] { background: linear-gradient(to right, #0000, rgba(0, 103, 184, 0.5) 30%); }
+.tag[data-tag="a11y"] { background: linear-gradient(to left, #0000, #bfffad 30%); }
+.tag[data-tag="docker"] { background: linear-gradient(to left, #0000, #adc2ff 30%); }
+.tag[data-tag="english"] { background: linear-gradient(to left, #0000, #ffdaad 30%); }
+.tag[data-tag="html"] { background: linear-gradient(to left, #0000, #adffff 30%); }
+.tag[data-tag="indieweb"] { background: linear-gradient(to left, #0000, #a2ef2f 30%); }
+.tag[data-tag="javascript"] { background: linear-gradient(to left, #0000, #fae96d 30%); }
+.tag[data-tag="linux"] { background: linear-gradient(to left, #0000, #d6adff 30%); }
+.tag[data-tag="macos"] { background: linear-gradient(to left, #0000, #d6adff 30%); }
+.tag[data-tag="tools"] { background: linear-gradient(to left, #0000, #ffadb9 30%); }
+.tag[data-tag="web"] { background: linear-gradient(to left, #0000, rgba(0, 103, 184, 0.5) 30%); }
