@@ -3,31 +3,47 @@ tags: javascript, dependency injection, testing
 postTypes: post  
 oldUrls: /blog/2017/03/discover-extract-dependencies/  
 
-# Discover and extract dependencies
+# Discover and Extract Dependencies
 
 While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies.
 
-## The pattern that emerged (the quick version)
+## TL;DR - The Pattern that Emerged
 
-From this article you may learn that those steps are all that is necessary in order
-to get a better feeling on the dependencies of your code, how to separate them and
-make the code easy to test.
+The pattern and the article focus on the steps to **discover and extract dependencies in existing code**
+which 
+* improves the code, 
+* makes it easy to test and 
+* provides a lot hints for modularization. 
 
-The steps are:
+**The steps** are:
 
-1. Write a first test
-1. Find and use first dependency in test
-1. Isolate dependencies
-1. Provide production/default dependencies
+1. Write a first test.
+1. Find and use first dependency in test.
+1. Isolate dependencies.
+1. Provide production/default dependencies.
 
-And you end up with 
-- fast and small tests
-- separated dependencies
-- maybe hints for how to modularize your code
+In the end **you get**: 
+- fast and small tests,
+- separated dependencies and
+- hints for how to modularize your code.
+  (You need to practice listening to the code to see the hints! Take your time.)
 
-## The task
+## Contents
+
+1. [The Task](#the-task)
+1. [The First Test](#the-first-test)
+1. [Isolate the First Dependency](#isolate-the-first-dependency)
+1. [Separating Dependencies](#separating-dependencies)
+1. [Discover a Second Dependency, the fetch() Function](#discover-a-second-dependency-the-fetch-function)
+1. [Inject the Second Dependency](#inject-the-second-dependency)
+1. [Provide Production Dependencies](#provide-production-dependencies)
+1. [Why Inject Default Dependencies as a Function?](#why-inject-default-dependencies-as-a-function)
+1. [Next Steps](#next-steps)
+1. [Conclusions](#conclusions)
+
+## The Task
 
 <div style="float: left; padding: 1rem;">
 <img src="./load-student-flow.png" alt="program flow" width=200 class="sizeup-onhover-image scale4 origin-left-top" />
@@ -58,7 +74,7 @@ const loadStudent = ({ studentId }) => {
 };
 ```
 
-## First test
+## The First Test
 
 The first test I wrote was for the cache ([see the commit][first-test]). Actually I am not sure it's the right
 test to write, since the fetch is more important. But anyways. I follow
@@ -80,7 +96,7 @@ This is not good. In this case I want to have the cache under control, so I need
 to inject it. That is my first conclusion and the first dependency I found.
 NOTE: first dependency `cache`.
 
-## Isolate first dependency
+## Isolate the First Dependency
 
 I rewrite the test (and make it fail), I pass the `cache` into the function as a parameter 
 ([see the commit][inject-cache-commit]).
@@ -114,7 +130,7 @@ No more global `cache` variable. Great for testability. But actually the
 real cache functionality got lost. Since there is no global cache anymore. Right.
 That is a real issue. I will cover this in a second. Hold on! Let's clean up a bit first.
 
-## Separating dependencies
+## Separating Dependencies
 
 First I would like to refactor the code a little bit. The parameters 
 are nice and the destructuring makes it nice to have named parameters.
@@ -145,7 +161,22 @@ is a dependency and is not a main concern of this function. And how the
 cache works is nothing of importance in here. I personally like that and think
 it adds value to the code for any future reader.
 
-## Discover second dependency, the `fetch()` function
+Update: A common pattern that emerged to inject dependencies is to 
+use currying, where a function gets kinda configured with it's dependencies
+and returns a function that only receives the actual "business logic" parameters.
+It can look like this:
+
+```js
+const makeLoadStudent = (dependencies) => ({ studentId }) => {
+  // ...
+}; 
+
+// Use like this: 
+const loadStudent = makeLoadStudent(dependencies);
+loadStudent({studentId: 42});
+```
+
+## Discover a Second Dependency, the `fetch()` Function
 
 Let's tackle one of the open issues, which is testing the `fetch()` function.
 It is a global function, currently. So we are treating it as a nasty global
@@ -163,7 +194,7 @@ it('fetch the student if not in the cache', () => {
 We **know** now that `fetch()` is used inside of `loadStudent()`. And that knowledge
 is not in our test, that is nasty too. We need to make that obvious.
 
-## Inject the second dependency
+## Inject the Second Dependency
 
 We make this obvious by (just say it with me), yes, correct: **injecting the dependency** ([commit][inject-fetch-commit]).
 
@@ -178,7 +209,7 @@ it('fetch the student if not in the cache', () => {
 
 See `fetch()` is passed in the `dependencies` object. And no global is overridden anymore.
 
-## Provide production dependencies
+## Provide Production Dependencies
 
 Now we have all the dependencies identified. We have `cache` and `fetch()` (even though `fetch` is a pretty bad name).
 Those two dependencies can be injected, the function works using them.
@@ -227,11 +258,13 @@ only of some imported items. One could go further and move this out and just inj
 I saw it working well until now with this less generic, more explicit approach and allowing 
 the reader (of the code) to see what the dependencies consist of, right where they are used.
 
+## Why Inject Default Dependencies as a Function? 
+
 Why a function `defaultDependencies()` and not just a simple object? Simple answer, a function
 makes it lazy. Until the dependencies are not needed they don't get resolved, this might 
 dribble down the call stack. And it also allows for configuring a dependency, if necessary.
 
-## What's left?
+## Next Steps
 
 The variable `cache` is a very simple, very stupid cache now.
 Which is quite cool. But thinking about a cache, there might be more to it.
