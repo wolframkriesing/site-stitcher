@@ -10,6 +10,7 @@ const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth
 const defaultRawTidbitData = {
   abstractAsHtml: '',
   bodyAsHtml: '',
+  hasAbstractOnly: false,
   headline: '',
   headlineAsHtml: '',
   tags: [''],
