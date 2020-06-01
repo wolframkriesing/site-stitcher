@@ -165,8 +165,10 @@
 - [ ] video links could have a video-icon behind it, would be cool
 - [ ] show embedded code that "commit" link links to, if possible
       sounds like a nice web component
-- [ ] generate an index, see "Build, Measure, Speed, Repeat" post, that index could be auto generated
-      auto-create a <ol id=toc> in a post with the table of contents, see also SEO hints about it
+- [ ] TOC
+  - [ ] generate an index, see "Build, Measure, Speed, Repeat" post, that index could be auto generated
+        auto-create a <ol id=toc> in a post with the table of contents, see also SEO hints about it
+  - [ ] put the toc on the right side of the article, sticky
 - [ ] allow linking headline, esp useful on long article more-html ftw ;)
 - [ ] when selected some text open a "tweet this" or "share this" button
 - [ ] use a different font, to also be able to outline and distinguish source code better
