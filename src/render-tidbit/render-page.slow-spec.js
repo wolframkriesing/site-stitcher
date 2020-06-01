@@ -41,9 +41,9 @@ describe('Render tidbits pages', () => {
           Tidbit.withRawData({headline: 'irrelevant', tags: ['one'], dateCreated: '2000-01-01 10:00 CET', slug: 'irrelevant'}),
           Tidbit.withRawData({headline: 'irrelevant', tags: ['oh my god'], dateCreated: '2000-01-01 10:00 CET', slug: 'irrelevant'}),
         ]);
-        assertThat(writtenToFile, containsString('<span class="tag" data-tag="a11y">#a11y</span>'));
-        assertThat(writtenToFile, containsString('<span class="tag" data-tag="one">#one</span>'));
-        assertThat(writtenToFile, containsString('<span class="tag" data-tag="oh-my-god">#oh my god</span>'));
+        assertThat(writtenToFile, containsString('<div class="tag" data-tag="a11y">#a11y</div>'));
+        assertThat(writtenToFile, containsString('<div class="tag" data-tag="one">#one</div>'));
+        assertThat(writtenToFile, containsString('<div class="tag" data-tag="oh-my-god">#oh my god</div>'));
       });
       it('AND write to "/tidbits/index.html" (even when no tidbits are given, just make sure we write to the correct file)', async () => {
         /** @type Tidbit[] */
