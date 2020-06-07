@@ -46,7 +46,7 @@ export const renderAndWriteTidbitsIndexPage = ({writeFile} = prodDeps()) => asyn
  * @param deps {import('./render-page').ProductionDependencies}
  * @return {function(import('../load-tidbit/Tidbit').Tidbit[], PlainObject): Promise<void>}
  */
-export const renderAndWriteTidbitPage = ({writeFile} = prodDeps()) => async (tidbits, renderParams) => {
+export const renderAndWriteTidbitPages = ({writeFile} = prodDeps()) => async (tidbits, renderParams) => {
   const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderTidbitPage({...renderParams, tidbit: t})));
   await Promise.all(pageWriters);
 };

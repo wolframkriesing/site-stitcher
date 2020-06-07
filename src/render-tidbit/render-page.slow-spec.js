@@ -1,7 +1,7 @@
 import {describe, it} from 'mocha';
 import {assertThat, containsString, matchesPattern, hasItem} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
-import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPage} from './render-page.js';
+import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPages} from './render-page.js';
 
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
@@ -100,7 +100,7 @@ describe('Render tidbits pages', () => {
          * @return {Promise<void>}
          */
         const writeFile = async (filename, _) => { writtenToFilenames.push(filename); };
-        await renderAndWriteTidbitPage({writeFile})(tidbits, renderParams);
+        await renderAndWriteTidbitPages({writeFile})(tidbits, renderParams);
         assertThat(writtenToFilenames, hasItem('/tidbits/2000/01/a-tidbit/index.html'));
       });
       it('AND write a file per tidbit', async () => {
@@ -118,7 +118,7 @@ describe('Render tidbits pages', () => {
          * @return {Promise<void>}
          */
         const writeFile = async (filename, _) => { writtenToFilenames.push(filename); };
-        await renderAndWriteTidbitPage({writeFile})(tidbits, renderParams);
+        await renderAndWriteTidbitPages({writeFile})(tidbits, renderParams);
         assertThat(writtenToFilenames, hasItem('/tidbits/2001/01/tidbit-1/index.html'));
         assertThat(writtenToFilenames, hasItem('/tidbits/2002/02/tidbit-2/index.html'));
         assertThat(writtenToFilenames, hasItem('/tidbits/2003/03/tidbit-3/index.html'));
