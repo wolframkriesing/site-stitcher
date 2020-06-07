@@ -52,6 +52,16 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, matchesPattern(/<h2.*>.*Tidbit2.*<\/h2>/gms));
         assertThat(writtenToFile, matchesPattern(/<h2.*>.*Tidbit3.*<\/h2>/gms));
       });
+      it('AND render the slug as the `id` attribute for the H2s', async () => {
+        const writtenToFile = await renderResult([
+          createTidbit({slug: 'tidbit-xyz'}),
+        ]);
+        assertThat(writtenToFile, matchesPattern(/<h2[^>]* id="tidbit-xyz"/gms));
+      });
+      it('AND render attribute `is=more-h2` for enhancing the H2 via the more-html component', async () => {
+        const writtenToFile = await renderResult([createTidbit(),]);
+        assertThat(writtenToFile, matchesPattern(/<h2[^>]* is="more-h2"/gms));
+      });
       it('AND renders the first tag AND the data-attribute contains the tag`s slug', async () => {
         const writtenToFile = await renderResult([
           createTidbit({tags: ['a11y']}),
