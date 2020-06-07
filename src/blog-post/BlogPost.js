@@ -54,6 +54,11 @@ export class BlogPost {
   get url() {
     return urlFromMarkdownFilename(this.markdownFilename);
   }
+  get slug() {
+    const filename = this.markdownFilename.split('/').slice(-1)[0];
+    const trimDayAndExtension = s => s.substr(3, s.length - 6);
+    return trimDayAndExtension(filename);
+  }
   get urlForMonth() {
     return urlForMonthFromMarkdownFilename(this.markdownFilename);
   }
