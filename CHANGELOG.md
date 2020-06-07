@@ -99,6 +99,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] make `blogPostsDirectory` come from the ENV (and use the right one for dev/test)
 - [ ] fix types in /load-tidbit
 - [ ] rendering a tidbit-page is split into 1) rendering header+metadata and 2) rendering the body
       both are done in different places (render-page and load-tidbit) but stitched together

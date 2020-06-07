@@ -4,7 +4,7 @@ import {assertThat, not, hasItem, hasProperty, endsWith} from 'hamjest';
 import * as path from 'path';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 
-const blogPostsDirectory = path.join(__dirname, '../test-content/blog-posts');
+const blogPostsDirectory = path.join(__dirname, '../../test-content/blog-posts');
 
 describe('Load blog post source files from a directory (tests are slow, working against a real fs)', () => {
   it('GIVEN directory WHEN loading the files THEN return source file with correct `dateCreated` and `filename`', async () => {

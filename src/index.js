@@ -2,12 +2,12 @@ import * as path from 'path';
 import marked from 'marked';
 import Tundra from 'tundrajs';
 import * as fs from 'fs';
-import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
-import {loadManyBlogPosts} from './load-blog-post.js';
-import {sortByDateCreatedDescending} from './sort-blog-post.js';
-import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
+import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
+import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
+import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
+import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './blog-post/group-blog-posts.js';
 
-import {toReadableDate, toReadableYearAndMonth, toWeekday} from './date.js';
+import {toReadableDate, toReadableYearAndMonth, toWeekday} from './_shared/date.js';
 
 const tundra = new Tundra({cache: true});
 
