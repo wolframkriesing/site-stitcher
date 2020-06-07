@@ -98,6 +98,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] fix types in /load-tidbit
 - [ ] rendering a tidbit-page is split into 1) rendering header+metadata and 2) rendering the body
       both are done in different places (render-page and load-tidbit) but stitched together
       in the page.html template. Shouldn't this be unified into one place?
