@@ -98,6 +98,9 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] rendering a tidbit-page is split into 1) rendering header+metadata and 2) rendering the body
+      both are done in different places (render-page and load-tidbit) but stitched together
+      in the page.html template. Shouldn't this be unified into one place?
 - [ ] how can all more-html related code go into one place? in case it changes, or is not needed anymore I want to one click remove it. Is that a good goal?
 - [ ] add meta tags
   - [ ] add og meta tags (https://ogp.me/)
