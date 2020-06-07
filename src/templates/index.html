@@ -11,7 +11,9 @@
 {[ block content ]}
   <article class="latest">
     <header>
-      <h1><a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}</h1>
+      <h1 id="{{posts[0].slug}}" is="more-h1">
+        <a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}
+      </h1>
       <div class="metadata">
         {{toReadableDate(posts[0].dateCreated)}}
         {% if (posts[0].tags.length > 0) { %}
@@ -28,9 +30,11 @@
   {% posts.slice(1).map(post => { %}
     <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
-        <h2><a href="{{post.url}}" itemprop="url">
+        <h2 id="{{post.slug}}" is="more-h2">
+          <a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
-        {{ post.hasVideo ? ' 📺' : '' }}</h2>
+          {{ post.hasVideo ? ' 📺' : '' }}
+        </h2>
         <div class="metadata">
           {{toReadableDate(post.dateCreated)}}
           {% if (post.tags.length > 0) { %}

@@ -9,12 +9,15 @@
 {[ endblock ]}
 
 {[ block content ]}
-  <h1>{{toReadableDate(yearAndMonth)}}</h1>
+  <h1 id="{{yearAndMonth}}" is="more-h1">
+    {{toReadableDate(yearAndMonth)}}
+  </h1>
 
   {% posts.map(post => { %}
     <article class="preview {{post.isDraft ? 'isDraft' : ''}}" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
-        <h2><a href="{{post.url}}" itemprop="url">
+        <h2 id="{{post.slug}}" is="more-h2">
+          <a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
           {{post.hasVideo ? ' 📺' : ''}}
           {{post.isDraft ? ' [this is a draft]' : ''}}

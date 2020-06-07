@@ -6,7 +6,7 @@
 
 {[ block sidebar-right ]}
   {% if (post.relatedPosts.length > 1) { %}
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     {% post.relatedPosts.map(p => { %}
       {% if (post === p) { %}
         {{p.headline}}<br/>
@@ -27,7 +27,7 @@
 {[ block content ]}
   <article class="{{post.isDraft ? 'isDraft' : ''}}">
     <header>
-      <h1>
+      <h1 id="{{post.slug}}" is="more-h1">
         {{post.headline}}
         {{post.isDraft ? ' [this is a draft]' : ''}}
       </h1>
