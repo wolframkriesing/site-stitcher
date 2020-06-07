@@ -2,12 +2,12 @@ import * as path from 'path';
 import marked from 'marked';
 import Tundra from 'tundrajs';
 import * as fs from 'fs';
-import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
-import {loadManyBlogPosts} from './load-blog-post.js';
-import {sortByDateCreatedDescending} from './sort-blog-post.js';
-import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
+import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
+import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
+import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
+import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './blog-post/group-blog-posts.js';
 
-import {toReadableDate, toReadableYearAndMonth, toWeekday} from './date.js';
+import {toReadableDate, toReadableYearAndMonth, toWeekday} from './_shared/date.js';
 
 const tundra = new Tundra({cache: true});
 
@@ -58,13 +58,13 @@ const generatePost = async (post) => {
 
 import {loadTidbits} from './load-tidbit/load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
-import {renderAndWriteTidbitPage, renderAndWriteTidbitsIndexPage} from './render-tidbit/render-page.js';
-const generateTidbitsPage = async () => {
+import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-tidbit/render-page.js';
+const generateTidbitsPages = async () => {
   const tidbitsDirectory = path.join(__dirname, '../content/tidbit');
   const sourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
   const tidbits = await loadTidbits()(sourceFiles);
   await renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
-  await renderAndWriteTidbitPage()(tidbits, defaultRenderParams);
+  await renderAndWriteTidbitPages()(tidbits, defaultRenderParams);
 };
 
 const aboutIndexPage = async () => {
@@ -123,7 +123,7 @@ const timeIt = async (label, fn) => {
   console.timeEnd(label);
 }
 
-import {findRelatedPosts} from './related-posts.js';
+import {findRelatedPosts} from './blog-post/related-posts.js';
 (async() => {
   console.time('Overall');
   console.log('Preparing data\n========');
@@ -150,7 +150,7 @@ import {findRelatedPosts} from './related-posts.js';
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
   await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false)));
   await timeIt('About pages', () => generateAboutPages());
-  await timeIt('Tidbit pages', () => generateTidbitsPage());
+  await timeIt('Tidbit pages', () => generateTidbitsPages());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   console.log('-----');
   console.timeEnd('Overall');

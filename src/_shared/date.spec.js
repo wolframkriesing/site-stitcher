@@ -1,5 +1,5 @@
 import {describe, it} from 'mocha';
-import assert from 'assert';
+import * as assert from 'assert';
 import {toReadableDate, toReadableYearAndMonth, toWeekday, nowAsDateTimeString} from './date.js';
 
 describe('Convert date (and time) to a readable date string', () => {

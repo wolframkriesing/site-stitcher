@@ -7,5 +7,5 @@ type ProductionDependencies = {
 export function renderAndWriteTidbitsIndexPage({writeFile}: ProductionDependencies):
     (tidbits: Tidbit[], renderParams: PlainObject) => Promise<void>;
 
-export function renderAndWriteTidbitPage({writeFile}: ProductionDependencies):
+export function renderAndWriteTidbitPages({writeFile}: ProductionDependencies):
     (tidbits: Tidbit[], renderParams: PlainObject) => Promise<void>;

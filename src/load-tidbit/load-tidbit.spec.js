@@ -1,119 +1,147 @@
 import {describe, it} from 'mocha';
 import * as assert from 'assert';
-import {assertThat, instanceOf, hasProperties} from 'hamjest';
+import {assertThat, instanceOf, hasProperties, matchesPattern} from 'hamjest';
 import {Tidbit} from './Tidbit.js';
 import {loadTidbitFile, loadTidbits} from './load-tidbit.js';
 import {TidbitSourceFile} from "./TidbitSourceFile.js";
 
-describe('Load a tidbit file (one month)', () => {
-  describe('GIVEN one tidbit in it', () => {
-    describe('WHEN tidbit has all required data (headline, slug, dateCreated, paragraph)', () => {
-      const load = () => {
-        const fileContent = [
-          '# A Tidbit',
-          '',
-          'slug: a-custom-tidbit  ',
-          'dateCreated: 2111-11-11 11:11 CET  ',
-          '',
-          'One paragraph'
-        ].join('\n');
-        return loadTidbitFile(fileContent);
-      };
-      it('THEN find one tidbit', () => {
-        assert.equal(load().length, 1);
+describe('Load one tidbit markdown and provide a Tidbit instance', () => {
+  describe('WHEN tidbit has all required data (headline, slug, dateCreated, paragraph)', () => {
+    const load = () => {
+      const fileContent = [
+        '# A Tidbit',
+        '',
+        'slug: a-custom-tidbit  ',
+        'dateCreated: 2111-11-11 11:11 CET  ',
+        '',
+        'One paragraph'
+      ].join('\n');
+      return loadTidbitFile(fileContent);
+    };
+    it('THEN find one tidbit', () => {
+      assert.equal(load().length, 1);
+    });
+    it('THEN this one be a Tidbit instance', () => {
+      assertThat(load()[0], instanceOf(Tidbit));
+    });
+    it('THEN it has the headline "A Tidbit"', () => {
+      assertThat(load()[0].headline, 'A Tidbit');
+    });
+    it('THEN it has the headlineAsHtml "A Tidbit"', () => {
+      assertThat(load()[0].headlineAsHtml, 'A Tidbit');
+    });
+    it('THEN it has the dateCreated = 2111-11-11 11:11 CET', () => {
+      assertThat(load()[0].dateCreated, '2111-11-11 11:11 CET');
+    });
+    it('THEN it has the url = /tidbits/2111/11/a-tidbit/', () => {
+      assertThat(load()[0].url, '/tidbits/2111/11/a-custom-tidbit/');
+    });
+    it('THEN it has the slug = a-tidbit', () => {
+      assertThat(load()[0].slug, 'a-custom-tidbit');
+    });
+    it('THEN it has the abstractAsHtml = "One paragraph"', () => {
+      assertThat(load()[0].abstractAsHtml, 'One paragraph');
+    });
+    it('THEN it has not tags', () => {
+      assertThat(load()[0], hasProperties({tags: []}));
+    });
+    it('THEN it has no oldUrls', () => {
+      assertThat(load()[0], hasProperties({oldUrls: []}));
+    });
+    it('THEN get the content as rendered, via `bodyAsHtml`', () => {
+      assert.strictEqual(load()[0].bodyAsHtml, '<p>One paragraph</p>\n');
+    });
+  });
+  describe('WHEN tidbit has a lot of data, not just the required ones', () => {
+    const load = () => {
+      const fileContent = [
+        '# A Bigger Tidbit', '',
+        'dateCreated: 2111-11-11 11:11 CET  ',
+        'tags: nodejs, JAVA script, etc  ',
+        'oldUrls: /blog/old/url/ /blog/old/url1/  ',
+        '',
+        'One paragraph',
+        'with two lines and a [link][1].',
+        '',
+        '> and a blog quote',
+        '> on many lines',
+        '',
+        '[1]: http://home.de',
+      ].join('\n');
+      return loadTidbitFile(fileContent);
+    };
+    describe('THEN find the metadata', () => {
+      it('all the tags "nodejs, JAVA script, etc" AND their slug', () => {
+        assert.deepStrictEqual(load()[0].tags, [
+          {value: 'nodejs', slug: 'nodejs'}, {value: 'JAVA script', slug: 'java-script'}, {value: 'etc', slug: 'etc'}]);
       });
-      it('THEN this one be a Tidbit instance', () => {
-        assertThat(load()[0], instanceOf(Tidbit));
+      it('oldUrls', () => {
+        assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
       });
-      it('THEN it has the headline "A Tidbit"', () => {
-        assertThat(load()[0].headline, 'A Tidbit');
-      });
-      it('THEN it has the headlineAsHtml "A Tidbit"', () => {
-        assertThat(load()[0].headlineAsHtml, 'A Tidbit');
-      });
-      it('THEN it has the dateCreated = 2111-11-11 11:11 CET', () => {
-        assertThat(load()[0].dateCreated, '2111-11-11 11:11 CET');
-      });
-      it('THEN it has the url = /tidbits/2111/11/a-tidbit/', () => {
-        assertThat(load()[0].url, '/tidbits/2111/11/a-custom-tidbit/');
-      });
-      it('THEN it has the slug = a-tidbit', () => {
-        assertThat(load()[0].slug, 'a-custom-tidbit');
-      });
-      it('THEN it has the abstractAsHtml = "One paragraph"', () => {
-        assertThat(load()[0].abstractAsHtml, 'One paragraph');
-      });
-      it('THEN it has not tags', () => {
-        assertThat(load()[0], hasProperties({tags: []}));
-      });
-      it('THEN it has no oldUrls', () => {
-        assertThat(load()[0], hasProperties({oldUrls: []}));
-      });
-      it('THEN get the content as rendered, via `bodyAsHtml`', () => {
-        assert.strictEqual(load()[0].bodyAsHtml, '<p>One paragraph</p>\n');
+      it('abstract with a link-ref (not a direct link in the paragraph, but at the end of the section)', () => {
+        assertThat(load()[0].abstractAsHtml,
+          'One paragraph\n' +
+          'with two lines and a <a href="http://home.de">link</a>.'
+        );
       });
     });
-    describe('WHEN tidbit has a lot of data, not just the required ones', () => {
+    it('THEN get the content as rendered, via `bodyAsHtml`', () => {
+      const expected = [
+        '<p>One paragraph',
+        'with two lines and a <a href="http://home.de">link</a>.</p>',
+        '<blockquote>',
+        '<p>and a blog quote',
+        'on many lines</p>',
+        '</blockquote>',
+        ''
+      ].join('\n');
+      assert.strictEqual(load()[0].bodyAsHtml, expected);
+    });
+  });
+  describe('WHEN tidbit has some special edge case data', () => {
+    it('AND the headline contains code THEN render it as HTML', () => {
+      const fileContent = [
+        '# A piece of `code`',
+        '',
+        'slug: irrelevant  ',
+        'dateCreated: 2111-11-11 11:11 CET  ',
+        '',
+        'irrelevant'
+      ].join('\n');
+      const tidbit = loadTidbitFile(fileContent)[0];
+      assert.strictEqual(tidbit.headlineAsHtml, 'A piece of <code>code</code>');
+    });
+    describe('AND it has H2 and H3s', () => {
       const load = () => {
         const fileContent = [
-          '# A Bigger Tidbit', '',
-          'dateCreated: 2111-11-11 11:11 CET  ',
-          'tags: nodejs, JAVA script, etc  ',
-          'oldUrls: /blog/old/url/ /blog/old/url1/  ',
-          '',
-          'One paragraph',
-          'with two lines and a [link][1].',
-          '',
-          '> and a blog quote',
-          '> on many lines',
-          '',
-          '[1]: http://home.de',
-        ].join('\n');
-        return loadTidbitFile(fileContent);
-      };
-      describe('THEN find the metadata', () => {
-        it('all the tags "nodejs, JAVA script, etc" AND their slug', () => {
-          assert.deepStrictEqual(load()[0].tags, [
-            {value: 'nodejs', slug: 'nodejs'}, {value: 'JAVA script', slug: 'java-script'}, {value: 'etc', slug: 'etc'}]);
-        });
-        it('oldUrls', () => {
-          assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
-        });
-        it('abstract with a link-ref (not a direct link in the paragraph, but at the end of the section)', () => {
-          assertThat(load()[0].abstractAsHtml,
-            'One paragraph\n' +
-            'with two lines and a <a href="http://home.de">link</a>.'
-          );
-        });
-      });
-      it('THEN get the content as rendered, via `bodyAsHtml`', () => {
-        const expected = [
-          '<p>One paragraph',
-          'with two lines and a <a href="http://home.de">link</a>.</p>',
-          '<blockquote>',
-          '<p>and a blog quote',
-          'on many lines</p>',
-          '</blockquote>',
-          ''
-        ].join('\n');
-        assert.strictEqual(load()[0].bodyAsHtml, expected);
-      });
-    });
-    describe('WHEN tidbit has some special edge case data', () => {
-      it('AND the headline contains code THEN render it as HTML', () => {
-        const fileContent = [
-          '# A piece of `code`',
+          '# h1',
           '',
           'slug: irrelevant  ',
           'dateCreated: 2111-11-11 11:11 CET  ',
           '',
-          'irrelevant'
+          '## I am h2',
+          'h2 content',
+          '',
+          '### I am h3',
+          'h3 content',
         ].join('\n');
-        const tidbit = loadTidbitFile(fileContent)[0];
-        assert.strictEqual(tidbit.headlineAsHtml, 'A piece of <code>code</code>');
+        return loadTidbitFile(fileContent)[0];
+      }
+      it('THEN render each heading with the `id` attribute', () => {
+        const tidbit = load();
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h2[^>]* id="i-am-h2"/gms));
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h3[^>]* id="i-am-h3"/gms));
+      });
+      it('THEN render each heading with the `is=more-h*` attribute', () => {
+        const tidbit = load();
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h2[^>]* is="more-h2"/gms));
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h3[^>]* is="more-h3"/gms));
       });
     });
   });
+});
+
+describe('Load a tidbit file (one month)', () => {
   describe('GIVEN many tidbits in on file', () => {
     const load = () => {
       const fileContent = [

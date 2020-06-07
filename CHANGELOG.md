@@ -1,4 +1,5 @@
 # v2
+- [ ] make `is=more-h1` work, to allow linking any headline
 - [x] render the headlineAsHtml, so <code> outlines are done, also id-attributes get generated, etc.
       makes it unified
 - [ ] add my web components content to the site (mostly from twitter, some is also in repos)
@@ -98,6 +99,12 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] make `blogPostsDirectory` come from the ENV (and use the right one for dev/test)
+- [ ] fix types in /load-tidbit
+- [ ] rendering a tidbit-page is split into 1) rendering header+metadata and 2) rendering the body
+      both are done in different places (render-page and load-tidbit) but stitched together
+      in the page.html template. Shouldn't this be unified into one place?
+- [ ] how can all more-html related code go into one place? in case it changes, or is not needed anymore I want to one click remove it. Is that a good goal?
 - [ ] add meta tags
   - [ ] add og meta tags (https://ogp.me/)
   - [ ] for twitter https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards

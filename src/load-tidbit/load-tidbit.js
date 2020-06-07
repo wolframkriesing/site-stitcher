@@ -1,4 +1,5 @@
 import * as marked from 'marked';
+import {tokensToHtml} from '../_shared/more-html-markdown.js';
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata as _parseMetaData} from '../_shared/parse-metadata.js';
 import {renderAbstractAsHtml, renderHeadlineAsHtml, trimSpaceTokenFromEnd} from '../_shared/markdown.js';
@@ -37,7 +38,7 @@ const parseTidbitTokens = tokens => {
     headlineAsHtml: renderHeadlineAsHtml(headlineToken),
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1]),
-    bodyAsHtml: marked.parser(/** @type {marked.TokensList} */(bodyTokens)),
+    bodyAsHtml: tokensToHtml(bodyTokens),
     hasAbstractOnly: bodyTokens.length === 1,
   };
   const tidbit = Tidbit.withRawData(data);

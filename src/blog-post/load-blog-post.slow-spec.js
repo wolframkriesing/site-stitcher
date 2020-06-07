@@ -4,7 +4,7 @@ import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import * as path from 'path';
 
-const blogPostsDirectory = path.join(__dirname, '../test-content/blog-posts');
+const blogPostsDirectory = path.join(__dirname, '../../test-content/blog-posts');
 
 describe('Build posts from real files (tests are slow therefore)', () => {
   it('GIVEN one file WHEN loading works THEN return a complete BlogPost object', async () => {

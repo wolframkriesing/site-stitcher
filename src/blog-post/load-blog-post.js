@@ -1,8 +1,8 @@
 import marked from 'marked';
 import {BlogPost} from "./BlogPost.js";
-import {readFile} from './_deps/fs.js';
-import {parseMetadata} from './_shared/parse-metadata.js';
-import {findNextParagraphTokens, renderAbstractAsHtml} from './_shared/markdown.js';
+import {readFile} from '../_deps/fs.js';
+import {parseMetadata} from '../_shared/parse-metadata.js';
+import {findNextParagraphTokens, renderAbstractAsHtml} from '../_shared/markdown.js';
 
 const prodDeps = () => {
   return {readFile};
@@ -47,9 +47,10 @@ const findBodyToRender = tokens => {
     tokens.shift();
   }
 }
+import {tokensToHtml} from '../_shared/more-html-markdown.js';
 const renderBodyAsHtml = tokens => {
   findBodyToRender(tokens);
-  return marked.parser(tokens);
+  return tokensToHtml(tokens);
 }
 
 export const loadManyBlogPosts = ({readFile} = prodDeps()) => async manySourceFiles => {

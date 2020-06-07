@@ -1,4 +1,4 @@
-import {findBlogPostSourceFilenames} from './_deps/fs.js';
+import {findBlogPostSourceFilenames} from '../_deps/fs.js';
 import {BlogPostSourceFile} from './BlogPostSourceFile.js';
 
 const prodDeps = () => {
