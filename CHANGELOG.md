@@ -1,4 +1,5 @@
 # v2
+- [ ] make `is=more-h1` work, to allow linking any headline
 - [x] render the headlineAsHtml, so <code> outlines are done, also id-attributes get generated, etc.
       makes it unified
 - [ ] add my web components content to the site (mostly from twitter, some is also in repos)
