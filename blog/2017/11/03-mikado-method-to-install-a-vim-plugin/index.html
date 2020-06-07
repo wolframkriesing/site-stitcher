@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/11/03-mikado-method-to-install-a-vim-plugin/">
   <title>Mikado Method to install a Vim Plugin | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="mikado-method-to-install-a-vim-plugin" is="more-h1">
         Mikado Method to install a Vim Plugin
         
       </h1>
@@ -156,7 +157,7 @@ Until today I only used vim as it falls out of the box. So I had to do a couple
 detours before I got a vim plugin installed. Since I like the simplicity of the Mikado 
 Method I apply it very often (maybe too often). In this case I used a very simple form 
 of it, actually mainly to document all the steps I had to take on this detour. Read more below.</p>
-<h2 id="tmuxs-fault">tmux&#39;s fault</h2>
+<h2 is="more-h2" id="tmuxs-fault">tmux&#39;s fault</h2>
 <div style="float: left; padding: 1rem;">
 <img src="./tmux-kanban.jpg" alt="personal kanban via tmux" width=200 class="sizeup-onhover-image scale2 origin-left-top" />
 <br/><em>personal kanban using tmux and vim</em>
@@ -164,11 +165,11 @@ of it, actually mainly to document all the steps I had to take on this detour. R
 
 <p>A little bit of background story:
 It all started last night, after another round of discussing an apprenticeship program at HolidayCheck. And since I <a href="http://techblog.holidaycheck.com/post/2017/10/02/learning-from-8thlight">learned at 8th Light</a> that tmux and vim are the two essential tools every apprentice learns, I fianlly wanted to sit down and learn those tools too.<br>I tweeted that I had found a <a href="http://www.hamvocke.com/blog/a-quick-and-easy-guide-to-tmux/">great tutorial</a> to install tmux (see related-tweets in the side bar). So I went along and actually got started pretty fast on using tmux. I went to bed happily, I had learned all I needed to get started with tmux in less than one hour.<br>And in the morning I had the glorious idea to switch to tmux and vim for maintaining my private kanban board. I wanted to have three panes, the backlog, in progress and done column and in each I have a file open, which I edit using vim. This way I can learn tmux and vim, both at the same time.<br>Actually I had started using vi, not vim. But I switched to vim, when I found no vi plugins, but only vim plugins. And another bit later I found out that vi is no more than a symlink to vim, at least on my machine :).</p>
-<h2 id="vim-plugin-and-mikado-method">Vim Plugin and Mikado Method?</h2>
+<h2 is="more-h2" id="vim-plugin-and-mikado-method">Vim Plugin and Mikado Method?</h2>
 <p>Having my three columns prepared I only needed a github-flavored markdown editor for some syntax highlighting. And the github style enables the nice checkbox style (<code>- [ ] ...</code>) that I use even in any regular markdown files. And to highlight those properly, I needed the right plugin for vim.<br>After a while I figured out, this is a rabbit whole for a vim beginner like me.</p>
 <p>Every time I start making two or more extra steps before reaching the actual goal right away (here installing the vim plugin which highlights github-flavored markdown properly) I think of the <a href="https://pragprog.com/magazines/2010-06/the-mikado-method">Mikado Method</a>. It&#39;s for one perfect for documenting all things and also for structuring and not forgetting the essential things when climbing back out of the rabbit hole. Actually it can be applied in many more (complex) contexts as described in the linked article, but I found it also helps structuring in getting things done and not forgetting what I actually wanted to do.</p>
 <p>A couple of dependent steps were necessary to install the vim plugin. And in order to not loose focus and not forget a step that would come next but gets overruled by a sub-step of the current one I use the Mikado Method.</p>
-<h2 id="install-vim-plugin">Install vim-plugin</h2>
+<h2 is="more-h2" id="install-vim-plugin">Install vim-plugin</h2>
 <p>Here are the steps I had to do to explore how to get this vim plugin installed on a &quot;fresh&quot; vim.</p>
 <ul>
 <li>❓I want a github-flavored markdown syntax highlighter for vim<ul>
@@ -210,7 +211,7 @@ $ git clone https://github.com/rhysd/vim-gfm-syntax.git</code></pre></li>
 <li>👍 try it out, open the file via <code>vim some.md</code> (especially one with github-style check boxes <code>- [ ] ...</code> and ... I can see it highlighted ... yeah </li>
 <li>👍 DONE, &quot;pure joy&quot;</li>
 </ul>
-<h2 id="finally">Finally</h2>
+<h2 is="more-h2" id="finally">Finally</h2>
 <p>It&#39;s true, the Mikado Method explained in <a href="https://pragprog.com/magazines/2010-06/the-mikado-method">the article</a> is way more sophisticated. But doing those tedious things like learning to install a vim plugin always reminds me of the Mikado Method. And since I usually write down my &quot;Mikado steps&quot; using nested lists, like in here, this is the simplest form of using the Mikado Method.<br>Have fun trying it, it can really safe ones sanity and keep you focused.</p>
 <p>related_tweets:</p>
 <blockquote class="twitter-tweet" data-lang="de"><p lang="en" dir="ltr">Finally I did `nix-env -i tmux` (install tmux) and running through this nice tutorial. <a href="https://t.co/YlgNPeoddr">https://t.co/YlgNPeoddr</a><br>Easy to be convinced.</p>&mdash; programmer@work (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/926197729931464705?ref_src=twsrc%5Etfw">November 2, 2017</a></blockquote>
@@ -227,7 +228,7 @@ $ git clone https://github.com/rhysd/vim-gfm-syntax.git</code></pre></li>
     <aside class="right">
       
   
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     
       
         <a href="/blog/2017/11/05-mikado-method-essentials/">Mikado Method Essentials</a><br/>

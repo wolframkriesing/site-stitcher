@@ -10,17 +10,18 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="TypeScript for JavaScript, Part 1 - Set it up" />
+  <meta name="twitter:title" content="TypeScript for JavaScript, Part 1 - Setup" />
 
-  <meta property="og:title" content="TypeScript for JavaScript, Part 1 - Set it up">
+  <meta property="og:title" content="TypeScript for JavaScript, Part 1 - Setup">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://picostitch.com/blog/2020/05/12-typescript-for-javascript/">
   <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2020/05/12-typescript-for-javascript/">
-  <title>TypeScript for JavaScript, Part 1 - Set it up | picostitch - crafting (and) JavaScript</title>
+  <title>TypeScript for JavaScript, Part 1 - Setup | picostitch - crafting (and) JavaScript</title>
   
 </head>
 <body class="page-post">
@@ -50,7 +51,7 @@
   <a href="/">Home</a> &raquo;
   Blog &raquo;
   <a href="/blog/2020/05/">May 2020</a> &raquo;
-  TypeScript for JavaScript, Part 1 - Set it up
+  TypeScript for JavaScript, Part 1 - Setup
 
   </nav>
 
@@ -138,8 +139,8 @@
       
   <article class="">
     <header>
-      <h1>
-        TypeScript for JavaScript, Part 1 - Set it up
+      <h1 id="typescript-for-javascript" is="more-h1">
+        TypeScript for JavaScript, Part 1 - Setup
         
       </h1>
       <div class="metadata">
@@ -156,7 +157,7 @@ Adopt TypeScript step by step, become familiar with it in your existing JavaScri
 No need to put development on hold for weeks, while you convert the code base to TypeScript and fix all type errors.
 Read on to see how I adopt TypeScript for JavaScript for the sourcecode of <a href="https://jskatas.org">jskatas.org</a>.</p>
 <p>Let&#39;s type check JavaScript files by using TypeScript.</p>
-<h2 id="contents">Contents</h2>
+<h2 is="more-h2" id="contents">Contents</h2>
 <ol>
 <li><a href="#contents">Contents</a></li>
 <li><a href="#official-docs-are-scarce-on-this-topic">Official Docs are Scarce on this Topic</a></li>
@@ -179,12 +180,12 @@ Read on to see how I adopt TypeScript for JavaScript for the sourcecode of <a hr
 </li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ol>
-<h2 id="official-docs-are-scarce-on-this-topic">Official Docs are Scarce on this Topic</h2>
+<h2 is="more-h2" id="official-docs-are-scarce-on-this-topic">Official Docs are Scarce on this Topic</h2>
 <p>The TypeScript docs have one page on the topic 
 <a href="https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html">Type Checking JavaScript Files</a>.
 But there is a bit more to it. Thanks to <a href="https://twitter.com/JanMiksovsky">@Jan</a> and his project [@elix]
 <a href="https://github.com/elix/elix/pull/109#issuecomment-575589440">I learned</a> the basics and how to apply TypeScript as a type linter on JS files.  </p>
-<h2 id="what-is-typescript-for-javascript">What is TypeScript for JavaScript?</h2>
+<h2 is="more-h2" id="what-is-typescript-for-javascript">What is TypeScript for JavaScript?</h2>
 <p><a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017">I used to do a lot of</a> <a href="https://flow.org/">Flow</a> to type check my JavaScript code. Meanwhile TypeScript is picking up in features,
 though there are subtle differences in philosophy between Flow and TypeScript.
 But TypeScript seems to be the more active project and the one getting more support
@@ -198,7 +199,7 @@ Depending on the TypeScript compiler to compile my files before I can run them w
 I went a bit different path.</p>
 <p>In the following you can see how I <strong>set up TypeScript, as a type linter for JavaScript</strong>, 
 to type check JavaScript files.</p>
-<h2 id="why-typescript-for-javascript">Why TypeScript for JavaScript?</h2>
+<h2 is="more-h2" id="why-typescript-for-javascript">Why TypeScript for JavaScript?</h2>
 <p>This allows me to type-lint my code optionally. If (for whatever reason) I don&#39;t want type safety, I don&#39;t have
 to worry about it. With pure TypeScript (.ts files) it is not so easy to opt out (afaik) and .ts files are not useable 
 in the browser without preprocessing.</p>
@@ -212,7 +213,7 @@ Here are a couple of reasons why I think it is valueable:</p>
 <li><a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#exhaustiveness-checking">Exhaustivness checks</a> create safety and prevent bugs.</li>
 <li>Type checking makes me think about the architecture more, even if I type the code afterwards.</li>
 </ul>
-<h2 id="how-to-start-with-typescript-for-a-javascript-project">How to start with TypeScript for a JavaScript Project</h2>
+<h2 is="more-h2" id="how-to-start-with-typescript-for-a-javascript-project">How to start with TypeScript for a JavaScript Project</h2>
 <p>When I started applying TypeScript to JavaScript files I had a couple simple rules:</p>
 <ol>
 <li><strong>JavaScript files stay JavaScript</strong>. Prevent bloat of types mangled into JavaScript syntax.
@@ -226,7 +227,7 @@ cool, but that&#39;s not a must.</li>
 <p>I need a way to add the type hints and the code to stay pure JavaScript.
 <a href="https://www.typescriptlang.org/docs/handbook/type-checking-javascript-files.html#supported-jsdoc">Type hints can be added via comments</a>. 
 For example a function can be annotated with types like this:</p>
-<pre><code class="language-javascript">/**
+<pre><code class="undefinedjavascript">/**
  * @param data {PlainObject}
  * @return {string}
  */
@@ -239,9 +240,9 @@ It should be very easy to adapt this to any project at any stage.
 No matter if you have just started or if you have a years old code base, add type checks in the here described way
 will not hinder you to continue work on the code base. That is also always one of my goals, as listed above.
 I want the code to become better every day and sometimes type checking certain files will improve it.</p>
-<h2 id="install-typescript">Install TypeScript</h2>
+<h2 is="more-h2" id="install-typescript">Install TypeScript</h2>
 <p>Let&#39;s start installing TypeScript using npm.</p>
-<h3 id="install-typescript-package">Install TypeScript Package</h3>
+<h3 is="more-h3" id="install-typescript-package">Install TypeScript Package</h3>
 <p>Start with <code>npm i typescript --save-dev</code>. We don&#39;t need typescript during production,
 so at it only to the devDependencies using <code>--save-dev</code> or <code>-D</code>.</p>
 <figure>
@@ -252,7 +253,7 @@ so at it only to the devDependencies using <code>--save-dev</code> or <code>-D</
 <p>This is <a href="https://github.com/wolframkriesing/jskatas.org/commit/d5c714565526cc88feb6612fa0f7b49aae5d1b2d">the commit on the jskatas.org repo</a>.</p>
 <p>Running <code>tsc</code> (the executable for typescript) now does nothing useful with our source code yet,
 it just lists all its options.</p>
-<pre><code class="language-shell">&gt; ./node_modules/.bin/tsc
+<pre><code class="undefinedshell">&gt; ./node_modules/.bin/tsc
 Version 3.8.3
 Syntax:   tsc [options] [file...]
 
@@ -266,7 +267,7 @@ Options:
  -w, --watch                                        Watch input files.
  --pretty                                           Stylize errors and messages u
 ...</code></pre>
-<h3 id="add-npm-script-for-type-checking">Add Npm Script for Type Checking</h3>
+<h3 is="more-h3" id="add-npm-script-for-type-checking">Add Npm Script for Type Checking</h3>
 <p>I added a npm script <code>npm run typecheck</code> which is just an alias for <code>tsc</code>
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/11d1fde4673b9204792212fa7d2c98160ad92dcf">see the commit</a>).
 Additionally <code>npm run dev:typecheck</code> runs tsc in watch mode (I prefer to prefix my dev scripts with <code>dev:</code>).</p>
@@ -277,10 +278,10 @@ Additionally <code>npm run dev:typecheck</code> runs tsc in watch mode (I prefer
 
 <p>Still nothing happens yet in regards to type checking, tsc is just not yet configured.
 Let&#39;s configure tsc, by adding a <code>tsconfig.json</code>.</p>
-<h2 id="configure-typescript">Configure TypeScript</h2>
+<h2 is="more-h2" id="configure-typescript">Configure TypeScript</h2>
 <p>Having installed tsc (the TypeScript executable) it needs to be configured.
 Let&#39;s do it step by step.</p>
-<h3 id="add-typescript-confguration-file---tsconfigjson">Add TypeScript Confguration File - tsconfig.json</h3>
+<h3 is="more-h3" id="add-typescript-confguration-file---tsconfigjson">Add TypeScript Confguration File - tsconfig.json</h3>
 <p>TypeScript&#39;s configuration goes into a file <code>tsconfig.json</code> normally located in the root of the project
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/2a9bbcd7182295c7074bb1662e915a4af00df71b">commit</a>).
 It is a JSON file, so I add the most minimal JSON in it <code>{}</code>.</p>
@@ -299,7 +300,7 @@ project which does a zillion things that I did not anticipated. They gonna kick 
 &gt; tsc
 
 error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;. Specified &#39;include&#39; paths were &#39;[&quot;**/*&quot;]&#39; and &#39;exclude&#39; paths were &#39;[]&#39;.</code></pre><p>I will do exactly this next.</p>
-<h3 id="configure-typescript-to-search-the-src-directory---the-include-config">Configure TypeScript to Search the &quot;src&quot; Directory - The &quot;include&quot; Config</h3>
+<h3 is="more-h3" id="configure-typescript-to-search-the-src-directory---the-include-config">Configure TypeScript to Search the &quot;src&quot; Directory - The &quot;include&quot; Config</h3>
 <p>Let&#39;s start including all JS files from our <code>src</code> folder, by 
 <morehtml-tldr>adding the one line <code>&quot;include&quot;: [&quot;src/*.js&quot;]</code> in the <code>tsconfig.json</code></morehtml-tldr> 
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/527c05f5202fdf857c2902427a28de4857fe944c">commit</a>).</p>
@@ -316,7 +317,7 @@ error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;.
 error TS18003: No inputs were found in config file &#39;/app/tsconfig.json&#39;. Specified &#39;include&#39; paths were &#39;[&quot;src/*.js&quot;]&#39; and &#39;exclude&#39; paths were &#39;[]&#39;.</code></pre><p>By default tsc looks for <code>.ts</code> files. But there are none here, there are
 only <code>.js</code> files. That&#39;s why the error message did not change much.
 Let&#39;s make sure tsc finds our files and starts type checking useful stuff.</p>
-<h3 id="make-typescript-find-js-files---the-allowjs-compiler-option">Make TypeScript find JS Files - The &quot;allowJs&quot; Compiler Option</h3>
+<h3 is="more-h3" id="make-typescript-find-js-files---the-allowjs-compiler-option">Make TypeScript find JS Files - The &quot;allowJs&quot; Compiler Option</h3>
 <p>TypeScript has quite a number of <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html">compilerOptions</a>
 they can either be passed as command line arguments or set in the <code>tsconfig.json</code>, which is what we will do
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/5b24fd2bd522291909fe534f320c74571748e8c4">commit</a>).
@@ -351,7 +352,7 @@ basically down-compile the code to ES3.
 Using the <a href="https://www.typescriptlang.org/v2/en/tsconfig#target">config option <code>target</code></a>
 one can control what the target version of ECMAScript shall be.</p>
 <p>Actually we don&#39;t need no compiled files, so let&#39;s turn that off.</p>
-<h3 id="no-compiled-files-needed---the-noemit-compiler-option">No Compiled Files Needed - The &quot;noEmit&quot; Compiler Option</h3>
+<h3 is="more-h3" id="no-compiled-files-needed---the-noemit-compiler-option">No Compiled Files Needed - The &quot;noEmit&quot; Compiler Option</h3>
 <p>We are using TypeScript only to verify types, not to convert or compile our source files to 
 anything else, so we add the <code>noEmit</code> option to turn off writing files
 (<a href="https://github.com/wolframkriesing/jskatas.org/commit/65c0ab8c6cfe8c35e347e3a340d76faaf992b247">commit</a>).</p>
@@ -368,7 +369,7 @@ anything else, so we add the <code>noEmit</code> option to turn off writing file
 &quot;<a href="https://www.typescriptlang.org/">compiles to plain JavaScript</a>&quot;, the expected input is a &quot;.ts&quot; file.
 But we have none. That means, we have to tell it to also type check JavaScript files.
 We will do that next using the &quot;checkJs&quot; option.</p>
-<h3 id="report-type-errors-in-js-files---the-checkjs-compiler-option">Report Type Errors in JS Files - The &quot;checkJs&quot; Compiler Option</h3>
+<h3 is="more-h3" id="report-type-errors-in-js-files---the-checkjs-compiler-option">Report Type Errors in JS Files - The &quot;checkJs&quot; Compiler Option</h3>
 <p><a href="https://www.typescriptlang.org/v2/en/tsconfig#checkJs">The docs explain the &quot;checkJs&quot; option</a> quite well:</p>
 <blockquote>
 <p>Works in tandem with <code>allowJs</code>. When <code>checkJs</code> is enabled then errors are reported in JavaScript files. 
@@ -426,7 +427,7 @@ There is no site in the TypeScript docs, that I have found, that lists all error
 The only thing I found in the TypeScript source code that does not really help, is 
 <a href="https://github.com/microsoft/TypeScript/blob/cbf15bb6ed1cd8b30403654a0a1c67baac329d06/src/compiler/diagnosticMessages.json#L1348-L1351">the JSON file</a>
 that lists all error messages.</p>
-<h3 id="extend-include-config-to-find-all-source-files">Extend &quot;include&quot; Config to Find all Source Files</h3>
+<h3 is="more-h3" id="extend-include-config-to-find-all-source-files">Extend &quot;include&quot; Config to Find all Source Files</h3>
 <p>TypeScript found 24 errors, that sounds not too many, it surprised me a bit.
 I found out quickly why that is. I configured to only search the src directory and not all its subdirectories
 and also not the <code>script</code> directory. I need to fix that, just to get a feeling of how much type annotation work
@@ -451,7 +452,7 @@ now we omitted the <code>*.js</code> and added the <code>scripts</code> director
 to include all files found in the project?
 If we did that we would get 172 errors. That is because we would also type check the <code>node_modules</code> and the <code>dist</code> folder,
 which is not what we want, since those are not the source files we want to type check.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 is="more-h2" id="conclusion">Conclusion</h2>
 <p>For a start this looks good.</p>
 <ul>
 <li>I know I can type check my JS files, if my continuous integration environment should not run the type checks yet,

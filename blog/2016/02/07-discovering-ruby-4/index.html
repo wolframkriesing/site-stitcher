@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2016/02/07-discovering-ruby-4/">
   <title>Discovering ruby #4 | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="discovering-ruby-4" is="more-h1">
         Discovering ruby #4
         
       </h1>
@@ -168,7 +169,7 @@ Better or not, I can&#39;t say. I got used to <code>filter</code> and <code>map<
 <li><code>filter</code> is: <code>find_all</code> or <code>select</code></li>
 <li><code>reduce</code> is: <code>inject(start_value)</code></li>
 </ul>
-<h2 id="iterators-yield">Iterators, yield</h2>
+<h2 is="more-h2" id="iterators-yield">Iterators, yield</h2>
 <p>Somehow I have to say that the way iterators are used in ruby makes them 
 seem way more simpler and intuitive to use than I know them from ES6.</p>
 <pre><code>def many_yields
@@ -180,7 +181,7 @@ many_yields { |item| result &lt;&lt; item }
 # result = [1, 2] </code></pre><p>Maybe it&#39;s because the block syntax is so not-like-a-function.
 And inside the <code>many_yields</code> method you can use <code>block_given?</code> to find out
 you had been called with a block. Quite handy.</p>
-<h2 id="ensure-for-a-method"><code>ensure</code> for a method</h2>
+<h2 is="more-h2" id="ensure-for-a-method"><code>ensure</code> for a method</h2>
 <p>I have just seen this constructor for the first time, in the koans</p>
 <pre><code>def find_line(file_name)
   file = open(file_name)
@@ -200,7 +201,7 @@ no matter which execution path was taken.</p>
     <aside class="right">
       
   
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     
       
         <a href="/blog/2016/02/08-discovering-ruby-5/">Discovering ruby #5</a><br/>

@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2020/05/24-learnings-css-grid-1/">
   <title>Learning CSS Grid - Basics | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="isDraft">
     <header>
-      <h1>
+      <h1 id="learnings-css-grid-1" is="more-h1">
         Learning CSS Grid - Basics
          [this is a draft]
       </h1>
@@ -155,7 +156,7 @@
 If you prefer a video <a href="https://www.youtube.com/watch?v=jV8B24rSN5o">this one (28 minutes)</a> explains grid basics very well.
 But before learning CSS grid, I need to answer the question if I need it.
 I know flexbox quite ok, so why not use flexbox. </p>
-<h2 id="the-question-flexbox-or-grid">The Question: Flexbox or Grid?</h2>
+<h2 is="more-h2" id="the-question-flexbox-or-grid">The Question: Flexbox or Grid?</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout#Grid_and_flexbox">MDN states</a> 
 flexbox best suits for one dimensional (row or column) and grid for two-dimensional layouts.</p>
 <p>The most helpful explanation is given on the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout#Content_out_or_layout_in">MDN page</a>,
@@ -178,7 +179,7 @@ auto-placement rules to place the items into the grid cells according to that st
 </blockquote>
 <p>I like to start using it as simple as possible, doing baby steps.
 I start with <code>display: grid</code> and <code>grid: ...</code> properties.</p>
-<h2 id="css-property-grid">CSS Property <code>grid</code></h2>
+<h2 is="more-h2" id="css-property-grid">CSS Property <code>grid</code></h2>
 <p>The CSS property <code>grid</code> (<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid">MDN site</a>) 
 is a <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties">shorthand</a>
 perfect for a simple grid setup to learn the power of CSS grid.</p>
@@ -238,14 +239,14 @@ leftover space in the grid container.</p>
 </li>
 </ul>
 <p>The short intro to the <code>grid</code> property makes it already possible to use it and create various grids.</p>
-<h2 id="css-property-grid-template">CSS Property <code>grid-template</code></h2>
+<h2 is="more-h2" id="css-property-grid-template">CSS Property <code>grid-template</code></h2>
 <p>Above we used the shortest shorthand version, the CSS property <code>grid</code>.</p>
 <pre><code>grid: 3rem 100px / 1fr 150px 2fr;</code></pre><p>The following means and renders the same. It is just a bit more explicit, 
 still a shorthand for defining the row and column dimensions.</p>
 <pre><code>grid-template: 3rem 100px / 1fr 150px 2fr;</code></pre><p>The explicit version is the following, and still renders exactly like all above.</p>
 <pre><code>grid-template-rows: 3rem 100px;
 grid-template-columns: 1fr 150px 2fr;</code></pre><p>Let&#39;s see how to be a bit more flexible, using a CSS function <code>repeat</code>.</p>
-<h2 id="css-function-repeat">CSS Function <code>repeat()</code></h2>
+<h2 is="more-h2" id="css-function-repeat">CSS Function <code>repeat()</code></h2>
 <p>Above I defined very explicit how many columns, how many rows and their dimensions.
 Using the CSS function <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/repeat"><code>repeat()</code></a>
 allows recurring pattern, like here:</p>
@@ -290,7 +291,7 @@ grid: repeat(2, 3rem 100px) / repeat(3, 1fr); </code></pre><p>The function <code
     <aside class="right">
       
   
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     
       
         <a href="/blog/2020/05/24-learnings-css-grid-2/">Learning CSS Grid - 2????</a><br/>

@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/03/05-install-purescript-2/">
   <title>Purescript #2 - Installing | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="install-purescript-2" is="more-h1">
         Purescript #2 - Installing
         
       </h1>
@@ -156,7 +157,7 @@ the book by <a href="https://twitter.com/paf31">Phil Freeman</a>, the author of 
 Now about chapter 2, where I install Purescript and touch the tools
 for the first time. I am gonna use <code>yarn</code> instead of <code>npm</code>,
 let&#39;s see how that goes :).</p>
-<h2 id="preparation">Preparation</h2>
+<h2 is="more-h2" id="preparation">Preparation</h2>
 <p>This post builds up on *&quot;<a href="/blog/2017/03/starting-with-purescript/">Purescript - the semantics of JavaScript with types #1</a>&quot;*
 where I tried to put Purescript into perspective and explain what it is
 and where it comes from. All the knowledge in here is based on the book mentioned
@@ -169,7 +170,7 @@ you either know how to do that or have it installed already. So let&#39;s go.</p
 normally prefer to keep all dependencies local to the current project.
 <a href="/blog/2015/03/globally-installed-npm-packages-equals-evil/">Globally installed npm packages are evil.</a> Period.
 And to make working with local packages easier I have the following in my environment setup.</p>
-<pre><code class="language-shell">&gt; export PATH=$PATH:./node_modules/.bin</code></pre>
+<pre><code class="undefinedshell">&gt; export PATH=$PATH:./node_modules/.bin</code></pre>
 <p>This makes the executable of any package installed locally in the current
 npm project executable just by typing the executable name. Ha? What?
 An example: instead of having to type <code>./node_modules/.bin/psc</code> to execute 
@@ -178,10 +179,10 @@ the <code>psc</code> executable I can just write <code>psc</code> since I had ad
 <p>And: I am going to use <a href="https://yarnpkg.com/">yarn</a> instead of <a href="https://www.npmjs.com/">npm</a> to install Purescript. Why?
 Just because I can. And I need to practice a bit, why not
 learn two things at a time :).</p>
-<h2 id="install-the-purescript-compiler">Install the Purescript compiler</h2>
+<h2 is="more-h2" id="install-the-purescript-compiler">Install the Purescript compiler</h2>
 <p>I create a directory <code>purescript-series</code> which will become a npm-package (or yarn package)
 where all the Purescript stuff gets installed into.</p>
-<pre><code class="language-shell">&gt; mkdir purescript-series
+<pre><code class="undefinedshell">&gt; mkdir purescript-series
 &gt; cd purescript-series
 &gt; yarn init
 # ... many lines later
@@ -191,7 +192,7 @@ success Saved package.json
 After having been reminded, that yarn is is growing up and now has it&#39;s own language
 <code>`install` has been replaced with `add`</code>, I got Purescript installed, like so:<br>NOTE: If you still prefer installing it globally, use
 <a href="https://yarnpkg.com/en/docs/cli/global"><em><code>yarn global</code></em></a> instead of <code>yarn</code> for running yarn commands.</p>
-<pre><code class="language-shell">&gt; yarn add purescript --save # &quot;--save&quot; stores this dependency in package.json
+<pre><code class="undefinedshell">&gt; yarn add purescript --save # &quot;--save&quot; stores this dependency in package.json
 yarn add v0.15.1
 # ... many lines later
 ✨  Done in 4.40s.
@@ -200,11 +201,11 @@ yarn add v0.15.1
 psc: No input files.</code></pre>
 <p>Ok, <code>psc</code> the Purescript compiler is installed. Before I am going to use it a short reminder.
 Let&#39;s inspect where the <code>psc</code> command comes from:</p>
-<pre><code class="language-shell">&gt; which psc
+<pre><code class="undefinedshell">&gt; which psc
 ./node_modules/.bin/psc</code></pre>
 <p>Aha, it comes from the current package&#39;s <code>node_modules</code> directory. Just as
 I configured it before (remember I enhanced the <code>PATH</code> environment variable).<br>So, what can I do now, with Purescript, the <code>psc</code> executable?</p>
-<pre><code class="language-shell">&gt; psc --help
+<pre><code class="undefinedshell">&gt; psc --help
 psc - Compiles PureScript to Javascript
 
 Usage: psc [FILE] [-o|--output ARG] [--no-tco] [--no-magic-do] [--no-opts]
@@ -225,22 +226,22 @@ on the last line of the help output, no need to try out <code>psc --version</cod
 be surprised :).</p>
 <p>The Purescript compiler takes a <code>*.purs</code> file and compiles it into JavaScript code and
 the file lands in the directory <code>output/</code>. So let&#39;s do it.</p>
-<h2 id="my-first-purescript-program">My first Purescript program</h2>
+<h2 is="more-h2" id="my-first-purescript-program">My first Purescript program</h2>
 <p>I am going to create a file <code>src/Main.purs</code> and put the simplest working
 source code in there, that I was able to come up with.</p>
-<pre><code class="language-shell">&gt; mkdir src
+<pre><code class="undefinedshell">&gt; mkdir src
 &gt; echo &quot;module Main where&quot; &gt; src/Main.purs
 &gt; psc src/Main.purs 
 Compiling Main</code></pre>
 <p>I have just written my first Purescript file and compiled it.
 Let&#39;s look at it in detail. The Purescript file <code>src/Main.purs</code> contains only
 the minimal thing needed:</p>
-<pre><code class="language-text">module Main where</code></pre>
+<pre><code class="undefinedtext">module Main where</code></pre>
 <p>Nothing more! It compiles without any error and warning. Hip hip Hurray!
 But it also doesn&#39;t really do much. Though it will show us what the compiler
 produces from our source code. The resulting source code is what I want to see. 
 As said before, it lands in the directory <code>output</code>:</p>
-<pre><code class="language-shell">&gt; cat output/Main/index.js
+<pre><code class="undefinedshell">&gt; cat output/Main/index.js
 // Generated by psc version 0.10.7
 &quot;use strict&quot;;
 module.exports = {};</code></pre>
@@ -254,14 +255,14 @@ That&#39;s why I will extend my compiling source code to contain the following c
 to at least return a &quot;hello world&quot; (and not output it yet).
 I will try it by simply assigning a string to the variable <code>main</code>.
 <code>Main.purs</code> looks like this now</p>
-<pre><code class="language-text">-- src/Main.purs (this line is a comment, started by `--` in purescript)
+<pre><code class="undefinedtext">-- src/Main.purs (this line is a comment, started by `--` in purescript)
 module Main where
 
 main = &quot;hello world&quot;</code></pre>
 <p>I would expect this now to provide <code>main</code> in the <code>exports</code> as string
 containing &quot;hello world&quot;. Let&#39;s see if this compiles something that looks like
 that.</p>
-<pre><code class="language-shell">&gt; psc src/Main.purs 
+<pre><code class="undefinedshell">&gt; psc src/Main.purs 
 Compiling Main
 Warning found:
 in module Main
@@ -279,7 +280,7 @@ and in order to &quot;know&quot; the type of the program it should have a proper
 And the <a href="https://github.com/purescript/documentation/blob/master/language/Syntax.md#top-level-declarations">docs also state</a> 
 *&quot;Type signatures are not required for top-level declarations in general, but is good practice to do so.&quot;*
 so my gut was not wrong :). But let&#39;s look at the output anyways.</p>
-<pre><code class="language-shell">&gt; cat output/Main/index.js 
+<pre><code class="undefinedshell">&gt; cat output/Main/index.js 
 // Generated by psc version 0.10.7
 &quot;use strict&quot;;
 var main = &quot;hello world&quot;;
@@ -292,17 +293,17 @@ commonjs compatible file, such as a nodejs script. Wow, this opens up quite
 some possibilities I would say.<br>Possibilities? Well, as mentioned in <a href="/blog/2017/03/starting-with-purescript/">#1 of this series</a> we could just
 write part of our application (or our tests) in Purescript which we then
 import wherever we need to.</p>
-<h2 id="adding-my-first-type-annotation">Adding my first type annotation</h2>
+<h2 is="more-h2" id="adding-my-first-type-annotation">Adding my first type annotation</h2>
 <p>The warning up there, is still a bit bothering me a bit. Looking up how to add typing to
 the code, I quickly found out that the right thing to do is:</p>
-<pre><code class="language-text">-- src/Main.purs (this line is a comment, started by `--` in purescript)
+<pre><code class="undefinedtext">-- src/Main.purs (this line is a comment, started by `--` in purescript)
 module Main where
 
 main :: String
 main = &quot;hello world&quot;</code></pre>
 <p>Compiling the file and outputing the result is as expected, no error and the 
 same JavaScript source code as before. Good.</p>
-<pre><code class="language-shell">&gt; psc src/Main.purs 
+<pre><code class="undefinedshell">&gt; psc src/Main.purs 
 Compiling Main
 &gt; cat output/Main/index.js 
 // Generated by psc version 0.10.7
@@ -314,21 +315,21 @@ module.exports = {
 <p>Reading a bit in the Syntax docs I read that <a href="https://github.com/purescript/documentation/blob/master/language/Types.md#type-annotations">type annotations</a>
 can also be done right on the value by adding <code>::</code> after it. So let&#39;s rewrite the code
 to annotate the string with the type, instead of the variable <code>main</code></p>
-<pre><code class="language-text">main = &quot;hello world&quot; :: String</code></pre>
+<pre><code class="undefinedtext">main = &quot;hello world&quot; :: String</code></pre>
 <p>Perfect, this compiles and results in the same expected code.</p>
-<h2 id="whitespace-matters">Whitespace matters</h2>
+<h2 is="more-h2" id="whitespace-matters">Whitespace matters</h2>
 <p>While reading about the Purescript syntax I saw that <a href="https://github.com/purescript/documentation/blob/master/language/Syntax.md#whitespace-rules">whitespace matters</a>. Which
 reminded me of two languages Python and Red. In Purescript whitespace matter for
 e.g. for multiline declarations, best to be explained by an example:</p>
-<pre><code class="language-text">-- valid
+<pre><code class="undefinedtext">-- valid
 main = 
   &quot;hello world&quot;</code></pre>
 <p>this compiles without an error. Just as I understood it from the syntax docs.</p>
-<pre><code class="language-text">-- invalid
+<pre><code class="undefinedtext">-- invalid
 main = 
 &quot;hello world&quot;</code></pre>
 <p>When compiling this it fails like this:</p>
-<pre><code class="language-shell">&gt; psc src/Main.purs 
+<pre><code class="undefinedshell">&gt; psc src/Main.purs 
 Error found:
 at /Users/wk/purescript-series/src/Main.purs line 6, column 1 - line 6, column 1
 
@@ -350,7 +351,7 @@ at least it on github under her account. So I guess she had kicked it off.</p>
     <aside class="right">
       
   
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     
       
         <a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>

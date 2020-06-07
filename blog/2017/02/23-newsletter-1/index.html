@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/02/23-newsletter-1/">
   <title>Newsletter #1 | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="newsletter-1" is="more-h1">
         Newsletter #1
         
       </h1>
@@ -150,14 +151,14 @@
     </header>
 
     <p>Welcome to the newsletter #1 - about crafting (and) JavaScript - February 28th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
-<h2 id="javascript">JavaScript</h2>
+<h2 is="more-h2" id="javascript">JavaScript</h2>
 <p>In <a href="https://medium.com/@david.aurelio/medium-fast-source-map-generation-for-react-native-ea5549007c18#.7uvg5el4j">&quot;Fast Source Map Generation for React Native&quot;</a> David describes how he and others *&quot;improved source map generation for 1,758,618 single mappings from 3 seconds to 550 milliseconds by optimizing code for execution in v8.&quot;* </p>
 <p><a href="https://v8project.blogspot.de/2017/02/v8-release-57.html">&quot;V8 has been improved and released version 5.7&quot;</a>, where the async performance of Promises has doubled and the speed of async functions has quadrupled, regexps have become 15% faster and two new String functions <code>padStart</code> and <code>padEnd</code> have been added. And great to see that date and time get some love with the function <code>Intl.DateTimeFormat.prototype.formatToParts</code> (read <a href="https://tc39.github.io/ecma402/#sec-Intl.DateTimeFormat.prototype.formatToParts">more about it in ECMAScript 2017 spec</a>).</p>
 <p>In <a href="https://medium.com/@gcanti/the-eff-monad-implemented-in-flow-40803670c3eb#.g8iv6gjs5">&quot;The Eff monad implemented in Flow&quot;</a> gcanti shows how to use flowtype to be able to be more explicit about side effects in your code. He shows in a server-side app how you could wire up a signup route to the side effect of writing to a DB.</p>
-<h2 id="crafting">Crafting</h2>
+<h2 is="more-h2" id="crafting">Crafting</h2>
 <p>Many contributors have taken Uncle Bob&#39;s clean code principles and adapted them for JavaScript, which says *&quot;<a href="https://github.com/ryanmcdermott/clean-code-javascript">Clean Code concepts adapted for JavaScript</a> is not a style guide. It&#39;s a guide to producing readable, reusable, and refactorable software in JavaScript.&quot;*.</p>
 <p><a href="https://twitter.com/SamirTalwar">Samir</a> wrote <a href="https://github.com/SamirTalwar/Smoke">smoke</a> a small *&quot;integration test framework for console applications.&quot;<em>. Where he says *&quot;a test case consists of input and expected output. It is constructed of a number of files with the same name and different extensions.&quot;</em>, so if you want to run a script or program and test/compare it&#39;s output this tool might help. In the <a href="https://github.com/SamirTalwar/Smoke#origins">Origins</a> section of the readme file Samir describes well why he created this tool.</p>
-<h2 id="various">Various</h2>
+<h2 is="more-h2" id="various">Various</h2>
 <p><a href="http://valerieaurora.org/hash.html">Lifetimes of cryptographic hash functions</a> visualises impressively that (most) hash functions have a lifetime before they get broken. And since git uses the SHA1 hash, which caused the latest noise, <a href="http://marc.info/?l=git&amp;m=148787047422954">Linus Torvalds states on the mailinglist</a> that the impact on git is rather minor.</p>
 <p>It&#39;s always good to know <a href="https://daringfireball.net/projects/markdown/syntax">where to find the markdown syntax</a>, so here is the link. I use markdown almost daily but still don&#39;t know all the special characters by heart yet. </p>
 <p>While writing this newsletter I wanted to know again how to do quoting right and <a href="https://letterpile.com/writing/Using-and-Citing-Sources-Correctly">found this article by Virginia Kearney</a>, where she basically states that *&quot;When you are writing on the web, you can mention the name of the source at the beginning of your quote, paraphrase or summary and then provide a link.&quot;*. So I hope I have done it right :).</p>
@@ -171,7 +172,7 @@
     <aside class="right">
       
   
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     
       
         <a href="/blog/2017/04/24-newsletter-8/">Newsletter #8</a><br/>

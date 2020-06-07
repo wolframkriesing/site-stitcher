@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">
   <title>Purescript #1 - the semantics of JavaScript with types | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="starting-with-purescript" is="more-h1">
         Purescript #1 - the semantics of JavaScript with types
         
       </h1>
@@ -163,16 +164,16 @@
 </blockquote>
 <p>This capability paired with the strictness (see first quote) makes for a strong combination and I think this will help to write more predictable and better software. Phil states that in his book *&quot;static types are not only a means of gaining confidence in the correctness of your programs, but also an aid to development in their own right&quot;*.</p>
 <p>A lot of time we spend in changing code, which we normally (should) do via refactoring. Here Purescript shines again, compared to JavaScript, where it *&quot;can be difficult when using any but the simplest of abstractions&quot;* as Phil states. From experience I can say that this is an issue. You know the code and it&#39;s &quot;interfaces&quot; as long as you are deep inside of it esp. while writing it, but reading it and even worse changing it, especially making big changes, in pure JavaScript, with pure objects, that maybe don&#39;t even have good names, can become quite spooky. Especially when untyped data structures bubble through the code, get mixed and mangled, sliced up and mapped.</p>
-<h2 id="some-code-please">Some code please</h2>
+<h2 is="more-h2" id="some-code-please">Some code please</h2>
 <p>Below you see a tiny function, taken from the book.</p>
-<pre><code class="language-text">module Main where
+<pre><code class="undefinedtext">module Main where
 
 import Math (sqrt)
 import Prelude
 
 diagonal w h = sqrt(w * w + h * h)</code></pre>
 <p>in the following you can see that the compiled source code is actually very readable compatible JavaScript code.</p>
-<pre><code class="language-js">&quot;use strict&quot;;
+<pre><code class="undefinedjs">&quot;use strict&quot;;
 var $$Math = require(&quot;../Math&quot;);
 var Prelude = require(&quot;../Prelude&quot;);
 var Data_Semiring = require(&quot;../Data.Semiring&quot;);
@@ -184,7 +185,7 @@ var diagonal = function (w) {
 module.exports = {
     diagonal: diagonal
 };</code></pre>
-<h2 id="get-started-asap">Get started, asap</h2>
+<h2 is="more-h2" id="get-started-asap">Get started, asap</h2>
 <p>And on top, Purescript comes with the tool <code>pulp</code> which called like so <code>pulp browserify</code> generates source code you can use in the browser right away. So Purescript is a tool for the front-end and the backend. You can get started now to be stricter with your code!</p>
 <p>You want to get started? Here I can just quote the book again, which mentions some great example use cases, where you can start using Purescript a little at a time, you can do like so:</p>
 <blockquote>
@@ -205,7 +206,7 @@ module.exports = {
     <aside class="right">
       
   
-    <h3>Related Posts</h3>
+    <h3 id="related" is="more-h3">Related Posts</h3>
     
       
         <a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>

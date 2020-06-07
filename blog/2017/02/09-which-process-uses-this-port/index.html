@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/02/09-which-process-uses-this-port/">
   <title>Find out which process listens on which port | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="which-process-uses-this-port" is="more-h1">
         Find out which process listens on which port
         
       </h1>
@@ -158,26 +159,26 @@ TL;DR: <code>ps -p `lsof -i :8080 -t` -o command=</code> (on Mac OSX)</p>
 <p>I just wanted to start the react-native app via <code>react-native run-ios</code>.
 It didn&#39;t start the first time. Because of my built-in laziness I just ran the command again.
 Ran it again, and read the output, just than</p>
-<pre><code class="language-bash">Port 8080 already in use, packager is either not running or not running correctly</code></pre>
+<pre><code class="undefinedbash">Port 8080 already in use, packager is either not running or not running correctly</code></pre>
 <p>Ah the port is in use, that&#39;s why react-native didn&#39;t come up.
 There was this handy linux command <code>lsof</code> (list open files). A simple
 web search later and I found a <a href="https://debian-administration.org/article/184/How_to_find_out_which_process_is_listening_upon_a_port">great article on it</a>, which showed the solution <code>lsof -i :8080</code>
 where <code>8080</code> is the port.
 When you run this you might get something like this:</p>
-<pre><code class="language-bash">&gt; lsof -i :8080
+<pre><code class="undefinedbash">&gt; lsof -i :8080
 COMMAND PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 node    178 wk     13u  IPv4 0xaa0005c2e1d30003      0t0  TCP *:http-alt (LISTEN)</code></pre>
 <p>This is a nicely formatted table. It first lists <code>node</code> which is the command
 that was run and is still running and occupying the port 8080.</p>
-<h2 id="which-program-is-running">Which program is running?</h2>
+<h2 is="more-h2" id="which-program-is-running">Which program is running?</h2>
 <p>In order to find out the full command was run the PID (process identifier) will help
 us. Fortunately we got it in the line above, see the second column, it&#39;s 28161.
 By adding <code>-t</code> to the <code>lsof</code> command we can receive only the process ID.</p>
-<pre><code class="language-bash">&gt; lsof -i :8080 -t
+<pre><code class="undefinedbash">&gt; lsof -i :8080 -t
 178</code></pre>
 <p>Now we can pass the PID into <code>ps</code> (process status) and we will get all info about
 the process running, like so:</p>
-<pre><code class="language-bash">&gt; ps -p 178
+<pre><code class="undefinedbash">&gt; ps -p 178
   PID TTY           TIME CMD
   178 ttys006    0:01.00 node /Users/wk/cosmowiki/node_modules/.bin/http-server dist</code></pre>
 <p>In the last column we can see the command that was actually run.
@@ -188,14 +189,14 @@ command. We can remove it by passing an empty headline, which ps will
 ignore, we do that by using the parameter we pass to <code>-o</code> as a key-value
 pair and leave the value (the headline) empty. We use <code>-o command=</code>, looks
 strange but works :).</p>
-<pre><code class="language-bash">&gt; ps -p `lsof -i :8080 -t` -o command=
+<pre><code class="undefinedbash">&gt; ps -p `lsof -i :8080 -t` -o command=
 node /Users/wk/cosmowiki/node_modules/.bin/http-server dist</code></pre>
 <p>This results in just the command that I had run and which occupies port 8080.</p>
-<h2 id="kill-the-running-process">Kill the running process</h2>
+<h2 is="more-h2" id="kill-the-running-process">Kill the running process</h2>
 <p>Now I know why and I know what I have to stop, if I want to stop the process
 right now, I can call</p>
-<pre><code class="language-bash">&gt; kill `lsof -i :8080 -t`</code></pre>
-<h2 id="some-words-about-lsof">Some words about lsof</h2>
+<pre><code class="undefinedbash">&gt; kill `lsof -i :8080 -t`</code></pre>
+<h2 is="more-h2" id="some-words-about-lsof">Some words about lsof</h2>
 <p>Just play around with it, and you will see there are many open files, and
 on a unix style system most of the things are files, that&#39;s why a line count
 of a <code>lsof</code> run will also show you quite a big number of lines.</p>

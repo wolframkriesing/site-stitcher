@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2017/01/21-the-magic-dash-in-jinja-template-block/">
   <title>What is `-%}` for, in a Jinja Template? or The Magic Dash in a Jinja Template Block | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="the-magic-dash-in-jinja-template-block" is="more-h1">
         What is `-%}` for, in a Jinja Template? or The Magic Dash in a Jinja Template Block
         
       </h1>
@@ -152,7 +153,7 @@
     </header>
 
     <p>What the heck does <code>-%}</code> mean in a Jinja template?<br>TL;DR: It removes whitespaces inside a block. The offical docs say it &quot;strip[s] whitespace in templates [...] add a minus sign (-) to the start or end of a block&quot;, so <code>{%-</code> at the end of the block works too, but you better <a href="http://jinja.quantprogramming.com">play with around with it to really understand it</a> the dash is quite flexible.</p>
-<h2 id="example-with-all-whitespaces-removed---a-lot-of-dashes-used">Example with all Whitespaces Removed - A lot of Dashes Used</h2>
+<h2 is="more-h2" id="example-with-all-whitespaces-removed---a-lot-of-dashes-used">Example with all Whitespaces Removed - A lot of Dashes Used</h2>
 <pre><code>Dear {{- name -}}
 ,
 
@@ -165,7 +166,7 @@
 The end</code></pre><p>Notice the <strong>six dashes</strong>, not only in blocks <code>{%-</code>  and <code>-%}</code> but also when rendering variables <code>{{-</code> and <code>-}}</code>. (I did not find this in the docs though). The above template renders out the following result:</p>
 <pre><code>DearJane,&lt;p&gt;
 ··Welcome!
-··&lt;/p&gt;The·end</code></pre><h2 id="example-with-no-whitespaces-removed---no-dashes-used">Example with No Whitespaces Removed - no dashes used</h2>
+··&lt;/p&gt;The·end</code></pre><h2 is="more-h2" id="example-with-no-whitespaces-removed---no-dashes-used">Example with No Whitespaces Removed - no dashes used</h2>
 <p>The same template, just  <strong>all dashes removed</strong> looking like this:</p>
 <pre><code>Dear {{ name }}
 ,
@@ -187,17 +188,17 @@ The end</code></pre><p>renders a lot spaces and newlines:</p>
 
 
 The·end</code></pre><p>FYI: I tried all of the above in <a href="http://jinja.quantprogramming.com">jinja.quantprogramming.com</a>.</p>
-<h2 id="i-discovered-it-through-lektor">I Discovered it Through Lektor</h2>
+<h2 is="more-h2" id="i-discovered-it-through-lektor">I Discovered it Through Lektor</h2>
 <p>By using Lektor I need to learn <a href="http://jinja.pocoo.org/">Jinja</a>, the template engine used. And I have to say it has the addons that I had always wished for in Django&#39;s template language (swig). For example there is <code>else</code> for the <code>for</code> loop, which applies when there is nothing to loop over.</p>
 <p>And while looking for a tag system I came across <a href="https://pypi.python.org/pypi/lektor-tags">lektor-tags</a> which looks like the tag power and simplicity I need. While trying to get it to run, I came across this piece of Jinja template:</p>
-<pre><code class="language-jinja">{% for t in this.tags -%}
+<pre><code class="undefinedjinja">{% for t in this.tags -%}
   #{{ t }}
 {% endfor %}</code></pre>
 <p>and I saw this typo in there <strong><code>-%}</code></strong>, so I removed the <code>-</code>, since I thought it was a typo. Later I saw it more often, even in an <code>if</code> and in <code>macro</code> and before <code>endmacro</code> too. So I figured it was not a typo. And it wasn&#39;t :).</p>
 <p>So I started hunting the documentation. I found places where <code>-%}</code> was used but it was never described what the dash was for. Until I finally found it, of course by accident. In the <a href="https://jinja.palletsprojects.com/en/2.11.x/templates/#whitespace-control">Jinja docs in the chapter Whitespace Control</a> it says the following:</p>
 <blockquote>
 <p>You can also strip whitespace in templates by hand. If you add a minus sign (-) to the start or end of a block (e.g. a For tag), a comment, or a variable expression, the whitespaces before or after that block will be removed:</p>
-<pre><code class="language-jinja">{% for item in seq -%}
+<pre><code class="undefinedjinja">{% for item in seq -%}
   {{ item }}
 {%- endfor %}</code></pre>
 </blockquote>

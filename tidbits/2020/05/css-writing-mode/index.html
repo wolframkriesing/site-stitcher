@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/tidbits/2020/05/css-writing-mode/">
   <title>CSS `writing-mode` Property | picostitch - crafting (and) JavaScript</title>
   
@@ -139,7 +140,7 @@
   <article>
     <header>
       <div class="tag" data-tag="web">#web</div>
-      <h1>CSS <code>writing-mode</code> Property</h1>
+      <h1 id="css-writing-mode" is="more-h1">CSS <code>writing-mode</code> Property</h1>
       <div class="metadata">
         Wolfram Kriesing
         - May 30, 2020
@@ -156,15 +157,15 @@ about CSS property <code>writing-mode</code>:</p>
 as well as the direction in which blocks progress.</p>
 </blockquote>
 <p>Each of the below has the following CSS properties, to visualize the boxes better.</p>
-<pre><code class="language-css">width: 10rem;
+<pre><code class="undefinedcss">width: 10rem;
 border: 1px solid grey;
 writing-mode: &lt;different values&gt;;</code></pre>
-<h2 id="vertical-rl">vertical-rl</h2>
+<h2 is="more-h2" id="vertical-rl">vertical-rl</h2>
 <div style="writing-mode: vertical-rl; width: 10rem; border: 1px solid grey;">
 style="writing-mode: vertical-rl;"
 </div>
 
-<h2 id="vertical-lr">vertical-lr</h2>
+<h2 is="more-h2" id="vertical-lr">vertical-lr</h2>
 <div style="writing-mode: vertical-lr; width: 10rem; border: 1px solid grey;">
 style="writing-mode: vertical-lr;"
 </div>

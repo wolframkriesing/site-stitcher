@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2020/04/19-build-measure-speed-repeat/">
   <title>Build, Measure, Speed, Repeat | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="build-measure-speed-repeat" is="more-h1">
         Build, Measure, Speed, Repeat
         
       </h1>
@@ -168,7 +169,7 @@ updates being built.</p>
 <p>Here is the detailled process of how I went about measuring and fixing the biggest slow down of my build process.
 It is a standard build, measure, learn cycle, and it won&#39;t be done after this blog post.
 Spoiler: I gained more than 50% of speed.</p>
-<h2 id="contents">Contents</h2>
+<h2 is="more-h2" id="contents">Contents</h2>
 <ol>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#deciding-what-to-fix">Deciding what to fix</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#the-big-picture">The Big Picture</a></li>
@@ -182,7 +183,7 @@ Spoiler: I gained more than 50% of speed.</p>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#conclusion">Conclusion</a></li>
 <li><a href="/blog/2020/04/19-build-measure-speed-repeat/#epilogue">Epilogue</a></li>
 </ol>
-<h2 id="deciding-what-to-fix">Deciding what to fix</h2>
+<h2 is="more-h2" id="deciding-what-to-fix">Deciding what to fix</h2>
 <p>The above introduction shows that there is not only one thing I could optimize, there is not only the
 speed of the build process. I could also:</p>
 <ol>
@@ -212,12 +213,12 @@ page, which would prevent all dependency complexity and shorten the build time w
 Sounds like a great idea for having a fast build process, accepting the drawback of not building all pages everytime.
 Sometimes a switch in processes can also lead you to a goal, even though you had might not expected to go there.
 But I am not taking that path now, it feels like I would put off work to later.</p>
-<h2 id="the-big-picture">The Big Picture</h2>
+<h2 is="more-h2" id="the-big-picture">The Big Picture</h2>
 <p>The time the build process needs to build my entire blog is also too long, I feel. The thing that really sucks is that
 it will become slower with every new post I am writing (like this one) and every feature I add to the blog.
 So I added the simplest timing I know of, using <code>console.time()</code> and <code>console.timeEnd()</code>, see <a href="https://github.com/wolframkriesing/site-stitcher/commit/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a">the commit here</a>.
 The output was this:</p>
-<pre><code class="language-text">Load source files: 134.814ms
+<pre><code class="undefinedtext">Load source files: 134.814ms
 Load blog posts: 314.913ms
 Relate and group posts: 134.019ms
 All posts: 1.533s
@@ -240,22 +241,22 @@ are more pages generated. The following tasks are the most relevant and time con
 (all the posts + all tags pages = 142 + 224 = 366 pages) are the slowest.
 But as I had learned I must always just <strong>optimize the slowest first, measure again and go again for the slowest then</strong>
 (and by then it might be something else that is slowest).</p>
-<h2 id="measure">Measure</h2>
+<h2 is="more-h2" id="measure">Measure</h2>
 <p>Once I start having numbers I can&#39;t stop diving deeper into them.
 So I start by looking at <a href="https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L77-L85">the code that build the tag pages</a> 
 (it is similarly structured to <a href="https://github.com/wolframkriesing/site-stitcher/blob/6c4e4fcd6e4e421d4aeae8877313c8b98cefa01a/src/index.js#L50-L57">the code that generates all posts</a>).
 Both functions just do three &quot;maybe slow&quot; things:</p>
-<pre><code class="language-javascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+<pre><code class="undefinedjavascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
 await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
 const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
 const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
 await fs.promises.writeFile(destFilename, renderedFile);      // maybe slow</code></pre>
-<h3 id="filesystem-access-speed">Filesystem Access Speed</h3>
+<h3 is="more-h3" id="filesystem-access-speed">Filesystem Access Speed</h3>
 <p>I will turn off the <code>fs.promises</code> things, since they go onto the filesystem and that can not be fast, right?
 The time that it took just now (before I save this change to this blog posts markdown file)
 to build all the tag pages was &quot;2.293s&quot;. I ran it a couple of times, it was always around 2.4seconds.
 Now let me comment out the fs operations. </p>
-<pre><code class="language-javascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+<pre><code class="undefinedjavascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
 // await fs.promises.mkdir(destDir, {recursive: true});        // maybe slow
 const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
 const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
@@ -265,11 +266,11 @@ was &quot;1.329s&quot;. Roughly each of them was around 1.4seconds. That means a
 The nifty thing is though, I can not remove this part completely, I will have to write to the filesystem
 at some point in time.<br>Though with 1.4s we know there is a potential of speeding it up by 41%. So there is still a lot of beef left, 59%.
 Let&#39;s see if there is some low hanging fruits there.</p>
-<h3 id="template-rendering-speed">Template Rendering Speed</h3>
+<h3 is="more-h3" id="template-rendering-speed">Template Rendering Speed</h3>
 <p>The third &quot;maybe slow&quot; thing is the template rendering, the function we call is <code>tundra.getRender(&#39;post.html&#39;, ...)</code>.
 We know the numbers from before, 2.4 seconds it takes about to render all tags pages.
 Now let me comment out only the template rendering code.</p>
-<pre><code class="language-javascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
+<pre><code class="undefinedjavascript">const destDir = path.join(__dirname, &#39;../_output&#39;, post.url); // fast
 await fs.promises.mkdir(destDir, {recursive: true});          // maybe slow
 const destFilename = path.join(destDir, &#39;index.html&#39;);        // fast
 // const renderedFile = tundra.getRender(&#39;post.html&#39;, {...defaultRenderParams, post}); // maybe slow
@@ -284,7 +285,7 @@ we render files containing only that string, but for the measuring purpose, to u
 that is fine, I would say.<br>Running this a couple of times, the numbers did suprise me a little bit. Now the script measures
 &quot;671.773ms&quot; for the last run, in average I saw always numbers around 700ms. There is a huge potential
 here. Very interesting.</p>
-<h3 id="recap">Recap</h3>
+<h3 is="more-h3" id="recap">Recap</h3>
 <p>Let&#39;s recap quickly what we learned in the measuring phase.</p>
 <table>
 <thead>
@@ -313,7 +314,7 @@ here. Very interesting.</p>
 </tbody></table>
 <p>There is a lot of potential in the template rendering times. The good thing is, every page render will benefit from that.
 As calculated above, that is at least 336 pages, so optimizing this can cause big gains in speed.</p>
-<h2 id="solutions-to-speed-up">Solutions to speed up</h2>
+<h2 is="more-h2" id="solutions-to-speed-up">Solutions to speed up</h2>
 <p>Regarding the filesystem access, I have no huge idea right now if there is potential.
 I can think of some little things, but I know that eventually the stuff needs to get written to the filesystem and
 as far as I remember (from the 2009 jsconf) nodejs is already quite good at this.
@@ -339,7 +340,7 @@ Maybe I get around to help moving it forward a bit, I have ideas. But it&#39;s n
 than mine behind it.</p>
 <p>Back to optimizing the build time by using tundra&#39;s cache option.
 So i turn on the <code>cache: true</code>. I do this at the top of the file, where I instanciate the <code>tundra</code> variable.</p>
-<pre><code class="language-javascript">// before
+<pre><code class="undefinedjavascript">// before
 const tundra = new Tundra();
 // after
 const tundra = new Tundra({cache: true});</code></pre>
@@ -351,10 +352,10 @@ Sounds cool, but also feels like the last low hanging fruit. But it was worth be
 Now there is only hard work left, or rather the fun work.</p>
 <p>I am not really sure why tundra doesn&#39;t come with the the cache turned on by default.
 Sounds like something I might dig into or open an issue for.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 is="more-h2" id="conclusion">Conclusion</h2>
 <p>After this tiny fix, the numbers have improved a lot. Let&#39;s look at the overall picture.
 On the console, I see this now.</p>
-<pre><code class="language-text">Load source files: 143.031ms
+<pre><code class="undefinedtext">Load source files: 143.031ms
 Load blog posts: 257.907ms
 Relate and group posts: 91.02ms
 All posts: 548.666ms
@@ -365,7 +366,7 @@ Home page: 32.527ms
 Tags pages: 689.882ms
 Month pages: 122.477ms</code></pre>
 <p>compared to the old version:</p>
-<pre><code class="language-text">Load source files: 134.814ms
+<pre><code class="undefinedtext">Load source files: 134.814ms
 Load blog posts: 314.913ms
 Relate and group posts: 134.019ms
 All posts: 1.533s
@@ -443,13 +444,13 @@ I am aware that &quot;big effect&quot; from now on does not mean 50% anymore, bu
 even though I doubt it. But without measuring I won&#39;t know.</li>
 </ol>
 <p>Keep an eye on this blog, and/or the repo this is not over yet. Have fun building, measuring, speeding and repeating.<br>Just <strong>don&#39;t optimize too early</strong>!</p>
-<h2 id="epilogue">Epilogue</h2>
+<h2 is="more-h2" id="epilogue">Epilogue</h2>
 <p>I double checked <a href="https://github.com/wolframkriesing/site-stitcher/pull/1">the result of this change</a>, the blog post (you are reading) and the code over all.
 That made me clean up the code a bit and making the timing output a bit nicer. I removed
 some old code, some ugly code and beautified the output (<a href="https://github.com/wolframkriesing/site-stitcher/pull/1/commits/a6ba00c79d03da63111eecbc9341a9f746d8b350">the commit</a>). It is not this code that I would love to see grow without
 being refactored, since it already starts to contain some hard to read parts. The name &quot;software&quot; says it all, it is soft.</p>
 <p>The output looks like this now:</p>
-<pre><code class="language-text">Preparing data
+<pre><code class="undefinedtext">Preparing data
 ========
 Load source files: 126.193ms
 Load blog posts: 218.873ms

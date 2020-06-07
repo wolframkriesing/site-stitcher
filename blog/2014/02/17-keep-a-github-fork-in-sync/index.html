@@ -19,6 +19,7 @@
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="canonical" href="https://picostitch.com/blog/2014/02/17-keep-a-github-fork-in-sync/">
   <title>Keep a github fork in sync | picostitch - crafting (and) JavaScript</title>
   
@@ -138,7 +139,7 @@
       
   <article class="">
     <header>
-      <h1>
+      <h1 id="keep-a-github-fork-in-sync" is="more-h1">
         Keep a github fork in sync
         
       </h1>
@@ -154,7 +155,7 @@
     <p>As often as I look for this, I need to write it down.
 For example for my fork of <a href="https://github.com/Narigo/dropping-spray/">github:dropping-spray</a>, which got inspired by this <a href="https://twitter.com/NarigoDF/status/567572946626297857">tweet</a>
 and the following discussion.</p>
-<pre><code class="language-bash">&gt; # 1 - add the (so called) upstream repo so you can refer to it locally
+<pre><code class="undefinedbash">&gt; # 1 - add the (so called) upstream repo so you can refer to it locally
 &gt; git remote add upstream git@github.com:Narigo/dropping-spray.git
 &gt; #2 - just double check it&#39;s there
 &gt; git remote -v
