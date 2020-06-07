@@ -1,3 +1,7 @@
+/**
+ * @param s {string}
+ * @return {Date}
+ */
 const toDate = s => {
   const parts = s.split(' ');
   if (parts.length > 1) {
@@ -21,6 +25,10 @@ const months = [
   'November',
   'December',
 ];
+/**
+ * @param dateString {string}
+ * @return {string}
+ */
 export const toReadableDate = dateString => {
   const isYearAndMonthOnly = dateString.split('-').length === 2;
   const date = toDate(dateString);
@@ -31,18 +39,31 @@ export const toReadableDate = dateString => {
     : `${month} ${date.getDate()}, ${year}`
   ;
 };
-
+/**
+ * @param dateString {string}
+ * @return {string}
+ */
 export const toReadableYearAndMonth = dateString =>
   toReadableDate(dateString.split('-').slice(0, 2).join('-'));
-
+/**
+ * @param dateString {string}
+ * @return {string}
+ */
 export const toWeekday = dateString => {
   const day = toDate(dateString).getDay();
   return [
     'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
   ][day];
 }
-
+/**
+ * @param s {number}
+ * @return {string}
+ */
 const twoDigit = s => ('0' + s).substr(-2);
+/**
+ * @param now {Date}
+ * @return {string}
+ */
 export const nowAsDateTimeString = (now = new Date()) => {
   // NOTE only works for CET ... cest la vie ;)
   const dateParts = [

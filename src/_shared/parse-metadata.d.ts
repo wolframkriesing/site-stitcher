@@ -1,4 +1,4 @@
-import {BlogPostMetadata} from '../BlogPost';
+import {BlogPostMetadata} from '../blog-post/BlogPost';
 import {TidbitMetadata} from "../load-tidbit/Tidbit";
 import {Token} from 'marked';
 
