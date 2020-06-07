@@ -30,7 +30,7 @@ describe('Render tidbits pages', () => {
      * @param tidbits {Tidbit[]}
      * @return {Promise<string>}
      */
-    const renderResult = async tidbits => {
+    const renderTidbitIndexPage = async tidbits => {
       let writtenToFile = '';
       /**
        * @param filename {Filename}
@@ -43,7 +43,7 @@ describe('Render tidbits pages', () => {
     };
     describe('THEN render the tidbits overview/index page', () => {
       it('AND render the headlines as H2', async () => {
-        const writtenToFile = await renderResult([
+        const writtenToFile = await renderTidbitIndexPage([
           createTidbit({headlineAsHtml: 'Tidbit1'}),
           createTidbit({headlineAsHtml: 'Tidbit2'}),
           createTidbit({headlineAsHtml: 'Tidbit3'}),
@@ -53,17 +53,17 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFile, matchesPattern(/<h2.*>.*Tidbit3.*<\/h2>/gms));
       });
       it('AND render the slug as the `id` attribute for the H2s', async () => {
-        const writtenToFile = await renderResult([
+        const writtenToFile = await renderTidbitIndexPage([
           createTidbit({slug: 'tidbit-xyz'}),
         ]);
         assertThat(writtenToFile, matchesPattern(/<h2[^>]* id="tidbit-xyz"/gms));
       });
       it('AND render attribute `is=more-h2` for enhancing the H2 via the more-html component', async () => {
-        const writtenToFile = await renderResult([createTidbit(),]);
+        const writtenToFile = await renderTidbitIndexPage([createTidbit(),]);
         assertThat(writtenToFile, matchesPattern(/<h2[^>]* is="more-h2"/gms));
       });
       it('AND renders the first tag AND the data-attribute contains the tag`s slug', async () => {
-        const writtenToFile = await renderResult([
+        const writtenToFile = await renderTidbitIndexPage([
           createTidbit({tags: ['a11y']}),
           createTidbit({tags: ['one']}),
           createTidbit({tags: ['oh my god']}),
@@ -88,6 +88,31 @@ describe('Render tidbits pages', () => {
       });
     });
     describe('THEN render a page per tidbit', () => {
+      /**
+       * @param tidbits {Tidbit[]}
+       * @return {Promise<string>}
+       */
+      const renderTidbitPage = async tidbits => {
+        let writtenToFile = '';
+        /**
+         * @param filename {Filename}
+         * @param content {string}
+         * @return {Promise<void>}
+         */
+        const writeFile = async (filename, content) => { writtenToFile = content; };
+        await renderAndWriteTidbitPages({writeFile})(tidbits, renderParams);
+        return writtenToFile;
+      };
+      it('AND render the slug as the `id` attribute for the H1s (for allowing anchor links and more-html to work)', async () => {
+        const tidbits = [createTidbit({slug: 'tidbit-a'})];
+        const writtenToFile = await renderTidbitPage(tidbits);
+        assertThat(writtenToFile, matchesPattern(/<h1[^>]* id="tidbit-a"/gms));
+      });
+      it('AND render attribute `is=more-h1` for enhancing the H1 via the more-html component', async () => {
+        const tidbits = [createTidbit()];
+        const writtenToFile = await renderTidbitPage(tidbits);
+        assertThat(writtenToFile, matchesPattern(/<h1[^>]* is="more-h1"/gms));
+      });
       it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', async () => {
         const tidbits = [
           createTidbit({dateCreated: '2000-01-01 10:00 CET', slug: 'a-tidbit'}),
