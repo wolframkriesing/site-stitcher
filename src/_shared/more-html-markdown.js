@@ -3,6 +3,12 @@ import * as marked from 'marked';
 const defaultRenderer = new marked.Renderer();
 const moreHtmlRenderer = new marked.Renderer();
 
+/**
+ * Override the rendering for H1, H2, ...
+ * TODO: how can we reuse the marked.Renderer.heading type for this fn? Rewriting it below sux.
+ * @param {[string, 1|2|3|4|5|6, string, marked.Slugger]} args
+ * @return {string}
+ */
 moreHtmlRenderer.heading = (...args) => {
   const [, level] = args;
   const heading = defaultRenderer.heading(...args);

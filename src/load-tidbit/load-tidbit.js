@@ -1,5 +1,5 @@
 import * as marked from 'marked';
-import {tokensToHtml} from '../_shared/to-more-html-markdown.js';
+import {tokensToHtml} from '../_shared/more-html-markdown.js';
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata as _parseMetaData} from '../_shared/parse-metadata.js';
 import {renderAbstractAsHtml, renderHeadlineAsHtml, trimSpaceTokenFromEnd} from '../_shared/markdown.js';
