@@ -98,6 +98,7 @@
 - [x] publish the last post about jscamp
 
 # Ideas
+- [ ] how can all more-html related code go into one place? in case it changes, or is not needed anymore I want to one click remove it. Is that a good goal?
 - [ ] add meta tags
   - [ ] add og meta tags (https://ogp.me/)
   - [ ] for twitter https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards
