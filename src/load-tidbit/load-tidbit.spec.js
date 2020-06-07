@@ -133,7 +133,9 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
         assertThat(tidbit.bodyAsHtml, matchesPattern(/<h3[^>]* id="i-am-h3"/gms));
       });
       it('THEN render each heading with the `is=more-h*` attribute', () => {
-
+        const tidbit = load();
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h2[^>]* is="more-h2"/gms));
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h3[^>]* is="more-h3"/gms));
       });
     });
   });
