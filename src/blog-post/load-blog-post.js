@@ -47,9 +47,10 @@ const findBodyToRender = tokens => {
     tokens.shift();
   }
 }
+import {tokensToHtml} from '../_shared/more-html-markdown.js';
 const renderBodyAsHtml = tokens => {
   findBodyToRender(tokens);
-  return marked.parser(tokens);
+  return tokensToHtml(tokens);
 }
 
 export const loadManyBlogPosts = ({readFile} = prodDeps()) => async manySourceFiles => {
