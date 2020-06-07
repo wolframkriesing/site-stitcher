@@ -55,9 +55,13 @@ export class BlogPost {
     return urlFromMarkdownFilename(this.markdownFilename);
   }
   get slug() {
+    const trimDay = s => s.substr(3);
+    const trimExtension = s => s.replace(/.md$/, '');
+    if (this.markdownFilename.endsWith('index.md')) {
+      return trimDay(this.markdownFilename.split('/').slice(-2)[0]);
+    }
     const filename = this.markdownFilename.split('/').slice(-1)[0];
-    const trimDayAndExtension = s => s.substr(3, s.length - 6);
-    return trimDayAndExtension(filename);
+    return trimExtension(trimDay(filename));
   }
   get urlForMonth() {
     return urlForMonthFromMarkdownFilename(this.markdownFilename);

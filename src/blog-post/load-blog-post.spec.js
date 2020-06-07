@@ -38,6 +38,7 @@ describe('Load a blog post, with all data ready to render', () => {
       });
       assertThat(post, hasProperties({
         url: '/blog/2001/01/01-post/',
+        slug: 'post',
         urlForMonth: '/blog/2001/01/'
       }));
     });
