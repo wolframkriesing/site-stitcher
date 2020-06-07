@@ -44,13 +44,13 @@ describe('Render tidbits pages', () => {
     describe('THEN render the tidbits overview/index page', () => {
       it('AND render the headlines as H2', async () => {
         const writtenToFile = await renderResult([
-          createTidbit({headlineAsHtml: 'Tidbit1', slug: 'tidbit1'}),
-          createTidbit({headlineAsHtml: 'Tidbit2', slug: 'tidbit2'}),
-          createTidbit({headlineAsHtml: 'Tidbit3', slug: 'tidbit3'}),
+          createTidbit({headlineAsHtml: 'Tidbit1'}),
+          createTidbit({headlineAsHtml: 'Tidbit2'}),
+          createTidbit({headlineAsHtml: 'Tidbit3'}),
         ]);
-        assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit1">.*Tidbit1.*<\/h2>/gms));
-        assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit2">.*Tidbit2.*<\/h2>/gms));
-        assertThat(writtenToFile, matchesPattern(/<h2 id="tidbit3">.*Tidbit3.*<\/h2>/gms));
+        assertThat(writtenToFile, matchesPattern(/<h2.*>.*Tidbit1.*<\/h2>/gms));
+        assertThat(writtenToFile, matchesPattern(/<h2.*>.*Tidbit2.*<\/h2>/gms));
+        assertThat(writtenToFile, matchesPattern(/<h2.*>.*Tidbit3.*<\/h2>/gms));
       });
       it('AND renders the first tag AND the data-attribute contains the tag`s slug', async () => {
         const writtenToFile = await renderResult([
