@@ -1,6 +1,6 @@
 import {describe, it} from 'mocha';
 import * as assert from 'assert';
-import {assertThat, instanceOf, hasProperties} from 'hamjest';
+import {assertThat, instanceOf, hasProperties, matchesPattern} from 'hamjest';
 import {Tidbit} from './Tidbit.js';
 import {loadTidbitFile, loadTidbits} from './load-tidbit.js';
 import {TidbitSourceFile} from "./TidbitSourceFile.js";
@@ -110,6 +110,31 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
       ].join('\n');
       const tidbit = loadTidbitFile(fileContent)[0];
       assert.strictEqual(tidbit.headlineAsHtml, 'A piece of <code>code</code>');
+    });
+    describe('AND it has H2 and H3s', () => {
+      const load = () => {
+        const fileContent = [
+          '# h1',
+          '',
+          'slug: irrelevant  ',
+          'dateCreated: 2111-11-11 11:11 CET  ',
+          '',
+          '## I am h2',
+          'h2 content',
+          '',
+          '### I am h3',
+          'h3 content',
+        ].join('\n');
+        return loadTidbitFile(fileContent)[0];
+      }
+      it('THEN render each heading with the `id` attribute', () => {
+        const tidbit = load();
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h2[^>]* id="i-am-h2"/gms));
+        assertThat(tidbit.bodyAsHtml, matchesPattern(/<h3[^>]* id="i-am-h3"/gms));
+      });
+      it('THEN render each heading with the `is=more-h*` attribute', () => {
+
+      });
     });
   });
 });
