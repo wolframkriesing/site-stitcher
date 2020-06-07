@@ -123,7 +123,7 @@ const timeIt = async (label, fn) => {
   console.timeEnd(label);
 }
 
-import {findRelatedPosts} from './related-posts.js';
+import {findRelatedPosts} from './blog-post/related-posts.js';
 (async() => {
   console.time('Overall');
   console.log('Preparing data\n========');
