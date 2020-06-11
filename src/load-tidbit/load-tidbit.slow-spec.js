@@ -5,8 +5,9 @@ import {TidbitSourceFile} from './TidbitSourceFile.js';
 import {loadTidbits} from './load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
 import {Tidbit} from './Tidbit.js';
+import {TEST_CONTENT_DIRECTORY} from '../config.js';
 
-const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
+const tidbitDirectory = path.join(TEST_CONTENT_DIRECTORY, 'tidbit');
 
 describe('Load a tidbit file (one month)', () => {
   describe('GIVEN one source file with one tidbit in it', () => {

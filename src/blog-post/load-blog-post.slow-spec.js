@@ -3,8 +3,9 @@ import {assertThat, hasProperties} from 'hamjest';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import * as path from 'path';
+import {TEST_CONTENT_DIRECTORY} from '../config.js';
 
-const blogPostsDirectory = path.join(__dirname, '../../test-content/blog-posts');
+const blogPostsDirectory = path.join(TEST_CONTENT_DIRECTORY, 'blog-posts');
 
 describe('Build posts from real files (tests are slow therefore)', () => {
   it('GIVEN one file WHEN loading works THEN return a complete BlogPost object', async () => {

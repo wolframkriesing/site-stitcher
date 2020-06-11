@@ -4,8 +4,9 @@ import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} 
 import * as path from 'path';
 import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
 import {TidbitSourceFile} from './TidbitSourceFile.js';
+import {TEST_CONTENT_DIRECTORY} from '../config.js';
 
-const tidbitDirectory = path.join(__dirname, '../../test-content/tidbit');
+const tidbitDirectory = path.join(TEST_CONTENT_DIRECTORY, 'tidbit');
 
 describe('Load tidbit source files from a directory (tests are slow, working against a real fs)', () => {
   describe('GIVEN a tidbits-directory WHEN loading the files', () => {
