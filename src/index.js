@@ -1,5 +1,5 @@
 import * as path from 'path';
-import * as marked from 'marked';
+import marked from 'marked';
 import Tundra from 'tundrajs';
 import * as fs from 'fs';
 import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, TEMPLATES_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';
@@ -15,6 +15,7 @@ const tundra = new Tundra({cache: true});
 const navigationItems = [
   {path: '/', name: 'Home 🏠'},
   {path: '/tidbits', name: 'Tidbits 😋'},
+  {path: '/projects', name: 'Projects 🚴🏻‍‍'},
   {path: '/about', name: 'About 💡'},
 ];
 const defaultRenderParams = {
@@ -89,6 +90,15 @@ const generateAboutPages = async () => {
   await aboutPersonPage();
 }
 
+const generateProjectsPage = async () => {
+  const destDir = path.join(OUTPUT_DIRECTORY, 'projects');
+  await fs.promises.mkdir(destDir, {recursive: true});
+  const destFilename = path.join(destDir, 'index.html');
+  const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'projects/index.md'), 'utf8'));
+  const renderedFile = tundra.getRender('projects.html', {...defaultRenderParams, content});
+  await fs.promises.writeFile(destFilename, renderedFile);
+};
+
 const generateHomePage = async (posts) => {
   const renderedFile = tundra.getRender('index.html', {...defaultRenderParams, posts});
   const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
@@ -149,6 +159,7 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false)));
   await timeIt('About pages', () => generateAboutPages());
   await timeIt('Tidbit pages', () => generateTidbitsPages());
+  await timeIt('Projects page', () => generateProjectsPage());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   console.log('-----');
   console.timeEnd('Overall');

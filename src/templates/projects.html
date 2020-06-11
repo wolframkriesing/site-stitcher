@@ -1,0 +1,13 @@
+@extends(src/templates/_base.html)
+
+{[ block pagename ]}projects{[ endblock ]}
+{[ block canonicalUrl ]}/projects{[ endblock ]}
+{[ block pageTitlePrefix ]}Projects{[ endblock ]}
+
+{[ block breadcrumb ]}
+  <a href="/">Home</a> &raquo; Projects
+{[ endblock ]}
+
+{[ block content ]}
+  {!content!}
+{[ endblock ]}
