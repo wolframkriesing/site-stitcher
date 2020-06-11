@@ -205,6 +205,6 @@
 - [ ] indieweb auth of my page
 - [ ] what about URL incompatible chars in a markdownFilename?
 - [ ] rename `BlogPost#markdownFilename` to `sourceFile`?
-- [ ] should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...
+- [x] ~~should the new-post tests really be soo specific and detailled? it tests underlying function, currently ...~~ removed it, since i dont use it
 - [ ] crawl all pages put them in a DB (or alike) and make sure all exist in the new setup
 
