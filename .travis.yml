@@ -1,7 +1,10 @@
 language: node_js
 node_js:
-- "13"
+- "14"
 os: linux
+
+env:
+  - ROOT_DIRECTORY=$TRAVIS_BUILD_DIR
 
 script:
   npm run ci:test
