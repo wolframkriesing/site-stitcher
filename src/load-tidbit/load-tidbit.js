@@ -1,4 +1,4 @@
-import marked from 'marked';
+import * as marked from 'marked';
 import {tokensToHtml} from '../_shared/more-html-markdown.js';
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata as _parseMetaData} from '../_shared/parse-metadata.js';

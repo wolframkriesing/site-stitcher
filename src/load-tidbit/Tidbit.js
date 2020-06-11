@@ -1,4 +1,4 @@
-import marked from "marked";
+import * as marked from "marked";
 
 const slug = s => new marked.Slugger().slug(s);
 

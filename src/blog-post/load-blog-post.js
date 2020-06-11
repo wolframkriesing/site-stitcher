@@ -1,4 +1,4 @@
-import marked from 'marked';
+import * as marked from 'marked';
 import {BlogPost} from "./BlogPost.js";
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata} from '../_shared/parse-metadata.js';

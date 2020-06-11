@@ -1,5 +1,5 @@
 import * as path from 'path';
-import marked from 'marked';
+import * as marked from 'marked';
 import Tundra from 'tundrajs';
 import * as fs from 'fs';
 import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, TEMPLATES_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';

@@ -1,4 +1,4 @@
-import marked from 'marked';
+import * as marked from 'marked';
 
 /**
  * @param t {marked.Token}

@@ -1,7 +1,6 @@
 {
   "name": "site-stitcher",
   "version": "1.0.0",
-  "type": "module",
   "description": "The tool I use to build my website, picostitch.com",
   "main": "index.js",
   "scripts": {
@@ -12,7 +11,7 @@
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
-    "build": "mkdir -p _output; node src/index.js && npm run build:assets",
+    "build": "mkdir -p _output; node -r esm src/index.js && npm run build:assets",
     "build:assets": "cp CNAME _output && npm run build:css && npm run build:favicon && npm run build:images:png && npm run build:images:jpg && npm run build:images:gif && npm run build:images:gif-tidbits && npm run build:images:jpg-tidbits",
     "build:css": "cp src/templates/*.css _output/ && cp src/templates/tidbit/*.css _output/tidbits/",
     "build:favicon": "cp src/templates/*.ico _output/",
