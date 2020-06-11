@@ -1,4 +1,4 @@
-import * as marked from 'marked';
+import marked from 'marked';
 
 const defaultRenderer = new marked.Renderer();
 const moreHtmlRenderer = new marked.Renderer();

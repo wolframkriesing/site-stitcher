@@ -1,6 +1,6 @@
-import * as path from 'path';
 import Tundra from 'tundrajs';
 import {writeOutputFile} from '../_deps/fs.js';
+import {TEMPLATES_DIRECTORY} from '../config.js';
 
 /**
  * @returns {import('./render-page').ProductionDependencies}
@@ -12,7 +12,7 @@ const prodDeps = () => {
 }
 
 const tundra = new Tundra({cache: false});
-tundra.setBase(path.join(__dirname, '../templates'));
+tundra.setBase(TEMPLATES_DIRECTORY);
 /**
  * @param data {PlainObject}
  * @return {string}

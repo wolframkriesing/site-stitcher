@@ -2,6 +2,7 @@ import * as path from 'path';
 import marked from 'marked';
 import Tundra from 'tundrajs';
 import * as fs from 'fs';
+import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, TEMPLATES_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';
 import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
 import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
@@ -23,10 +24,10 @@ const defaultRenderParams = {
   toWeekday,
 };
 
-tundra.setBase(path.join(__dirname, 'templates'));
+tundra.setBase(TEMPLATES_DIRECTORY);
 
 const generate301Page = async (oldPath, newPath) => {
-  const destDir = path.join(__dirname, '../_output', oldPath);
+  const destDir = path.join(OUTPUT_DIRECTORY, oldPath);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const renderedFile = tundra.getRender('301.html', {...defaultRenderParams, redirectUrl: newPath});
@@ -41,7 +42,7 @@ const generate301Pages = (post) => {
 }
 
 const generate404Page = async (posts) => {
-  const destDir = path.join(__dirname, '../_output');
+  const destDir = OUTPUT_DIRECTORY;
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, '404.html');
   const renderedFile = tundra.getRender('404.html', {...defaultRenderParams, posts});
@@ -49,7 +50,7 @@ const generate404Page = async (posts) => {
 }
 
 const generatePost = async (post) => {
-  const destDir = path.join(__dirname, '../_output', post.url);
+  const destDir = path.join(OUTPUT_DIRECTORY, post.url);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post});
@@ -60,7 +61,7 @@ import {loadTidbits} from './load-tidbit/load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
 import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-tidbit/render-page.js';
 const generateTidbitsPages = async () => {
-  const tidbitsDirectory = path.join(__dirname, '../content/tidbit');
+  const tidbitsDirectory = path.join(CONTENT_DIRECTORY, 'tidbit');
   const sourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
   const tidbits = await loadTidbits()(sourceFiles);
   await renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
@@ -68,20 +69,18 @@ const generateTidbitsPages = async () => {
 };
 
 const aboutIndexPage = async () => {
-  const destDir = path.join(__dirname, '../_output', 'about');
-  const contentDir = path.join(__dirname, '../content');
+  const destDir = path.join(OUTPUT_DIRECTORY, 'about');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const content = marked(await fs.promises.readFile(path.join(contentDir, 'about/index.md'), 'utf8'));
+  const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/index.md'), 'utf8'));
   const renderedFile = tundra.getRender('about.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const aboutPersonPage = async () => {
-  const destDir = path.join(__dirname, '../_output', 'about/wolframkriesing');
-  const contentDir = path.join(__dirname, '../content');
+  const destDir = path.join(OUTPUT_DIRECTORY, 'about/wolframkriesing');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const content = await fs.promises.readFile(path.join(contentDir, 'about/wolframkriesing.json'), 'utf8');
+  const content = await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/wolframkriesing.json'), 'utf8');
   const renderedFile = tundra.getRender('about-person.html', {...defaultRenderParams, content: JSON.parse(content)});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
@@ -92,13 +91,13 @@ const generateAboutPages = async () => {
 
 const generateHomePage = async (posts) => {
   const renderedFile = tundra.getRender('index.html', {...defaultRenderParams, posts});
-  const destFilename = path.join(__dirname, '../_output', 'index.html');
+  const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
 const generateTagPage = async (group) => {
   const tag = group.tag;
-  const destDir = path.join(__dirname, '../_output', 'blog/tag', tag);
+  const destDir = path.join(OUTPUT_DIRECTORY, 'blog/tag', tag);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const renderedFile = tundra.getRender('tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
@@ -107,7 +106,7 @@ const generateTagPage = async (group) => {
 
 const generateMonthPage = async (group) => {
   const yearAndMonth = group.yearAndMonth;
-  const destDir = path.join(__dirname, '../_output', 'blog', yearAndMonth.replace('-', '/'));
+  const destDir = path.join(OUTPUT_DIRECTORY, 'blog', yearAndMonth.replace('-', '/'));
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const renderedFile = tundra.getRender('month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
@@ -128,8 +127,7 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   console.time('Overall');
   console.log('Preparing data\n========');
   console.time('Load source files');
-  const postsDirectory = path.join(__dirname, '../content/blog-posts');
-  const sourceFiles = await loadManyBlogPostSourceFiles()(postsDirectory);
+  const sourceFiles = await loadManyBlogPostSourceFiles()(BLOG_POSTS_DIRECTORY);
   console.timeEnd('Load source files');
   console.time('Load blog posts');
   const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);

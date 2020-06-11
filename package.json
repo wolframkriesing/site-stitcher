@@ -1,6 +1,7 @@
 {
   "name": "site-stitcher",
   "version": "1.0.0",
+  "type": "module",
   "description": "The tool I use to build my website, picostitch.com",
   "main": "index.js",
   "scripts": {

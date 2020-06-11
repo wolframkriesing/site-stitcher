@@ -1,7 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-
-const OUTPUT_PATH = path.join(__dirname, '../../_output');
+import {OUTPUT_DIRECTORY} from '../config.js';
 
 /**
  * @param dir {Path}
@@ -23,7 +22,7 @@ export const readFile = async (filename) =>
  * @return {Promise<void>}
  */
 export const writeOutputFile = async (filename, content) => {
-  const destFilename = path.join(OUTPUT_PATH, filename);
+  const destFilename = path.join(OUTPUT_DIRECTORY, filename);
   await mkdirRecursive(path.dirname(destFilename));
   return fs.promises.writeFile(destFilename, content, 'utf8');
 }
