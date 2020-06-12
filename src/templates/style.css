@@ -57,7 +57,7 @@ p code, li code {
   padding: 0.1rem 0.3rem;
 }
 code, pre {
-  font-size: 1rem;
+  font-size: 1.1em; /* Use `em` to make all <code> relative to the element that it contains, e.g. an H1. */
 }
 h1 code, h2 code, h3 code, h4 code, h5 code {
   background-color: var(--color-highlight-lighter);
