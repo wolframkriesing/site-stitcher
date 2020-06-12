@@ -139,8 +139,14 @@ describe('Load a blog post, with all data ready to render', () => {
       const expected = '1st paragraph with <a href="http://picostitch.com">a link</a>';
       assertThat(post, hasProperties({abstractAsHtml: expected}));
     });
-    it('WHEN the headline contains markup THEN render the headlineAsHtml converted to HTML', () => {
-      
+    it('WHEN the headline contains markup THEN render the headlineAsHtml converted to HTML', async () => {
+      const fileContent = [
+        '# CSS `rem` **and** `em`',
+        'irrelevant paragraph',
+      ].join('\n');
+      const post = await loadPost({fileContent});
+      const expectedHtmlHeadline = 'CSS <code>rem</code> <strong>and</strong> <code>em</code>';
+      assertThat(post, hasProperties({headlineAsHtml: expectedHtmlHeadline}));
     });
   });
   it('GIVEN many blog post source files THEN load all the BlogPost items', async () => {
