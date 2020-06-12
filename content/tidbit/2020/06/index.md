@@ -1,3 +1,33 @@
+# Michael Feathers on Functional Code
+slug: michael-feathers-on-functional-code
+dateCreated: 2020-06-12 15:36 CET
+tags: code
+
+Michael Feathers wrote 
+[Functional Code is Honest Code](https://michaelfeathers.silvrback.com/functional-code-is-honest-code).
+I will take away questions from this article.
+
+He starts out
+> It’s hard to change things that you don’t understand — you can try, but you’ll often fail.
+
+I can not agree more to it. But I see that this is hard in our industry, the playfulness
+when writing code seems often to be more important. 
+
+## My take away Question
+I might not know the definitions of OO and Functional good enough, but to me the following
+seem a bit too strict.
+
+> So many of the techniques around gaining testability involve parameterizing classes 
+> and methods so that all of the inputs and outputs are explicit and mockable under test.
+
+I would call that dependency injection. And it has the following result.
+
+> You pass in a reference to that capability as a constructor or method argument. 
+> This makes an OO system, broadly functional.
+
+Is passing in a reference or in other words a dependency, what distinguishes
+OO code from functional code? Mmmh, I always thought it's just a technique applied whereever.
+
 # My Reproducable (Development) Environment
 
 slug: my-reproducable-dev-env
