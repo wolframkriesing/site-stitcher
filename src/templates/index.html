@@ -12,7 +12,7 @@
   <article class="latest">
     <header>
       <h1 id="{{posts[0].slug}}" is="more-h1">
-        <a href="{{posts[0].url}}">{{posts[0].headline}}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}
+        <a href="{{posts[0].url}}">{!posts[0].headlineAsHtml!}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}
       </h1>
       <div class="metadata">
         {{toReadableDate(posts[0].dateCreated)}}
@@ -32,7 +32,7 @@
       <header>
         <h2 id="{{post.slug}}" is="more-h2">
           <a href="{{post.url}}" itemprop="url">
-          <span itemprop="name headline">{{post.headline}}</span></a>
+          <span itemprop="name headline">{!post.headlineAsHtml!}</span></a>
           {{ post.hasVideo ? ' 📺' : '' }}
         </h2>
         <div class="metadata">

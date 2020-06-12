@@ -21,14 +21,14 @@
   <a href="/">Home</a> &raquo;
   Blog &raquo;
   <a href="{{post.urlForMonth}}">{{toReadableYearAndMonth(post.dateCreated)}}</a> &raquo;
-  {{post.headline}}
+  {!post.headlineAsHtml!}
 {[ endblock ]}
 
 {[ block content ]}
   <article class="{{post.isDraft ? 'isDraft' : ''}}">
     <header>
       <h1 id="{{post.slug}}" is="more-h1">
-        {{post.headline}}
+        {!post.headlineAsHtml!}
         {{post.isDraft ? ' [this is a draft]' : ''}}
       </h1>
       <div class="metadata">
