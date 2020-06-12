@@ -26,6 +26,7 @@ describe('Load a blog post, with all data ready to render', () => {
         dateCreated: '2001-01-01',
         markdownFilename: '2001/01/01-post.md',
         headline: 'This is the first post',
+        headlineAsHtml: 'This is the first post',
         abstractAsHtml: 'the first paragraph of the blog post ...',
       };
       assertThat(post, instanceOf(BlogPost));
@@ -137,6 +138,9 @@ describe('Load a blog post, with all data ready to render', () => {
       const post = await loadPost({fileContent});
       const expected = '1st paragraph with <a href="http://picostitch.com">a link</a>';
       assertThat(post, hasProperties({abstractAsHtml: expected}));
+    });
+    it('WHEN the headline contains markup THEN render the headlineAsHtml converted to HTML', () => {
+      
     });
   });
   it('GIVEN many blog post source files THEN load all the BlogPost items', async () => {

@@ -2,7 +2,7 @@ import * as marked from 'marked';
 import {BlogPost} from "./BlogPost.js";
 import {readFile} from '../_deps/fs.js';
 import {parseMetadata} from '../_shared/parse-metadata.js';
-import {findNextParagraphTokens, renderAbstractAsHtml} from '../_shared/markdown.js';
+import {findNextParagraphTokens, renderAbstractAsHtml, renderHeadlineAsHtml} from '../_shared/markdown.js';
 
 const prodDeps = () => {
   return {readFile};
@@ -10,14 +10,14 @@ const prodDeps = () => {
 
 const findHeadlineAndAbstract = (tokens) => {
   let tokenIndex = 0;
-  let headline = '';
-  while (tokenIndex < tokens.length && headline === '') {
+  let headlineTokens = [];
+  while (tokenIndex < tokens.length && headlineTokens.length === 0) {
     const t = tokens[tokenIndex];
-    if (t.type === 'heading' && t.depth === 1) headline = t.text;
+    if (t.type === 'heading' && t.depth === 1) headlineTokens = [t];
     tokenIndex++;
   }
   const abstractTokens = findNextParagraphTokens(tokens.slice(tokenIndex));
-  return {headline, abstractTokens};
+  return {headlineTokens, abstractTokens};
 }
 
 const metadataParseConfigs = [
@@ -30,10 +30,14 @@ const metadataParseConfigs = [
   {key: 'youtubeId', type: 'string'},
 ];
 const parseRawPost = tokens => {
-  const {headline, abstractTokens} = findHeadlineAndAbstract(tokens);
+  const {headlineTokens, abstractTokens} = findHeadlineAndAbstract(tokens);
   const metadata = parseMetadata(tokens[0], metadataParseConfigs);
-  const abstractAsHtml = renderAbstractAsHtml(abstractTokens);
-  return {headline, abstractAsHtml, ...metadata};
+  return {
+    headline: headlineTokens[0].text,
+    headlineAsHtml: renderHeadlineAsHtml(headlineTokens[0]),
+    abstractAsHtml: renderAbstractAsHtml(abstractTokens), 
+    ...metadata
+  };
 };
 const findBodyToRender = tokens => {
   // DANGER we are modifying `tokens` here, since it has some properties, like `links`
