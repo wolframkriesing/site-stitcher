@@ -1,3 +1,48 @@
+# My Reproducable (Development) Environment
+
+slug: my-reproducable-dev-env
+dateCreated: 2020-06-12 11:49 CET
+tags: tools, development, setup
+
+It is painful sometimes, but  having a setup that works on any machine (that has docker), 
+just git-clone and run is **AMAZING**.
+I use a [bash script](https://github.com/wolframkriesing/site-stitcher/blob/master/run.sh) 
+and a 2-line Dockerfile for it.
+
+## I Used to use Nix
+About three years ago I used [nix](https://nixos.org/) for it, which was definitely more compatible at runtime. 
+No separate filesystem (as volume mapped into a docker container), but still just the executables configured. 
+But it was too complicated, especially when it stopped working out of the box as on the latest MacOS (Catalina).
+I removed nix everywhere, I always say that you need a PhD to understand and efficiently use nix, so I am out.
+
+## Switch to Docker
+Now with having a docker setup for each project I find problems too. 
+Problems such as mapping the filesystem into the container only 
+that is available. All other files on my computer are invisible.
+Which is great on first sight and definitely from identifying unwanted dependencies that is great.
+But for example when I worked on [test-stitcher](/projects/#test-stitcher) 
+which parses various files also from outside of of my project it's painful, it was actually essential
+to have access to all files (of other projects) for this project. Currently I think I map
+another volume into the container but I am not very happy with that solution either.
+To mention just one of the challenges I faced.
+
+## Improvable
+Also docker is not as efficient with resources and with mapped volumes etc. So my fan does start 
+spinning 🌬 sometimes. But to be honest I prefer those things that make me aware of handling my resources 
+carefully and not just expect to have endless disk space and CPU power.
+Assuming endless resources will hurt much more down the road. I have seen that often. And it gets 
+expensive latest when multiple colleagues complain about the environment being slow, the development cycle slowing 
+down, and when this happens at scale it does cost and is harder to fix.
+
+## To Be Continued ...
+I am looking forward to [wasi.dev](https://wasi.dev/). As far as I understand it has the features of nix that I appreciate 
+and the potential to set up the development and runtime environment one needs per project.
+I keep watching this space to improve my projects environments.
+
+Actually, I am very surprised that our industry standard is having local, non-reproducible
+development environments and trying to reproduce those in production, sometimes even with different
+means. 
+
 # Pseudo-Class `:defined` Under the Hood
 
 slug: defined-pseudo-class-under-the-hood
