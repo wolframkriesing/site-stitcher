@@ -5,6 +5,8 @@
 - [ ] create a real start page (not just the blog list as now)- Why? to show on one sight what this site is about and what is going on
   - [ ] move templates into on folder, to not clash with current index.html, which is actually blog/index.html
     - [x] upgrade tundra first, i want to get rid of the path in @extends
+    - [x] ~~simplify @extends path (I hope the base path is used for it)~~ not possible, opened a bug
+    - [ ] use spreads (tundra feature) to reuse code blocks, which there are a couple of
   - [ ] add `dateLastUpdated`
   - [ ] collect last updated articles, pages, tidbits - to show them in one section "Last Updates"
   - [ ] Show a section "JavaScript" with all latest JS stuff
