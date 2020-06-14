@@ -54,7 +54,7 @@ const generatePost = async (post) => {
   const destDir = path.join(OUTPUT_DIRECTORY, post.url);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('post.html', {...defaultRenderParams, post});
+  const renderedFile = tundra.getRender('blog/post.html', {...defaultRenderParams, post});
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
@@ -74,7 +74,7 @@ const aboutIndexPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/index.md'), 'utf8'));
-  const renderedFile = tundra.getRender('about.html', {...defaultRenderParams, content});
+  const renderedFile = tundra.getRender('about/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const aboutPersonPage = async () => {
@@ -82,7 +82,7 @@ const aboutPersonPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/wolframkriesing.json'), 'utf8');
-  const renderedFile = tundra.getRender('about-person.html', {...defaultRenderParams, content: JSON.parse(content)});
+  const renderedFile = tundra.getRender('about/cv.html', {...defaultRenderParams, content: JSON.parse(content)});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const generateAboutPages = async () => {
@@ -95,13 +95,13 @@ const generateProjectsPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'projects/index.md'), 'utf8'));
-  const renderedFile = tundra.getRender('projects.html', {...defaultRenderParams, content});
+  const renderedFile = tundra.getRender('projects/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
 const generateHomePage = async (posts) => {
-  const renderedFile = tundra.getRender('index.html', {...defaultRenderParams, posts});
-  const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
+  const renderedFile = tundra.getRender('blog/index.html', {...defaultRenderParams, posts});
+  const destFilename = path.join(OUTPUT_DIRECTORY, 'blog/index.html');
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
@@ -110,7 +110,7 @@ const generateTagPage = async (group) => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'blog/tag', tag);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
+  const renderedFile = tundra.getRender('blog/tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
@@ -119,7 +119,7 @@ const generateMonthPage = async (group) => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'blog', yearAndMonth.replace('-', '/'));
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
+  const renderedFile = tundra.getRender('blog/month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 

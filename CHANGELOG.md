@@ -6,6 +6,7 @@
   - [ ] move templates into on folder, to not clash with current index.html, which is actually blog/index.html
     - [x] upgrade tundra first, i want to get rid of the path in @extends
     - [x] ~~simplify @extends path (I hope the base path is used for it)~~ not possible, opened a bug
+    - [x] move blog, projects, about templates into one dir
     - [ ] use spreads (tundra feature) to reuse code blocks, which there are a couple of
   - [ ] add `dateLastUpdated`
   - [ ] collect last updated articles, pages, tidbits - to show them in one section "Last Updates"
