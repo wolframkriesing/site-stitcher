@@ -1,4 +1,4 @@
-# Projects 🚴🏻
+# Projects 🛠
 See projects that I work on, mostly in my spare time.
 I started and run various events and I also write open source code.
 

@@ -15,7 +15,7 @@ const tundra = new Tundra({cache: true});
 const navigationItems = [
   {path: '/', name: 'Home 🏠'},
   {path: '/tidbits', name: 'Tidbits 😋'},
-  {path: '/projects', name: 'Projects 🚴🏻‍‍'},
+  {path: '/projects', name: 'Projects 🛠‍‍'},
   {path: '/about', name: 'About 💡'},
 ];
 const defaultRenderParams = {
