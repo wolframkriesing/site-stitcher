@@ -22,6 +22,7 @@
   - [ ] add the content
   - [ ] unify the tags across blog posts and tidbits, so the tag "#Web Components" will show 
         content of both parts  
+- [x] make `blogPostsDirectory` come from the ENV (and use the right one for dev/test)
 - [x] add emojis to the site, makes it friendlier
 - [x] move the text following a headline closer to the headline, as learned in "Dont make me think"
 - [x] rename links to "Continue Reading ->"
@@ -115,7 +116,6 @@
 - [x] publish the last post about jscamp
 
 # Ideas
-- [ ] make `blogPostsDirectory` come from the ENV (and use the right one for dev/test)
 - [ ] fix types in /load-tidbit
 - [ ] rendering a tidbit-page is split into 1) rendering header+metadata and 2) rendering the body
       both are done in different places (render-page and load-tidbit) but stitched together
