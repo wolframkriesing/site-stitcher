@@ -2,6 +2,17 @@
 - [ ] more-link all headlines on  about and project  pages
 - [ ] use `headlineAsHtml` for blog too
 - [x] make `is=more-h1` work, to allow linking any headline
+- [ ] create a real start page (not just the blog list as now)
+  - [ ] Why? to show on one sight what this site is about and what is going on
+  - [ ] add `dateLastUpdated`
+  - [ ] collect last updated articles, pages, tidbits - to show them in one section "Last Updates"
+  - [ ] Show a section "JavaScript" with all latest JS stuff
+  - [ ] a section "Web Components", "CSS", "Web", etc.
+  - [ ] just show a small number of sections/boxes so that people see what's going on here
+        and what I care about and what this page is mainly about
+  - [ ] hide the left aside navigation
+  - [ ] use the data/boxes created as a left-side navigation instead of the useless tags (maybe just move them down)      
+- [ ] make `is=more-h1` work, to allow linking any headline
 - [x] render the headlineAsHtml, so <code> outlines are done, also id-attributes get generated, etc.
       makes it unified
 - [ ] add my web components content to the site (mostly from twitter, some is also in repos)
