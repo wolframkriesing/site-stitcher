@@ -16,7 +16,8 @@
   - [ ] just show a small number of sections/boxes so that people see what's going on here
         and what I care about and what this page is mainly about
   - [ ] hide the left aside navigation
-  - [ ] use the data/boxes created as a left-side navigation instead of the useless tags (maybe just move them down)      
+  - [ ] use the data/boxes created as a left-side navigation instead of the useless tags (maybe just move them down)
+  - [ ] collect tags across tidbits, posts, projects, etc.      
 - [ ] make `is=more-h1` work, to allow linking any headline
 - [x] render the headlineAsHtml, so <code> outlines are done, also id-attributes get generated, etc.
       makes it unified
