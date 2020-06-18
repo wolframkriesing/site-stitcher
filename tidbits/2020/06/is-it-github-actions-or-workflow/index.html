@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Is it Github &quot;Actions&quot; or &quot;Workflow&quot;?" />
+
+  <meta property="og:title" content="Is it Github &quot;Actions&quot; or &quot;Workflow&quot;?">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/06/is-it-github-actions-or-workflow/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/06/is-it-github-actions-or-workflow/">
+  <title>Is it Github &quot;Actions&quot; or &quot;Workflow&quot;? | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Is it Github &quot;Actions&quot; or &quot;Workflow&quot;?
+
+  </nav>
+
+  <main>
+    <aside>
+      <nav class="tags">
+        <header>Top Blog Tags</header>
+        <ol>
+          
+          <li><a href="/blog/tag/knowledgebase/">#knowledgebase</a></li>
+          
+          <li><a href="/blog/tag/javascript/">#javascript</a></li>
+          
+          <li><a href="/blog/tag/video/">#video</a></li>
+          
+          <li><a href="/blog/tag/testing/">#testing</a></li>
+          
+          <li><a href="/blog/tag/oop/">#oop</a></li>
+          
+          <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
+          
+          <li><a href="/blog/tag/learning/">#learning</a></li>
+          
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
+          <li><a href="/blog/tag/functional/">#functional</a></li>
+          
+          <li><a href="/blog/tag/links/">#links</a></li>
+          
+        </ol>
+      </nav>
+
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          
+          <li><a href="/blog/2020/06/">June 2020</a></li>
+          
+          <li><a href="/blog/2020/05/">May 2020</a></li>
+          
+          <li><a href="/blog/2020/04/">April 2020</a></li>
+          
+          <li><a href="/blog/2020/03/">March 2020</a></li>
+          
+          <li><a href="/blog/2018/07/">July 2018</a></li>
+          
+          <li><a href="/blog/2018/05/">May 2018</a></li>
+          
+          <li><a href="/blog/2017/11/">November 2017</a></li>
+          
+          <li><a href="/blog/2017/04/">April 2017</a></li>
+          
+          <li><a href="/blog/2017/03/">March 2017</a></li>
+          
+          <li><a href="/blog/2017/02/">February 2017</a></li>
+          
+          <li><a href="/blog/2017/01/">January 2017</a></li>
+          
+          <li><a href="/blog/2016/06/">June 2016</a></li>
+          
+          <li><a href="/blog/2016/04/">April 2016</a></li>
+          
+          <li><a href="/blog/2016/02/">February 2016</a></li>
+          
+          <li><a href="/blog/2015/12/">December 2015</a></li>
+          
+          <li><a href="/blog/2015/11/">November 2015</a></li>
+          
+          <li><a href="/blog/2015/10/">October 2015</a></li>
+          
+          <li><a href="/blog/2015/05/">May 2015</a></li>
+          
+          <li><a href="/blog/2015/04/">April 2015</a></li>
+          
+          <li><a href="/blog/2015/03/">March 2015</a></li>
+          
+          <li><a href="/blog/2014/03/">March 2014</a></li>
+          
+          <li><a href="/blog/2014/02/">February 2014</a></li>
+          
+          <li><a href="/blog/2014/01/">January 2014</a></li>
+          
+        </ol>
+      </nav>
+    </aside>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="tools">#tools</div>
+      <h1 id="is-it-github-actions-or-workflow" is="more-h1">Is it Github &quot;Actions&quot; or &quot;Workflow&quot;?</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - June 18, 2020
+        
+          - tagged with: #tools #github
+        
+      </div>
+    </header>
+
+    <p>I wanted to deploy to github-pages using the renamed branch &quot;main&quot;, but it seems not to be possible with
+github (yet) to turn on github-pages with a branch different then &quot;master&quot;.
+So I thought it might be a good time to try out github actions, maybe this will help?
+If not I will have learned something.</p>
+<h2 is="more-h2" id="i-am-trying-it-out">I am Trying it out</h2>
+<p>I clicked on the &quot;Actions&quot; tab on my <a href="https://github.com/more-html/components">More HTML project page</a> 
+and chose &quot;set up a workflow yourself &rightarrow;&quot;.
+The confusion did already start for me, I click on &quot;<strong>action</strong>&quot; and the link here says &quot;set up a <strong>workflow</strong>&quot;.
+What is it action or workflow?</p>
+<figure>
+    <img src="../github-actions-1.gif" alt="I clicked: set up a workflow yourself" width="500" />
+    <figcaption>I clicked: set up a workflow yourself</figcaption>
+</figure>
+
+<p>This now opens a file editor for a file &quot;.github/<strong>workflows</strong>/main.yml&quot;.
+Again workflow, not action. I need to read some docs.</p>
+<figure>
+    <img src="../github-actions-2.gif" alt="&quot;basic workflow to help you get started with Actions&quot;" width="500" />
+    <figcaption>&quot;basic workflow to help you get started with Actions&quot;</figcaption>
+</figure>
+
+<p>Even at the top of this new file it says</p>
+<blockquote>
+<p>basic <strong>workflow</strong> to help you get started with <strong>Actions</strong></p>
+</blockquote>
+<p>I really need to clarify the terms for me.
+So I click the &quot;Documentation&quot; link on the right side.
+There it says &quot;Getting started with a workflow&quot; and later</p>
+<blockquote>
+<p>For the full GitHub <strong>Actions</strong> documentation on <strong>workflows</strong>, see [...some link...]</p>
+</blockquote>
+<p>It doesn&#39;t get clearer yet.
+I follow the suggested link. And already the breadcrumb (see image below)
+does help me understand it a bit better. There is a hierachy.
+Though still the terms are used in a mixed way. But I seem to be close to figuring it out.</p>
+<figure>
+    <img src="../github-actions-3.gif" alt="Both terms &quot;action&quot; and &quot;workflow&quot; are used." width="500" />
+    <figcaption>Both terms &quot;action&quot; and &quot;workflow&quot; are used.</figcaption>
+</figure>
+
+<p>On this page <a href="https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow">Configuring a workflow</a>
+I finally find relief.</p>
+<blockquote>
+<p><strong>Workflows</strong> must have at least one <strong>job</strong>, and jobs contain a set of <strong>steps</strong> that perform 
+individual tasks. Steps can run <strong>commands</strong> or use an <strong>action</strong>.
+You can create your own actions or use actions shared by the GitHub community and customize them as needed.</p>
+<p>You can configure a workflow to start when a GitHub event occurs, on a schedule, or from an external event.</p>
+</blockquote>
+<p>Alright, now I get it. Now I have a hierarchy and I understand what the terms mean and how they
+are connected. Poooh, finally.</p>
+<h2 is="more-h2" id="in-the-end">In the End</h2>
+<p>I realized Github Actions are way more than just a <code>.travis</code> file, if I want to entirely understand them.</p>
+<p>While searching and thinking about how to do that and how much technology and machines are behind this to make it all work,
+I thought that all this does not cost me a dime.
+This leaves me with the question, why not move all my code slowly over
+to <a href="https://codeberg.org/">codeberg.org</a>, pay for it, control it, own it. </p>
+<p>Github costs no money. What is the price I am paying?</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing">Twitter</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
