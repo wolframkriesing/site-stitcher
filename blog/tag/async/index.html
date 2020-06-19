@@ -143,30 +143,32 @@
   </h1>
 
   
+
+  
     <article class="preview " itemscope itemtype="http://schema.org/BlogPosting">
-      <header>
-        <h2 id="dont-promisify-fs-exists" is="more-h2">
-          <a href="/blog/2015/11/10-dont-promisify-fs-exists/" itemprop="url">
-          <span itemprop="name headline">Don&#39;t promisify <code>fs.exists</code></span></a>
-          
-          
-        </h2>
-        <div class="metadata">
-          November 10, 2015
-          
-            - tagged with: #javascript #async #knowledgebase
-          
-        </div>
-      </header>
-      <div class="content">
-        <p class="abstract">Don&#39;t promisify <code>fs.exists</code> since this does not play by the rules of node style callback params,
+    <header>
+      <h2 id="dont-promisify-fs-exists" is="more-h2">
+        <a href="/blog/2015/11/10-dont-promisify-fs-exists/" itemprop="url">
+        <span itemprop="name headline">Don&#39;t promisify <code>fs.exists</code></span></a>
+        
+        
+      </h2>
+      <div class="metadata">
+        November 10, 2015
+        
+          - tagged with: #javascript #async #knowledgebase
+        
+      </div>
+    </header>
+    <div class="content">
+      <p class="abstract">Don&#39;t promisify <code>fs.exists</code> since this does not play by the rules of node style callback params,
 where the first one should be err and then data. It seems this does return only the data, which
 <a href="https://github.com/digitaldesignlabs/es6-promisify">promisify</a> understands as an error and does throw right away. Instead do what the 
 <a href="https://nodejs.org/api/fs.html#fs_fs_exists_path_callback">node js docs suggest</a> 
 too and use <code>fs.access</code> instead, like so: <code>promisify(fs.access)(aPath, fs.R_OK)</code>.
 See it in action [here in the cosmowiki].</p>
-      </div>
-    </article>
+    </div>
+  </article>
   
 
     </div>
