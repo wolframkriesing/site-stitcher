@@ -1,7 +1,67 @@
+# What does "sic" mean?
+slug: what-does-sic-mean  
+dateCreated: 2020-06-19 16:40 CET  
+tags: english  
+
+I just came across an article again, that had "(sic!)" in it, and I finally looked up
+what it means. I also see it in german text. So it's time to look  it up and learn what
+it means and how to use it when appropriate.
+
+Fortunately there is 
+[an explanation in the Merriam-Webster](https://www.merriam-webster.com/words-at-play/sic-meaning-usage-editorial-citation) 
+where it is kinda nicely summarized.
+
+> What is denoted by sic is that the word or phrase that precedes it occurs in the original 
+> passage being quoted or name being used and was not introduced by the writer doing the quoting.
+
+I understand. At least for a second. But how do I know which part is the cited part?
+So I continue reading  to understand  it better. But I get a bit confused.
+
+> Sometimes the quoted text contains an error of grammar or spelling, but other times it might 
+> not contain an error at all, but some kind of language or phrasing that might be unexpected.
+
+Why does it mention errors? Is that really so important when citing?
+
+## "Sic" is Finger-pointing? 
+
+Reading a bit further in the  article, that turns out to  be verry  informative,  but also less
+explicit about when and how to use "sic", a sentence sticks out:
+
+> There are a host of etiquette issues that surround sic. Since it often follows misspellings 
+> or nontraditional language use, some commentators see it as a means of needlessly making a 
+> value judgment on someone else’s language habits.
+
+Ok, that sounds "sic" is kind of a blaming tool or finger pointing technique. Actually, that's also
+where I found it today in a German political tweet. Am I getting the hang of it?
+A bit later the article confirms my feeling:
+
+> The New Yorker’s Louis Menand describes sic as a “damning interpolation, combining ordinary, 
+> garden-variety contempt with pedantic condescension.”
+
+I had to look up what "pedantic condescension" means, but yeah this sounds like a blaming tool.
+Since I don't feel very much like blaming, at least I try  not to, I would stick to  this:
+
+## You can also Paraphrase
+
+> Sometimes it may be better to paraphrase the text and avoid what seems like haughty comment 
+> on another writer’s choices.
+
+There is always some doubt left one may misunderstands and wrong-uses other people's words.
+Especially nowadays in times of short messages, short attention spans and headline skimming.
+
+The  last paragraph  ends the article like so:
+
+> Additionally, it’s regarded as bad form to use sic repeatedly when the same error or weird spelling occurs in a document.
+
+There is more to  that last paragraph but without having read the entire article, it does not make
+so much sense. Finally, I can just recommend to read the article 
+[Showing Off Your [Sic] Moves](https://www.merriam-webster.com/words-at-play/sic-meaning-usage-editorial-citation),
+and it's not just for pointing out errors (sic).
+
 # Github Action Features
-slug: github-action-features
-dateCreated: 2020-06-18 17:40 CET
-tags: tools, github action, deployment
+slug: github-action-features  
+dateCreated: 2020-06-18 17:40 CET  
+tags: tools, github action, deployment  
 
 While reading about github actions I note down a couple of things here, that
 I find worth noting and remembering. Basically I can imagine what it looks like, 
@@ -46,9 +106,9 @@ makes me realize that this is not just like travis, it is so much more complicat
 Maybe also more powerful, but will also occupy more time to fully understand it.
 
 # Trigger Github Action by External Event
-slug: trigger-github-action-by-external-event
-dateCreated: 2020-06-18 17:33 CET
-tags: tools, github, deploy, automate, webmention
+slug: trigger-github-action-by-external-event  
+dateCreated: 2020-06-18 17:33 CET  
+tags: tools, github, deploy, automate, webmention  
 
 Lately I thought more often about automating my blog using [webmentions](https://webmention.io/)
 and while reading the Github Actions docs, I found the following might come in handy.
@@ -61,9 +121,9 @@ So I am parking that info here.
 The link is https://developer.github.com/v3/repos/#create-a-repository-dispatch-event
 
 # Is it Github "Actions" or "Workflow"?
-slug: is-it-github-actions-or-workflow
-dateCreated: 2020-06-18 13:24 CET
-tags: tools, github
+slug: is-it-github-actions-or-workflow  
+dateCreated: 2020-06-18 13:24 CET  
+tags: tools, github  
 
 I wanted to deploy to github-pages using the renamed branch "main", but it seems not to be possible with
 github (yet) to turn on github-pages with a branch different then "master".
