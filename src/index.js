@@ -109,8 +109,10 @@ const generateMoreHtmlProjectPage = async () => {
 
 const generateHomePage = async (posts) => {
   const renderedFile = tundra.getRender('blog/index.html', {...defaultRenderParams, posts});
-  const destFilename = path.join(OUTPUT_DIRECTORY, 'blog/index.html');
+  const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
   await fs.promises.writeFile(destFilename, renderedFile);
+  const destFilename1 = path.join(OUTPUT_DIRECTORY, 'blog/index.html');
+  await fs.promises.writeFile(destFilename1, renderedFile);
 };
 
 const generateTagPage = async (group) => {
