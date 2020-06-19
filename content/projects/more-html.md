@@ -10,6 +10,12 @@
     In order to experiment with new features and advanced functionality, some neat features that
     might go beyond the default blog need to be provided, for one to push the limits but also to
     be able to experiment with going different ways.
+    - [ ] **Show stats**
+      - [ ] stats per page, e.g. word count, headings count, lists, list items, counts word groups, e.g. 7x "web", 10x "css", etc.
+      - [ ] stats menu item, which contains tags pages, word counts, most used words, etc.   
+    - [ ] **Simplify pages**
+      - [ ] remove navi on the left
+      - [ ] add all sub navigation items, so the URLs become really hackable, make /blog/2020/06/, /blog/2020/ and /blog/ work
     - [ ] **Give picostitch a dynamic homepage.**
       On the homepage I can try things like advanced links with previews, lists of articles when hovering
       over a tag, selecting, storing and maybe showing special content, webmentions etc. 

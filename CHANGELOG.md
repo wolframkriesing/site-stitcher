@@ -1,4 +1,5 @@
 # v2
+- [ ] rename `dateCreated` into `createdAt`, having been influenced by the schema.org names was not such a good thing imho
 - [ ] more-link all headlines on  about and project  pages
 - [ ] use `headlineAsHtml` for blog too
 - [x] make `is=more-h1` work, to allow linking any headline
