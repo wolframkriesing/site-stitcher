@@ -1,3 +1,127 @@
+# NodeJS Architecture Applied
+slug: node-js-architecture-applied
+dateCreated: 2020-06-20 13:50 CET
+tags: javascript, architecture, code, web, design patterns, clean code, TypeScript, monorepo
+
+The article 
+[Node.js, Dependency Injection, Layered Architecture, and TDD: A Practical Example, Part 1](https://carlosgonzalez.dev/posts/node-js-di-layered-architecture-and-tdd-a-practical-example-part-1/) 
+by [@Carlos González](https://twitter.com/rhyek)
+gives a very good introduction of how to structure a (TypeScript/JavaScript) app.
+He links articles that allow one to dive deeper into underlying concepts and still explains the
+big picture very well. **Great job Carlos!**
+
+He starts by explaining
+[The "D" in SOLID (Dependency Inversion)](https://carlosgonzalez.dev/posts/node-js-di-layered-architecture-and-tdd-a-practical-example-part-1/#toc-2)
+which might feel a bit clunky if you haven't heard of it before. But I have to say at this point,
+stick to it, the benefit will become obvious while working with a code base as he is creating it and
+especially testing will be so much more beneficial. While the "D" (driven) in TDD will also push you
+that direction anyways. 
+
+Next he writes about
+[Layered Architecture](https://carlosgonzalez.dev/posts/node-js-di-layered-architecture-and-tdd-a-practical-example-part-1/#toc-4)
+explains it very quickly and easy to understand, applicable right away.
+He dives into many more very important topics. Just go and read the article, it is great!
+
+I just want to dive deeper into two things.
+
+## More TDD, Please (1)
+I just strongly miss the TDD part. If you know me, you knew I was going to say that.
+Parts in the article describing how to do things, without diving into "why"
+makes the purpose of architecting a bit too much a self-purpose, though this is what the
+article is mainly about. Still, I believe that using the "driving" through tests might also very well supports
+some architecture decisions and can help explaining them better.
+
+Reading some tests like in [todo.service.spec.ts](https://github.com/rhyek/nestjs-practical-example/blob/master/apps/webapi/src/todos/todo.service.spec.ts)
+feels a bit too much like testing the "how" instead of the "why" and "what".
+This might lead people into the wrong direction, that's why I think it is important to make sure not to
+learn testing this way. 
+Reading a test description such as 
+[`'assignTo should internally call findOneOrFail instead of findOne'`](https://github.com/rhyek/nestjs-practical-example/blob/4da963fcaa74d33c030ca82ab382edaa7549a9c7/apps/webapi/src/todos/todo.service.spec.ts#L84)
+already states that it describe implementation details. There are low-level tests that sometimes look like
+this, I agree. But these sometimes feel like they are testing the mikro-orm and I believe that should not be the intention.  
+The article [Learning By Testing](https://ymmv.craftswerk.io/2019/03/learning-by-testing)
+by [@Raimo Radczewski](https://twitter.com/rradczewski)
+has a lot of good hints on this topic.
+
+Reading further Carlos states that about some TDD things that
+
+> We will discuss that further in part 2 of this series.
+
+Really cool!
+
+Don't get me wrong, I like the trade-offs he makes and the focus, still deep knowledge he has put into this
+article. I am looking forward to part 2, because
+
+> in part 2 of this series we will focus a little on Test-Driven Development but especially 
+> how we can set up Integration Testing using Docker for our project.
+
+Especially the docker part I am really curious about. I have also talked about 
+[TDD your next docker container](https://www.youtube.com/watch?v=ZSLQ02vpZUg) 
+last year, the code in is [this repo](https://codeberg.org/wolframkriesing/tdd-docker-image-with-goss)
+on [codeberg](https://codeberg.org) (codeberg = github + independent).
+
+
+## Too Many new Terms? (2)
+When I started reading this article, I started out to be a bit opposed to the idea of using so much tooling,
+like nestjs, an ORM, TypeScript, etc. But I have to say in the context of learning architecture those tools
+might be a great base to build on to practice those principles and to be productive faster. 
+Learnings about the architecture layers and practice software architecture without bothering too much about
+the underlying structures and technologies might be a benefit to grasp the concepts quickly.
+
+## Learn What is Below Architecture!
+If the described software architecture and things like NestJS that uses Express.js under the hood
+([sic](/tidbits/2020/06/what-does-sic-mean/)),
+ORMs, TypeScript, TDD, SOLID or any of those are new to you, if phrases like
+
+> Dependency Injection is a bit different in TypeScript [...] dependency abstractions are done with interfaces 
+> and it is with those same interfaces that you register a provider in an IoC container
+  
+or
+  
+> TypeScript compiles down to JavaScript and when this happens interface and type information is lost
+ 
+or
+
+> TypeScript offers [...] abstract classes
+
+or
+
+> mikro-orm already provides repositories for our entities
+
+are hard to understand or sounds like magic
+**I strongly recommend to take the time to learn architecture in a more profound way, than the article suggests**.
+I suggest remove all the layers of software, like the ORM, TypeScript, nestjs, etc.
+Start practicing the core techniques and technologies, some of them are: 
+- JavaScript (the language), including npm
+- TDD
+- SOLID
+- Design Patterns.
+
+Even this list is already very long and it took me years until I was able to understand how and when to reach out for them.
+Let alone TDD, I believe after I had a crash course from JB Rainsberger it took me two years to start being confident
+to apply it and make software, I wrote, benefit from it. During those two years I basically just made mistakes.
+Anyways, it is worth to start chopping up the learnings into smaller and more widely applicable learnings.
+
+## Fight Software Bloat
+Why am I saying that? I have seen it too often that the levels of abstraction that we take for granted
+are actually not so abstract as one thinks, they are often very much simpler than one imagines.
+Starting to learn on top of those abstractions leads to a missing understanding of the underlying principles 
+and technologies, which will lead to inefficiently applying them and result in the bloated software,
+which seems to be mainstream nowadays (in JavaScript land). 
+
+An example makes this easier to understand. 
+I remember learning about test libraries (such as mocha, jasmine or jest) with a mentee a couple years ago and
+I learned that he saw them as a given and "magic that I will never understand". Once we took apart what a test library
+does and he had implemented one himself he was ready to unleash the covers and realize that there is
+no magic at all. One just has to lift the covers. But doing that requires the push into that direction.
+
+## Less is More
+That is the push I wanted to give as a second take away from the article.
+**Unleash the covers of the layers below and you will be surprised how many layers deep it goes.
+You will see, with much less you can achieve the same.**
+
+If this sounds reasonable and you have questions feel free to [reach out to me on twitter](https://twitter.com/wolframkriesing).
+
 # What does "sic" mean?
 slug: what-does-sic-mean  
 dateCreated: 2020-06-19 16:40 CET  
@@ -41,7 +165,7 @@ A bit later the article confirms my feeling:
 I had to look up what "pedantic condescension" means, but yeah this sounds like a blaming tool.
 Since I don't feel very much like blaming, at least I try  not to, I would stick to  this:
 
-## You can also Paraphrase
+## You can Also Paraphrase
 
 > Sometimes it may be better to paraphrase the text and avoid what seems like haughty comment 
 > on another writer’s choices.
