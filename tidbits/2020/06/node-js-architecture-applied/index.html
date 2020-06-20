@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="NodeJS Architecture Applied" />
+
+  <meta property="og:title" content="NodeJS Architecture Applied">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/06/node-js-architecture-applied/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/06/node-js-architecture-applied/">
+  <title>NodeJS Architecture Applied | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; NodeJS Architecture Applied
+
+  </nav>
+
+  <main>
+    <aside>
+      <nav class="tags">
+        <header>Top Blog Tags</header>
+        <ol>
+          
+          <li><a href="/blog/tag/knowledgebase/">#knowledgebase</a></li>
+          
+          <li><a href="/blog/tag/javascript/">#javascript</a></li>
+          
+          <li><a href="/blog/tag/video/">#video</a></li>
+          
+          <li><a href="/blog/tag/testing/">#testing</a></li>
+          
+          <li><a href="/blog/tag/oop/">#oop</a></li>
+          
+          <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
+          
+          <li><a href="/blog/tag/learning/">#learning</a></li>
+          
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
+          <li><a href="/blog/tag/functional/">#functional</a></li>
+          
+          <li><a href="/blog/tag/links/">#links</a></li>
+          
+        </ol>
+      </nav>
+
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          
+          <li><a href="/blog/2020/06/">June 2020</a></li>
+          
+          <li><a href="/blog/2020/05/">May 2020</a></li>
+          
+          <li><a href="/blog/2020/04/">April 2020</a></li>
+          
+          <li><a href="/blog/2020/03/">March 2020</a></li>
+          
+          <li><a href="/blog/2018/07/">July 2018</a></li>
+          
+          <li><a href="/blog/2018/05/">May 2018</a></li>
+          
+          <li><a href="/blog/2017/11/">November 2017</a></li>
+          
+          <li><a href="/blog/2017/04/">April 2017</a></li>
+          
+          <li><a href="/blog/2017/03/">March 2017</a></li>
+          
+          <li><a href="/blog/2017/02/">February 2017</a></li>
+          
+          <li><a href="/blog/2017/01/">January 2017</a></li>
+          
+          <li><a href="/blog/2016/06/">June 2016</a></li>
+          
+          <li><a href="/blog/2016/04/">April 2016</a></li>
+          
+          <li><a href="/blog/2016/02/">February 2016</a></li>
+          
+          <li><a href="/blog/2015/12/">December 2015</a></li>
+          
+          <li><a href="/blog/2015/11/">November 2015</a></li>
+          
+          <li><a href="/blog/2015/10/">October 2015</a></li>
+          
+          <li><a href="/blog/2015/05/">May 2015</a></li>
+          
+          <li><a href="/blog/2015/04/">April 2015</a></li>
+          
+          <li><a href="/blog/2015/03/">March 2015</a></li>
+          
+          <li><a href="/blog/2014/03/">March 2014</a></li>
+          
+          <li><a href="/blog/2014/02/">February 2014</a></li>
+          
+          <li><a href="/blog/2014/01/">January 2014</a></li>
+          
+        </ol>
+      </nav>
+    </aside>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="javascript">#javascript</div>
+      <h1 id="node-js-architecture-applied" is="more-h1">NodeJS Architecture Applied</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - June 20, 2020
+        
+          - tagged with: #javascript #architecture #code #web #design patterns #clean code #TypeScript #monorepo
+        
+      </div>
+    </header>
+
+    <p>The article 
+<a href="https://carlosgonzalez.dev/posts/node-js-di-layered-architecture-and-tdd-a-practical-example-part-1/">Node.js, Dependency Injection, Layered Architecture, and TDD: A Practical Example, Part 1</a> 
+by <a href="https://twitter.com/rhyek">@Carlos González</a>
+gives a very good introduction of how to structure a (TypeScript/JavaScript) app.
+He links articles that allow one to dive deeper into underlying concepts and still explains the
+big picture very well. <strong>Great job Carlos!</strong></p>
+<p>He starts by explaining
+<a href="https://carlosgonzalez.dev/posts/node-js-di-layered-architecture-and-tdd-a-practical-example-part-1/#toc-2">The &quot;D&quot; in SOLID (Dependency Inversion)</a>
+which might feel a bit clunky if you haven&#39;t heard of it before. But I have to say at this point,
+stick to it, the benefit will become obvious while working with a code base as he is creating it and
+especially testing will be so much more beneficial. While the &quot;D&quot; (driven) in TDD will also push you
+that direction anyways. </p>
+<p>Next he writes about
+<a href="https://carlosgonzalez.dev/posts/node-js-di-layered-architecture-and-tdd-a-practical-example-part-1/#toc-4">Layered Architecture</a>
+explains it very quickly and easy to understand, applicable right away.
+He dives into many more very important topics. Just go and read the article, it is great!</p>
+<p>I just want to dive deeper into two things.</p>
+<h2 is="more-h2" id="more-tdd-please-1">More TDD, Please (1)</h2>
+<p>I just strongly miss the TDD part. If you know me, you knew I was going to say that.
+Parts in the article describing how to do things, without diving into &quot;why&quot;
+makes the purpose of architecting a bit too much a self-purpose, though this is what the
+article is mainly about. Still, I believe that using the &quot;driving&quot; through tests might also very well supports
+some architecture decisions and can help explaining them better.</p>
+<p>Reading some tests like in <a href="https://github.com/rhyek/nestjs-practical-example/blob/master/apps/webapi/src/todos/todo.service.spec.ts">todo.service.spec.ts</a>
+feels a bit too much like testing the &quot;how&quot; instead of the &quot;why&quot; and &quot;what&quot;.
+This might lead people into the wrong direction, that&#39;s why I think it is important to make sure not to
+learn testing this way. 
+Reading a test description such as 
+<a href="https://github.com/rhyek/nestjs-practical-example/blob/4da963fcaa74d33c030ca82ab382edaa7549a9c7/apps/webapi/src/todos/todo.service.spec.ts#L84"><code>&#39;assignTo should internally call findOneOrFail instead of findOne&#39;</code></a>
+already states that it describe implementation details. There are low-level tests that sometimes look like
+this, I agree. But these sometimes feel like they are testing the mikro-orm and I believe that should not be the intention.<br>The article <a href="https://ymmv.craftswerk.io/2019/03/learning-by-testing">Learning By Testing</a>
+by <a href="https://twitter.com/rradczewski">@Raimo Radczewski</a>
+has a lot of good hints on this topic.</p>
+<p>Reading further Carlos states that about some TDD things that</p>
+<blockquote>
+<p>We will discuss that further in part 2 of this series.</p>
+</blockquote>
+<p>Really cool!</p>
+<p>Don&#39;t get me wrong, I like the trade-offs he makes and the focus, still deep knowledge he has put into this
+article. I am looking forward to part 2, because</p>
+<blockquote>
+<p>in part 2 of this series we will focus a little on Test-Driven Development but especially 
+how we can set up Integration Testing using Docker for our project.</p>
+</blockquote>
+<p>Especially the docker part I am really curious about. I have also talked about 
+<a href="https://www.youtube.com/watch?v=ZSLQ02vpZUg">TDD your next docker container</a> 
+last year, the code in is <a href="https://codeberg.org/wolframkriesing/tdd-docker-image-with-goss">this repo</a>
+on <a href="https://codeberg.org">codeberg</a> (codeberg = github + independent).</p>
+<h2 is="more-h2" id="too-many-new-terms-2">Too Many new Terms? (2)</h2>
+<p>When I started reading this article, I started out to be a bit opposed to the idea of using so much tooling,
+like nestjs, an ORM, TypeScript, etc. But I have to say in the context of learning architecture those tools
+might be a great base to build on to practice those principles and to be productive faster. 
+Learnings about the architecture layers and practice software architecture without bothering too much about
+the underlying structures and technologies might be a benefit to grasp the concepts quickly.</p>
+<h2 is="more-h2" id="learn-what-is-below-architecture">Learn What is Below Architecture!</h2>
+<p>If the described software architecture and things like NestJS that uses Express.js under the hood
+(<a href="/tidbits/2020/06/what-does-sic-mean/">sic</a>),
+ORMs, TypeScript, TDD, SOLID or any of those are new to you, if phrases like</p>
+<blockquote>
+<p>Dependency Injection is a bit different in TypeScript [...] dependency abstractions are done with interfaces 
+and it is with those same interfaces that you register a provider in an IoC container</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>TypeScript compiles down to JavaScript and when this happens interface and type information is lost</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>TypeScript offers [...] abstract classes</p>
+</blockquote>
+<p>or</p>
+<blockquote>
+<p>mikro-orm already provides repositories for our entities</p>
+</blockquote>
+<p>are hard to understand or sounds like magic
+<strong>I strongly recommend to take the time to learn architecture in a more profound way, than the article suggests</strong>.
+I suggest remove all the layers of software, like the ORM, TypeScript, nestjs, etc.
+Start practicing the core techniques and technologies, some of them are: </p>
+<ul>
+<li>JavaScript (the language), including npm</li>
+<li>TDD</li>
+<li>SOLID</li>
+<li>Design Patterns.</li>
+</ul>
+<p>Even this list is already very long and it took me years until I was able to understand how and when to reach out for them.
+Let alone TDD, I believe after I had a crash course from JB Rainsberger it took me two years to start being confident
+to apply it and make software, I wrote, benefit from it. During those two years I basically just made mistakes.
+Anyways, it is worth to start chopping up the learnings into smaller and more widely applicable learnings.</p>
+<h2 is="more-h2" id="fight-software-bloat">Fight Software Bloat</h2>
+<p>Why am I saying that? I have seen it too often that the levels of abstraction that we take for granted
+are actually not so abstract as one thinks, they are often very much simpler than one imagines.
+Starting to learn on top of those abstractions leads to a missing understanding of the underlying principles 
+and technologies, which will lead to inefficiently applying them and result in the bloated software,
+which seems to be mainstream nowadays (in JavaScript land). </p>
+<p>An example makes this easier to understand. 
+I remember learning about test libraries (such as mocha, jasmine or jest) with a mentee a couple years ago and
+I learned that he saw them as a given and &quot;magic that I will never understand&quot;. Once we took apart what a test library
+does and he had implemented one himself he was ready to unleash the covers and realize that there is
+no magic at all. One just has to lift the covers. But doing that requires the push into that direction.</p>
+<h2 is="more-h2" id="less-is-more">Less is More</h2>
+<p>That is the push I wanted to give as a second take away from the article.
+<strong>Unleash the covers of the layers below and you will be surprised how many layers deep it goes.
+You will see, with much less you can achieve the same.</strong></p>
+<p>If this sounds reasonable and you have questions feel free to <a href="https://twitter.com/wolframkriesing">reach out to me on twitter</a>.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing">Twitter</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
