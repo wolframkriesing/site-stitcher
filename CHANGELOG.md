@@ -1,4 +1,5 @@
 # v2
+- [ ] show upcoming events on my page, like https://developer.mozilla.com/events/compiler-compiler-yulia-startsev/ every friday
 - [ ] rename `dateCreated` into `createdAt`, having been influenced by the schema.org names was not such a good thing imho
 - [ ] more-link all headlines on  about and project  pages
 - [ ] use `headlineAsHtml` for blog too
