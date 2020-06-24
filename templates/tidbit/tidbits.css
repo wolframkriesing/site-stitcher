@@ -7,7 +7,6 @@ header .tag {
   padding: 0.1rem 0.5rem;
   margin-right: 1rem; /* space to the H2 */
   font-weight: bold;
-  width: 3rem;
 }
 
 .tag[data-tag="a11y"] { background: linear-gradient(to left, #0000, #bfffad 30%); }

@@ -1,3 +1,46 @@
+# Open Source Sustainability
+slug: open-source-sustainability
+dateCreated: 2020-06-24 22:47 CET
+tags: open source
+
+The title does not really enclose all the topics and cover the full value of this talk.
+Actually it is not explicit enough, because sustainability is a word that is being used 
+in too many contexts and means too much.
+I would maybe rephrase the title to 
+"The Real Cost and Value of Open Source and Why and How Your Company can Participate and Give Back".
+A bit clunky, but it tells the story I believe.
+
+[@Tobie Langel](https://twitter.com/tobie) starts by mentioning ways how open source gets funded
+nowadays. Though he limits it to the money-funding parts, I believe the employed as full-time
+open source dev, funding through free license of products, etc. is not included.
+
+Later he adds up the salary of all developers and compares it to the open source funding that
+[open collective](https://opencollective.com/) has given out in 2018. I am not sure I can fully
+follow the comparison, since one is salaries and the other is funding for open source projects, 
+maybe I just didn't get why they are comparable. But I think it very well shows the dimensions
+of value created in the open source space, because if all open source work would be payed 
+I believe the sum of all salaries would be beyond this trillion. But that's just my guesstimate.
+
+He goes on with taking apart the limitation that funding open source just with money has.
+Pretty nice drill down on the problem.
+His final conclusion is a bit richer, but let me say this: It is clear that there are not 
+many companies that understand the real value of open source yet.
+
+@tobie The next talk could be about how to establish a sustainable software cycle in companies, that
+do not just make use of open source.
+
+Watch it, I can highly recommend it.
+
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/HZZrbVKAC-4" frameborder="0" allowfullscreen></iframe>
+
+The [slides and more about his talk are can be found here](https://speaking.unlockopen.com/5JrQdv/towards-a-sustainable-solution-to-open-source-sustainability#siZvtHS).
+
+## Another Related Topics 
+... I just remember is
+[Why I forked my own project and my own company ownCloud to Nextcloud](https://www.youtube.com/watch?v=UTKvLSnFL6I)
+by Frank Karlitschek, Nextcloud Founder. He talks about how and why he re-tried his company
+and is convinced that doing full and real open source is the better approach.
+
 # NodeJS Architecture Applied
 slug: node-js-architecture-applied
 dateCreated: 2020-06-20 13:50 CET
