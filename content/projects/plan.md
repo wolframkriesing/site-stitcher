@@ -52,5 +52,13 @@ Some things run in parallel, those are in chapters.
 - [ ] test-stitcher, a tool to understand and "visualize" tests (by their description)
   in order to improve them
 - [ ] pico-tester, a simple, fast and tiny test runner, that enforces test best practices
+- [ ] ci-tooling for codeberg (and others)
+  - [ ] build a docker container for drone.io setup for one self
+  - [ ] build another docker container, e.g. for jenkins - ONLY if configurable via files IN the repo
+  - [ ] setup a server which people can use freely (with quota limitations)
+  - [ ] if it scales join the e.V.
+  - [ ] show how others can setup the CI env and we can offer self-hosted CI envs anyone can choose from
+    and connect their repo to
+  - [ ] find sponsors, ...
 
        
