@@ -98,11 +98,11 @@ const generateProjectsPage = async () => {
   const renderedFile = tundra.getRender('projects/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
-const generateMoreHtmlProjectPage = async () => {
-  const destDir = path.join(OUTPUT_DIRECTORY, 'projects/more-html');
+const generateProjectsPlanPage = async () => {
+  const destDir = path.join(OUTPUT_DIRECTORY, 'projects/plan');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'projects/more-html.md'), 'utf8'));
+  const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'projects/plan.md'), 'utf8'));
   const renderedFile = tundra.getRender('projects/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
@@ -170,7 +170,7 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   await timeIt('About pages', () => generateAboutPages());
   await timeIt('Tidbit pages', () => generateTidbitsPages());
   await timeIt('Projects page', () => generateProjectsPage());
-  await timeIt('More HTML Project page', () => generateMoreHtmlProjectPage());
+  await timeIt('Projects plan page', () => generateProjectsPlanPage());
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   console.log('-----');
   console.timeEnd('Overall');
