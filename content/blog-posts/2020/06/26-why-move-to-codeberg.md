@@ -110,16 +110,16 @@ I learned that github has given me a lot of things for free, that I did not real
 that they are actually not part of a repository hosting site but that they are tools that go far beyond
 and make things easier for me, but also let me loose sight of the complexity that is behind.
 Just like in 1998 when I learned web technologies, I had never thought how much technology is behind
-all the sites I visited back then.
+all the sites been browsing.
 
 Realizing the things I took for granted when using github, made me think a lot about how much comfort
 is it and how much bond to github is this creating? What am I giving up?
 
 I get for free from github:
 1. **Git hosting**, simply be it our "origin".
-1. **Collabotation** features, such as PRs, diff views, discussing on code.
+1. **Collaboration** features, such as PRs, diff views, discussing on code.
 1. **Issue management** and a huge part is the discussions we feed.
-1. **Project management**, we manage all JSCraftCamp things on github (the site, the process, the sponsoring, ...). 
+1. **Project management**, we manage all JSCraftCamp things on github (the site, planning, registration, sponsoring, ...). 
 1. **Content storing**, as gists or all my blog content is in repos on github.
 1. Built in **hosting** of simple static sites via gh-pages.
 1. **CI integration**, I use travis a lot, it was the first one that came up on github, if I remember right.
@@ -130,7 +130,7 @@ All the above I have done for free on github, I never payed a single cent to git
 But when [github was sold to Microsoft](https://github.blog/2018-10-26-github-and-microsoft/) 
 some people had [7.5 billion good reasons](https://news.microsoft.com/announcement/microsoft-acquires-github/), 
 which I helped them to have. I have been part of the community building it and contributing to it in my spare time.
-I spent hours and hours on github. Is this worth a share? Or is free hosting enough?
+I spent hours and hours on github. Is this worth a share?
 
 ## Support Codeberg
 What if I invested this time in the community, into real open source, into projects that are made
@@ -147,12 +147,32 @@ or
 > taking away power from Five Eyes countries after all managing a TLD is something every countriy within the EU can do as well
 
 ## But you are Using ...
-- WebStorm
-- Apple's MacBooks
-- Chrome
-- Twitter
+One might say that I use other payed products, such as WebStorm (I get a sponsored license for jskatas.org), 
+Chrome, Twitter, reddit, etc. all for free. Yep that is true.
+I am not going to argue that I am guilty of using free tools.
+I remember at one event where someone presented a good analogy:
+* Pig 1: What awesome food we get, and all is for free and tastes so good, without paying a dime.
+* Pig 2: What do you think who is the product?
 
-Challenge the system
+## The Pendulum Needs to Swing
+It's not all about smashing the big ones and envying all companies and rich people.
+Not by far, it is actually about challenging the system constantly, challenge the status quo.
+
+It is just like trying to **keep the balance between the reality and how much of a better reality it could be**.
+If we do not go to extremes we will never get the pendulum to swing into a healthy middle.
+It's our job to make sure the range the pendulum has to swing becomes wider and wider
+and we don't let the gravity of the greedy big players, that mostly owe their shareholders,
+pull the pendulum into their direction only.
+
+We have to try out alternatives and offer them to the world, we need to figure out how
+we can allow more of us to profit from what we have. The talk about sustainability of open source
+([I wrote about it](/tidbits/2020/06/open-source-sustainability/)) also underlines that we need
+to move into this direction.
+
+I think we need to start moving. Are we aware of the many monopolies that currently are forming?
+It does not feel too good.
+
+.... in progress ....
 
 ## An Alternative Approach
 
