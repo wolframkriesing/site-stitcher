@@ -138,13 +138,10 @@
     </aside>
     <div class="content">
       
-  <h1 id="more-html">More HTML</h1>
-<h2 id="mikado-plan">Mikado Plan</h2>
+  <h1 id="the-big-plan">The big Plan</h1>
+<p>Some things run in parallel, those are in chapters.</p>
+<h2 id="picostitchcom---the-blog-where-all-string-come-together">picostitch.com - the Blog Where all String Come Together</h2>
 <ul>
-<li><input disabled="" type="checkbox"> <strong>Learn by building a purely static page, that offers all content without any JS.</strong>
-Use More-HTML components mainly CBEs to extend the functionality and make it an amazing 
-blog experience that still scores very high in speed, which (needless to say)
-embraces a11y, progressive enhancement and degrades nicely.<ul>
 <li><input disabled="" type="checkbox"> <strong>Make picostitch a blog with more than just articles.</strong>
 In order to experiment with new features and advanced functionality, some neat features that
 might go beyond the default blog need to be provided, for one to push the limits but also to
@@ -164,18 +161,61 @@ On the homepage I can try things like advanced links with previews, lists of art
 over a tag, selecting, storing and maybe showing special content, webmentions etc. </li>
 </ul>
 </li>
+</ul>
+<h2 id="site-stitcher-a-static-site-generator">site-stitcher, a Static Site Generator</h2>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Learn by building a purely static page, that offers all content without any JS.</strong>
+Use More-HTML components mainly CBEs to extend the functionality and make it an amazing 
+blog experience that still scores very high in speed, which (needless to say)
+embraces a11y, progressive enhancement and degrades nicely.</li>
+<li><input disabled="" type="checkbox"> rendering via webmention.io  </li>
+</ul>
+<h2 id="event-stitcher-a-web-app-on-picotstitchcom">event-stitcher, a Web App on picotstitch.com</h2>
+<ul>
+<li><input disabled="" type="checkbox"> read events from google calendar</li>
+<li><input disabled="" type="checkbox"> allow to mark events as &quot;interesting&quot;, store that in my pod (solid, jsonbin, ...)</li>
+</ul>
+<h2 id="jskatasorg">jskatas.org</h2>
+<ul>
+<li><input disabled="" type="checkbox"> requires some More HTML components (code editor, test runner, ...)</li>
+<li><input disabled="" type="checkbox"> offer desktop learning and completing of the katas using More HTML components on the page (not in tddbin)</li>
+<li><input disabled="" type="checkbox"> store progress in a private storage, such as jsonbin.org, solid, or alike</li>
+</ul>
+<h2 id="more-html">More HTML</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Components for jskatas.org<ul>
+<li><input disabled="" type="checkbox"> code editor component</li>
+<li><input disabled="" type="checkbox"> test runner component</li>
+</ul>
+</li>
 <li><input disabled="" type="checkbox"> <strong>Define a clear API/language/structure for More HTML components.</strong>
-For example, I can imagine kind of a hierarchy for the heading components &quot;heading (or h1, h2, ...) - anchor&quot;, where 
-&quot;heading (or h1, ...)&quot; is the native HTML tag that gets extended and &quot;anchor&quot; is the feature that is
-provided. A native tag might get multiple features, to allow their composition allow naming each feature.
-Usable like this, e.g. <code>&lt;h1 is=more-h1 anchor-show-link&gt;...</code> where the &quot;more-h1&quot; CBE may provide all
-features, but the attributes can be referred to with a prefix &quot;anchor&quot; here.</li>
+  For example, I can imagine kind of a hierarchy for the heading components &quot;heading (or h1, h2, ...) - anchor&quot;, where 
+  &quot;heading (or h1, ...)&quot; is the native HTML tag that gets extended and &quot;anchor&quot; is the feature that is
+  provided. A native tag might get multiple features, to allow their composition allow naming each feature.
+  Usable like this, e.g. <code>&lt;h1 is=more-h1 anchor-show-link&gt;...</code> where the &quot;more-h1&quot; CBE may provide all
+  features, but the attributes can be referred to with a prefix &quot;anchor&quot; here.<ul>
 <li><input disabled="" type="checkbox"> Build docs/examples for More HTML components<ul>
 <li><input disabled="" type="checkbox"> Use site-stitcher for building the static sites!?</li>
 <li><input disabled="" type="checkbox"> Have the API/structure (see above) in place</li>
 <li><input disabled="" type="checkbox"> Build automated tests for the components, they should use the example pages</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<h2 id="tools-and-helpers">Tools and Helpers</h2>
+<ul>
+<li><input disabled="" type="checkbox"> test-stitcher, a tool to understand and &quot;visualize&quot; tests (by their description)
+in order to improve them</li>
+<li><input disabled="" type="checkbox"> pico-tester, a simple, fast and tiny test runner, that enforces test best practices</li>
+<li><input disabled="" type="checkbox"> ci-tooling for codeberg (and others)<ul>
+<li><input disabled="" type="checkbox"> build a docker container for drone.io setup for one self</li>
+<li><input disabled="" type="checkbox"> build another docker container, e.g. for jenkins - ONLY if configurable via files IN the repo</li>
+<li><input disabled="" type="checkbox"> setup a server which people can use freely (with quota limitations)</li>
+<li><input disabled="" type="checkbox"> if it scales join the e.V.</li>
+<li><input disabled="" type="checkbox"> show how others can setup the CI env and we can offer self-hosted CI envs anyone can choose from
+and connect their repo to</li>
+<li><input disabled="" type="checkbox"> find sponsors, ...</li>
 </ul>
 </li>
 </ul>

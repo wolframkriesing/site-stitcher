@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Docker - The Improved Commands" />
+
+  <meta property="og:title" content="Docker - The Improved Commands">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/06/docker-the-improved-commands/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/06/docker-the-improved-commands/">
+  <title>Docker - The Improved Commands | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Docker - The Improved Commands
+
+  </nav>
+
+  <main>
+    <aside>
+      <nav class="tags">
+        <header>Top Blog Tags</header>
+        <ol>
+          
+          <li><a href="/blog/tag/knowledgebase/">#knowledgebase</a></li>
+          
+          <li><a href="/blog/tag/javascript/">#javascript</a></li>
+          
+          <li><a href="/blog/tag/video/">#video</a></li>
+          
+          <li><a href="/blog/tag/testing/">#testing</a></li>
+          
+          <li><a href="/blog/tag/oop/">#oop</a></li>
+          
+          <li><a href="/blog/tag/refactoring/">#refactoring</a></li>
+          
+          <li><a href="/blog/tag/learning/">#learning</a></li>
+          
+          <li><a href="/blog/tag/ruby/">#ruby</a></li>
+          
+          <li><a href="/blog/tag/functional/">#functional</a></li>
+          
+          <li><a href="/blog/tag/links/">#links</a></li>
+          
+        </ol>
+      </nav>
+
+      <nav class="months">
+        <header>Posts by Month</header>
+        <ol>
+          
+          <li><a href="/blog/2020/06/">June 2020</a></li>
+          
+          <li><a href="/blog/2020/05/">May 2020</a></li>
+          
+          <li><a href="/blog/2020/04/">April 2020</a></li>
+          
+          <li><a href="/blog/2020/03/">March 2020</a></li>
+          
+          <li><a href="/blog/2018/07/">July 2018</a></li>
+          
+          <li><a href="/blog/2018/05/">May 2018</a></li>
+          
+          <li><a href="/blog/2017/11/">November 2017</a></li>
+          
+          <li><a href="/blog/2017/04/">April 2017</a></li>
+          
+          <li><a href="/blog/2017/03/">March 2017</a></li>
+          
+          <li><a href="/blog/2017/02/">February 2017</a></li>
+          
+          <li><a href="/blog/2017/01/">January 2017</a></li>
+          
+          <li><a href="/blog/2016/06/">June 2016</a></li>
+          
+          <li><a href="/blog/2016/04/">April 2016</a></li>
+          
+          <li><a href="/blog/2016/02/">February 2016</a></li>
+          
+          <li><a href="/blog/2015/12/">December 2015</a></li>
+          
+          <li><a href="/blog/2015/11/">November 2015</a></li>
+          
+          <li><a href="/blog/2015/10/">October 2015</a></li>
+          
+          <li><a href="/blog/2015/05/">May 2015</a></li>
+          
+          <li><a href="/blog/2015/04/">April 2015</a></li>
+          
+          <li><a href="/blog/2015/03/">March 2015</a></li>
+          
+          <li><a href="/blog/2014/03/">March 2014</a></li>
+          
+          <li><a href="/blog/2014/02/">February 2014</a></li>
+          
+          <li><a href="/blog/2014/01/">January 2014</a></li>
+          
+        </ol>
+      </nav>
+    </aside>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="tools">#tools</div>
+      <h1 id="docker-the-improved-commands" is="more-h1">Docker - The Improved Commands</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - June 26, 2020
+        
+          - tagged with: #tools #docker
+        
+      </div>
+    </header>
+
+    <p>I just watched the very good, <a href="https://www.youtube.com/watch?v=yQ_3huavJi8">How to run Nginx inside Docker container</a>
+video. In 9 minutes you will learn the basics of docker while starting up an nginx server running on docker.
+The real take away for me is <strong>the updated docker commands, which are finally as explicit as I always had wished
+they had been from the beginning</strong>. Like <code>docker container run</code> which was <code>docker run</code>.</p>
+<p>Looking around the web, I found the commands had been updated already in 2017, see
+<a href="https://www.docker.com/blog/whats-new-in-docker-1-13/">this blog post on the docker page</a>.
+Again a case of &quot;take more time to read the docs&quot;.</p>
+<h2 is="more-h2" id="some-new-commands">Some &quot;New&quot; Commands</h2>
+<p><code>docker container ls -a</code> was <del><code>docker ps -a</code></del><br>Listing all containers finally is named <code>ls</code>.</p>
+<p><code>docker container stop</code> was <del><code>docker stop</code></del><br>Stopping a container is explicit. Would have made my learning curve less steep because I never knew
+if the command applied to an image or a container.</p>
+<p><code>docker container logs</code> was <del><code>docker logs</code></del><br>Simply consistent.</p>
+<p><code>docker container rm</code> was <del><code>docker rm</code></del><br>Remove a container. There is also <code>docker image rm</code>.</p>
+<p><code>docker container --help</code><br>Just see them all.</p>
+<h2 is="more-h2" id="get-help">Get Help</h2>
+<p>To get help for those commands use <code>docker --help container &lt;command&gt;</code>.
+I just struggled where to put the <code>--help</code>. Learned it now, will struggle less next time.</p>
+<h2 is="more-h2" id="also-have-a-look-at">Also Have a Look at</h2>
+<p>As usual, inspecting the docs a bit more thoroughly I found commands I never looked at, but
+that are really valuable to know. Let me list a couple:</p>
+<h3 is="more-h3" id="docker-container-top-container-name"><code>docker container top &lt;container-name&gt;</code></h3>
+<p>It shows the processes for a given container. I didn&#39;t figure out how to run that continuously,
+and not just once, like the native <code>top</code> command. Also the help is not really helping.
+The docs say: <a href="https://docs.docker.com/engine/reference/commandline/container_top/">Display the running processes of a container</a></p>
+<pre><code>&gt; docker container top site-stitcher        
+PID                 USER                TIME                COMMAND
+19933               root                0:00                {node} npm
+19978               root                0:00                sh -c npm run build; npm run serve &amp; ./build-on-file-change.sh
+20141               root                0:00                {node} npm
+20142               root                0:00                bash ./build-on-file-change.sh
+20149               root                0:00                inotifywait --event modify,create,delete --monitor --recursive src content
+20150               root                0:00                bash ./build-on-file-change.sh
+20155               root                0:00                sh -c http-server _output -d -i --port 5000
+20156               root                0:00                {node} http-server</code></pre><h3 is="more-h3" id="docker-container-stats"><code>docker container stats</code></h3>
+<p>The docs say: <a href="https://docs.docker.com/engine/reference/commandline/container_stats/">Display a live stream of container(s) resource usage statistics</a>
+Which may look like this</p>
+<pre><code>&gt; docker container stats
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+d64cace6e8c9        site-stitcher       0.00%               35.41MiB / 1.944GiB   1.78%               16.3kB / 178kB      0B / 0B             38</code></pre><h3 is="more-h3" id="docker-container-prune"><code>docker container prune</code></h3>
+<p>Actually I needed it just last night, because I got lost in what was going on with my containers, so I just
+wanted to reset them all. The docs describe the command like this:
+<a href="https://docs.docker.com/engine/reference/commandline/container_prune/">Remove all stopped containers</a></p>
+<pre><code>&gt; docker container prune 
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B</code></pre><h3 is="more-h3" id="docker-container-diff-container-name"><code>docker container diff &lt;container-name&gt;</code></h3>
+<p>Sounds like I can see what changes had been made, which is quite useful, especially when you want to 
+figure out what might better be a volume.
+The docs say: <a href="https://docs.docker.com/engine/reference/commandline/container_diff/">Inspect changes to files or directories on a container’s filesystem</a></p>
+<pre><code>&gt; docker container diff site-stitcher
+C /root
+A /root/.config
+A /root/.config/configstore
+A /root/.config/configstore/update-notifier-npm.json</code></pre>
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing">Twitter</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>

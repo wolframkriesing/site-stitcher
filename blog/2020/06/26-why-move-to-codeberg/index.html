@@ -10,21 +10,21 @@
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="#open source" />
+  <meta name="twitter:title" content="Why I Move to Codeberg" />
 
-  <meta property="og:title" content="#open source">
+  <meta property="og:title" content="Why I Move to Codeberg">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://picostitch.com/blog/tag/open source/">
+  <meta property="og:url" content="https://picostitch.com/blog/2020/06/26-why-move-to-codeberg/">
   <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <link rel="stylesheet" href="/style.css" type="text/css">
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="canonical" href="https://picostitch.com/blog/tag/open source/">
-  <title>#open source | picostitch - crafting (and) JavaScript</title>
+  <link rel="canonical" href="https://picostitch.com/blog/2020/06/26-why-move-to-codeberg/">
+  <title>Why I Move to Codeberg | picostitch - crafting (and) JavaScript</title>
   
 </head>
-<body class="page-tag">
+<body class="page-post">
   <header>
     <nav class="primary">
       <ul>
@@ -50,7 +50,10 @@
 
   <nav class="breadcrumb">
     
-  <a href="/">Home</a> &raquo; Blog &raquo; #open source
+  <a href="/">Home</a> &raquo;
+  Blog &raquo;
+  <a href="/blog/2020/06/">June 2020</a> &raquo;
+  Why I Move to Codeberg
 
   </nav>
 
@@ -138,105 +141,79 @@
     </aside>
     <div class="content">
       
-  <h1 id="open source" is="more-h1">
-    Tagged with #open source
-  </h1>
-
-  
-
-  
-    <article class="preview isDraft" itemscope itemtype="http://schema.org/BlogPosting">
+  <article class="isDraft">
     <header>
-      <h2 id="why-move-to-codeberg" is="more-h2">
-        <a href="/blog/2020/06/26-why-move-to-codeberg/" itemprop="url">
-        <span itemprop="name headline">Why I Move to Codeberg</span></a>
-        
+      <h1 id="why-move-to-codeberg" is="more-h1">
+        Why I Move to Codeberg
          [this is a draft]
-      </h2>
+      </h1>
       <div class="metadata">
-        June 26, 2020
+        Wolfram Kriesing
+        - June 26, 2020
         
           - tagged with: #open source #codeberg #FOSS #github
         
       </div>
     </header>
-    <div class="content">
-      <p class="abstract">I started learning github actions (and <a href="https://picostitch.com/tidbits/2020/06/is-it-github-actions-or-workflow/">wrote</a> <a href="https://picostitch.com/tidbits/2020/06/trigger-github-action-by-external-event/">about</a> <a href="https://picostitch.com/tidbits/2020/06/github-action-features/">it</a>). 
+
+    <h2 is="more-h2" id="the-trigger">The Trigger</h2>
+<p>I started learning github actions (and <a href="https://picostitch.com/tidbits/2020/06/is-it-github-actions-or-workflow/">wrote</a> <a href="https://picostitch.com/tidbits/2020/06/trigger-github-action-by-external-event/">about</a> <a href="https://picostitch.com/tidbits/2020/06/github-action-features/">it</a>). 
 Not true, I was reading about them, trying to understand
 how they work. I invested one evening, after clarifying <a href="https://picostitch.com/tidbits/2020/06/is-it-github-actions-or-workflow/">the terms for me</a> 
 I figured out that I can go as simple as using some actions
 from the github marketplace and be done. But I prefer to understand what&#39;s under the hood.
 So I did dive in and found that there are <a href="https://github.com/actions">multiple repos</a> and more,
 there is a power behind github actions that seems to go beyond what travis, drone or jenkins offer.</p>
-    </div>
+<p>That&#39;s when I started to ask myself. <strong>What is my time worth?</strong> Is it worth that I invest my time in
+learning github actions?
+How applicable is the gained knowledge, the time I invest, outside of the github world?
+How much do I need to go into the depth of github actions to make full use of it?
+To be honest, I was really happy with travis. Is this just a hip new tool? Does it make
+it&#39;s job so much better? How much is the deep integration and new approach worth?
+Is it open source, so that I can dive deep into it and fix or at least understand the things
+that are done under the hood?</p>
+<h2 is="more-h2" id="simplify-things">Simplify Things</h2>
+<p>Over the last years I am tending a lot to simplify things. A big part of my developer life
+I have been spending in JavaScript land, I started in 1999 with my first pure JS job.
+I have seen the ecosystem grow, I have seen us putting layer over layer on top of one another.
+I have seen us forgetting to understand how the browser actually works underneath.
+I expected web components to be a much faster and bigger movement than it is. But I believe
+many are too busy learning React, which does not really embrace web components (yet).
+But web components are built right in the browser and will allow the browser to optimize what
+we are optimizing for in the client nowadays. Essentially, we can throw away of the things we
+did over the years if we would embrace web components and push their limits.</p>
+<p>What does this have to do with codeberg? Well, it looks like a pattern.
+But let me dissect the topic a bit more before I come back to this.</p>
+<p>The web is COMPLICATED</p>
+<ul>
+<li>lots of layers</li>
+<li>that&#39;s why it needs to be simplified!!!</li>
+<li>apply this to my workflow too!</li>
+</ul>
+<p>What if I want to have a much simpler workflow? What if I just need a simple server, that I set up
+on my own and deploy my static sites onto it? Oh yes, sure I will have to make sure the server runs
+and is secure. But I just need a tiny subset of the tooling and I can switch the tooling any time.</p>
+<h2 is="more-h2" id="deeper-into-the-rabbit-hole">Deeper Into the Rabbit Hole?</h2>
+<p>Invest my time to learn a tool of one profit-oriented company, to be their messenger?
+React, facebook&#39;s best recruiting tool.</p>
+<p>I closed my tidbit <a href="https://picostitch.com/tidbits/2020/06/is-it-github-actions-or-workflow/">Is it Github &quot;Actions&quot; or &quot;Workflow&quot;?</a> with.</p>
+<blockquote>
+<p>Github costs no money. What is the price I am paying?</p>
+</blockquote>
+<p>I took this thought with me. I found even more support for it in <a href="https://codeberg.org/ashimokawa">Andreas Shimokawa&#39;s</a>
+talk <a href="https://vimeo.com/376156831">Codeberg a free home for free projects</a>.</p>
+<h2 is="more-h2" id="7-billion-reasons">7 Billion Reasons</h2>
+
+
+    
+    
   </article>
-  
-    <article class="preview " itemscope itemtype="http://schema.org/BlogPosting">
-    <header>
-      <h2 id="tips-and-template-for-a-good-readme" is="more-h2">
-        <a href="/blog/2020/04/10-tips-and-template-for-a-good-readme/" itemprop="url">
-        <span itemprop="name headline">Tips and Template for a good README</span></a>
-        
-        
-      </h2>
-      <div class="metadata">
-        April 10, 2020
-        
-          - tagged with: #documentation #open source
-        
-      </div>
-    </header>
-    <div class="content">
-      <p class="abstract">Having a useful and pleasant to read README does sometimes make a difference in deciding to 
-spend more time with a package or project. The <a href="https://dev.to/scottydocs/how-to-write-a-kickass-readme-5af9">tips by James Scott really help</a>, 
-having <a href="https://github.com/scottydocs/README-template.md/blob/master/README.md#project-name">a template like he provides</a> is actually a really good idea. Thanks.</p>
-    </div>
-  </article>
-  
-    <article class="preview " itemscope itemtype="http://schema.org/BlogPosting">
-    <header>
-      <h2 id="newsletter-6" is="more-h2">
-        <a href="/blog/2017/04/03-newsletter-6/" itemprop="url">
-        <span itemprop="name headline">Newsletter #6</span></a>
-        
-        
-      </h2>
-      <div class="metadata">
-        April 3, 2017
-        
-          - tagged with: #css #open source #tests #micorservices #mentoring #react #nodejs
-        
-      </div>
-    </header>
-    <div class="content">
-      <p class="abstract">This is newsletter #6 - about crafting (and) JavaScript - April 3rd, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
-    </div>
-  </article>
-  
-    <article class="preview " itemscope itemtype="http://schema.org/BlogPosting">
-    <header>
-      <h2 id="newsletter-5" is="more-h2">
-        <a href="/blog/2017/03/27-newsletter-5/" itemprop="url">
-        <span itemprop="name headline">Newsletter #5</span></a>
-        
-        
-      </h2>
-      <div class="metadata">
-        March 27, 2017
-        
-          - tagged with: #css #open source #tests #micorservices #mentoring #react #nodejs
-        
-      </div>
-    </header>
-    <div class="content">
-      <p class="abstract">This is newsletter #5 - about crafting (and) JavaScript - March 27th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
-    </div>
-  </article>
-  
 
     </div>
     <aside class="right">
       
+  
+
     </aside>
   </main>
 
