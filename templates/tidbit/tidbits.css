@@ -2,6 +2,10 @@
   background: none;
 }
 
+.page-tidbits article p > a {
+  color: inherit;
+}
+
 header .tag {
   font-size: 1rem;
   padding: 0.1rem 0.5rem;
