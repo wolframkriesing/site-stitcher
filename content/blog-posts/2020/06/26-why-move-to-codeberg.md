@@ -61,7 +61,7 @@ What does all this have to do with codeberg? Well, it looks like a pattern.
 But let me dissect the topic a bit more before I come back to this.
 
 The web is complicated. In 1998 I started setting up my own web stack, not just building an
-HTML page and put it on some drive, really set up a database, an apache and cgi scripts that 
+HTML page and put it on some drive. I really set up a database, an apache and cgi scripts that 
 dynamically render the content when the browser requests a URL.
 I had never thought that I had to learn so many new technologies just to build a website.
 I had to learn protocols like HTTP, understand apache and how to hook the dynamic rendering
@@ -71,6 +71,18 @@ until I was able to plug all the puzzle pieces together and understand where doe
 
 It feels a little bit as if github actions are as complex as what I described in the last paragraph. 
 There is a lot of power that comes with them. Is that necessary?
+We have the pipeline well defined. We have tools, so they just need to be plugged together.
+I am not convinced we need one player that merges all the tools of the pipeline into their
+own offering, narrows down the choices of many of the developers. It is the typical behaviour
+of monopolies, they grow into all directions once they have layed the ground for doing so. 
+
+We reinvent tools, github actions are what travis, jenkins, drone, etc.
+are, they are CI/CD tools. The pattern here is that the complexity is moving into one direction,
+it is the tool chain of one big player, github in this case. Instead of leveraging the eco system
+and supporting other CI tools and trying to build standards on how to integrate tools with one
+another, github builds its own new tool, embedded into their platform.
+I don't know but I would be interested what impact github actions had on travis, I can imagine
+since it is a potential replacement for it travis might not be so happy about that.
 
 ## I Want Less
 What if I want to have a much simpler workflow? What if I just need a simple server, that I set up
