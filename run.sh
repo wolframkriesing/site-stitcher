@@ -9,7 +9,7 @@ CONTAINER_NAME=site-stitcher
 IMAGE_NAME=${CONTAINER_NAME}:${DOCKERFILE_HASH}
 
 function is_container_running() {
-  if [[ -n $(docker ps --quiet --filter "name=$CONTAINER_NAME") ]]; then
+  if [[ -n $(docker container ls --quiet --filter "name=$CONTAINER_NAME") ]]; then
     return 0
   fi;
   return 1
@@ -17,15 +17,15 @@ function is_container_running() {
 
 if [[ $(docker inspect --format . "${IMAGE_NAME}" 2>&1) != "." ]]; then
   echo "--- BUILDING image '${IMAGE_NAME}'---"
-  docker build -t "${IMAGE_NAME}" - < Dockerfile
+  docker image build -t "${IMAGE_NAME}" - < Dockerfile
 fi
 
 if is_container_running; then
   echo "--- ENTER running container '${CONTAINER_NAME}'---"
-  docker exec -it ${CONTAINER_NAME} "$@"
+  docker container exec -it ${CONTAINER_NAME} "$@"
 else
   echo "--- RUNNING container '${CONTAINER_NAME}'---"
-  docker run --rm -it \
+  docker container run --rm -it \
     --name ${CONTAINER_NAME} \
     --volume "$(pwd)":/app \
     --publish 5000:5000 \
