@@ -1,3 +1,76 @@
+# Web Component From Scratch Notes
+slug: web-component-from-scratch-notes
+dateCreated: 2020-06-25 01:14 CET
+tags: web components
+
+## "Failed to construct 'CustomElement': The result must not have children"
+is caused by
+```
+// DONT !!!!
+class MyWebComp extends HTMLElement {
+  constructor() {
+    super();
+    this.appendChild(template.content.cloneNode(true));
+  }
+}
+
+// DO
+class MyWebComp extends HTMLElement {
+  constructor() {
+    super();
+  }
+  connectedCallback() {
+    this.appendChild(template.content.cloneNode(true));
+  }
+}
+```
+see https://stackoverflow.com/a/43837330
+
+## Attribute callback not working
+
+```js
+// DON'T
+class MyWebComp extends HTMLElement {
+  static get observedAttributes() { return ['jobAsJsonString']; }
+}
+
+// DO
+class MyWebComp extends HTMLElement {
+  static get observedAttributes() { return ['jobasjsonstring']; } // <<< lower case only!
+}
+
+// Even better
+class MyWebComp extends HTMLElement {
+  static get observedAttributes() { return ['job-as-json-string']; }
+}
+```
+
+## Can't Query the DOM Before Custom Element was Inserted into DOM Tree
+
+```
+const $job = document.createElement('more-job');
+$job.setAttribute('job-as-json-string', JSON.stringify(job));
+n.insertAdjacentElement('afterend', $job);
+```
+
+inside `attributeChangedCallback` querying for a node cloned into `this`
+and then doing `this.querySelector()` does not yield any results.
+
+If switching the order of the last two lines
+```
+const $job = document.createElement('more-job');
+n.insertAdjacentElement('afterend', $job);
+$job.setAttribute('job-as-json-string', JSON.stringify(job));
+```
+it works
+
+## dataset Attributes get Camel Cased
+
+`<article id="" data-is-position-most-relevant="">`
+can be accessed like so
+`$article.dataset.isPositionMostRelevant = job.isMostRelevant;`
+
+
 # Open Source Sustainability
 slug: open-source-sustainability
 dateCreated: 2020-06-24 22:47 CET
