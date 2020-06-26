@@ -1,3 +1,93 @@
+# Docker - The Improved Commands
+slug: docker-the-improved-commands
+dateCreated: 2020-06-26 14:22 CET
+tags: tools, docker
+
+I just watched the very good, [How to run Nginx inside Docker container](https://www.youtube.com/watch?v=yQ_3huavJi8)
+video. In 9 minutes you will learn the basics of docker while starting up an nginx server running on docker.
+The real take away for me is **the updated docker commands, which are finally as explicit as I always had wished
+they had been from the beginning**. Like `docker container run` which was `docker run`.
+
+Looking around the web, I found the commands had been updated already in 2017, see
+[this blog post on the docker page](https://www.docker.com/blog/whats-new-in-docker-1-13/).
+Again a case of "take more time to read the docs".
+
+## Some "New" Commands
+
+`docker container ls -a` was ~~`docker ps -a`~~  
+Listing all containers finally is named `ls`.
+
+`docker container stop` was ~~`docker stop`~~  
+Stopping a container is explicit. Would have made my learning curve less steep because I never knew
+if the command applied to an image or a container.
+
+`docker container logs` was ~~`docker logs`~~  
+Simply consistent.
+
+`docker container rm` was ~~`docker rm`~~  
+Remove a container. There is also `docker image rm`.
+
+`docker container --help`  
+Just see them all.
+
+## Get Help
+To get help for those commands use `docker --help container <command>`.
+I just struggled where to put the `--help`. Learned it now, will struggle less next time.
+
+## Also Have a Look at
+As usual, inspecting the docs a bit more thoroughly I found commands I never looked at, but
+that are really valuable to know. Let me list a couple:
+
+### `docker container top <container-name>`
+It shows the processes for a given container. I didn't figure out how to run that continuously,
+and not just once, like the native `top` command. Also the help is not really helping.
+The docs say: [Display the running processes of a container](https://docs.docker.com/engine/reference/commandline/container_top/)
+
+```
+> docker container top site-stitcher        
+PID                 USER                TIME                COMMAND
+19933               root                0:00                {node} npm
+19978               root                0:00                sh -c npm run build; npm run serve & ./build-on-file-change.sh
+20141               root                0:00                {node} npm
+20142               root                0:00                bash ./build-on-file-change.sh
+20149               root                0:00                inotifywait --event modify,create,delete --monitor --recursive src content
+20150               root                0:00                bash ./build-on-file-change.sh
+20155               root                0:00                sh -c http-server _output -d -i --port 5000
+20156               root                0:00                {node} http-server
+```
+
+### `docker container stats`
+The docs say: [Display a live stream of container(s) resource usage statistics](https://docs.docker.com/engine/reference/commandline/container_stats/)
+Which may look like this
+```
+> docker container stats
+CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
+d64cace6e8c9        site-stitcher       0.00%               35.41MiB / 1.944GiB   1.78%               16.3kB / 178kB      0B / 0B             38
+```
+
+### `docker container prune`
+Actually I needed it just last night, because I got lost in what was going on with my containers, so I just
+wanted to reset them all. The docs describe the command like this:
+[Remove all stopped containers](https://docs.docker.com/engine/reference/commandline/container_prune/)
+```
+> docker container prune 
+WARNING! This will remove all stopped containers.
+Are you sure you want to continue? [y/N] y
+Total reclaimed space: 0B
+```
+
+### `docker container diff <container-name>`
+Sounds like I can see what changes had been made, which is quite useful, especially when you want to 
+figure out what might better be a volume.
+The docs say: [Inspect changes to files or directories on a container’s filesystem](https://docs.docker.com/engine/reference/commandline/container_diff/)
+```
+> docker container diff site-stitcher
+C /root
+A /root/.config
+A /root/.config/configstore
+A /root/.config/configstore/update-notifier-npm.json
+```
+
 # Web Component From Scratch Notes
 slug: web-component-from-scratch-notes
 dateCreated: 2020-06-25 01:14 CET
