@@ -181,7 +181,7 @@ we can allow more of us to profit from what we have. The talk about sustainabili
 ([I wrote about it](/tidbits/2020/06/open-source-sustainability/)) also underlines that we need
 to move into this direction.
 
-I think we need to start moving. Are we aware of the many monopolies that currently are forming?
+I think we need to start moving. Are we aware of the many monopolies that are currently forming?
 It does not feel too good.
 
 .... in progress ....
