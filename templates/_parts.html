@@ -1,0 +1,52 @@
+{[ spread header ]}
+  <header>
+    <nav class="primary">
+      <ul>
+        {% navigationItems.forEach(item => { %}
+          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+        {% }) %}
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+{[endspread]}
+
+{[ spread pageFooter ]}
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        {% navigationItems.forEach(item => { %}
+          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+        {% }) %}
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+{[endspread]}
+
+{[ spread secondaryNavigation ]}
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      {% navigationItems.forEach(item => { %}
+        <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+      {% }) %}
+    </ul>
+  </nav>
+{[endspread]}

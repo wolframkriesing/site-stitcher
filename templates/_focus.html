@@ -32,22 +32,8 @@
 </head>
 <body class="page-{[ block pagename ]}
 {[ endblock ]}">
-  <header>
-    <nav class="primary">
-      <ul>
-        {% navigationItems.forEach(item => { %}
-          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-        {% }) %}
-      </ul>
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
+  @require(templates/_parts.html)
+  @spread(header)
 
   <nav class="breadcrumb">
     {[ block breadcrumb ]}
@@ -65,32 +51,7 @@
     </aside>
   </main>
 
-  <footer>
-    <div>
-      <b>Pages</b><br/>
-      <ul>
-        {% navigationItems.forEach(item => { %}
-          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-        {% }) %}
-      </ul>
-    </div>
-    <div>
-      <b>Contact</b><br/>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing">Twitter</a><br/></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
-      </ul>
-    </div>
-    <div></div>
-  </footer>
-
-  <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-    <ul>
-      {% navigationItems.forEach(item => { %}
-        <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-      {% }) %}
-    </ul>
-  </nav>
+  @spread(pageFooter)
+  @spread(secondaryNavigation)
 </body>
 </html>
