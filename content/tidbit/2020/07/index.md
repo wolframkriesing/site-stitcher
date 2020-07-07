@@ -1,7 +1,7 @@
 # Web API ValidityState
 slug: web-api-validity-state
 dateCreated: 2020-07-02 14:38 CET
-tags: web, API, learn, spec reading
+tags: web, web API, learn, spec reading
 
 It was the [@standardsbot](https://twitter.com/standardsbot) that made me learn and look up
 [ValidityState](https://developer.mozilla.org/en-US/docs/Web/API/ValidityState). While that bot tweets
@@ -105,14 +105,62 @@ Since this is a web site, I think it makes sense to play around with it right on
 So try out below what kind of `ValidityState` attributes you get depending on an input field
 with different attributes.
 
-<input id="validity-state-pure-input" maxlength="10">
+## The Simple `<input type=text>`
+
+Simple text input with **maxlength=3**. Try to shorten the value down to three characters and see `tooLong` change.
+ 
+* [ ] `<input `**`type=text`**` maxlength="3" value="12345" />`
+* [ ] `<input `**`type=text`**` required />`
+- [ ] `<input `**`type=text`**` maxlength="3" value="12345" />`
+- [ ] `<input `**`type=text`**` maxlength="3" value="12345" />`
+- [ ] `<input `**`type=text`**` maxlength="3" value="12345" />`
+- [ ] `<input `**`type=text`**` maxlength="3" value="12345" />`
+
+<code>&lt;input type=</code>
+<select id="select-input-type">
+    <option>text</option>
+    <option>button</option>
+    <option>checkbox</option>
+    <option>color</option>
+    <option>date</option>
+    <option>datetime-local</option>
+    <option>email</option>
+    <option>file</option>
+    <option>image</option>
+    <option>month</option>
+    <option>number</option>
+    <option>password</option>
+    <option>radio</option>
+    <option>range</option>
+    <option>reset</option>
+    <option>search</option>
+    <option>submit</option>
+    <option>tel</option>
+    <option>text</option>
+    <option>time</option>
+    <option>url</option>
+    <option>week</option>
+</select>
+required <input type=checkbox>
+<code>&gt;</code>
+
+<input id="validity-state-pure-input" type="text" maxlength="3" value="12345">
 ValidityState: <pre><code id="validity-state-output"></code></pre>
 <script type="application/javascript">
-    document.querySelector('#validity-state-pure-input').addEventListener('keyup', (evt) => {
-        const validity = evt.target.validity;
-        // validity-state-output
+    const showValidity = (validity) => {
         const keys = Object.keys(ValidityState.prototype);
         const all = keys.reduce((all, key) => { all[key] = validity[key]; return all; }, {});
-        document.querySelector('#validity-state-output').innerText = JSON.stringify(all, null, 4);
+        document.querySelector('#validity-state-output').innerText = '> el.validity\n\n' + JSON.stringify(all, null, 4);
+    };
+    const el = document.querySelector('#validity-state-pure-input');    
+    el.addEventListener('keyup', (evt) => {
+        const validity = evt.target.validity;
+        showValidity(validity);
+    });
+    showValidity(el.validity);
+    document.querySelector('#select-input-type').addEventListener('change', ({target}) => {
+        const newType = target.selectedOptions[0].value;
+        el.setAttribute('type', newType);
+        el.value = newType;
     });
 </script>
