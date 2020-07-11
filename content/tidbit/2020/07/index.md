@@ -1,3 +1,77 @@
+# OpenSource Firmware is Important
+slug: open-source-firmware-is-important
+dateCreated: 2020-07-11 14:37 CET
+tags: open source, 
+
+<figure>
+    <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/mUTx61t443A" frameborder="0" allowfullscreen></iframe>
+    <figcaption>Why Open Source Firmware is Important • Jessie Frazelle</figcaption>
+</figure>
+
+[@Jessie Frazelle](https://twitter.com/jessfraz) lays out why that is.
+If you really care about the things you ship, watch this!
+
+Below I am just extracting some of the things that I find that important, that I need
+to extract them (so I can quicker re-read them again).
+
+## Security First, at Least try Your Best
+Just watching the first 5 minutes of her talk, and seeing her 
+[dotfiles using `docker run`](https://github.com/jessfraz/dotfiles/blob/master/.dockerfunc)
+all over is so coherent. She cares about having control over the software and hardware
+she uses and this is well visible in the docker-using dotfiles. 
+If it is 
+[audacity](https://github.com/jessfraz/dotfiles/blob/dce5b9ace3f975de7063bf130928518069759081/.dockerfunc#L87-L99),
+[aws-cli](https://github.com/jessfraz/dotfiles/blob/dce5b9ace3f975de7063bf130928518069759081/.dockerfunc#L100-L106),
+[chrome](https://github.com/jessfraz/dotfiles/blob/dce5b9ace3f975de7063bf130928518069759081/.dockerfunc#L151-L192),
+[figma](https://github.com/jessfraz/dotfiles/blob/dce5b9ace3f975de7063bf130928518069759081/.dockerfunc#L248-L257) or 
+[many others](https://github.com/jessfraz/dotfiles/blob/dce5b9ace3f975de7063bf130928518069759081/.dockerfunc#L78-L80)
+there is a `docker run` for it. So good!
+
+I also gave a talk on just using Docker to have a reproducable environment
+and also to have less things clutter my computer, but most responses were very skeptical.
+Great to see that she actually took it way further. This encourages me too to continue pushing
+this path. Thanks for the inpiration [@Jessie](https://twitter.com/jessfraz).
+
+## Talk to Each Other
+Around [minute 22](https://youtu.be/mUTx61t443A?t=1366) she comes to a conclusion, which does not only apply to firmware producing companies,
+but to many companies (Hint: Conway's Law, as she also pointed out).
+
+<figure>
+    <img src="../jessie-1.gif" alt="Miscommunications at various layers lead to bugs in the intersecting layers, based off incorrect assumptions." width="300" />
+    <figcaption>Miscommunications at various layers lead to bugs in the intersecting layers, based off incorrect assumptions.</figcaption>
+</figure>
+
+## Connecting the Dots
+Continuing listening to her talk right after the phrase linked above, she continues
+reasoning why working on firmware is so exciting to her and she sees a big opportunity there.
+I learned about her company [oxide.computer](https://oxide.computer/) a couple weeks ago,
+when I saw [@Steve Klabnik](https://twitter.com/steveklabnik) join them.
+In Oxide Computer it looks like she is doing exactly that. Fixing the things she is concerned about
+in her talk. Again, very inspiring!
+
+## Closing
+If you are thinking of, or even building something and even shipping hardware (that you don't control)
+think twice and watch this talk.
+
+> It is very nice when things are minimal and they just do what they are supposed to do.
+
+[Jessie Frazelle at 30:23 min](https://youtu.be/mUTx61t443A?t=1823) 
+
+See below how she concludes this talk. If you are not convinced this makes sense, watch the talk
+I believe she has a VERY good point there.
+
+<figure>
+    <img src="../jessie-2.gif" alt="Through open source, visibility, minimalism, and open communication we can push computing to a better, more secure place from the hardware up." width="300" />
+    <figcaption>Through open source, visibility, minimalism, and open communication we can push computing to a better, more secure place from the hardware up.</figcaption>
+</figure>
+
+<figure>
+    <img src="../jessie-3.gif" alt="We can't keep building on top of 💩. We really need to care about the base we build on." width="300" />
+    <figcaption>We can't keep building on top of 💩. We really need to care about the base we build on.</figcaption>
+</figure>
+
+Don't 🚢 💩.
+
 # Web API ValidityState
 slug: web-api-validity-state
 dateCreated: 2020-07-02 14:38 CET
