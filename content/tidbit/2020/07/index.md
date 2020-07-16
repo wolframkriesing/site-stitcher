@@ -1,3 +1,37 @@
+# Clean Architecture Book to Read?
+slug: clean-architecture-book-to-read
+dateCreated: 2020-07-16 12:42 CET
+tags: architecture, to read?
+
+I have this book 
+[Get Your Hands Dirty on Clean Architecture](https://leanpub.com/get-your-hands-dirty-on-clean-architecture)
+on my reading list, actually just as an open tab in my browser for a long time now.
+I just put it down here, maybe I come back to read it.
+Not sure if it is good and worth the time, but I like the topic and I think it is very relevant to
+understand this better.
+
+<figure>
+    <img src="../clean-architecture-book.gif" alt="The book on leanpub." width="400" />
+    <figcaption>The book on leanpub.</figcaption>
+</figure>
+
+Looking at the table of contents I really like the first chapter already.
+
+    1. What’s Wrong With Layers?
+
+    It Promotes Database-Driven Design
+    It’s Prone to Shortcuts
+    It Grows Hard to Test
+    **It Hides the Use Cases**
+    It Makes Parallel Work Difficult
+    How Does This Help Me Build Maintainable Software?
+
+Especially the bold "It Hides the Use Cases". I think most of our code is not structured
+by what it does but by how a language or framework suggests us to do it.
+That might also be the reason why I find Hexagonal Architecture and alikes so appealing.
+
+Find [the book on leanpub](https://leanpub.com/get-your-hands-dirty-on-clean-architecture).
+
 # OpenSource Firmware is Important
 slug: open-source-firmware-is-important
 dateCreated: 2020-07-11 14:37 CET
