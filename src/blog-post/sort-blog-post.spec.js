@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it} from 'pico-tester';
 import assert from 'assert';
 import {sortByDateCreatedAscending, sortByDateCreatedDescending} from './sort-blog-post.js';
 

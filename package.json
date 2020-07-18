@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "ci:test": "npm run typecheck && npm run test",
-    "test": "mocha -r esm src/{,*/}*spec.js",
+    "test": "pt `find src -iname *spec.js` --reporter=minimal",
     "start": "npm run build && npm run serve",
     "serve": "http-server _output -d -i --port 5000",
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",

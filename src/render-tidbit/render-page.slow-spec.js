@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it} from 'pico-tester';
 import {assertThat, containsString, matchesPattern, hasItem} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
 import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPages} from './render-page.js';

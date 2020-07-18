@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it} from 'pico-tester';
 import * as assert from 'assert';
 import {assertThat, instanceOf, hasProperties, matchesPattern} from 'hamjest';
 import {Tidbit} from './Tidbit.js';

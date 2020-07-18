@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it} from 'pico-tester';
 import * as assert from 'assert';
 import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} from 'hamjest';
 import * as path from 'path';

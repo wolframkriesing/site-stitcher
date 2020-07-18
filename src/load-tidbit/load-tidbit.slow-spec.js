@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it} from 'pico-tester';
 import {assertThat, hasProperties, instanceOf} from 'hamjest';
 import * as path from 'path';
 import {TidbitSourceFile} from './TidbitSourceFile.js';

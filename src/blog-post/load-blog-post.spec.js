@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it} from 'pico-tester';
 import assert from 'assert';
 import {assertThat, hasProperties, instanceOf, everyItem} from 'hamjest';
 import {loadBlogPost, loadManyBlogPosts} from './load-blog-post.js';
