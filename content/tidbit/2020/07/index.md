@@ -23,6 +23,31 @@ pico-tester, I must be compatible with as many ways as possible, in which nodejs
 So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
 so it can be used there. I might update this over time with more learnings.
 
+## Project "understand-npm-packaging"
+I started a [repo understand-npm-packaging](https://codeberg.org/wolframkriesing/understand-npm-packaging)
+where I try to **investigate and provide tests for the nodejs package setups and configurations**
+to understand how to build a packages.json, the files inside, etc. using npm.
+The changes over the last years, like 
+- `type: module`
+- `module: filename.js` 
+- ECMAScript modules (esm)
+- and other options
+
+that one can use with a nodejs package to build and use a package has made it quite
+hard to understand what works and how. At least that was the case for me while building
+[pico-tester](https://codeberg.org/wolframkriesing/pico-tester).
+
+## How come?
+So I started this project which uses the excellent
+[smoke](https://github.com/SamirTalwar/smoke/) "an integration test framework for practically anything"
+to test and describe the different setups and ensure the learnings I make
+are validated and don't just evaporate after trying it out.
+
+Eventually this might be useful for testing against different nodejs versions too.
+And maybe there is also a suite of tests for nodejs for that already, I didn't search for it.
+If so, this is double work and was just a learning for me, then I would suggest to go look
+at the other tests, not those here.
+
 # Clean Architecture Book to Read?
 slug: clean-architecture-book-to-read
 dateCreated: 2020-07-16 12:42 CET
