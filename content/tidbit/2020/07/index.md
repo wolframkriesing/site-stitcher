@@ -1,3 +1,28 @@
+# ECMAScript Module Support in nodejs
+slug: ecma-script-module-support-in-nodejs
+dateCreated: 2020-07-26 14:36 CET
+tags: JavaScript, node.js
+
+While working on 
+[pico-tester](https://codeberg.org/wolframkriesing/pico-tester) 
+I realized I am not as knowledgable in nodejs' support
+for ECMAScript Modules (esm).  
+**I think it's very simple in the browser.**
+There is 
+[`<script type=module>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type) 
+which understands `import` and there is 
+[`<script nomodule>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Module_fallback)
+which nicely gradually falls back to before ESM times. **But what about nodejs?**
+There is a `package.json` with properties such as 
+[`main: <filename>`, `exports: {}`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_entry_points) 
+[`type: module`, `type: commonjs`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_json_type_field), 
+and any combination of them. For a long time I am using 
+[the package `esm`](https://www.npmjs.com/package/esm) 
+to allow me to use ESM on nodejs, but when publishing a package such as
+pico-tester, I must be compatible with as many ways as possible, in which nodejs can be used.
+So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
+so it can be used there. I might update this over time with more learnings.
+
 # Clean Architecture Book to Read?
 slug: clean-architecture-book-to-read
 dateCreated: 2020-07-16 12:42 CET
