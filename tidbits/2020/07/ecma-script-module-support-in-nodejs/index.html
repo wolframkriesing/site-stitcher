@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="ECMAScript Module Support in nodejs" />
+
+  <meta property="og:title" content="ECMAScript Module Support in nodejs">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/07/ecma-script-module-support-in-nodejs/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <link rel="stylesheet" href="/style.css" type="text/css">
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/07/ecma-script-module-support-in-nodejs/">
+  <title>ECMAScript Module Support in nodejs | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; ECMAScript Module Support in nodejs
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="javascript">#JavaScript</div>
+      <h1 id="ecma-script-module-support-in-nodejs" is="more-h1">ECMAScript Module Support in nodejs</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - July 26, 2020
+        
+          - tagged with: #JavaScript #node.js
+        
+      </div>
+    </header>
+
+    <p>While working on 
+<a href="https://codeberg.org/wolframkriesing/pico-tester">pico-tester</a> 
+I realized I am not as knowledgable in nodejs&#39; support
+for ECMAScript Modules (esm).<br><strong>I think it&#39;s very simple in the browser.</strong>
+There is 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type"><code>&lt;script type=module&gt;</code></a> 
+which understands <code>import</code> and there is 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Module_fallback"><code>&lt;script nomodule&gt;</code></a>
+which nicely gradually falls back to before ESM times. <strong>But what about nodejs?</strong>
+There is a <code>package.json</code> with properties such as 
+<a href="https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_entry_points"><code>main: &lt;filename&gt;</code>, <code>exports: {}</code></a> 
+<a href="https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_json_type_field"><code>type: module</code>, <code>type: commonjs</code></a>, 
+and any combination of them. For a long time I am using 
+<a href="https://www.npmjs.com/package/esm">the package <code>esm</code></a> 
+to allow me to use ESM on nodejs, but when publishing a package such as
+pico-tester, I must be compatible with as many ways as possible, in which nodejs can be used.
+So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
+so it can be used there. I might update this over time with more learnings.</p>
+<h2 is="more-h2" id="project-understand-npm-packaging">Project &quot;understand-npm-packaging&quot;</h2>
+<p>I started a <a href="https://codeberg.org/wolframkriesing/understand-npm-packaging">repo understand-npm-packaging</a>
+where I try to <strong>investigate and provide tests for the nodejs package setups and configurations</strong>
+to understand how to build a packages.json, the files inside, etc. using npm.
+The changes over the last years, like </p>
+<ul>
+<li><code>type: module</code></li>
+<li><code>module: filename.js</code> </li>
+<li>ECMAScript modules (esm)</li>
+<li>and other options</li>
+</ul>
+<p>that one can use with a nodejs package to build and use a package has made it quite
+hard to understand what works and how. At least that was the case for me while building
+<a href="https://codeberg.org/wolframkriesing/pico-tester">pico-tester</a>.</p>
+<h2 is="more-h2" id="how-come">How come?</h2>
+<p>So I started this project which uses the excellent
+<a href="https://github.com/SamirTalwar/smoke/">smoke</a> &quot;an integration test framework for practically anything&quot;
+to test and describe the different setups and ensure the learnings I make
+are validated and don&#39;t just evaporate after trying it out.</p>
+<p>Eventually this might be useful for testing against different nodejs versions too.
+And maybe there is also a suite of tests for nodejs for that already, I didn&#39;t search for it.
+If so, this is double work and was just a learning for me, then I would suggest to go look
+at the other tests, not those here.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>

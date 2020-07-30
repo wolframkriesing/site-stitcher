@@ -80,6 +80,44 @@
   
     <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
+        <div class="tag" data-tag="javascript">#JavaScript</div>
+        <h2 id="ecma-script-module-support-in-nodejs" is="more-h2">
+          <a href="/tidbits/2020/07/ecma-script-module-support-in-nodejs/">ECMAScript Module Support in nodejs</a>
+        </h2>
+        <div class="metadata">
+          July 26, 2020
+          
+            - also tagged with: #node.js
+          
+        </div>
+      </header>
+      <p class="abstract">While working on 
+<a href="https://codeberg.org/wolframkriesing/pico-tester">pico-tester</a> 
+I realized I am not as knowledgable in nodejs&#39; support
+for ECMAScript Modules (esm).<br><strong>I think it&#39;s very simple in the browser.</strong>
+There is 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type"><code>&lt;script type=module&gt;</code></a> 
+which understands <code>import</code> and there is 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Module_fallback"><code>&lt;script nomodule&gt;</code></a>
+which nicely gradually falls back to before ESM times. <strong>But what about nodejs?</strong>
+There is a <code>package.json</code> with properties such as 
+<a href="https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_entry_points"><code>main: &lt;filename&gt;</code>, <code>exports: {}</code></a> 
+<a href="https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_json_type_field"><code>type: module</code>, <code>type: commonjs</code></a>, 
+and any combination of them. For a long time I am using 
+<a href="https://www.npmjs.com/package/esm">the package <code>esm</code></a> 
+to allow me to use ESM on nodejs, but when publishing a package such as
+pico-tester, I must be compatible with as many ways as possible, in which nodejs can be used.
+So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
+so it can be used there. I might update this over time with more learnings.
+        
+          <br/>
+          <a  href="/tidbits/2020/07/ecma-script-module-support-in-nodejs/">Continue reading →</a>
+        
+      </p>
+    </article>
+  
+    <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+      <header>
         <div class="tag" data-tag="architecture">#architecture</div>
         <h2 id="clean-architecture-book-to-read" is="more-h2">
           <a href="/tidbits/2020/07/clean-architecture-book-to-read/">Clean Architecture Book to Read?</a>
