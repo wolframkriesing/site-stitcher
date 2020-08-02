@@ -61,6 +61,10 @@ body {
   }
 }
 
+main {
+  max-width: 50rem; /* a readable width */
+}
+
 blockquote {
   box-shadow: 0 0 10px lightgrey;
   padding: var(--spacing-big);
@@ -119,41 +123,6 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
 }
-
-main {
-  display: flex;
-}
-  aside {
-    flex: 1;
-    overflow: scroll;
-  }
-  aside > * {
-    margin-bottom: var(--spacing-bigger);
-    margin-right: 4rem;
-    white-space: nowrap;
-  }
-  aside .tags:hover {
-    height: auto;
-  }
-@media screen and (max-width: 600px) {
-  aside {
-    padding: var(--spacing-bigger);
-    text-align: center;
-  }
-    aside > * {
-      margin-right: 0;
-    }
-  main {
-    flex-direction: column-reverse;
-  }
-}
-@media screen and (max-width: 900px) {
-  /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
-  aside.right {
-    display: none;
-  }
-}
-
 
 /*   styling images    */
 img.sizeup-onhover-image {

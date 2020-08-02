@@ -1,2 +1,37 @@
 @import "../_global.css";
 @import "../_nav.css";
+
+main {
+  display: flex;
+  max-width: 100%;
+}
+  aside {
+    flex: 1;
+    overflow: scroll;
+  }
+  aside > * {
+    margin-bottom: var(--spacing-bigger);
+    margin-right: 4rem;
+    white-space: nowrap;
+  }
+  aside .tags:hover {
+    height: auto;
+  }
+@media screen and (max-width: 600px) {
+  aside {
+    padding: var(--spacing-bigger);
+    text-align: center;
+  }
+    aside > * {
+      margin-right: 0;
+    }
+  main {
+    flex-direction: column-reverse;
+  }
+}
+@media screen and (max-width: 900px) {
+  /* Make the right sidebar disappear earlier, the space just gets tighter the narrower ... */
+  aside.right {
+    display: none;
+  }
+}
