@@ -7,6 +7,8 @@ import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-fil
 import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
 import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './blog-post/group-blog-posts.js';
+import {loadTidbits} from './load-tidbit/load-tidbit.js';
+import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
 
 import {toReadableDate, toReadableYearAndMonth, toWeekday} from './_shared/date.js';
 
@@ -14,6 +16,7 @@ const tundra = new Tundra({cache: true});
 
 const navigationItems = [
   {path: '/', name: 'Home 🏠'},
+  {path: '/blog', name: 'Blog ✍️'},
   {path: '/tidbits', name: 'Tidbits 😋'},
   {path: '/projects', name: 'Projects 🛠‍‍'},
   {path: '/about', name: 'About 💡'},
@@ -58,13 +61,8 @@ const generatePost = async (post) => {
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
-import {loadTidbits} from './load-tidbit/load-tidbit.js';
-import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
 import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-tidbit/render-page.js';
-const generateTidbitsPages = async () => {
-  const tidbitsDirectory = path.join(CONTENT_DIRECTORY, 'tidbit');
-  const sourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
-  const tidbits = await loadTidbits()(sourceFiles);
+const generateTidbitsPages = async (tidbits) => {
   await renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
   await renderAndWriteTidbitPages()(tidbits, defaultRenderParams);
 };
@@ -107,12 +105,16 @@ const generateProjectsPlanPage = async () => {
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
-const generateHomePage = async (posts) => {
+const generateBlogOverviewPage = async (posts) => {
   const renderedFile = tundra.getRender('blog/index.html', {...defaultRenderParams, posts});
-  const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
-  await fs.promises.writeFile(destFilename, renderedFile);
   const destFilename1 = path.join(OUTPUT_DIRECTORY, 'blog/index.html');
   await fs.promises.writeFile(destFilename1, renderedFile);
+};
+
+const generateHomePage = async (posts, tidbits) => {
+  const renderedFile = tundra.getRender('index.html', {...defaultRenderParams, posts, tidbits});
+  const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
+  await fs.promises.writeFile(destFilename, renderedFile);
 };
 
 const generateTagPage = async (group) => {
@@ -161,17 +163,27 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
   console.timeEnd('Relate and group posts');
 
+  console.time('Load tidbits');
+  const tidbitsDirectory = path.join(CONTENT_DIRECTORY, 'tidbit');
+  const tidbitSourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
+  const tidbits = await loadTidbits()(tidbitSourceFiles);
+  console.timeEnd('Load tidbits');
+
   console.log('\nBuilding pages\n========');
+  await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false), tidbits));
+  // blog
+  await timeIt('Blog overview page', () => generateBlogOverviewPage(posts.filter(p => p.isDraft === false)));
   await timeIt('All posts', () => Promise.all(posts.map(generatePost)));
-  await timeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
+
   await timeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
-  await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false)));
   await timeIt('About pages', () => generateAboutPages());
-  await timeIt('Tidbit pages', () => generateTidbitsPages());
+  await timeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
   await timeIt('Projects page', () => generateProjectsPage());
   await timeIt('Projects plan page', () => generateProjectsPlanPage());
+  await timeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
   await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
+  
   console.log('-----');
   console.timeEnd('Overall');
   console.log('-----');
