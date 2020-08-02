@@ -11,7 +11,7 @@
     "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
-    "build": "mkdir -p _output; node -r esm src/index.js && npm run build:assets",
+    "build": "mkdir -p _output; node -r esm src/index.js && npm run build:assets && touch _output/.nojekyll",
     "build:assets": "cp CNAME _output && npm run build:css && npm run build:favicon && npm run build:images:png && npm run build:images:jpg && npm run build:images:gif && npm run build:images:gif-tidbits && npm run build:images:jpg-tidbits",
     "build:css": "cp templates/*.css _output/ && cp templates/tidbit/*.css _output/tidbits/ && cp templates/blog/*.css _output/blog/ && cp templates/about/*.css _output/about/ && cp templates/projects/*.css _output/projects/",
     "build:favicon": "cp templates/*.ico _output/",
