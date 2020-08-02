@@ -172,8 +172,8 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   console.log('\nBuilding pages\n========');
   await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false), tidbits));
   // blog
-  await timeIt('Blog overview page', () => generateBlogOverviewPage(posts.filter(p => p.isDraft === false)));
   await timeIt('All posts', () => Promise.all(posts.map(generatePost)));
+  await timeIt('Blog overview page', () => generateBlogOverviewPage(posts.filter(p => p.isDraft === false)));
 
   await timeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
