@@ -112,7 +112,7 @@ const generateBlogOverviewPage = async (posts) => {
 };
 
 const generateHomePage = async (posts, tidbits) => {
-  const renderedFile = tundra.getRender('index.html', {...defaultRenderParams, posts, tidbits});
+  const renderedFile = tundra.getRender('home.html', {...defaultRenderParams, posts, tidbits});
   const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
   await fs.promises.writeFile(destFilename, renderedFile);
 };
