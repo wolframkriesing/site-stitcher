@@ -10,17 +10,6 @@
 {[ endblock ]}
 
 {[ block content ]}
-  @require(templates/tidbit/_parts.html)
-  <section>
-    <h2>Latest Tidbits 😋</h2>
-
-    {% tidbits.slice(0, 10).map(tidbit => { %}
-      @spread(tidbitPreview)
-    {% }) %}
-
-    <a  href="/tidbits">All Tidbits →</a>
-  </section>
-
   @require(templates/blog/_parts.html)
   <section>
     <h2>Latest Blog Posts ✍</h2>
@@ -30,5 +19,16 @@
     {% }) %}
 
     <a  href="/blog">All Blog Posts →</a>
+  </section>
+
+  @require(templates/tidbit/_parts.html)
+  <section>
+    <h2>Latest Tidbits 😋</h2>
+
+    {% tidbits.slice(0, 10).map(tidbit => { %}
+      @spread(tidbitPreview)
+    {% }) %}
+
+    <a  href="/tidbits">All Tidbits →</a>
   </section>
 {[ endblock ]}
