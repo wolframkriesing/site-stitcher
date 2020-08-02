@@ -1,0 +1,26 @@
+@extends(templates/_focus.html)
+
+{[ block pagename ]}home{[ endblock ]}
+{[ block canonicalUrl ]}/{[ endblock ]}
+{[ block pageTitlePrefix ]}Home{[ endblock ]}
+{[ block head ]}<link rel="stylesheet" href="/home.css" type="text/css">{[ endblock ]}
+
+{[ block breadcrumb ]}
+  Home
+{[ endblock ]}
+
+{[ block content ]}
+  @require(templates/tidbit/_parts.html)
+  <div>
+    {% tidbits.slice(0, 10).map(tidbit => { %}
+      @spread(tidbitPreview)
+    {% }) %}
+  </div>
+
+  @require(templates/blog/_parts.html)
+  <div>
+    {% posts.map(post => { %}
+      @spread(articlePreview)
+    {% }) %}
+  </div>
+{[ endblock ]}
