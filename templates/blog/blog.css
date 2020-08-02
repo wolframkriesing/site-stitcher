@@ -35,3 +35,14 @@ main {
     display: none;
   }
 }
+
+article.latest {
+  margin-bottom: 5rem;
+}
+
+.isDraft h1,
+.isDraft h2,
+.isDraft h2 a
+{
+  color: #666;
+}

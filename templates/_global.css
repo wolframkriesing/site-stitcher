@@ -199,13 +199,6 @@ kbd {
   white-space: nowrap;
 }
 
-.isDraft h1,
-.isDraft h2,
-.isDraft h2 a
-{
-  color: #666;
-}
-
 /*   twitter styling    */
 
 blockquote.twitter-tweet {
@@ -232,6 +225,3 @@ blockquote.twitter-tweet {
   min-width: 0;
 }
 
-article.latest {
-  margin-bottom: 5rem;
-}
