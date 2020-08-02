@@ -1,0 +1,22 @@
+{[ spread tidbitPreview ]}
+  <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
+      <h2 id="{{tidbit.slug}}" is="more-h2">
+        <a href="{{tidbit.url}}">{!tidbit.headlineAsHtml!}</a>
+      </h2>
+      <div class="metadata">
+        {{toReadableDate(tidbit.dateCreated)}}
+        {% if (tidbit.tags.length > 1) { %}
+          - also tagged with: {{ tidbit.tags.slice(1).map(tag => `#${tag.value}`).join(' ') }}
+        {% } %}
+      </div>
+    </header>
+    <p class="abstract">{!tidbit.abstractAsHtml!}
+      {% if (!tidbit.hasAbstractOnly) { %}
+        <br/>
+        <a  href="{{tidbit.url}}">Continue reading →</a>
+      {% } %}
+    </p>
+  </article>
+{[endspread]}
