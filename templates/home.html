@@ -11,16 +11,24 @@
 
 {[ block content ]}
   @require(templates/tidbit/_parts.html)
-  <div>
+  <section>
+    <h2>Latest Tidbits 😋</h2>
+
     {% tidbits.slice(0, 10).map(tidbit => { %}
       @spread(tidbitPreview)
     {% }) %}
-  </div>
+
+    <a  href="/tidbits">All Tidbits →</a>
+  </section>
 
   @require(templates/blog/_parts.html)
-  <div>
-    {% posts.map(post => { %}
+  <section>
+    <h2>Latest Blog Posts ✍</h2>
+
+    {% posts.slice(0, 10).map(post => { %}
       @spread(articlePreview)
     {% }) %}
-  </div>
+
+    <a  href="/blog">All Blog Posts →</a>
+  </section>
 {[ endblock ]}

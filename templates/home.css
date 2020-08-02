@@ -1,2 +1,23 @@
 @import "./_global.css";
 @import "./_nav.css";
+@import "./tidbits/tidbits.css";
+
+main {
+  max-width: 80rem;
+}
+
+.content {
+  display: flex;
+}
+  .content section {
+    flex: 1;
+    margin-right: var(--spacing-bigger);
+  }
+@media screen and (max-width: 600px) {
+  .content {
+    display: block;
+  }
+    .content section {
+      margin-right: 0;
+    }
+}
