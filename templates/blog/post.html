@@ -4,6 +4,10 @@
 {[ block canonicalUrl ]}{{post.url}}{[ endblock ]}
 {[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
+{[ block head ]}
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+{[ endblock ]}
+
 {[ block sidebar-right ]}
   {% if (post.relatedPosts.length > 1) { %}
     <h3 id="related" is="more-h3">Related Posts</h3>

@@ -4,6 +4,10 @@
 {[ block canonicalUrl ]}/blog/tag/{{tag}}/{[ endblock ]}
 {[ block pageTitlePrefix ]}#{{tag}}{[ endblock ]}
 
+{[ block head ]}
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+{[ endblock ]}
+
 {[ block breadcrumb ]}
   <a href="/">Home</a> &raquo; Blog &raquo; #{{tag}}
 {[ endblock ]}
