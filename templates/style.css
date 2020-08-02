@@ -1,5 +1,6 @@
 @import "./reset.css";
 @import "./layout.css";
+@import "./_nav.css";
 
 :root {
   --spacing-big: 1rem;
@@ -40,14 +41,6 @@ a {
   a:hover {
     color: inherit;
   }
-
-body > header .sitename a {
-  font-size: 2rem;
-}
-
-nav ol {
-  list-style-type: none;
-}
 
 pre {
   background-color: var(--color-highlight-lighter);
@@ -94,57 +87,6 @@ kbd {
   color: #666;
 }
 
-/*    styling the secondary nav    */
-
-nav.secondary {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  padding: var(--spacing-big);
-  background-color: var(--color-overlay);
-}
-  nav.secondary ul {
-    height: 0;
-    width: var(--spacing-big);
-    margin: 0;
-    transition: width 0.5s, height 0.5s, opacity 1s; /* transition when the mouse leave */
-    opacity: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-  nav.secondary:hover ul {
-    padding: var(--spacing-bigger); /* move the clickable first menu item out of focus when clicking on the menu-button (hamburger icon) */
-    height: 11rem;
-    width: 8rem;
-    transition: height 0.5s, opacity 0s; /* transition when the mouse enter */
-    transition-delay: 0.2s; /* allows the width to jump to full width first */
-    opacity: 1;
-  }
-  nav.secondary:hover .menu-button {
-    visibility: hidden;
-  }
-  nav.secondary ul li {
-    list-style: none;
-    padding: 0.2rem;
-    text-align: center;
-    flex: 1;
-    font-size: 1.5rem;
-  }
-  nav.secondary ul li a.highlight {
-    color: #E8944B;
-  }
-
-  @media screen and (max-width: 600px) {
-    nav.secondary {
-      left: 0;
-      top: 0;
-      margin: 0;
-      bottom: auto;
-      right: auto;
-    }
-  }
 
 /*   styling images    */
 

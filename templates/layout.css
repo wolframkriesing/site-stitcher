@@ -17,22 +17,6 @@ body {
   }
 }
 
-body > header {
-  display: flex;
-}
-  body > header .sitename {
-    flex: 1;
-    text-align: center;
-  }
-  body > header nav.primary {
-    flex: 2;
-  }
-  @media screen and (max-width: 600px) {
-    body > header {
-      padding-bottom: var(--spacing-bigger);
-    }
-  }
-
 article.latest {
   margin-bottom: 5rem;
 }
@@ -122,39 +106,6 @@ main {
 }
 
 .metadata {
-  margin-bottom: var(--spacing-small);
-}
-
-nav.primary {
-  display: inline;
-}
-  nav.primary ul {
-    display: inline;
-    margin: 0;
-  }
-  nav.primary li {
-    display: inline;
-    margin-right: var(--spacing-bigger);
-  }
-  @media screen and (max-width: 600px) {
-    nav.primary {
-      display: none;
-    }
-  }
-
-nav.breadcrumb {
-  margin-bottom: var(--spacing-bigger);
-}
-@media screen and (max-width: 600px) {
-  nav.breadcrumb {
-    text-align: center;
-  }
-}
-
-nav.tags ol, nav.months ol {
-  margin-left: 0;
-}
-nav.tags header, nav.months header {
   margin-bottom: var(--spacing-small);
 }
 
