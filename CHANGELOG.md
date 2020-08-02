@@ -1,7 +1,7 @@
 # v2
 - [ ] show tidbits+posts on home page
   - [ ] intro home.css file, where the two col layout is defined
-  - [ ] create a navigation.css, which is included on the page as needed, e.g. the home.css
+  - [x] create a _nav.css, which is included on the page as needed, e.g. the home.css
         goal: i want to get to a home.css that really consists of the things that it NEEDs, not all possible css
 - [ ] cleanup: use per-category css files, like home.css, tidbit.css, ... not the hard to maintain layout.css, etc.
 - [ ] dark theme switch
