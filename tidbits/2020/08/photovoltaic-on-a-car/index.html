@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Photovoltaic on a Car" />
+
+  <meta property="og:title" content="Photovoltaic on a Car">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/08/photovoltaic-on-a-car/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/08/photovoltaic-on-a-car/">
+  <title>Photovoltaic on a Car | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Photovoltaic on a Car
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="sustainability">#sustainability</div>
+      <h1 id="photovoltaic-on-a-car" is="more-h1">Photovoltaic on a Car</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - August 3, 2020
+        
+          - tagged with: #sustainability #photovoltaic #solar #cars
+        
+      </div>
+    </header>
+
+    <p>Recently I was reading and learning a bit more about sustainable energy and
+since electric cars are no magic anymore, what about electric cars
+that charge themselves from the sun?</p>
+<h2 is="more-h2" id="content">Content</h2>
+<p>I am going to try to understand (and then write down) what photovoltaic is,
+and how this will be applied to fill the battery of a car and the challenges there.
+And maybe I add some of my thoughts at the end (and everywhere in between).</p>
+<p>Note: These here are just my notes, no complete article or alike.
+Just me learning while writing down.</p>
+<h2 is="more-h2" id="the-cheapest-energy-source-on-earth">The Cheapest Energy Source on Earth</h2>
+<p>Mathieu, Director Photovoltaic Integration at Sono Motors 
+<a href="https://youtu.be/XoYnBIahXzw?t=288">said in Dec 2019</a></p>
+<blockquote>
+<p>Photovoltaic is the cheapest energy source you can have on earth.</p>
+</blockquote>
+<figure>
+    <iframe id="photovoltaic-player" width="427" height="240" name="video" src="//www.youtube.com/embed/XoYnBIahXzw" frameborder="0" allowfullscreen></iframe>
+    <figcaption>State of Development – Solar Integration | Sono Motors</figcaption>
+</figure>
+
+<p>Just to quote another source, 
+<a href="https://en.wikipedia.org/wiki/Photovoltaics">on wikipedia the statement is a bit more specific</a>:</p>
+<blockquote>
+<p>Photovoltaics (PV) has become the cheapest source of electrical power in regions with a high solar potential<br>[...]<br>Panel prices have dropped by the factor of 10 within a decade.</p>
+</blockquote>
+<p>The pricing is no surprise I would say, it seems to be a very trendy technology ;).</p>
+<h2 is="more-h2" id="what-is-photovoltaic">What is Photovoltaic?</h2>
+<p>What really helped me to put the term &quot;photovoltaic&quot; (PV) into the right perspective was
+<a href="https://en.wikipedia.org/wiki/Photovoltaic_system">this explanation on wikipedia</a></p>
+<blockquote>
+<p>As PV systems convert light directly into electricity, they are not to be confused 
+with other solar technologies, such as concentrated solar power or solar thermal, used for heating and cooling.</p>
+</blockquote>
+<p>I understand (from Mathieu&#39;s explanation at 
+<a href="https://youtu.be/XoYnBIahXzw?t=800">13:00 min</a>) 
+the photovoltaic is the material that covers the solar cell, so it&#39;s 
+what used to be the glass, that protected the solar cell.
+He talks about the polymer melting at one temperature and the solar cell at another.</p>
+<script type="application/javascript">
+function playVideoAt(videoId, startAt) {
+  document.querySelector('#photovoltaic-player').src = '//www.youtube.com/embed/' + videoId + '?autoplay=1&start=' + startAt;
+}
+
+(function connectAllYoutubeLinksToPlayOnTheSite() {
+  var urlStart = 'https://youtu.be/XoYnBIahXzw?t=';
+  var videoLinks = document.querySelectorAll('a[href^="' + urlStart + '"]');
+  videoLinks.forEach(function(link) {
+    var timestamp = link.href.replace(urlStart, '');
+    link.addEventListener('click', function() {
+      link.href = '#the-cheapest-energy-source-on-earth';
+      playVideoAt('XoYnBIahXzw', timestamp);
+    });
+  });
+})();  
+</script>
+
+
+
+<p>Though, reading &quot;Most organic photovoltaic cells are polymer solar cells.&quot;
+<a href="https://en.wikipedia.org/wiki/Organic_solar_cell">on wikipedia</a>, 
+I think I didn&#39;t get this completely right.
+The article explains it like this.</p>
+<blockquote>
+<p>An organic solar cell (OSC) or plastic solar cell is a type of photovoltaic that uses 
+organic electronics, a branch of electronics that deals with conductive organic polymers 
+or small organic molecules, for light absorption and charge transport to produce electricity 
+from sunlight by the photovoltaic effect.</p>
+</blockquote>
+<p>I keep this kinda open (for me). Feel free to correct me, help me fix it (via a 
+<a href="https://github.com/wolframkriesing/site-stitcher">PR on the repo</a> or a 
+<a href="https://twitter.com/wolframkriesing">tweet</a>).</p>
+<h2 is="more-h2" id="stage-1-at-sono-motors">Stage 1 at Sono Motors</h2>
+<p>At Sono Motors the solar cells integration is planned in two stages.
+The first stage is to figure out where and how to place solar cells on the car.</p>
+<blockquote>
+<p>The solar cell itself is very fragile and you cannot put solar cells everywhere on the car.</p>
+</blockquote>
+<p>Though Sono Motors has been figuring out how to optimize and use as much space
+as possible of the car for placing solar cells.</p>
+<h2 is="more-h2" id="stage-2">Stage 2</h2>
+<p>The second stage is to </p>
+<blockquote>
+<p>develop a new family of polymers</p>
+</blockquote>
+<p>for a car some parameters are special like:</p>
+<ul>
+<li>the shape of the object</li>
+<li>temperature effects</li>
+<li>humiditiy effects</li>
+<li>sun irradiance</li>
+<li>shock proofnes</li>
+</ul>
+<p>Mathieu says.</p>
+<h2 is="more-h2" id="charging-while-driving">Charging While Driving?</h2>
+<p>The shadow is moving slowly when the car is parked, basically at the speed of the movement
+of the sun. The electronics can adjust for that.
+When driving the electronic will not (yet) manage to optimize the charging cycles, 
+since they might be very hard to predict.
+This is how I understood it.</p>
+<h2 is="more-h2" id="challenges-i-hear">Challenges I hear</h2>
+<ul>
+<li>Optimize charing while driving.</li>
+<li>The polymer development has not yet started (since it is stage 2).</li>
+</ul>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
