@@ -139,14 +139,15 @@ const generateTagPages = async (postGroups) => Promise.all(postGroups.map(genera
 const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
 const runAndTimeIt = async (label, fn) => {
-  console.time(label);
+  const paddedLabel = (label + new Array(20).fill(' ').join('')).substr(0, 25);
+  console.time(paddedLabel);
   try {
     await fn();
   } catch(e) {
     console.error(e);
     process.exit(1); 
   }
-  console.timeEnd(label);
+  console.timeEnd(paddedLabel);
 }
 
 import {findRelatedPosts} from './blog-post/related-posts.js';
