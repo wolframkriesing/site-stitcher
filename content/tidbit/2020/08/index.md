@@ -1,3 +1,66 @@
+# Technical Debt is Anything Preventing You From Developing Fast
+slug: tech-debt-prevents-from-being-fast
+dateCreated: 2020-08-03 22:37 CET
+tags: architecture, tech debt, screaming architecture 
+
+A podcast with 
+[@Sandro Mancuso](https://twitter.com/sandromancuso) 
+[talking about tech debt and maintainable software](https://maintainable.fm/episodes/sandro-mancuso-technical-debt-is-anything-preventing-you-from-developing-fast).
+My notes.
+
+## What is Maintainable Software?
+1. "Tested  in minutes, if not in seconds"
+- "I  am  not scared to change"
+- "Press a button run all the tests and see it works"
+- "I  can reply on the test suites"
+
+2. "A change is localized"
+- make a change in one place and I dont need to change anything else
+
+3. "Find the place to change"
+- how  the software is designed
+- the language used should align  with  the business, with what the software does
+
+4. "Relationship between modules" (module being function, class, …)
+- coupling + cohesion
+- Fun in: the number of modules talking to this module
+- Fun out: "one module talks to too many modules"
+
+5. "Who is making the change" the human side
+- OO or functional
+- "what you are used to and what you know"
+
+## DDD in Software
+"When  you look at  the package structure, how do you know what the package does?" (package = namespaces)
+- only tech layers hide what the software does
+- classes are nouns, but is a "User" an "Author", "Buyer", …?
+- what do we do with those
+- "The behaviour of the system is very rarely seen in the package and the classes" "very rarely seen this"
+
+## How do you define Tech Debt?
+"Anything the system is preventing the system to achieve"
+- even badly written code that needs NO change, its no tech debt
+- tech debt is what is preventing us to be fast
+- devs sometimes call things they don’t like tech debt
+- "every tech problem is a business problem" and vice versa
+
+## Structure of the Team
+- "POs prioritise a back log and then go to devs" this misses including the devs
+- the business does not understand refactoring and plays it back, we (devs) need to provide a strategy and why - you get a "no"
+- prevent the disconnect between biz and tech
+
+## Outside in Development
+Frontend First Dev, Interaction Driven Design
+- "There is no point in  having a backend if there is no frontend"
+- "we design our domain first and the persistence and frontend is just a detail"
+- "we should analyze how we interact with the system, that’s where I would start from"
+- "understand what the external world wants from my system"
+- growing a domain model is like TDD from very specific tests which drive generic code, the system can evolve this way too
+
+## (Software) Design
+There is a practical and a theoretical side.
+- "you can not design software well by just writing code"
+
 # Photovoltaic on a Car
 slug: photovoltaic-on-a-car
 dateCreated: 2020-08-03 18:37 CET
