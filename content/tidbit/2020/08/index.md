@@ -93,6 +93,8 @@ I have a plan now how to create images to train the model with, the images i wou
 - images always for different screen sizes, 1024x768, 1400x1900, etc.
 - images with the latest blog posts
 - images with older blog posts (1st...10th, 2nd...11th, 3rd..12th, ...) to have different looking sites
+- images for the different media-queries (portrait, landscape)
+- images for different font sizes (since [you can configure that in your browser](/tidbits/2020/04/the-end-user-always-has-ultimate-control/))
 
 Of course I need right and wrong images, I need to tag them accordingly first, so the model can learn.
 Should it be 50/50? Ideally it should be, but doesnt have to be.
