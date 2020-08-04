@@ -145,6 +145,14 @@ const timeIt = async (label, fn) => {
 }
 
 import {findRelatedPosts} from './blog-post/related-posts.js';
+
+const isNotDraft = post => post.isDraft === false;
+const loadPosts = async sourceFiles => {
+  const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
+  posts.excludingDrafts = () => posts.filter(isNotDraft);
+  return posts;
+}
+
 (async() => {
   console.time('Overall');
   console.log('Preparing data\n========');
@@ -152,7 +160,7 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   const sourceFiles = await loadManyBlogPostSourceFiles()(BLOG_POSTS_DIRECTORY);
   console.timeEnd('Load source files');
   console.time('Load blog posts');
-  const posts = (await loadManyBlogPosts()(sourceFiles)).sort(sortByDateCreatedDescending);
+  const posts = await loadPosts(sourceFiles);
   console.timeEnd('Load blog posts');
   console.time('Relate and group posts');
   posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
@@ -170,10 +178,10 @@ import {findRelatedPosts} from './blog-post/related-posts.js';
   console.timeEnd('Load tidbits');
 
   console.log('\nBuilding pages\n========');
-  await timeIt('Home page', () => generateHomePage(posts.filter(p => p.isDraft === false), tidbits));
+  await timeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
   await timeIt('All posts', () => Promise.all(posts.map(generatePost)));
-  await timeIt('Blog overview page', () => generateBlogOverviewPage(posts.filter(p => p.isDraft === false)));
+  await timeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
 
   await timeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
