@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Technical Debt is Anything Preventing You From Developing Fast" />
+
+  <meta property="og:title" content="Technical Debt is Anything Preventing You From Developing Fast">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/08/tech-debt-prevents-from-being-fast/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/08/tech-debt-prevents-from-being-fast/">
+  <title>Technical Debt is Anything Preventing You From Developing Fast | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Technical Debt is Anything Preventing You From Developing Fast
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="architecture">#architecture</div>
+      <h1 id="tech-debt-prevents-from-being-fast" is="more-h1">Technical Debt is Anything Preventing You From Developing Fast</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - August 3, 2020
+        
+          - tagged with: #architecture #tech debt #screaming architecture
+        
+      </div>
+    </header>
+
+    <p>A podcast with 
+<a href="https://twitter.com/sandromancuso">@Sandro Mancuso</a> 
+<a href="https://maintainable.fm/episodes/sandro-mancuso-technical-debt-is-anything-preventing-you-from-developing-fast">talking about tech debt and maintainable software</a>.
+My notes.</p>
+<h2 is="more-h2" id="what-is-maintainable-software">What is Maintainable Software?</h2>
+<ol>
+<li>&quot;Tested  in minutes, if not in seconds&quot;</li>
+</ol>
+<ul>
+<li>&quot;I  am  not scared to change&quot;</li>
+<li>&quot;Press a button run all the tests and see it works&quot;</li>
+<li>&quot;I  can reply on the test suites&quot;</li>
+</ul>
+<ol start="2">
+<li>&quot;A change is localized&quot;</li>
+</ol>
+<ul>
+<li>make a change in one place and I dont need to change anything else</li>
+</ul>
+<ol start="3">
+<li>&quot;Find the place to change&quot;</li>
+</ol>
+<ul>
+<li>how  the software is designed</li>
+<li>the language used should align  with  the business, with what the software does</li>
+</ul>
+<ol start="4">
+<li>&quot;Relationship between modules&quot; (module being function, class, …)</li>
+</ol>
+<ul>
+<li>coupling + cohesion</li>
+<li>Fun in: the number of modules talking to this module</li>
+<li>Fun out: &quot;one module talks to too many modules&quot;</li>
+</ul>
+<ol start="5">
+<li>&quot;Who is making the change&quot; the human side</li>
+</ol>
+<ul>
+<li>OO or functional</li>
+<li>&quot;what you are used to and what you know&quot;</li>
+</ul>
+<h2 is="more-h2" id="ddd-in-software">DDD in Software</h2>
+<p>&quot;When  you look at  the package structure, how do you know what the package does?&quot; (package = namespaces)</p>
+<ul>
+<li>only tech layers hide what the software does</li>
+<li>classes are nouns, but is a &quot;User&quot; an &quot;Author&quot;, &quot;Buyer&quot;, …?</li>
+<li>what do we do with those</li>
+<li>&quot;The behaviour of the system is very rarely seen in the package and the classes&quot; &quot;very rarely seen this&quot;</li>
+</ul>
+<h2 is="more-h2" id="how-do-you-define-tech-debt">How do you define Tech Debt?</h2>
+<p>&quot;Anything the system is preventing the system to achieve&quot;</p>
+<ul>
+<li>even badly written code that needs NO change, its no tech debt</li>
+<li>tech debt is what is preventing us to be fast</li>
+<li>devs sometimes call things they don’t like tech debt</li>
+<li>&quot;every tech problem is a business problem&quot; and vice versa</li>
+</ul>
+<h2 is="more-h2" id="structure-of-the-team">Structure of the Team</h2>
+<ul>
+<li>&quot;POs prioritise a back log and then go to devs&quot; this misses including the devs</li>
+<li>the business does not understand refactoring and plays it back, we (devs) need to provide a strategy and why - you get a &quot;no&quot;</li>
+<li>prevent the disconnect between biz and tech</li>
+</ul>
+<h2 is="more-h2" id="outside-in-development">Outside in Development</h2>
+<p>Frontend First Dev, Interaction Driven Design</p>
+<ul>
+<li>&quot;There is no point in  having a backend if there is no frontend&quot;</li>
+<li>&quot;we design our domain first and the persistence and frontend is just a detail&quot;</li>
+<li>&quot;we should analyze how we interact with the system, that’s where I would start from&quot;</li>
+<li>&quot;understand what the external world wants from my system&quot;</li>
+<li>growing a domain model is like TDD from very specific tests which drive generic code, the system can evolve this way too</li>
+</ul>
+<h2 is="more-h2" id="software-design">(Software) Design</h2>
+<p>There is a practical and a theoretical side.</p>
+<ul>
+<li>&quot;you can not design software well by just writing code&quot;</li>
+</ul>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
