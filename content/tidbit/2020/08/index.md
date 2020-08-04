@@ -1,3 +1,106 @@
+# Machine Learning vs. Screenshot Comparing?
+slug: machine-learning-vs-screenshot-comparing
+dateCreated: 2020-08-04 18:14 CET
+tags: testing, machine learning, automation
+
+I broke this site, and thanks to [@Holger](https://twitter.com/Holger__P) reporting the error  I  figured out
+I should have done more testing instead of just tweeting that I should :).
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck">
+  <p lang="en" dir="ltr">
+    I can create golden master tests now, that screenshot all the pages of my blog now, 
+    I refactor and should end up with the same screenshots. <br>
+    And then I can do the changes that I want to do, which will be simple after the refactor.<br>
+    I should!
+  </p>
+  &mdash; @wolframkriesing
+  <a href="https://twitter.com/wolframkriesing/status/1289915124182953989?ref_src=twsrc%5Etfw">August 2, 2020</a>
+</blockquote>
+
+## Machine Learning FTW?
+So I asked [@Kamal](https://twitter.com/kamal4493)
+a great colleague, who I learned a lot about Machine Learning from, among other really skilled
+colleagues as HolidayCheck ([sad day yesterday](https://twitter.com/ania_ch/status/1290368351139770371)).
+
+So I proposed an idea to Kamal, I said, what about discovering bugs when rendering my website
+using some simple machine learning (not sure if such a thing exists).
+This was the rendering issue Holger pointed out yesterday:
+
+<figure>
+    <img src="../broken-landscape-rendering.gif" alt="Screwed up rendering in landscape mode" width="400" class="sizeup-onhover-image scale2 origin-left-center" />
+    <figcaption>Screwed up rendering in landscape mode</figcaption>
+</figure>
+
+What is wrong with the screenshot above? Well, I want it:
+- to not wrap the navigation at the top
+- to have a  margin on the left of the text
+- to have both columns be equal, or in a portrait mode just be a single column.
+
+His first input was unexpected for me, since I just don't have much experience with ML (as if this is totally logical)
+to use black and white  images and let some machine learning do the job.
+
+## Why Apply Machine Learning Here?
+Ok, let me take a  step back.
+
+If all this  above was too  fast, let me explain my thoughts how I  got to the conclusion of why <abbr title="Machine Learning">ML</abbr> 
+can help here.
+As I had  learned in [AI for everyone](https://www.coursera.org/learn/ai-for-everyone) (that Kamal suggested to me)
+**every problem that we humans can  spot in one second or less can also be solved by an <abbr title="Artifiical Intelligence">AI</abbr> (or here ML)**.
+
+I was able to find the issue on my site in less than one second, and since I had seen amazing things
+being done by machine learning I thought this might be a  good fit and something I could potentially tackle.
+Besides it  being  a problem to  have  fun with and learn ML with, I also was postponing screenshot testing
+for my  own site all the time, because for the last  10 years  I  have spent endless hours in screenshot
+testing, adjusting thresholds, reviewing errors and flaky tests
+and [so did others](https://twitter.com/chaos_monster/status/1290629259816558593).
+
+Finally there  was  a  glimpse to fix this problem and hopefully solve it with a new approach.
+I don't want to:
+- continuously adjust master  screenshots
+- find visual  problems that are no real problems
+- compare images manually to figure out it was just a tiny diff in the font rendering
+- and there are many other issues with screenshot comparing imho.
+
+Besides the above I am convinced those kind of <abbr title="Visual Regression Tests">VRTs</abbr>
+should not be blocking a deployment pipeline but be done after deploy, they are (still) slow.
+But that is just a side note.
+
+## Learning if ML fits
+
+Kamal suggested "https://keras.io/examples/vision/mnist_convnet/ it will get you started".
+Also this for understanding https://keras.io/examples/vision/image_classification_from_scratch/
+I asked what do all these functions mean? https://keras.io/examples/vision/mnist_convnet/#build-the-model
+```python
+model = keras.Sequential(
+    [
+        keras.Input(shape=input_shape),
+        layers.Conv2D(32, kernel_size=(3, 3), activation="relu"),
+        layers.MaxPooling2D(pool_size=(2, 2)),
+        layers.Conv2D(64, kernel_size=(3, 3), activation="relu"),
+        layers.MaxPooling2D(pool_size=(2, 2)),
+        layers.Flatten(),
+        layers.Dropout(0.5),
+        layers.Dense(num_classes, activation="softmax"),
+    ]
+)
+
+model.summary()
+``` 
+
+Maybe this helps https://keras.io/getting_started/intro_to_keras_for_engineers/, Kamal said.
+
+I have a plan now how to create images to train the model with, the images i would generate using my site:
+- images always for different screen sizes, 1024x768, 1400x1900, etc.
+- images with the latest blog posts
+- images with older blog posts (1st...10th, 2nd...11th, 3rd..12th, ...) to have different looking sites
+
+Of course I need right and wrong images, I need to tag them accordingly first, so the model can learn.
+Should it be 50/50? Ideally it should be, but doesnt have to be.
+
+
+
+  
+
 # Technical Debt is Anything Preventing You From Developing Fast
 slug: tech-debt-prevents-from-being-fast
 dateCreated: 2020-08-03 22:37 CET
