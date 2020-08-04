@@ -8,7 +8,7 @@
     "test": "pt `find src -iname *spec.js` --reporter=minimal",
     "start": "npm run build && npm run serve",
     "serve": "http-server _output -d -i --port 5000",
-    "dev:start": "npm run build; npm run serve & ./build-on-file-change.sh",
+    "dev:start": "npm run build --silent && (npm run serve & ./build-on-file-change.sh)",
     "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
     "build": "npm run build:sites && npm run build:assets && touch _output/.nojekyll",

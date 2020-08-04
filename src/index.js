@@ -138,9 +138,14 @@ const generateMonthPage = async (group) => {
 const generateTagPages = async (postGroups) => Promise.all(postGroups.map(generateTagPage));
 const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
-const timeIt = async (label, fn) => {
+const runAndTimeIt = async (label, fn) => {
   console.time(label);
-  await fn();
+  try {
+    await fn();
+  } catch(e) {
+    console.error(e);
+    process.exit(1); 
+  }
   console.timeEnd(label);
 }
 
@@ -178,19 +183,19 @@ const loadPosts = async sourceFiles => {
   console.timeEnd('Load tidbits');
 
   console.log('\nBuilding pages\n========');
-  await timeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
+  await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
-  await timeIt('All posts', () => Promise.all(posts.map(generatePost)));
-  await timeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
+  await runAndTimeIt('All posts', () => Promise.all(posts.map(generatePost)));
+  await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
 
-  await timeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
-  await timeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
-  await timeIt('About pages', () => generateAboutPages());
-  await timeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
-  await timeIt('Projects page', () => generateProjectsPage());
-  await timeIt('Projects plan page', () => generateProjectsPlanPage());
-  await timeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
-  await timeIt('404 page', () => generate404Page(posts.slice(0, 5)));
+  await runAndTimeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
+  await runAndTimeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
+  await runAndTimeIt('About pages', () => generateAboutPages());
+  await runAndTimeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
+  await runAndTimeIt('Projects page', () => generateProjectsPage());
+  await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
+  await runAndTimeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
+  await runAndTimeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   
   console.log('-----');
   console.timeEnd('Overall');
