@@ -5,5 +5,5 @@
 inotifywait --event modify,create,delete --monitor --recursive src content templates |
 while read -r directory event filename src; do
   echo "Watcher saw event '${event}' for file 'src/*,**/${filename}', building again...";
-  npm run build
+  npm run build:sites
 done
