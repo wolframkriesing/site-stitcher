@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="ML vs. VRT - Part 2: Learning Keras" />
+
+  <meta property="og:title" content="ML vs. VRT - Part 2: Learning Keras">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/08/ml-vs-vrt-part-2-learning-keras/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/08/ml-vs-vrt-part-2-learning-keras/">
+  <title>ML vs. VRT - Part 2: Learning Keras | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; ML vs. VRT - Part 2: Learning Keras
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="testing">#testing</div>
+      <h1 id="ml-vs-vrt-part-2-learning-keras" is="more-h1">ML vs. VRT - Part 2: Learning Keras</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - August 5, 2020
+        
+          - tagged with: #testing #machine learning #automation #visual regression test
+        
+      </div>
+    </header>
+
+    <p>In <a href="/tidbits/2020/08/machine-learning-vs-screenshot-comparing/">part 1</a>
+I started my naive investigation on how to apply machine learning for
+making visual regression tests (VRT) better.
+I described the problem to solve, explored Keras  very superficially and did also touched on the complexity
+of doing ML myself as opposed to having colleagues who are experts and who throw phrases
+like &quot;train a model&quot; and &quot;predict&quot; etc. around.<br>Oh boy, did I underestimate this.</p>
+<h2 is="more-h2" id="keras---a-deep-learning-api">Keras - A Deep Learning API</h2>
+<p>The above paragraph is gibberish? Let&#39;s take a step back  again.</p>
+<p>Since Kamal had pointed me to Keras I go with the flow, I trust his expertise  and I start reading what it is.  </p>
+<blockquote>
+<p>Keras is a deep learning API written in Python, running on top of the machine learning platform TensorFlow. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result as fast as possible is key to doing good research.</p>
+</blockquote>
+<p>Sounds like what I need. And if my VRT will run on the server I am fine  with  Python, which is a great language!
+Though I had to  ask Kamal, what about JavaScript. I  know there is tensorflow for  JS, he said
+I should read <a href="https://codelabs.developers.google.com/codelabs/tfjs-training-classfication/index.html#0">this</a>
+but from all what I hear and learned Python seems to be the first go  to language. So I  stiick to it,
+I also want to learn fast. So I started digging out my rusty  Python knowledge :).</p>
+<p>Next I read <a href="https://keras.io/getting_started/intro_to_keras_for_engineers/">Introduction to Keras for Engineers</a>.
+The first important thing I learned are the 
+<a href="https://keras.io/getting_started/intro_to_keras_for_engineers/#introduction">what I will learn in this guide</a>, 
+which sounds like the steps I need:</p>
+<ol>
+<li>Prepare your data before training a model</li>
+<li>Do data preprocessing</li>
+<li>Build a model that turns your data into useful predictions</li>
+<li>Train your model</li>
+<li>Evaluate your model on a test data</li>
+<li>Customize</li>
+<li>Speed up training by leveraging multiple GPUs.</li>
+<li>Refine your model </li>
+</ol>
+<p>I guess I  have to  start taking some screenshot, to do step 1 &quot;Prepare data&quot;.</p>
+<h2 is="more-h2" id="preprocessing">Preprocessing</h2>
+<p>The next step  is preprocessing data, the guide says:</p>
+<blockquote>
+<p>In general, you should seek to do data preprocessing as part of your model as much as possible, not via an external data preprocessing pipeline.</p>
+</blockquote>
+<p>On the other hand this might cause  a lot of data, imagine every image has a million pixels, won&#39;t that be slow as hell?
+So I asked Kamal again, since that was not that clear from the guide:</p>
+<blockquote>
+<p>Me: How do I preprocess my screenshots?<br>Kamal: Keras preprocessing will do that for you.<br>Me: I expect images  to  have many pixels  and also varying sizes, do I have to  preprocess those?<br>Kamal: The library takes care of it.  </p>
+</blockquote>
+<p>The answer came later <a href="https://keras.io/getting_started/intro_to_keras_for_engineers/#using-keras-preprocessing-layers">in the guide too</a>:</p>
+<blockquote>
+<p>In Keras, you do in-model data preprocessing via preprocessing layers<br>[..]<br>The key advantage of using Keras preprocessing layers is that they can be included directly into 
+your model, either during training or after training, which makes your models portable.</p>
+</blockquote>
+<p>Makes sense to me. But  still feels like it will be computation intensive. But let&#39;s see.
+The guide then lists some code, that looks readable but what&#39;s under the hood is magic to me.
+But let me get through the process first and eventually it will reveal it&#39;s magic, I learned that.
+The alternative would be to go deep into the science behind it, but then I would not get done in the next two years ;).</p>
+<h2 is="more-h2" id="building-models">Building Models</h2>
+<p>This is just step three of the eight steps listed above.</p>
+<blockquote>
+<p>A &quot;layer&quot; is a simple input-output transformation (such as the scaling &amp; center-cropping transformations above).<br>[..]<br>You can think of a model as a &quot;bigger layer&quot; that encompasses multiple sublayers and that can be trained via exposure to data.</p>
+</blockquote>
+<p>Sounds like docker, hehe. Next, some code, I understand:</p>
+<pre><code class="undefinedpython"># &quot;To build models with the Functional API, you start by specifying the shape&quot;
+# Let&#39;s say we expect our inputs to be RGB images (3) of arbitrary size (None, None)
+inputs = keras.Input(shape=(None, None, 3))</code></pre>
+<p>Next are some details about building a model, which will have multiple  inputs
+<code>model = keras.Model(inputs=inputs, outputs=outputs)</code> but I will need to understand better
+once I am coding it.</p>
+<h2 is="more-h2" id="training-models">Training Models</h2>
+<blockquote>
+<p>The next step is to train your model on your data.</p>
+</blockquote>
+<pre><code class="undefinedpython"># &quot;fit&quot; the data to the model
+model.fit(numpy_array_of_samples, numpy_array_of_labels, batch_size=32, epochs=10)</code></pre>
+<blockquote>
+<p>Besides the data, you have to specify two key parameters: the batch_size and the number of epochs 
+(iterations on the data). Here our data will get sliced on batches of 32 samples, and the model 
+will iterate 10 times over the data during training.</p>
+</blockquote>
+<p>I am assuming that the  labels are where the indicating of right  and wrong goes, but I am not sure.
+I mean I will need to tell the machine what images are good and which ones are bad ones.
+Reading on, maybe it will reveal soon.</p>
+<p>I am getting overwhelmed by reading the next parts,  I only understand half of what is going on.
+Eventually I will have to learn the underlyings I feel.</p>
+<pre><code class="undefinedpython"># I understand this ... though I assume I won&#39;t need any of 
+# those when I have screenshots of a website.
+x = CenterCrop(...
+x = Rescaling(...
+
+# Now it gets tricky.
+x = layers.Conv2D(...
+x = layers.MaxPooling2D(...
+x = layers.GlobalAveragePooling2D(...
+outputs = layers.Dense(...</code></pre>
+<p>Oh my gosh. There is stuff in there that I have no idea what it means and how I  would need to adjust it
+for my use case.</p>
+<blockquote>
+<p>Once you have defined the directed acyclic graph of layers</p>
+</blockquote>
+<p>What did I do?</p>
+<p>I  found this video
+<a href="https://www.youtube.com/watch?v=qFJeN9V1ZsI">https://www.youtube.com/watch?v=qFJeN9V1ZsI</a>
+which explains in three hours all the things I think I need to know.
+And it seems a bit more fitting to my (low) state of knowledge.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
