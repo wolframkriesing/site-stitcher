@@ -233,7 +233,7 @@ Of course I need right and wrong images, I need to tag them accordingly first, s
 Should it be 50/50? Ideally it should be, but doesnt have to be.
 
 ## What's Next?
-Read [part 2](/tidbits/2020/08/ml-vs-vrt-part-2/)
+Read [part 2](/tidbits/2020/08/ml-vs-vrt-part-2-learning-keras/)
 about what I tackled next and how I started to go through the keras tutorial to hope to learn
 how to train my model.
 
@@ -243,7 +243,7 @@ I still have questions like:
 - How do I know ML does the task well?
 - When will I see useful results?
 
-If you are curious read [Part 2 about learning Keras](/tidbits/2020/08/ml-vs-vrt-part-2/).
+If you are curious read [Part 2 about learning Keras](/tidbits/2020/08/ml-vs-vrt-part-2-learning-keras/).
 
 # Technical Debt is Anything Preventing You From Developing Fast
 slug: tech-debt-prevents-from-being-fast
