@@ -1,7 +1,133 @@
-# Machine Learning vs. Screenshot Comparing?
+# ML vs. VRT - Part 2: Learning Keras
+slug: ml-vs-vrt-part-2-learning-keras
+dateCreated: 2020-08-05 19:54 CET
+tags: testing, machine learning, automation, visual regression test
+
+In [part 1](/tidbits/2020/08/machine-learning-vs-screenshot-comparing/)
+I started my naive investigation on how to apply machine learning for
+making visual regression tests (VRT) better.
+I described the problem to solve, explored Keras  very superficially and did also touched on the complexity
+of doing ML myself as opposed to having colleagues who are experts and who throw phrases
+like "train a model" and "predict" etc. around.   
+Oh boy, did I underestimate this.
+
+## Keras - A Deep Learning API
+The above paragraph is gibberish? Let's take a step back  again.
+
+Since Kamal had pointed me to Keras I go with the flow, I trust his expertise  and I start reading what it is.  
+> Keras is a deep learning API written in Python, running on top of the machine learning platform TensorFlow. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result as fast as possible is key to doing good research.
+
+Sounds like what I need. And if my VRT will run on the server I am fine  with  Python, which is a great language!
+Though I had to  ask Kamal, what about JavaScript. I  know there is tensorflow for  JS, he said
+I should read [this](https://codelabs.developers.google.com/codelabs/tfjs-training-classfication/index.html#0)
+but from all what I hear and learned Python seems to be the first go  to language. So I  stiick to it,
+I also want to learn fast. So I started digging out my rusty  Python knowledge :).
+
+Next I read [Introduction to Keras for Engineers](https://keras.io/getting_started/intro_to_keras_for_engineers/).
+The first important thing I learned are the 
+[what I will learn in this guide](https://keras.io/getting_started/intro_to_keras_for_engineers/#introduction), 
+which sounds like the steps I need:
+
+1. Prepare your data before training a model
+1. Do data preprocessing
+1. Build a model that turns your data into useful predictions
+1. Train your model
+1. Evaluate your model on a test data
+1. Customize
+1. Speed up training by leveraging multiple GPUs.
+1. Refine your model 
+
+I guess I  have to  start taking some screenshot, to do step 1 "Prepare data".
+
+## Preprocessing
+The next step  is preprocessing data, the guide says:
+> In general, you should seek to do data preprocessing as part of your model as much as possible, not via an external data preprocessing pipeline.
+
+On the other hand this might cause  a lot of data, imagine every image has a million pixels, won't that be slow as hell?
+So I asked Kamal again, since that was not that clear from the guide:
+
+> Me: How do I preprocess my screenshots?  
+> Kamal: Keras preprocessing will do that for you.   
+> Me: I expect images  to  have many pixels  and also varying sizes, do I have to  preprocess those?  
+> Kamal: The library takes care of it.  
+
+The answer came later [in the guide too](https://keras.io/getting_started/intro_to_keras_for_engineers/#using-keras-preprocessing-layers):
+> In Keras, you do in-model data preprocessing via preprocessing layers  
+> [..]  
+> The key advantage of using Keras preprocessing layers is that they can be included directly into 
+> your model, either during training or after training, which makes your models portable.
+
+Makes sense to me. But  still feels like it will be computation intensive. But let's see.
+The guide then lists some code, that looks readable but what's under the hood is magic to me.
+But let me get through the process first and eventually it will reveal it's magic, I learned that.
+The alternative would be to go deep into the science behind it, but then I would not get done in the next two years ;).
+
+## Building Models
+This is just step three of the eight steps listed above.
+> A "layer" is a simple input-output transformation (such as the scaling & center-cropping transformations above).  
+> [..]  
+> You can think of a model as a "bigger layer" that encompasses multiple sublayers and that can be trained via exposure to data.
+
+Sounds like docker, hehe. Next, some code, I understand:
+```python
+# "To build models with the Functional API, you start by specifying the shape"
+# Let's say we expect our inputs to be RGB images (3) of arbitrary size (None, None)
+inputs = keras.Input(shape=(None, None, 3))
+```
+
+Next are some details about building a model, which will have multiple  inputs
+`model = keras.Model(inputs=inputs, outputs=outputs)` but I will need to understand better
+once I am coding it.
+
+## Training Models
+> The next step is to train your model on your data.
+
+```python
+# "fit" the data to the model
+model.fit(numpy_array_of_samples, numpy_array_of_labels, batch_size=32, epochs=10)
+```
+
+> Besides the data, you have to specify two key parameters: the batch_size and the number of epochs 
+> (iterations on the data). Here our data will get sliced on batches of 32 samples, and the model 
+> will iterate 10 times over the data during training.
+
+I am assuming that the  labels are where the indicating of right  and wrong goes, but I am not sure.
+I mean I will need to tell the machine what images are good and which ones are bad ones.
+Reading on, maybe it will reveal soon.
+
+I am getting overwhelmed by reading the next parts,  I only understand half of what is going on.
+Eventually I will have to learn the underlyings I feel.
+
+```python
+# I understand this ... though I assume I won't need any of 
+# those when I have screenshots of a website.
+x = CenterCrop(...
+x = Rescaling(...
+
+# Now it gets tricky.
+x = layers.Conv2D(...
+x = layers.MaxPooling2D(...
+x = layers.GlobalAveragePooling2D(...
+outputs = layers.Dense(...
+```
+
+Oh my gosh. There is stuff in there that I have no idea what it means and how I  would need to adjust it
+for my use case.
+
+> Once you have defined the directed acyclic graph of layers
+
+What did I do?
+
+I  found this video
+https://www.youtube.com/watch?v=qFJeN9V1ZsI
+which explains in three hours all the things I think I need to know.
+And it seems a bit more fitting to my (low) state of knowledge.
+
+
+# ML vs. VRT - Part 1 (was: Machine Learning vs. Screenshot Comparing?) 
 slug: machine-learning-vs-screenshot-comparing
 dateCreated: 2020-08-04 18:14 CET
-tags: testing, machine learning, automation
+tags: testing, machine learning, automation, visual regression test
 
 I broke this site, and thanks to [@Holger](https://twitter.com/Holger__P) reporting the error  I  figured out
 I should have done more testing instead of just tweeting that I should :).
@@ -67,9 +193,10 @@ But that is just a side note.
 
 ## Learning if ML fits
 
-Kamal suggested "https://keras.io/examples/vision/mnist_convnet/ it will get you started".
-Also this for understanding https://keras.io/examples/vision/image_classification_from_scratch/
-I asked what do all these functions mean? https://keras.io/examples/vision/mnist_convnet/#build-the-model
+Kamal suggested [keras](https://keras.io/examples/vision/mnist_convnet/) to "it will get you started" he says.
+Also this for understanding 
+[Image classification from scratch](https://keras.io/examples/vision/image_classification_from_scratch/).
+What do all these functions mean? (see [Build the model](https://keras.io/examples/vision/mnist_convnet/#build-the-model))
 ```python
 model = keras.Sequential(
     [
@@ -87,7 +214,13 @@ model = keras.Sequential(
 model.summary()
 ``` 
 
-Maybe this helps https://keras.io/getting_started/intro_to_keras_for_engineers/, Kamal said.
+I  am all lost. I thought it was  as simple as throwing some images somewhere and call `run()`.
+I was naiv.
+Kamal says "maybe this helps [Introduction to Keras for Engineers](https://keras.io/getting_started/intro_to_keras_for_engineers/)".
+
+## The Plan to  Solve my Problem
+Leaving all the ML internals aside. Let me try to explain what is my current plan on how to make use
+of ML for solving this problem.
 
 I have a plan now how to create images to train the model with, the images i would generate using my site:
 - images always for different screen sizes, 1024x768, 1400x1900, etc.
@@ -99,9 +232,18 @@ I have a plan now how to create images to train the model with, the images i wou
 Of course I need right and wrong images, I need to tag them accordingly first, so the model can learn.
 Should it be 50/50? Ideally it should be, but doesnt have to be.
 
+## What's Next?
+Read [part 2](/tidbits/2020/08/ml-vs-vrt-part-2/)
+about what I tackled next and how I started to go through the keras tutorial to hope to learn
+how to train my model.
 
+I still have questions like:
+- Will it really be "easy" and possible to train a model to "understand" my screenshots?
+- Is this task not too big?
+- How do I know ML does the task well?
+- When will I see useful results?
 
-  
+If you are curious read [Part 2 about learning Keras](/tidbits/2020/08/ml-vs-vrt-part-2/).
 
 # Technical Debt is Anything Preventing You From Developing Fast
 slug: tech-debt-prevents-from-being-fast
