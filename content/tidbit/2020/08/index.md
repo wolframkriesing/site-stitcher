@@ -1,4 +1,103 @@
-# ML vs. VRT - Part 2: Learning Keras
+# ML for VRT - Part 3: Hands On
+slug: ml-for-vrt-part-3-hands-on
+dateCreated: 2020-08-09 09:54 CET
+tags: learning, machine learning, automation
+
+I renamed the series to "ML for VRT" instead of "ML vs. VRT"
+since that is what I actually want to achieve (eventually), as you can read in 
+[Part 1 - Machine Learning vs. Screenshot Comparing?](/tidbits/2020/08/machine-learning-vs-screenshot-comparing/).
+Read on to figure out how I ended  up next  to learn about neural networks, because  I figured
+out just applying some code examples learned from tutorials won't suffice my learning
+and they  won't answer the questions I actually have to understand how to tune a 
+neural network to do what I image it to do, detecting screenshots for visual regression testing.
+
+## Use Keras, an ML Library, for the First Time
+As described in [part 2](/tidbits/2020/08/ml-vs-vrt-part-2-learning-keras/)
+I started to learn Keras in order to  write a first machine learning algorithm myself.
+
+If you want to  dive  right in, find [this repo "learning-ml"](https://codeberg.org/wolframkriesing/learning-ml)
+where I built a docker container which runs a [jupyter](https://jupyter.org/)
+notebook and where I played around with, first the example from a course
+and second exploring a simple task to use ML on. But let's go step by step.
+
+## The Example From the Keras Tutorial
+As described in  the earlier parts I followed Kamal's suggestions to learn using ML
+by reading [Introduction to Keras for Engineers](https://keras.io/getting_started/intro_to_keras_for_engineers/)
+which turned out to raise many more questions than answers.
+My  way of learning was to  read the tutorial and figure out if I can understand what is being 
+done. I failed.
+
+## Why did I fail Learning from "Keras for Engineers"
+First,  one should understand what is my background.
+I am a normal software developer, I  have done a lot of low-level (without web),
+in 1999 I jumped into the web, I did  a  lot of PHP, Python, etc. and for the last 
+20  years I  do  mostly JavaScript extensively. I love to read the specs of technologies
+I use (if available) and I like to learn and understand the history and reasons
+why a certain technology was developed and is used for. And I know the applications
+technologies are used for change over time.
+
+Back to learning from "Keras for Engineers".
+I thought I read through the code on the page, read the explanations and I will be set
+to go and make use of machine learning. Actually, my initial expectation was even simpler,
+I thought I download some library  and throw right and wrong screenshots in some 
+directories and tell  the code to learn and then I have trained a model to detect
+right and wrong screenshots. It turned out to not be that easy.
+
+You might succeed with that simple approach by going another path, but I am the
+kind of person, I like to understand what is happening under the hood. 
+I started my career learning low-level languages like C and Assembler, I knew
+(more or less) well what was going on under the hood.
+So I expect the same here. I want to understand how does a ML code come up
+with the result that it comes up with.
+
+Well, I already learned over the last years at HolidayCheck from my colleagues
+that worked with ML, that "understanding" and maybe even verifying why an ML model
+comes up with a certain result is not really how it works.
+Anyways, I am  a bit stubborn :).
+
+## Switch to a TensorFlow Course via Video
+I searched around and got stuck with a freeCodeCamp.org video
+[Keras with TensorFlow Course - Python Deep Learning and Neural Networks for Beginners Tutorial](https://www.youtube.com/watch?v=qFJeN9V1ZsI).
+I did work through the first hour, because already learned in the first ten minutes
+to understand terminology which had  raised question  marks in the previously mentioned
+Keras tutorial. So I followed along.
+
+I think I  kinda got the hang of it. I learned to at least understand how the parts
+are connected, not that I really understand all the terms used yet, but the course gave me
+a good feeling of where things belong.
+So I did the first example from scratch, writing all the code by hand by  fast forwarding the
+video for a second time to the places where the code was shown. Even though I did  not
+totally understand  the reason for building the  first model I got it to  run.
+See [the repo](https://codeberg.org/wolframkriesing/learning-ml) and 
+[the source code online of the first "patients example"](https://codeberg.org/wolframkriesing/learning-ml/src/branch/main/1-patients-example1.py).
+You can run it either in a jupyter notebook,  which is handy, but not how I prefer it to do.
+Or you can run it on the command line after cloning the repo like so `./run.sh python 1-patients-example1.py`.
+See  the [README](https://codeberg.org/wolframkriesing/learning-ml/src/branch/main/README.md) for more detailed instructions.
+
+## My Own First Model Training
+The  actual fun part comes now. I want to train a model that I came up with, where I can also
+judge the predictions.
+
+So I needed a problem, a simple problem to solve first.
+While I first thought I was in  a dead end when the input is just simple numbers,
+I quickly  realized I can come up with many examples that can be simple things for an AI to learn.
+I thought **why not train an AI to learn to find even and odd numbers**?
+Let me take away, the result first. I failed. I could not make the model learn that.
+But knowing and trying to find out why is a great learning too.
+
+## Even or Odd - Training my First Model
+
+----
+To be  written about:
+- I started with https://www.coursera.org/learn/ai-for-everyone/
+- Thomas suggested to learn with https://course.fast.ai/videos/?lesson=1
+  the code that will be used https://github.com/fastai/course-v3/blob/master/nbs/dl1/lesson1-pets.ipynb
+- explanation why  even/odd cant work https://stackoverflow.com/questions/53671491/machine-learning-odd-even-prediction-doesnt-work-50-success
+- Thomas said even/odd can be done, but I need to learn how, I have no clue
+
+
+
+# ML for VRT - Part 2: Learning Keras
 slug: ml-vs-vrt-part-2-learning-keras
 dateCreated: 2020-08-05 19:54 CET
 tags: testing, machine learning, automation, visual regression test
@@ -124,7 +223,7 @@ which explains in three hours all the things I think I need to know.
 And it seems a bit more fitting to my (low) state of knowledge.
 
 
-# ML vs. VRT - Part 1 (was: Machine Learning vs. Screenshot Comparing?) 
+# ML for VRT - Part 1 (was: Machine Learning vs. Screenshot Comparing?) 
 slug: machine-learning-vs-screenshot-comparing
 dateCreated: 2020-08-04 18:14 CET
 tags: testing, machine learning, automation, visual regression test
