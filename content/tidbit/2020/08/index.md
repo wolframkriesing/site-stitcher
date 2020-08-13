@@ -1,3 +1,29 @@
+# ML for VRT - Part 4: Neural Networks
+slug: ml-for-vrt-part-4-neural-networks
+dateCreated: 2020-08-11 19:37 CET
+tags: learning, neural networks, machine learning, automation
+
+Reading
+http://neuralnetworksanddeeplearning.com/chap1.html
+
+Answering my main question "How do  I know which parameters how to  tweak?"
+> While the design of the input and output layers of a neural network is often straightforward, there can be quite an art to the design of the hidden layers. In particular, it's not possible to sum up the design process for the hidden layers with a few simple rules of thumb. Instead, neural networks researchers have developed many design heuristics for the hidden layers, which help people get the behaviour they want out of their nets. For example, such heuristics can be used to help determine how to trade off the number of hidden layers against the time required to train the network. We'll meet several such design heuristics later in this book.
+
+## Learn Which Parameter How to set
+
+https://www.youtube.com/watch?v=Boy3zHVrWB4
+https://www.youtube.com/watch?v=FWN3Sw5fFoM
+https://www.youtube.com/watch?v=hVCuvMGOfyY
+
+Training a neural network means
+> what parameters should the have at the edges in order to  model our data well.
+
+**My question**  being answered here. Yeah!
+Make sure to have read (at least the first chapter) of the book mentioned above.
+Then you will understand what is talked about in this video! 
+
+youtube.com/watch?v=SC1wEW7TtKs
+
 # ML for VRT - Part 3: Hands On
 slug: ml-for-vrt-part-3-hands-on
 dateCreated: 2020-08-09 09:54 CET
@@ -82,10 +108,11 @@ So I needed a problem, a simple problem to solve first.
 While I first thought I was in  a dead end when the input is just simple numbers,
 I quickly  realized I can come up with many examples that can be simple things for an AI to learn.
 I thought **why not train an AI to learn to find even and odd numbers**?
-Let me take away, the result first. I failed. I could not make the model learn that.
+Let me take away, the result first. I failed. I could not make the model learn that on my first try.
 But knowing and trying to find out why is a great learning too.
 
 ## Even or Odd - Training my First Model
+
 
 ----
 To be  written about:
