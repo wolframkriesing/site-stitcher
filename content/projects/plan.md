@@ -2,7 +2,7 @@
 
 Some things run in parallel, those are in chapters.
 
-## picostitch.com - the Blog Where all String Come Together
+## picostitch.com - The Blog Where all Strings Come Together
 - [ ] **Make picostitch a blog with more than just articles.**
   In order to experiment with new features and advanced functionality, some neat features that
   might go beyond the default blog need to be provided, for one to push the limits but also to
@@ -11,9 +11,9 @@ Some things run in parallel, those are in chapters.
     - [ ] stats per page, e.g. word count, headings count, lists, list items, counts word groups, e.g. 7x "web", 10x "css", etc.
     - [ ] stats menu item, which contains tags pages, word counts, most used words, etc.   
   - [ ] **Simplify pages**
-    - [ ] remove navi on the left
+    - [x] remove navi on the left
     - [ ] add all sub navigation items, so the URLs become really hackable, make /blog/2020/06/, /blog/2020/ and /blog/ work
-  - [ ] **Give picostitch a dynamic homepage.**
+  - [ ] **Dynamic homepage.**
     On the homepage I can try things like advanced links with previews, lists of articles when hovering
     over a tag, selecting, storing and maybe showing special content, webmentions etc. 
 
@@ -24,11 +24,8 @@ Some things run in parallel, those are in chapters.
   embraces a11y, progressive enhancement and degrades nicely.
 - [ ] rendering via webmention.io  
 
-## event-stitcher, a Web App on picotstitch.com
-- [ ] read events from google calendar
-- [ ] allow to mark events as "interesting", store that in my pod (solid, jsonbin, ...)
-
 ## jskatas.org
+- [ ] make each kata's test description (using test-stitcher) SEO indexable, so jskatas.org is found when searching on google
 - [ ] requires some More HTML components (code editor, test runner, ...)
 - [ ] offer desktop learning and completing of the katas using More HTML components on the page (not in tddbin)
 - [ ] store progress in a private storage, such as jsonbin.org, solid, or alike
@@ -49,9 +46,9 @@ Some things run in parallel, those are in chapters.
     - [ ] Build automated tests for the components, they should use the example pages
 
 ## Tools and Helpers
-- [ ] test-stitcher, a tool to understand and "visualize" tests (by their description)
+- [ ] **test-stitcher**, a tool to understand and "visualize" tests (by their description)
   in order to improve them
-- [ ] pico-tester, a simple, fast and tiny test runner, that enforces test best practices
+- [ ] **pico-tester**, a simple, fast and tiny test runner, that enforces test best practices
 - [ ] ci-tooling for codeberg (and others)
   - [ ] build a docker container for drone.io setup for one self
   - [ ] build another docker container, e.g. for jenkins - ONLY if configurable via files IN the repo
@@ -61,4 +58,9 @@ Some things run in parallel, those are in chapters.
     and connect their repo to
   - [ ] find sponsors, ...
 
-       
+
+## Not Yet Started (Just Ideas)
+
+### event-stitcher, a Web App on picotstitch.com
+- [ ] read events from google calendar
+- [ ] allow to mark events as "interesting", store that in my pod (solid, jsonbin, ...)
