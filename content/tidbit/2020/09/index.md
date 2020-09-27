@@ -27,8 +27,8 @@ Let’s wake up!
 
 ## How Can We Wake Up?
 1. Turn off all notifications and get used to reading emails, tweets, etc. when YOU decide.
-1. Try it for a day: watch ONLY the videos you search for not those suggested to you.
-   And then another day.
+1. Try it for a day: watch ONLY the videos you search for, not those suggested to you.
+   And then try it another day.
 1. Close one social media account.
 
 # Almost One Month at Sono Motors
