@@ -1,3 +1,36 @@
+# Social Dilemma
+slug: social-dilemma
+dateCreated: 2020-09-27 22:28 CET
+tags: social media
+
+A must watch documentary-drama: [Social Dilemma](https://thesocialdilemma.com).
+
+> This documentary-drama hybrid reveals how social media is reprogramming civilization 
+> with tech experts sounding the alarm on their own creations. 
+
+One quote that stuck in my head, because of it's simple truth.
+> A dead tree is worth more then a living one, and a dead whale is worth more then a living one.
+>
+> ...
+>
+> The last straw that makes us wake up ... we see, we are the tree, we are the whale ... 
+> our attention can be mined   
+> — [Justin Rosenstein](https://twitter.com/rosenstein)
+
+This has to change!
+
+So true.
+
+A very impressive movie.
+
+Let’s wake up!
+
+## How Can We Wake Up?
+1. Turn off all notifications and get used to reading emails, tweets, etc. when YOU decide.
+1. Try it for a day: watch ONLY the videos you search for not those suggested to you.
+   And then another day.
+1. Close one social media account.
+
 # Almost One Month at Sono Motors
 slug: almost-one-month-at-sono-motors
 dateCreated: 2020-09-26 21:21 CET
