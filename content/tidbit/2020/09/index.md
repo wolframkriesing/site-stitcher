@@ -66,10 +66,12 @@ I noted:
 * the lunch service delivers vegan lunch only, and it is really good
 * colleagues explicitly care about how the lunch delivery is executed, 
   by electric cars, what kinda plates, etc. - simply how sustainable is it done
-* as far as I have seen everyone is coming either by public transport or bike
+* as far as I have seen everyone is coming either by public transport, bike or electric car
   (a lot of people come by bike)
 * as you can see in the video even the desks are not bought but recycled material
 * computers are mostly used ones
+* the phones employees can choose from are either a [Fairphone](https://www.fairphone.com/en/) 
+  or a [Shiftphone](https://www.shiftphones.com/)
 * in some videos online you can see that even in the Sion (the car) parts will be 
   reused parts
 * the founders are convinced vegans, I heard
