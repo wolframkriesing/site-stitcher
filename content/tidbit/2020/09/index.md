@@ -1,3 +1,31 @@
+# `toFixed` - JavaScript Decimal Places
+slug: to-fixed-java-script-decimal-places
+dateCreated: 2020-10-08 15:31 CET
+tags: JavaScript
+
+```
+> (26).toFixed(1)
+"26.0"
+> (26.5).toFixed(1)
+"26.5"
+```
+
+Copied from the Firefox developer console.
+Just saying, since I just needed it and it always comes handy.
+
+This is a copy from a nodejs console:
+
+```
+> (26).toFixed()
+'26'
+```
+
+For the nerds, [here is the spec](https://tc39.es/ecma262/#sec-number.prototype.tofixed)
+which says
+> `toFixed` returns a String
+
+Just stating it here, that a string is returned. The question had come up on twitter.
+
 # Social Dilemma
 slug: social-dilemma
 dateCreated: 2020-09-27 22:28 CET
