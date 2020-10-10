@@ -1,0 +1,13 @@
+version: '3'
+services:
+  picostitch:
+    build: .
+    container_name: picostitch
+    ports:
+      - "5000:5000"
+    working_dir: /app
+    volumes:
+      # Mount the source code into the container, so one can keep developing, even though it runs inside a container.
+      - '.:/app'
+    tty: true
+    command: ["bash"]
