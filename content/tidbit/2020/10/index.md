@@ -7,7 +7,7 @@ I am wondering if the react-native Picker component is still maintained and if i
 looking at the wrong thing for using a picker for a mobile app.
 
 <figure style="padding: 1rem;">
-    <img src="../picker.jpeg" alt="Example of the Picker Component" width="300" class="sizeup-onhover-image scale4 origin-left-center" />
+    <img src="../picker.jpeg" alt="Example of the Picker Component" width="300" class="sizeup-onhover-image scale2 origin-left-center" />
     <figcaption>Example of the Picker Component</figcaption>
 </figure>
 
@@ -23,7 +23,7 @@ On npm the package has [>67k downloads a week](https://www.npmjs.com/package/@re
 which looks like there is some traction and many people are using it. That is my assumption.
 
 <figure style="padding: 1rem;">
-    <img src="../npm-picker-stats.png" alt="npm stats" width="300" class="sizeup-onhover-image scale4 origin-left-center" />
+    <img src="../npm-picker-stats.png" alt="npm stats" width="300" class="sizeup-onhover-image scale2 origin-left-center" />
     <figcaption>npm stats of the Picker Component</figcaption>
 </figure>
 
