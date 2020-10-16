@@ -54,6 +54,9 @@ export class BlogPost {
   get url() {
     return urlFromMarkdownFilename(this.markdownFilename);
   }
+  get previewImageUrl() {
+    return this.url + this.previewImage;
+  }
   get slug() {
     const trimDay = s => s.substr(3);
     const trimExtension = s => s.replace(/.md$/, '');

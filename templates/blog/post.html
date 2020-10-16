@@ -11,6 +11,11 @@
     <meta property="article:tag" content="{{tag}}" />{% }) %}
   <meta property="article:description" content="{{post.abstract}}" />
   <meta property="twitter:description" content="{{post.abstract}}" />
+  {% if (post.previewImageUrl) { %}
+    <meta property="og:image" content="{{post.previewImageUrl}}" />
+    <meta property="og:image:url"  content="{{post.previewImageUrl}}" />
+    <meta property="twitter:image" content="{{post.previewImageUrl}}" />
+  {% } %}
 {[ endblock ]}
 
 {[ block sidebar-right ]}

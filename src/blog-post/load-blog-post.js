@@ -25,6 +25,7 @@ const metadataParseConfigs = [
   {key: 'isDraft', type: 'boolean'},
   {key: 'oldUrls', type: 'array', separator: ' '},
   {key: 'tags', type: 'array', separator: ','},
+  {key: 'previewImage', type: 'string'},
   {key: 'videoStartTime', type: 'string'},
   {key: 'vimeoId', type: 'string'},
   {key: 'youtubeId', type: 'string'},

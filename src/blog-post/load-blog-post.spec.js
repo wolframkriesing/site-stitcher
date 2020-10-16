@@ -122,6 +122,13 @@ describe('Load a blog post, with all data ready to render', () => {
         const post = await loadPost({fileContent: '# headline'});
         assertThat(post, hasProperties({isDraft: false}));
       });
+      it('WHEN it has `previewImage` THEN provide `previewImageUrl`', async () => {
+        const post = await loadPost({
+          markdownFilename: '2020/12/21-post.md',
+          fileContent: 'previewImage: road.jpg  \n\n# headline',
+        });
+        assertThat(post, hasProperties({previewImageUrl: '/blog/2020/12/21-post/road.jpg',}));
+      });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
       const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';
