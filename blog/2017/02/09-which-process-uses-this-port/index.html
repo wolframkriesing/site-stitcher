@@ -22,7 +22,27 @@
   <link rel="canonical" href="https://picostitch.com/blog/2017/02/09-which-process-uses-this-port/">
   <title>Find out which process listens on which port | picostitch - crafting (and) JavaScript</title>
   
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+  
+    <meta property="article:tag" content="command line" />
+    <meta property="article:tag" content="linux" />
+    <meta property="article:tag" content="tooling" />
+    <meta property="article:tag" content="lsof" />
+    <meta property="article:tag" content="knowledgebase" />
+  <meta property="article:description" content="The annoying `port 8080 is already in use` message and not knowing which
+process is occupying this port sucks. I knew it was `lsof` that can help me.
+But how exactly?
+TL;DR: ``ps -p `lsof -i :8080 -t` -o command=`` (on Mac OSX)" />
+  <meta property="twitter:description" content="The annoying `port 8080 is already in use` message and not knowing which
+process is occupying this port sucks. I knew it was `lsof` that can help me.
+But how exactly?
+TL;DR: ``ps -p `lsof -i :8080 -t` -o command=`` (on Mac OSX)" />
+  
+    <meta property="og:image" content="/blog/2017/02/09-which-process-uses-this-port/" />
+    <meta property="og:image:url"  content="/blog/2017/02/09-which-process-uses-this-port/" />
+    <meta property="twitter:image" content="/blog/2017/02/09-which-process-uses-this-port/" />
+  
 
 </head>
 <body class="page-post">

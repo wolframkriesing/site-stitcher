@@ -22,7 +22,29 @@
   <link rel="canonical" href="https://picostitch.com/blog/2015/11/10-dont-promisify-fs-exists/">
   <title>Don't promisify `fs.exists` | picostitch - crafting (and) JavaScript</title>
   
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+  
+    <meta property="article:tag" content="javascript" />
+    <meta property="article:tag" content="async" />
+    <meta property="article:tag" content="knowledgebase" />
+  <meta property="article:description" content="Don't promisify `fs.exists` since this does not play by the rules of node style callback params,
+where the first one should be err and then data. It seems this does return only the data, which
+[promisify] understands as an error and does throw right away. Instead do what the 
+[node js docs suggest][promisify-nodejsdocs] 
+too and use `fs.access` instead, like so: `promisify(fs.access)(aPath, fs.R_OK)`.
+See it in action [here in the cosmowiki]." />
+  <meta property="twitter:description" content="Don't promisify `fs.exists` since this does not play by the rules of node style callback params,
+where the first one should be err and then data. It seems this does return only the data, which
+[promisify] understands as an error and does throw right away. Instead do what the 
+[node js docs suggest][promisify-nodejsdocs] 
+too and use `fs.access` instead, like so: `promisify(fs.access)(aPath, fs.R_OK)`.
+See it in action [here in the cosmowiki]." />
+  
+    <meta property="og:image" content="/blog/2015/11/10-dont-promisify-fs-exists/" />
+    <meta property="og:image:url"  content="/blog/2015/11/10-dont-promisify-fs-exists/" />
+    <meta property="twitter:image" content="/blog/2015/11/10-dont-promisify-fs-exists/" />
+  
 
 </head>
 <body class="page-post">
