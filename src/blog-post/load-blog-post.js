@@ -35,7 +35,8 @@ const parseRawPost = tokens => {
   return {
     headline: headlineTokens[0].text,
     headlineAsHtml: renderHeadlineAsHtml(headlineTokens[0]),
-    abstractAsHtml: renderAbstractAsHtml(abstractTokens), 
+    abstract: abstractTokens.length > 0 ? abstractTokens[0].text : '',
+    abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...metadata
   };
 };

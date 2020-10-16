@@ -5,7 +5,12 @@
 {[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
 {[ block head ]}
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+  {% post.tags.map(tag => { %}
+    <meta property="article:tag" content="{{tag}}" />{% }) %}
+  <meta property="article:description" content="{{post.abstract}}" />
+  <meta property="twitter:description" content="{{post.abstract}}" />
 {[ endblock ]}
 
 {[ block sidebar-right ]}

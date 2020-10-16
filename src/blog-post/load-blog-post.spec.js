@@ -27,6 +27,7 @@ describe('Load a blog post, with all data ready to render', () => {
         markdownFilename: '2001/01/01-post.md',
         headline: 'This is the first post',
         headlineAsHtml: 'This is the first post',
+        abstract: 'the first paragraph of the blog post ...',
         abstractAsHtml: 'the first paragraph of the blog post ...',
       };
       assertThat(post, instanceOf(BlogPost));
@@ -46,6 +47,7 @@ describe('Load a blog post, with all data ready to render', () => {
 // the content parsing ...
     it('WHEN it has no first paragraph THEN set abstract=""', async () => {
       const post = await loadPost({fileContent: '# headline'});
+      assert.strictEqual(post.abstract, '');
       assert.strictEqual(post.abstractAsHtml, '');
     });
     it('WHEN the headline is not followed by a paragraph, but e.g. another headline THEN set abstract=""', async () => {
