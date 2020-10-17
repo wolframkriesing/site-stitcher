@@ -6,16 +6,17 @@
 
 {[ block head ]}
   <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta name="article:type" content="article" />
+  <meta property="article:type" content="article" />
   {% post.tags.map(tag => { %}
-    <meta name="article:tag" content="{{tag}}" />{% }) %}
+    <meta property="article:tag" content="{{tag}}" />{% }) %}
 
-  <meta name="og:description" content="{{post.abstract}}" />
-  <meta name="article:description" content="{{post.abstract}}" />
+  <meta property="og:description" content="{{post.abstract}}" />
+  <meta property="article:description" content="{{post.abstract}}" />
   <meta name="twitter:description" content="{{post.abstract}}" />
+
   {% if (post.previewImageUrl) { %}
-    <meta name="og:image" content="https://picostitch.com{{post.previewImageUrl}}" />
-    <meta name="og:image:url"  content="https://picostitch.com{{post.previewImageUrl}}" />
+    <meta property="og:image" content="https://picostitch.com{{post.previewImageUrl}}" />
+    <meta property="og:image:url"  content="https://picostitch.com{{post.previewImageUrl}}" />
     <meta name="twitter:image" content="https://picostitch.com{{post.previewImageUrl}}" />
   {% } %}
 {[ endblock ]}
