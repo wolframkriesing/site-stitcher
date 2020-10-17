@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Make Blog Content Previews work on all Social Media" />
+
+  <meta property="og:title" content="Make Blog Content Previews work on all Social Media">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.com/tidbits/2020/10/make-blog-content-previews-work-on-all-social-media/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/10/make-blog-content-previews-work-on-all-social-media/">
+  <title>Make Blog Content Previews work on all Social Media | picostitch - crafting (and) JavaScript</title>
+  
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Make Blog Content Previews work on all Social Media
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="social-media">#social media</div>
+      <h1 id="make-blog-content-previews-work-on-all-social-media" is="more-h1">Make Blog Content Previews work on all Social Media</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - October 17, 2020
+        
+          - tagged with: #social media #HTML #meta tags #links #SEO
+        
+      </div>
+    </header>
+
+    <p>On a friend&#39;s linkedin profile I saw some links to his content and since linkedin
+picks up in traffic and professional relevance, I thought
+I need to get my site&#39;s traffic better shareable. </p>
+<h2 is="more-h2" id="what-am-i-talking-about">What am I Talking About?</h2>
+<p>Every website with content can be shared on other/social media,
+e.g. I can post a link to a video, blog post, tweet on linkedin or twitter, or any other
+online site. Most of those sites have a preview of the content.</p>
+<figure>
+    <img src="../preview-on-twitter.gif" alt="Preview on Twitter" height="300" class="sizeup-onhover-image scale2 origin-left-center" />
+    <figcaption>Preview as seen on twitter</figcaption>
+</figure>
+
+<figure>
+    <img src="../preview-on-linkedin.gif" alt="Preview on LinkedIn" height="300" class="sizeup-onhover-image scale2 origin-left-center" />
+    <figcaption>Preview as shown on linkedin</figcaption>
+</figure>
+
+<p>To provide the data for those previews, I need to add certain tags to my website,
+so that those &quot;consuming sites&quot; can build their previews.</p>
+<p>TL;DR<br>See these two files (<a href="https://github.com/wolframkriesing/site-stitcher/blob/485903ea77544e78f1287f066769debb3b1ffa64/templates/_focus.html#L7-L23">the base template</a> and the <a href="https://github.com/wolframkriesing/site-stitcher/blob/485903ea77544e78f1287f066769debb3b1ffa64/templates/blog/post.html#L9-L30">blog post template</a>) 
+for the code I use in the templates for allowing these previews for my blog posts.</p>
+<h2 is="more-h2" id="resources">Resources</h2>
+<p>There are a lot of resources out there, and I had a hard time finding the right and relevant ones.
+I want to list them here. As usual, I do that so I will find them later again, because I will
+forget these kinda things.</p>
+<h3 is="more-h3" id="twitter-linkedin-facebook-pinterest---one-preview-tool-🤷🏽♂️">Twitter, LinkedIn, Facebook, Pinterest - One Preview Tool 🤷🏽‍♂️</h3>
+<p>On <a href="https://socialsharepreview.com/">socialsharepreview.com</a> one can check these four social media
+previews. The tool is nice to get a quick overview and feeling for what tags to have on the site.
+I also had the impression not all info here are fully accurate. So better use multiple tools and
+double check.</p>
+<h3 is="more-h3" id="the-open-graph-protocol-💡">The Open Graph protocol 💡</h3>
+<p>The <a href="https://ogp.me/">Open Graph protocol</a> 
+was introduced by Facebook in 2010. It mainly defines how to built the <code>property</code> attributes in meta tags like this
+<code>&lt;meta property=&quot;og:title&quot; content=&quot;...&quot; /&gt;</code>. It seems to be used by multiple sites, but I didn&#39;t investigate
+that any deeper.</p>
+<h3 is="more-h3" id="linkedin-preview-tool-👍🏿">LinkedIn Preview Tool 👍🏿</h3>
+<p>They call their tool <a href="https://www.linkedin.com/post-inspector/inspect">&quot;Post Inspector&quot;</a>.
+Here you get a preview of your link and good hints how to improve it.</p>
+<h3 is="more-h3" id="twitter-preview-tool--👎🏽">Twitter Preview Tool  👎🏽</h3>
+<p>They call it the <a href="https://cards-dev.twitter.com/validator">&quot;Card validator&quot;</a>.
+Here you get a preview of your link and no real hints how to improve it.</p>
+<h3 is="more-h3" id="a-good-summary-👌🏾-👩🏼💻">A Good Summary 👌🏾 👩🏼‍💻</h3>
+<p><a href="https://css-tricks.com/essential-meta-tags-social-media/">&quot;The Essential Meta Tags for Social Media&quot; on css-tricks</a> -
+is an article from 2016 (so it might not be the most up to date) stating very well
+what needs to be implemented and which tags can also be used to reduce the page size.
+This article lacks linkedin completely though, which I note because it was what got me
+started.</p>
+<h3 is="more-h3" id="parsers-and-publishing-tools">Parsers and publishing tools</h3>
+<p>On the Open Graph page there are <a href="https://ogp.me/#implementations">some tools listed</a>.
+The most useful ones are the testing tools. Though those of competitors like twitter and linkedin 
+are missing here.</p>
+<h3 is="more-h3" id="mediums-help">Medium&#39;s Help</h3>
+<p>On <a href="https://help.medium.com/hc/en-us/articles/215769058-Update-social-media-preview-cards">Medium&#39;s Help page</a>
+there are some info about the three major social media sites making it easy to test links and 
+their previews, but all the above tools should have covered it already.</p>
+<h2 is="more-h2" id="meta-tag-is-strange">Meta Tag is Strange</h2>
+<p>Some <code>&lt;meta&gt;</code> tags use the attribute <code>name</code> and some <code>property</code>.</p>
+<pre><code>&lt;meta property=&quot;og:description&quot; content=&quot;...&quot; /&gt;
+&lt;meta property=&quot;article:description&quot; content=&quot;...&quot; /&gt;
+&lt;meta name=&quot;twitter:description&quot; content=&quot;...&quot; /&gt;</code></pre><p>I looked up on <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta">MDN&#39;s page on <code>&lt;meta&gt;</code></a>
+what the different attributes mean, but <code>property</code> is not even listed there.
+<strong>It is important to use the right ones, otherwise it won&#39;t work</strong>.
+I had broken my linkedin previews (see <a href="https://github.com/wolframkriesing/site-stitcher/commit/a78e1c55c2efde44ad7a94bbbe204717123f7b02">the breaking commit</a>)
+because I tried to apply only what MDN states (and what
+I assume is standard). The <a href="https://github.com/wolframkriesing/site-stitcher/commit/485903ea77544e78f1287f066769debb3b1ffa64">fixing commit is here</a>.
+The reason seems to be RDF, as someone <a href="https://stackoverflow.com/a/22418095">stated on stackoverflow</a>.</p>
+<h2 is="more-h2" id="plausible-supports-utm-parameters">Plausible Supports UTM Parameters</h2>
+<p>At the same time I discovered that <a href="https://plausible.io">plausible.io</a> 
+the analytics tool on the site <a href="https://plausible.io/blog/utm-tracking-tags">supports UTM parameters</a>
+so I can better analyze which traffic source the readers came from.</p>
+<p>It seems though that linkedin cuts UTM parameters from the URL I pasted in there.
+Why?</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
