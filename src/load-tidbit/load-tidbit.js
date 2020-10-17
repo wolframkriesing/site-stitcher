@@ -33,9 +33,12 @@ const parseTidbitTokens = tokens => {
   const bodyTokens = trimSpaceTokenFromEnd(tokens.slice(3));
   const headlineToken = /** @type {marked.Tokens.Heading} */ (tokens[0]);
   const headlineText = headlineToken.text;
+  const abstractToken = /** @type {marked.Tokens.Paragraph} */ (abstractTokens[0]);
+  const abstractText = abstractToken.text;
   const data = {
     headline: headlineText,
     headlineAsHtml: renderHeadlineAsHtml(headlineToken),
+    abstract: abstractText,
     abstractAsHtml: renderAbstractAsHtml(abstractTokens),
     ...parseMetadata(tokens[1]),
     bodyAsHtml: tokensToHtml(bodyTokens),

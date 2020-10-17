@@ -5,6 +5,7 @@ type Tag = {
 }
 
 export type RawTidbit = {
+  abstract: string;
   abstractAsHtml: string;
   bodyAsHtml: string;
   headline: string;
@@ -23,6 +24,7 @@ export type TidbitMetadata = {
 }
 
 export class Tidbit {
+  abstract: RawTidbit['abstract'];
   abstractAsHtml: RawTidbit['abstractAsHtml'];
   bodyAsHtml: RawTidbit['bodyAsHtml'];
   dateCreated: TidbitMetadata['dateCreated'];

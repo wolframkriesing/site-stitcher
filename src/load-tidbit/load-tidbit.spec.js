@@ -39,7 +39,8 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
     it('THEN it has the slug = a-tidbit', () => {
       assertThat(load()[0].slug, 'a-custom-tidbit');
     });
-    it('THEN it has the abstractAsHtml = "One paragraph"', () => {
+    it('THEN it has the abstract[AsHtml] = "One paragraph"', () => {
+      assertThat(load()[0].abstract, 'One paragraph');
       assertThat(load()[0].abstractAsHtml, 'One paragraph');
     });
     it('THEN it has not tags', () => {
@@ -78,7 +79,11 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
       it('oldUrls', () => {
         assert.deepStrictEqual(load()[0].oldUrls, ['/blog/old/url/', '/blog/old/url1/']);
       });
-      it('abstract with a link-ref (not a direct link in the paragraph, but at the end of the section)', () => {
+      it('abstract[AsHtml] with a link-ref (not a direct link in the paragraph, but at the end of the section)', () => {
+        assertThat(load()[0].abstract,
+          'One paragraph\n' +
+          'with two lines and a [link][1].' // TODO wouldnt it be cool to get "link" instead of "[link][1]"?
+        );
         assertThat(load()[0].abstractAsHtml,
           'One paragraph\n' +
           'with two lines and a <a href="http://home.de">link</a>.'

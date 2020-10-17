@@ -8,6 +8,7 @@ import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPages} from './rende
 const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth: []}, toReadableDate: () => ''};
 
 const defaultRawTidbitData = {
+  abstract: '',
   abstractAsHtml: '',
   bodyAsHtml: '',
   hasAbstractOnly: false,

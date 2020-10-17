@@ -5,6 +5,7 @@ const slug = s => new marked.Slugger().slug(s);
 export class Tidbit {
   static withRawData(raw) {
     const tidbit = new Tidbit();
+    tidbit.abstract = raw.abstract;
     tidbit.abstractAsHtml = raw.abstractAsHtml;
     tidbit.bodyAsHtml = raw.bodyAsHtml;
     tidbit.dateCreated = raw.dateCreated;
