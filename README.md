@@ -36,6 +36,7 @@ on [picostitch.com](https://picostitch.com).
 - `npm run serve` to serve the site at http://localhost:5000
 
 - `npm run dev:test` to run the tests in watch mode, makes the feedback loop fast
-- `npm run dev:typecheck`
+- `npm run dev:test --silent` the `--silent` removes the noisy npm error output
+- `npm run dev:typecheck` continuous typechecking
 - `npm run dev:start` continuously updates the served files, just reload the browser, useful when developing 
   the templates etc.
