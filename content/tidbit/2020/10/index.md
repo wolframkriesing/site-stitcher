@@ -1,7 +1,8 @@
 # Make Blog Content Previews work on all Social Media
 slug: make-blog-content-previews-work-on-all-social-media  
 dateCreated: 2020-10-17 14:37 CET  
-tags: social media, HTML, meta tags, links, SEO  
+tags: social media, HTML, meta tags, links, SEO
+previewImage: ../preview-meta-tags.gif  
 
 On a friend's linkedin profile I saw some links to his content and since linkedin
 picks up in traffic and professional relevance, I thought

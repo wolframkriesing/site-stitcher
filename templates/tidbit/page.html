@@ -11,6 +11,20 @@
   <meta property="og:description" content="{{tidbit.abstract}}" />
   <meta property="article:description" content="{{tidbit.abstract}}" />
   <meta name="twitter:description" content="{{tidbit.abstract}}" />
+
+  {% if (tidbit.previewImageUrl) { %}
+    <meta property="og:image" content="https://picostitch.com{{tidbit.previewImageUrl}}" />
+    <meta property="og:image:url" content="https://picostitch.com{{tidbit.previewImageUrl}}" />
+    <meta name="twitter:image" content="https://picostitch.com{{tidbit.previewImageUrl}}" />
+  {% } %}
+{[ endblock ]}
+
+{[ block metaTwitterCard ]}
+  {% if (tidbit.previewImageUrl) { %}
+    <meta name="twitter:card" content="summary_large_image">
+  {% } else { %}
+    {[ parent metaTwitterCard ]}
+  {% } %}
 {[ endblock ]}
 
 {[ block breadcrumb ]}

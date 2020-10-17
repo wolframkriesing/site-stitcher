@@ -18,14 +18,16 @@ export class Tidbit {
     tidbit._tagValues = raw.tags;
     return tidbit;
   }
+  get _urlDatePart() {
+    return this.dateCreated.split('-').slice(0, 2).join('/');
+  }
   get url() {
-    const datePart = this.dateCreated.split('-').slice(0, 2).join('/');
-    return '/tidbits/' + datePart + '/' + this.slug + '/';
+    return '/tidbits/' + this._urlDatePart + '/' + this.slug + '/';
   }
   get tags() {
     return this._tagValues.map(t => ({value: t, slug: slug(t)}));
   }
   get previewImageUrl() {
-    return this.url + this.previewImage.replace(/^.\.\//, '');
+    return '/tidbits/' + this._urlDatePart + this.previewImage.replace(/^.\./, '');
   }
 }

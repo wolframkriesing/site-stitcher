@@ -1,7 +1,7 @@
 import {describe, it} from 'pico-tester';
-import {assertThat, containsString, matchesPattern, hasItem} from 'hamjest';
+import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
-import {renderAndWriteTidbitsIndexPage, renderAndWriteTidbitPages} from './render-page.js';
+import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-page.js';
 
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
@@ -166,11 +166,23 @@ describe('Render tidbits pages', () => {
             containsString('<meta name="twitter:description" content="abstract used as description" />'));
         });
         describe('WHEN there is a preview image', () => {
-          it('preview image', () => {
-
+          const renderWithPreviewImage = () => {
+            const tidbits = [createTidbit({previewImage: '../preview.jpg', slug: 'slug'})];
+            return renderTidbitPage(tidbits);
+          };
+          it('THEN render the meta tags', async () => {
+            const writtenToFile = await renderWithPreviewImage();
+            assertThat(writtenToFile,
+              containsString('<meta property="og:image" content="https://picostitch.com/tidbits/2000/01/preview.jpg" />'));
+            assertThat(writtenToFile,
+              containsString('<meta property="og:image:url" content="https://picostitch.com/tidbits/2000/01/preview.jpg" />'));
+            assertThat(writtenToFile,
+              containsString('<meta name="twitter:image" content="https://picostitch.com/tidbits/2000/01/preview.jpg" />'));
           });
-          it('THEN render according twitter-card', () => {
-            // <meta name="twitter:card" content="summary_large_image">
+          it('THEN render according twitter-card', async () => {
+            const writtenToFile = await renderWithPreviewImage();
+            assertThat(writtenToFile,
+              containsString('<meta name="twitter:card" content="summary_large_image">'));
           });
         });
       });

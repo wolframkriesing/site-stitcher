@@ -92,7 +92,7 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
         );
       });
       it('previewImage AND provide previewImageUrl prop', () => {
-        assert.strictEqual(load()[0].previewImageUrl, '/tidbits/2111/11/extended-tidbit/image.jpg');
+        assert.strictEqual(load()[0].previewImageUrl, '/tidbits/2111/11/image.jpg');
       });
     });
     it('THEN get the content as rendered, via `bodyAsHtml`', () => {
