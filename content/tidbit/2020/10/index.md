@@ -1,5 +1,5 @@
-# Make Blog Content Previews work for all Social Media
-slug: make-blog-content-previews-work-for-all-social-media
+# Make Blog Content Previews work on all Social Media
+slug: make-blog-content-previews-work-on-all-social-media
 dateCreated: 2020-10-17 14:37 CET
 tags: social media, HTML, meta tags, links, SEO
 
