@@ -5,7 +5,12 @@
 {[ block pageTitlePrefix ]}{{tidbit.headline}}{[ endblock ]}
 
 {[ block head ]}
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+
+  <meta property="og:description" content="{{tidbit.abstract}}" />
+  <meta property="article:description" content="{{tidbit.abstract}}" />
+  <meta name="twitter:description" content="{{tidbit.abstract}}" />
 {[ endblock ]}
 
 {[ block breadcrumb ]}

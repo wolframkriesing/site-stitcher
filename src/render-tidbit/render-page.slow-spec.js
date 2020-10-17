@@ -150,6 +150,29 @@ describe('Render tidbits pages', () => {
         assertThat(writtenToFilenames, hasItem('/tidbits/2003/03/tidbit-3/index.html'));
         assertThat(writtenToFilenames, hasItem('/tidbits/2004/04/tidbit-4/index.html'));
       });
+      describe('AND render the <meta> tags', () => {
+        it('tags', () => {
+
+        });
+        it('description (og:description, article:description and twitter:description)', async () => {
+          const tidbits = [createTidbit({abstract: 'abstract used as description'})];
+          const writtenToFile = await renderTidbitPage(tidbits);
+          assertThat(writtenToFile,
+            containsString('<meta property="og:description" content="abstract used as description" />'));
+          assertThat(writtenToFile,
+            containsString('<meta property="article:description" content="abstract used as description" />'));
+          assertThat(writtenToFile,
+            containsString('<meta name="twitter:description" content="abstract used as description" />'));
+        });
+        describe('WHEN there is a preview image', () => {
+          it('preview image', () => {
+
+          });
+          it('THEN render according twitter-card', () => {
+            // <meta name="twitter:card" content="summary_large_image">
+          });
+        });
+      });
     });
   });
 });
