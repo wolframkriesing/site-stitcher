@@ -9,6 +9,10 @@
   <meta name="description" content="picostitch - crafting (and) JavaScript">
 
   
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
   <meta name="twitter:site" content="@wolframkriesing" />
   <meta name="twitter:title" content="ECMAScript Module Support in nodejs" />
 
@@ -22,7 +26,72 @@
   <link rel="canonical" href="https://picostitch.com/tidbits/2020/07/ecma-script-module-support-in-nodejs/">
   <title>ECMAScript Module Support in nodejs | picostitch - crafting (and) JavaScript</title>
   
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+
+  <meta property="og:description" content="While working on 
+[pico-tester](https://codeberg.org/wolframkriesing/pico-tester) 
+I realized I am not as knowledgable in nodejs' support
+for ECMAScript Modules (esm).  
+**I think it's very simple in the browser.**
+There is 
+[`&lt;script type=module&gt;`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type) 
+which understands `import` and there is 
+[`&lt;script nomodule&gt;`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Module_fallback)
+which nicely gradually falls back to before ESM times. **But what about nodejs?**
+There is a `package.json` with properties such as 
+[`main: &lt;filename&gt;`, `exports: {}`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_entry_points) 
+[`type: module`, `type: commonjs`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_json_type_field), 
+and any combination of them. For a long time I am using 
+[the package `esm`](https://www.npmjs.com/package/esm) 
+to allow me to use ESM on nodejs, but when publishing a package such as
+pico-tester, I must be compatible with as many ways as possible, in which nodejs can be used.
+So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
+so it can be used there. I might update this over time with more learnings." />
+  <meta property="article:description" content="While working on 
+[pico-tester](https://codeberg.org/wolframkriesing/pico-tester) 
+I realized I am not as knowledgable in nodejs' support
+for ECMAScript Modules (esm).  
+**I think it's very simple in the browser.**
+There is 
+[`&lt;script type=module&gt;`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type) 
+which understands `import` and there is 
+[`&lt;script nomodule&gt;`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Module_fallback)
+which nicely gradually falls back to before ESM times. **But what about nodejs?**
+There is a `package.json` with properties such as 
+[`main: &lt;filename&gt;`, `exports: {}`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_entry_points) 
+[`type: module`, `type: commonjs`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_json_type_field), 
+and any combination of them. For a long time I am using 
+[the package `esm`](https://www.npmjs.com/package/esm) 
+to allow me to use ESM on nodejs, but when publishing a package such as
+pico-tester, I must be compatible with as many ways as possible, in which nodejs can be used.
+So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
+so it can be used there. I might update this over time with more learnings." />
+  <meta name="twitter:description" content="While working on 
+[pico-tester](https://codeberg.org/wolframkriesing/pico-tester) 
+I realized I am not as knowledgable in nodejs' support
+for ECMAScript Modules (esm).  
+**I think it's very simple in the browser.**
+There is 
+[`&lt;script type=module&gt;`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#attr-type) 
+which understands `import` and there is 
+[`&lt;script nomodule&gt;`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/script#Module_fallback)
+which nicely gradually falls back to before ESM times. **But what about nodejs?**
+There is a `package.json` with properties such as 
+[`main: &lt;filename&gt;`, `exports: {}`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_entry_points) 
+[`type: module`, `type: commonjs`](https://nodejs.org/dist/latest-v14.x/docs/api/esm.html#esm_package_json_type_field), 
+and any combination of them. For a long time I am using 
+[the package `esm`](https://www.npmjs.com/package/esm) 
+to allow me to use ESM on nodejs, but when publishing a package such as
+pico-tester, I must be compatible with as many ways as possible, in which nodejs can be used.
+So first there is terminology to get right (esm, cjs, ...) and than provide the right type of package or packaging
+so it can be used there. I might update this over time with more learnings." />
+
+  
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/07" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/07" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/07" />
+  
 
 </head>
 <body class="page-tidbit">
