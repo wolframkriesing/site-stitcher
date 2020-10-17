@@ -8,19 +8,19 @@ export type RawTidbit = {
   abstract: string;
   abstractAsHtml: string;
   bodyAsHtml: string;
+  dateCreated: DateTimeString;
   headline: string;
   hasAbstractOnly: boolean;
   headlineAsHtml: string;
-  dateCreated: DateTimeString;
-  tags: string[];
   slug: string;
+  tags: string[];
 };
 
 export type TidbitMetadata = {
   dateCreated: DateTimeString;
-  tags: string[];
   oldUrls: RelativeUrl[];
   slug: string;
+  tags: string[];
 }
 
 export class Tidbit {
@@ -32,11 +32,10 @@ export class Tidbit {
   headline: RawTidbit['headline'];
   headlineAsHtml: RawTidbit['headlineAsHtml'];
   oldUrls: TidbitMetadata['oldUrls'];
-  sourceFilename: Filename;
   slug: TidbitMetadata['slug'];
+  sourceFilename: Filename;
   tags: Tag[];
   url: RelativeUrl;
-
 
   static withRawData(raw: RawTidbit): Tidbit;
 }
