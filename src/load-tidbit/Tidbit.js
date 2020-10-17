@@ -13,6 +13,7 @@ export class Tidbit {
     tidbit.headline = raw.headline;
     tidbit.headlineAsHtml = raw.headlineAsHtml;
     tidbit.oldUrls = raw.oldUrls;
+    tidbit.previewImage = raw.previewImage;
     tidbit.slug = raw.slug;
     tidbit._tagValues = raw.tags;
     return tidbit;
@@ -23,5 +24,8 @@ export class Tidbit {
   }
   get tags() {
     return this._tagValues.map(t => ({value: t, slug: slug(t)}));
+  }
+  get previewImageUrl() {
+    return this.url + this.previewImage.replace(/^.\.\//, '');
   }
 }

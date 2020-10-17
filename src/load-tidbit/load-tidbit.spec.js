@@ -58,8 +58,10 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
       const fileContent = [
         '# A Bigger Tidbit', '',
         'dateCreated: 2111-11-11 11:11 CET  ',
+        'slug: extended-tidbit  ',
         'tags: nodejs, JAVA script, etc  ',
         'oldUrls: /blog/old/url/ /blog/old/url1/  ',
+        'previewImage: ../image.jpg',
         '',
         'One paragraph',
         'with two lines and a [link][1].',
@@ -88,6 +90,9 @@ describe('Load one tidbit markdown and provide a Tidbit instance', () => {
           'One paragraph\n' +
           'with two lines and a <a href="http://home.de">link</a>.'
         );
+      });
+      it('previewImage AND provide previewImageUrl prop', () => {
+        assert.strictEqual(load()[0].previewImageUrl, '/tidbits/2111/11/extended-tidbit/image.jpg');
       });
     });
     it('THEN get the content as rendered, via `bodyAsHtml`', () => {

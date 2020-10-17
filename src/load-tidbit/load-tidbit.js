@@ -15,6 +15,7 @@ const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
   {key: 'tags', type: 'array', separator: ','},
   {key: 'oldUrls', type: 'array', separator: ' '},
+  {key: 'previewImage', type: 'string'},
   {key: 'slug', type: 'string'},
 ];
 /**

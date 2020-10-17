@@ -14,6 +14,7 @@ const defaultRawTidbitData = {
   hasAbstractOnly: false,
   headline: '',
   headlineAsHtml: '',
+  previewImage: '',
   tags: [''],
   dateCreated: '2000-01-01 10:00 CET',
   slug: '',

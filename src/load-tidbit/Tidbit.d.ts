@@ -12,6 +12,7 @@ export type RawTidbit = {
   headline: string;
   hasAbstractOnly: boolean;
   headlineAsHtml: string;
+  previewImage: string;
   slug: string;
   tags: string[];
 };
@@ -19,6 +20,7 @@ export type RawTidbit = {
 export type TidbitMetadata = {
   dateCreated: DateTimeString;
   oldUrls: RelativeUrl[];
+  previewImage: string;
   slug: string;
   tags: string[];
 }
@@ -32,6 +34,7 @@ export class Tidbit {
   headline: RawTidbit['headline'];
   headlineAsHtml: RawTidbit['headlineAsHtml'];
   oldUrls: TidbitMetadata['oldUrls'];
+  previewImageUrl: string;
   slug: TidbitMetadata['slug'];
   sourceFilename: Filename;
   tags: Tag[];
