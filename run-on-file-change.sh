@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -o errexit  # fail on simple (non-piped) error
+if [ -z "${TURN_OFF_ERREXIT}" ]; then
+  set -o errexit  # fail on simple (non-piped) error
+fi
 set -o pipefail # also fail on piped commands (e.g. cat myfile.txt | grep timo)
 set -o nounset  # fail when accessing unset vars
 
@@ -9,5 +11,5 @@ set -o nounset  # fail when accessing unset vars
 inotifywait --event modify,create,delete --monitor --recursive src content templates |
 while read -r directory event filename src; do
   echo "Watcher saw event '${event}' for file 'src/*,**/${filename}', building again...";
-  npm run build:sites --silent
+  "$@"
 done
