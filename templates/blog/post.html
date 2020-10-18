@@ -1,7 +1,7 @@
 @extends(templates/_focus.html)
 
 {[ block pagename ]}post{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com{{post.url}}{[ endblock ]}
+{[ block canonicalUrl ]}{{ post.canonicalUrl ? post.canonicalUrl : `https://picostitch.com${post.url}` }}{[ endblock ]}
 {[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
 
 {[ block head ]}
