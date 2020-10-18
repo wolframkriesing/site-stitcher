@@ -18,7 +18,7 @@
 
   <meta property="og:title" content="Don't promisify `fs.exists`">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://picostitch.com/blog/2015/11/10-dont-promisify-fs-exists/">
+  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/blog/2015/11/10-dont-promisify-fs-exists/">
   <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
@@ -117,6 +117,8 @@ See it in action [here in the cosmowiki]." />
         
       </div>
     </header>
+
+    
 
     <p>Don&#39;t promisify <code>fs.exists</code> since this does not play by the rules of node style callback params,
 where the first one should be err and then data. It seems this does return only the data, which

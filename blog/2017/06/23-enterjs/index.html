@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="EnterJS, ES6, ES8 and Typing with Flow" />
+
+  <meta property="og:title" content="EnterJS, ES6, ES8 and Typing with Flow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.comhttps://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">
+  <title>EnterJS, ES6, ES8 and Typing with Flow | picostitch - crafting (and) JavaScript</title>
+  
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+  
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="types" />
+    <meta property="article:tag" content="ECMAScript6" />
+    <meta property="article:tag" content="flowtype" />
+
+  <meta property="og:description" content="Back on the road. Three days of EnterJS are just over and 
+I am already on the [next trip][hcss17-trip-tweet], this time with HolidayCheck.
+So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
+to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checker flow." />
+  <meta property="article:description" content="Back on the road. Three days of EnterJS are just over and 
+I am already on the [next trip][hcss17-trip-tweet], this time with HolidayCheck.
+So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
+to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checker flow." />
+  <meta name="twitter:description" content="Back on the road. Three days of EnterJS are just over and 
+I am already on the [next trip][hcss17-trip-tweet], this time with HolidayCheck.
+So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
+to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checker flow." />
+
+  
+    <meta property="og:image" content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
+  
+
+</head>
+<body class="page-post">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2017/06/">June 2017</a> &raquo;
+  EnterJS, ES6, ES8 and Typing with Flow
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+  <article class="">
+    <header>
+      <h1 id="enterjs" is="more-h1">
+        EnterJS, ES6, ES8 and Typing with Flow
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - June 23, 2017
+        
+          - tagged with: #JavaScript #types #ECMAScript6 #flowtype
+        
+      </div>
+    </header>
+
+    
+      <p>
+        <a href="https://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">Originally posted on the HolidayCheck Tech Blog</a>
+      </p>
+    
+
+    <p>Back on the road. Three days of EnterJS are just over and 
+I am already on the <a href="https://twitter.com/wolframkriesing/status/878137941880713217">next trip</a>, this time with HolidayCheck.
+So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
+to give a workshop on ES6 (and ES8) and <a href="https://www.enterjs.de/abstracts#flowtype-strikte-java-script-typisierung-in-beliebiger-dosis">a talk</a> on the static type checker flow.</p>
+<h2 is="more-h2" id="es6-and-beyond-workshop">ES6 and beyond workshop</h2>
+<p>Actually we held a <a href="http://coderetreat.org/">CodeRetreat</a> but that seems not to sell so good to the EnterJS audience, so it was called workshop.
+We? I had the luck to do this workshop with <a href="https://twitter.com/marcoemrich">Marco Emrich</a>, who has some experience doing CodeRetreats. I was especially happy
+that he knew how to do retrospectives well, it&#39;s just not my area of expertise.</p>
+<p>Our CodeRetreat style required us to set the stage first, which means
+we do pair programming, TDD, we throw away the code at the end of every session and we do the <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Game of Life</a> all
+day long. We used the first session for getting this across. I had the feeling that many people had been surprised
+to get a strong dose of pair-programming and especially TDD surprised many. But in the end we got lots of positive feedback.
+We even heard stuff like &quot;this ping pong is pretty cool&quot;. We did <a href="http://coderetreat.org/facilitating/activities/ping-pong">pairing in ping pong style</a>
+right the first session.
+And as usual the audience was very diverse, there had been people using <a href="https://promisesaplus.com/">Promises</a> right away in the first session, 
+&quot;because in JavaScript we program asynchronous all the time&quot;, others didn&#39;t do JS for a long time yet.
+In session #2 we explained the arrow functions and didn&#39;t allow any kind of loops. Instead we gave
+a short introduction on how to use the Array functions such as <code>map</code>, <code>filter</code>, <code>reduce</code> and so on.</p>
+<p>After lunch, in session #3, we started right away with classes. We did <a href="http://wiki.c2.com/?PrimitiveObsession">&quot;No Primitives&quot;</a>
+where the attendees were not allowed to return or pass primitives to any method, except for the constructor.
+This forced people into using classes. Which perfectly set the stage for session #4, where we simply said,
+that all methods on their classes are async now. We quickly explained Promises and told people that 
+all the methods must return Promises now. For us it was easy to just go around and look over people&#39;s
+shoulders and if there was a test where the assertion expected a primitive we just had to point the
+finger to it and got the &quot;oh, no primitives, right?&quot;. That session was fun. But now it got even more interesting!</p>
+<p>We had the pleasure of having <a href="https://twitter.com/bterlson">Brian Terlson</a> around, after lunch. 
+He authored the <a href="https://github.com/tc39/ecmascript-asyncawait">async functions part of the ECMAScript specification</a>. And since our next session
+was replacing the Promises with async+await, I could not have imagined having a better expert around.
+Brian paired with one of the workshop attendees and guess what, they found something peculiar. The <code>async</code>
+keyword seems not to be allowed on getters and setters. And Brian took notes to find out what was the reason for it. 
+The last info I heard was, that it was not allowed to keep consistency. Because a setter does never return 
+anything, so it was simpler and easier to comprehend both just don&#39;t do <code>async</code>.</p>
+<h2 is="more-h2" id="typing-javascript-with-flow-talk">&quot;Typing JavaScript with Flow&quot; talk</h2>
+<p>The workshop shipped successfully, I guess. 
+Now it was time to get all preparations done for my upcoming 
+talk about <a href="https://flow.org/">flowtype or flow</a>. I had all the puzzle pieces done. I had slides and I had code. 
+I wanted to do quite some live coding, to give the audience the feeling of what it feels like to use flow.</p>
+<img src="./lets-make-holidays.jpg" alt="talk teaser" width="300" style="float: left; margin: 1rem;" />
+
+<p>I hate to use artificial coding example. I was thinking a bit about what to do.
+I also always like to use examples that have to do with the domain I am working in currently.
+So I chose one from HolidayCheck.
+We offer holidays, that sells great to everyone, I guess.
+And since I worked a little bit on a feature called <a href="http://holidaycheck.de/vorlieben">passion search</a> lately I knew what my coding example 
+will be about. I just needed a union type. The search tries to find destinations, 
+which can be hotels, cities or regions. And here we go, we got a union type <code>Destination</code>.</p>
+<p>Afterwards I realized that the coding example I prepared can perfectly be used as a kata.
+But let&#39;s not start from the end :).
+I had the last slot of the day, I started at 17:25. Which was perfect, it gave me time to 
+practice and also do <a href="https://twitter.com/wolframkriesing/status/877481691018911744">some teasing</a> and <a href="https://twitter.com/wolframkriesing/status/877529674607407107">advertising for my talk</a>:</p>
+<blockquote class="twitter-tweet">
+    <p lang="en" dir="ltr">
+        20min, 13 commits, to get a untyped piece of JS to make use of types and provides exhaustiveness checks
+        <a href="https://twitter.com/hashtag/enterjs?src=hash&amp;ref_src=twsrc%5Etfw">#enterjs</a> … cu at 17:25 Spektrum B 
+        <a href="https://t.co/GdCZCym78S">pic.twitter.com/GdCZCym78S</a>
+    </p>&mdash; @wolframkriesing 
+    <a href="https://twitter.com/wolframkriesing/status/877529674607407107?ref_src=twsrc%5Etfw">June 21, 2017</a>
+</blockquote>
+
+<p><a href="https://twitter.com/wolframkriesing/status/877529674607407107">I tweeted 1h before my talk</a>.</p>
+<p>The thing I was most excited about is actually just a tiny part which comes at the end of my live coding,
+it&#39;s the <a href="http://www.adamsolove.com/js/flow/type/2016/04/15/flow-exhaustiveness.html">exhaustiveness check</a> that is possible with flow. Explained in short: exhaustiveness checks verify that all possible
+cases that a certain type can have are handled in the source code. That is why I actually turned in this talk.
+I had experienced this power in another project where I intensly used flow and at one point when I extended
+one type (it was a union type) flow warned me all the time to implement x and y and so on. And once all flow
+errors had been gone the code handled this new type wherever it needs to be handled. Getting this for JS
+seemed like enlightenment to me. So I turned in a talk about flow. And got accepted at enterjs :).</p>
+<h2 is="more-h2" id="what-got-typed---the-kata">What got typed? - The Kata</h2>
+<p>As explained above, the use case for the live coding comes from the search area in HolidayCheck.
+So I wrote some code that implements a simplified search. The search can find three different 
+types of results and shows them all in the autosuggest box, just like it happens on the
+real HolidayCheck site.</p>
+<p><img src="./autosuggest.jpg" alt="autosuggest"></p>
+<p>The search can search for a different set of attributes in every type. If one searches for &quot;Valencia&quot;,
+as shown in the image above, the results yield a city, region and a hotel.
+The string &quot;Valencia&quot; might appear in the attribute <code>name</code> of each of them. The hotel also has an attribute <code>city</code>
+which might match the search term too. So the search needs to be implemented differently for every
+type that can be found. This is the use case!</p>
+<p>The untyped JS code looks like this:</p>
+<pre><code class="undefinedjavascript">const searchDestinationsByWord = (destinations, word) =&gt; {
+  const findPassion = passions =&gt; 
+    passions &amp;&amp; passions.some(passion =&gt; findString(passion, word));
+  return destinations.filter(destination =&gt;
+    destination.city &amp;&amp; findString(destination.city, word) ||
+    findString(destination.name, word) ||
+    findPassion(destination.passions))
+  ;
+};</code></pre>
+<p>Nice small functions. But still it&#39;s not clear and well understandable what is searched 
+where and why. The process of adding types and listening a little bit to what flow
+tells us and adjusting the code accordingly carved out code that looks like this</p>
+<pre><code class="undefinedjavascript">const findOne = word =&gt; destination =&gt; {
+  if (destination.type === &#39;hotel&#39;) return findHotel(destination, word);
+  if (destination.type === &#39;city&#39;) return findCity(destination, word);
+  if (destination.type === &#39;region&#39;) return findRegion(destination, word);
+};</code></pre>
+<p>Actually flow pushed me really hard to get to some good looking code like this.
+The only thing I did, was adding the three types <code>HotelType</code>, <code>RegionType</code> and <code>CityType</code>.
+It took me a couple of tries to get the increments as small as I like to have 
+them in order to create useful commits, that one can learn from and understand 
+what is going on. If you are interested in the progress feel free to read the 
+commits in <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/tree/add-typing-incl-exhaustiveness-%233">this branch</a>.</p>
+<p>You want to try this and maybe practice this as a kata with your team?
+Feel free to find some minimal <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017#getting-started-as-a-kata">instructions in the README of the repo on gitlab</a>.</p>
+<h2 is="more-h2" id="types-dont-make-tests-obsolete">Types don&#39;t make Tests obsolete!</h2>
+<p>One learning besides a lot of in depth flow knowledge and exhaustiveness checks was
+that I learned that types DO NOT make tests obsolete.</p>
+<p>The tests I had written for this task had focused on the use case, some might call them
+acceptance tests, I don&#39;t care about the name now. Adding the types on top of the 
+non-typed JS solution didn&#39;t have any impact on my tests. I have to say, I refactored
+the tests already quite a bit upfront. But that was basically in order for the audience
+to easier match the tests to the use case. Which is always a good thing, anyways.
+The types basically just had impact on the code where those three types were
+either built or where they were consumed. The <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/blob/master/src/builders.js">builder.js</a> file contains all the construction
+and the <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/blob/master/src/search.js">search.js</a> contains all the consumer logic.</p>
+<h2 is="more-h2" id="cleaner-code-by-applying-flow">Cleaner Code by applying flow</h2>
+<p>And those two know about the different types. So those two files got pushed to
+change by applying types. The <code>builder.js</code> which uses the builder pattern was pushed to use <a href="https://flow.org/en/docs/types/generics/">generic type annotations</a>
+and the <code>search.js</code> was pushed to handle the cases for each type separatly.
+And not use ugly <code>obj.property &amp;&amp; &lt;do something&gt;</code> checks, that are very common in JS.</p>
+<p>Another learning was that it is now easy to remove nullables. In <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/commit/5d730cbc56b0bc3df13d072b597a772699238fd7">this commit</a>
+I first had to add a null check, which later, by <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/commit/4ee599f8ba3b4557c26d6629da3e2cd1c147c0ab">making the type not-nullable</a> I removed again.</p>
+<p>Adding types makes you think of things that feel artificial to think of when doing pure 
+JavaScript. If you come from a typed environment you might be thinking like that more
+often already, but in the JS world I don&#39;t see this a lot. The pleasures and shortcut the
+language offer are often thankfully used without thinking deeper of consequences.</p>
+<p>.oO(Writing this here, I see that I should restructure my talk to carve out those learnings a bit more.)</p>
+<h2 is="more-h2" id="conclusion">Conclusion</h2>
+<p>After all: this year&#39;s EnterJS was a great learning experience for me again. This year it pushed
+me deeper into the typing space, which I am thankful for.
+Especially <a href="https://twitter.com/vkurchatkin">Vladimir Kurchatkin</a> and <a href="http://www.adamsolove.com/js/flow/type/2016/04/15/flow-exhaustiveness.html">Adam Solove&#39;s</a> help really pushed
+me further than I had thought, thanks! Thanks also <a href="https://twitter.com/tpflug">Tobias</a> for passing me the link to Adam&#39;s article.</p>
+<p>Maybe see you next year at EnterJS, or <a href="https://twitter.com/wolframkriesing/status/877826511859990528">maybe the Clean Code Days</a>.</p>
+
+
+    
+    
+  </article>
+
+    </div>
+    <aside class="right">
+      
+  
+
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
