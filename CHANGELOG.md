@@ -1,4 +1,5 @@
 # v2
+- [ ] rename tidbits/post.html to something more meaningful
 - [x] show tidbits+posts on home page
   - [x] intro home.css file, where the two col layout is defined
   - [x] create a _nav.css, which is included on the page as needed, e.g. the home.css
