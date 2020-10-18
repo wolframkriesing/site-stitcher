@@ -65,6 +65,12 @@
       </div>
     </header>
 
+    {% if (post.canonicalHint) { %}
+      <p>
+        <a href="{{post.canonicalUrl}}">{{post.canonicalHint}}</a>
+      </p>
+    {% } %}
+
     {!post.bodyAsHtml!}
 
     {% if (post.youtubeId) { %}

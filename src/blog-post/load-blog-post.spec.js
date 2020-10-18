@@ -135,6 +135,12 @@ describe('Load a blog post, with all data ready to render', () => {
         });
         assertThat(post, hasProperties({canonicalUrl: 'http://some.other.site/1',}));
       });
+      it('WHEN it has `canonicalHint` THEN provide it', async () => {
+        const post = await loadPost({
+          fileContent: 'canonicalHint: This post is from somewhere  \n\n# H1',
+        });
+        assertThat(post, hasProperties({canonicalHint: 'This post is from somewhere',}));
+      });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
       const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';
