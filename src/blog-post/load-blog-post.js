@@ -21,6 +21,7 @@ const findHeadlineAndAbstract = (tokens) => {
 }
 
 const metadataParseConfigs = [
+  {key: 'canonicalUrl', type: 'string'},
   {key: 'dateCreated', type: 'string'},
   {key: 'isDraft', type: 'boolean'},
   {key: 'oldUrls', type: 'array', separator: ' '},

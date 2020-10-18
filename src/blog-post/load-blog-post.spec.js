@@ -129,6 +129,12 @@ describe('Load a blog post, with all data ready to render', () => {
         });
         assertThat(post, hasProperties({previewImageUrl: '/blog/2020/12/21-post/road.jpg',}));
       });
+      it('WHEN it has `canonicalUrl` THEN provide it', async () => {
+        const post = await loadPost({
+          fileContent: 'canonicalUrl: http://some.other.site/1  \n\n# H1',
+        });
+        assertThat(post, hasProperties({canonicalUrl: 'http://some.other.site/1',}));
+      });
     });
     it('THEN provide `bodyAsHtml` without metadata and headline, etc.', async () => {
       const fileContent = 'tags: none\ndateCreated: 2000-01-01 10:00\n\n# headline\nfirst paragraph';

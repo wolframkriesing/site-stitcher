@@ -12,6 +12,7 @@
     "target": "ESNext"
   },
   "include": ["src/typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared", "src/_deps",
+    "src/blog-post/BlogPost.d.ts",
     "src/load-tidbit/Tidbit.d.ts",
     "src/load-tidbit/TidbitSourceFile.d.ts",
     "src/load-tidbit/load-tidbit.spec.js",
