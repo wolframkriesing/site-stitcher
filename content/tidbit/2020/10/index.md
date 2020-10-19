@@ -1,3 +1,14 @@
+# China an Overview
+slug: china-an-overview
+dateCreated: 2020-10-19 12:20 CET
+tags: world, countries, China
+
+A very interesting 13 minutes video on arte 
+["China: One Country, Many Facets"](https://www.arte.tv/en/videos/091146-022-A/china-one-country-many-facets/)
+gave me a good, quick overview of China's history and where it is heading.
+This video also connects the dots and puts some of the current events into
+perspective.
+
 # Make Blog Content Previews work on all Social Media
 slug: make-blog-content-previews-work-on-all-social-media  
 dateCreated: 2020-10-17 14:37 CET  
