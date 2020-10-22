@@ -1,3 +1,21 @@
+# Start the Right Android Emulator
+slug: start-the-right-android-emulator
+dateCreated: 2020-10-22 11:08 CET
+tags: tools, mobile development, android
+
+I was just struggling to find out how to start a different emulated Android device from the command line.
+I found the relevant commands:
+```
+$ # List all available emulated devices:
+$ emulator -list-avds
+Android_8
+Pixel_2_API_29
+Pixel_2_API_30
+
+$ # Start one of them, pass the according name like so:
+$ emulator -avd Pixel_2_API_29
+```
+
 # China an Overview
 slug: china-an-overview
 dateCreated: 2020-10-19 12:20 CET
