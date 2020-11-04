@@ -17,6 +17,7 @@ Here is my list of git commands. As usual I created this collection so I know wh
 | `git push -u origin feature` | Push a NEW branch to origin |
 | `git push origin` | Push updates for a branch that is already at origin |
 | `git branch -d <branch name>` | Delete a local branch |
+| `git branch -m <old-name> <new-name>` | Rename a local branch |
 
 ## Commit
 | Command | What it does |
