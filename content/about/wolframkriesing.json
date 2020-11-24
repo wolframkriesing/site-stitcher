@@ -1,6 +1,20 @@
 {
   "jobs": [
     {
+      "id": "job-sono",
+      "name": "Sono Motors",
+      "url": "sonomotors.com",
+      "companyDescription": "Building a solar cells powered electric vehicle, driven by a vision for sustainability across the board.",
+      "jobDescription": "We need to get the next prototype of the car with the built-in app to car/ride/power-share (with) it done, I am focusing purely on building the app.",
+      "technologiesUsed": "JavaScript, React Native, mobile development",
+      "nonTechSkills": "automotive",
+      "positions": ["Senior Developer"],
+      "start": "September 2020",
+      "end": "current",
+      "monthsAtJob": 3,
+      "isMostRelevant": true
+    },
+    {
       "id": "job-hc",
       "name": "HolidayCheck",
       "url": "holidaycheck.de",
@@ -10,7 +24,7 @@
       "nonTechSkills": "OKRs, Interviewing, Hiring, Mentoring, Product Owner, Architect, ...",
       "positions": ["Senior Principal Engineering"],
       "start": "May 2017",
-      "end": "current",
+      "end": "August 2020",
       "monthsAtJob": 37,
       "isMostRelevant": true
     },
