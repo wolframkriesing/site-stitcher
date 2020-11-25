@@ -1,3 +1,35 @@
+# adb learnings
+slug: adb-learnings
+dateCreated: 2020-11-25 23:26 CET
+tags: 
+
+I want to use my real android device to preview stuff, not the emulator anymore.
+If I don't get the CPU power I need, I need to work around it.
+
+So I plugged in my real device, ran `adb devices` and that's where I got stuck (the last 2h)
+
+```
+$ adb devices 
+List of devices attached
+ABCDEF1234	no permissions (user in plugdev group; are your udev rules wrong?); see [http://developer.android.com/tools/device.html]
+```
+
+The most in depth explanation of how to get a handle on the problem is this article here http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/
+it didn't help me to solve the problem, but I believe I learned a lot and I have one more puzzle piece about the android world.
+
+## udev
+While at it, I also learned that there is something like `udev` which is the device manager for the linux kernel.
+This site explains it quite well https://www.thegeekdiary.com/beginners-guide-to-udev-in-linux/.
+And my plugged in android phone is a device, right?
+
+## Do it on the host system
+I have a docker container with the android-studio running inside, which mounts the USB devices in there.
+I first tried it inside the docker container, until I realized this is not so clever and actually also does not work.
+So I did the udev magic, as described in [the article linked above][1], created the file, set the right permissions
+and voila `adb devices` does NOT show a warning anymore. Party! 
+
+[1]: http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/
+
 # Purpose Driven
 slug: purpose-driven
 dateCreated: 2020-11-24 23:05 CET
