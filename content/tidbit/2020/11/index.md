@@ -1,7 +1,7 @@
 # adb learnings
 slug: adb-learnings
 dateCreated: 2020-11-25 23:26 CET
-tags: 
+tags: tools, android, adb
 
 I want to use my real android device to preview stuff, not the emulator anymore.
 If I don't get the CPU power I need, I need to work around it.
