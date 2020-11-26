@@ -1,7 +1,32 @@
+# Restore deleted git branch
+slug: restore-deleted-git-branch
+dateCreated: 2020-11-26 15:10 CET
+tags: tools, git, source code, knowledgebase
+
+I had deleted a git branch locally, which I wanted to restore.
+It's totally easy. A tiny bit of knowledge upfront. There is something called the reflog, it's kinda
+like the hidden git history, that knows every change you did on the repo, every change, and it
+does NOT throw away anything.
+
+## Step 1 - Find the last commit on the deleted branch
+The command is `git reflog` is to "manage reflog information" in git speak, per [the official docs](https://git-scm.com/docs/git-reflog).
+That meant nothing to me. I translated it for me to be the action log, super history or the git spy who sees everything I do :).
+
+Run `git reflog show` to see all the commits of any branch you have, including the deleted ones.
+Find the commit that was the top of the branch you want to restore. By top of I mean the last commit, basically the end
+by which you want to grab this branch out of the reflog and restore it.
+
+## Step 2 - Restore it
+Restore it by running `git branch <branch-name> <commit-hash>`.
+I assume you can give it any name for `<branch-name>`, but I didn't try.
+Just make sure you get the right `<commit-hash>`, which is this strange looking unreadable string of characters and numbers.
+
+I hope this helps (me) when reading it (again).
+
 # adb learnings
 slug: adb-learnings
 dateCreated: 2020-11-25 23:26 CET
-tags: tools, android, adb
+tags: tools, android, adb, knowledgebase
 
 I want to use my real android device to preview stuff, not the emulator anymore.
 If I don't get the CPU power I need, I need to work around it.

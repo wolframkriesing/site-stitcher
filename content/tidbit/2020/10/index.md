@@ -1,7 +1,7 @@
 # Start the Right Android Emulator
 slug: start-the-right-android-emulator
 dateCreated: 2020-10-22 11:08 CET
-tags: tools, mobile development, android
+tags: tools, mobile development, android, knowledgebase
 
 I was just struggling to find out how to start a different emulated Android device from the command line.
 I found the relevant commands:
@@ -30,7 +30,7 @@ perspective.
 # Make Blog Content Previews work on all Social Media
 slug: make-blog-content-previews-work-on-all-social-media  
 dateCreated: 2020-10-17 14:37 CET  
-tags: social media, HTML, meta tags, links, SEO
+tags: social media, HTML, meta tags, links, SEO, knowledgebase
 previewImage: ../preview-meta-tags.gif  
 
 On a friend's linkedin profile I saw some links to his content and since linkedin
