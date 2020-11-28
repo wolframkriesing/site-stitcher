@@ -36,76 +36,92 @@ const __updateInlineStats__ = (index) => {
 __updateInlineStats__(1);
 </script>
 
-## Resource Timing API
+## What is the Resource Timing API
 
-Let us start by looking into the `Resource Timing` API ([on MDN][2], [in the spec][4]), it is part of the 
-`Performance` API ([on MDN][1], [the spec][5]), which you can reach via `window.performance` in all modern browsers. 
-We will learn how it can be useful to better understand the impact on performance of resources that a website loads, 
+Let's look at the `Resource Timing` API ([on MDN][2], [in the spec][4]), it is part of the 
+`Performance` API ([on MDN][1], [the spec][5]), which you can reach via `window.performance` in a modern browsers. 
+I will explain how it can be useful to better understand the impact on performance of resources that a website loads, 
 e.g. JS, CSS, images, XHRs and alike.
 
-The [specification (or spec)][3] introduces the topic in a very understandable way: 
+The [specification (or spec) introduces the topic][3] in a very understandable way: 
 
-> [The spec] introduces the PerformanceResourceTiming interface to allow JavaScript mechanisms to collect complete 
+> [The spec] introduces the `PerformanceResourceTiming` interface to allow JavaScript mechanisms to collect complete 
 > timing information related to resources on a [website].
 
-The interface that the spec defines is called "PerformanceResourceTiming", which is in simple terms the collection 
-of many attributes about one resource that the website loads. For example the `duration` attribute, which tells us 
-how long it took to load a certain resource. For that we have to read all resources that were loaded, which we do via 
-`window.performance.getEntriesByType('resource')`. This returns an array of all resources, which contains the `name` 
-and `duration` properties (among others):
+The interface that the spec defines is called **"PerformanceResourceTiming", is a collection 
+of attributes about one resource that a website loads**. For example the attribute `duration` is the time
+it took to load a certain resource. 
+
+## Use the Resource Timing API
+To get all attributes we have to get all entries of the type "resource", loaded by this site. 
+The API call for this is:
 
 ```js
-> window.performance.getEntriesByType('resource')
+window.performance.getEntriesByType('resource')
 ```
+
+This returns an array of all resources, among which it has attributes `name`, `duration`, `startTime` and `responseEnd`:
 
 ```js
 [{
     // ... shortened
+    name: "https://picostitch.com/_global.css",
     duration: 14.79000000108499,
-    name: "http://techblog.holidaycheck.com/css/main.css",
-    startTime: 18.41499999864027,
-    responseEnd: 33.20499999972526,
+    startTime: 65.99000000278465,
+    responseEnd: 84.66500000213273,
     // ... shortened
 }, {...}]
 ```
 
 The `duration` is given in milliseconds. The time is measured using the DOMHighResTimestamp API, which allows for 
-very exact time measuring. Why is this needed? We could have used `Date.now()`, but [the spec][7] says it "does not 
-allow for sub-millisecond resolution and is subject to system clock skew". Better to have exact timestamps. You can 
-see the sub-milliseconds part in the `duration`'s value above. So we have reliable time measuring in the browser 
+very exact time measuring. 
+
+## Measuring using DOMHighResTimestamp
+Why is this needed? We could have used `Date.now()`, but [the spec][7] says it "does not 
+allow for sub-millisecond resolution and is subject to system clock skew". Measuring the timings very exact
+can make quite a difference with the high speed connections and always improving browser speeds.
+You can see the sub-milliseconds part in the `duration`'s value above. 
+Good to know that we have reliable time measuring in the browser 
 available, details might become another blog post in this series.
 
-The `name` is the URL of the resource the website loaded and the API measured.
-Let's sum it all up, by looking at the part of the API we have learned about.
+## Query the Data
+The `name` is the URL of the resource the website loaded and the API measured the rsource timing for.
+Let me sum up, by looking at the part of the API seen so far.
+
+In the following I wrote two lines of JavaScript, that you can try out on the console of your
+browser and see what kind of results you are getting. Feel free to copy line by line and see what
+you are getting.
 
 ```js
 > // Read all resource that our website has loaded.
 > const resources = window.performance.getEntriesByType('resource');
+
 > // Filter out the name and the duration. 
 > const durations = resources.map(({name, duration}) => ({name, duration}));
-> durations
+
+> durations // Print out the contents of `durations`.
 ```
 
 ```js
-[  // shortened for readability
-   {name: ".../css/main.css", duration: 14.42500000121072},
-   {name: ".../img/hc-labs-only-logo.svg", duration: 18.744999993941747},
-   ...
+[  
+    // ... shortened
+    {name: "https://picostitch.com/blog/blog.css", duration: 18.619999988004565},
+    {name: "https://picostitch.com/blog/2020/11/28-resource-timing-part1/fallback-chart-1.png", duration: 51.56999998143874},
+    {name: "https://picostitch.com/_global.css", duration: 23.9000000001397},
+    {name: "https://picostitch.com/_nav.css", duration: 27.08499997970648},
+    // ...
 ]
 ```
 
-{% comment %} 
-  The chart below should be something like "height: 20rem" instead of px
-  But currently the rem are set to 10px on this page and to fix that all the CSS should be fixed.
-  Basically I (Wolfram) see no reason why there is any custom font-size needed anyways (maybe some rem units sometimes)
-  But in general I am pretty sure we can just use the defaults of the user agent and it should be fine. 
-{% endcomment %}
+Looking at the output of an array is fun for developers, but seeing that data in a diagram offers
+a different perspective, so let's see the `duration` of all the resources loaded on this website, in a diagram.
+Try it: reload the page and see the bars update. This is life data.
 
 <figure>
-  <hc-chart id="duration-chart" style="height: 350px;">
+  <hc-chart id="duration-chart" style="height: 15rem;">
     <img src="fallback-chart-1.png">
   </hc-chart>
-  <figcaption>The chart above shows the durations it took to load the resources gathered using the Performance API.</figcaption>
+  <figcaption style="padding-top: 2rem">The chart shows the durations it took to load the resources gathered using the Performance API.</figcaption>
 </figure>
 
 <script type="text/javascript">
@@ -122,25 +138,31 @@ Let's sum it all up, by looking at the part of the API we have learned about.
     const scriptTag = document.createElement('script');
     scriptTag.onload = onLoaded;
     scriptTag.setAttribute('type', 'text/javascript');
-    scriptTag.setAttribute('src', 'https://holidaycheck.github.io/hc-live-chart-component/HcChart.js')
+    scriptTag.setAttribute('src', 'https://holidaycheck.github.io/hc-live-chart-component/HcChart.js');
     document.head.insertBefore(scriptTag, document.head.childNodes[0]);
   });
 </script>
 
-## The `responseEnd` Attribute In Use
+## `startTime` and `responseEnd` Attributes
 
-The `duration` attribute seen before, is the result of subtracting the `responseEnd - startTime` attribute ([spec][8]).
+The `duration` attribute, is the result of subtracting the `responseEnd - startTime` attribute ([spec][8]).
 The `startTime` attribute is the time when fetching the resource started ([MDN][9]). The `responseEnd` is the timestamp 
-when the last byte was received or when the transport connection closes ([MDN][10]). The time taken how long loading all 
-resources took, as you saw at the beginning of the article and as you can see at the end again, is calculated by 
+when the last byte was received or when the transport connection closes ([MDN][10]).
+
+Let's see how to find out how long loading all resources took.
+The code you will see now, is the same that generated the numbers at the beginning of this article
+and as you will find them at the end again, so you can compare the two.
+The time taken how long loading all resources took I calculate by 
 retreiving all `responseEnd` values and taking the biggest one, as you can see below:
 
 ```js
 > // Helper function to find the max value in an array.
 > const findMax = values => values.reduce((a, b) => Math.max(a, b));
->
+
+> // Read all resource entries.
 > const resources = window.performance.getEntriesByType('resource');
-> // Filter out the responseEnd attribute only and find the maximum.
+
+> // Filter out the `responseEnd` attribute and find the maximum.
 > const allEnds = resources.map(r => r.responseEnd);
 > resources.length + ' resources, ' + findMax(allEnds) + ' ms'
 ```
@@ -157,23 +179,11 @@ retreiving all `responseEnd` values and taking the biggest one, as you can see b
   });
 </script>
 
+Try out: If you reload this page, the numbers will change, look closely at the duration (the second number).
 
-Hint: If you <a id="reload-link-2" href="{{ page.url }}?force-reload=0#the-responseend-attribute-in-use">reload</a>, 
-the numbers may change.
+## Live Stats Again
 
-<script type="text/javascript">
-  (() => {
-    const anchor = document.querySelector('#reload-link-2');
-    const href = anchor.getAttribute('href');
-    const counter = +(new URL(location).searchParams.get('force-reload'));
-    anchor.setAttribute('href', href.replace(/force-reload=\d+/, 'force-reload=' + (counter+1)));
-  })()
-</script>
-
-
-## Finally
-
-Now that you got here, we pick up the thing we did at the beginning of the page again and list the tiny statistics again. 
+Now that you got here. Let's pick up the live stats again, as seen at the beginning and list the tiny statistics again. 
 After the [event "load"][6] (the whole page has loaded, including all dependent resources such as stylesheets images) 
 this **page loaded <span id="num-assets-loaded-2">??</span> assets** (or resources) and 
 **took <span id="time-taken-loading-2">??</span> seconds to load**. 
@@ -184,23 +194,26 @@ this **page loaded <span id="num-assets-loaded-2">??</span> assets** (or resourc
   window.addEventListener('load',() => window.__runOnloaded__.forEach(fn => fn()));
 </script>
 
+## Finally
 
-Hopefully this article shows that getting insights into resource timing of a site is possible not
-only in developer tools, but also right in the browser itself. What you can do with it we leave up
-to your imagination.
+Hopefully this article shows that getting insights into resource timing of a site is not
+only possible in your browser's developer tools, but also right in the browser itself. 
+What you can do with it I leave up to your imagination.
+If you have something interesting please [ping me on twitter][@wolframkriesing], I am curious to see and learn more about it,
+especially about useful applications with it.
 
-You want to know more? Read [part 2 of this series about "Loading Dependencies"][11].
+Soon: You want to know more? Read [part 2 of this series about "Loading Dependencies"].
 
 *The first version of this post I wrote and published [for the HolidayCheck TechBlog, May 2019](https://techblog.holidaycheck.com/post/2019/05/06/browsertools-1-resource-timing-part1).*
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Performance
 [2]: https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API
-[3]: https://www.w3.org/TR/2019/WD-resource-timing-2-20190424/
+[3]: https://www.w3.org/TR/resource-timing-2/#introduction
 [4]: https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/
 [5]: https://www.w3.org/TR/performance-timeline-2/
 [6]: https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event
-[7]: https://www.w3.org/TR/hr-time-2/
+[7]: https://www.w3.org/TR/hr-time-2/#abstract
 [8]: https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/#performanceresourcetiming
 [9]: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime
 [10]: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseEnd
-[11]: 
+[@wolframkriesing]: https://twitter.com/wolframkriesing

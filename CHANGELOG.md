@@ -8,6 +8,7 @@
 - [ ] show a widget with the page dimensions stats in the space on a widescreen
 - [ ] show some beautiful tag cloud/overview in the space right or left
 - [ ] show tags, related articles, tweets, assets, TOC, to the right of the article
+- [ ] move the hc-charts to my own repos
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful
