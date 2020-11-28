@@ -1,3 +1,14 @@
+# v3 - use the wide screen better
+- [ ] show a page-load stats widgets in the space right and left
+  - [ ] repost blog posts from techblog
+    - [ ] copy and adjust post 1
+    - [ ] copy and adjust post 2
+    - [ ] copy and adjust post 3
+  - [ ] build a widget to show the stats OR reuse the widget from the post
+- [ ] show a widget with the page dimensions stats in the space on a widescreen
+- [ ] show some beautiful tag cloud/overview in the space right or left
+- [ ] show tags, related articles, tweets, assets, TOC, to the right of the article
+
 # v2
 - [ ] rename tidbits/post.html to something more meaningful
 - [x] show tidbits+posts on home page
