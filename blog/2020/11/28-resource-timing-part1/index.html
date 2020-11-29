@@ -31,19 +31,22 @@
   
     <meta property="article:tag" content="browsertools" />
     <meta property="article:tag" content="knowledgebase" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="site speed" />
+    <meta property="article:tag" content="performance" />
 
-  <meta property="og:description" content="I want to explore the Resource Timing API, part of the Performance API, accessible via `window.performance` 
+  <meta property="og:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
-kind of tools or APIs in and around the browser, so mostly things web developers might find useful." />
-  <meta property="article:description" content="I want to explore the Resource Timing API, part of the Performance API, accessible via `window.performance` 
+kind of tools or APIs in and around the browser, things web developers will hopefully find useful." />
+  <meta property="article:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
-kind of tools or APIs in and around the browser, so mostly things web developers might find useful." />
-  <meta name="twitter:description" content="I want to explore the Resource Timing API, part of the Performance API, accessible via `window.performance` 
+kind of tools or APIs in and around the browser, things web developers will hopefully find useful." />
+  <meta name="twitter:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
-kind of tools or APIs in and around the browser, so mostly things web developers might find useful." />
+kind of tools or APIs in and around the browser, things web developers will hopefully find useful." />
 
   
     <meta property="og:image" content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
@@ -106,23 +109,28 @@ kind of tools or APIs in and around the browser, so mostly things web developers
         Wolfram Kriesing
         - November 28, 2020
         
-          - tagged with: #browsertools #knowledgebase
+          - tagged with: #browsertools #knowledgebase #web #site speed #performance
         
       </div>
     </header>
 
     
 
-    <p>I want to explore the Resource Timing API, part of the Performance API, accessible via <code>window.performance</code> 
+    <p>I want to explore the Resource Timing API, one of the Performance APIs, accessible via <code>window.performance</code> 
 in all modern browsers.<br>This post is the start of a series of <a href="/blog/tag/browsertools/">blog posts about browser tools</a>, in which I look into any
-kind of tools or APIs in and around the browser, so mostly things web developers might find useful.</p>
+kind of tools or APIs in and around the browser, things web developers will hopefully find useful.</p>
 <h2 is="more-h2" id="first-live-stats">First Live Stats</h2>
 <p>Up to here <strong>this page loaded <span id="num-assets-loaded-1">??</span> assets</strong> (or resources) and 
-<strong>took <span id="time-taken-loading-1">??</span> seconds to load</strong>. Try it: reload the site and the numbers may change.
+<strong>took <span id="time-taken-loading-1">??</span> seconds to load</strong>. 
+<a href="javascript:__updateInlineStats__(1)">Click here to update the stats</a> and the numbers will most probably change.
 <span id="loading-failed-hint-1"><em>(If you just see &quot;??&quot; then reading the data didn&#39;t 
-work, do you have an older browser? You can keep reading and try if and how the described API works in your browser.)</em></span><br>All these information were gathered, just now, via the <code>Resource Timing API</code>, which we would like to 
-cover in this article. 
-At the end of the article the same stats with the updated values can be found, the values might differ.</p>
+work, do you have an older browser? You can keep reading and try if and how the described API works in your browser.)</em></span>
+Did you click already? Do it!
+Why did the numbers change? Because the data you saw first were the data gathered
+at the point in time when the rendering of this page had reached here (the page had not been rendered completely, yet). 
+When you clicked the link, the page had long been rendered completely.
+If you click again to update the stats, the numbers will probably NOT change, because the page had
+been loaded completely when you first clicked the link, no new assets/resources have been loaded on the site since.</p>
 <script type="text/javascript">
 const getMaxResponseEnd = (resources) => {
   return resources.map(r => r.responseEnd).reduce((a, b) => Math.max(a, b));
@@ -139,17 +147,35 @@ const __updateInlineStats__ = (index) => {
 __updateInlineStats__(1);
 </script>
 
-<h2 is="more-h2" id="what-is-the-resource-timing-api">What is the Resource Timing API</h2>
-<p>Let&#39;s look at the <code>Resource Timing</code> API (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API">on MDN</a>, <a href="https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/">in the spec</a>), it is part of the 
-<code>Performance</code> API (<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance">on MDN</a>, <a href="https://www.w3.org/TR/performance-timeline-2/">the spec</a>), which you can reach via <code>window.performance</code> in a modern browsers. 
-I will explain how it can be useful to better understand the impact on performance of resources that a website loads, 
-e.g. JS, CSS, images, XHRs and alike.</p>
-<p>The <a href="https://www.w3.org/TR/resource-timing-2/#introduction">specification (or spec) introduces the topic</a> in a very understandable way: </p>
+<h2 is="more-h2" id="what-is-the-resource-timing-api">What is the Resource Timing API?</h2>
+<p>These tiny statistics were gathered via the Resource Timing API. 
+At the end of this article you get the same stats with the data collected at that point in time of rendering this site,
+so you can compare it to the above. The values will most probably differ. Why? The rendering progress of this page
+had been at yet another level of completion, more done than at the beginning of this paragraph, but not yet done either.</p>
+<p>The Resource Timing API <a href="https://developer.mozilla.org/en-US/docs/Web/API/Resource_Timing_API">as describe on MDN</a> and in more detail <a href="https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/">in the spec</a>, is one of the 
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance">Performance</a> <a href="https://www.w3.org/TR/performance-timeline-2/">APIs</a>.
+The Resource Timing is focusing on the <a href="https://www.w3.org/TR/resource-timing-2/#sec-resource-timing">&quot;downloadable resources&quot;</a>, I would rather say
+it focuses on the resources (or assets) that a page loads.
+It records detailed timings of the resources loaded. In the data you can see the time when
+a resource was started to load, how long it actually took to &quot;fly&quot; from the server to the client, and a lot more.</p>
+<p>The function to get the  timings of all resources loaded until the point in time of the function call,
+is <code>window.performance.getEntriesByType(&#39;resource&#39;)</code>,
+which returns an array of objects that implement the <code>PerformanceResourceTiming</code> interface, basically a collection
+of properties.
+The <a href="https://www.w3.org/TR/resource-timing-2/#sec-resource-timing">spec describes it like this</a>:</p>
+<blockquote>
+<p>The <code>PerformanceResourceTiming</code> interface facilitates timing measurement of downloadable resources.</p>
+</blockquote>
+<p>The <code>PerformanceResourceTiming</code> is a specialized interface that extends the <code>PerformanceEntry</code>.
+Which shows there is quite a lot more and a well thought through structure behind.
+If this sounds confusing hang on and read on, the names make sense over time.
+Just remember: &quot;Resource Timing&quot; is a &quot;Performance API&quot;.</p>
+<p>Anyways, the <a href="https://www.w3.org/TR/resource-timing-2/#introduction">spec describes <code>PerformanceResourceTiming</code> in a quite understandable way</a>, I think:</p>
 <blockquote>
 <p>[The spec] introduces the <code>PerformanceResourceTiming</code> interface to allow JavaScript mechanisms to collect complete 
 timing information related to resources on a [website].</p>
 </blockquote>
-<p>The interface that the spec defines is called <strong>&quot;PerformanceResourceTiming&quot;, is a collection 
+<p>The interface that the spec defines is called <strong>&quot;PerformanceResourceTiming&quot;, a collection 
 of attributes about one resource that a website loads</strong>. For example the attribute <code>duration</code> is the time
 it took to load a certain resource. </p>
 <h2 is="more-h2" id="use-the-resource-timing-api">Use the Resource Timing API</h2>
@@ -175,11 +201,12 @@ You can see the sub-milliseconds part in the <code>duration</code>&#39;s value a
 Good to know that we have reliable time measuring in the browser 
 available, details might become another blog post in this series.</p>
 <h2 is="more-h2" id="query-the-data">Query the Data</h2>
-<p>The <code>name</code> is the URL of the resource the website loaded and the API measured the rsource timing for.
-Let me sum up, by looking at the part of the API seen so far.</p>
-<p>In the following I wrote two lines of JavaScript, that you can try out on the console of your
-browser and see what kind of results you are getting. Feel free to copy line by line and see what
-you are getting.</p>
+<p>The <code>name</code> is the URL of the resource the website loaded and the API measured the resource timing for.
+Let me sum up, by looking at the part of the API seen so far.
+In the following I wrote two lines of JavaScript to extract <code>name</code> and <code>duration</code>,
+so we can see which resource/URL (<code>name</code>) took how long to load (<code>duration</code>).
+You can try it out on the console of your
+browser and see what kind of results you are getting. Feel free to copy line by line.</p>
 <pre><code class="undefinedjs">&gt; // Read all resource that our website has loaded.
 &gt; const resources = window.performance.getEntriesByType(&#39;resource&#39;);
 
@@ -197,7 +224,8 @@ you are getting.</p>
 ]</code></pre>
 <p>Looking at the output of an array is fun for developers, but seeing that data in a diagram offers
 a different perspective, so let&#39;s see the <code>duration</code> of all the resources loaded on this website, in a diagram.
-Try it: reload the page and see the bars update. This is life data.</p>
+Try it: reload the page and see the bars update. This is life data.<br>Try also hard reloading the page (mostly done with pressing <kbd>Shift</kbd> additionally to your reload shortcut or click), 
+so that caches are not used and the durations will be very different again.</p>
 <figure>
   <hc-chart id="duration-chart" style="height: 15rem;">
     <img src="fallback-chart-1.png">
@@ -225,11 +253,11 @@ Try it: reload the page and see the bars update. This is life data.</p>
 </script>
 
 <h2 is="more-h2" id="starttime-and-responseend-attributes"><code>startTime</code> and <code>responseEnd</code> Attributes</h2>
-<p>The <code>duration</code> attribute, is the result of subtracting the <code>responseEnd - startTime</code> attribute (<a href="https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/#performanceresourcetiming">spec</a>).
-The <code>startTime</code> attribute is the time when fetching the resource started (<a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime">MDN</a>). The <code>responseEnd</code> is the timestamp 
-when the last byte was received or when the transport connection closes (<a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseEnd">MDN</a>).</p>
+<p>The <code>duration</code> attribute, is the result of <a href="https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/#performanceresourcetiming">subtracting</a> the <code>responseEnd - startTime</code> attribute.
+The <code>startTime</code> attribute is the time when fetching the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime">resource started</a>. The <code>responseEnd</code> is the timestamp 
+when the last byte was received or <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseEnd">when the transport connection closes</a>.</p>
 <p>Let&#39;s see how to find out how long loading all resources took.
-The code you will see now, is the same that generated the numbers at the beginning of this article
+The code you will see now, is the same that generated the stats at the beginning of this article
 and as you will find them at the end again, so you can compare the two.
 The time taken how long loading all resources took I calculate by 
 retreiving all <code>responseEnd</code> values and taking the biggest one, as you can see below:</p>
@@ -261,7 +289,8 @@ retreiving all <code>responseEnd</code> values and taking the biggest one, as yo
 After the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event">event &quot;load&quot;</a> (the whole page has loaded, including all dependent resources such as stylesheets images) 
 this <strong>page loaded <span id="num-assets-loaded-2">??</span> assets</strong> (or resources) and 
 <strong>took <span id="time-taken-loading-2">??</span> seconds to load</strong>. 
-<span id="loading-failed-hint-2">(If you just see &quot;??&quot; then reading the data didn&#39;t work, do you have an old browser?)</span></p>
+<span id="loading-failed-hint-2">(If you just see &quot;??&quot; then reading the data didn&#39;t work, do you have an old browser?)</span>
+<a href="javascript:__updateInlineStats__(2)">Click here to update the stats</a>, just like above.</p>
 <script type="text/javascript">
   window.__runOnloaded__.push(() => __updateInlineStats__(2));
   window.addEventListener('load',() => window.__runOnloaded__.forEach(fn => fn()));
@@ -273,8 +302,7 @@ only possible in your browser&#39;s developer tools, but also right in the brows
 What you can do with it I leave up to your imagination.
 If you have something interesting please <a href="https://twitter.com/wolframkriesing">ping me on twitter</a>, I am curious to see and learn more about it,
 especially about useful applications with it.</p>
-<p>Soon: You want to know more? Read [part 2 of this series about &quot;Loading Dependencies&quot;].</p>
-<p><em>The first version of this post I wrote and published <a href="https://techblog.holidaycheck.com/post/2019/05/06/browsertools-1-resource-timing-part1">for the HolidayCheck TechBlog, May 2019</a>.</em></p>
+<p>You want to know more? Read <a href="/blog/2020/11/29-resource-timing-part-2/">part 2 of this series about &quot;Loading Dependencies&quot;</a>.<br><em>The first version of this post I wrote and published <a href="https://techblog.holidaycheck.com/post/2019/05/06/browsertools-1-resource-timing-part1">for the HolidayCheck TechBlog, May 2019</a>.</em></p>
 
 
     
@@ -284,6 +312,17 @@ especially about useful applications with it.</p>
     </div>
     <aside class="right">
       
+  
+    <h3 id="related" is="more-h3">Related Posts</h3>
+    
+      
+        <a href="/blog/2020/11/29-resource-timing-part-2/">Resource Timing (part 2) - Loading Dependencies</a><br/>
+      
+    
+      
+        Resource Timing (part 1) - The API<br/>
+      
+    
   
 
     </aside>

@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Resource Timing (part 2) - Loading Dependencies" />
+
+  <meta property="og:title" content="Resource Timing (part 2) - Loading Dependencies">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/blog/2020/11/29-resource-timing-part-2/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/blog/2020/11/29-resource-timing-part-2/">
+  <title>Resource Timing (part 2) - Loading Dependencies | picostitch - crafting (and) JavaScript</title>
+  
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+  
+    <meta property="article:tag" content="browsertools" />
+    <meta property="article:tag" content="knowledgebase" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="site speed" />
+    <meta property="article:tag" content="performance" />
+
+  <meta property="og:description" content="This is post #2 about Resource Timing, with a focus on understanding loading dependencies.
+In [part 1 &quot;Resource Timing - The API&quot;][3] I covered the attributes `responseEnd` and `startTime`. 
+Now I will try to show how the API can be used to see which resources block each other, which is the step
+to understand before optimizing site speed, a very essential step to know what is the right thing
+to optimize." />
+  <meta property="article:description" content="This is post #2 about Resource Timing, with a focus on understanding loading dependencies.
+In [part 1 &quot;Resource Timing - The API&quot;][3] I covered the attributes `responseEnd` and `startTime`. 
+Now I will try to show how the API can be used to see which resources block each other, which is the step
+to understand before optimizing site speed, a very essential step to know what is the right thing
+to optimize." />
+  <meta name="twitter:description" content="This is post #2 about Resource Timing, with a focus on understanding loading dependencies.
+In [part 1 &quot;Resource Timing - The API&quot;][3] I covered the attributes `responseEnd` and `startTime`. 
+Now I will try to show how the API can be used to see which resources block each other, which is the step
+to understand before optimizing site speed, a very essential step to know what is the right thing
+to optimize." />
+
+  
+    <meta property="og:image" content="https://picostitch.com/blog/2020/11/29-resource-timing-part-2/ben-harritt-75854-unsplash.jpg" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2020/11/29-resource-timing-part-2/ben-harritt-75854-unsplash.jpg" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2020/11/29-resource-timing-part-2/ben-harritt-75854-unsplash.jpg" />
+  
+
+</head>
+<body class="page-post">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2020/11/">November 2020</a> &raquo;
+  Resource Timing (part 2) - Loading Dependencies
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+  <article class="">
+    <header>
+      <h1 id="resource-timing-part-2" is="more-h1">
+        Resource Timing (part 2) - Loading Dependencies
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - November 29, 2020
+        
+          - tagged with: #browsertools #knowledgebase #web #site speed #performance
+        
+      </div>
+    </header>
+
+    
+
+    <p>This is post #2 about Resource Timing, with a focus on understanding loading dependencies.
+In <a href="/blog/2020/11/28-resource-timing-part1/">part 1 &quot;Resource Timing - The API&quot;</a> I covered the attributes <code>responseEnd</code> and <code>startTime</code>. 
+Now I will try to show how the API can be used to see which resources block each other, which is the step
+to understand before optimizing site speed, a very essential step to know what is the right thing
+to optimize.</p>
+<p>The Resource Timing API provides information about resources loaded on a site,
+it is one of the Performance APIs, accessible via JavaScript using <code>window.performance</code>. 
+Here I will explore how much details can be gathered about each resource that is loaded (JS files, CSS files, fetches, etc.). 
+Especially about their timing and dependencies.</p>
+<h2 is="more-h2" id="the-context">The Context</h2>
+<p>Let&#39;s shortly sum up how we gather those data. In all modern browsers, 
+there is a built-in functionality that you see in action, right here:</p>
+<pre><code class="undefinedjs">window.performance.getEntriesByType(&#39;resource&#39;)</code></pre>
+<p>This returns all performance resource timing entries for all resources.
+As an array of instances where each item implements the <code>PerformanceResourceTiming</code> interface, 
+a set of defined properties.</p>
+<pre><code class="undefinedjs">[{
+    // ... shortened
+    name: &quot;https://picostitch.com/_global.css&quot;,
+    initiatorType: &quot;link&quot;,
+    startTime: 18.41499999864027,
+    // ... shortened
+}, {...}]</code></pre>
+<h2 is="more-h2" id="the-starttime-attribute">The <code>startTime</code> Attribute</h2>
+<p>The spec says that the attribute <code>startTime</code> is 
+<a href="https://www.w3.org/TR/resource-timing-2/#sec-performanceresourcetiming">&quot;the time immediately before the [browser] starts to queue the resource for fetching&quot;</a>. 
+This means, for example if the browser is about to load the HTML page the <code>startTime</code> is recorded. 
+This time is relative from <a href="https://www.w3.org/TR/hr-time-2/#dfn-time-origin">&quot;the time when the browsing context is first created&quot;</a>. 
+In other words when the browser starts loading a page. So this is a very browser-internal thing, 
+that we would not be able to get access to without extending the browser itself. 
+That proves that this API can give us insights which we could not be able to obtain otherwise, 
+especially not on any website itself. These numbers are also way more explicit in regards to what the user expriences.</p>
+<p>A <code>startTime</code> of 0 is the moment when the browsing context was created, when the browser started loading this page. 
+This is for example a website reload, or navigating to a new site, opening a tab with a certain URL and alike. 
+That means a <code>startTime=20</code> means 20 milliseconds after the browser context was created. Having a timestamp 
+relative to the browser context creation allows to get insights on the resource timings without any timestamp 
+offset calculations, as needed when using <code>Date.now()</code> (more in the <a href="/blog/2020/11/28-resource-timing-part1/">previous post</a>).</p>
+<p>Let&#39;s look at some real life numbers:</p>
+<figure id="chart-1">
+    <hc-chart id="waterfall-chart-1" style="height: 15rem;"></hc-chart>
+    <figcaption>The "startTime" for all resources requested by this page</figcaption>
+</figure>
+
+<script type="text/javascript">
+  window.__loadChartFunctions__ = [];
+  window.__loadChartFunctions__.push(() => {
+    const chart = document.querySelector('#waterfall-chart-1');
+    const resources = [
+      ...window.performance.getEntriesByType('navigation'),
+      ...window.performance.getEntriesByType('resource'),
+    ];
+    const startTimes = resources.map(
+      resource => ({label: `${resource.name} - (initiatorType: ${resource.initiatorType})`, value: resource.startTime}));
+    chart.updateChartData(startTimes);
+  });
+</script>
+
+<p>Hint: The chart above shows the real numbers of the page you are looking at, 
+if you reload, the numbers above may change (changes can be seen best on the x-axis scale).</p>
+<p>In the chart one should see that some requests start at the same time. 
+These requests have most probably been triggered by the same resource. For example the &quot;blog.css&quot;, 
+the logo and the &quot;plausible.js&quot; files start to get loaded around the same time, as the first resources. 
+This is because the HTML file that directly references them, triggers the loading of these files at the same time.
+The browser reads the HTML file, interprets it and finds <code>&lt;link&gt;</code> and <code>&lt;script&gt;</code> tags that reference those resources, 
+so they start to get loaded, hence they have the lowest <code>startTime</code>. </p>
+<p>In the chart one can also see that the &quot;_global.css&quot; start loading way later. 
+This is because it is referenced inside the &quot;blog.css&quot; file, which needs to be downloaded and read by the browser 
+first to know that the &quot;_global.css&quot; needs to get loaded. This way one can understand better how 
+the browser handles the resources, in which order and also using which constraints to load them.</p>
+<h2 is="more-h2" id="the-initiatortype-attribute">The <code>initiatorType</code> Attribute</h2>
+<p>This attribute is the type that triggered this resource to be loaded. In the chart above one can see strings 
+like <code>initiatorType: &quot;navigation&quot;</code>, <code>initiatorType: &quot;link&quot;</code>, <code>initiatorType: &quot;script&quot;</code> and others. 
+There are basically two types of attributes, the <code>initiatorType</code> is either: </p>
+<ol>
+<li>The name of the HTML tag (like <code>&lt;script&gt;</code> or <code>&lt;link&gt;</code>), the DOM node (or as the spec text says the 
+<a href="https://www.w3.org/TR/resource-timing-2/#dom-performanceresourcetiming-initiatortype">&quot;value as the localName of that element [DOM], if the request is a result of processing the element&quot;</a>),<ul>
+<li>this refers to attributes like <code>src</code> in a <code>&lt;script src=&quot;resource.js&quot;&gt;</code> tag, </li>
+<li>the <code>href</code> attribute in a <code>&lt;link href=&quot;resource.css&quot;&gt;</code> tag or </li>
+<li>the <code>src</code> atttribute of an <code>&lt;img&gt;</code> tag among others.</li>
+</ul>
+</li>
+<li>Or it is one of &quot;css&quot;, &quot;navigation&quot;, &quot;xmlhttprequest&quot;, &quot;fetch&quot;, &quot;beacon&quot; or &quot;other&quot; when the loading was not 
+directly triggered by a DOM node,<ul>
+<li>these are things like loading a new page (&quot;navigation&quot;),</li>
+<li>loading a resource from within a CSS file (&quot;css&quot;) or</li>
+<li>the request done via the native JavaScript <code>window.fetch()</code> method (&quot;fetch&quot;).</li>
+</ul>
+</li>
+</ol>
+<p>This attribute gives a bit more context to the loading times and makes the loading dependencies talked about in the 
+paragraph before easier to understand. A CSS file needs to be loaded by the browser, before it can know what other 
+files are referenced inside of it and need to be loaded. This might also surface the question how much should be inlined, 
+or if <a href="https://html.spec.whatwg.org/multipage/links.html#link-type-preload">preload</a> should be used to speed up website loading.</p>
+<h2 is="more-h2" id="focus-on-the-dependencies">Focus on the Dependencies</h2>
+<p>I hope this post allows to gather better insights and hopefully also decouple the dependencies among resources 
+where accurate and therefore speed up the website. I tried to focus on just looking at the two attributes 
+<code>startTime</code> and <code>initiatorType</code> so the loading dependencies become very obvious and in case it is what one wants to focus on, 
+they might be a good start. </p>
+<p>This site is quite simple and therefore makes the dependencies easy to understand. 
+If you try this out on a more complex page loading dependencies will also be a bit harder to identify. 
+Have fun untangling your loading dependencies. Feel free to <a href="https://twitter.com/wolframkriesing">share findings and insights with me</a>.</p>
+<p>Soon: You want to know more? Read [part 3 of this series about &quot;Waterfall Chart&quot;].</p>
+<p>Main photo by <a href="https://unsplash.com/photos/4W92z8cNQ_c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ben Harritt</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a><br />
+<em>The first version of this post I wrote and published <a href="https://techblog.holidaycheck.com/post/2019/06/08/browsertools-2-loading-dependencies">for the HolidayCheck TechBlog, June 2019</a>.</em></p>
+<script type="text/javascript">
+  (() => {
+    const onLoaded = () => {
+      window.customElements.whenDefined('hc-chart').then(() => {
+        window.addEventListener('load', () => {
+          window.__loadChartFunctions__.forEach(fn => fn());
+        });
+      });
+    };
+    const scriptTag = document.createElement('script');
+    scriptTag.onload = onLoaded;
+    scriptTag.setAttribute('type', 'module');
+    scriptTag.setAttribute('src', 'https://holidaycheck.github.io/hc-live-chart-component/HcChart.js');
+    document.head.insertBefore(scriptTag, document.head.childNodes[0]);
+  })();
+</script>
+
+
+    
+    
+  </article>
+
+    </div>
+    <aside class="right">
+      
+  
+    <h3 id="related" is="more-h3">Related Posts</h3>
+    
+      
+        Resource Timing (part 2) - Loading Dependencies<br/>
+      
+    
+      
+        <a href="/blog/2020/11/28-resource-timing-part1/">Resource Timing (part 1) - The API</a><br/>
+      
+    
+  
+
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
