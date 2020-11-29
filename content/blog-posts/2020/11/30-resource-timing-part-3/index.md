@@ -1,6 +1,6 @@
 dateCreated: 2020-11-30 19:38 CET
 tags: browsertools, knowledgebase, web, site speed, performance
-previewImage: posts/2019-06-15-browsertools-3/michelle-rosen-390381-unsplash.jpg
+previewImage: michelle-rosen-390381-unsplash.jpg
 
 # Resource Timing (part 3) - Waterfall Chart
 
@@ -10,7 +10,7 @@ Waterfall chart. In [part 1][1] and [part 2 about Resource Timing][2] I covered 
 and what do some attributes mean, like `fetchStart`, `requestStart` and `responseStart`, to mention the most relevant ones.
 
 <script type="text/javascript">
-  window.__loadChartFunctions__ = [];
+    window.__loadChartFunctions__ = [];
 </script>
 
 ## The Context
@@ -49,8 +49,8 @@ attributes **for the first seven requests only** (you can show all, see buttons 
 Hover over (or click) each line to see the value of each attribute and read on to find deeper explanation of each of them.
 
 <script type="text/javascript">
-    const _renderChartWithFirstSevenResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'), 7)
-    const _renderChartWithAllResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'))
+    const _renderChartWithFirstSevenResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'), 7);
+    const _renderChartWithAllResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'));
     window.__loadChartFunctions__.push(_renderChartWithFirstSevenResources);
 </script>
 
@@ -154,7 +154,7 @@ into page timing insights. The most common use case, of course, is optimizing pa
 Since page speed is a very complex topic I hope this helps getting some handle on how to look at it.
 
 
-[0]: /category/browsertools
+[0]: /blog/tag/browsertools/
 [1]: /blog/2020/11/28-resource-timing-part1/
 [2]: /blog/2020/11/29-resource-timing-part2/
 [3]: https://www.w3.org/TR/resource-timing-2/

@@ -54,7 +54,7 @@ offset calculations, as needed when using `Date.now()` (more in the [previous po
 
 Let's look at some real life numbers:
 
-<figure id="chart-1">
+<figure>
     <hc-chart id="waterfall-chart-1" style="height: 15rem;"></hc-chart>
     <figcaption>The "startTime" for all resources requested by this page</figcaption>
 </figure>

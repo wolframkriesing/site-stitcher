@@ -25,19 +25,19 @@ If you click again to update the stats, the numbers will probably NOT change, be
 been loaded completely when you first clicked the link, no new assets/resources have been loaded on the site since.
 
 <script type="text/javascript">
-const getMaxResponseEnd = (resources) => {
-  return resources.map(r => r.responseEnd).reduce((a, b) => Math.max(a, b));
-};
-
-const __updateInlineStats__ = (index) => {
-  try {
-    const r = window.performance.getEntriesByType('resource');
-    document.querySelector(`#num-assets-loaded-${index}`).textContent = r.length;
-    document.querySelector(`#time-taken-loading-${index}`).textContent = (getMaxResponseEnd(r) / 1000).toFixed(2);
-    document.querySelector(`#loading-failed-hint-${index}`).remove();
-  } catch (e) { /* swallow errors */ }
-};
-__updateInlineStats__(1);
+    const getMaxResponseEnd = (resources) => {
+      return resources.map(r => r.responseEnd).reduce((a, b) => Math.max(a, b));
+    };
+    
+    const __updateInlineStats__ = (index) => {
+      try {
+        const r = window.performance.getEntriesByType('resource');
+        document.querySelector(`#num-assets-loaded-${index}`).textContent = r.length;
+        document.querySelector(`#time-taken-loading-${index}`).textContent = (getMaxResponseEnd(r) / 1000).toFixed(2);
+        document.querySelector(`#loading-failed-hint-${index}`).remove();
+      } catch (e) { /* swallow errors */ }
+    };
+    __updateInlineStats__(1);
 </script>
 
 ## What is the Resource Timing API?
