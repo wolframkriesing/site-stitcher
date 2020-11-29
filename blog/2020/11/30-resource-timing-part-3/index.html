@@ -49,9 +49,9 @@ Waterfall chart. In [part 1][1] and [part 2 about Resource Timing][2] I covered 
 and what do some attributes mean, like `fetchStart`, `requestStart` and `responseStart`, to mention the most relevant ones." />
 
   
-    <meta property="og:image" content="https://picostitch.com/blog/2020/11/30-resource-timing-part-3/posts/2019-06-15-browsertools-3/michelle-rosen-390381-unsplash.jpg" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2020/11/30-resource-timing-part-3/posts/2019-06-15-browsertools-3/michelle-rosen-390381-unsplash.jpg" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2020/11/30-resource-timing-part-3/posts/2019-06-15-browsertools-3/michelle-rosen-390381-unsplash.jpg" />
+    <meta property="og:image" content="https://picostitch.com/blog/2020/11/30-resource-timing-part-3/michelle-rosen-390381-unsplash.jpg" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2020/11/30-resource-timing-part-3/michelle-rosen-390381-unsplash.jpg" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2020/11/30-resource-timing-part-3/michelle-rosen-390381-unsplash.jpg" />
   
 
 </head>
@@ -116,12 +116,12 @@ and what do some attributes mean, like `fetchStart`, `requestStart` and `respons
 
     
 
-    <p>This is post #3 in the <a href="/category/browsertools">category &quot;Browser Tools&quot;</a>, focusing on understanding the loading times by charting them in a 
+    <p>This is post #3 in the <a href="/blog/tag/browsertools/">category &quot;Browser Tools&quot;</a>, focusing on understanding the loading times by charting them in a 
 Waterfall chart. In <a href="/blog/2020/11/28-resource-timing-part1/">part 1</a> and <a href="/blog/2020/11/29-resource-timing-part2/">part 2 about Resource Timing</a> I covered the attributes <code>startTime</code>, 
 <code>responseEnd</code>, <code>duration</code> and <code>initiatorType</code>. Now I want to understand what happens after a resource starts loading 
 and what do some attributes mean, like <code>fetchStart</code>, <code>requestStart</code> and <code>responseStart</code>, to mention the most relevant ones.</p>
 <script type="text/javascript">
-  window.__loadChartFunctions__ = [];
+    window.__loadChartFunctions__ = [];
 </script>
 
 <h2 is="more-h2" id="the-context">The Context</h2>
@@ -149,8 +149,8 @@ loading time, the API does also provide more granular information.</p>
 attributes <strong>for the first seven requests only</strong> (you can show all, see buttons below).
 Hover over (or click) each line to see the value of each attribute and read on to find deeper explanation of each of them.</p>
 <script type="text/javascript">
-    const _renderChartWithFirstSevenResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'), 7)
-    const _renderChartWithAllResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'))
+    const _renderChartWithFirstSevenResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'), 7);
+    const _renderChartWithAllResources = () => _renderWaterfallChart(document.querySelector('#waterfall-chart-2'));
     window.__loadChartFunctions__.push(_renderChartWithFirstSevenResources);
 </script>
 
