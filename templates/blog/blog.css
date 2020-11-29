@@ -7,7 +7,7 @@ main {
 }
   aside {
     flex: 1;
-    overflow: scroll;
+    overflow: auto;
   }
   aside > * {
     margin-bottom: var(--spacing-bigger);
