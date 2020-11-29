@@ -1,24 +1,28 @@
 dateCreated: 2020-11-28 14:20 CET
-tags: browsertools, knowledgebase
+tags: browsertools, knowledgebase, web, site speed, performance
 previewImage: header.png
 
 # Resource Timing (part 1) - The API
 
-I want to explore the Resource Timing API, part of the Performance API, accessible via `window.performance` 
+I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
-kind of tools or APIs in and around the browser, so mostly things web developers might find useful.
+kind of tools or APIs in and around the browser, things web developers will hopefully find useful.
 
 [tag-browsertools]: /blog/tag/browsertools/
 
 ## First Live Stats
 Up to here **this page loaded <span id="num-assets-loaded-1">??</span> assets** (or resources) and 
-**took <span id="time-taken-loading-1">??</span> seconds to load**. Try it: reload the site and the numbers may change.
+**took <span id="time-taken-loading-1">??</span> seconds to load**. 
+<a href="javascript:__updateInlineStats__(1)">Click here to update the stats</a> and the numbers will most probably change.
 <span id="loading-failed-hint-1"><em>(If you just see "??" then reading the data didn't 
-work, do you have an older browser? You can keep reading and try if and how the described API works in your browser.)</em></span>  
-All these information were gathered, just now, via the `Resource Timing API`, which we would like to 
-cover in this article. 
-At the end of the article the same stats with the updated values can be found, the values might differ.
+work, do you have an older browser? You can keep reading and try if and how the described API works in your browser.)</em></span>
+Did you click already? Do it!
+Why did the numbers change? Because the data you saw first were the data gathered
+at the point in time when the rendering of this page had reached here (the page had not been rendered completely, yet). 
+When you clicked the link, the page had long been rendered completely.
+If you click again to update the stats, the numbers will probably NOT change, because the page had
+been loaded completely when you first clicked the link, no new assets/resources have been loaded on the site since.
 
 <script type="text/javascript">
 const getMaxResponseEnd = (resources) => {
@@ -36,19 +40,38 @@ const __updateInlineStats__ = (index) => {
 __updateInlineStats__(1);
 </script>
 
-## What is the Resource Timing API
+## What is the Resource Timing API?
+These tiny statistics were gathered via the Resource Timing API. 
+At the end of this article you get the same stats with the data collected at that point in time of rendering this site,
+so you can compare it to the above. The values will most probably differ. Why? The rendering progress of this page
+had been at yet another level of completion, more done than at the beginning of this paragraph, but not yet done either.
 
-Let's look at the `Resource Timing` API ([on MDN][2], [in the spec][4]), it is part of the 
-`Performance` API ([on MDN][1], [the spec][5]), which you can reach via `window.performance` in a modern browsers. 
-I will explain how it can be useful to better understand the impact on performance of resources that a website loads, 
-e.g. JS, CSS, images, XHRs and alike.
+The Resource Timing API [as describe on MDN][2] and in more detail [in the spec][4], is one of the 
+[Performance][1] [APIs][5].
+The Resource Timing is focusing on the ["downloadable resources"][11], I would rather say
+it focuses on the resources (or assets) that a page loads.
+It records detailed timings of the resources loaded. In the data you can see the time when
+a resource was started to load, how long it actually took to "fly" from the server to the client, and a lot more.
 
-The [specification (or spec) introduces the topic][3] in a very understandable way: 
+The function to get the  timings of all resources loaded until the point in time of the function call,
+is `window.performance.getEntriesByType('resource')`,
+which returns an array of objects that implement the `PerformanceResourceTiming` interface, basically a collection
+of properties.
+The [spec describes it like this][11]:
+
+> The `PerformanceResourceTiming` interface facilitates timing measurement of downloadable resources.
+
+The `PerformanceResourceTiming` is a specialized interface that extends the `PerformanceEntry`.
+Which shows there is quite a lot more and a well thought through structure behind.
+If this sounds confusing hang on and read on, the names make sense over time.
+Just remember: "Resource Timing" is a "Performance API".
+
+Anyways, the [spec describes `PerformanceResourceTiming` in a quite understandable way][3], I think:
 
 > [The spec] introduces the `PerformanceResourceTiming` interface to allow JavaScript mechanisms to collect complete 
 > timing information related to resources on a [website].
 
-The interface that the spec defines is called **"PerformanceResourceTiming", is a collection 
+The interface that the spec defines is called **"PerformanceResourceTiming", a collection 
 of attributes about one resource that a website loads**. For example the attribute `duration` is the time
 it took to load a certain resource. 
 
@@ -85,12 +108,12 @@ Good to know that we have reliable time measuring in the browser
 available, details might become another blog post in this series.
 
 ## Query the Data
-The `name` is the URL of the resource the website loaded and the API measured the rsource timing for.
+The `name` is the URL of the resource the website loaded and the API measured the resource timing for.
 Let me sum up, by looking at the part of the API seen so far.
-
-In the following I wrote two lines of JavaScript, that you can try out on the console of your
-browser and see what kind of results you are getting. Feel free to copy line by line and see what
-you are getting.
+In the following I wrote two lines of JavaScript to extract `name` and `duration`,
+so we can see which resource/URL (`name`) took how long to load (`duration`).
+You can try it out on the console of your
+browser and see what kind of results you are getting. Feel free to copy line by line.
 
 ```js
 > // Read all resource that our website has loaded.
@@ -115,7 +138,9 @@ you are getting.
 
 Looking at the output of an array is fun for developers, but seeing that data in a diagram offers
 a different perspective, so let's see the `duration` of all the resources loaded on this website, in a diagram.
-Try it: reload the page and see the bars update. This is life data.
+Try it: reload the page and see the bars update. This is life data.  
+Try also hard reloading the page (mostly done with pressing <kbd>Shift</kbd> additionally to your reload shortcut or click), 
+so that caches are not used and the durations will be very different again.
 
 <figure>
   <hc-chart id="duration-chart" style="height: 15rem;">
@@ -144,13 +169,12 @@ Try it: reload the page and see the bars update. This is life data.
 </script>
 
 ## `startTime` and `responseEnd` Attributes
-
-The `duration` attribute, is the result of subtracting the `responseEnd - startTime` attribute ([spec][8]).
-The `startTime` attribute is the time when fetching the resource started ([MDN][9]). The `responseEnd` is the timestamp 
-when the last byte was received or when the transport connection closes ([MDN][10]).
+The `duration` attribute, is the result of [subtracting][8] the `responseEnd - startTime` attribute.
+The `startTime` attribute is the time when fetching the [resource started][9]. The `responseEnd` is the timestamp 
+when the last byte was received or [when the transport connection closes][10].
 
 Let's see how to find out how long loading all resources took.
-The code you will see now, is the same that generated the numbers at the beginning of this article
+The code you will see now, is the same that generated the stats at the beginning of this article
 and as you will find them at the end again, so you can compare the two.
 The time taken how long loading all resources took I calculate by 
 retreiving all `responseEnd` values and taking the biggest one, as you can see below:
@@ -188,6 +212,7 @@ After the [event "load"][6] (the whole page has loaded, including all dependent 
 this **page loaded <span id="num-assets-loaded-2">??</span> assets** (or resources) and 
 **took <span id="time-taken-loading-2">??</span> seconds to load**. 
 <span id="loading-failed-hint-2">(If you just see "??" then reading the data didn't work, do you have an old browser?)</span>
+<a href="javascript:__updateInlineStats__(2)">Click here to update the stats</a>, just like above.
 
 <script type="text/javascript">
   window.__runOnloaded__.push(() => __updateInlineStats__(2));
@@ -216,4 +241,5 @@ Soon: You want to know more? Read [part 2 of this series about "Loading Dependen
 [8]: https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/#performanceresourcetiming
 [9]: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime
 [10]: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseEnd
+[11]: https://www.w3.org/TR/resource-timing-2/#sec-resource-timing
 [@wolframkriesing]: https://twitter.com/wolframkriesing
