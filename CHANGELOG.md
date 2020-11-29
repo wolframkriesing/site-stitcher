@@ -2,6 +2,8 @@
 - [ ] show a page-load stats widgets in the space right and left
   - [ ] repost blog posts from techblog
     - [x] copy and adjust post 1
+      - [ ] add image to site
+      - [ ] make fallback image work
     - [ ] copy and adjust post 2
     - [ ] copy and adjust post 3
   - [ ] build a widget to show the stats OR reuse the widget from the post
