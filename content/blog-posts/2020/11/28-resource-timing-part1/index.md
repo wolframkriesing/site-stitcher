@@ -227,8 +227,7 @@ What you can do with it I leave up to your imagination.
 If you have something interesting please [ping me on twitter][@wolframkriesing], I am curious to see and learn more about it,
 especially about useful applications with it.
 
-Soon: You want to know more? Read [part 2 of this series about "Loading Dependencies"].
-
+You want to know more? Read [part 2 of this series about "Loading Dependencies"][12].\
 *The first version of this post I wrote and published [for the HolidayCheck TechBlog, May 2019](https://techblog.holidaycheck.com/post/2019/05/06/browsertools-1-resource-timing-part1).*
 
 [1]: https://developer.mozilla.org/en-US/docs/Web/API/Performance
@@ -242,4 +241,5 @@ Soon: You want to know more? Read [part 2 of this series about "Loading Dependen
 [9]: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime
 [10]: https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseEnd
 [11]: https://www.w3.org/TR/resource-timing-2/#sec-resource-timing
+[12]: /blog/2020/11/29-resource-timing-part-2/
 [@wolframkriesing]: https://twitter.com/wolframkriesing
