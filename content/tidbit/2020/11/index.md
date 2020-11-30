@@ -1,3 +1,47 @@
+# React-Native Picker Moved (Again)
+slug: react-native-picker-moved-again
+dateCreated: 2020-11-30 18:05 CET
+tags: react-native, mobile development
+
+The [react-native picker](https://github.com/react-native-picker/picker) is a module I had a couple of 
+[touchpoints](https://github.com/facebook/react-native/issues/7817#issuecomment-264837382)
+with. Even before it had moved repositories. Now it moved again.
+
+## Some History
+
+Back **in 2016** the picker was shipped with [react-native](https://github.com/facebook/react-native).
+
+When I started working with react-native again in September **2020** it had moved out of react-native into 
+community repo, judging by the name, [https://github.com/react-native-community/picker](github.com/react-native-community/picker).
+
+Looking at the repo **today** (while still trying to learn how to style the component on android)
+I learned that the repo [had moved again](https://github.com/react-native-picker/picker/pull/155),
+this time to [github.com/react-native-picker/picker](https://github.com/react-native-picker/picker).
+
+Reading the commit linked above I learned that the "react-native-community" org seems not to host repos anymore,
+which makes sense I think, otherwise everyone would want to be there which makes it kinda like another internet :).
+I am just not sure if this means that the component will be maintained more intensively than it was the case in the last years.
+Actually it sounds like a good open source project to help with, I felt the pain for a long time.
+Let's see if I get my android things solved and lets see then.
+
+# Which Attributes can I style in `Theme.AppCompat`
+slug: which-attributes-can-i-style-in-theme-app-compat
+dateCreated: 2020-11-30 16:52 CET
+tags: android, react-native, styling
+
+https://developer.android.com/guide/topics/ui/look-and-feel/themes?hl=en#CustomizeTheme
+
+> The Android Support Library also provides other attributes you can use to customize your theme extended from 
+> Theme.AppCompat (such as the colorPrimary attribute shown above). These are best viewed in [the library's attrs.xml file](https://chromium.googlesource.com/android_tools/+/HEAD/sdk/extras/android/support/v7/appcompat/res/values/attrs.xml)
+
+on the same page
+
+> Note: Attribute names from the support library do not use the `android:` prefix. That's used only for attributes from the Android framework.
+
+The avilable themes
+
+https://chromium.googlesource.com/android_tools/+/HEAD/sdk/extras/android/support/v7/appcompat/res/values/themes.xml
+
 # Hacking Android Styles
 slug: hacking-android-styles
 dateCreated: 2020-11-30 16:28 CET
