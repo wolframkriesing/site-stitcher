@@ -21,7 +21,8 @@ this time to [github.com/react-native-picker/picker](https://github.com/react-na
 Reading the commit linked above I learned that the "react-native-community" org seems not to host repos anymore,
 which makes sense I think, otherwise everyone would want to be there which makes it kinda like another internet :).
 I am just not sure if this means that the component will be maintained more intensively than it was the case in the last years.
-Actually it sounds like a good open source project to help with, I felt the pain for a long time.
+Actually it sounds like a good open source project to help with, I felt the pain for a long time and if you browse the issues
+I feel that most of them are about styling the picker (on Android).
 Let's see if I get my android things solved and lets see then.
 
 # Which Attributes can I style in `Theme.AppCompat`
