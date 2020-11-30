@@ -9,6 +9,9 @@ main {
     flex: 1;
     overflow: auto;
   }
+    aside.right {
+      padding-left: var(--spacing-big);
+    }
   aside > * {
     margin-bottom: var(--spacing-bigger);
     margin-right: 4rem;
