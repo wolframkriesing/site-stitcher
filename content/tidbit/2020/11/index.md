@@ -1,3 +1,59 @@
+# Hacking Android Styles
+slug: hacking-android-styles
+dateCreated: 2020-11-30 16:28 CET
+tags: android, react-native, styling, mobile, knowledgebase
+
+I never did android development, only the react-native side of things.
+Now while digging deeper, trying to figure out how to style a react-native picker on android (because the default is really ugly)
+I am reading into [android docs](https://developer.android.com/). I found out how to break my app's rendering with one line of XML. Not true, five lines of XML.
+
+In "android/app/src/main/res/values/style.xml" I can style theme my app.
+By simply overriding the style `android:textViewStyle` like you see below
+I can change all `<Text>` components used in my app that do not override any of the attributes you see below.
+
+```
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textViewStyle">@style/TextView</item>
+    </style>
+
+    <style name="TextView" parent="AppTheme">
+        <item name="android:textColor">#ff0000</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+```
+
+I have overridden `textColor`, `padding` and `gravity` (which is kinda like `justifyContent` in flexbox-speak).
+And boom I had a couple of red texts that became centered in my app. I guess that also means I did not yet 
+properly style all elements.
+
+# `Theme.AppCompat` is supplied by the Android Support Library
+slug: theme-app-compat-is-supplied-by-the-android-support-library
+dateCreated: 2020-11-30 16:25 CET
+tags: android, tools, react-native, react, mobile development, knowledgebase
+
+When I started digging into the `styles.xml` file of our react-native app I found XML like this:
+
+```
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">#000</item>
+```
+
+I understand that the `parent` attribute there means inherit the styles from the theme
+"Theme.AppCompat.Light.NoActionBar", I was searching the web where this theme was defined, until 
+I found it while reading [the android docs](https://developer.android.com/guide/topics/ui/look-and-feel/themes?hl=en)
+there I found the answer:
+
+> a theme such as `Theme.AppCompat` that's supplied by the Android Support Library
+
+So it ships with android and since this is not open source (I think) I didn't find it.
+At least I know now where it comes from ;).
+I also found the answer to [what the Android Support Library is](https://developer.android.com/topic/libraries/support-library/).
+
 # Restore deleted git branch
 slug: restore-deleted-git-branch
 dateCreated: 2020-11-26 15:10 CET
