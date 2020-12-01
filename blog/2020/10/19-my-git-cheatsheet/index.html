@@ -143,12 +143,28 @@ Here is my list of git commands. As usual I created this collection so I know wh
 <td>Push updates for a branch that is already at origin</td>
 </tr>
 <tr>
-<td><code>git branch -d &lt;branch name&gt;</code></td>
+<td><code>git branch --delete &lt;branch name&gt;</code></td>
 <td>Delete a local branch</td>
 </tr>
 <tr>
-<td><code>git branch -m &lt;old-name&gt; &lt;new-name&gt;</code></td>
+<td><code>git branch --move &lt;old-name&gt; &lt;new-name&gt;</code></td>
 <td>Rename a local branch</td>
+</tr>
+<tr>
+<td><code>git branch</code></td>
+<td>List all local branches</td>
+</tr>
+<tr>
+<td><code>git fetch; git branch --all</code><br/><code>git fetch; git branch -a</code></td>
+<td>List all local AND remote branches, before fetch all branch info from remote</td>
+</tr>
+<tr>
+<td><code>git checkout about</code><br/><code>git rebase main</code></td>
+<td>I want to get my branch &quot;about&quot; to be on top of &quot;main&quot;</td>
+</tr>
+<tr>
+<td><code>git checkout --track origin/remote-branch</code></td>
+<td>Checkout a remote branch locally, with tracking</td>
 </tr>
 </tbody></table>
 <h2 is="more-h2" id="commit">Commit</h2>
@@ -166,6 +182,10 @@ Here is my list of git commands. As usual I created this collection so I know wh
 <tr>
 <td><code>git commit -am</code></td>
 <td>Open an editor and commit ALL changed files</td>
+</tr>
+<tr>
+<td><code>git commit -am &quot;My message&quot;</code></td>
+<td>Add and commit ALL changed files with the given message</td>
 </tr>
 <tr>
 <td><code>git add -p</code> <br/>OR<br/> <code>git commit -p</code></td>
