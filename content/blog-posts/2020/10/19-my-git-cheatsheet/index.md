@@ -9,21 +9,25 @@ which is an amazing visual and fully keyboard controllable git tool available fo
 Here is my list of git commands. As usual I created this collection so I know where to copy+paste commands from ;).
 
 ## Branch stuff
-
 | Command | What it does |
 | --- | --- |
 | `git checkout -t -b <branch-name>` | Create new branch |
 | `git checkout -b branchxyz origin/branchxyz` | Checkout branch from origin |
 | `git push -u origin feature` | Push a NEW branch to origin |
 | `git push origin` | Push updates for a branch that is already at origin |
-| `git branch -d <branch name>` | Delete a local branch |
-| `git branch -m <old-name> <new-name>` | Rename a local branch |
+| `git branch --delete <branch name>` | Delete a local branch |
+| `git branch --move <old-name> <new-name>` | Rename a local branch |
+| `git branch` | List all local branches |
+| `git fetch; git branch --all`<br/>`git fetch; git branch -a` | List all local AND remote branches, before fetch all branch info from remote  |
+| `git checkout about`<br/>`git rebase main` | I want to get my branch "about" to be on top of "main" |
+| `git checkout --track origin/remote-branch` | Checkout a remote branch locally, with tracking  |
 
 ## Commit
 | Command | What it does |
 | --- | --- |
 | `git commit -m 'message' filename.js` | Commit one file |
 | `git commit -am` | Open an editor and commit ALL changed files |
+| `git commit -am "My message"` | Add and commit ALL changed files with the given message |
 | `git add -p` <br/>OR<br/> `git commit -p` | Commit parts of a file (so called hunks), most useful next options: y,n,s |
 | `git commit --amend` | Amend the last commit |
 | `git checkout -- <file-name>` | Reset file to last commit |
