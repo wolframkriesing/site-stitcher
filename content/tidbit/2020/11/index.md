@@ -1,4 +1,4 @@
-# React-Native Picker Moved (Again)
+# React-Native Picker Repo Moved (Again)
 slug: react-native-picker-moved-again
 dateCreated: 2020-11-30 18:05 CET
 tags: react-native, mobile development
@@ -12,7 +12,7 @@ with. Even before it had moved repositories. Now it moved again.
 Back **in 2016** the picker was shipped with [react-native](https://github.com/facebook/react-native).
 
 When I started working with react-native again in September **2020** it had moved out of react-native into 
-community repo, judging by the name, [https://github.com/react-native-community/picker](github.com/react-native-community/picker).
+community repo, judging by the repo name: github.com/react-native-community/picker.
 
 Looking at the repo **today** (while still trying to learn how to style the component on android)
 I learned that the repo [had moved again](https://github.com/react-native-picker/picker/pull/155),
