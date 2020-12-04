@@ -6,11 +6,12 @@ tags: react-native, android, mobile
 [React-native](https://reactnative.dev) has a component `Pressable`. Used like so `<Pressable>clickable thing</Pressable>`.
 It has one Android-specific [attribute `android_ripple`](https://reactnative.dev/docs/pressable#android_ripple-android),
 which defines what this very useful UX ripple effect looks like.
-I feel this visual feedback is veru user-friendly, it indicates if a click was detected.
+I feel this visual feedback is very user-friendly, it indicates if a click was detected.
 So I am investing time in making it work well, but it's not that easy.
 Let me share my learnings.
 
 The ripple effect is the red dot flying in on the button. Can you see it?
+This is a native Android feature provided by react-native to be kinda controlled from there.
 <figure>
     <img src="../ripple-anim.gif" alt="Ripple animation" width="600" />
     <figcaption>Ripple effect in action</figcaption>
