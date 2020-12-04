@@ -17,10 +17,10 @@ The ripple effect is the red dot flying in on the button. Can you see it?
 </figure>
 
 ## The Context
-It's all about react-native, correct.
-I am currently using v0.63.2 (just in case someone case along, reads this and screams "it's all wrong", check the version first).
-Android version: 
-Device: 
+It's all about react-native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams "it's all wrong", check the version first).
+My Android version is [API Level 28](https://en.wikipedia.org/wiki/Android_Pie) and 
+the device I use is a [Cosmo Communicator made by Planet Computers](https://www.www3.planetcom.co.uk/cosmo-communicator),
+that's also why you see a landscape video.
 
 ## Contents
 
