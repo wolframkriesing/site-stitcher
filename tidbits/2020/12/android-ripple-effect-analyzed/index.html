@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Android Ripple Effect Analyzed" />
+
+  <meta property="og:title" content="Android Ripple Effect Analyzed">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/tidbits/2020/12/android-ripple-effect-analyzed/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/12/android-ripple-effect-analyzed/">
+  <title>Android Ripple Effect Analyzed | picostitch - crafting (and) JavaScript</title>
+  
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+
+  <meta property="og:description" content="[React-native](https://reactnative.dev) has a component `Pressable`. Used like so `&lt;Pressable&gt;clickable thing&lt;/Pressable&gt;`.
+It has one Android-specific [attribute `android_ripple`](https://reactnative.dev/docs/pressable#android_ripple-android),
+which defines what this very useful UX ripple effect looks like.
+I feel this visual feedback is very user-friendly, it indicates if a click was detected.
+So I am investing time in making it work well, but it's not that easy.
+Let me share my learnings." />
+  <meta property="article:description" content="[React-native](https://reactnative.dev) has a component `Pressable`. Used like so `&lt;Pressable&gt;clickable thing&lt;/Pressable&gt;`.
+It has one Android-specific [attribute `android_ripple`](https://reactnative.dev/docs/pressable#android_ripple-android),
+which defines what this very useful UX ripple effect looks like.
+I feel this visual feedback is very user-friendly, it indicates if a click was detected.
+So I am investing time in making it work well, but it's not that easy.
+Let me share my learnings." />
+  <meta name="twitter:description" content="[React-native](https://reactnative.dev) has a component `Pressable`. Used like so `&lt;Pressable&gt;clickable thing&lt;/Pressable&gt;`.
+It has one Android-specific [attribute `android_ripple`](https://reactnative.dev/docs/pressable#android_ripple-android),
+which defines what this very useful UX ripple effect looks like.
+I feel this visual feedback is very user-friendly, it indicates if a click was detected.
+So I am investing time in making it work well, but it's not that easy.
+Let me share my learnings." />
+
+  
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/12" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/12" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/12" />
+  
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Android Ripple Effect Analyzed
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="react-native">#react-native</div>
+      <h1 id="android-ripple-effect-analyzed" is="more-h1">Android Ripple Effect Analyzed</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - December 4, 2020
+        
+          - tagged with: #react-native #android #mobile
+        
+      </div>
+    </header>
+
+    <p><a href="https://reactnative.dev">React-native</a> has a component <code>Pressable</code>. Used like so <code>&lt;Pressable&gt;clickable thing&lt;/Pressable&gt;</code>.
+It has one Android-specific <a href="https://reactnative.dev/docs/pressable#android_ripple-android">attribute <code>android_ripple</code></a>,
+which defines what this very useful UX ripple effect looks like.
+I feel this visual feedback is very user-friendly, it indicates if a click was detected.
+So I am investing time in making it work well, but it&#39;s not that easy.
+Let me share my learnings.</p>
+<p>The ripple effect is the red dot flying in on the button. Can you see it?
+This is a native Android feature provided by react-native to be kinda controlled from there.</p>
+<figure>
+    <img src="../ripple-anim.gif" alt="Ripple animation" width="600" />
+    <figcaption>Ripple effect in action</figcaption>
+</figure>
+
+<h2 is="more-h2" id="the-context">The Context</h2>
+<p>It&#39;s all about react-native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams &quot;it&#39;s all wrong&quot;, check the version first).
+My Android version is <a href="https://en.wikipedia.org/wiki/Android_Pie">API Level 28</a> and 
+the device I use is a <a href="https://www.www3.planetcom.co.uk/cosmo-communicator">Cosmo Communicator made by Planet Computers</a>,
+that&#39;s also why you see a landscape video.</p>
+<h2 is="more-h2" id="contents">Contents</h2>
+<ol>
+<li><a href="#no-onpress-no-ripple">No <code>onPress</code> no Ripple</a></li>
+<li><a href="#background-color-on-a-child-disables-ripple-effect">Background Color on a Child Disables Ripple Effect</a></li>
+<li><a href="#workaround-how-to-still-use-a-background-color">Workaround: How to still use a Background Color?</a></li>
+<li><a href="#watch-out-though---dont-add-borderless">Don&#39;t add <code>borderless</code>!</a></li>
+<li><a href="#add-borderradius---works">Add <code>borderRadius</code> - Works</a></li>
+<li><a href="#the-ripple-radius">The Ripple Radius</a></li>
+<li><a href="#building-a-round-button">Building a Round Button</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 is="more-h2" id="no-onpress-no-ripple">No <code>onPress</code> no Ripple</h2>
+<p>The <code>&lt;Pressable&gt;</code> must receive a prop <code>onPress</code>, if that one is missing I got no the ripple effect.</p>
+<p><strong>Expectation</strong>: I had expected <code>onPress</code> can be left out, ripple still works.</p>
+<pre><code>// No `onPress`, NO ripple effect visible!
+&lt;Pressable
+    android_ripple={{color: &#39;red&#39;}}
+&gt;
+    &lt;Text&gt;Click me&lt;/Text&gt;
+&lt;/Pressable&gt;
+
+// The `onPress` exists, ripple effect visible.
+&lt;Pressable
+    onPress={() =&gt; {}} 
+    android_ripple={{color: &#39;red&#39;}}
+&gt;
+    &lt;Text&gt;Click me&lt;/Text&gt;
+&lt;/Pressable&gt;</code></pre><p>Even a <code>onPress={noop}</code> works. So I assume the argument is just checked, I didn&#39;t dive into the source code 
+(but it&#39;s <a href="https://github.com/facebook/react-native/blob/master/Libraries/Components/Pressable/Pressable.js">probably somewhere in there</a>).</p>
+<p><strong>Learning</strong>: Always pass at least a <code>noop</code> to onPress to make sure the ripple effect is visible.</p>
+<h2 is="more-h2" id="background-color-on-a-child-disables-ripple-effect">Background Color on a Child Disables Ripple Effect</h2>
+<p>The ripple effect is turned off by any child inside a <code>&lt;Pressable&gt;</code> that has a background color.</p>
+<p><strong>Expectation</strong>: I did <strong>not</strong> expect this. I had expected the ripple effect to overlay any child component, no matter how it is styled.</p>
+<pre><code class="undefinedjsx">// The ripple effect is NOT visible.
+&lt;Pressable
+    onPress={() =&gt; {}}
+    android_ripple={{color: &#39;red&#39;}}
+&gt;
+    &lt;Text 
+        style={{backgroundColor: &#39;blue&#39;}}
+    &gt;Click me&lt;/Text&gt;
+&lt;/Pressable&gt;
+</code></pre>
+<p>The above code just disables the ripple effect basically. So you click and you get no visual feedback
+if you clicked or not.</p>
+<p>The below code shows, that the ripple effect still takes place, just behind the text component.
+There is an opacity on the text, which lets the ripple effect shine through and the colors mix.</p>
+<pre><code class="undefinedjsx">// The colors red and blue mix, 50/50, so you can see the ripple effect is behind the text component.
+&lt;Pressable
+    onPress={() =&gt; {}}
+    android_ripple={{color: &#39;red&#39;}}
+&gt;
+    &lt;Text 
+        style={{backgroundColor: &#39;blue&#39;, opacity: 0.5}}
+    &gt;Click me&lt;/Text&gt;
+&lt;/Pressable&gt;</code></pre>
+<p>If you give the Pressable a height, higher than the child element, here the text, you will also see the 
+ripple effect show in the parts that are not covered by the child element.</p>
+<pre><code>&lt;Pressable
+    onPress={() =&gt; {}}
+    android_ripple={{color: &#39;red&#39;}}
+    style={{height: 100}}
+&gt;
+...</code></pre><h2 is="more-h2" id="workaround-how-to-still-use-a-background-color">Workaround: How to still use a Background Color?</h2>
+<p>I want the content to have a background color though.
+So I moved the background color to the Pressable component. That works.</p>
+<pre><code class="undefinedjsx">&lt;Pressable
+    onPress={() =&gt; {}}
+    android_ripple={{color: &#39;red&#39;}}
+    style={{
+        backgroundColor: &#39;blue&#39;,
+    }}
+&gt;
+    &lt;Text&gt;Click me&lt;/Text&gt;
+&lt;/Pressable&gt;</code></pre>
+<p>But it also creates one interesting effect, the color of the ripple effect is not pure red, as
+defined below, but it is red and blue mixed together.</p>
+<p><strong>Expectation</strong>: I would not have expected the colors to mix, I thought the ripple effect was a solid color.</p>
+<h2 is="more-h2" id="dont-add-borderless">Don&#39;t add <code>borderless</code>!</h2>
+<p>When you add the attribute <code>borderless</code> to the <code>android_ripple</code> prop the background color
+is gone.</p>
+<p><strong>Expectation</strong>: I did not expect the <code>borderless</code> attribute to influence how the component is styled.</p>
+<pre><code>// The attriute `borderless=true` REMOVES the background color!
+&lt;Pressable
+    onPress={() =&gt; {}}
+    android_ripple={{color: &#39;red&#39;, borderless: true}}
+    style={{
+        backgroundColor: &#39;blue&#39;,
+    }}
+&gt;
+...</code></pre><h2 is="more-h2" id="add-borderradius---works">Add <code>borderRadius</code> - Works</h2>
+<p>I also have the requirement to make the pressable a circle, so I will use <code>borderRadius</code>.
+I did not expect this to work, but it does. No problem here.</p>
+<pre><code>&lt;Pressable
+    onPress={() =&gt; {}}
+    android_ripple={{color: &#39;red&#39;}}
+    style={{
+        backgroundColor: &#39;blue&#39;,
+        borderRadius: 10,
+    }}
+&gt;
+</code></pre><h2 is="more-h2" id="the-ripple-radius">The Ripple Radius</h2>
+<p>In the docs I did not find any info on what the <code>radius</code> attribute on the <code>android_ripple</code> prop
+really does. It says &quot;Defines the radius of the ripple effect.&quot; ... doh, sorry but I thought that it was
+some kinda radius. But I figured it out.</p>
+<pre><code>// A big circle animates into a tiny one, of 1 pixel.
+&lt;Pressable
+    android_ripple={{color: &#39;red&#39;, radius: 1}}
+
+// A big circle animates into a 20 pixels big one, that&#39;s where the animation ends.
+&lt;Pressable
+    android_ripple={{color: &#39;red&#39;, radius: 20}}</code></pre><p>It seems that the start of the animation is always about 50dp (just an estimate).
+Once you click, it animates to the size you have set to <code>radius</code>.</p>
+<p>If you set <code>radius=1</code> you see an animation from 50dp down to 1dp, a circle that becomes smaller
+over time.</p>
+<p>If you have <code>radius=50</code> it kinda looks like there is a static circle on the screen for a short amount of time.</p>
+<p>If you have <code>radius=100</code> it looks the entire circle stays at 100dp and just fades in and disappears. Nothing fancy.
+But does the job.</p>
+<p>That seems to me like, the property should be called <code>endRadius</code> or <code>animationEndRadius</code> or something.</p>
+<h2 is="more-h2" id="building-a-round-button">Building a Round Button</h2>
+<p>My actual goal was to build a round burger menu item <strong>with a proper ripple effect</strong>.
+Now that I explored the ripple effect (and react-native&#39;s use) in depth I am ready to use it.
+It looks like this right now:</p>
+<pre><code>const diameter = 100;
+const circle = {
+    backgroundColor: &#39;white&#39;,
+    padding: diameter / 4,
+    borderRadius: diameter / 2,
+};
+return (
+    &lt;Pressable
+        onPress={onPress}
+        android_ripple={{color: &#39;red&#39;, radius: 20}}
+        style={circle}
+    &gt;
+        &lt;IconBurgerMenu width={diameter / 2} height={diameter / 2} /&gt;
+    &lt;/Pressable&gt;
+);</code></pre><h2 is="more-h2" id="conclusion">Conclusion</h2>
+<p>I am not sure if I am not understanding the docs, expecting wrong things or simply not getting react-native yet.
+But I have a feeling that there are a couple og gotchas, that might also be called bugs.
+I will link it in the according places, maybe it feels helpful to someone.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
