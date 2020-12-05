@@ -1,3 +1,20 @@
+# React Native Android Cheatsheet
+slug: react-native-android-cheatsheet
+dateCreated: 2020-12-05 14:28 CET
+tags: React Native, Android
+
+## Open the Developer Menu in the App from the Shell
+`adb shell input keyevent KEYCODE_MENU`
+
+## Reload App from Shell
+`adb shell input text "RR"`
+
+## Reconnect App to DevServer
+`adb reverse tcp:8081 tcp:8081`
+
+More hints in [this thread on stackoverflow](https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line).
+
+
 # Android Ripple Effect - Analyzed
 slug: android-ripple-effect-analyzed  
 dateCreated: 2020-12-04 18:00 CET  
@@ -218,3 +235,7 @@ return (
 I am not sure if I am not understanding the docs, expecting wrong things or simply not getting React Native yet.
 But I have a feeling that there are a couple of gotchas, that might also be called bugs.
 I will link it in the according places, maybe it feels helpful to someone.
+
+UPDATE: It looks like there is an even better solution coming. It is in [a pull request](https://github.com/facebook/react-native/pull/30466)
+which basically puts the ripple effect always in the foreground, that's how I understand it. I think this might solve
+most of the issues I described above. Cool.
