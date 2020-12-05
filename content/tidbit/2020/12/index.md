@@ -212,5 +212,5 @@ return (
 
 ## Conclusion
 I am not sure if I am not understanding the docs, expecting wrong things or simply not getting react-native yet.
-But I have a feeling that there are a couple og gotchas, that might also be called bugs.
+But I have a feeling that there are a couple of gotchas, that might also be called bugs.
 I will link it in the according places, maybe it feels helpful to someone.
