@@ -132,7 +132,7 @@ This is a native Android feature provided by React Native to be kinda controlled
 <ol>
 <li><a href="#the-context">The Context</a></li>
 <li><a href="#no-onpress-no-ripple">No <code>onPress</code> no Ripple</a></li>
-<li><a href="#background-color-on-a-child-disables-ripple-effect">Background Color on a Child Disables Ripple Effect</a></li>
+<li><a href="#background-color-on-a-child-overlays-ripple-effect">Background Color on a Child Overlays Ripple Effect</a></li>
 <li><a href="#workaround-how-to-still-use-a-background-color">Workaround: How to still use a Background Color?</a></li>
 <li><a href="#watch-out-though---dont-add-borderless">Don&#39;t add <code>borderless</code>!</a></li>
 <li><a href="#add-borderradius---works">Add <code>borderRadius</code> - Works</a></li>
@@ -164,7 +164,7 @@ that&#39;s also why you saw a landscape video above.</p>
 &lt;/Pressable&gt;</code></pre><p>Even a <code>onPress={noop}</code> works. So I assume the argument is just checked, I didn&#39;t dive into the source code 
 (but it&#39;s <a href="https://github.com/facebook/react-native/blob/master/Libraries/Components/Pressable/Pressable.js">probably somewhere in there</a>).</p>
 <p><strong>Learning</strong>: Always pass at least a <code>noop</code> to onPress to make sure the ripple effect is visible.</p>
-<h2 is="more-h2" id="background-color-on-a-child-disables-ripple-effect">Background Color on a Child Disables Ripple Effect</h2>
+<h2 is="more-h2" id="background-color-on-a-child-overlays-ripple-effect">Background Color on a Child Overlays Ripple Effect</h2>
 <p>The ripple effect is turned off by any child inside a <code>&lt;Pressable&gt;</code> that has a background color.</p>
 <p><strong>Expectation</strong>: I did <strong>not</strong> expect this. I had expected the ripple effect to overlay any child component, no matter how it is styled.</p>
 <pre><code class="undefinedjsx">// The ripple effect is NOT visible.
