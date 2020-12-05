@@ -14,7 +14,7 @@ Let me share my learnings.
 
 ## What is the Ripple Effect?
 The ripple effect is the red dot flying in on the button. Can you see it?
-This is a native Android feature provided by react-native to be kinda controlled from there.
+This is a native Android feature provided by React Native to be kinda controlled from there.
 <figure>
     <img src="../ripple-anim.gif" alt="Ripple animation" width="600" />
     <figcaption>Ripple effect in action</figcaption>
@@ -33,7 +33,7 @@ This is a native Android feature provided by react-native to be kinda controlled
 1. [Conclusion](#conclusion)
 
 ## The Context
-It's all about react-native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams "it's all wrong", check the version first).
+It's all about React Native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams "it's all wrong", check the version first).
 My Android version is [API Level 28](https://en.wikipedia.org/wiki/Android_Pie) and 
 the device I use is a [Cosmo Communicator made by Planet Computers](https://www.www3.planetcom.co.uk/cosmo-communicator),
 that's also why you saw a landscape video above.
@@ -193,7 +193,7 @@ That seems to me like, the property should be called `endRadius` or `animationEn
 
 ## Building a Round Button
 My actual goal was to build a round burger menu item **with a proper ripple effect**.
-Now that I explored the ripple effect (and react-native's use) in depth I am ready to use it.
+Now that I explored the ripple effect (and React Native's use) in depth I am ready to use it.
 It looks like this right now:
 
 ```
@@ -215,6 +215,6 @@ return (
 ```
 
 ## Conclusion
-I am not sure if I am not understanding the docs, expecting wrong things or simply not getting react-native yet.
+I am not sure if I am not understanding the docs, expecting wrong things or simply not getting React Native yet.
 But I have a feeling that there are a couple of gotchas, that might also be called bugs.
 I will link it in the according places, maybe it feels helpful to someone.

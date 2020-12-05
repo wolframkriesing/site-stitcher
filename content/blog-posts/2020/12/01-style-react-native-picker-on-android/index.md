@@ -1,5 +1,5 @@
 dateCreated: 2020-12-01 17:55 CET
-tags: react-native, android, mobile
+tags: React Native, android, mobile
 isDraft: true
 
 # Style the React-Native Picker Component

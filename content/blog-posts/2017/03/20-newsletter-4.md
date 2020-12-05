@@ -1,5 +1,5 @@
 dateCreated: 2017-03-20 18:01 CET
-tags: lint, eslint, react-native, refactoring, code quality, github, audio, playground, classes
+tags: lint, eslint, React Native, refactoring, code quality, github, audio, playground, classes
 
 # Newsletter #4
 

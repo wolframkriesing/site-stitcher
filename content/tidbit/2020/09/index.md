@@ -160,8 +160,8 @@ So I ended up with a ThinkPad and I switched back to Linux after >15 years.
 It is a fun ride, and [I cover some of it on twitter](https://twitter.com/search?q=%23fromMacToLinux&f=live) 
 from time to time.
 
-Now I need to go back to my Linux laptop and do some react-native.
-It is exciting to see how much react-native has changed since I last touched it in 2017.
+Now I need to go back to my Linux laptop and do some React Native.
+It is exciting to see how much React Native has changed since I last touched it in 2017.
 But it is still fun and strange shipping an app to a mobile phone. I would prefer 
 building just for the web not for any proprietary platform and device. Let's see
 what I can do for the world and the web at Sono.

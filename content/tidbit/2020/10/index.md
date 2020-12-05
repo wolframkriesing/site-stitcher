@@ -158,9 +158,9 @@ Think about it and act like it.
 # React Native Picker - Still Maintained?
 slug: react-native-picker-still-maintained
 dateCreated: 2020-10-10 21:04 CET
-tags: react-native, mobile
+tags: React Native, mobile
 
-I am wondering if the react-native Picker component is still maintained and if it is usable or if I am totally
+I am wondering if the React Native Picker component is still maintained and if it is usable or if I am totally
 looking at the wrong thing for using a picker for a mobile app.
 
 <figure style="padding: 1rem;">
