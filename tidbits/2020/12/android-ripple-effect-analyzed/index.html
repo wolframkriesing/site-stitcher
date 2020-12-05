@@ -122,7 +122,7 @@ So I am investing time in making it work well, but it&#39;s not that easy.
 Let me share my learnings.</p>
 <h2 is="more-h2" id="what-is-the-ripple-effect">What is the Ripple Effect?</h2>
 <p>The ripple effect is the red dot flying in on the button. Can you see it?
-This is a native Android feature provided by react-native to be kinda controlled from there.</p>
+This is a native Android feature provided by React Native to be kinda controlled from there.</p>
 <figure>
     <img src="../ripple-anim.gif" alt="Ripple animation" width="600" />
     <figcaption>Ripple effect in action</figcaption>
@@ -141,7 +141,7 @@ This is a native Android feature provided by react-native to be kinda controlled
 <li><a href="#conclusion">Conclusion</a></li>
 </ol>
 <h2 is="more-h2" id="the-context">The Context</h2>
-<p>It&#39;s all about react-native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams &quot;it&#39;s all wrong&quot;, check the version first).
+<p>It&#39;s all about React Native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams &quot;it&#39;s all wrong&quot;, check the version first).
 My Android version is <a href="https://en.wikipedia.org/wiki/Android_Pie">API Level 28</a> and 
 the device I use is a <a href="https://www.www3.planetcom.co.uk/cosmo-communicator">Cosmo Communicator made by Planet Computers</a>,
 that&#39;s also why you saw a landscape video above.</p>
@@ -255,7 +255,7 @@ But does the job.</p>
 <p>That seems to me like, the property should be called <code>endRadius</code> or <code>animationEndRadius</code> or something.</p>
 <h2 is="more-h2" id="building-a-round-button">Building a Round Button</h2>
 <p>My actual goal was to build a round burger menu item <strong>with a proper ripple effect</strong>.
-Now that I explored the ripple effect (and react-native&#39;s use) in depth I am ready to use it.
+Now that I explored the ripple effect (and React Native&#39;s use) in depth I am ready to use it.
 It looks like this right now:</p>
 <pre><code>const diameter = 100;
 const circle = {
@@ -272,7 +272,7 @@ return (
         &lt;IconBurgerMenu width={diameter / 2} height={diameter / 2} /&gt;
     &lt;/Pressable&gt;
 );</code></pre><h2 is="more-h2" id="conclusion">Conclusion</h2>
-<p>I am not sure if I am not understanding the docs, expecting wrong things or simply not getting react-native yet.
+<p>I am not sure if I am not understanding the docs, expecting wrong things or simply not getting React Native yet.
 But I have a feeling that there are a couple of gotchas, that might also be called bugs.
 I will link it in the according places, maybe it feels helpful to someone.</p>
 
