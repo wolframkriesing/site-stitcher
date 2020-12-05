@@ -41,7 +41,7 @@ This is a native Android feature provided by React Native to be kinda controlled
 
 1. [The Context](#the-context)
 1. [No `onPress` no Ripple](#no-onpress-no-ripple)
-1. [Background Color on a Child Disables Ripple Effect](#background-color-on-a-child-disables-ripple-effect)
+1. [Background Color on a Child Overlays Ripple Effect](#background-color-on-a-child-overlays-ripple-effect)
 1. [Workaround: How to still use a Background Color?](#workaround-how-to-still-use-a-background-color)
 1. [Don't add `borderless`!](#watch-out-though---dont-add-borderless)
 1. [Add `borderRadius` - Works](#add-borderradius---works)
@@ -81,7 +81,7 @@ Even a `onPress={noop}` works. So I assume the argument is just checked, I didn'
 
 **Learning**: Always pass at least a `noop` to onPress to make sure the ripple effect is visible.
 
-## Background Color on a Child Disables Ripple Effect
+## Background Color on a Child Overlays Ripple Effect
 The ripple effect is turned off by any child inside a `<Pressable>` that has a background color.
 
 **Expectation**: I did **not** expect this. I had expected the ripple effect to overlay any child component, no matter how it is styled.
