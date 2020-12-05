@@ -26,3 +26,4 @@ header .tag {
 .tag[data-tag="macos"] { background: linear-gradient(to right, #d6adff, transparent 5rem); }
 .tag[data-tag="tools"] { background: linear-gradient(to right, #ffadb9, transparent 5rem); }
 .tag[data-tag="web"] { background: linear-gradient(to right, rgba(0, 103, 184, 0.5), transparent 5rem); }
+.tag[data-tag="react-native"] { background: linear-gradient(to right, rgb(97, 218, 251), transparent 5rem); }

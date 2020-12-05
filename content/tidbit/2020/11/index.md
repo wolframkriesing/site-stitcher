@@ -1,17 +1,17 @@
-# React-Native Picker Repo Moved (Again)
+# React Native Picker Repo Moved (Again)
 slug: react-native-picker-moved-again
 dateCreated: 2020-11-30 18:05 CET
-tags: react-native, mobile development
+tags: React Native, mobile development
 
-The [react-native picker](https://github.com/react-native-picker/picker) is a module I had a couple of 
+The [React Native picker](https://github.com/react-native-picker/picker) is a module I had a couple of 
 [touchpoints](https://github.com/facebook/react-native/issues/7817#issuecomment-264837382)
 with. Even before it had moved repositories. Now it moved again.
 
 ## Some History
 
-Back **in 2016** the picker was shipped with [react-native](https://github.com/facebook/react-native).
+Back **in 2016** the picker was shipped with [React Native](https://github.com/facebook/react-native).
 
-When I started working with react-native again in September **2020** it had moved out of react-native into 
+When I started working with React Native again in September **2020** it had moved out of React Native into 
 community repo, judging by the repo name: github.com/react-native-community/picker.
 
 Looking at the repo **today** (while still trying to learn how to style the component on android)
@@ -28,7 +28,7 @@ Let's see if I get my android things solved and lets see then.
 # Which Attributes can I style in `Theme.AppCompat`
 slug: which-attributes-can-i-style-in-theme-app-compat
 dateCreated: 2020-11-30 16:52 CET
-tags: android, react-native, styling
+tags: React Native, Android, styling
 
 https://developer.android.com/guide/topics/ui/look-and-feel/themes?hl=en#CustomizeTheme
 
@@ -46,10 +46,10 @@ https://chromium.googlesource.com/android_tools/+/HEAD/sdk/extras/android/suppor
 # Hacking Android Styles
 slug: hacking-android-styles
 dateCreated: 2020-11-30 16:28 CET
-tags: android, react-native, styling, mobile, knowledgebase
+tags: React Native, Android, styling, mobile, knowledgebase
 
-I never did android development, only the react-native side of things.
-Now while digging deeper, trying to figure out how to style a react-native picker on android (because the default is really ugly)
+I never did android development, only the React Native side of things.
+Now while digging deeper, trying to figure out how to style a React Native picker on android (because the default is really ugly)
 I am reading into [android docs](https://developer.android.com/). I found out how to break my app's rendering with one line of XML. Not true, five lines of XML.
 
 In "android/app/src/main/res/values/style.xml" I can style theme my app.
@@ -78,9 +78,9 @@ properly style all elements.
 # `Theme.AppCompat` is supplied by the Android Support Library
 slug: theme-app-compat-is-supplied-by-the-android-support-library
 dateCreated: 2020-11-30 16:25 CET
-tags: android, tools, react-native, react, mobile development, knowledgebase
+tags: Android, tools, React Native, react, mobile development, knowledgebase
 
-When I started digging into the `styles.xml` file of our react-native app I found XML like this:
+When I started digging into the `styles.xml` file of our React Native app I found XML like this:
 
 ```
 <resources>

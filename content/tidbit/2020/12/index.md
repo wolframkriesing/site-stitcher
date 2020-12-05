@@ -1,15 +1,18 @@
-# Android Ripple Effect Analyzed
-slug: android-ripple-effect-analyzed
-dateCreated: 2020-12-04 18:00 CET
-tags: react-native, android, mobile
+# Android Ripple Effect - Analyzed
+slug: android-ripple-effect-analyzed  
+dateCreated: 2020-12-04 18:00 CET  
+tags: React Native, Android, mobile  
+previewImage: ../ripple-preview.jpeg  
 
-[React-native](https://reactnative.dev) has a component `Pressable`. Used like so `<Pressable>clickable thing</Pressable>`.
-It has one Android-specific [attribute `android_ripple`](https://reactnative.dev/docs/pressable#android_ripple-android),
-which defines what this very useful UX ripple effect looks like.
-I feel this visual feedback is very user-friendly, it indicates if a click was detected.
+[React Native](https://reactnative.dev) has a component `Pressable`. Used like so `<Pressable>clickable thing</Pressable>`.
+It is a more abstract way to build a button or something that a user can click.
+The component `Pressable` has one Android-specific [attribute `android_ripple`](https://reactnative.dev/docs/pressable#android_ripple-android),
+which allows to customize the UX of the ripple effect.
+I think the visual feedback the ripple effect provides is very user-friendly, it indicates if a click was detected.
 So I am investing time in making it work well, but it's not that easy.
 Let me share my learnings.
 
+## What is the Ripple Effect?
 The ripple effect is the red dot flying in on the button. Can you see it?
 This is a native Android feature provided by react-native to be kinda controlled from there.
 <figure>
@@ -17,14 +20,9 @@ This is a native Android feature provided by react-native to be kinda controlled
     <figcaption>Ripple effect in action</figcaption>
 </figure>
 
-## The Context
-It's all about react-native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams "it's all wrong", check the version first).
-My Android version is [API Level 28](https://en.wikipedia.org/wiki/Android_Pie) and 
-the device I use is a [Cosmo Communicator made by Planet Computers](https://www.www3.planetcom.co.uk/cosmo-communicator),
-that's also why you see a landscape video.
-
 ## Contents
 
+1. [The Context](#the-context)
 1. [No `onPress` no Ripple](#no-onpress-no-ripple)
 1. [Background Color on a Child Disables Ripple Effect](#background-color-on-a-child-disables-ripple-effect)
 1. [Workaround: How to still use a Background Color?](#workaround-how-to-still-use-a-background-color)
@@ -33,6 +31,12 @@ that's also why you see a landscape video.
 1. [The Ripple Radius](#the-ripple-radius)
 1. [Building a Round Button](#building-a-round-button)
 1. [Conclusion](#conclusion)
+
+## The Context
+It's all about react-native, correct. I am currently using v0.63.2 (just in case someone case along, reads this and screams "it's all wrong", check the version first).
+My Android version is [API Level 28](https://en.wikipedia.org/wiki/Android_Pie) and 
+the device I use is a [Cosmo Communicator made by Planet Computers](https://www.www3.planetcom.co.uk/cosmo-communicator),
+that's also why you saw a landscape video above.
 
 ## No `onPress` no Ripple
 The `<Pressable>` must receive a prop `onPress`, if that one is missing I got no the ripple effect.
