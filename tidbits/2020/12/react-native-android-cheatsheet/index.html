@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="React Native Android Cheatsheet" />
+
+  <meta property="og:title" content="React Native Android Cheatsheet">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/tidbits/2020/12/react-native-android-cheatsheet/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/12/react-native-android-cheatsheet/">
+  <title>React Native Android Cheatsheet | picostitch - crafting (and) JavaScript</title>
+  
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+
+  <meta property="og:description" content="Open the Developer Menu in the App from the Shell" />
+  <meta property="article:description" content="Open the Developer Menu in the App from the Shell" />
+  <meta name="twitter:description" content="Open the Developer Menu in the App from the Shell" />
+
+  
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/12" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/12" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/12" />
+  
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; React Native Android Cheatsheet
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="react-native">#React Native</div>
+      <h1 id="react-native-android-cheatsheet" is="more-h1">React Native Android Cheatsheet</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - December 5, 2020
+        
+          - tagged with: #React Native #Android
+        
+      </div>
+    </header>
+
+    <h2 is="more-h2" id="open-the-developer-menu-in-the-app-from-the-shell">Open the Developer Menu in the App from the Shell</h2>
+<p><code>adb shell input keyevent KEYCODE_MENU</code></p>
+<h2 is="more-h2" id="reload-app-from-shell">Reload App from Shell</h2>
+<p><code>adb shell input text &quot;RR&quot;</code></p>
+<h2 is="more-h2" id="reconnect-app-to-devserver">Reconnect App to DevServer</h2>
+<p><code>adb reverse tcp:8081 tcp:8081</code></p>
+<p>More hints in <a href="https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line">this thread on stackoverflow</a>.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
