@@ -29,9 +29,9 @@
   <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
   <meta property="article:type" content="article" />
 
-  <meta property="og:description" content="Open the Developer Menu in the App from the Shell" />
-  <meta property="article:description" content="Open the Developer Menu in the App from the Shell" />
-  <meta name="twitter:description" content="Open the Developer Menu in the App from the Shell" />
+  <meta property="og:description" content="This is a collection of things I sometimes need when working with React Native and my external Android device." />
+  <meta property="article:description" content="This is a collection of things I sometimes need when working with React Native and my external Android device." />
+  <meta name="twitter:description" content="This is a collection of things I sometimes need when working with React Native and my external Android device." />
 
   
     <meta property="og:image" content="https://picostitch.com/tidbits/2020/12" />
@@ -95,13 +95,23 @@
       </div>
     </header>
 
-    <h2 is="more-h2" id="open-the-developer-menu-in-the-app-from-the-shell">Open the Developer Menu in the App from the Shell</h2>
-<p><code>adb shell input keyevent KEYCODE_MENU</code></p>
+    <p>This is a collection of things I sometimes need when working with React Native and my external Android device.</p>
+<h2 is="more-h2" id="list-connected-devices">List Connected Devices</h2>
+<p>To see all connected devices run:
+<code>adb devices</code>.
+Unfortunately the names listed are not always helpful. I always plug/unplug the device and figure out which one is which name.
+Better ideas? I am interested.</p>
+<h2 is="more-h2" id="open-the-developer-menu-in-the-app-from-the-shell">Open the Developer Menu in the App from the Shell</h2>
+<p>From the command line in the shell to open the developer menu run this command
+<code>adb shell input keyevent KEYCODE_MENU</code></p>
 <h2 is="more-h2" id="reload-app-from-shell">Reload App from Shell</h2>
 <p><code>adb shell input text &quot;RR&quot;</code></p>
-<h2 is="more-h2" id="reconnect-app-to-devserver">Reconnect App to DevServer</h2>
-<p><code>adb reverse tcp:8081 tcp:8081</code></p>
-<p>More hints in <a href="https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line">this thread on stackoverflow</a>.</p>
+<h2 is="more-h2" id="reconnect-device">Reconnect Device</h2>
+<p>Sometimes when I put my computer to sleep, or alike and it disconnects from the device, run the following to restart
+the connection (rebuilding the android app works too, but is way slower):</p>
+<pre><code>$ # In this order!
+$ adb reverse tcp:8081 tcp:8081
+$ react-native start</code></pre><p>More hints in <a href="https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line">this thread on stackoverflow</a>.</p>
 
   </article>
 
