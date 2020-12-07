@@ -3,14 +3,29 @@ slug: react-native-android-cheatsheet
 dateCreated: 2020-12-05 14:28 CET
 tags: React Native, Android
 
+This is a collection of things I sometimes need when working with React Native and my external Android device.
+
+## List Connected Devices
+To see all connected devices run:
+`adb devices`.
+Unfortunately the names listed are not always helpful. I always plug/unplug the device and figure out which one is which name.
+Better ideas? I am interested.
+
 ## Open the Developer Menu in the App from the Shell
+From the command line in the shell to open the developer menu run this command
 `adb shell input keyevent KEYCODE_MENU`
 
 ## Reload App from Shell
 `adb shell input text "RR"`
 
-## Reconnect App to DevServer
-`adb reverse tcp:8081 tcp:8081`
+## Reconnect Device
+Sometimes when I put my computer to sleep, or alike and it disconnects from the device, run the following to restart
+the connection (rebuilding the android app works too, but is way slower):
+```
+$ # In this order!
+$ adb reverse tcp:8081 tcp:8081
+$ react-native start
+```
 
 More hints in [this thread on stackoverflow](https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line).
 
