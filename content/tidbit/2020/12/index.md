@@ -26,6 +26,7 @@ $ # In this order!
 $ adb reverse tcp:8081 tcp:8081
 $ react-native start
 ```
+Unfortunately I also have to restart the app on the device, will need to figure out how to prevent this.
 
 More hints in [this thread on stackoverflow](https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line).
 
