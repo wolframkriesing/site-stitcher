@@ -1,3 +1,48 @@
+# Website Speed - Lab and Field Tools
+slug: website-speed-lab-and-field-tools
+dateCreated: 2020-12-09 13:53 CET
+tags: tools, page speed, measuring
+
+When I was involved in page speed optimization, in my last job, I was always fighting for measuring
+in two ways. One using tools like webpagetest and lighthouse and two measuring the real user's
+experience, on the site. There are even names for it, I didn't know, until now:
+
+> How you approach measuring a web page’s performance can tell you whether it’s built for speed or whether it feels fast. 
+> **We call them lab and field tools.** Lab tools are the microscopes that inspect a page for all possible points of friction. Field tools are the binoculars that give you an overview of how users are experiencing the page.
+
+Found it in [The mythical “fast” web page](https://calendar.perfplanet.com/2020/the-mythical-fast-web-page/)
+by [@Rick Viscomi](https://twitter.com/rick_viscomi).
+
+Just read the article and how he argues for how to approach web site speed optimization, I would have written
+it just like him. But why duplicate.
+
+## Use Tools AND Think!
+
+Just one more thing:
+
+> lab tools can lead you astray in subtle ways  
+> ...  
+> field data is the ground truth for how a page is experienced
+
+:nodding:
+
+## Abandon Rate
+
+> What if users aren’t experiencing this slow performance because they’re conditioned not to? An experience can be so poor that the user abandons it before it gets any worse. They may never come back to the site at all, in which case your field data has survivorship bias where only the bearably slow experiences are measured. How many unbearably slow experiences aren’t you measuring? And you thought we were done with the philosophical questions!
+
+Hehe, we ran into that one too. Getting the number of the (iirc) Abandon Rate was insightful.
+We used the server logs. Compared the started requests and those counted by our client-side tool (watch the potential error here).
+
+## Onsite Measurement
+
+The first three articles in my series [browser tools](/blog/tag/browsertools/)
+are about measuring the website speed on the site 
+[using the Resource Timing API](/blog/2020/11/28-resource-timing-part1/)
+to see how 
+[to analyze loading depencencies](/blog/2020/11/29-resource-timing-part-2/)
+and 
+[plotting all this in a waterfall chart](/blog/2020/11/30-resource-timing-part-3/).
+
 # React Native Android Cheatsheet
 slug: react-native-android-cheatsheet
 dateCreated: 2020-12-05 14:28 CET
