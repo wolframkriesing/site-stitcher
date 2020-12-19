@@ -52,6 +52,21 @@ To be honest, there are couple of reasons:
 Sorry if none of those reasons are good enough. They are just mine.
 
 
+# esbuild Learnings
+slug: esbuild-learnings
+dateCreated: 2020-12-12 20:58 CET
+tags: JavaScript, bundle, build
+
+## Minify all *.js Files
+Sometimes reducing the file size is the only thing I want.
+No bundling needed, and esbuild can do it. Like so:
+```
+$ esbuild src/*.js --minify --outdir=dist
+```
+This finds all `*.js` files in the director `src`,
+minifies them and puts the result in the `dist` directory.
+
+
 
 # Website Speed - Lab and Field Tools
 slug: website-speed-lab-and-field-tools
