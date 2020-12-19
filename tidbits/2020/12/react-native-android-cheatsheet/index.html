@@ -102,8 +102,8 @@
 Unfortunately the names listed are not always helpful. I always plug/unplug the device and figure out which one is which name.
 Better ideas? I am interested.</p>
 <h2 is="more-h2" id="open-the-developer-menu-in-the-app-from-the-shell">Open the Developer Menu in the App from the Shell</h2>
-<p>From the command line in the shell to open the developer menu run this command
-<code>adb shell input keyevent KEYCODE_MENU</code></p>
+<p>From the command line in the shell to open the developer menu run this command</p>
+<p><code>adb shell input keyevent KEYCODE_MENU</code></p>
 <h2 is="more-h2" id="reload-app-from-shell">Reload App from Shell</h2>
 <p><code>adb shell input text &quot;RR&quot;</code></p>
 <h2 is="more-h2" id="reconnect-device">Reconnect Device</h2>
@@ -111,8 +111,19 @@ Better ideas? I am interested.</p>
 the connection (rebuilding the android app works too, but is way slower):</p>
 <pre><code>$ # In this order!
 $ adb reverse tcp:8081 tcp:8081
-$ react-native start</code></pre><p>Unfortunately I also have to restart the app on the device, will need to figure out how to prevent this.</p>
+$
+$ react-native start
+$ # OR
+$ adb shell input text &quot;RR&quot;
+$ # OR
+$ # &lt;press &quot;r&quot;, if you are in the shell where `react-native start` is still running&gt;</code></pre><p>Unfortunately I also have to restart the app on the device, will need to figure out how to prevent this.</p>
 <p>More hints in <a href="https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line">this thread on stackoverflow</a>.</p>
+<h2 is="more-h2" id="see-logs">See Logs</h2>
+<pre><code>$ adb logcat</code></pre><h2 is="more-h2" id="see-also">See Also</h2>
+<ul>
+<li><a href="/tidbits/2020/11/adb-learnings/">adb Learnings</a> - My findings about how &quot;to use my real android device to preview stuff, not the emulator anymore&quot;</li>
+<li><a href="/tidbits/2020/10/start-the-right-android-emulator/">Start the Right Android Emulator</a> - If you have multiple devices installed in the Android Studio, and you need to choose a certain one.</li>
+</ul>
 
   </article>
 

@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="`KeyboardAvoidingView` the Missing Docs" />
+
+  <meta property="og:title" content="`KeyboardAvoidingView` the Missing Docs">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/tidbits/2020/12/keyboardavoidingview-the-missing-docs/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/12/keyboardavoidingview-the-missing-docs/">
+  <title>`KeyboardAvoidingView` the Missing Docs | picostitch - crafting (and) JavaScript</title>
+  
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+
+  <meta property="og:description" content="If you are struggling with React Native's `KeyboardAvoidingView` and it does not behave as you expect, 
+the most probable reason is some flex layout issue.
+I highly recommend reading 
+[KeyboardAvoidingView not working properly? Check your Flexbox Layout first](https://medium.com/@nickyang0501/keyboardavoidingview-not-working-properly-c413c0a200d4)
+by Nick Yang." />
+  <meta property="article:description" content="If you are struggling with React Native's `KeyboardAvoidingView` and it does not behave as you expect, 
+the most probable reason is some flex layout issue.
+I highly recommend reading 
+[KeyboardAvoidingView not working properly? Check your Flexbox Layout first](https://medium.com/@nickyang0501/keyboardavoidingview-not-working-properly-c413c0a200d4)
+by Nick Yang." />
+  <meta name="twitter:description" content="If you are struggling with React Native's `KeyboardAvoidingView` and it does not behave as you expect, 
+the most probable reason is some flex layout issue.
+I highly recommend reading 
+[KeyboardAvoidingView not working properly? Check your Flexbox Layout first](https://medium.com/@nickyang0501/keyboardavoidingview-not-working-properly-c413c0a200d4)
+by Nick Yang." />
+
+  
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/12" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/12" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/12" />
+  
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; <code>KeyboardAvoidingView</code> the Missing Docs
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="react-native">#React Native</div>
+      <h1 id="keyboardavoidingview-the-missing-docs" is="more-h1"><code>KeyboardAvoidingView</code> the Missing Docs</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - December 19, 2020
+        
+          - tagged with: #React Native #mobile #android #iOS #docs
+        
+      </div>
+    </header>
+
+    <p>If you are struggling with React Native&#39;s <code>KeyboardAvoidingView</code> and it does not behave as you expect, 
+the most probable reason is some flex layout issue.
+I highly recommend reading 
+<a href="https://medium.com/@nickyang0501/keyboardavoidingview-not-working-properly-c413c0a200d4">KeyboardAvoidingView not working properly? Check your Flexbox Layout first</a>
+by Nick Yang.</p>
+<p>Besides that I also think there is quite some more stuff that is hidden in the code and not in the docs.
+I am just collecting the stuff here, mainly so I can look it up again.</p>
+<h2 is="more-h2" id="behavior-prop-explained"><code>behavior</code> prop explained</h2>
+<p>The <code>behavior</code> prop is not well explained in the React Native docs.</p>
+<blockquote>
+<p>Allow me to go through these attributes for the prop behavior one by one.</p>
+<p>I am considering the <TextInput> object for which our keyboard gets called.</p>
+<p><strong>&quot;padding&quot;</strong>: The component goes to a higher position once the keyboard pops up. It is advised to use padding when there are not many components on the screen otherwise the layout might break where the Component may overlap with the components above it.(note: the components above it would also be moved up..but in order to adjust the Views there might be an overlap). Note: Here Both things : the TextInput and the components may get overlapped.</p>
+<p><strong>&quot;position&quot;</strong>: the entire View containing TextInput would be moved up and there is a chance that some of the components above may not be available/visible on the top of the screen i.e. would be cut off from the top of the screen being the upper bound.</p>
+<p><strong>&quot;height&quot;</strong>: generally used with keyboardVerticalOffset. It is used to resize the View of the screen once the keyboard pops up. Might as well lead to overlapping in an attempt to resize the screen. Here, the TextInput would be overlapping above the component above it in case of an overlap.</p>
+</blockquote>
+<p>by <a href="https://stackoverflow.com/users/12801710/ckaus">@ckaus</a> <a href="https://stackoverflow.com/a/65267107">on stackoverflow</a></p>
+<h2 is="more-h2" id="not-the-best-solution">Not the Best Solution!?</h2>
+<p>In the same thread <a href="https://stackoverflow.com/users/277697/matt-way">Matt Way</a> states:</p>
+<blockquote>
+<p>In my opinion, this component should be scrapped though, in favour of helper functions that would return keyboard heights over time, so you could apply your own style ideas directly based on keyboard visibility.</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/a/58385319">link to stackoverflow</a>.</p>
+<p>Which I find a quite accurate statement, because </p>
+<ul>
+<li>this component caused a lot of trouble for me, especially when layouts get more complex.</li>
+<li>It behaves differently on iOS and Android and</li>
+<li>it has a lot of <a href="https://github.com/facebook/react-native/issues?q=is%3Aissue+KeyboardAvoidingView">(open) issues</a> 
+in the react-native repo (<a href="https://github.com/facebook/react-native/issues?q=is%3Aissue+KeyboardAvoidingView+is%3Aclosed">96 closed</a> and <a href="https://github.com/facebook/react-native/issues?q=is%3Aissue+KeyboardAvoidingView+is%3Aopen">25 open</a> as of December 2020).</li>
+</ul>
+<h2 is="more-h2" id="why-didnt-you-contribute-to-the-docs">&quot;Why didn&#39;t you contribute to the docs?&quot;</h2>
+<p>A totally valid question, and absolutely the right one to ask. I am listing it here, because I have thought about that too.</p>
+<p>To be honest, there are couple of reasons:</p>
+<ul>
+<li>I too lazy going through a CLA process,</li>
+<li>I also hesitate a bit doing that with a company like facebook</li>
+<li>writing on this blog is much faster.</li>
+</ul>
+<p>Sorry if none of those reasons are good enough. They are just mine.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b><br/>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+    <div>
+      <b>Contact</b><br/>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a><br/></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a><br/></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a><br/></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a><br/></li>
+      </ul>
+    </div>
+    <div></div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
