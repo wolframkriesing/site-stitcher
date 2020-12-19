@@ -1,3 +1,58 @@
+# `KeyboardAvoidingView` the Missing Docs
+slug: keyboardavoidingview-the-missing-docs
+dateCreated: 2020-12-19 17:40 CET
+tags: React Native, mobile, android, iOS, docs
+
+If you are struggling with React Native's `KeyboardAvoidingView` and it does not behave as you expect, 
+the most probable reason is some flex layout issue.
+I highly recommend reading 
+[KeyboardAvoidingView not working properly? Check your Flexbox Layout first](https://medium.com/@nickyang0501/keyboardavoidingview-not-working-properly-c413c0a200d4)
+by Nick Yang.
+
+Besides that I also think there is quite some more stuff that is hidden in the code and not in the docs.
+I am just collecting the stuff here, mainly so I can look it up again.
+
+## `behavior` prop explained
+
+The `behavior` prop is not well explained in the React Native docs.
+
+> Allow me to go through these attributes for the prop behavior one by one.
+>
+> I am considering the <TextInput> object for which our keyboard gets called.
+>
+> **"padding"**: The component goes to a higher position once the keyboard pops up. It is advised to use padding when there are not many components on the screen otherwise the layout might break where the Component may overlap with the components above it.(note: the components above it would also be moved up..but in order to adjust the Views there might be an overlap). Note: Here Both things : the TextInput and the components may get overlapped.
+>
+> **"position"**: the entire View containing TextInput would be moved up and there is a chance that some of the components above may not be available/visible on the top of the screen i.e. would be cut off from the top of the screen being the upper bound.
+>
+> **"height"**: generally used with keyboardVerticalOffset. It is used to resize the View of the screen once the keyboard pops up. Might as well lead to overlapping in an attempt to resize the screen. Here, the TextInput would be overlapping above the component above it in case of an overlap.
+
+by [@ckaus](https://stackoverflow.com/users/12801710/ckaus) [on stackoverflow](https://stackoverflow.com/a/65267107)
+
+## Not the Best Solution!?
+
+In the same thread [Matt Way](https://stackoverflow.com/users/277697/matt-way) states:
+> In my opinion, this component should be scrapped though, in favour of helper functions that would return keyboard heights over time, so you could apply your own style ideas directly based on keyboard visibility.
+
+[link to stackoverflow](https://stackoverflow.com/a/58385319).
+
+Which I find a quite accurate statement, because 
+* this component caused a lot of trouble for me, especially when layouts get more complex.
+* It behaves differently on iOS and Android and
+* it has a lot of [(open) issues](https://github.com/facebook/react-native/issues?q=is%3Aissue+KeyboardAvoidingView) 
+  in the react-native repo ([96 closed](https://github.com/facebook/react-native/issues?q=is%3Aissue+KeyboardAvoidingView+is%3Aclosed) and [25 open](https://github.com/facebook/react-native/issues?q=is%3Aissue+KeyboardAvoidingView+is%3Aopen) as of December 2020).
+
+## "Why didn't you contribute to the docs?"
+A totally valid question, and absolutely the right one to ask. I am listing it here, because I have thought about that too.
+
+To be honest, there are couple of reasons:
+* I too lazy going through a CLA process,
+* I also hesitate a bit doing that with a company like facebook
+* writing on this blog is much faster.
+
+Sorry if none of those reasons are good enough. They are just mine.
+
+
+
 # Website Speed - Lab and Field Tools
 slug: website-speed-lab-and-field-tools
 dateCreated: 2020-12-09 13:53 CET
@@ -58,6 +113,7 @@ Better ideas? I am interested.
 
 ## Open the Developer Menu in the App from the Shell
 From the command line in the shell to open the developer menu run this command
+
 `adb shell input keyevent KEYCODE_MENU`
 
 ## Reload App from Shell
@@ -69,12 +125,25 @@ the connection (rebuilding the android app works too, but is way slower):
 ```
 $ # In this order!
 $ adb reverse tcp:8081 tcp:8081
+$
 $ react-native start
+$ # OR
+$ adb shell input text "RR"
+$ # OR
+$ # <press "r", if you are in the shell where `react-native start` is still running>
 ```
 Unfortunately I also have to restart the app on the device, will need to figure out how to prevent this.
 
 More hints in [this thread on stackoverflow](https://stackoverflow.com/questions/44170991/reload-a-react-native-app-on-an-android-device-manually-via-command-line).
 
+## See Logs
+```
+$ adb logcat
+```
+
+## See Also
+* [adb Learnings](/tidbits/2020/11/adb-learnings/) - My findings about how "to use my real android device to preview stuff, not the emulator anymore"
+* [Start the Right Android Emulator](/tidbits/2020/10/start-the-right-android-emulator/) - If you have multiple devices installed in the Android Studio, and you need to choose a certain one.
 
 # Android Ripple Effect - Analyzed
 slug: android-ripple-effect-analyzed  

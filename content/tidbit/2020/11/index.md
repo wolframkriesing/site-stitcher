@@ -124,7 +124,7 @@ Just make sure you get the right `<commit-hash>`, which is this strange looking 
 
 I hope this helps (me) when reading it (again).
 
-# adb learnings
+# adb Learnings
 slug: adb-learnings
 dateCreated: 2020-11-25 23:26 CET
 tags: tools, android, adb, knowledgebase
