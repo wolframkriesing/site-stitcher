@@ -2,6 +2,7 @@
 slug: keyboardavoidingview-the-missing-docs
 dateCreated: 2020-12-19 17:40 CET
 tags: React Native, mobile, android, iOS, docs
+previewImage: ../leave-in-fall.jpeg  
 
 If you are struggling with React Native's `KeyboardAvoidingView` and it does not behave as you expect, 
 the most probable reason is some flex layout issue.
