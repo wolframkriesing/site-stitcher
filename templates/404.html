@@ -1,8 +1,12 @@
-@extends(templates/_allFeatures.html)
+@extends(templates/_focus.html)
 
 {[ block pagename ]}404{[ endblock ]}
 {[ block canonicalUrl ]}https://picostitch.com/404{[ endblock ]}
 {[ block pageTitlePrefix ]}404{[ endblock ]}
+{[ block head ]}
+  <link rel="stylesheet" href="/_global.css" type="text/css">
+  <link rel="stylesheet" href="/_nav.css" type="text/css">
+{[ endblock ]}
 
 {[ block content ]}
   <h1>404 - Page not found ...</h1>
