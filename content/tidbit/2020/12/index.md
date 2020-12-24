@@ -1,3 +1,93 @@
+# Start Docker on Boot, on Linux
+slug: start-docker-on-boot-on-linux
+dateCreated: 2020-12-24 15:32 CET
+tags: tools, linux, command line, docker
+
+This is just a collection of various things I learned, stumbled on and know
+I might need later again, so I am noting the down here.
+
+The plan is to get my nextcloud setup to run using docker compose, and to start with
+I need a linux machine with docker running at start up. This is task #1, it looks
+like [this blog post](https://blog.sleeplessbeastie.eu/2020/09/11/how-to-start-docker-service-at-system-boot/)
+has the answers how to do it.
+
+## The System
+
+```
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID:	LinuxMint
+Description:	Linux Mint 19.3 Tricia
+Release:	19.3
+Codename:	tricia
+```
+
+What the heck is `lsb_release`, never heard of it, and I can't imagine what that term means and 
+how I could even ever remember it, since the abbreviation does not sound intuitive.
+
+The man page says the following:
+> The lsb_release command provides certain LSB (Linux Standard Base) and distribution-specific information.
+
+## Get Latest docker
+```
+$ apt upgrade docker.io
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+docker.io is already the newest version (19.03.6-0ubuntu1~18.04.2).
+Calculating upgrade... Done
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+```
+
+I have seen newer docker flying around. Mmmh. Will postpone this for now.
+
+## See Docker Info from the OS level
+Not sure this headline is right and makes sense to others. 
+It does to me (until I know better).
+
+```
+$ service docker status # OR
+$ systemctl status docker
+● docker.service - Docker Application Container Engine
+   Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-12-24 13:27:29 CET; 2h 14min ago
+     Docs: https://docs.docker.com
+```
+
+The two commands above show the running docker service and some info and details.
+
+## Make Docker Start on Boot
+
+According to the article above it is "just":
+```
+$ sudo systemctl enable --now docker
+```
+and you can check that via
+```
+$ systemctl is-enabled docker
+enabled
+```
+which print `enabled` now. I am not sure if this was not also the case before.
+Let me reboot and see. ... Works! Cool.
+
+## Not Just Text Files?
+I learned stuff (which I am afraid I will forget too soon again, that's why it's written here).
+
+What I am really wondering about is, that the Linux philosophy is that all things are
+stored in pure text files, afaik. Why was this enabling of docker as a service not a simple 
+"add this line in file X"? Maybe it was and I just didn't look in the right place under the hood.
+Of the entire thing was a bit more complicated than expected and that's why there are 
+scripts that do that for me.
+
+Actually I thought back in the years, when I was doing more of Linux stuff by hand, 
+that I used to manually just enter which deamons to start and that was it. But my memories might fool me.
+
+
+
+
+
+
+
 # `KeyboardAvoidingView` the Missing Docs
 slug: keyboardavoidingview-the-missing-docs
 dateCreated: 2020-12-19 17:40 CET
