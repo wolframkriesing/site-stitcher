@@ -1,12 +1,9 @@
-# Start Docker on Boot, on Linux
+# Start Dockerized Apps on Boot, on Linux
 slug: start-docker-on-boot-on-linux
 dateCreated: 2020-12-24 15:32 CET
 tags: tools, linux, command line, docker
 
-This is just a collection of various things I learned, stumbled on and know
-I might need later again, so I am noting the down here.
-
-The plan is to get my nextcloud setup to run using docker compose, and to start with
+I want to get my **nextcloud setup to run using docker-compose**, and to start with
 I need a linux machine with docker running at start up. This is task #1, it looks
 like [this blog post](https://blog.sleeplessbeastie.eu/2020/09/11/how-to-start-docker-service-at-system-boot/)
 has the answers how to do it.
@@ -81,6 +78,54 @@ scripts that do that for me.
 
 Actually I thought back in the years, when I was doing more of Linux stuff by hand, 
 that I used to manually just enter which deamons to start and that was it. But my memories might fool me.
+
+## Just Text Files!
+And the answer comes, right the moment after I asked the question and I needed to take the next step in my
+nextcloud setup.
+
+My next step is to make the nextcloud, which is running in a docker-compose setup start every time 
+the machine boots. So even after a power outage, or whatever on next boot our private cloud will be online again.
+No need to have me around all the time.
+
+This [stackoverflow post](https://stackoverflow.com/questions/30449313/how-do-i-make-a-docker-container-start-automatically-on-system-boot/39493500#39493500)
+explains exactly how to do it. And it is very simple, I am just listing the three step below, refer to the
+so post to get all the details:
+* Create a file `> /etc/systemd/system/my-nextcloud.service`
+* Fill in the info, including how to start the service and finally
+* `sudo systemctl enable my-nextcloud`. 
+
+Applying my learnings from above, I think I can cehck if it worked.
+```
+$ systemctl is-enabled my-nextcloud.service
+enabled
+```
+And reboot again. My nextcloud is up and running on machine (re)boot.
+Yeah.
+
+Here is my service file:
+```
+$ cat /etc/systemd/system/my-nextcloud.service
+[Unit]
+Description=nextcloud
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/docker-compose -f /nextcloud/docker-compose.yml up -d
+ExecStop=/usr/bin/docker-compose -f /nextcloud/docker-compose.yml down
+
+[Install]
+WantedBy=default.target
+```
+
+And here is the proof that it all works, really:
+```
+$ systemctl status my-nextcloud
+● my-nextcloud.service - nextcloud
+   Loaded: loaded (/etc/systemd/system/my-nextcloud.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-12-24 16:54:10 CET; 7s ago
+```
 
 
 
