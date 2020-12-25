@@ -90,13 +90,13 @@ No need to have me around all the time.
 This [stackoverflow post](https://stackoverflow.com/questions/30449313/how-do-i-make-a-docker-container-start-automatically-on-system-boot/39493500#39493500)
 explains exactly how to do it. And it is very simple, I am just listing the three step below, refer to the
 so post to get all the details:
-* Create a file `> /etc/systemd/system/my-nextcloud.service`
+* Create a file `> /etc/systemd/system/nextcloud.service`
 * Fill in the info, including how to start the service and finally
-* `sudo systemctl enable my-nextcloud`. 
+* `sudo systemctl enable nextcloud`. 
 
 Applying my learnings from above, I think I can cehck if it worked.
 ```
-$ systemctl is-enabled my-nextcloud.service
+$ systemctl is-enabled nextcloud.service
 enabled
 ```
 And reboot again. My nextcloud is up and running on machine (re)boot.
@@ -104,7 +104,7 @@ Yeah.
 
 Here is my service file:
 ```
-$ cat /etc/systemd/system/my-nextcloud.service
+$ cat /etc/systemd/system/nextcloud.service
 [Unit]
 Description=nextcloud
 Requires=docker.service
@@ -121,9 +121,9 @@ WantedBy=default.target
 
 And here is the proof that it all works, really:
 ```
-$ systemctl status my-nextcloud
-● my-nextcloud.service - nextcloud
-   Loaded: loaded (/etc/systemd/system/my-nextcloud.service; enabled; vendor preset: enabled)
+$ systemctl status nextcloud
+● nextcloud.service - nextcloud
+   Loaded: loaded (/etc/systemd/system/nextcloud.service; enabled; vendor preset: enabled)
    Active: active (running) since Thu 2020-12-24 16:54:10 CET; 7s ago
 ```
 
