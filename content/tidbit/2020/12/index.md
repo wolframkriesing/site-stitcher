@@ -1,3 +1,39 @@
+# Learning nginx
+slug: learning-nginx
+dateCreated: 2020-12-26 12:34 CET
+tags: tools, server, nginx, web, apache
+
+Until today I was just a copy+paster of nginx configs. I thought I had my share back when I learned and undestood
+apache very well, so why learn another one. But my nextcloud setup and letsencrypt that comes with it has an nginx
+"bundled", so I would like to understand things a bit better. So I started reading the docs and will take my notes here.
+
+## Open Source Or Not?
+I been surfing and reading on nginx.com which didn't feel very open sourcy and always mentioned "NGINX Plus",
+where I felt I have to go and buy it, which was the intention, I guess. But I did find 
+[nginx.org](https://nginx.org/) and reading the [about nginx](https://nginx.org/en/)
+I also got the confirmation for my feelings, there is the open source universe and the commercial universe
+for nginx. Very cool, I love it when open source can be made sustainable by having those that can/want/should
+do pay for the software. Sounds like another open source based business at work, awesome!
+
+## Notes on `server`, `server_name` and `location`
+
+* The first server block (as the docs name it), looking like this `server {`, is **the default server**, used when none below matches
+* **Search Priorities** is always 1) exact name 2) wildcards 3) regular expressions
+  this seems to be that case for [server_name](https://nginx.org/en/docs/http/server_names.html) and location
+  which I only found explained very much [in detail on nginx.com](https://docs.nginx.com/nginx/admin-guide/web-server/web-server/#nginx-location-priority)  
+* **Location search priorities** are also explained [using examples here](https://nginx.org/en/docs/http/request_processing.html#simple_php_site_configuration)
+* "locations of all types test only a URI part of request line without arguments" which means query params can NOT
+  be used for filtering for a location, sounds reasonable since that might end in hell
+* `location / {` matches any request and it will be used as a last resort
+* regular expressions are PCRE, Perl regular expressions, [details for usage in nginx are here](https://nginx.org/en/docs/http/server_names.html#regex_names)
+* The strange `server_name _` as I found in my nextcloud nginx, [is explained here too](https://nginx.org/en/docs/http/server_names.html#miscellaneous_names)
+  > There is nothing special about this name, it is just one of a myriad of invalid domain names which never intersect with any real name. Other invalid names like “--” and “!@#” may equally be used. 
+
+
+
+
+
+
 # Start Dockerized Apps on Boot, on Linux
 slug: start-docker-on-boot-on-linux
 dateCreated: 2020-12-24 15:32 CET
@@ -127,6 +163,30 @@ $ systemctl status nextcloud
    Active: active (running) since Thu 2020-12-24 16:54:10 CET; 7s ago
 ```
 
+## Update Docker Images with docker-compose 
+I had built my nextcloud setup about a year ago, a simple `docker-compose build` did not update any of the 
+docker images, but I am sure there have been changes to any of the layers, like the DB, the app, the nginx proxy,
+etc. But why did it not update?  I tried 
+```
+$ docker-compose build db
+db uses an image, skipping
+$ docker-compose build --no-cache app
+app uses an image, skipping
+```
+:(  
+None works.
+
+Because the right one is:
+```
+$ docker-compose pull
+Pulling db (mariadb:latest)...
+latest: Pulling from library/mariadb
+...
+```
+
+Oh, and don't just update the nextcloud image and bump multiple major versions, it can't handle it.
+Do one major version at a time! #justSaying
+If you try `php occ upgrade` it will let you know, but it was already to late for me by then.
 
 
 
