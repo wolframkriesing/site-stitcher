@@ -164,16 +164,16 @@ No need to have me around all the time.</p>
 explains exactly how to do it. And it is very simple, I am just listing the three step below, refer to the
 so post to get all the details:</p>
 <ul>
-<li>Create a file <code>&gt; /etc/systemd/system/my-nextcloud.service</code></li>
+<li>Create a file <code>&gt; /etc/systemd/system/nextcloud.service</code></li>
 <li>Fill in the info, including how to start the service and finally</li>
-<li><code>sudo systemctl enable my-nextcloud</code>. </li>
+<li><code>sudo systemctl enable nextcloud</code>. </li>
 </ul>
 <p>Applying my learnings from above, I think I can cehck if it worked.</p>
-<pre><code>$ systemctl is-enabled my-nextcloud.service
+<pre><code>$ systemctl is-enabled nextcloud.service
 enabled</code></pre><p>And reboot again. My nextcloud is up and running on machine (re)boot.
 Yeah.</p>
 <p>Here is my service file:</p>
-<pre><code>$ cat /etc/systemd/system/my-nextcloud.service
+<pre><code>$ cat /etc/systemd/system/nextcloud.service
 [Unit]
 Description=nextcloud
 Requires=docker.service
@@ -186,10 +186,25 @@ ExecStop=/usr/bin/docker-compose -f /nextcloud/docker-compose.yml down
 
 [Install]
 WantedBy=default.target</code></pre><p>And here is the proof that it all works, really:</p>
-<pre><code>$ systemctl status my-nextcloud
-● my-nextcloud.service - nextcloud
-   Loaded: loaded (/etc/systemd/system/my-nextcloud.service; enabled; vendor preset: enabled)
-   Active: active (running) since Thu 2020-12-24 16:54:10 CET; 7s ago</code></pre>
+<pre><code>$ systemctl status nextcloud
+● nextcloud.service - nextcloud
+   Loaded: loaded (/etc/systemd/system/nextcloud.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-12-24 16:54:10 CET; 7s ago</code></pre><h2 is="more-h2" id="update-docker-images-with-docker-compose">Update Docker Images with docker-compose</h2>
+<p>I had built my nextcloud setup about a year ago, a simple <code>docker-compose build</code> did not update any of the 
+docker images, but I am sure there have been changes to any of the layers, like the DB, the app, the nginx proxy,
+etc. But why did it not update?  I tried </p>
+<pre><code>$ docker-compose build db
+db uses an image, skipping
+$ docker-compose build --no-cache app
+app uses an image, skipping</code></pre><p>:(<br>None works.</p>
+<p>Because the right one is:</p>
+<pre><code>$ docker-compose pull
+Pulling db (mariadb:latest)...
+latest: Pulling from library/mariadb
+...</code></pre><p>Oh, and don&#39;t just update the nextcloud image and bump multiple major versions, it can&#39;t handle it.
+Do one major version at a time! #justSaying
+If you try <code>php occ upgrade</code> it will let you know, but it was already to late for me by then.</p>
+
   </article>
 
     </div>
