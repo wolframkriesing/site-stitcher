@@ -6,6 +6,7 @@ tags: HTML, web, knowledgebase
 HTML is getting more and more semantic it seems.
 I am seriously wondering what this means for building things like a blog, like this one
 here. It becomes more and more reasonable to write pure HTML, instead of markdown, doesn't it?
+Maybe I am just late and just learned about some HTML elements now. What a shame.
 
 [On MDN it is described like this](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn):
 > The HTML Definition element (`<dfn>`) is used to indicate the term being defined within the context of a definition phrase or sentence.
@@ -22,6 +23,12 @@ The example code shown there is:
 Which renders like you see below:
 
 <p style="background: lightyellow;">A <dfn>validator</dfn> is a program that checks for syntax errors in code or documents.</p>
+
+## More HTML ELements
+If you are curious and want to get a (quick) overview of all HTML elements and where and how to use them,
+the ["HTML elements reference" on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) is a great place
+to start reading and dive deeper. It has sections such as "Document metadata", 
+"Content sectioning" and "Text content", to name a few interesting ones.
 
 # Learning nginx
 slug: learning-nginx
