@@ -1,3 +1,28 @@
+# HTML Element `<dfn>`
+slug: html-element-dfn
+dateCreated: 2020-12-27 12:56 CET
+tags: HTML, web, knowledgebase
+
+HTML is getting more and more semantic it seems.
+I am seriously wondering what this means for building things like a blog, like this one
+here. It becomes more and more reasonable to write pure HTML, instead of markdown, doesn't it?
+
+[On MDN it is described like this](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn):
+> The HTML Definition element (`<dfn>`) is used to indicate the term being defined within the context of a definition phrase or sentence.
+
+The example code shown there is:
+
+```
+<p>
+  A <dfn>validator</dfn> 
+  is a program that checks for syntax errors in code or documents.
+</p>
+```
+
+Which renders like you see below:
+
+<p style="background: lightyellow;">A <dfn>validator</dfn> is a program that checks for syntax errors in code or documents.</p>
+
 # Learning nginx
 slug: learning-nginx
 dateCreated: 2020-12-26 12:34 CET
