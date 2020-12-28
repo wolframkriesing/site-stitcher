@@ -1,3 +1,40 @@
+# Why Does my Media Query Not Work?
+slug: why-does-my-media-query-not-work
+dateCreated: 2020-12-28 21:56 CET
+tags: HTML, media query, CSS, viewport
+
+I am working on the [`<pico-viewport-stats>` element](https://wolframkriesing.codeberg.page/pico-elements/examples/viewport-stats.html)
+examples. The web site is a simple HTML page, which I stripped down to the bare minimum.
+A bit too much!
+
+## For Mobile the Site needs the Meta Tag Viewport!
+I viewed the page on a mobile and found out that the margin did not change to `1rem`.
+Though I had this media query on the page.
+```css
+@media screen and (max-width: 600px) {
+  body {
+    margin: 1rem;
+  }
+}
+```
+So I simplified the page to remove all kinds of side effects, etc.
+Didn't work.
+
+It must be the headers. Yes. **The following header MUST be on the page** for
+the page to work on mobile and also to apply the media query.
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+The media query will work afterwards, because the width will be set to the device's width.
+Don't take my word for it, read 
+["Using the viewport meta tag to control layout on mobile browsers" on MDN](https://developer.mozilla.org/en-US/docs/Mozilla/Mobile/Viewport_meta_tag). 
+It really enlightens about rendering and viewport behavior.
+
+
+
+
+
+
 # HTML Element `<dfn>`
 slug: html-element-dfn
 dateCreated: 2020-12-27 12:56 CET
