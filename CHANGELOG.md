@@ -1,16 +1,22 @@
 # v3 - use the wide screen better
 - [ ] show a page-load stats widgets in the space right and left
-  - [ ] repost blog posts from techblog
+  - [ ] repost blog ResourceTiming posts from techblog
     - [x] copy and adjust post 1
       - [ ] add image to site
       - [ ] make fallback image work
-    - [ ] copy and adjust post 2
-    - [ ] copy and adjust post 3
+    - [x] copy and adjust post 2
+    - [x] copy and adjust post 3
   - [ ] build a widget to show the stats OR reuse the widget from the post
 - [ ] show a widget with the page dimensions stats in the space on a widescreen
+  - [ ] show it on the right of the page, only when enough space (maybe 300px, or better 10em, ...)
 - [ ] show some beautiful tag cloud/overview in the space right or left
 - [ ] show tags, related articles, tweets, assets, TOC, to the right of the article
 - [ ] move the hc-charts to my own repos
+- [ ] make the site use full width
+  - [ ] render footer nicely
+  - [ ] h1 on home page should render in the center
+  - [ ] ensure the 50em width of <main> text
+  - [ ] where does the breadcrumb show (left aligned, or centered)?
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful
