@@ -18,6 +18,9 @@ body > header {
     body > header {
       padding-bottom: var(--spacing-bigger);
     }
+    body > header .sitename {
+      flex: 1;
+    }
   }
 
 nav.primary {
