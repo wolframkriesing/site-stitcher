@@ -16,14 +16,14 @@ header .tag {
   font-weight: bold;
 }
 
-.tag[data-tag="a11y"] { background: linear-gradient(to right, #bfffad, transparent 5rem); }
-.tag[data-tag="docker"] { background: linear-gradient(to right, #adc2ff, transparent 5rem); }
-.tag[data-tag="english"] { background: linear-gradient(to right, #ffdaad, transparent 5rem); }
-.tag[data-tag="html"] { background: linear-gradient(to right, #adffff, transparent 5rem); }
-.tag[data-tag="indieweb"] { background: linear-gradient(to right, #a2ef2f, transparent 5rem); }
-.tag[data-tag="javascript"] { background: linear-gradient(to right, #fae96d, transparent 5rem); }
-.tag[data-tag="linux"] { background: linear-gradient(to right, #d6adff, transparent 5rem); }
-.tag[data-tag="macos"] { background: linear-gradient(to right, #d6adff, transparent 5rem); }
-.tag[data-tag="tools"] { background: linear-gradient(to right, #ffadb9, transparent 5rem); }
-.tag[data-tag="web"] { background: linear-gradient(to right, rgba(0, 103, 184, 0.5), transparent 5rem); }
-.tag[data-tag="react-native"] { background: linear-gradient(to right, rgb(97, 218, 251), transparent 5rem); }
+.tag[data-tag="a11y"] { background: linear-gradient(to right, #bfffad, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="docker"] { background: linear-gradient(to right, #adc2ff, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="english"] { background: linear-gradient(to right, #ffdaad, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="html"] { background: linear-gradient(to right, #adffff, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="indieweb"] { background: linear-gradient(to right, #a2ef2f, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="javascript"] { background: linear-gradient(to right, #fae96d, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="linux"] { background: linear-gradient(to right, #d6adff, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="macos"] { background: linear-gradient(to right, #d6adff, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="tools"] { background: linear-gradient(to right, #ffadb9, rgba(255,255,255,0) 5rem); }
+.tag[data-tag="web"] { background: linear-gradient(to right, rgba(0, 103, 184, 0.5), rgba(255,255,255,0) 5rem); }
+.tag[data-tag="react-native"] { background: linear-gradient(to right, rgb(97, 218, 251), rgba(255,255,255,0) 5rem); }
