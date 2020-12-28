@@ -183,13 +183,26 @@ td {
 }
 
 footer {
-  display: flex;
   padding: var(--spacing-bigger);
   margin-top: var(--spacing-bigger);
   border-top: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
   footer div {
-    flex: 1;
+    text-align: center;
+    margin-top: var(--spacing-bigger);
+  }
+  footer ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  footer li {
+    list-style: none;
+    display: inline;
+    margin: var(--spacing-small);
   }
 
 kbd {
