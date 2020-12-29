@@ -27,8 +27,9 @@
   {% block head %}{% endblock %}
 </head>
 <body class="page-{% block pagename %}{% endblock %}">
-  @require(templates/_parts.html)
-  @spread(header)
+  {% import "_parts.html" as parts %}
+
+  {{ parts.header(navigationItems) }}
 
   {% block afterHeader %}{% endblock %}
 
@@ -45,7 +46,7 @@
     </aside>
   </main>
 
-  @spread(pageFooter)
-  @spread(secondaryNavigation)
+  {{ parts.pageFooter(navigationItems) }}
+  {{ parts.secondaryNavigation(navigationItems) }}
 </body>
 </html>
