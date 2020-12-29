@@ -195,7 +195,7 @@ const loadPosts = async sourceFiles => {
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
   await runAndTimeIt(`All blog posts (${posts.length})`, () => Promise.all(posts.map(generatePost)));
-  // await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
+  await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
 
   // await runAndTimeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   // await runAndTimeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));

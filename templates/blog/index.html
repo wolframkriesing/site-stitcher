@@ -1,38 +1,38 @@
-@extends(templates/_allFeatures.html)
+{% extends "_allFeatures.html" %}
 
-{[ block pagename ]}blog{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/blog{[ endblock ]}
-{[ block pageTitlePrefix ]}Blog{[ endblock ]}
+{% block pagename %}blog{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/blog{% endblock %}
+{% block pageTitlePrefix %}Blog{% endblock %}
 
-{[ block head ]}
+{% block head %}
   <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block breadcrumb ]}
+{% block breadcrumb %}
   <a href="/">Home</a> &raquo; Blog
-{[ endblock ]}
+{% endblock %}
 
-{[ block content ]}
+{% block content %}
   <article class="latest">
     <header>
       <h1 id="{{posts[0].slug}}" is="more-h1">
-        <a href="{{posts[0].url}}">{!posts[0].headlineAsHtml!}</a>{{ posts[0].hasVideo ? ' 📺' : '' }}
+        <a href="{{posts[0].url}}">{{ posts[0].headlineAsHtml | safe }}</a>{{ ' 📺' if posts[0].hasVideo else '' }}
       </h1>
       <div class="metadata">
-        {{toReadableDate(posts[0].dateCreated)}}
-        {% if (posts[0].tags.length > 0) { %}
-          - tagged with: {{ posts[0].tags.map(tag => `#${tag}`).join(' ') }}
-        {% } %}
+        {{ posts[0].dateCreated | toReadableDate }}
+        {% if (posts[0].tags.length > 0) %}
+          - tagged with: {% for tag in posts[0].tags %}#{{tag}} {% endfor %}
+        {% endif %}
       </div>
     </header>
     <p class="abstract">
-      {!posts[0].abstractAsHtml!}
+      {{ posts[0].abstractAsHtml | safe }}
     </p>
     <a href="{{posts[0].url}}">Continue reading →</a>
   </article>
 
-  @require(templates/blog/_parts.html)
-  {% posts.slice(1).map(post => { %}
-    @spread(articlePreview)
-  {% }) %}
-{[ endblock ]}
+  {% import "blog/_parts.html" as blogParts %}
+  {% for post in posts.slice(1) %}
+    {{ blogParts.articlePreview(post) }}
+  {% endfor %}
+{% endblock %}
