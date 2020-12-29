@@ -11,7 +11,7 @@
     "dev:start": "npm run build --silent && (npm run serve & ./run-on-file-change.sh npm run build:sites --silent)",
     "dev:test": "TURN_OFF_ERREXIT=1 ./run-on-file-change.sh npm run test",
     "postdev:start": "pkill -f http-server",
-    "build": "npm run build:sites && npm run build:assets && touch _output/.nojekyll",
+    "build": "npm run build:sites # && npm run build:assets && touch _output/.nojekyll",
     "build:sites": "mkdir -p _output; node -r esm src/index.js",
     "build:assets": "cp CNAME _output && npm run build:css && npm run build:favicon && npm run build:images:png && npm run build:images:jpg && npm run build:images:gif && npm run build:images:gif-tidbits && npm run build:images:jpg-tidbits && npm run build:images:png-tidbits",
     "build:css": "cp templates/*.css _output/ && cp templates/tidbit/*.css _output/tidbits/ && cp templates/blog/*.css _output/blog/ && cp templates/about/*.css _output/about/ && cp templates/projects/*.css _output/projects/",
@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "marked": "^1.0.0",
+    "nunjucks": "^3.2.2",
     "tundrajs": "^1.3.0",
     "url-slug": "^2.3.1"
   }

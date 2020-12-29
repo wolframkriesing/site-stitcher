@@ -1,6 +1,6 @@
 import * as path from 'path';
 import marked from 'marked';
-import Tundra from 'tundrajs';
+import nunjucks from 'nunjucks';
 import * as fs from 'fs';
 import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, TEMPLATES_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';
 import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
@@ -12,7 +12,12 @@ import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.j
 
 import {toReadableDate, toReadableYearAndMonth, toWeekday} from './_shared/date.js';
 
-const tundra = new Tundra({cache: true});
+const nunjucksOptions = { autoescape: true };
+const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader(TEMPLATES_DIRECTORY), nunjucksOptions);
+nunjucksEnv.addFilter('toReadableDate', toReadableDate);
+const renderTemplate = (tplFile, data) => {
+  return nunjucksEnv.render(tplFile, data);
+}
 
 const navigationItems = [
   {path: '/', name: 'Home 🏠'},
@@ -23,18 +28,15 @@ const navigationItems = [
 ];
 const defaultRenderParams = {
   navigationItems,
-  toReadableDate,
   toReadableYearAndMonth,
   toWeekday,
 };
-
-tundra.setBase(TEMPLATES_DIRECTORY);
 
 const generate301Page = async (oldPath, newPath) => {
   const destDir = path.join(OUTPUT_DIRECTORY, oldPath);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('301.html', {...defaultRenderParams, redirectUrl: newPath});
+  const renderedFile = renderTemplate('301.html', {...defaultRenderParams, redirectUrl: newPath});
   await fs.promises.writeFile(destFilename, renderedFile);
   // console.log("Built 301 page ", destFilename);
 }
@@ -49,7 +51,7 @@ const generate404Page = async (posts) => {
   const destDir = OUTPUT_DIRECTORY;
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, '404.html');
-  const renderedFile = tundra.getRender('404.html', {...defaultRenderParams, posts});
+  const renderedFile = renderTemplate('404.html', {...defaultRenderParams, posts});
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
@@ -57,7 +59,7 @@ const generatePost = async (post) => {
   const destDir = path.join(OUTPUT_DIRECTORY, post.url);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('blog/post.html', {...defaultRenderParams, post});
+  const renderedFile = renderTemplate('blog/post.html', {...defaultRenderParams, post});
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
@@ -72,7 +74,7 @@ const aboutIndexPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/index.md'), 'utf8'));
-  const renderedFile = tundra.getRender('about/index.html', {...defaultRenderParams, content});
+  const renderedFile = renderTemplate('about/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const aboutPersonPage = async () => {
@@ -80,7 +82,7 @@ const aboutPersonPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/wolframkriesing.json'), 'utf8');
-  const renderedFile = tundra.getRender('about/cv.html', {...defaultRenderParams, content: JSON.parse(content)});
+  const renderedFile = renderTemplate('about/cv.html', {...defaultRenderParams, content: JSON.parse(content)});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const generateAboutPages = async () => {
@@ -93,7 +95,7 @@ const generateProjectsPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'projects/index.md'), 'utf8'));
-  const renderedFile = tundra.getRender('projects/index.html', {...defaultRenderParams, content});
+  const renderedFile = renderTemplate('projects/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const generateProjectsPlanPage = async () => {
@@ -101,18 +103,18 @@ const generateProjectsPlanPage = async () => {
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
   const content = marked(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'projects/plan.md'), 'utf8'));
-  const renderedFile = tundra.getRender('projects/index.html', {...defaultRenderParams, content});
+  const renderedFile = renderTemplate('projects/index.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
 const generateBlogOverviewPage = async (posts) => {
-  const renderedFile = tundra.getRender('blog/index.html', {...defaultRenderParams, posts});
+  const renderedFile = renderTemplate('blog/index.html', {...defaultRenderParams, posts});
   const destFilename1 = path.join(OUTPUT_DIRECTORY, 'blog/index.html');
   await fs.promises.writeFile(destFilename1, renderedFile);
 };
 
 const generateHomePage = async (posts, tidbits) => {
-  const renderedFile = tundra.getRender('home.html', {...defaultRenderParams, posts, tidbits});
+  const renderedFile = renderTemplate('home.html', {...defaultRenderParams, posts, tidbits});
   const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
   await fs.promises.writeFile(destFilename, renderedFile);
 };
@@ -122,7 +124,7 @@ const generateTagPage = async (group) => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'blog/tag', tag);
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('blog/tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
+  const renderedFile = renderTemplate('blog/tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
@@ -131,7 +133,7 @@ const generateMonthPage = async (group) => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'blog', yearAndMonth.replace('-', '/'));
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = tundra.getRender('blog/month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
+  const renderedFile = renderTemplate('blog/month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
@@ -186,17 +188,17 @@ const loadPosts = async sourceFiles => {
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
-  await runAndTimeIt('All posts', () => Promise.all(posts.map(generatePost)));
-  await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
-
-  await runAndTimeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
-  await runAndTimeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
-  await runAndTimeIt('About pages', () => generateAboutPages());
-  await runAndTimeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
-  await runAndTimeIt('Projects page', () => generateProjectsPage());
-  await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
-  await runAndTimeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
-  await runAndTimeIt('404 page', () => generate404Page(posts.slice(0, 5)));
+  // await runAndTimeIt('All posts', () => Promise.all(posts.map(generatePost)));
+  // await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
+  //
+  // await runAndTimeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
+  // await runAndTimeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
+  // await runAndTimeIt('About pages', () => generateAboutPages());
+  // await runAndTimeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
+  // await runAndTimeIt('Projects page', () => generateProjectsPage());
+  // await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
+  // await runAndTimeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
+  // await runAndTimeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   
   console.log('-----');
   console.timeEnd('Overall');
