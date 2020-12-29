@@ -1,11 +1,15 @@
+{% macro _itemsAsListOfLinks(items) %}
+  <ul>
+    {% for item in items %}
+      <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
 {% macro header(navigationItems) %}
   <header>
     <nav class="primary">
-      <ul>
-        {% for item in navigationItems %}
-          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-        {% endfor %}
-      </ul>
+      {{ _itemsAsListOfLinks(navigationItems) }}
     </nav>
 
     <div class="sitename">
@@ -21,11 +25,7 @@
   <footer>
     <div>
       <b>Pages</b>
-      <ul>
-        {% for item in navigationItems %}
-          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-        {% endfor %}
-      </ul>
+      {{ _itemsAsListOfLinks(navigationItems) }}
     </div>
 
     <div>
@@ -43,10 +43,6 @@
 {% macro secondaryNavigation(navigationItems) %}
   <nav class="secondary">
     <div class="menu-button">&#9776;</div>
-    <ul>
-      {% for item in navigationItems %}
-        <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-      {% endfor %}
-    </ul>
+    {{ _itemsAsListOfLinks(navigationItems) }}
   </nav>
 {% endmacro %}

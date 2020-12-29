@@ -12,7 +12,13 @@ import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.j
 
 import {toReadableDate, toReadableYearAndMonth, toWeekday} from './_shared/date.js';
 
-const nunjucksOptions = { autoescape: true };
+const nunjucksOptions = {
+  autoescape: true,
+  throwOnUndefined: true,
+  trimBlocks: true,
+  lstripBlocks: true,
+};
+
 const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader(TEMPLATES_DIRECTORY), nunjucksOptions);
 nunjucksEnv.addFilter('toReadableDate', toReadableDate);
 const renderTemplate = (tplFile, data) => {
