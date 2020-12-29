@@ -1,26 +1,26 @@
-@extends(templates/_allFeatures.html)
+{% extends "../_allFeatures.html" %}
 
-{[ block pagename ]}month{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/blog/{{yearAndMonth.split('-').join('/')}}/{[ endblock ]}
-{[ block pageTitlePrefix ]}{{toReadableDate(yearAndMonth)}}{[ endblock ]}
+{% block pagename %}month{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/blog/{{yearAndMonth.split('-').join('/')}}/{% endblock %}
+{% block pageTitlePrefix %}{{ yearAndMonth | toReadableDate }}{% endblock %}
 
-{[ block head ]}
+{% block head %}
 <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block breadcrumb ]}
+{% block breadcrumb %}
   <a href="/">Home</a> &raquo;
   <a href="/blog">Blog</a> &raquo;
-  {{toReadableDate(yearAndMonth)}}
-{[ endblock ]}
+  {{ yearAndMonth | toReadableDate }}
+{% endblock %}
 
-{[ block content ]}
+{% block content %}
   <h1 id="{{yearAndMonth}}" is="more-h1">
-    {{toReadableDate(yearAndMonth)}}
+    {{ yearAndMonth | toReadableDate }}
   </h1>
 
-  @require(templates/blog/_parts.html)
-  {% posts.map(post => { %}
-    @spread(articlePreview)
-  {% }) %}
-{[ endblock ]}
+  {% import "blog/_parts.html" as blogParts %}
+  {% for post in posts %}
+    {{ blogParts.articlePreview(post) }}
+  {% endfor %}
+{% endblock %}
