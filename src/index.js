@@ -87,8 +87,10 @@ const aboutPersonPage = async () => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'about/wolframkriesing');
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const content = await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/wolframkriesing.json'), 'utf8');
-  const renderedFile = renderTemplate('about/cv.html', {...defaultRenderParams, content: JSON.parse(content)});
+  const rawContent = JSON.parse(await fs.promises.readFile(path.join(CONTENT_DIRECTORY, 'about/wolframkriesing.json'), 'utf8'));
+  const content = { ...rawContent, mostRelevantJobsCount: rawContent.jobs.filter(j => j.isMostRelevant).length };
+  content.toTransparency = v => 100 - (v/3 || 0);
+  const renderedFile = renderTemplate('about/cv.html', {...defaultRenderParams, content});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 const generateAboutPages = async () => {
@@ -199,7 +201,7 @@ const loadPosts = async sourceFiles => {
 
   await runAndTimeIt(`All tags pages (${groupedBlogPosts.byTag.length})`, () => generateTagPages(groupedBlogPosts.byTag));
   await runAndTimeIt(`All month pages (${groupedBlogPosts.byMonth.length})`, () => generateMonthPages(groupedBlogPosts.byMonth));
-  // await runAndTimeIt('About pages', () => generateAboutPages());
+  await runAndTimeIt('About pages', () => generateAboutPages());
   // await runAndTimeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
   // await runAndTimeIt('Projects page', () => generateProjectsPage());
   // await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());

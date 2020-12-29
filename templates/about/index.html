@@ -1,17 +1,17 @@
-@extends(templates/_focus.html)
+{% extends "_focus.html" %}
 
-{[ block pagename ]}about{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/about{[ endblock ]}
-{[ block pageTitlePrefix ]}About{[ endblock ]}
+{% block pagename %}about{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/about{% endblock %}
+{% block pageTitlePrefix %}About{% endblock %}
 
-{[ block head ]}
+{% block head %}
 <link rel="stylesheet" href="/about/about.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block breadcrumb ]}
+{% block breadcrumb %}
   <a href="/">Home</a> &raquo; About
-{[ endblock ]}
+{% endblock %}
 
-{[ block content ]}
-  {!content!}
-{[ endblock ]}
+{% block content %}
+  {{ content | safe }}
+{% endblock %}
