@@ -41,10 +41,7 @@ body {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
   line-height: 1.4;
-  max-width: 70rem;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 4rem;
+  margin: 4rem;
 }
 @media screen and (max-width: 600px) {
   body {
@@ -62,7 +59,9 @@ body {
 }
 
 main {
-  max-width: 50rem; /* a readable width */
+  max-width: 80rem; /* a readable width */
+  margin-right: auto;
+  margin-left: auto;
 }
 
 blockquote {
@@ -110,6 +109,9 @@ ul, ol {
 
 h1 {
   font-size: 2rem;
+}
+.page-home h1 {
+  text-align: center;
 }
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: var(--spacing-small);
@@ -183,13 +185,26 @@ td {
 }
 
 footer {
-  display: flex;
   padding: var(--spacing-bigger);
   margin-top: var(--spacing-bigger);
   border-top: 1px solid lightgrey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
   footer div {
-    flex: 1;
+    text-align: center;
+    margin-top: var(--spacing-bigger);
+  }
+  footer ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+  footer li {
+    list-style: none;
+    display: inline;
+    margin: var(--spacing-small);
   }
 
 kbd {

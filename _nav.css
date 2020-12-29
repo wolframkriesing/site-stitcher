@@ -2,11 +2,14 @@ body > header {
   display: flex;
 }
   body > header .sitename {
-    flex: 1;
+    flex: 0;
     text-align: center;
   }
   body > header .sitename a {
     font-size: 2rem;
+  }
+  body > header .sitename .subtitle {
+    white-space: nowrap;
   }
   body > header nav.primary {
     flex: 2;
@@ -14,6 +17,9 @@ body > header {
   @media screen and (max-width: 600px) {
     body > header {
       padding-bottom: var(--spacing-bigger);
+    }
+    body > header .sitename {
+      flex: 1;
     }
   }
 
