@@ -3,7 +3,6 @@
 
 main {
   display: flex;
-  max-width: 100%;
 }
   aside {
     flex: 1;
@@ -14,3 +13,9 @@ main {
     margin-right: 4rem;
     white-space: nowrap;
   }
+
+@media screen and (max-width: 900px) {
+  aside.right {
+    display: none;
+  }
+}

@@ -59,7 +59,9 @@ body {
 }
 
 main {
-  max-width: 50rem; /* a readable width */
+  max-width: 80rem; /* a readable width */
+  margin-right: auto;
+  margin-left: auto;
 }
 
 blockquote {
