@@ -11,12 +11,22 @@
   - [ ] show it on the right of the page, only when enough space (maybe 300px, or better 10em, ...)
 - [ ] show some beautiful tag cloud/overview in the space right or left
 - [ ] show tags, related articles, tweets, assets, TOC, to the right of the article
-- [ ] move the hc-charts to my own repos
+- [ ] move the hc-charts to my own repos, <pico-bar-chart>, <pico-waterfall-chart>, <pico-resource-timing-stats>
 - [ ] make the site use full width
-  - [ ] render footer nicely
-  - [ ] h1 on home page should render in the center
+  - [x] render footer nicely
+  - [x] h1 on home page should render in the center
   - [ ] ensure the 50em width of <main> text
-  - [ ] where does the breadcrumb show (left aligned, or centered)?
+    - [ ] split main and .content CSS ONLY on the page specific css files, never on _global.css, 
+          so it HAS to be configured for each page
+      - [ ] make the tpl code more reusable and allow extending blocks more flexible with default content
+            and allow flexible extending of the tpls _empty, _focus, _allFeatures (as they are called now)
+            and make code more reusable and content driven (e.g. if X content exists render tag Y)    
+      - [ ] need to upgrade to a proper template engine, tundrajs has too many drawbacks and flaws
+            I invested too much time already, and I dont want to (help to) build all parts of this blog, there are enough good tpl engines
+        - [ ] choose a new tpl engine
+          - [ ] use it and make all pages work again
+  - [x] breadcrumb shows (left aligned, ~~or centered~~) - only on huge screens it feel a little off, but only as long as the 
+        left space stays empty
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful
