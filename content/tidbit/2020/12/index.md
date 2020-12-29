@@ -1,3 +1,154 @@
+# Choosing a new Template Engine
+slug: choosing-a-new-template-engine
+dateCreated: 2020-12-29 14:19 CET
+tags: tools, blog, website, template engine
+
+I have been using [tundra](https://github.com/Usbac/tundra) as template engine
+for this site. And I am thankful for it, but it's time to move on.
+I mainly chose it because it is tiny, has no dependencies and it has the features I was looking for. 
+It just does the things I am used to from django-like template engines not well enough,
+misses a tiny useful feature here and there. This does especially hurt, when I want to reuse HTML
+sceletons, tags, HTML snippets or functions to generate them. That is where tundra stops
+working. Knowing the code a bit I also think I have a feeling that getting it there would be
+quite some work.
+
+Instead of helping out with tundra and getting it there, I decided to invest my time in just being
+a user and [issue reporter](https://github.com/Usbac/tundra/issues?q=is%3Aissue). This can become a time
+eater, so I prefer to invest my time in the things I am more passionate about and use one of the
+many template engines that exist. Read on to find out how I am choosing and which one I will decide to use.
+
+## What am I Looking for?
+I am heavily influenced by my former experience with template engines. It started out in PHP times, 
+where PHP itself was a very powerful template engine, over to using various different ones there. Some of them
+had also been very restrictive in their feature set, in the hope to make better code, this never convinced me.
+
+When I used django and the template engine that came with, this felt very good and I felt being productive.
+It left some freedom to the author, one could extend it with own template tags and the logic inside the templates
+was possible to be complex, but if one behaves well it can be very simple and concise.
+This is the kind of template engine I would like to have. Oh, and I had some exposure to ejs, handlebars, etc. too - 
+let's stay with the django style engine ;).
+
+The feature that (I know now) I am looking for:
+* extending and nested templates, for making reuse of templates, e.g. via `{% extends "base.html" %}` ([in django](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#std:templatetag-extends))
+* extending/overriding (nested) blocks, with default content (not possible with tundra) ([in django](https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#block))
+* loops, conditionals, variables, escaping, raw string printing, whitespace handling
+
+I do not want:
+* a lot of dependencies
+* a complex system/language
+
+I do not necessarily need:
+* filtering, sorting, etc. in the template, I am fine doing that in code, sounds much more reasonable to me
+* i18n, l10n - I have no plan to make my blog (or any site, I use [site-stitcher](https://github.com/wolframkriesing/site-stitcher) with) multilingual
+
+## Searching on Codeberg First
+None of the results on [codeberg.org](https://codeberg.org)
+when searching for ["template engine"](https://codeberg.org/explore/repos?tab=&sort=recentupdate&q=template+engine)
+seems to be anything useful. Too bad. It would have received a lot of additional bonus points
+from me, I would maybe even have considered helping out. Moving on.
+
+## Art Template
+Website: https://aui.github.io/art-template \
+Repo: https://github.com/aui/art-template
+
+The page advertises with "High performance JavaScript templating engine". I am quite tired of those.
+In the end I decide how fast is fast enough and what one compares it to. The main feature mentioned
+in the README is "performance is close to the JavaScript rendering limits". Sounds like a sales show.
+But ok, I know to not see this ;) ... well, I got a little biased, negatively.
+
+The first **con** I see is the mentioning of webpack in multiple places. This makes me feel as if
+there are dependencies that I don't want to buy in to. The [devDeps](https://github.com/aui/art-template/blob/master/package.json)
+list webpack, prettier, eslint, prettier. Too many tools for my taste. But that is state of the art
+nowadays and that might not be a bad thing, it could also mean that quality is important, could also
+be just the default set of tools. Who knows.
+
+In the package.json I also see acorn, escodegen, estraverse. Nice, this means to me there is no magic
+regex and string handling going on, but a certain level of professional AST processing. Sounds nice.
+Some points on the **pro** side from me.
+
+In the [features list](https://aui.github.io/art-template/docs/index.html#Feature) 
+I see the first three items that are of no interest to me, super fast,
+debug friendly and super compatible. But the fourth one "support template inheritance and sub template"
+is on my must-have list. Cool, another **pro**. Feature number five "browser version is only 6KB"
+I do not care about. I am just doing server-side, so I may better look that this works too.
+
+In the package.json I also saw babel, which I am not really fond of, I think that era is behind us
+we have our JS engines be up to date very quickly, so I prefer less tooling and maybe not use a new
+feature. But with the latest engines we have a lot of great features in the language and available everywhere,
+so no need (for me) to transpile.
+
+One more **con**, while reading some source code, it is documented in japanese (I think this is). Fortunately
+the functions are named in english. There are a good number of tests though, that's definitely a **pro**.
+
+This one stays in the game.
+
+## Template 7
+Website: https://idangero.us/template7/#.X-s39y337Vs \
+Repo: https://github.com/nolimits4web/template7
+
+"Mobile-first JavaScript Template Engine" - say what? Can I run it on the server too?
+What can be mobile about a template engine. I assume having it run on the client. Whatelse, could I imagine
+to be mobile-first?
+
+Absolutely no dependency, as the [package.json](https://github.com/nolimits4web/template7/blob/master/package.json) lists? 
+Only devDeps?
+Wow.
+
+I can download the repo or install it via bower. Aehm, no.
+I am moving on.
+
+## Swig
+Repo: https://github.com/paularmstrong/swig
+
+As far as I remember this is the JavaScript version of the django template engine.
+But it is **unmaintained**, the repo is even archived. Oh no.
+I assume there are suggested alternatives. Gotta read around a bit.
+
+## Juicer
+Repo: https://github.com/PaulGuo/Juicer
+
+The website does not work, docs are in japanese. I am out.
+
+## New Search Tactics
+Maybe my search for ["javascript template engine"](https://github.com/search?q=javascript+template+engine) 
+github was not so clever. I might reconsider this now.
+Searching for [javascript template engine swig](https://duckduckgo.com/?q=javascript+template+engine+swig&t=osx&ia=web#)
+I stumbled over [js.libhunt](https://js.libhunt.com/swig-alternatives)
+not very promising, but in the end I ended up with a list of engines to look at:
+* https://squirrelly.js.org
+* https://github.com/jasonmoo/t.js - no matter how old, I love the minimalistic set of features, unfortunately **not enough for my purposes** now
+* http://www.dustjs.com - looks like it has all the features, but **I am dismissing it** for its very minimalistic and 
+  therefore not expressive enough template syntax, I strongly prefer more characters so any random code-reader can 
+  understand what't going on, as opposed to using the minimal set of characters (for now useful reason)
+* https://github.com/twitter/hogan.js - from what I understand this is made for snippets, I can imagine it is used for
+  the twitter embed functionality, **I am dismissing it** (maybe too early, but fine for me)
+
+## Found it, Decided, Done
+Website: https://mozilla.github.io/nunjucks/ \
+Repo: https://github.com/mozilla/nunjucks
+
+I found the one I am using. Sorry, I am jumping all my structured evaluations that I started above.
+I have intuitively and emotionally decided for nunjucks because:
+* it is done by mozilla, a company who's vision I love
+* the syntax is just what I am looking for (jinja, swig, django inspired)
+* I saw it and knew I want this syntax
+* reading the docs I see there is `extends`, `block`, `macro`, etc. - all I need, I believe
+
+I am ignoring:
+* further evaluation if all the features are supported that I need
+* the many dependencies it carries along (mostly dev deps)
+* anything else.
+
+I am sold. Done. Over and out.
+
+
+
+
+
+
+
+
+
 # Why Does my Media Query Not Work?
 slug: why-does-my-media-query-not-work
 dateCreated: 2020-12-28 21:56 CET
