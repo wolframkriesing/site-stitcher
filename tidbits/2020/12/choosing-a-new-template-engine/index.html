@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  
+  
+    <meta name="twitter:card" content="summary_large_image">
+  
+
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Choosing a new Template Engine" />
+
+  <meta property="og:title" content="Choosing a new Template Engine">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/tidbits/2020/12/choosing-a-new-template-engine/">
+  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="canonical" href="https://picostitch.com/tidbits/2020/12/choosing-a-new-template-engine/">
+  <title>Choosing a new Template Engine | picostitch - crafting (and) JavaScript</title>
+  
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+
+  <meta property="og:description" content="I have been using [tundra](https://github.com/Usbac/tundra) as template engine
+for this site. And I am thankful for it, but it's time to move on.
+I mainly chose it because it is tiny, has no dependencies and it has the features I was looking for. 
+It just does the things I am used to from django-like template engines not well enough,
+misses a tiny useful feature here and there. This does especially hurt, when I want to reuse HTML
+sceletons, tags, HTML snippets or functions to generate them. That is where tundra stops
+working. Knowing the code a bit I also think I have a feeling that getting it there would be
+quite some work." />
+  <meta property="article:description" content="I have been using [tundra](https://github.com/Usbac/tundra) as template engine
+for this site. And I am thankful for it, but it's time to move on.
+I mainly chose it because it is tiny, has no dependencies and it has the features I was looking for. 
+It just does the things I am used to from django-like template engines not well enough,
+misses a tiny useful feature here and there. This does especially hurt, when I want to reuse HTML
+sceletons, tags, HTML snippets or functions to generate them. That is where tundra stops
+working. Knowing the code a bit I also think I have a feeling that getting it there would be
+quite some work." />
+  <meta name="twitter:description" content="I have been using [tundra](https://github.com/Usbac/tundra) as template engine
+for this site. And I am thankful for it, but it's time to move on.
+I mainly chose it because it is tiny, has no dependencies and it has the features I was looking for. 
+It just does the things I am used to from django-like template engines not well enough,
+misses a tiny useful feature here and there. This does especially hurt, when I want to reuse HTML
+sceletons, tags, HTML snippets or functions to generate them. That is where tundra stops
+working. Knowing the code a bit I also think I have a feeling that getting it there would be
+quite some work." />
+
+  
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/12" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/12" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/12" />
+  
+
+</head>
+<body class="page-tidbit">
+  
+
+
+
+
+
+  <header>
+    <nav class="primary">
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+  
+
+  <nav class="breadcrumb">
+    
+  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Choosing a new Template Engine
+
+  </nav>
+
+  <main>
+    <div class="content">
+      
+
+  <article>
+    <header>
+      <div class="tag" data-tag="tools">#tools</div>
+      <h1 id="choosing-a-new-template-engine" is="more-h1">Choosing a new Template Engine</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - December 29, 2020
+        
+          - tagged with: #tools #blog #website #template engine
+        
+      </div>
+    </header>
+
+    <p>I have been using <a href="https://github.com/Usbac/tundra">tundra</a> as template engine
+for this site. And I am thankful for it, but it&#39;s time to move on.
+I mainly chose it because it is tiny, has no dependencies and it has the features I was looking for. 
+It just does the things I am used to from django-like template engines not well enough,
+misses a tiny useful feature here and there. This does especially hurt, when I want to reuse HTML
+sceletons, tags, HTML snippets or functions to generate them. That is where tundra stops
+working. Knowing the code a bit I also think I have a feeling that getting it there would be
+quite some work.</p>
+<p>Instead of helping out with tundra and getting it there, I decided to invest my time in just being
+a user and <a href="https://github.com/Usbac/tundra/issues?q=is%3Aissue">issue reporter</a>. This can become a time
+eater, so I prefer to invest my time in the things I am more passionate about and use one of the
+many template engines that exist. Read on to find out how I am choosing and which one I will decide to use.</p>
+<h2 is="more-h2" id="what-am-i-looking-for">What am I Looking for?</h2>
+<p>I am heavily influenced by my former experience with template engines. It started out in PHP times, 
+where PHP itself was a very powerful template engine, over to using various different ones there. Some of them
+had also been very restrictive in their feature set, in the hope to make better code, this never convinced me.</p>
+<p>When I used django and the template engine that came with, this felt very good and I felt being productive.
+It left some freedom to the author, one could extend it with own template tags and the logic inside the templates
+was possible to be complex, but if one behaves well it can be very simple and concise.
+This is the kind of template engine I would like to have. Oh, and I had some exposure to ejs, handlebars, etc. too - 
+let&#39;s stay with the django style engine ;).</p>
+<p>The feature that (I know now) I am looking for:</p>
+<ul>
+<li>extending and nested templates, for making reuse of templates, e.g. via <code>{% extends &quot;base.html&quot; %}</code> (<a href="https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#std:templatetag-extends">in django</a>)</li>
+<li>extending/overriding (nested) blocks, with default content (not possible with tundra) (<a href="https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#block">in django</a>)</li>
+<li>loops, conditionals, variables, escaping, raw string printing, whitespace handling</li>
+</ul>
+<p>I do not want:</p>
+<ul>
+<li>a lot of dependencies</li>
+<li>a complex system/language</li>
+</ul>
+<p>I do not necessarily need:</p>
+<ul>
+<li>filtering, sorting, etc. in the template, I am fine doing that in code, sounds much more reasonable to me</li>
+<li>i18n, l10n - I have no plan to make my blog (or any site, I use <a href="https://github.com/wolframkriesing/site-stitcher">site-stitcher</a> with) multilingual</li>
+</ul>
+<h2 is="more-h2" id="searching-on-codeberg-first">Searching on Codeberg First</h2>
+<p>None of the results on <a href="https://codeberg.org">codeberg.org</a>
+when searching for <a href="https://codeberg.org/explore/repos?tab=&amp;sort=recentupdate&amp;q=template+engine">&quot;template engine&quot;</a>
+seems to be anything useful. Too bad. It would have received a lot of additional bonus points
+from me, I would maybe even have considered helping out. Moving on.</p>
+<h2 is="more-h2" id="art-template">Art Template</h2>
+<p>Website: <a href="https://aui.github.io/art-template">https://aui.github.io/art-template</a> <br>Repo: <a href="https://github.com/aui/art-template">https://github.com/aui/art-template</a></p>
+<p>The page advertises with &quot;High performance JavaScript templating engine&quot;. I am quite tired of those.
+In the end I decide how fast is fast enough and what one compares it to. The main feature mentioned
+in the README is &quot;performance is close to the JavaScript rendering limits&quot;. Sounds like a sales show.
+But ok, I know to not see this ;) ... well, I got a little biased, negatively.</p>
+<p>The first <strong>con</strong> I see is the mentioning of webpack in multiple places. This makes me feel as if
+there are dependencies that I don&#39;t want to buy in to. The <a href="https://github.com/aui/art-template/blob/master/package.json">devDeps</a>
+list webpack, prettier, eslint, prettier. Too many tools for my taste. But that is state of the art
+nowadays and that might not be a bad thing, it could also mean that quality is important, could also
+be just the default set of tools. Who knows.</p>
+<p>In the package.json I also see acorn, escodegen, estraverse. Nice, this means to me there is no magic
+regex and string handling going on, but a certain level of professional AST processing. Sounds nice.
+Some points on the <strong>pro</strong> side from me.</p>
+<p>In the <a href="https://aui.github.io/art-template/docs/index.html#Feature">features list</a> 
+I see the first three items that are of no interest to me, super fast,
+debug friendly and super compatible. But the fourth one &quot;support template inheritance and sub template&quot;
+is on my must-have list. Cool, another <strong>pro</strong>. Feature number five &quot;browser version is only 6KB&quot;
+I do not care about. I am just doing server-side, so I may better look that this works too.</p>
+<p>In the package.json I also saw babel, which I am not really fond of, I think that era is behind us
+we have our JS engines be up to date very quickly, so I prefer less tooling and maybe not use a new
+feature. But with the latest engines we have a lot of great features in the language and available everywhere,
+so no need (for me) to transpile.</p>
+<p>One more <strong>con</strong>, while reading some source code, it is documented in japanese (I think this is). Fortunately
+the functions are named in english. There are a good number of tests though, that&#39;s definitely a <strong>pro</strong>.</p>
+<p>This one stays in the game.</p>
+<h2 is="more-h2" id="template-7">Template 7</h2>
+<p>Website: <a href="https://idangero.us/template7/#.X-s39y337Vs">https://idangero.us/template7/#.X-s39y337Vs</a> <br>Repo: <a href="https://github.com/nolimits4web/template7">https://github.com/nolimits4web/template7</a></p>
+<p>&quot;Mobile-first JavaScript Template Engine&quot; - say what? Can I run it on the server too?
+What can be mobile about a template engine. I assume having it run on the client. Whatelse, could I imagine
+to be mobile-first?</p>
+<p>Absolutely no dependency, as the <a href="https://github.com/nolimits4web/template7/blob/master/package.json">package.json</a> lists? 
+Only devDeps?
+Wow.</p>
+<p>I can download the repo or install it via bower. Aehm, no.
+I am moving on.</p>
+<h2 is="more-h2" id="swig">Swig</h2>
+<p>Repo: <a href="https://github.com/paularmstrong/swig">https://github.com/paularmstrong/swig</a></p>
+<p>As far as I remember this is the JavaScript version of the django template engine.
+But it is <strong>unmaintained</strong>, the repo is even archived. Oh no.
+I assume there are suggested alternatives. Gotta read around a bit.</p>
+<h2 is="more-h2" id="juicer">Juicer</h2>
+<p>Repo: <a href="https://github.com/PaulGuo/Juicer">https://github.com/PaulGuo/Juicer</a></p>
+<p>The website does not work, docs are in japanese. I am out.</p>
+<h2 is="more-h2" id="new-search-tactics">New Search Tactics</h2>
+<p>Maybe my search for <a href="https://github.com/search?q=javascript+template+engine">&quot;javascript template engine&quot;</a> 
+github was not so clever. I might reconsider this now.
+Searching for <a href="https://duckduckgo.com/?q=javascript+template+engine+swig&amp;t=osx&amp;ia=web#">javascript template engine swig</a>
+I stumbled over <a href="https://js.libhunt.com/swig-alternatives">js.libhunt</a>
+not very promising, but in the end I ended up with a list of engines to look at:</p>
+<ul>
+<li><a href="https://squirrelly.js.org">https://squirrelly.js.org</a></li>
+<li><a href="https://github.com/jasonmoo/t.js">https://github.com/jasonmoo/t.js</a> - no matter how old, I love the minimalistic set of features, unfortunately <strong>not enough for my purposes</strong> now</li>
+<li><a href="http://www.dustjs.com">http://www.dustjs.com</a> - looks like it has all the features, but <strong>I am dismissing it</strong> for its very minimalistic and 
+therefore not expressive enough template syntax, I strongly prefer more characters so any random code-reader can 
+understand what&#39;t going on, as opposed to using the minimal set of characters (for now useful reason)</li>
+<li><a href="https://github.com/twitter/hogan.js">https://github.com/twitter/hogan.js</a> - from what I understand this is made for snippets, I can imagine it is used for
+the twitter embed functionality, <strong>I am dismissing it</strong> (maybe too early, but fine for me)</li>
+</ul>
+<h2 is="more-h2" id="found-it-decided-done">Found it, Decided, Done</h2>
+<p>Website: <a href="https://mozilla.github.io/nunjucks/">https://mozilla.github.io/nunjucks/</a> <br>Repo: <a href="https://github.com/mozilla/nunjucks">https://github.com/mozilla/nunjucks</a></p>
+<p>I found the one I am using. Sorry, I am jumping all my structured evaluations that I started above.
+I have intuitively and emotionally decided for nunjucks because:</p>
+<ul>
+<li>it is done by mozilla, a company who&#39;s vision I love</li>
+<li>the syntax is just what I am looking for (jinja, swig, django inspired)</li>
+<li>I saw it and knew I want this syntax</li>
+<li>reading the docs I see there is <code>extends</code>, <code>block</code>, <code>macro</code>, etc. - all I need, I believe</li>
+</ul>
+<p>I am ignoring:</p>
+<ul>
+<li>further evaluation if all the features are supported that I need</li>
+<li>the many dependencies it carries along (mostly dev deps)</li>
+<li>anything else.</li>
+</ul>
+<p>I am sold. Done. Over and out.</p>
+
+  </article>
+
+    </div>
+    <aside class="right">
+      
+    </aside>
+  </main>
+
+  <footer>
+    <div>
+      <b>Pages</b>
+      <ul>
+        
+          <li><a href="/">Home 🏠</a></li>
+        
+          <li><a href="/blog">Blog ✍️</a></li>
+        
+          <li><a href="/tidbits">Tidbits 😋</a></li>
+        
+          <li><a href="/projects">Projects 🛠‍‍</a></li>
+        
+          <li><a href="/about">About 💡</a></li>
+        
+      </ul>
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+  <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+    <ul>
+      
+        <li><a href="/">Home 🏠</a></li>
+      
+        <li><a href="/blog">Blog ✍️</a></li>
+      
+        <li><a href="/tidbits">Tidbits 😋</a></li>
+      
+        <li><a href="/projects">Projects 🛠‍‍</a></li>
+      
+        <li><a href="/about">About 💡</a></li>
+      
+    </ul>
+  </nav>
+</body>
+</html>
