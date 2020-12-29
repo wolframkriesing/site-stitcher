@@ -62,7 +62,7 @@
         Wolfram Kriesing
         - {{ post.dateCreated | toReadableDate }}
         {% if (post.tags.length > 0) %}
-          - tagged with: {% for tag in post.tags %}#{tag} {% endfor %}
+          - tagged with: {% for tag in post.tags %}#{{tag}} {% endfor %}
         {% endif %}
       </div>
     </header>

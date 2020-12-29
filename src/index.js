@@ -194,7 +194,7 @@ const loadPosts = async sourceFiles => {
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
-  await runAndTimeIt('All posts', () => Promise.all(posts.map(generatePost)));
+  await runAndTimeIt(`All blog posts (${posts.length})`, () => Promise.all(posts.map(generatePost)));
   // await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
 
   // await runAndTimeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
