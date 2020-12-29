@@ -2,6 +2,7 @@
 slug: choosing-a-new-template-engine
 dateCreated: 2020-12-29 14:19 CET
 tags: tools, blog, website, template engine
+previewImage: ../tpl-engine.jpeg
 
 I have been using [tundra](https://github.com/Usbac/tundra) as template engine
 for this site. And I am thankful for it, but it's time to move on.
