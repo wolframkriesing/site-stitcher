@@ -21,6 +21,8 @@ const nunjucksOptions = {
 
 const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader(TEMPLATES_DIRECTORY), nunjucksOptions);
 nunjucksEnv.addFilter('toReadableDate', toReadableDate);
+nunjucksEnv.addFilter('toReadableYearAndMonth', toReadableYearAndMonth);
+nunjucksEnv.addFilter('toWeekday', toWeekday);
 const renderTemplate = (tplFile, data) => {
   return nunjucksEnv.render(tplFile, data);
 }
@@ -34,8 +36,6 @@ const navigationItems = [
 ];
 const defaultRenderParams = {
   navigationItems,
-  toReadableYearAndMonth,
-  toWeekday,
 };
 
 const generate301Page = async (oldPath, newPath) => {
@@ -194,9 +194,9 @@ const loadPosts = async sourceFiles => {
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
-  // await runAndTimeIt('All posts', () => Promise.all(posts.map(generatePost)));
+  await runAndTimeIt('All posts', () => Promise.all(posts.map(generatePost)));
   // await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
-  //
+
   // await runAndTimeIt('All tags pages', () => generateTagPages(groupedBlogPosts.byTag));
   // await runAndTimeIt('All month pages', () => generateMonthPages(groupedBlogPosts.byMonth));
   // await runAndTimeIt('About pages', () => generateAboutPages());
