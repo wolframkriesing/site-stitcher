@@ -1,14 +1,14 @@
-@extends(templates/_empty.html)
+{% extends "_empty.html" %}
 
-{[ block pagename ]}about{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/about{[ endblock ]}
-{[ block pageTitlePrefix ]}About{[ endblock ]}
+{% block pagename %}about{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/about{% endblock %}
+{% block pageTitlePrefix %}About{% endblock %}
 
-{[ block head ]}
+{% block head %}
 <link rel="stylesheet" href="/about/about.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block body ]}
+{% block body %}
   <style>
     li {
       display: block;
@@ -75,7 +75,7 @@
                     all ({{content.jobs.length}})
                   </label></li>
                   <li><label><input type="radio" name="type-positions" onclick="showMostRelevantPositions()" />
-                    most relevant ({{content.jobs.filter(j => j.isMostRelevant).length}})
+                    most relevant ({{content.mostRelevantJobsCount}})
                   </label></li>
                 </ul>
               </li>
@@ -133,18 +133,18 @@
       </p>
       <hr/>
       <h2 id="jobs">Work History</h2>
-      {% content.jobs.map((j) => { %}
-        <article id="{{j.id}}" data-is-position-most-relevant="{{j.isMostRelevant?'true':'false'}}">
+      {% for j in content.jobs %}
+        <article id="{{j.id}}" data-is-position-most-relevant="{{ 'true' if j.isMostRelevant else 'false' }}">
           <h3>{{j.positions[0]}}</h3>
-          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{100-(j.monthsAtJob/3 || 0)}}%, var(--color-highlight-lighter) 0%)">
+          <div class="dates" style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{ content.toTransparency(j.monthsAtJob) }}%, var(--color-highlight-lighter) 0%)">
             {{j.start}} - {{j.end}}
           </div>
           <p class="companyDescription" style="color: var(--color-secondary)">
-            {% if (j.url) { %}
+            {% if (j.url) %}
               <a href="https://{{j.url}}">{{j.name}}</a>:
-            {% } else { %}
+            {% else %}
               {{j.name}}:
-            {% } %}
+            {% endif %}
             {{j.companyDescription}}
           </p>
           <p class="jobDescription">
@@ -160,22 +160,22 @@
             </span>
           </p>
         </article>
-      {% }) %}
+      {% endfor %}
 
       <hr/>
       <h2 id="edu">Education</h2>
-      {% content.education.map((e) => { %}
+      {% for e in content.education %}
         <article id="{{e.id}}">
           <h3>{{e.name}}</h3>
-          <div style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{100-(e.monthsDuration/3 || 0)}}%, var(--color-highlight-lighter) 0%)">
+          <div style="color: var(--color-secondary); background: linear-gradient(to left, transparent {{ content.toTransparency(e.monthsDuration) }}%, var(--color-highlight-lighter) 0%)">
             {{e.start}} - {{e.end}}
           </div>
           <p>
             {{e.comment}}
           </p>
         </article>
-      {% }) %}
+      {% endfor %}
 
     </div>
   </main>
-{[ endblock ]}
+{% endblock %}

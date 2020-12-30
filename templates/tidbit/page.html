@@ -1,51 +1,55 @@
-@extends(templates/_focus.html)
+{% extends "_focus.html" %}
 
-{[ block pagename ]}tidbit{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com{{tidbit.url}}{[ endblock ]}
-{[ block pageTitlePrefix ]}{{tidbit.headline}}{[ endblock ]}
+{% block pagename %}tidbit{% endblock %}
+{% block canonicalUrl %}https://picostitch.com{{tidbit.url}}{% endblock %}
+{% block pageTitlePrefix %}{{tidbit.headline}}{% endblock %}
 
-{[ block head ]}
+{% block head %}
   <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
   <meta property="article:type" content="article" />
+  {% for tag in tidbit.tags %}
+    <meta property="article:tag" content="{{tag.value}}" />
+  {% endfor %}
 
   <meta property="og:description" content="{{tidbit.abstract}}" />
   <meta property="article:description" content="{{tidbit.abstract}}" />
   <meta name="twitter:description" content="{{tidbit.abstract}}" />
 
-  {% if (tidbit.previewImageUrl) { %}
+  {% if (tidbit.previewImageUrl) %}
     <meta property="og:image" content="https://picostitch.com{{tidbit.previewImageUrl}}" />
     <meta property="og:image:url" content="https://picostitch.com{{tidbit.previewImageUrl}}" />
     <meta name="twitter:image" content="https://picostitch.com{{tidbit.previewImageUrl}}" />
-  {% } %}
-{[ endblock ]}
+  {% endif %}
+{% endblock %}
 
-{[ block metaTwitterCard ]}
-  {% if (tidbit.previewImageUrl) { %}
+{% block metaTwitterCard %}
+  {% if (tidbit.previewImageUrl) %}
     <meta name="twitter:card" content="summary_large_image">
-  {% } else { %}
-    {[ parent metaTwitterCard ]}
-  {% } %}
-{[ endblock ]}
+  {% else %}
+    {{ super() }}}
+  {% endif %}
+{% endblock %}
 
-{[ block breadcrumb ]}
-  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; {!tidbit.headlineAsHtml!}
-{[ endblock ]}
+{% block breadcrumb %}
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  {{ tidbit.headlineAsHtml | safe }}
+{% endblock %}
 
-{[ block content ]}
-
+{% block content %}
   <article>
     <header>
       <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
-      <h1 id="{{tidbit.slug}}" is="more-h1">{!tidbit.headlineAsHtml!}</h1>
+      <h1 id="{{tidbit.slug}}" is="more-h1">{{ tidbit.headlineAsHtml | safe }}</h1>
       <div class="metadata">
         Wolfram Kriesing
-        - {{toReadableDate(tidbit.dateCreated)}}
-        {% if (tidbit.tags.length > 0) { %}
-          - tagged with: {{ tidbit.tags.map(tag => `#${tag.value}`).join(' ') }}
-        {% } %}
+        - {{ tidbit.dateCreated | toReadableDate }}
+        {% if (tidbit.tags.length > 0) %}
+          - tagged with: {% for tag in tidbit.tags %}#{{tag.value}} {% endfor %}
+        {% endif %}
       </div>
     </header>
 
-    {!tidbit.bodyAsHtml!}
+    {{ tidbit.bodyAsHtml | safe }}
   </article>
-{[ endblock ]}
+{% endblock %}

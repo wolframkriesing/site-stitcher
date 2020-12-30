@@ -1,83 +1,84 @@
-@extends(templates/_focus.html)
+{% extends "_focus.html" %}
 
-{[ block pagename ]}post{[ endblock ]}
-{[ block canonicalUrl ]}{{ post.canonicalUrl ? post.canonicalUrl : `https://picostitch.com${post.url}` }}{[ endblock ]}
-{[ block pageTitlePrefix ]}{{post.headline}}{[ endblock ]}
+{% block pagename %}post{% endblock %}
+{% block canonicalUrl %}{{ post.canonicalUrl if post.canonicalUrl else 'https://picostitch.com'+post.url }}{% endblock %}
+{% block pageTitlePrefix %}{{post.headline}}{% endblock %}
 
-{[ block head ]}
+{% block head %}
   <link rel="stylesheet" href="/blog/blog.css" type="text/css">
   <meta property="article:type" content="article" />
-  {% post.tags.map(tag => { %}
-    <meta property="article:tag" content="{{tag}}" />{% }) %}
+  {% for tag in post.tags %}
+    <meta property="article:tag" content="{{tag}}" />
+  {% endfor %}
 
   <meta property="og:description" content="{{post.abstract}}" />
   <meta property="article:description" content="{{post.abstract}}" />
   <meta name="twitter:description" content="{{post.abstract}}" />
 
-  {% if (post.previewImageUrl) { %}
+  {% if (post.previewImageUrl) %}
     <meta property="og:image" content="https://picostitch.com{{post.previewImageUrl}}" />
     <meta property="og:image:url"  content="https://picostitch.com{{post.previewImageUrl}}" />
     <meta name="twitter:image" content="https://picostitch.com{{post.previewImageUrl}}" />
-  {% } %}
-{[ endblock ]}
+  {% endif %}
+{% endblock %}
 
-{[ block metaTwitterCard ]}
-  {% if (post.previewImageUrl) { %}
+{% block metaTwitterCard %}
+  {% if (post.previewImageUrl) %}
     <meta name="twitter:card" content="summary_large_image">
-  {% } else { %}
-    {[ parent metaTwitterCard ]}
-  {% } %}
-{[ endblock ]}
+  {% else %}
+    {{ super() }}}
+  {% endif %}
+{% endblock %}
 
-{[ block sidebar-right ]}
-  {% if (post.relatedPosts.length > 1) { %}
+{% block sidebarRight %}
+  {% if (post.relatedPosts.length > 1) %}
     <h3 id="related" is="more-h3">Related Posts</h3>
-    {% post.relatedPosts.map(p => { %}
-      {% if (post === p) { %}
+    {% for p in post.relatedPosts %}
+      {% if (post === p) %}
         <span>{{p.headline}}</span><br/>
-      {% } else { %}
+      {% else %}
         <a href="{{p.url}}">{{p.headline}}</a><br/>
-      {% } %}
-    {% }) %}
-  {% } %}
-{[ endblock ]}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endblock %}
 
-{[ block breadcrumb ]}
+{% block breadcrumb %}
   <a href="/">Home</a> &raquo;
   <a href="/blog">Blog</a> &raquo;
-  <a href="{{post.urlForMonth}}">{{toReadableYearAndMonth(post.dateCreated)}}</a> &raquo;
-  {!post.headlineAsHtml!}
-{[ endblock ]}
+  <a href="{{post.urlForMonth}}">{{ post.dateCreated | toReadableYearAndMonth }}</a> &raquo;
+  {{ post.headlineAsHtml | safe }}
+{% endblock %}
 
-{[ block content ]}
-  <article class="{{post.isDraft ? 'isDraft' : ''}}">
+{% block content %}
+  <article class="{{ 'isDraft' if post.isDraft else '' }}">
     <header>
       <h1 id="{{post.slug}}" is="more-h1">
-        {!post.headlineAsHtml!}
-        {{post.isDraft ? ' [this is a draft]' : ''}}
+        {{ post.headlineAsHtml | safe }}
+        {{ ' [this is a draft]' if post.isDraft else ''}}
       </h1>
       <div class="metadata">
         Wolfram Kriesing
-        - {{toReadableDate(post.dateCreated)}}
-        {% if (post.tags.length > 0) { %}
-          - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
-        {% } %}
+        - {{ post.dateCreated | toReadableDate }}
+        {% if (post.tags.length > 0) %}
+          - tagged with: {% for tag in post.tags %}#{{tag}} {% endfor %}
+        {% endif %}
       </div>
     </header>
 
-    {% if (post.canonicalHint) { %}
+    {% if (post.canonicalHint) %}
       <p>
         <a href="{{post.canonicalUrl}}">{{post.canonicalHint}}</a>
       </p>
-    {% } %}
+    {% endif %}
 
-    {!post.bodyAsHtml!}
+    {{ post.bodyAsHtml | safe }}
 
-    {% if (post.youtubeId) { %}
+    {% if (post.youtubeId) %}
       <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/{{ post.youtubeId }}?start={{ post.videoStartTime }}" frameborder="0" allowfullscreen></iframe>
-    {% } %}
-    {% if (post.vimeoId) { %}
+    {% endif %}
+    {% if (post.vimeoId) %}
       <iframe src="https://player.vimeo.com/video/{{ post.vimeoId }}" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    {% } %}
+    {% endif %}
   </article>
-{[ endblock ]}
+{% endblock %}

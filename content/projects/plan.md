@@ -2,6 +2,14 @@
 
 Some things run in parallel, those are in chapters.
 
+## jskatas.org
+- [ ] make each kata's test description a page (using test-stitcher) SEO indexable, so jskatas.org is found when searching on google
+  - [ ] render the meta data in a useful way, eg. dependencies of katas, more in depth links (e.g. with quotes)
+- [ ] eventually show a completeness compared to the ECMAScript spec, once all is covered it will be the year 3000 anyways ;)
+- [ ] requires some More HTML components (code editor, test runner, ...)
+- [ ] offer desktop learning and completing of the katas using More HTML components on the page (not in tddbin)
+- [ ] store progress in a private storage, such as jsonbin.org, solid, or alike
+
 ## picostitch.com - The Blog Where all Strings Come Together
 - [ ] **Make picostitch a blog with more than just articles.**
   In order to experiment with new features and advanced functionality, some neat features that
@@ -24,12 +32,6 @@ Some things run in parallel, those are in chapters.
   embraces a11y, progressive enhancement and degrades nicely.
 - [ ] rendering via webmention.io  
 
-## jskatas.org
-- [ ] make each kata's test description (using test-stitcher) SEO indexable, so jskatas.org is found when searching on google
-- [ ] requires some More HTML components (code editor, test runner, ...)
-- [ ] offer desktop learning and completing of the katas using More HTML components on the page (not in tddbin)
-- [ ] store progress in a private storage, such as jsonbin.org, solid, or alike
-
 ## More HTML
 - [ ] Components for jskatas.org
   - [ ] code editor component
@@ -48,7 +50,7 @@ Some things run in parallel, those are in chapters.
 ## Tools and Helpers
 - [ ] **test-stitcher**, a tool to understand and "visualize" tests (by their description)
   in order to improve them
-- [ ] **pico-tester**, a simple, fast and tiny test runner, that enforces test best practices
+- [x] ~~**pico-tester**, a simple, fast and tiny test runner, that enforces test best practices~~ discontinued, mocha is doing all I need and is stable for a long time
 - [ ] ci-tooling for codeberg (and others)
   - [ ] build a docker container for drone.io setup for one self
   - [ ] build another docker container, e.g. for jenkins - ONLY if configurable via files IN the repo

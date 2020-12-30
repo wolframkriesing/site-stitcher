@@ -1,11 +1,15 @@
-{[ spread header ]}
+{% macro _itemsAsListOfLinks(items) %}
+  <ul>
+    {% for item in items %}
+      <li><a href="{{ item.path }}">{{ item.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro header(navigationItems) %}
   <header>
     <nav class="primary">
-      <ul>
-        {% navigationItems.forEach(item => { %}
-          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-        {% }) %}
-      </ul>
+      {{ _itemsAsListOfLinks(navigationItems) }}
     </nav>
 
     <div class="sitename">
@@ -15,17 +19,13 @@
       </div>
     </div>
   </header>
-{[endspread]}
+{% endmacro %}
 
-{[ spread pageFooter ]}
+{% macro pageFooter(navigationItems) %}
   <footer>
     <div>
       <b>Pages</b>
-      <ul>
-        {% navigationItems.forEach(item => { %}
-          <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-        {% }) %}
-      </ul>
+      {{ _itemsAsListOfLinks(navigationItems) }}
     </div>
 
     <div>
@@ -38,15 +38,11 @@
       </ul>
     </div>
   </footer>
-{[endspread]}
+{% endmacro %}
 
-{[ spread secondaryNavigation ]}
+{% macro secondaryNavigation(navigationItems) %}
   <nav class="secondary">
     <div class="menu-button">&#9776;</div>
-    <ul>
-      {% navigationItems.forEach(item => { %}
-        <li><a href="{{ item.path }}">{{ item.name }}</a></li>
-      {% }) %}
-    </ul>
+    {{ _itemsAsListOfLinks(navigationItems) }}
   </nav>
-{[endspread]}
+{% endmacro %}

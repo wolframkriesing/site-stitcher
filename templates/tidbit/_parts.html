@@ -1,22 +1,23 @@
-{[ spread tidbitPreview ]}
+{% macro tidbitPreview(tidbit) %}
   <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
       <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
       <h2 id="{{tidbit.slug}}" is="more-h2">
-        <a href="{{tidbit.url}}">{!tidbit.headlineAsHtml!}</a>
+        <a href="{{tidbit.url}}">{{ tidbit.headlineAsHtml | safe }}</a>
       </h2>
       <div class="metadata">
-        {{toReadableDate(tidbit.dateCreated)}}
-        {% if (tidbit.tags.length > 1) { %}
-          - also tagged with: {{ tidbit.tags.slice(1).map(tag => `#${tag.value}`).join(' ') }}
-        {% } %}
+        {{ tidbit.dateCreated | toReadableDate }}
+        {% if tidbit.tags.length > 0 %}
+          - tagged with: {% for tag in tidbit.tags.slice(1) %}#{{tag.value}} {% endfor %}
+        {% endif %}
       </div>
     </header>
-    <p class="abstract">{!tidbit.abstractAsHtml!}
-      {% if (!tidbit.hasAbstractOnly) { %}
+    <p class="abstract">{{ tidbit.abstractAsHtml | safe }}
+      {% if not tidbit.hasAbstractOnly %}
         <br/>
         <a  href="{{tidbit.url}}">Continue reading →</a>
-      {% } %}
+      {% endif %}
     </p>
   </article>
-{[endspread]}
+{% endmacro %}
+

@@ -1,18 +1,18 @@
-@extends(templates/_focus.html)
+{% extends "_focus.html" %}
 
-{[ block pagename ]}tidbits{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/tidbits/{[ endblock ]}
-{[ block pageTitlePrefix ]}Tidbits{[ endblock ]}
+{% block pagename %}tidbits{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/tidbits/{% endblock %}
+{% block pageTitlePrefix %}Tidbits{% endblock %}
 
-{[ block head ]}
+{% block head %}
 <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block breadcrumb ]}
+{% block breadcrumb %}
   <a href="/">Home</a> &raquo; Tidbits
-{[ endblock ]}
+{% endblock %}
 
-{[ block content ]}
+{% block content %}
   <h1 style="display: inline" is="more-h1" id="tidbits">Tidbits 😋</h1>
   <p style="display: inline;">
     are shorter articles, like notes, about tweet-size, no full blog post.
@@ -25,9 +25,8 @@
     <a href="https://www.thesaurus.com/browse/tidbit">partly from thesaurus.com</a>.
   </p>
 
-  @require(templates/tidbit/_parts.html)
-  {% tidbits.map(tidbit => { %}
-    @spread(tidbitPreview)
-  {% }) %}
-
-{[ endblock ]}
+  {% import "tidbit/_parts.html" as tidbitParts %}
+  {% for tidbit in tidbits %}
+    {{ tidbitParts.tidbitPreview(tidbit) }}
+  {% endfor %}
+{% endblock %}

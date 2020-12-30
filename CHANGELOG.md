@@ -21,12 +21,15 @@
       - [ ] make the tpl code more reusable and allow extending blocks more flexible with default content
             and allow flexible extending of the tpls _empty, _focus, _allFeatures (as they are called now)
             and make code more reusable and content driven (e.g. if X content exists render tag Y)    
-      - [ ] need to upgrade to a proper template engine, tundrajs has too many drawbacks and flaws
+      - [x] need to upgrade to a proper template engine, tundrajs has too many drawbacks and flaws
             I invested too much time already, and I dont want to (help to) build all parts of this blog, there are enough good tpl engines
-        - [ ] choose a new tpl engine
-          - [ ] use it and make all pages work again
+        - [x] choose a new tpl engine
+          - [x] make the tidbits tests work again, they actually use the tpl engine
+          - [x] use it and make all pages work again
+          - [x] remove tundra
   - [x] breadcrumb shows (left aligned, ~~or centered~~) - only on huge screens it feel a little off, but only as long as the 
         left space stays empty
+- [ ] remove using pico-tester, since mocha is the better alternative and it is fast
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful

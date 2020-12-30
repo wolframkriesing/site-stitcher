@@ -1,34 +1,34 @@
-@extends(templates/_focus.html)
+{% extends "_focus.html" %}
 
-{[ block pagename ]}home{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/{[ endblock ]}
-{[ block pageTitlePrefix ]}Home{[ endblock ]}
-{[ block head ]}<link rel="stylesheet" href="/home.css" type="text/css">{[ endblock ]}
+{% block pagename %}home{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/{% endblock %}
+{% block pageTitlePrefix %}Home{% endblock %}
+{% block head %}<link rel="stylesheet" href="/home.css" type="text/css">{% endblock %}
 
-{[ block after-header ]}
+{% block afterHeader %}
   <h1>picostitch - Crafting (and) JavaScript</h1>
-{[ endblock ]}
+{% endblock %}
 
-{[ block content ]}
-  @require(templates/blog/_parts.html)
+{% block content %}
+  {% import "blog/_parts.html" as blogParts %}
   <section>
     <h2>Latest Blog Posts ✍</h2>
 
-    {% posts.slice(0, 10).map(post => { %}
-      @spread(articlePreview)
-    {% }) %}
+    {% for post in posts.slice(0, 10) %}
+      {{ blogParts.articlePreview(post) }}
+    {% endfor %}
 
     <a  href="/blog">All Blog Posts →</a>
   </section>
 
-  @require(templates/tidbit/_parts.html)
+  {% import "tidbit/_parts.html" as tidbitParts %}
   <section>
     <h2>Latest Tidbits 😋</h2>
 
-    {% tidbits.slice(0, 10).map(tidbit => { %}
-      @spread(tidbitPreview)
-    {% }) %}
+    {% for tidbit in tidbits.slice(0, 10) %}
+      {{ tidbitParts.tidbitPreview(tidbit) }}
+    {% endfor %}
 
     <a  href="/tidbits">All Tidbits →</a>
   </section>
-{[ endblock ]}
+{% endblock %}

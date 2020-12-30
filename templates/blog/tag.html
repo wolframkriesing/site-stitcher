@@ -1,26 +1,27 @@
-@extends(templates/_allFeatures.html)
+{% extends "_allFeatures.html" %}
 
-{[ block pagename ]}tag{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/blog/tag/{{tag}}/{[ endblock ]}
-{[ block pageTitlePrefix ]}#{{tag}}{[ endblock ]}
+{% block pagename %}tag{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/blog/tag/{{tag}}/{% endblock %}
+{% block pageTitlePrefix %}#{{tag}}{% endblock %}
 
-{[ block head ]}
+{% block head %}
 <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block breadcrumb ]}
+{% block breadcrumb %}
   <a href="/">Home</a> &raquo;
   <a href="/blog">Blog</a> &raquo;
+  Tag &raquo;
   #{{tag}}
-{[ endblock ]}
+{% endblock %}
 
-{[ block content ]}
+{% block content %}
   <h1 id="{{tag}}" is="more-h1">
     Tagged with #{{tag}}
   </h1>
 
-  @require(templates/blog/_parts.html)
-  {% posts.map(post => { %}
-    @spread(articlePreview)
-  {% }) %}
-{[ endblock ]}
+  {% import "blog/_parts.html" as blogParts %}
+  {% for post in posts %}
+    {{ blogParts.articlePreview(post) }}
+  {% endfor %}
+{% endblock %}

@@ -1,21 +1,21 @@
-{[ spread articlePreview ]}
-  <article class="preview {{post.isDraft ? 'isDraft' : ''}}" itemscope itemtype="http://schema.org/BlogPosting">
+{% macro articlePreview(post) %}
+  <article class="preview {{ 'isDraft' if post.isDraft else '' }}" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
       <h2 id="{{post.slug}}" is="more-h2">
         <a href="{{post.url}}" itemprop="url">
-        <span itemprop="name headline">{!post.headlineAsHtml!}</span></a>
-        {{post.hasVideo ? ' 📺' : ''}}
-        {{post.isDraft ? ' [this is a draft]' : ''}}
+        <span itemprop="name headline">{{post.headlineAsHtml | safe }}</span></a>
+        {{' 📺' if post.hasVideo else ''}}
+        {{' [this is a draft]' if post.isDraft else ''}}
       </h2>
       <div class="metadata">
-        {{toReadableDate(post.dateCreated)}}
-        {% if (post.tags.length > 0) { %}
-          - tagged with: {{ post.tags.map(tag => `#${tag}`).join(' ') }}
-        {% } %}
+        {{post.dateCreated | toReadableDate}}
+        {% if post.tags.length > 0 %}
+          - tagged with: {% for tag in post.tags %}#{{tag}} {% endfor %}
+        {% endif %}
       </div>
     </header>
     <div class="content">
-      <p class="abstract">{!post.abstractAsHtml!}</p>
+      <p class="abstract">{{post.abstractAsHtml | safe }}</p>
     </div>
   </article>
-{[endspread]}
+{% endmacro %}
