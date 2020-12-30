@@ -11,7 +11,12 @@
     "lib": ["esnext"],
     "target": "ESNext"
   },
-  "include": ["src/typings", "src/types.d.ts", "src/BlogPost.d.ts", "src/_shared", "src/_deps",
+  "include": [
+    "src/typings",
+    "src/_shared",
+    "src/_deps",
+    "src/types.d.ts",
+    "src/BlogPost.d.ts",
     "src/blog-post/BlogPost.d.ts",
     "src/load-tidbit/Tidbit.d.ts",
     "src/load-tidbit/TidbitSourceFile.d.ts",
@@ -19,8 +24,6 @@
     "src/load-tidbit/load-tidbit.slow-spec.js",
     "src/load-tidbit/load-tidbit.js",
     "src/load-tidbit/sort-tidbit.js",
-    "src/render-tidbit",
-    "src/_shared/markdown.js",
-    "src/_shared/to-more-html-markdown.js"
+    "src/render-tidbit"
   ]
 }

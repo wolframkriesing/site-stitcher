@@ -13,9 +13,15 @@ const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader(TEMPL
 nunjucksEnv.addFilter('toReadableDate', toReadableDate);
 nunjucksEnv.addFilter('toReadableYearAndMonth', toReadableYearAndMonth);
 nunjucksEnv.addFilter('toWeekday', toWeekday);
-export const renderTemplate = (tplFile, data) => {
+
+/**
+ * @param templateFilename {string}
+ * @param data {PlainObject}
+ * @return {string}
+ */
+export const renderTemplate = (templateFilename, data) => {
   try {
-    return nunjucksEnv.render(tplFile, data);
+    return nunjucksEnv.render(templateFilename, data);
   } catch (e) {
     return `<h1>ERROR rendering this page</h1><pre>${e.stack}</pre>`;
   }
