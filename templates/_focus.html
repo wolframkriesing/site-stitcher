@@ -26,9 +26,12 @@
   {% endblock %}
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   {% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
   <title>{{ pageTitlePrefix }} | picostitch - crafting (and) JavaScript</title>
+
+  {% block moreHtmlElements %}
+    <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  {% endblock %}
   {% block head %}{% endblock %}
 </head>
 <body class="page-{% block pagename %}{% endblock %}">
