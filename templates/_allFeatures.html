@@ -18,12 +18,12 @@
 
   <meta property="og:title" content="{{ pageTitlePrefix }}">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ canonicalUrl }}">
+  {% if canonicalUrl %}<meta property="og:url" content="{{ canonicalUrl }}">{% endif %}
   <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="canonical" href="{{ canonicalUrl }}">
+  {% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
   <title>{{ pageTitlePrefix }} | picostitch - crafting (and) JavaScript</title>
   {% block head %}{% endblock %}
 </head>
