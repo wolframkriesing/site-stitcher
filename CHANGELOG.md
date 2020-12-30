@@ -24,7 +24,11 @@
       - [ ] need to upgrade to a proper template engine, tundrajs has too many drawbacks and flaws
             I invested too much time already, and I dont want to (help to) build all parts of this blog, there are enough good tpl engines
         - [ ] choose a new tpl engine
+          - [ ] make the tidbits tests work again, they actually use the tpl engine
+            - [ ] get better test output
+            - [ ] remove using pico-tester, since mocha is the better alternative and it is fast
           - [ ] use it and make all pages work again
+          - [ ] remove tundra
   - [x] breadcrumb shows (left aligned, ~~or centered~~) - only on huge screens it feel a little off, but only as long as the 
         left space stays empty
 
