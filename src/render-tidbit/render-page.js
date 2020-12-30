@@ -1,52 +1,36 @@
-import Tundra from 'tundrajs';
 import {writeOutputFile} from '../_deps/fs.js';
-import {TEMPLATES_DIRECTORY} from '../config.js';
+import {renderTemplate} from "../render-template.js";
 
 /**
  * @returns {import('./render-page').ProductionDependencies}
  */
-const prodDeps = () => {
+const prodDepsForIndexPage = () => {
   return {
-    writeFile: writeOutputFile
+    writeFile: writeOutputFile,
+    renderPage: (data) => renderTemplate('tidbit/index.html', data),
   };
 }
-
-const tundra = new Tundra({cache: false});
-tundra.setBase(TEMPLATES_DIRECTORY);
 /**
- * @param data {PlainObject}
- * @return {string}
+ * @returns {import('./render-page').ProductionDependencies}
  */
-const renderIndexPage = (data) => {
-  try {
-    return tundra.getRender('tidbit/index.html', data);
-  } catch (e) {
-    return `<h1>ERROR rendering this page</h1><pre>${e.stack}</pre>`;
-  }
-}
-/**
- * @param data {PlainObject}
- * @return {string}
- */
-const renderTidbitPage = (data) => {
-  try {
-    return tundra.getRender('tidbit/page.html', data);
-  } catch (e) {
-    return 'ERROR rendering: ' + e;
-  }
+const prodDepsForSinglePage = () => {
+  return {
+    writeFile: writeOutputFile,
+    renderPage: (data) => renderTemplate('tidbit/page.html', data),
+  };
 }
 /**
  * @param deps {import('./render-page').ProductionDependencies}
  * @return {function(import('../load-tidbit/Tidbit').Tidbit[], PlainObject): Promise<void>}
  */
-export const renderAndWriteTidbitsIndexPage = ({writeFile} = prodDeps()) => async (tidbits, renderParams) => {
-  await writeFile('/tidbits/index.html', renderIndexPage({...renderParams, tidbits}));
+export const renderAndWriteTidbitsIndexPage = ({writeFile, renderPage} = prodDepsForIndexPage()) => async (tidbits, renderParams) => {
+  await writeFile('/tidbits/index.html', renderPage({...renderParams, tidbits}));
 };
 /**
  * @param deps {import('./render-page').ProductionDependencies}
  * @return {function(import('../load-tidbit/Tidbit').Tidbit[], PlainObject): Promise<void>}
  */
-export const renderAndWriteTidbitPages = ({writeFile} = prodDeps()) => async (tidbits, renderParams) => {
-  const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderTidbitPage({...renderParams, tidbit: t})));
+export const renderAndWriteTidbitPages = ({writeFile, renderPage} = prodDepsForSinglePage()) => async (tidbits, renderParams) => {
+  const pageWriters = tidbits.map(t => writeFile(t.url + 'index.html', renderPage({...renderParams, tidbit: t})));
   await Promise.all(pageWriters);
 };
