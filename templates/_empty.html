@@ -22,7 +22,15 @@
   {% block head %}{% endblock %}
 </head>
 <body class="page-{% block pagename %}{% endblock %}">
-{% block body %}
-{% endblock %}
+{% import "_parts.html" as parts %}
+
+{{ parts.header(navigationItems) }}
+
+{% block afterHeader %}{% endblock %}
+
+{% block body %}{% endblock %}
+
+{{ parts.pageFooter(navigationItems) }}
+{{ parts.secondaryNavigation(navigationItems) }}
 </body>
 </html>

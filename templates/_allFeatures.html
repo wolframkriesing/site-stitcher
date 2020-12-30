@@ -1,12 +1,6 @@
 {% extends "_focus.html" %}
 
 {% block body %}
-  {% import "_parts.html" as parts %}
-
-  {{ parts.header(navigationItems) }}
-
-  {% block afterHeader %}{% endblock %}
-
   <nav class="breadcrumb">
     {% block breadcrumb %}{% endblock %}
   </nav>
@@ -38,7 +32,4 @@
       {% block sidebarRight %}{% endblock %}
     </aside>
   </main>
-
-  {{ parts.pageFooter(navigationItems) }}
-  {{ parts.secondaryNavigation(navigationItems) }}
 {% endblock %}
