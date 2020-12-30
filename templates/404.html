@@ -1,14 +1,15 @@
-@extends(templates/_focus.html)
+{% extends "_focus.html" %}
 
-{[ block pagename ]}404{[ endblock ]}
-{[ block canonicalUrl ]}https://picostitch.com/404{[ endblock ]}
-{[ block pageTitlePrefix ]}404{[ endblock ]}
-{[ block head ]}
+{% block pagename %}404{% endblock %}
+{% block canonicalUrl %}{% endblock %}
+{% block pageTitlePrefix %}404{% endblock %}
+
+{% block head %}
   <link rel="stylesheet" href="/_global.css" type="text/css">
   <link rel="stylesheet" href="/_nav.css" type="text/css">
-{[ endblock ]}
+{% endblock %}
 
-{[ block content ]}
+{% block content %}
   <h1>404 - Page not found ...</h1>
   <p>
     Sorry, the page you were looking for was not found.
@@ -19,17 +20,17 @@
   <br/>
   <br/>
   <h2>Latest 5 Articles</h2>
-  {% posts.map(post => { %}
+  {% for post in posts %}
     <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
       <header>
         <h2><a href="{{post.url}}" itemprop="url">
           <span itemprop="name headline">{{post.headline}}</span></a>
-        {{ post.hasVideo ? ' 📺' : '' }}</h2>
+        {{ ' 📺' if post.hasVideo else '' }}</h2>
       </header>
       <div class="content">
-        <p class="abstract">{!post.abstractAsHtml!}</p>
+        <p class="abstract">{{ post.abstractAsHtml | safe }}</p>
       </div>
     </article>
-  {% }) %}
+  {% endfor %}
 
-{[ endblock ]}
+{% endblock %}
