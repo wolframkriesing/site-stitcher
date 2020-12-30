@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "ci:test": "npm run typecheck && npm run test",
-    "test": "pt `find src -iname *spec.js` --reporter=minimal",
+    "test": "mocha -r esm `find src -iname *spec.js`",
     "start": "npm run build && npm run serve",
     "serve": "http-server _output -d -i --port 5000",
     "dev:start": "npm run build --silent && (npm run serve & ./run-on-file-change.sh npm run build:sites --silent)",
-    "dev:test": "TURN_OFF_ERREXIT=1 ./run-on-file-change.sh npm run test",
+    "dev:test": "npm run test -- --watch --bail",
     "postdev:start": "pkill -f http-server",
     "build": "npm run build:sites && npm run build:assets && touch _output/.nojekyll",
     "build:sites": "mkdir -p _output; node -r esm src/index.js",
@@ -33,11 +33,12 @@
   "license": "MIT",
   "devDependencies": {
     "@types/marked": "^0.7.4",
+    "@types/mocha": "^8.2.0",
     "@types/node": "^13.13.4",
     "esm": "^3.2.25",
     "hamjest": "^3.3.1",
     "http-server": "^0.12.3",
-    "pico-tester": "git+https://codeberg.org/wolframkriesing/pico-tester.git",
+    "mocha": "^8.2.1",
     "typescript": "^3.8.3"
   },
   "dependencies": {

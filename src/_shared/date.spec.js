@@ -1,5 +1,5 @@
-import {describe, it} from 'pico-tester';
-import * as assert from 'assert';
+import {describe, it} from '../test.js';
+import {strict as assert} from 'assert';
 import {toReadableDate, toReadableYearAndMonth, toWeekday, nowAsDateTimeString} from './date.js';
 
 describe('Convert date (and time) to a readable date string', () => {

@@ -1,5 +1,5 @@
-import {describe, it} from 'pico-tester';
-import assert from 'assert';
+import {describe, it} from '../test.js';
+import {strict as assert} from 'assert';
 import {sortByDateCreatedAscending, sortByDateCreatedDescending} from './sort-blog-post.js';
 
 describe('Sort objects (or blog posts) by property `dateCreated`', () => {

@@ -1,4 +1,4 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import {assertThat, hasProperties} from 'hamjest';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';

@@ -1,4 +1,4 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
 import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-page.js';

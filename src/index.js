@@ -1,5 +1,5 @@
 import * as path from 'path';
-import marked from 'marked';
+import * as marked from 'marked';
 import * as fs from 'fs';
 import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';
 import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';

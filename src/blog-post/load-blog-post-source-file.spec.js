@@ -1,6 +1,6 @@
-import assert from 'assert';
+import {describe, it} from '../test.js';
+import {strict as assert} from 'assert';
 import {assertThat, hasProperties} from 'hamjest';
-import {describe, it} from 'pico-tester';
 
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 

@@ -1,5 +1,5 @@
-import {describe, it} from 'pico-tester';
-import assert from 'assert';
+import {describe, it} from '../test.js';
+import {strict as assert} from 'assert';
 import {assertThat, hasProperties, instanceOf, everyItem} from 'hamjest';
 import {loadBlogPost, loadManyBlogPosts} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';

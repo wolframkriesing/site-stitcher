@@ -1,4 +1,4 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import {assertThat, equalTo} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 import {findRelatedPosts} from './related-posts.js';

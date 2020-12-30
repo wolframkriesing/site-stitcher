@@ -1,5 +1,5 @@
-import {describe, it} from 'pico-tester';
-import * as assert from 'assert';
+import {describe, it} from '../test.js';
+import {strict as assert} from 'assert';
 import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} from 'hamjest';
 import * as path from 'path';
 import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
