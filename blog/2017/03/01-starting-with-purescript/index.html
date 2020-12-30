@@ -8,27 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="picostitch - crafting (and) JavaScript">
 
-  
-  
     <meta name="twitter:card" content="summary_large_image">
-  
-
   <meta name="twitter:site" content="@wolframkriesing" />
   <meta name="twitter:title" content="Purescript #1 - the semantics of JavaScript with types" />
 
   <meta property="og:title" content="Purescript #1 - the semantics of JavaScript with types">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/blog/2017/03/01-starting-with-purescript/">
-  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+<meta property="og:url" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="canonical" href="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">
-  <title>Purescript #1 - the semantics of JavaScript with types | picostitch - crafting (and) JavaScript</title>
-  
+<link rel="canonical" href="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">  <title>Purescript #1 - the semantics of JavaScript with types | picostitch - crafting (and) JavaScript</title>
   <link rel="stylesheet" href="/blog/blog.css" type="text/css">
   <meta property="article:type" content="article" />
-  
     <meta property="article:tag" content="purescript" />
     <meta property="article:tag" content="javascript" />
     <meta property="article:tag" content="functional" />
@@ -38,35 +30,22 @@
   <meta property="article:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
   <meta name="twitter:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
 
-  
     <meta property="og:image" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
     <meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
     <meta name="twitter:image" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
-  
-
 </head>
 <body class="page-post">
-  
 
-
-
-
-
-  <header>
+    <header>
     <nav class="primary">
-      <ul>
-        
-          <li><a href="/">Home 🏠</a></li>
-        
-          <li><a href="/blog">Blog ✍️</a></li>
-        
-          <li><a href="/tidbits">Tidbits 😋</a></li>
-        
-          <li><a href="/projects">Projects 🛠‍‍</a></li>
-        
-          <li><a href="/about">About 💡</a></li>
-        
-      </ul>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
     </nav>
 
     <div class="sitename">
@@ -77,20 +56,17 @@
     </div>
   </header>
 
-  
+
 
   <nav class="breadcrumb">
-    
   <a href="/">Home</a> &raquo;
   <a href="/blog">Blog</a> &raquo;
   <a href="/blog/2017/03/">March 2017</a> &raquo;
   Purescript #1 - the semantics of JavaScript with types
-
   </nav>
 
   <main>
     <div class="content">
-      
   <article class="">
     <header>
       <h1 id="starting-with-purescript" is="more-h1">
@@ -100,13 +76,9 @@
       <div class="metadata">
         Wolfram Kriesing
         - March 1, 2017
-        
-          - tagged with: #purescript #javascript #functional #typing
-        
-      </div>
+          - tagged with: #purescript #javascript #functional #typing       </div>
     </header>
 
-    
 
     <p>I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the <a href="http://wiki.c2.com/?PrimitiveObsession">primitive obsession</a>? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.</p>
 <p>Purescript is bringing that to JavaScript while having an (I would say) tiny footprint in the compiled (JavaScript) code. Yes, Purescript compiles down to JavaScript, actually to very well readable JavaScript code (see for yourself towards the end of this post). Read on to get a quick intro on what it is.</p>
@@ -154,57 +126,29 @@ module.exports = {
 <p>I would like to generalize the last bullet point on the list a bit more. You can simply import the actual production code into your tests and just write them in Purescript. Just look at the generated JavaScript above and you see the <code>require</code>, which looks like an easy to use hook to existing JS code, and that is the case. I think writing tests in Purescript is a great way to start using Purescript and learn by using it in a less critical part of your application. I think this less critical part, the tests, will soon become the driving force for the source code, since the power of Purescript will shine through quite fast.</p>
 
 
-    
-    
   </article>
-
     </div>
     <aside class="right">
-      
-  
     <h3 id="related" is="more-h3">Related Posts</h3>
-    
-      
         <a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
-      
-    
-      
         <a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
-      
-    
-      
         <a href="/blog/2017/03/07-purescript-build-tool-pulp-3/">Purescript #3 - Build tool, pulp</a><br/>
-      
-    
-      
         <a href="/blog/2017/03/05-install-purescript-2/">Purescript #2 - Installing</a><br/>
-      
-    
-      
         <span>Purescript #1 - the semantics of JavaScript with types</span><br/>
-      
-    
-  
-
     </aside>
   </main>
 
-  <footer>
+    <footer>
     <div>
       <b>Pages</b>
-      <ul>
-        
-          <li><a href="/">Home 🏠</a></li>
-        
-          <li><a href="/blog">Blog ✍️</a></li>
-        
-          <li><a href="/tidbits">Tidbits 😋</a></li>
-        
-          <li><a href="/projects">Projects 🛠‍‍</a></li>
-        
-          <li><a href="/about">About 💡</a></li>
-        
-      </ul>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
     </div>
 
     <div>
@@ -217,21 +161,18 @@ module.exports = {
       </ul>
     </div>
   </footer>
-  <nav class="secondary">
+
+    <nav class="secondary">
     <div class="menu-button">&#9776;</div>
-    <ul>
-      
-        <li><a href="/">Home 🏠</a></li>
-      
-        <li><a href="/blog">Blog ✍️</a></li>
-      
-        <li><a href="/tidbits">Tidbits 😋</a></li>
-      
-        <li><a href="/projects">Projects 🛠‍‍</a></li>
-      
-        <li><a href="/about">About 💡</a></li>
-      
-    </ul>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
   </nav>
+
 </body>
 </html>

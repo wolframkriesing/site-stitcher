@@ -8,69 +8,52 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="picostitch - crafting (and) JavaScript">
 
-  
-  
     <meta name="twitter:card" content="summary_large_image">
-  
-
   <meta name="twitter:site" content="@wolframkriesing" />
   <meta name="twitter:title" content="Setting a Cookie: use Max-Age!" />
 
   <meta property="og:title" content="Setting a Cookie: use Max-Age!">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://picostitch.comhttps://picostitch.com/tidbits/2020/05/setting-a-cookie-use-max-age/">
-  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+<meta property="og:url" content="https://picostitch.com/tidbits/2020/05/setting-a-cookie-use-max-age/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
   <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="canonical" href="https://picostitch.com/tidbits/2020/05/setting-a-cookie-use-max-age/">
-  <title>Setting a Cookie: use Max-Age! | picostitch - crafting (and) JavaScript</title>
-  
+<link rel="canonical" href="https://picostitch.com/tidbits/2020/05/setting-a-cookie-use-max-age/">  <title>Setting a Cookie: use Max-Age! | picostitch - crafting (and) JavaScript</title>
   <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
   <meta property="article:type" content="article" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="browser" />
+    <meta property="article:tag" content="javascript" />
 
   <meta property="og:description" content="[@Peter Coles](https://twitter.com/lethys) wrote 
-[&quot;HTTP Cookies: What's the difference between Max-age and Expires?&quot;](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
+[&quot;HTTP Cookies: What&#39;s the difference between Max-age and Expires?&quot;](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
 in 2009, but he has updated the article later and there is the answer for wether to use &quot;expires&quot; and/or &quot;max-age&quot; 
 when you set cookies." />
   <meta property="article:description" content="[@Peter Coles](https://twitter.com/lethys) wrote 
-[&quot;HTTP Cookies: What's the difference between Max-age and Expires?&quot;](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
+[&quot;HTTP Cookies: What&#39;s the difference between Max-age and Expires?&quot;](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
 in 2009, but he has updated the article later and there is the answer for wether to use &quot;expires&quot; and/or &quot;max-age&quot; 
 when you set cookies." />
   <meta name="twitter:description" content="[@Peter Coles](https://twitter.com/lethys) wrote 
-[&quot;HTTP Cookies: What's the difference between Max-age and Expires?&quot;](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
+[&quot;HTTP Cookies: What&#39;s the difference between Max-age and Expires?&quot;](https://mrcoles.com/blog/cookies-max-age-vs-expires/)
 in 2009, but he has updated the article later and there is the answer for wether to use &quot;expires&quot; and/or &quot;max-age&quot; 
 when you set cookies." />
 
-  
     <meta property="og:image" content="https://picostitch.com/tidbits/2020/05" />
     <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/05" />
     <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/05" />
-  
-
 </head>
 <body class="page-tidbit">
-  
 
-
-
-
-
-  <header>
+    <header>
     <nav class="primary">
-      <ul>
-        
-          <li><a href="/">Home 🏠</a></li>
-        
-          <li><a href="/blog">Blog ✍️</a></li>
-        
-          <li><a href="/tidbits">Tidbits 😋</a></li>
-        
-          <li><a href="/projects">Projects 🛠‍‍</a></li>
-        
-          <li><a href="/about">About 💡</a></li>
-        
-      </ul>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
     </nav>
 
     <div class="sitename">
@@ -81,18 +64,16 @@ when you set cookies." />
     </div>
   </header>
 
-  
+
 
   <nav class="breadcrumb">
-    
-  <a href="/">Home</a> &raquo; <a href="/tidbits/">Tidbits</a> &raquo; Setting a Cookie: use Max-Age!
-
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Setting a Cookie: use Max-Age!
   </nav>
 
   <main>
     <div class="content">
-      
-
   <article>
     <header>
       <div class="tag" data-tag="web">#web</div>
@@ -100,10 +81,7 @@ when you set cookies." />
       <div class="metadata">
         Wolfram Kriesing
         - May 20, 2020
-        
-          - tagged with: #web #browser #javascript
-        
-      </div>
+          - tagged with: #web #browser #javascript       </div>
     </header>
 
     <p><a href="https://twitter.com/lethys">@Peter Coles</a> wrote 
@@ -129,29 +107,22 @@ expires was deprecated and replaced with the easier-to-use max-age</p>
 <p><strong>If you don&#39;t write IE7 apps use &quot;max-age&quot;!</strong></p>
 
   </article>
-
     </div>
     <aside class="right">
-      
     </aside>
   </main>
 
-  <footer>
+    <footer>
     <div>
       <b>Pages</b>
-      <ul>
-        
-          <li><a href="/">Home 🏠</a></li>
-        
-          <li><a href="/blog">Blog ✍️</a></li>
-        
-          <li><a href="/tidbits">Tidbits 😋</a></li>
-        
-          <li><a href="/projects">Projects 🛠‍‍</a></li>
-        
-          <li><a href="/about">About 💡</a></li>
-        
-      </ul>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
     </div>
 
     <div>
@@ -164,21 +135,18 @@ expires was deprecated and replaced with the easier-to-use max-age</p>
       </ul>
     </div>
   </footer>
-  <nav class="secondary">
+
+    <nav class="secondary">
     <div class="menu-button">&#9776;</div>
-    <ul>
-      
-        <li><a href="/">Home 🏠</a></li>
-      
-        <li><a href="/blog">Blog ✍️</a></li>
-      
-        <li><a href="/tidbits">Tidbits 😋</a></li>
-      
-        <li><a href="/projects">Projects 🛠‍‍</a></li>
-      
-        <li><a href="/about">About 💡</a></li>
-      
-    </ul>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
   </nav>
+
 </body>
 </html>
