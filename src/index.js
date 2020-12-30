@@ -1,31 +1,14 @@
 import * as path from 'path';
 import marked from 'marked';
-import nunjucks from 'nunjucks';
 import * as fs from 'fs';
-import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, TEMPLATES_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';
+import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, OUTPUT_DIRECTORY} from './config.js';
 import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
 import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './blog-post/group-blog-posts.js';
 import {loadTidbits} from './load-tidbit/load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
-
-import {toReadableDate, toReadableYearAndMonth, toWeekday} from './_shared/date.js';
-
-const nunjucksOptions = {
-  autoescape: true,
-  throwOnUndefined: true,
-  trimBlocks: true,
-  lstripBlocks: true,
-};
-
-const nunjucksEnv = new nunjucks.Environment(new nunjucks.FileSystemLoader(TEMPLATES_DIRECTORY), nunjucksOptions);
-nunjucksEnv.addFilter('toReadableDate', toReadableDate);
-nunjucksEnv.addFilter('toReadableYearAndMonth', toReadableYearAndMonth);
-nunjucksEnv.addFilter('toWeekday', toWeekday);
-const renderTemplate = (tplFile, data) => {
-  return nunjucksEnv.render(tplFile, data);
-}
+import {renderTemplate} from './render-template.js';
 
 const navigationItems = [
   {path: '/', name: 'Home 🏠'},
@@ -202,7 +185,7 @@ const loadPosts = async sourceFiles => {
   await runAndTimeIt(`All tags pages (${groupedBlogPosts.byTag.length})`, () => generateTagPages(groupedBlogPosts.byTag));
   await runAndTimeIt(`All month pages (${groupedBlogPosts.byMonth.length})`, () => generateMonthPages(groupedBlogPosts.byMonth));
   await runAndTimeIt('About pages', () => generateAboutPages());
-  // await runAndTimeIt('Tidbit pages', () => generateTidbitsPages(tidbits));
+  await runAndTimeIt(`Tidbit pages (${tidbits.length})`, () => generateTidbitsPages(tidbits));
   // await runAndTimeIt('Projects page', () => generateProjectsPage());
   // await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
   // await runAndTimeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
