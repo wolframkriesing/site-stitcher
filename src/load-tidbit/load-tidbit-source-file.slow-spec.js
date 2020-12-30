@@ -1,5 +1,5 @@
 import {describe, it} from '../test.js';
-import * as assert from 'assert';
+import {strict as assert} from 'assert';
 import hamjest from 'hamjest';
 import * as path from 'path';
 import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';

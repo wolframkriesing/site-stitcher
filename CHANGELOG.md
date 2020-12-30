@@ -30,6 +30,7 @@
   - [x] breadcrumb shows (left aligned, ~~or centered~~) - only on huge screens it feel a little off, but only as long as the 
         left space stays empty
 - [x] remove using pico-tester, since mocha is the better alternative and it is fast
+- [x] use `{strict as assert}`
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful

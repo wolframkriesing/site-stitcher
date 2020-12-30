@@ -1,5 +1,5 @@
 import {describe, it} from '../test.js';
-import assert from 'assert';
+import {strict as assert} from 'assert';
 import hamjest from 'hamjest';
 import * as path from 'path';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
