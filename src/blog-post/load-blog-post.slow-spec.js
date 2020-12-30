@@ -1,10 +1,9 @@
 import {describe, it} from '../test.js';
-import hamjest from 'hamjest';
+import {assertThat, hasProperties} from 'hamjest';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './load-blog-post.js';
 import * as path from 'path';
 import {TEST_CONTENT_DIRECTORY} from '../config.js';
-const {assertThat, hasProperties} = hamjest;
 
 const blogPostsDirectory = path.join(TEST_CONTENT_DIRECTORY, 'blog-posts');
 

@@ -1,10 +1,9 @@
 import {describe, it} from '../test.js';
 import {strict as assert} from 'assert';
-import hamjest from 'hamjest';
+import {assertThat, hasProperties, instanceOf, everyItem} from 'hamjest';
 import {loadBlogPost, loadManyBlogPosts} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 import {BlogPostSourceFile} from './BlogPostSourceFile.js';
-const {assertThat, hasProperties, instanceOf, everyItem} = hamjest;
 
 describe('Load a blog post, with all data ready to render', () => {
   describe('GIVEN one blog post source file', () => {

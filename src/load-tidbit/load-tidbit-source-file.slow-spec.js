@@ -1,11 +1,10 @@
 import {describe, it} from '../test.js';
 import {strict as assert} from 'assert';
-import hamjest from 'hamjest';
+import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} from 'hamjest';
 import * as path from 'path';
 import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
 import {TidbitSourceFile} from './TidbitSourceFile.js';
 import {TEST_CONTENT_DIRECTORY} from '../config.js';
-const {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} = hamjest;
 
 const tidbitDirectory = path.join(TEST_CONTENT_DIRECTORY, 'tidbit');
 

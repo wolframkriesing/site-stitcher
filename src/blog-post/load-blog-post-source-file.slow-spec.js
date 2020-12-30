@@ -1,10 +1,9 @@
 import {describe, it} from '../test.js';
 import {strict as assert} from 'assert';
-import hamjest from 'hamjest';
+import {assertThat, not, hasItem, hasProperty, endsWith} from 'hamjest';
 import * as path from 'path';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {TEST_CONTENT_DIRECTORY} from '../config.js';
-const {assertThat, not, hasItem, hasProperty, endsWith} = hamjest;
 
 const blogPostsDirectory = path.join(TEST_CONTENT_DIRECTORY, 'blog-posts');
 
