@@ -187,7 +187,7 @@ const loadPosts = async sourceFiles => {
   await runAndTimeIt('About pages', () => generateAboutPages());
   await runAndTimeIt(`Tidbit pages (${tidbits.length})`, () => generateTidbitsPages(tidbits));
   await runAndTimeIt('Projects page', () => generateProjectsPage());
-  // await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
+  await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
   // await runAndTimeIt('All 301 pages', () => Promise.all(posts.map(generate301Pages)));
   // await runAndTimeIt('404 page', () => generate404Page(posts.slice(0, 5)));
   
