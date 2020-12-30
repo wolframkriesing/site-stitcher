@@ -1,9 +1,10 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import assert from 'assert';
-import {assertThat, hasProperties, instanceOf, everyItem} from 'hamjest';
+import hamjest from 'hamjest';
 import {loadBlogPost, loadManyBlogPosts} from './load-blog-post.js';
 import {BlogPost} from './BlogPost.js';
 import {BlogPostSourceFile} from './BlogPostSourceFile.js';
+const {assertThat, hasProperties, instanceOf, everyItem} = hamjest;
 
 describe('Load a blog post, with all data ready to render', () => {
   describe('GIVEN one blog post source file', () => {

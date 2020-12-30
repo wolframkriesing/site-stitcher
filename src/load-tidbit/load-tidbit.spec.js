@@ -1,9 +1,10 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import * as assert from 'assert';
-import {assertThat, instanceOf, hasProperties, matchesPattern} from 'hamjest';
+import hamjest from 'hamjest';
 import {Tidbit} from './Tidbit.js';
 import {loadTidbitFile, loadTidbits} from './load-tidbit.js';
 import {TidbitSourceFile} from "./TidbitSourceFile.js";
+const {assertThat, instanceOf, hasProperties, matchesPattern} = hamjest;
 
 describe('Load one tidbit markdown and provide a Tidbit instance', () => {
   describe('WHEN tidbit has all required data (headline, slug, dateCreated, paragraph)', () => {

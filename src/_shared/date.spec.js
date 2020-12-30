@@ -1,4 +1,4 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import * as assert from 'assert';
 import {toReadableDate, toReadableYearAndMonth, toWeekday, nowAsDateTimeString} from './date.js';
 

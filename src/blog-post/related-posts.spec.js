@@ -1,7 +1,8 @@
-import {describe, it} from 'pico-tester';
-import {assertThat, equalTo} from 'hamjest';
+import {describe, it} from '../test.js';
+import hamjest from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 import {findRelatedPosts} from './related-posts.js';
+const {assertThat, equalTo} = hamjest;
 
 describe('Find posts related by their headline, automatically', () => {
   const newPost = (headline) => {

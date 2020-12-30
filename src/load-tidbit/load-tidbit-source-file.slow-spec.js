@@ -1,10 +1,11 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import * as assert from 'assert';
-import {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} from 'hamjest';
+import hamjest from 'hamjest';
 import * as path from 'path';
 import {loadManyTidbitSourceFiles} from './load-tidbit-source-file.js';
 import {TidbitSourceFile} from './TidbitSourceFile.js';
 import {TEST_CONTENT_DIRECTORY} from '../config.js';
+const {assertThat, not, hasProperty, hasItem, endsWith, everyItem, instanceOf} = hamjest;
 
 const tidbitDirectory = path.join(TEST_CONTENT_DIRECTORY, 'tidbit');
 

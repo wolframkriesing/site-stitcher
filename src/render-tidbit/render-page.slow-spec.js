@@ -1,7 +1,8 @@
-import {describe, it} from 'pico-tester';
-import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
+import {describe, it} from '../test.js';
+import hamjest from 'hamjest';
 import {Tidbit} from "../load-tidbit/Tidbit.js";
 import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-page.js';
+const {assertThat, containsString, hasItem, matchesPattern} = hamjest;
 
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.

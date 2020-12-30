@@ -1,7 +1,8 @@
-import {describe, it} from 'pico-tester';
-import {assertThat, hasItem, hasItems, hasProperties, contains} from 'hamjest';
+import {describe, it} from '../test.js';
+import hamjest from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
+const {assertThat, hasItem, hasItems, hasProperties, contains} = hamjest;
 
 describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {

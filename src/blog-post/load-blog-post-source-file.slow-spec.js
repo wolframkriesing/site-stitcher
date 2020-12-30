@@ -1,9 +1,10 @@
-import {describe, it} from 'pico-tester';
+import {describe, it} from '../test.js';
 import assert from 'assert';
-import {assertThat, not, hasItem, hasProperty, endsWith} from 'hamjest';
+import hamjest from 'hamjest';
 import * as path from 'path';
 import {loadManyBlogPostSourceFiles} from './load-blog-post-source-file.js';
 import {TEST_CONTENT_DIRECTORY} from '../config.js';
+const {assertThat, not, hasItem, hasProperty, endsWith} = hamjest;
 
 const blogPostsDirectory = path.join(TEST_CONTENT_DIRECTORY, 'blog-posts');
 
