@@ -35,6 +35,7 @@
   {% block head %}{% endblock %}
 </head>
 <body class="page-{% block pagename %}{% endblock %}">
+{% block body %}
   {% import "_parts.html" as parts %}
 
   {{ parts.header(navigationItems) }}
@@ -56,5 +57,6 @@
 
   {{ parts.pageFooter(navigationItems) }}
   {{ parts.secondaryNavigation(navigationItems) }}
+{% endblock %}
 </body>
 </html>
