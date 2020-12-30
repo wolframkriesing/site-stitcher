@@ -3,8 +3,8 @@
 {% block pagename %}post{% endblock %}
 {% block canonicalUrl %}{{ post.canonicalUrl if post.canonicalUrl else 'https://picostitch.com'+post.url }}{% endblock %}
 {% block pageTitlePrefix %}{{post.headline}}{% endblock %}
+
 {% block head %}
-  <link rel="stylesheet" href="/home.css" type="text/css">
   <link rel="stylesheet" href="/blog/blog.css" type="text/css">
   <meta property="article:type" content="article" />
   {% for tag in post.tags %}
@@ -21,7 +21,6 @@
     <meta name="twitter:image" content="https://picostitch.com{{post.previewImageUrl}}" />
   {% endif %}
 {% endblock %}
-
 
 {% block metaTwitterCard %}
   {% if (post.previewImageUrl) %}
