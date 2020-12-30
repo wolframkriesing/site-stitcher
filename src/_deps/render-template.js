@@ -1,6 +1,6 @@
 import nunjucks from "nunjucks";
-import {TEMPLATES_DIRECTORY} from "./config.js";
-import {toReadableDate, toReadableYearAndMonth, toWeekday} from "./_shared/date.js";
+import {TEMPLATES_DIRECTORY} from "../config.js";
+import {toReadableDate, toReadableYearAndMonth, toWeekday} from "../_shared/date.js";
 
 const nunjucksOptions = {
   autoescape: true,

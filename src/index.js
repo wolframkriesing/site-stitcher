@@ -8,7 +8,7 @@ import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './blog-post/group-blog-posts.js';
 import {loadTidbits} from './load-tidbit/load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
-import {renderTemplate} from './render-template.js';
+import {renderTemplate} from './_deps/render-template.js';
 
 const navigationItems = [
   {path: '/', name: 'Home 🏠'},

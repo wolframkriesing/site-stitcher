@@ -1,5 +1,5 @@
 import {writeOutputFile} from '../_deps/fs.js';
-import {renderTemplate} from '../render-template.js';
+import {renderTemplate} from '../_deps/render-template.js';
 
 const renderIndexPage = (data) => renderTemplate('tidbit/index.html', data);
 const renderSinglePage = (data) => renderTemplate('tidbit/page.html', data);
