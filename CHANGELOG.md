@@ -18,7 +18,7 @@
   - [ ] ensure the 50em width of <main> text
     - [ ] split main and .content CSS ONLY on the page specific css files, never on _global.css, 
           so it HAS to be configured for each page
-      - [ ] make the tpl code more reusable and allow extending blocks more flexible with default content
+      - [x] make the tpl code more reusable and allow extending blocks more flexible with default content
             and allow flexible extending of the tpls _empty, _focus, _allFeatures (as they are called now)
             and make code more reusable and content driven (e.g. if X content exists render tag Y)    
       - [x] need to upgrade to a proper template engine, tundrajs has too many drawbacks and flaws
