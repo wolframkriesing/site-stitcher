@@ -1,11 +1,6 @@
 {% extends "_focus.html" %}
 
-{% block body %}
-  <nav class="breadcrumb">
-    {% block breadcrumb %}{% endblock %}
-  </nav>
-
-  <main>
+{% block mainStart %}
     <aside>
       <nav class="tags">
         <header>Top Blog Tags</header>
@@ -25,11 +20,4 @@
         </ol>
       </nav>
     </aside>
-    <div class="content">
-      {% block content %}{% endblock %}
-    </div>
-    <aside class="right">
-      {% block sidebarRight %}{% endblock %}
-    </aside>
-  </main>
 {% endblock %}
