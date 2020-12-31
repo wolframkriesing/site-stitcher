@@ -1,4 +1,10 @@
 /**
+ * @typedef {import("./parse-metadata").MetadataParseConfig} MetadataParseConfig
+ * @typedef {import("../blog-post/BlogPost").BlogPostMetadata} BlogPostMetadata
+ * @typedef {import("../load-tidbit/Tidbit").TidbitMetadata} TidbitMetadata
+ */
+
+/**
  * @param {string[]} lines
  * @param {string} key
  * @returns {string}
@@ -28,7 +34,7 @@ const findMetadataByKeyAsArray = (lines, key, separator) => {
 };
 /**
  * @param lines {string[]}
- * @param keyConfig {import("./parse-metadata").MetadataParseConfig}
+ * @param keyConfig {MetadataParseConfig}
  * @returns {[*, string] | [*, string[]] | [*, boolean]}
  */
 const parseMetadataKey = (lines, keyConfig) => {
@@ -44,8 +50,8 @@ const parseMetadataKey = (lines, keyConfig) => {
 }
 /**
  * @param token {marked.Token}
- * @param configs {import("./parse-metadata").MetadataParseConfig[]}
- * @returns {import("../blog-post/BlogPost").BlogPostMetadata | import("../load-tidbit/Tidbit").TidbitMetadata}
+ * @param configs {MetadataParseConfig[]}
+ * @returns {BlogPostMetadata | TidbitMetadata}
  */
 export const parseMetadata = (token, configs) => {
   const lines = token.type === 'paragraph' ? token.text.split('\n') : [];

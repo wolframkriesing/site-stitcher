@@ -6,11 +6,20 @@ import {renderAbstractAsHtml, renderHeadlineAsHtml, trimSpaceTokenFromEnd} from 
 import {sortByDateCreatedDescending} from './sort-tidbit.js';
 import {Tidbit} from './Tidbit.js';
 
+/**
+ * @typedef {import("../_shared/parse-metadata").MetadataParseConfig} MetadataParseConfig
+ * @typedef {import('./Tidbit').TidbitMetadata} TidbitMetadata
+ * @typedef {import("./TidbitSourceFile").TidbitSourceFile} TidbitSourceFile
+ * @typedef {import('marked').Token} Token
+ * @typedef {import('marked').Tokens.Heading} Heading
+ * @typedef {import('marked').Tokens.Paragraph} Paragraph
+ */
+
 const prodDeps = () => {
   return {readFile};
 };
 
-/** @type {import("../_shared/parse-metadata").MetadataParseConfig[]} */
+/** @type {MetadataParseConfig[]} */
 const metadataParseConfigs = [
   {key: 'dateCreated', type: 'string'},
   {key: 'tags', type: 'array', separator: ','},
@@ -19,22 +28,22 @@ const metadataParseConfigs = [
   {key: 'slug', type: 'string'},
 ];
 /**
- * @param token {marked.Token}
- * @return import('./Tidbit').TidbitMetadata
+ * @param token {Token}
+ * @return TidbitMetadata
  */
 const parseMetadata = (token) => {
-  return /** @type import('./Tidbit').TidbitMetadata */(_parseMetaData(token, metadataParseConfigs));
+  return /** @type TidbitMetadata */(_parseMetaData(token, metadataParseConfigs));
 }
 /**
- * @param tokens {marked.Token[]}
+ * @param tokens {Token[]}
  * @return {Tidbit}
  */
 const parseTidbitTokens = tokens => {
   const abstractTokens = [tokens[3]];
   const bodyTokens = trimSpaceTokenFromEnd(tokens.slice(3));
-  const headlineToken = /** @type {marked.Tokens.Heading} */ (tokens[0]);
+  const headlineToken = /** @type {Heading} */ (tokens[0]);
   const headlineText = headlineToken.text;
-  const abstractToken = /** @type {marked.Tokens.Paragraph} */ (abstractTokens[0]);
+  const abstractToken = /** @type {Paragraph} */ (abstractTokens[0]);
   const abstractText = abstractToken.text;
   const data = {
     headline: headlineText,
@@ -49,7 +58,7 @@ const parseTidbitTokens = tokens => {
   return tidbit;
 };
 /**
- * @param t {marked.Token}
+ * @param t {Token}
  * @return {boolean}
  */
 const isH1 = t => t.type === 'heading' && t.depth === 1;
@@ -72,7 +81,7 @@ export const loadTidbitFile = (markdown) => {
 }
 /**
  * @param prodDeps {{readFile: function(Filename): Promise<string>}}
- * @return {function(import("./TidbitSourceFile").TidbitSourceFile[]): Promise<Tidbit[]>}
+ * @return {function(TidbitSourceFile[]): Promise<Tidbit[]>}
  */
 export const loadTidbits = ({readFile} = prodDeps()) => async (sourceFiles) => {
   return (await Promise.allSettled(sourceFiles.map(f => readFile(f.filename))))

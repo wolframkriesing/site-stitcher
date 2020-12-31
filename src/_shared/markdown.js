@@ -1,13 +1,19 @@
 import * as marked from 'marked';
 
 /**
- * @param t {marked.Token}
+ * @typedef {import('marked').Token} Token
+ * @typedef {import('marked').Tokens.Heading} Heading
+ * @typedef {import('marked').TokensList} TokensList
+ */
+
+/**
+ * @param t {Token}
  * @return {boolean}
  */
 const isParagraph = t => t.type === 'paragraph';
 /**
- * @param tokens {marked.Token[]}
- * @return {marked.Token[]}
+ * @param tokens {Token[]}
+ * @return {Token[]}
  */
 export const findNextParagraphTokens = tokens => {
   return tokens
@@ -25,15 +31,15 @@ const removeEnclosingPTag = s => s
   .replace(/<\/p>$/, '')
 ;
 /**
- * @param abstractTokens {marked.Token[]}
+ * @param abstractTokens {Token[]}
  * @return {string}
  */
 export const renderAbstractAsHtml = (abstractTokens) => {
-  const abstractAsHtml = marked.parser(/** @type {marked.TokensList} */(abstractTokens));
+  const abstractAsHtml = marked.parser(/** @type {TokensList} */(abstractTokens));
   return removeEnclosingPTag(abstractAsHtml);
 };
 /**
- * @param headingToken {marked.Tokens.Heading}
+ * @param headingToken {Heading}
  * @return {string}
  */
 export const renderHeadlineAsHtml = (headingToken) => {
@@ -41,8 +47,8 @@ export const renderHeadlineAsHtml = (headingToken) => {
   return removeEnclosingPTag(asHtml);
 };
 /**
- * @param tokens {marked.Token[]}
- * @return {marked.Token[]}
+ * @param tokens {Token[]}
+ * @return {Token[]}
  */
 export const trimSpaceTokenFromEnd = (tokens) => {
   if (tokens[tokens.length - 1].type === 'space') {
