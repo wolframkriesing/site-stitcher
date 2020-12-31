@@ -14,6 +14,10 @@ nunjucksEnv.addFilter('toReadableDate', toReadableDate);
 nunjucksEnv.addFilter('toReadableYearAndMonth', toReadableYearAndMonth);
 nunjucksEnv.addFilter('toWeekday', toWeekday);
 
+/**
+ * @param s {string}
+ * @return {string}
+ */
 const removeLeadingSpaceOnEveryLine = s => s.replaceAll(/\n\s*/gi, '\n');
 
 /**
