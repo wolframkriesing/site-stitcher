@@ -14,6 +14,8 @@ nunjucksEnv.addFilter('toReadableDate', toReadableDate);
 nunjucksEnv.addFilter('toReadableYearAndMonth', toReadableYearAndMonth);
 nunjucksEnv.addFilter('toWeekday', toWeekday);
 
+const removeLeadingSpaceOnEveryLine = s => s.replaceAll(/\n\s*/gi, '\n');
+
 /**
  * @param templateFilename {string}
  * @param data {PlainObject}
@@ -21,7 +23,7 @@ nunjucksEnv.addFilter('toWeekday', toWeekday);
  */
 export const renderTemplate = (templateFilename, data) => {
   try {
-    return nunjucksEnv.render(templateFilename, data);
+    return removeLeadingSpaceOnEveryLine(nunjucksEnv.render(templateFilename, data));
   } catch (e) {
     return `<h1>ERROR rendering this page</h1><pre>${e.stack}</pre>`;
   }
