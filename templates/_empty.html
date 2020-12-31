@@ -9,13 +9,28 @@
   <meta name="author" content="Wolfram Kriesing">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+  {% block metaTwitter %}{% endblock %}
+
+  {% block metaOpenGraph %}{% endblock %}
+
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-  <link rel="canonical" href="{{ canonicalUrl }}">
+  {% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
   <title>{{ pageTitlePrefix }} | picostitch - crafting (and) JavaScript</title>
+
+  {% block moreHtmlElements %}{% endblock %}
   {% block head %}{% endblock %}
 </head>
 <body class="page-{% block pagename %}{% endblock %}">
-{% block body %}
-{% endblock %}
+  {% import "_parts.html" as parts %}
+
+  {{ parts.header(navigationItems) }}
+
+  {% block afterHeader %}{% endblock %}
+
+  {% block body %}{% endblock %}
+
+  {{ parts.pageFooter(navigationItems) }}
+  {{ parts.secondaryNavigation(navigationItems) }}
 </body>
 </html>
