@@ -7,7 +7,6 @@ main {
 main .content {
   flex: 3;
   max-width: var(--readable-max-width);
-  overflow: auto;
   min-width: 60%; /* Make sure this column gets at least a major amount of the available width! */
 }
   main aside {
