@@ -32,11 +32,8 @@
       {% block content %}{% endblock %}
     </div>
 
-    {% set sidebarRight %}{% block sidebarRight %}{% endblock %}{% endset %}
-    {% if sidebarRight %}
-      <aside class="right">
-        {{ sidebarRight }}
-      </aside>
-    {% endif %}
+    <aside class="right">
+      {% block sidebarRight %}{% endblock %}
+    </aside>
   </main>
 {% endblock %}
