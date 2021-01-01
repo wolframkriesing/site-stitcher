@@ -19,3 +19,25 @@
     </div>
   </article>
 {% endmacro %}
+
+{% macro tagsNav(groups) %}
+  <nav class="tags">
+    <header>Top Blog Tags</header>
+    <ol>
+      {% for group in groups %}
+        <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endmacro %}
+
+{% macro monthsNav(groups) %}
+  <nav class="months">
+    <header>Posts by Month</header>
+    <ol>
+      {% for group in groups %}
+        <li><a href="/blog/{{ group.yearAndMonth.replace('-', '/') }}/">{{ group.yearAndMonth | toReadableDate }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+{% endmacro %}

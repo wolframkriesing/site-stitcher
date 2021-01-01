@@ -1,4 +1,4 @@
-{% extends "_allFeatures.html" %}
+{% extends "_focus.html" %}
 
 {% block pagename %}tag{% endblock %}
 {% block canonicalUrl %}https://picostitch.com/blog/tag/{{tag}}/{% endblock %}
@@ -15,12 +15,20 @@
   #{{tag}}
 {% endblock %}
 
+{% import "blog/_parts.html" as blogParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ blogParts.tagsNav(groupedBlogPosts.byTag.slice(0, 10)) }}
+    {{ blogParts.monthsNav(groupedBlogPosts.byMonth) }}
+  </aside>
+{% endblock %}
+
 {% block content %}
   <h1 id="{{tag}}" is="more-h1">
     Tagged with #{{tag}}
   </h1>
 
-  {% import "blog/_parts.html" as blogParts %}
   {% for post in posts %}
     {{ blogParts.articlePreview(post) }}
   {% endfor %}
