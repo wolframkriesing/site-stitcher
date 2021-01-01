@@ -8,6 +8,7 @@ main .content {
   flex: 3;
   max-width: var(--readable-max-width);
   overflow: auto;
+  min-width: 60%; /* Make sure this column gets at least a major amount of the available width! */
 }
   main aside {
     flex: 1;
@@ -23,7 +24,6 @@ main .content {
   main aside > * {
     margin-bottom: var(--spacing-bigger);
     margin-right: 4rem;
-    white-space: nowrap;
   }
   main aside .tags:hover {
     height: auto;
