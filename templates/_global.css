@@ -7,6 +7,8 @@
   --color-highlight-lighter: rgba(var(--color-highlight-rgb), 0.1);
   --color-secondary: #666;
   --color-overlay: rgb(252, 232, 191);
+
+  --readable-max-width: 50rem;
 }
 
 /**

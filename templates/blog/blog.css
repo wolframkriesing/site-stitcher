@@ -4,27 +4,37 @@
 main {
   display: flex;
 }
-  aside {
+main .content {
+  flex: 1;
+  width: var(--readable-max-width);
+  max-width: 100%;
+  overflow: auto;
+}
+  main aside {
     flex: 1;
     overflow: auto;
   }
-    aside.right {
-      padding-left: var(--spacing-big);
-    }
-  aside > * {
+  main aside.left {
+    max-width: 15rem;
+  }
+  main aside.right {
+    padding-left: var(--spacing-big);
+  }
+  main aside > * {
     margin-bottom: var(--spacing-bigger);
     margin-right: 4rem;
     white-space: nowrap;
   }
-  aside .tags:hover {
+  main aside .tags:hover {
     height: auto;
   }
+
 @media screen and (max-width: 600px) {
-  aside {
+  main aside {
     padding: var(--spacing-bigger);
     text-align: center;
   }
-    aside > * {
+    main aside > * {
       margin-right: 0;
     }
   main {

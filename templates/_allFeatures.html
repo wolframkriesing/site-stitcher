@@ -1,7 +1,7 @@
 {% extends "_focus.html" %}
 
 {% block mainStart %}
-  <aside>
+  <aside class="left">
     <nav class="tags">
       <header>Top Blog Tags</header>
       <ol>
@@ -20,4 +20,7 @@
       </ol>
     </nav>
   </aside>
+
+  {# The block below MUST be given as empty, due to the way done in the parent template, to NOT show the div when empty, better ways welcome. #}
+  {% block sidebarRight %}{% endblock %}
 {% endblock %}
