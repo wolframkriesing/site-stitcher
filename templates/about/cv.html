@@ -1,6 +1,6 @@
 {% extends "_empty.html" %}
 
-{% block pagename %}about{% endblock %}
+{% block pagename %}cv{% endblock %}
 {% block canonicalUrl %}https://picostitch.com/about{% endblock %}
 {% block pageTitlePrefix %}About{% endblock %}
 
@@ -25,6 +25,12 @@
     }
     p:last-child {
       margin-bottom: var(--spacing-big);
+    }
+
+    @media screen and (max-width: 900px) {
+      aside.left {
+        display: none;
+      }
     }
   </style>
 
@@ -53,7 +59,7 @@
   </script>
 
   <main>
-    <aside>
+    <aside class="left">
       <nav>
         <ul>
           <li>
