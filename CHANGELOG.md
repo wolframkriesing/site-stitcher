@@ -31,6 +31,8 @@
         left space stays empty
 - [x] remove using pico-tester, since mocha is the better alternative and it is fast
 - [x] use `{strict as assert}`
+- [ ] ensure proper URLs from tags, e.g. currently there is /blog/tag/JavaScript and /blog/tag/javascript and same with "react native" and "reactnative", etc.
+- [ ] why is there no tags and months left sidebar on the tidbits page?
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful
