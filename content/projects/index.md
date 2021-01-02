@@ -2,10 +2,14 @@
 See projects that I work on, mostly in my spare time.
 I started and run various events and I also write open source code.
 
+------
+
 ## Events
 The following events are either started, co-organized and/or run by me.
 
-### Monthly JavaScript the Language Meetup
+### JavaScript the Language Meetup
+On twitter: [#jslang](https://twitter.com/search?q=%23jslang&src=typed_query&f=live)
+
 The [meetup JavaScript the Language](https://www.meetup.com/JavaScript-The-Language)
 is an evening event that I run almost every month, 
 [since October 2015](https://www.meetup.com/JavaScript-The-Language/events/mrkzklytpbgc/).
@@ -14,7 +18,9 @@ https://gitlab.com/wolframkriesing/jslang-meetups contains all tests that we
 write every evening we meet. No frameworks, libraries or alike, just JavaScript, just the language.
 Every meetup is hands on and deep dive into the language. Learn, share, practice and teach.
 
-### JSCraftCamp
+### #jscc - JSCraftCamp
+On twitter: [#jscc19](https://twitter.com/search?q=%23jscc19&src=typed_query&f=live)
+
 We started [the JSCraftCamp](http://jscraftcamp.org/) in 2016. It takes place once a year, in summer.
 It is a two days BarCamp/Unconference with the focus on
 JavaScript and all topics around it. The event is completely sponsored and free of charge.
@@ -30,7 +36,7 @@ software development and design. This FREE event gives the opportunity to practi
 Clean Code and Refactoring for a whole day. This isn’t a conference! Rules are totally different, 
 attendees take actively part in the coding experience: act a lot, listen very little.
 
-
+------
 
 ## Open Source Code
 I love programming and love to put stuff online as mostly as open source.
