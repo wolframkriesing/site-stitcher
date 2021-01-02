@@ -10,3 +10,11 @@ type RelativeUrl = string; // e.g. /blog/2000/01/01-post/
 type PlainObject = {
   [key: string]: any;
 };
+
+type Slug = string;
+
+type Tag = {
+  value: string;
+  slug: Slug;
+}
+

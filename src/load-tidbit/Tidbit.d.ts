@@ -1,9 +1,3 @@
-type Slug = string;
-type Tag = {
-  value: string;
-  slug: Slug;
-}
-
 export type RawTidbit = {
   abstract: string;
   abstractAsHtml: string;

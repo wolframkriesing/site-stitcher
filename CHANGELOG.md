@@ -35,7 +35,8 @@
   - [ ] provide a mapping for some, e.g. reactjs maps to react, ReactJS, react.js, ...
   - [ ] sluggify all tags, React => react, React Native => react-native, ...
   - [ ] create one page per tag slug only
-  - [ ] store tag-object and provide tag: slug, value, ... extend the current tag object that exists in tidbits  
+  - [ ] store tag-object and provide tag: slug, value, ... extend the current tag object that exists in tidbits
+    - [ ] refactor blog tags to use the new tag object, with `value` prop, etc. (mainly to learn how the grouping is done currently and adapt for tidbits later)
 - [ ] why is there no tags and months left sidebar on the tidbits page?
 
 # v2
