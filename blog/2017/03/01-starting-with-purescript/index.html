@@ -1,87 +1,71 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Purescript #1 - the semantics of JavaScript with types" />
-
-  <meta property="og:title" content="Purescript #1 - the semantics of JavaScript with types">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="Purescript #1 - the semantics of JavaScript with types" />
+<meta property="og:title" content="Purescript #1 - the semantics of JavaScript with types">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2017/03/01-starting-with-purescript/">  <title>Purescript #1 - the semantics of JavaScript with types | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="purescript" />
-    <meta property="article:tag" content="javascript" />
-    <meta property="article:tag" content="functional" />
-    <meta property="article:tag" content="typing" />
-
-  <meta property="og:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
-  <meta property="article:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
-  <meta name="twitter:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="purescript" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="functional" />
+<meta property="article:tag" content="typing" />
+<meta property="og:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
+<meta property="article:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
+<meta name="twitter:description" content="I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the [primitive obsession][primitive-obsession]? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*." />
+<meta property="og:image" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2017/03/01-starting-with-purescript/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2017/03/">March 2017</a> &raquo;
-  Purescript #1 - the semantics of JavaScript with types
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="starting-with-purescript" is="more-h1">
-        Purescript #1 - the semantics of JavaScript with types
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - March 1, 2017
-          - tagged with: #purescript #javascript #functional #typing       </div>
-    </header>
-
-
-    <p>I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the <a href="http://wiki.c2.com/?PrimitiveObsession">primitive obsession</a>? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts *&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;*.</p>
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2017/03/">March 2017</a> &raquo;
+Purescript #1 - the semantics of JavaScript with types
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="starting-with-purescript" is="more-h1">
+Purescript #1 - the semantics of JavaScript with types
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- March 1, 2017
+- tagged with: #purescript #javascript #functional #typing       </div>
+</header>
+<p>I am convinced, that stricter types are of help when writing, reading and understanding source code. Why? Ever had the <a href="http://wiki.c2.com/?PrimitiveObsession">primitive obsession</a>? And if you continue down the (type) rabbit whole, you get to stricter typing. And to Purescript, which attempts <em>&quot;to keep the semantics of JavaScript, while enjoying the syntax and type system of a language like Haskell&quot;</em>.</p>
 <p>Purescript is bringing that to JavaScript while having an (I would say) tiny footprint in the compiled (JavaScript) code. Yes, Purescript compiles down to JavaScript, actually to very well readable JavaScript code (see for yourself towards the end of this post). Read on to get a quick intro on what it is.</p>
 <p>The following quotes are from the book <a href="https://leanpub.com/purescript/read">&quot;PureScript by Example&quot;</a> by <a href="https://twitter.com/paf31">Phil Freeman</a>. I will try to extract what Purescript is, using quotes mixed with my own words.</p>
 <blockquote>
@@ -91,15 +75,13 @@
 <blockquote>
 <p>Most importantly, PureScript’s type system supports type inference - it requires far fewer explicit type annotations than other languages, making the type system a tool rather than a hindrance.</p>
 </blockquote>
-<p>This capability paired with the strictness (see first quote) makes for a strong combination and I think this will help to write more predictable and better software. Phil states that in his book *&quot;static types are not only a means of gaining confidence in the correctness of your programs, but also an aid to development in their own right&quot;*.</p>
-<p>A lot of time we spend in changing code, which we normally (should) do via refactoring. Here Purescript shines again, compared to JavaScript, where it *&quot;can be difficult when using any but the simplest of abstractions&quot;* as Phil states. From experience I can say that this is an issue. You know the code and it&#39;s &quot;interfaces&quot; as long as you are deep inside of it esp. while writing it, but reading it and even worse changing it, especially making big changes, in pure JavaScript, with pure objects, that maybe don&#39;t even have good names, can become quite spooky. Especially when untyped data structures bubble through the code, get mixed and mangled, sliced up and mapped.</p>
+<p>This capability paired with the strictness (see first quote) makes for a strong combination and I think this will help to write more predictable and better software. Phil states that in his book <em>&quot;static types are not only a means of gaining confidence in the correctness of your programs, but also an aid to development in their own right&quot;</em>.</p>
+<p>A lot of time we spend in changing code, which we normally (should) do via refactoring. Here Purescript shines again, compared to JavaScript, where it <em>&quot;can be difficult when using any but the simplest of abstractions&quot;</em> as Phil states. From experience I can say that this is an issue. You know the code and it&#39;s &quot;interfaces&quot; as long as you are deep inside of it esp. while writing it, but reading it and even worse changing it, especially making big changes, in pure JavaScript, with pure objects, that maybe don&#39;t even have good names, can become quite spooky. Especially when untyped data structures bubble through the code, get mixed and mangled, sliced up and mapped.</p>
 <h2 is="more-h2" id="some-code-please">Some code please</h2>
 <p>Below you see a tiny function, taken from the book.</p>
 <pre><code class="undefinedtext">module Main where
-
 import Math (sqrt)
 import Prelude
-
 diagonal w h = sqrt(w * w + h * h)</code></pre>
 <p>in the following you can see that the compiled source code is actually very readable compatible JavaScript code.</p>
 <pre><code class="undefinedjs">&quot;use strict&quot;;
@@ -107,12 +89,12 @@ var $$Math = require(&quot;../Math&quot;);
 var Prelude = require(&quot;../Prelude&quot;);
 var Data_Semiring = require(&quot;../Data.Semiring&quot;);
 var diagonal = function (w) {
-    return function (h) {
-        return $$Math.sqrt(w * w + h * h);
-    };
+return function (h) {
+return $$Math.sqrt(w * w + h * h);
+};
 };
 module.exports = {
-    diagonal: diagonal
+diagonal: diagonal
 };</code></pre>
 <h2 is="more-h2" id="get-started-asap">Get started, asap</h2>
 <p>And on top, Purescript comes with the tool <code>pulp</code> which called like so <code>pulp browserify</code> generates source code you can use in the browser right away. So Purescript is a tool for the front-end and the backend. You can get started now to be stricter with your code!</p>
@@ -125,55 +107,47 @@ module.exports = {
 </ul>
 </blockquote>
 <p>I would like to generalize the last bullet point on the list a bit more. You can simply import the actual production code into your tests and just write them in Purescript. Just look at the generated JavaScript above and you see the <code>require</code>, which looks like an easy to use hook to existing JS code, and that is the case. I think writing tests in Purescript is a great way to start using Purescript and learn by using it in a less critical part of your application. I think this less critical part, the tests, will soon become the driving force for the source code, since the power of Purescript will shine through quite fast.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    <h3 id="related" is="more-h3">Related Posts</h3>
-        <a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
-        <a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
-        <a href="/blog/2017/03/07-purescript-build-tool-pulp-3/">Purescript #3 - Build tool, pulp</a><br/>
-        <a href="/blog/2017/03/05-install-purescript-2/">Purescript #2 - Installing</a><br/>
-        <span>Purescript #1 - the semantics of JavaScript with types</span><br/>
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+<h3 id="related" is="more-h3">Related Posts</h3>
+<a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
+<a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
+<a href="/blog/2017/03/07-purescript-build-tool-pulp-3/">Purescript #3 - Build tool, pulp</a><br/>
+<a href="/blog/2017/03/05-install-purescript-2/">Purescript #2 - Installing</a><br/>
+<span>Purescript #1 - the semantics of JavaScript with types</span><br/>
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

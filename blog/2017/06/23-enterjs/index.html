@@ -1,99 +1,83 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="EnterJS, ES6, ES8 and Typing with Flow" />
-
-  <meta property="og:title" content="EnterJS, ES6, ES8 and Typing with Flow">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="EnterJS, ES6, ES8 and Typing with Flow" />
+<meta property="og:title" content="EnterJS, ES6, ES8 and Typing with Flow">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">  <title>EnterJS, ES6, ES8 and Typing with Flow | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="JavaScript" />
-    <meta property="article:tag" content="types" />
-    <meta property="article:tag" content="ECMAScript6" />
-    <meta property="article:tag" content="flowtype" />
-
-  <meta property="og:description" content="Back on the road. Three days of EnterJS are just over and 
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="JavaScript" />
+<meta property="article:tag" content="types" />
+<meta property="article:tag" content="ECMAScript6" />
+<meta property="article:tag" content="flowtype" />
+<meta property="og:description" content="Back on the road. Three days of EnterJS are just over and 
 I am already on the [next trip][hcss17-trip-tweet], this time with HolidayCheck.
 So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
 to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checker flow." />
-  <meta property="article:description" content="Back on the road. Three days of EnterJS are just over and 
+<meta property="article:description" content="Back on the road. Three days of EnterJS are just over and 
 I am already on the [next trip][hcss17-trip-tweet], this time with HolidayCheck.
 So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
 to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checker flow." />
-  <meta name="twitter:description" content="Back on the road. Three days of EnterJS are just over and 
+<meta name="twitter:description" content="Back on the road. Three days of EnterJS are just over and 
 I am already on the [next trip][hcss17-trip-tweet], this time with HolidayCheck.
 So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
 to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checker flow." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
+<meta property="og:image" content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2017/06/23-enterjs/the-road.jpg" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2017/06/">June 2017</a> &raquo;
-  EnterJS, ES6, ES8 and Typing with Flow
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="enterjs" is="more-h1">
-        EnterJS, ES6, ES8 and Typing with Flow
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - June 23, 2017
-          - tagged with: #JavaScript #types #ECMAScript6 #flowtype       </div>
-    </header>
-
-      <p>
-        <a href="https://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">Originally posted on the HolidayCheck Tech Blog</a>
-      </p>
-
-    <p>Back on the road. Three days of EnterJS are just over and 
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2017/06/">June 2017</a> &raquo;
+EnterJS, ES6, ES8 and Typing with Flow
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="enterjs" is="more-h1">
+EnterJS, ES6, ES8 and Typing with Flow
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- June 23, 2017
+- tagged with: #JavaScript #types #ECMAScript6 #flowtype       </div>
+</header>
+<p>
+<a href="https://techblog.holidaycheck.com/post/2017/06/23/enterjs-es6-and-flowtype">Originally posted on the HolidayCheck Tech Blog</a>
+</p>
+<p>Back on the road. Three days of EnterJS are just over and 
 I am already on the <a href="https://twitter.com/wolframkriesing/status/878137941880713217">next trip</a>, this time with HolidayCheck.
 So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
 to give a workshop on ES6 (and ES8) and <a href="https://www.enterjs.de/abstracts#flowtype-strikte-java-script-typisierung-in-beliebiger-dosis">a talk</a> on the static type checker flow.</p>
@@ -131,7 +115,6 @@ Now it was time to get all preparations done for my upcoming
 talk about <a href="https://flow.org/">flowtype or flow</a>. I had all the puzzle pieces done. I had slides and I had code. 
 I wanted to do quite some live coding, to give the audience the feeling of what it feels like to use flow.</p>
 <img src="./lets-make-holidays.jpg" alt="talk teaser" width="300" style="float: left; margin: 1rem;" />
-
 <p>I hate to use artificial coding example. I was thinking a bit about what to do.
 I also always like to use examples that have to do with the domain I am working in currently.
 So I chose one from HolidayCheck.
@@ -144,14 +127,13 @@ But let&#39;s not start from the end :).
 I had the last slot of the day, I started at 17:25. Which was perfect, it gave me time to 
 practice and also do <a href="https://twitter.com/wolframkriesing/status/877481691018911744">some teasing</a> and <a href="https://twitter.com/wolframkriesing/status/877529674607407107">advertising for my talk</a>:</p>
 <blockquote class="twitter-tweet">
-    <p lang="en" dir="ltr">
-        20min, 13 commits, to get a untyped piece of JS to make use of types and provides exhaustiveness checks
-        <a href="https://twitter.com/hashtag/enterjs?src=hash&amp;ref_src=twsrc%5Etfw">#enterjs</a> … cu at 17:25 Spektrum B 
-        <a href="https://t.co/GdCZCym78S">pic.twitter.com/GdCZCym78S</a>
-    </p>&mdash; @wolframkriesing 
-    <a href="https://twitter.com/wolframkriesing/status/877529674607407107?ref_src=twsrc%5Etfw">June 21, 2017</a>
+<p lang="en" dir="ltr">
+20min, 13 commits, to get a untyped piece of JS to make use of types and provides exhaustiveness checks
+<a href="https://twitter.com/hashtag/enterjs?src=hash&amp;ref_src=twsrc%5Etfw">#enterjs</a> … cu at 17:25 Spektrum B 
+<a href="https://t.co/GdCZCym78S">pic.twitter.com/GdCZCym78S</a>
+</p>&mdash; @wolframkriesing 
+<a href="https://twitter.com/wolframkriesing/status/877529674607407107?ref_src=twsrc%5Etfw">June 21, 2017</a>
 </blockquote>
-
 <p><a href="https://twitter.com/wolframkriesing/status/877529674607407107">I tweeted 1h before my talk</a>.</p>
 <p>The thing I was most excited about is actually just a tiny part which comes at the end of my live coding,
 it&#39;s the <a href="http://www.adamsolove.com/js/flow/type/2016/04/15/flow-exhaustiveness.html">exhaustiveness check</a> that is possible with flow. Explained in short: exhaustiveness checks verify that all possible
@@ -173,21 +155,21 @@ which might match the search term too. So the search needs to be implemented dif
 type that can be found. This is the use case!</p>
 <p>The untyped JS code looks like this:</p>
 <pre><code class="undefinedjavascript">const searchDestinationsByWord = (destinations, word) =&gt; {
-  const findPassion = passions =&gt; 
-    passions &amp;&amp; passions.some(passion =&gt; findString(passion, word));
-  return destinations.filter(destination =&gt;
-    destination.city &amp;&amp; findString(destination.city, word) ||
-    findString(destination.name, word) ||
-    findPassion(destination.passions))
-  ;
+const findPassion = passions =&gt; 
+passions &amp;&amp; passions.some(passion =&gt; findString(passion, word));
+return destinations.filter(destination =&gt;
+destination.city &amp;&amp; findString(destination.city, word) ||
+findString(destination.name, word) ||
+findPassion(destination.passions))
+;
 };</code></pre>
 <p>Nice small functions. But still it&#39;s not clear and well understandable what is searched 
 where and why. The process of adding types and listening a little bit to what flow
 tells us and adjusting the code accordingly carved out code that looks like this</p>
 <pre><code class="undefinedjavascript">const findOne = word =&gt; destination =&gt; {
-  if (destination.type === &#39;hotel&#39;) return findHotel(destination, word);
-  if (destination.type === &#39;city&#39;) return findCity(destination, word);
-  if (destination.type === &#39;region&#39;) return findRegion(destination, word);
+if (destination.type === &#39;hotel&#39;) return findHotel(destination, word);
+if (destination.type === &#39;city&#39;) return findCity(destination, word);
+if (destination.type === &#39;region&#39;) return findRegion(destination, word);
 };</code></pre>
 <p>Actually flow pushed me really hard to get to some good looking code like this.
 The only thing I did, was adding the three types <code>HotelType</code>, <code>RegionType</code> and <code>CityType</code>.
@@ -226,49 +208,41 @@ me deeper into the typing space, which I am thankful for.
 Especially <a href="https://twitter.com/vkurchatkin">Vladimir Kurchatkin</a> and <a href="http://www.adamsolove.com/js/flow/type/2016/04/15/flow-exhaustiveness.html">Adam Solove&#39;s</a> help really pushed
 me further than I had thought, thanks! Thanks also <a href="https://twitter.com/tpflug">Tobias</a> for passing me the link to Adam&#39;s article.</p>
 <p>Maybe see you next year at EnterJS, or <a href="https://twitter.com/wolframkriesing/status/877826511859990528">maybe the Clean Code Days</a>.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

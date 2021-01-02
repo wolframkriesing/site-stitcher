@@ -1,6 +1,11 @@
 @import "../_global.css";
 @import "../_nav.css";
 
+main .content {
+  max-width: var(--readable-max-width);
+  min-width: 60%; /* Make sure this column gets at least a major amount of the available width! */
+}
+
 .page-tidbits code {
   background: none;
 }

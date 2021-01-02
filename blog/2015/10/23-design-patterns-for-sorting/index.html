@@ -1,152 +1,128 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Design Patterns for Sorting - a paper" />
-
-  <meta property="og:title" content="Design Patterns for Sorting - a paper">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="Design Patterns for Sorting - a paper" />
+<meta property="og:title" content="Design Patterns for Sorting - a paper">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/">  <title>Design Patterns for Sorting - a paper | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="algorithm" />
-    <meta property="article:tag" content="sort" />
-    <meta property="article:tag" content="paper" />
-    <meta property="article:tag" content="knowledgebase" />
-
-  <meta property="og:description" content="In the paper [&quot;Design Patterns for Sorting&quot;][design-patterns-for-sorting], 
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="algorithm" />
+<meta property="article:tag" content="sort" />
+<meta property="article:tag" content="paper" />
+<meta property="article:tag" content="knowledgebase" />
+<meta property="og:description" content="In the paper [&quot;Design Patterns for Sorting&quot;][design-patterns-for-sorting], 
 the internals of how to implement a decoupled version of a 
 sorting algorithm is described. It also shows that the complexity of something
 like a quicksort is not necessarily high, which should remove the fear of just
 trying out to implement it.\
 Maybe that&#39;s a good idea for a kata, that might go into the [katas repo]." />
-  <meta property="article:description" content="In the paper [&quot;Design Patterns for Sorting&quot;][design-patterns-for-sorting], 
+<meta property="article:description" content="In the paper [&quot;Design Patterns for Sorting&quot;][design-patterns-for-sorting], 
 the internals of how to implement a decoupled version of a 
 sorting algorithm is described. It also shows that the complexity of something
 like a quicksort is not necessarily high, which should remove the fear of just
 trying out to implement it.\
 Maybe that&#39;s a good idea for a kata, that might go into the [katas repo]." />
-  <meta name="twitter:description" content="In the paper [&quot;Design Patterns for Sorting&quot;][design-patterns-for-sorting], 
+<meta name="twitter:description" content="In the paper [&quot;Design Patterns for Sorting&quot;][design-patterns-for-sorting], 
 the internals of how to implement a decoupled version of a 
 sorting algorithm is described. It also shows that the complexity of something
 like a quicksort is not necessarily high, which should remove the fear of just
 trying out to implement it.\
 Maybe that&#39;s a good idea for a kata, that might go into the [katas repo]." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/" />
+<meta property="og:image" content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2015/10/23-design-patterns-for-sorting/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2015/10/">October 2015</a> &raquo;
-  Design Patterns for Sorting - a paper
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="design-patterns-for-sorting" is="more-h1">
-        Design Patterns for Sorting - a paper
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - October 23, 2015
-          - tagged with: #algorithm #sort #paper #knowledgebase       </div>
-    </header>
-
-
-    <p>In the paper <a href="http://www.bandgap.cs.rice.edu/personal/adrice_swong/public/WebPages/research/SIGCSE01/dp4sortCamReady.pdf">&quot;Design Patterns for Sorting&quot;</a>, 
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2015/10/">October 2015</a> &raquo;
+Design Patterns for Sorting - a paper
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="design-patterns-for-sorting" is="more-h1">
+Design Patterns for Sorting - a paper
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- October 23, 2015
+- tagged with: #algorithm #sort #paper #knowledgebase       </div>
+</header>
+<p>In the paper <a href="http://www.bandgap.cs.rice.edu/personal/adrice_swong/public/WebPages/research/SIGCSE01/dp4sortCamReady.pdf">&quot;Design Patterns for Sorting&quot;</a>, 
 the internals of how to implement a decoupled version of a 
 sorting algorithm is described. It also shows that the complexity of something
 like a quicksort is not necessarily high, which should remove the fear of just
 trying out to implement it.<br>Maybe that&#39;s a good idea for a kata, that might go into the <a href="https://github.com/tddbin/katas">katas repo</a>.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    <h3 id="related" is="more-h3">Related Posts</h3>
-        <a href="/blog/2015/11/06-design-patterns/">Design Patterns</a><br/>
-        <span>Design Patterns for Sorting - a paper</span><br/>
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+<h3 id="related" is="more-h3">Related Posts</h3>
+<a href="/blog/2015/11/06-design-patterns/">Design Patterns</a><br/>
+<span>Design Patterns for Sorting - a paper</span><br/>
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

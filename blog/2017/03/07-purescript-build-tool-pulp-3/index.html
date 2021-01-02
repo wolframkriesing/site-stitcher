@@ -1,98 +1,82 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Purescript #3 - Build tool, pulp" />
-
-  <meta property="og:title" content="Purescript #3 - Build tool, pulp">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="Purescript #3 - Build tool, pulp" />
+<meta property="og:title" content="Purescript #3 - Build tool, pulp">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/">  <title>Purescript #3 - Build tool, pulp | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="purescript" />
-    <meta property="article:tag" content="notes" />
-    <meta property="article:tag" content="yarn" />
-    <meta property="article:tag" content="pulp" />
-    <meta property="article:tag" content="build tool" />
-
-  <meta property="og:description" content="In the last [part #2 of the purescript series][ps#2] I got Purescript and it&#39;s executable
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="purescript" />
+<meta property="article:tag" content="notes" />
+<meta property="article:tag" content="yarn" />
+<meta property="article:tag" content="pulp" />
+<meta property="article:tag" content="build tool" />
+<meta property="og:description" content="In the last [part #2 of the purescript series][ps#2] I got Purescript and it&#39;s executable
 installed, using yarn. Pulp seems to be the default *&quot;build system and package manager for PureScript projects&quot;*
 as [Bodil Stokke][bodil] states in her [1st commit][pulp-1st-commit] to the project.
 Let me explore it a bit." />
-  <meta property="article:description" content="In the last [part #2 of the purescript series][ps#2] I got Purescript and it&#39;s executable
+<meta property="article:description" content="In the last [part #2 of the purescript series][ps#2] I got Purescript and it&#39;s executable
 installed, using yarn. Pulp seems to be the default *&quot;build system and package manager for PureScript projects&quot;*
 as [Bodil Stokke][bodil] states in her [1st commit][pulp-1st-commit] to the project.
 Let me explore it a bit." />
-  <meta name="twitter:description" content="In the last [part #2 of the purescript series][ps#2] I got Purescript and it&#39;s executable
+<meta name="twitter:description" content="In the last [part #2 of the purescript series][ps#2] I got Purescript and it&#39;s executable
 installed, using yarn. Pulp seems to be the default *&quot;build system and package manager for PureScript projects&quot;*
 as [Bodil Stokke][bodil] states in her [1st commit][pulp-1st-commit] to the project.
 Let me explore it a bit." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/" />
+<meta property="og:image" content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2017/03/07-purescript-build-tool-pulp-3/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2017/03/">March 2017</a> &raquo;
-  Purescript #3 - Build tool, pulp
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="purescript-build-tool-pulp-3" is="more-h1">
-        Purescript #3 - Build tool, pulp
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - March 7, 2017
-          - tagged with: #purescript #notes #yarn #pulp #build tool       </div>
-    </header>
-
-
-    <p>In the last <a href="/blog/2017/03/install-purescript-2/">part #2 of the purescript series</a> I got Purescript and it&#39;s executable
-installed, using yarn. Pulp seems to be the default *&quot;build system and package manager for PureScript projects&quot;*
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2017/03/">March 2017</a> &raquo;
+Purescript #3 - Build tool, pulp
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="purescript-build-tool-pulp-3" is="more-h1">
+Purescript #3 - Build tool, pulp
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- March 7, 2017
+- tagged with: #purescript #notes #yarn #pulp #build tool       </div>
+</header>
+<p>In the last <a href="/blog/2017/03/install-purescript-2/">part #2 of the purescript series</a> I got Purescript and it&#39;s executable
+installed, using yarn. Pulp seems to be the default <em>&quot;build system and package manager for PureScript projects&quot;</em>
 as <a href="https://twitter.com/bodil">Bodil Stokke</a> states in her <a href="https://github.com/bodil/pulp/blob/3a7d61bd0b110ff92b0d541a1c263e4fb9136fc1/package.json#L4">1st commit</a> to the project.
 Let me explore it a bit.</p>
 <p>After having explored a tiny bit of Purescript in the last post, I want to build stuff
@@ -109,39 +93,36 @@ yarn add v0.15.1
 # ...snip... maaaaany lines (means many dependencies) :)
 ✨  Done in 6.30s.</code></pre>
 <p>I don&#39;t worry too much about bower yet, I want to see what pulp can do :).</p>
-<h2 is="more-h2" id="pulp---a-build-tool-for-purescript-projects">Pulp - <a href="https://github.com/bodil/pulp">*&quot;A build tool for PureScript projects&quot;*</a></h2>
+<h2 is="more-h2" id="pulp---a-build-tool-for-purescript-projects">Pulp - <a href="https://github.com/bodil/pulp"><em>&quot;A build tool for PureScript projects&quot;</em></a></h2>
 <p>As mentioned in the last post, we have <code>./node_modules/.bin</code> in our PATH,
 which allows us now to run <code>pulp</code>, which executes the binary located in there.
 Let&#39;s see what pulp has to offer:</p>
 <pre><code class="undefinedtext">&gt; pulp
 * Error: Expected command
 Usage: pulp [global-options] &lt;command&gt; [command-options]
-
 Global options:
-  --before &lt;string&gt;       Run a shell command before the operation begins. Useful with `--watch`, eg. `--watch --before clear`.
-  --bower-file -b &lt;file&gt;  Read this bower.json file instead of autodetecting it.
-  --else &lt;string&gt;         Run a shell command if an operation finishes. Useful with `--watch`, eg. `--watch --then &#39;say Done&#39; --else &#39;say
-                          Failed&#39;`
-  --help -h               Show this help message.
-  --monochrome            Don&#39;t colourise log output.
-  --then &lt;string&gt;         Run a shell command after the operation finishes successfully. Useful with `--watch`, eg. `--watch --then &#39;say
-                          Done&#39;`
-  --version -v            Show current pulp version.
-  --watch -w              Watch source directories and re-run command if something changes.
-
+--before &lt;string&gt;       Run a shell command before the operation begins. Useful with `--watch`, eg. `--watch --before clear`.
+--bower-file -b &lt;file&gt;  Read this bower.json file instead of autodetecting it.
+--else &lt;string&gt;         Run a shell command if an operation finishes. Useful with `--watch`, eg. `--watch --then &#39;say Done&#39; --else &#39;say
+Failed&#39;`
+--help -h               Show this help message.
+--monochrome            Don&#39;t colourise log output.
+--then &lt;string&gt;         Run a shell command after the operation finishes successfully. Useful with `--watch`, eg. `--watch --then &#39;say
+Done&#39;`
+--version -v            Show current pulp version.
+--watch -w              Watch source directories and re-run command if something changes.
 Commands:
-  browserify  Produce a deployable bundle using Browserify.
-  build       Build the project.
-  docs        Generate project documentation.
-  init        Generate an example PureScript project.
-  login       Obtain and store a token for uploading packages to Pursuit.
-  psci        Launch a PureScript REPL configured for the project.
-  publish     Publish a previously tagged version to Bower and Pursuit.
-  run         Compile and run the project.
-  server      Launch a development server.
-  test        Run project tests.
-  version     Bump and tag a new version in preparation for release.
-
+browserify  Produce a deployable bundle using Browserify.
+build       Build the project.
+docs        Generate project documentation.
+init        Generate an example PureScript project.
+login       Obtain and store a token for uploading packages to Pursuit.
+psci        Launch a PureScript REPL configured for the project.
+publish     Publish a previously tagged version to Bower and Pursuit.
+run         Compile and run the project.
+server      Launch a development server.
+test        Run project tests.
+version     Bump and tag a new version in preparation for release.
 Use `pulp &lt;command&gt; --help` to learn about command specific options.</code></pre>
 <p>I mentioned it in the first post of this series, that Purescript can also be compiled
 to browser-compatible code, that is what the <code>browserify</code> command will do. Exciting imho.
@@ -175,7 +156,6 @@ Next the book suggests to write (or paste) a short Purescript script into `Main.
 finally a real hello-world. Yeah.
 ```text
 module Main where
-
 <p>import Control.Monad.Eff.Console</p>
 <p>main = log &quot;Hello, World!&quot;</p>
 <pre><code>And now I want to see that one running! So `pulp run` is the right thing.
@@ -183,7 +163,6 @@ But wait, I will take baby steps, so let me run `pulp build` before, it should
 do what I expect, just build the source and do two things:
 1. verify our source code and throw a warning  for the missing type annotation and
 2. generate the source code into the `output` directory.
-
 And it does. The output is verbose and shows what gets compiled and as expected
 a warning. I already know from the last post that `main` without a type annotation
 will give a warning, and it does.
@@ -199,22 +178,19 @@ Compiling PSCI.Support
 Warning found:
 in module Main
 at /Users/wk/purescript-series/src/Main.purs line 5, column 1 - line 5, column 12
-
-  No type declaration was provided for the top-level declaration of main.
-  It is good practice to provide type declarations as a form of documentation.
-  The inferred type of main was:
-
-    forall t1.              
-      Eff                   
-        ( console :: CONSOLE
-        | t1                
-        )                   
-        Unit                
-
-
+No type declaration was provided for the top-level declaration of main.
+It is good practice to provide type declarations as a form of documentation.
+The inferred type of main was:
+forall t1.              
+Eff                   
+( console :: CONSOLE
+| t1                
+)                   
+Unit                
 in value declaration main
 # ...snip...
-* Build successful.</code></pre><p>Confirmed. The compiler complains about <code>main</code> and the missing type declaration.
+* Build successful.</code></pre>
+<p>Confirmed. The compiler complains about <code>main</code> and the missing type declaration.
 The build succeeded. And the source should have a <code>console.log</code> in it.</p>
 <pre><code class="undefinedshell">&gt; cat output/Main/index.js 
 // Generated by psc version 0.10.7
@@ -222,7 +198,7 @@ The build succeeded. And the source should have a <code>console.log</code> in it
 var Control_Monad_Eff_Console = require(&quot;../Control.Monad.Eff.Console&quot;);
 var main = Control_Monad_Eff_Console.log(&quot;Hello, World!&quot;);
 module.exports = {
-    main: main
+main: main
 };</code></pre>
 <p>And so it does. Awesome.
 Now just to make confirm, I run <code>pulp run</code>. And it should execute the compiled
@@ -236,55 +212,47 @@ Enough for now. The build tool works and I have seen a proper hello-world.</p>
 <p>In the next post I will finally open the REPL and play a little bit with
 Purescript and afterwards I plan to try out the different building options,
 such as building it with browserify for a browser compatible JS file.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    <h3 id="related" is="more-h3">Related Posts</h3>
-        <a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
-        <a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
-        <span>Purescript #3 - Build tool, pulp</span><br/>
-        <a href="/blog/2017/03/05-install-purescript-2/">Purescript #2 - Installing</a><br/>
-        <a href="/blog/2017/03/01-starting-with-purescript/">Purescript #1 - the semantics of JavaScript with types</a><br/>
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+<h3 id="related" is="more-h3">Related Posts</h3>
+<a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
+<a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
+<span>Purescript #3 - Build tool, pulp</span><br/>
+<a href="/blog/2017/03/05-install-purescript-2/">Purescript #2 - Installing</a><br/>
+<a href="/blog/2017/03/01-starting-with-purescript/">Purescript #1 - the semantics of JavaScript with types</a><br/>
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

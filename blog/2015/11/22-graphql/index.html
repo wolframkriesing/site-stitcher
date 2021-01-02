@@ -1,89 +1,73 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="GraphQL" />
-
-  <meta property="og:title" content="GraphQL">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="GraphQL" />
+<meta property="og:title" content="GraphQL">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2015/11/22-graphql/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2015/11/22-graphql/">  <title>GraphQL | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="GraphQL" />
-    <meta property="article:tag" content="REST" />
-    <meta property="article:tag" content="API" />
-
-  <meta property="og:description" content="I just read a [post about GraphQL][graphql-post], and because the headline and all the article
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="GraphQL" />
+<meta property="article:tag" content="REST" />
+<meta property="article:tag" content="API" />
+<meta property="og:description" content="I just read a [post about GraphQL][graphql-post], and because the headline and all the article
 contains so much excitment and passion for the topic I read it until the end." />
-  <meta property="article:description" content="I just read a [post about GraphQL][graphql-post], and because the headline and all the article
+<meta property="article:description" content="I just read a [post about GraphQL][graphql-post], and because the headline and all the article
 contains so much excitment and passion for the topic I read it until the end." />
-  <meta name="twitter:description" content="I just read a [post about GraphQL][graphql-post], and because the headline and all the article
+<meta name="twitter:description" content="I just read a [post about GraphQL][graphql-post], and because the headline and all the article
 contains so much excitment and passion for the topic I read it until the end." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2015/11/22-graphql/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2015/11/22-graphql/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2015/11/22-graphql/" />
+<meta property="og:image" content="https://picostitch.com/blog/2015/11/22-graphql/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2015/11/22-graphql/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2015/11/22-graphql/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2015/11/">November 2015</a> &raquo;
-  GraphQL
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="graphql" is="more-h1">
-        GraphQL
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - November 22, 2015
-          - tagged with: #GraphQL #REST #API       </div>
-    </header>
-
-
-    <p>I just read a <a href="https://medium.com/@scbarrus/graphql-is-the-king-long-live-the-king-r-i-p-rest-cf04ce38f6c#.9y4n9f18c">post about GraphQL</a>, and because the headline and all the article
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2015/11/">November 2015</a> &raquo;
+GraphQL
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="graphql" is="more-h1">
+GraphQL
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- November 22, 2015
+- tagged with: #GraphQL #REST #API       </div>
+</header>
+<p>I just read a <a href="https://medium.com/@scbarrus/graphql-is-the-king-long-live-the-king-r-i-p-rest-cf04ce38f6c#.9y4n9f18c">post about GraphQL</a>, and because the headline and all the article
 contains so much excitment and passion for the topic I read it until the end.</p>
 <blockquote>
 <p>With a GraphQL schema in place, this becomes a nonissue. A GraphQL API can function perfectly well 
@@ -96,49 +80,41 @@ served a lot of good purposes, and will likely remain how we structure our servi
 GraphQL layer for our own sanities sake. But, IMHO GraphQL is the future.</p>
 </blockquote>
 <p>There is even <a href="http://facebook.github.io/graphql/">a spec</a>.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

@@ -1,91 +1,75 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="How to Use npm as a Build Tool" />
-
-  <meta property="og:title" content="How to Use npm as a Build Tool">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="How to Use npm as a Build Tool" />
+<meta property="og:title" content="How to Use npm as a Build Tool">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/">  <title>How to Use npm as a Build Tool | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="npm" />
-    <meta property="article:tag" content="tool" />
-    <meta property="article:tag" content="nodejs" />
-    <meta property="article:tag" content="javascript" />
-    <meta property="article:tag" content="knowledgebase" />
-
-  <meta property="og:description" content="I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it&#39;s Slack in better).
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="npm" />
+<meta property="article:tag" content="tool" />
+<meta property="article:tag" content="nodejs" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="knowledgebase" />
+<meta property="og:description" content="I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it&#39;s Slack in better).
 [@Tobias] knows all the tools." />
-  <meta property="article:description" content="I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it&#39;s Slack in better).
+<meta property="article:description" content="I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it&#39;s Slack in better).
 [@Tobias] knows all the tools." />
-  <meta name="twitter:description" content="I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it&#39;s Slack in better).
+<meta name="twitter:description" content="I am sure my uxebu-partner [@Tobias] posted this link in our internal [flowdock][38] (never used it? do it now! it&#39;s Slack in better).
 [@Tobias] knows all the tools." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/" />
+<meta property="og:image" content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2014/03/20-npm-as-a-build-tool/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2014/03/">March 2014</a> &raquo;
-  How to Use npm as a Build Tool
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="npm-as-a-build-tool" is="more-h1">
-        How to Use npm as a Build Tool
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - March 20, 2014
-          - tagged with: #npm #tool #nodejs #javascript #knowledgebase       </div>
-    </header>
-
-
-    <p>I am sure my uxebu-partner <a href="http://twitter.com/tklipstein">@Tobias</a> posted this link in our internal <a href="http://flowdock.com">flowdock</a> (never used it? do it now! it&#39;s Slack in better).
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2014/03/">March 2014</a> &raquo;
+How to Use npm as a Build Tool
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="npm-as-a-build-tool" is="more-h1">
+How to Use npm as a Build Tool
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- March 20, 2014
+- tagged with: #npm #tool #nodejs #javascript #knowledgebase       </div>
+</header>
+<p>I am sure my uxebu-partner <a href="http://twitter.com/tklipstein">@Tobias</a> posted this link in our internal <a href="http://flowdock.com">flowdock</a> (never used it? do it now! it&#39;s Slack in better).
 <a href="http://twitter.com/tklipstein">@Tobias</a> knows all the tools.</p>
 <p>And we at <a href="http://uxebu.com">uxebu</a> are not so big grunt, gulp, etc. fans we rather let npm do the jobs that
 it just does well, so here are some pieces extracted from a great article about how to use <a href="http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/">npm as build tool</a>.</p>
@@ -95,7 +79,10 @@ it just does well, so here are some pieces extracted from a great article about 
 </blockquote>
 <p>Windows always comes in the way again, there are some good tips here how to work around it.</p>
 <blockquote>
-<p>1) Rather than relying on built in commands, you could simply use alternatives - for example instead of using rm, use the npm rimraf package.<br>2) Rather than trying to use syntax that is not cross compatible, stick to just the above ones. You&#39;d be surprised just how much you can get done with just &amp;&amp;, &gt;, |, and &lt;.</p>
+<ol>
+<li>Rather than relying on built in commands, you could simply use alternatives - for example instead of using rm, use the npm rimraf package.  </li>
+<li>Rather than trying to use syntax that is not cross compatible, stick to just the above ones. You&#39;d be surprised just how much you can get done with just &amp;&amp;, &gt;, |, and &lt;.</li>
+</ol>
 </blockquote>
 <p>Finally glob&#39;s <code>**</code> deciphered, for me :)</p>
 <blockquote>
@@ -105,49 +92,41 @@ it just does well, so here are some pieces extracted from a great article about 
 <blockquote>
 <p>This actually comes baked into npm (it is a package manager after all). Simply run npm version patch to increment the patch number (e.g. 1.1.1 -&gt; 1.1.2), npm version minor to increment the minor version number (e.g. 1.1.1 -&gt; 1.2.0) or npm version major (e.g. 1.1.1 -&gt; 2.0.0).</p>
 </blockquote>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

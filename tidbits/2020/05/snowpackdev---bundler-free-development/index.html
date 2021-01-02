@@ -1,80 +1,66 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="snowpack.dev - Bundler Free Development" />
-
-  <meta property="og:title" content="snowpack.dev - Bundler Free Development">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="snowpack.dev - Bundler Free Development" />
+<meta property="og:title" content="snowpack.dev - Bundler Free Development">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2020/05/snowpackdev---bundler-free-development/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2020/05/snowpackdev---bundler-free-development/">  <title>snowpack.dev - Bundler Free Development | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="JavaScript" />
-
-  <meta property="og:description" content="Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally." />
-  <meta property="article:description" content="Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally." />
-  <meta name="twitter:description" content="Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally." />
-
-    <meta property="og:image" content="https://picostitch.com/tidbits/2020/05" />
-    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/05" />
-    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/05" />
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="JavaScript" />
+<meta property="og:description" content="Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally." />
+<meta property="article:description" content="Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally." />
+<meta name="twitter:description" content="Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. [Snowpack moves the bundler out of the way](https://www.snowpack.dev/) so you can develop without worrying about it locally." />
+<meta property="og:image" content="https://picostitch.com/tidbits/2020/05" />
+<meta property="og:image:url" content="https://picostitch.com/tidbits/2020/05" />
+<meta name="twitter:image" content="https://picostitch.com/tidbits/2020/05" />
 </head>
 <body class="page-tidbit">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/tidbits/">Tidbits</a> &raquo;
-  snowpack.dev - Bundler Free Development
-  </nav>
-
-  <main>
-    <div class="content">
-  <article>
-    <header>
-      <div class="tag" data-tag="javascript">#JavaScript</div>
-      <h1 id="snowpackdev---bundler-free-development" is="more-h1">snowpack.dev - Bundler Free Development</h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - May 9, 2020
-          - tagged with: #JavaScript       </div>
-    </header>
-
-    <p>Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. <a href="https://www.snowpack.dev/">Snowpack moves the bundler out of the way</a> so you can develop without worrying about it locally.</p>
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/tidbits/">Tidbits</a> &raquo;
+snowpack.dev - Bundler Free Development
+</nav>
+<main>
+<div class="content">
+<article>
+<header>
+<div class="tag" data-tag="javascript">#JavaScript</div>
+<h1 id="snowpackdev---bundler-free-development" is="more-h1">snowpack.dev - Bundler Free Development</h1>
+<div class="metadata">
+Wolfram Kriesing
+- May 9, 2020
+- tagged with: #JavaScript       </div>
+</header>
+<p>Bundler like webpack take up too much of our intention, imho. We spend a lot of time configuring them and waiting for them to build so we can see our site. <a href="https://www.snowpack.dev/">Snowpack moves the bundler out of the way</a> so you can develop without worrying about it locally.</p>
 <blockquote>
 <p>At some point in the last decade, JavaScript bundling shifted from being a production nice-to-have optimization to a 
 full-on dev requirement. Configuration files, plugin ecosystems, extra dependencies, tooling complexity, 
@@ -89,49 +75,39 @@ Edge will do.</p>
 <p>should be a no issue. Just imagine you use all the latest features and you are serving the files as you have them on your 
 filesystem. This even allows you to leverage more of your devtools and there is a lot that will make you more productive.</p>
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Edit your source code in the devtools (and an editor) in parallel.<br>It will render CSS changes without reloads.<br><br>1) Just connect the Filesystem. <br>2) Use &lt;script type=module&gt;<br>3) No transpilers involved<br><br>Welcome to modern web development. <a href="https://t.co/w0kO0kP42o">pic.twitter.com/w0kO0kP42o</a></p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1158123836484837379?ref_src=twsrc%5Etfw">August 4, 2019</a></blockquote>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

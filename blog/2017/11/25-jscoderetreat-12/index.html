@@ -1,99 +1,82 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="JSCodeRetreat #12 using Tetris" />
-
-  <meta property="og:title" content="JSCodeRetreat #12 using Tetris">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="JSCodeRetreat #12 using Tetris" />
+<meta property="og:title" content="JSCodeRetreat #12 using Tetris">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/">  <title>JSCodeRetreat #12 using Tetris | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="coderetreat" />
-    <meta property="article:tag" content="jscoderetreat" />
-
-  <meta property="og:description" content="It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="coderetreat" />
+<meta property="article:tag" content="jscoderetreat" />
+<meta property="og:description" content="It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
 And I have to say it was a good idea, it was a bit more challenging than the Game of Life
 and left more room for discussions and also allowed to explore more (software) design challenges." />
-  <meta property="article:description" content="It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
+<meta property="article:description" content="It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
 And I have to say it was a good idea, it was a bit more challenging than the Game of Life
 and left more room for discussions and also allowed to explore more (software) design challenges." />
-  <meta name="twitter:description" content="It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
+<meta name="twitter:description" content="It was [Evren] who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
 And I have to say it was a good idea, it was a bit more challenging than the Game of Life
 and left more room for discussions and also allowed to explore more (software) design challenges." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/" />
+<meta property="og:image" content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2017/11/25-jscoderetreat-12/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2017/11/">November 2017</a> &raquo;
-  JSCodeRetreat #12 using Tetris
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="jscoderetreat-12" is="more-h1">
-        JSCodeRetreat #12 using Tetris
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - November 25, 2017
-          - tagged with: #coderetreat #jscoderetreat       </div>
-    </header>
-
-
-    <p>It was <a href="https://twitter.com/yortuc">Evren</a> who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2017/11/">November 2017</a> &raquo;
+JSCodeRetreat #12 using Tetris
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="jscoderetreat-12" is="more-h1">
+JSCodeRetreat #12 using Tetris
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- November 25, 2017
+- tagged with: #coderetreat #jscoderetreat       </div>
+</header>
+<p>It was <a href="https://twitter.com/yortuc">Evren</a> who triggered the idea of using Tetris as the task for the next JSCodeRetreat.
 And I have to say it was a good idea, it was a bit more challenging than the Game of Life
 and left more room for discussions and also allowed to explore more (software) design challenges.</p>
 <h2 is="more-h2" id="tetris-as-the-task">Tetris As The Task</h2>
 <div style="float: left; padding: 1rem;">
-  <img src="./tetris-logo.png" alt="directions" width=100 class="sizeup-onhover-image scale2 origin-left-top" />
-  <br/><em>JSCR Tetris Logo</em>
+<img src="./tetris-logo.png" alt="directions" width=100 class="sizeup-onhover-image scale2 origin-left-top" />
+<br/><em>JSCR Tetris Logo</em>
 </div>
-
 <p>I had never implemented Tetris until a week ago. And back then I had not even finished it.
 But when Evren and I, we coded on it for about 3-4 hours, it felt like a great problem to tackle at a
 CodeRetreat. Usually we do Conways Game of Life (GoL) at CodeRetreats, which is a no-player game.
@@ -154,10 +137,9 @@ Lots of them &quot;refactored&quot; their first test description. I had the feel
 already saw that the breaking down the problem into pieces will be an important task throughout the day.
 And they were right.</p>
 <div style="float: right; padding: 1rem; padding-top: 0;">
-  <img src="./test-descriptions.png" alt="directions" width=200 class="sizeup-onhover-image scale2 origin-right-top" />
-  <br/><em>Test descriptions</em>
+<img src="./test-descriptions.png" alt="directions" width=200 class="sizeup-onhover-image scale2 origin-right-top" />
+<br/><em>Test descriptions</em>
 </div>
-
 <p>I had expected the participants to find many different subtle differnces in the various Tetris implementations
 out there, but that didn&#39;t really happen in the first session. It was no problem, but surprised me a little bit.
 I think for the next time I will have to try to specify the first session a bit better, a bit more 
@@ -206,65 +188,52 @@ We had enough to do without even painting it :).</p>
 <p>First and foremost I want to thank all the participants for beeing part of this event.
 I liked it a lot. It is always a pleasure again. And I will love to do it again.</p>
 <div style="float: right; padding: 1rem;">
-  <img src="./directions.jpg" alt="directions" width=200 class="sizeup-onhover-image scale2 origin-right-top" />
-  <br/><em>Directions</em>
+<img src="./directions.jpg" alt="directions" width=200 class="sizeup-onhover-image scale2 origin-right-top" />
+<br/><em>Directions</em>
 </div>
-
 <p>Thanks a lot to <a href="https://twitter.com/futurice">futurice</a> who have served us very well and sponsored drinks and food for the entire day.
 They even had their own posters designed so people would find the location easier.</p>
 <p>related_tweets:</p>
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I like the approach we went for in our last <a href="https://twitter.com/hashtag/jscr12?src=hash&amp;ref_src=twsrc%5Etfw">#jscr12</a> session for implementing <a href="https://twitter.com/hashtag/tetris?src=hash&amp;ref_src=twsrc%5Etfw">#tetris</a>. <br>We started quite simple and had some valueable discussions, imho. <a href="https://t.co/3i0UQPmNX5">pic.twitter.com/3i0UQPmNX5</a></p>&mdash; programmer@work (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/934480043711127554?ref_src=twsrc%5Etfw">November 25, 2017</a></blockquote>
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">1st session we played Tetris<br>2nd we TDDed<br>3rd was ping pong pairing<br>4th is about using array functions, no loops, no conditionals<a href="https://twitter.com/hashtag/jscr12?src=hash&amp;ref_src=twsrc%5Etfw">#jscr12</a></p>&mdash; JS CodeRetreat (@jsCodeRetreat) <a href="https://twitter.com/jsCodeRetreat/status/934409989690679296?ref_src=twsrc%5Etfw">November 25, 2017</a></blockquote>
-
-
-
-
-
-
-  </article>
-    </div>
-    <aside class="right">
-    <h3 id="related" is="more-h3">Related Posts</h3>
-        <a href="/blog/2018/05/13-jscoderetreat-13-tetris-again/">JSCodeRetreat #13, Tetris again</a><br/>
-        <span>JSCodeRetreat #12 using Tetris</span><br/>
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+<h3 id="related" is="more-h3">Related Posts</h3>
+<a href="/blog/2018/05/13-jscoderetreat-13-tetris-again/">JSCodeRetreat #13, Tetris again</a><br/>
+<span>JSCodeRetreat #12 using Tetris</span><br/>
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

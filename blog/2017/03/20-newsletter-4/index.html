@@ -1,154 +1,130 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Newsletter #4" />
-
-  <meta property="og:title" content="Newsletter #4">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="Newsletter #4" />
+<meta property="og:title" content="Newsletter #4">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2017/03/20-newsletter-4/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2017/03/20-newsletter-4/">  <title>Newsletter #4 | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="lint" />
-    <meta property="article:tag" content="eslint" />
-    <meta property="article:tag" content="React Native" />
-    <meta property="article:tag" content="refactoring" />
-    <meta property="article:tag" content="code quality" />
-    <meta property="article:tag" content="github" />
-    <meta property="article:tag" content="audio" />
-    <meta property="article:tag" content="playground" />
-    <meta property="article:tag" content="classes" />
-
-  <meta property="og:description" content="This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let&#39;s get started ..." />
-  <meta property="article:description" content="This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let&#39;s get started ..." />
-  <meta name="twitter:description" content="This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let&#39;s get started ..." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2017/03/20-newsletter-4/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/20-newsletter-4/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2017/03/20-newsletter-4/" />
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="lint" />
+<meta property="article:tag" content="eslint" />
+<meta property="article:tag" content="React Native" />
+<meta property="article:tag" content="refactoring" />
+<meta property="article:tag" content="code quality" />
+<meta property="article:tag" content="github" />
+<meta property="article:tag" content="audio" />
+<meta property="article:tag" content="playground" />
+<meta property="article:tag" content="classes" />
+<meta property="og:description" content="This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let&#39;s get started ..." />
+<meta property="article:description" content="This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let&#39;s get started ..." />
+<meta name="twitter:description" content="This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of **links about JavaScript and how to craft better software**. Let&#39;s get started ..." />
+<meta property="og:image" content="https://picostitch.com/blog/2017/03/20-newsletter-4/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/20-newsletter-4/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2017/03/20-newsletter-4/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2017/03/">March 2017</a> &raquo;
-  Newsletter #4
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="newsletter-4" is="more-h1">
-        Newsletter #4
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - March 20, 2017
-          - tagged with: #lint #eslint #React Native #refactoring #code quality #github #audio #playground #classes       </div>
-    </header>
-
-
-    <p>This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2017/03/">March 2017</a> &raquo;
+Newsletter #4
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="newsletter-4" is="more-h1">
+Newsletter #4
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- March 20, 2017
+- tagged with: #lint #eslint #React Native #refactoring #code quality #github #audio #playground #classes       </div>
+</header>
+<p>This is newsletter #4 - about crafting (and) JavaScript - March 20th, 2017. Every Monday you will receive a hand-selected collection of <strong>links about JavaScript and how to craft better software</strong>. Let&#39;s get started ...</p>
 <h2 is="more-h2" id="javascript">JavaScript</h2>
 <p><strong><em><a href="https://blog.expo.io/sketch-a-playground-for-react-native-16b2401f44a2">Sketch — A Playground for React Native</a></em></strong> This is a pretty cool tool. Especially if you have never touched react-native, this is a perfect tool for just trying it out. You can <a href="https://sketch.expo.io/">write code or drag &#39;n drop code</a> and right away see the result on your device.</p>
 <p><strong><em><a href="http://eslint.org/blog/2017/03/eslint-v3.18.0-released">ESLint v3.18.0 released</a></em></strong> If you care about your code eslint is a tool you surely want to use. This version &quot;adds support for AST selectors&quot; which allows for simplifying the implementation of custom rules.</p>
 <p><strong><em><a href="https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4">How to Use Classes and Sleep at Night</a></em></strong> is an interesting look at JS classes by <a href="https://twitter.com/dan_abramov">Dan Abramov</a>. The introduction of &quot;real&quot; classes in ES6 started lots of discussion. Dan suggest his view, which rings with many people in the JS community.</p>
-<p><a href="https://howlerjs.com/">Howler.js</a> is a library I found through <a href="https://twitter.com/ThorstenRinne/status/842367095291695104">Thorsten&#39;s tweet</a>, which <strong>*&quot;makes working with audio in JavaScript easy and reliable across all platforms&quot;*</strong>.</p>
+<p><a href="https://howlerjs.com/">Howler.js</a> is a library I found through <a href="https://twitter.com/ThorstenRinne/status/842367095291695104">Thorsten&#39;s tweet</a>, which <strong><em>&quot;makes working with audio in JavaScript easy and reliable across all platforms&quot;</em></strong>.</p>
 <h2 is="more-h2" id="crafting">Crafting</h2>
 <p><a href="http://www.ustream.tv/recorded/61483799">Michael Feathers talked</a> about <a href="https://github.com/michaelfeathers/delta-flora">delta flora</a>, a tool he once wrote to get more insight into your source code and it&#39;s history. <a href="https://codescene.io/showcase">CodeScene</a> looks a very promising tool which does exactly that. It might make sense to keep an eye on it.</p>
 <p><strong><em><a href="https://github.com/svenvc/ston/blob/master/ston-paper.md">STON - Smalltalk Object Notation</a></em></strong> reads to me as if this is a notation for typed JSON. JSON is one of the most common exchange formats, but it also lacks a lot of explicitness due to it&#39;s exclusively simple typing. Maybe STON could be an option for a more strict(er) typed exchange format.</p>
 <p><a href="https://github.com/blog/2135-saved-replies">Github has saved replies</a>, I didn&#39;t know. If you are intensively using github issues and pull requests, there is a nice feature you might find helpful: &quot;saved replies&quot;. It&#39;s like canned responses in gmail. It can help with &quot;saving you a ton of time typing&quot;.</p>
 <p><strong><em><a href="http://vgaltes.com/teamwork/Avoid-pull-requests/">Avoid pull requests</a></em></strong> because they are &quot;a bad smell of team dynamics&quot; and I strongly agree with the author that &quot;pairing is much better than reviewing&quot;. And I agree also that &quot;pull requests are great, especially when your team is not colocated&quot;. But they are not all bad, especially in open source PRs are great, where people don&#39;t sit beside one another.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    <h3 id="related" is="more-h3">Related Posts</h3>
-        <a href="/blog/2017/04/24-newsletter-8/">Newsletter #8</a><br/>
-        <a href="/blog/2017/04/17-newsletter-7/">Newsletter #7</a><br/>
-        <a href="/blog/2017/04/03-newsletter-6/">Newsletter #6</a><br/>
-        <a href="/blog/2017/03/27-newsletter-5/">Newsletter #5</a><br/>
-        <span>Newsletter #4</span><br/>
-        <a href="/blog/2017/03/13-newsletter-3/">Newsletter #3</a><br/>
-        <a href="/blog/2017/03/06-newsletter-2/">Newsletter #2</a><br/>
-        <a href="/blog/2017/02/23-newsletter-1/">Newsletter #1</a><br/>
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+<h3 id="related" is="more-h3">Related Posts</h3>
+<a href="/blog/2017/04/24-newsletter-8/">Newsletter #8</a><br/>
+<a href="/blog/2017/04/17-newsletter-7/">Newsletter #7</a><br/>
+<a href="/blog/2017/04/03-newsletter-6/">Newsletter #6</a><br/>
+<a href="/blog/2017/03/27-newsletter-5/">Newsletter #5</a><br/>
+<span>Newsletter #4</span><br/>
+<a href="/blog/2017/03/13-newsletter-3/">Newsletter #3</a><br/>
+<a href="/blog/2017/03/06-newsletter-2/">Newsletter #2</a><br/>
+<a href="/blog/2017/02/23-newsletter-1/">Newsletter #1</a><br/>
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

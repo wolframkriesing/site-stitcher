@@ -1,86 +1,71 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Style the React-Native Picker Component" />
-
-  <meta property="og:title" content="Style the React-Native Picker Component">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="Style the React-Native Picker Component" />
+<meta property="og:title" content="Style the React-Native Picker Component">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/">  <title>Style the React-Native Picker Component | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="React Native" />
-    <meta property="article:tag" content="android" />
-    <meta property="article:tag" content="mobile" />
-
-  <meta property="og:description" content="The plan:" />
-  <meta property="article:description" content="The plan:" />
-  <meta name="twitter:description" content="The plan:" />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/" />
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="React Native" />
+<meta property="article:tag" content="android" />
+<meta property="article:tag" content="mobile" />
+<meta property="og:description" content="The plan:" />
+<meta property="article:description" content="The plan:" />
+<meta name="twitter:description" content="The plan:" />
+<meta property="og:image" content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2020/12/01-style-react-native-picker-on-android/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2020/12/">December 2020</a> &raquo;
-  Style the React-Native Picker Component
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="isDraft">
-    <header>
-      <h1 id="style-react-native-picker-on-android" is="more-h1">
-        Style the React-Native Picker Component
-         [this is a draft]
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - December 1, 2020
-          - tagged with: #React Native #android #mobile       </div>
-    </header>
-
-
-    <p>The plan:</p>
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2020/12/">December 2020</a> &raquo;
+Style the React-Native Picker Component
+</nav>
+<main>
+<div class="content">
+<article class="isDraft">
+<header>
+<h1 id="style-react-native-picker-on-android" is="more-h1">
+Style the React-Native Picker Component
+[this is a draft]
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- December 1, 2020
+- tagged with: #React Native #android #mobile       </div>
+</header>
+<p>The plan:</p>
 <ul>
 <li><p>the iOS picker is very native, I never had to touch it and didnt hear iOS users complain</p>
 </li>
@@ -105,49 +90,41 @@ Read it from begin to end, it&#39;s a rabbit hole but very teaching!</p>
 <p>all things stylable </p>
 <p><a href="https://chromium.googlesource.com/android_tools/+/HEAD/sdk/extras/android/support/v7/appcompat/res/values/attrs.xml">https://chromium.googlesource.com/android_tools/+/HEAD/sdk/extras/android/support/v7/appcompat/res/values/attrs.xml</a></p>
 <p><a href="https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/styles.xml">https://android.googlesource.com/platform/frameworks/base/+/refs/heads/master/core/res/res/values/styles.xml</a></p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>

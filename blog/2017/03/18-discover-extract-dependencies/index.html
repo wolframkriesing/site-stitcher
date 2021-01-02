@@ -1,92 +1,76 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="mobile-web-app-capable" content="yes" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="author" content="Wolfram Kriesing">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="picostitch - crafting (and) JavaScript">
-
-    <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Discover and Extract Dependencies" />
-
-  <meta property="og:title" content="Discover and Extract Dependencies">
-  <meta property="og:type" content="website">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="author" content="Wolfram Kriesing">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="picostitch - crafting (and) JavaScript">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@wolframkriesing" />
+<meta name="twitter:title" content="Discover and Extract Dependencies" />
+<meta property="og:title" content="Discover and Extract Dependencies">
+<meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-
-  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/">  <title>Discover and Extract Dependencies | picostitch - crafting (and) JavaScript</title>
-
-  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
-  <meta property="article:type" content="article" />
-    <meta property="article:tag" content="javascript" />
-    <meta property="article:tag" content="dependency injection" />
-    <meta property="article:tag" content="testing" />
-
-  <meta property="og:description" content="While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
+<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+<meta property="article:type" content="article" />
+<meta property="article:tag" content="javascript" />
+<meta property="article:tag" content="dependency injection" />
+<meta property="article:tag" content="testing" />
+<meta property="og:description" content="While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies." />
-  <meta property="article:description" content="While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
+<meta property="article:description" content="While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies." />
-  <meta name="twitter:description" content="While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
+<meta name="twitter:description" content="While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies." />
-
-    <meta property="og:image" content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/" />
-    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/" />
-    <meta name="twitter:image" content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/" />
+<meta property="og:image" content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/" />
+<meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/" />
+<meta name="twitter:image" content="https://picostitch.com/blog/2017/03/18-discover-extract-dependencies/" />
 </head>
 <body class="page-post">
-
-    <header>
-    <nav class="primary">
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </nav>
-
-    <div class="sitename">
-      <a href="/">picostitch</a>
-      <div class="subtitle">
-        crafting (and) JavaScript
-      </div>
-    </div>
-  </header>
-
-
-
-  <nav class="breadcrumb">
-  <a href="/">Home</a> &raquo;
-  <a href="/blog">Blog</a> &raquo;
-  <a href="/blog/2017/03/">March 2017</a> &raquo;
-  Discover and Extract Dependencies
-  </nav>
-
-  <main>
-    <div class="content">
-  <article class="">
-    <header>
-      <h1 id="discover-extract-dependencies" is="more-h1">
-        Discover and Extract Dependencies
-        
-      </h1>
-      <div class="metadata">
-        Wolfram Kriesing
-        - March 18, 2017
-          - tagged with: #javascript #dependency injection #testing       </div>
-    </header>
-
-
-    <p>While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
+<header>
+<nav class="primary">
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
+<div class="sitename">
+<a href="/">picostitch</a>
+<div class="subtitle">
+crafting (and) JavaScript
+</div>
+</div>
+</header>
+<nav class="breadcrumb">
+<a href="/">Home</a> &raquo;
+<a href="/blog">Blog</a> &raquo;
+<a href="/blog/2017/03/">March 2017</a> &raquo;
+Discover and Extract Dependencies
+</nav>
+<main>
+<div class="content">
+<article class="">
+<header>
+<h1 id="discover-extract-dependencies" is="more-h1">
+Discover and Extract Dependencies
+</h1>
+<div class="metadata">
+Wolfram Kriesing
+- March 18, 2017
+- tagged with: #javascript #dependency injection #testing       </div>
+</header>
+<p>While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies.</p>
 <h2 is="more-h2" id="tldr---the-pattern-that-emerged">TL;DR - The Pattern that Emerged</h2>
@@ -129,7 +113,6 @@ which </p>
 <img src="./load-student-flow.png" alt="program flow" width=200 class="sizeup-onhover-image scale4 origin-left-top" />
 <br/><em>loadStudent function flow</em>
 </div>
-
 <p>I want to show how to separate dependencies that might not been obvious at first. And 
 by adding tests I will &quot;feel&quot; them. And I will be pushed to separate them out. Which makes
 my code easier to test and also make me understand what (external) dependencies the code has.</p>
@@ -139,24 +122,23 @@ the student is first read from a cache, if that fails it is loaded from a (slowe
 <p>Let&#39;s get started.<br>This code was <strong>missing tests</strong>. So I will start to add them.
 The starting point was the following code.</p>
 <pre><code class="undefinedjs">import { fetch } from &#39;./backend&#39;;
-
 const cache = {};
 const loadStudent = ({ studentId }) =&gt; {
-  if (!cache[studentId]) {
-    cache[studentId] = fetch({ studentId });
-  }
-  return cache[studentId];
+if (!cache[studentId]) {
+cache[studentId] = fetch({ studentId });
+}
+return cache[studentId];
 };</code></pre>
 <h2 is="more-h2" id="the-first-test">The First Test</h2>
 <p>The first test I wrote was for the cache (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/a3dba52ce7789c5517ceb60f953cfa33bb6ad499">see the commit</a>). Actually I am not sure it&#39;s the right
 test to write, since the fetch is more important. But anyways. I follow
 the code&#39;s flow.</p>
 <pre><code class="undefinedjs">describe(&#39;Load a student&#39;, () =&gt; {
-  it(&#39;from the cache&#39;, () =&gt; {
-    cache[42] = &#39;student 42&#39;;
-    const student = loadStudent({ studentId: 42 });
-    assertThat(student, equalTo(&#39;student 42&#39;));
-  });
+it(&#39;from the cache&#39;, () =&gt; {
+cache[42] = &#39;student 42&#39;;
+const student = loadStudent({ studentId: 42 });
+assertThat(student, equalTo(&#39;student 42&#39;));
+});
 });</code></pre>
 <p>The first thing that jumps out is the sharing of the <strong><em>global</em></strong> <code>cache</code> variable.
 The production code and the test share it now through the access of a global variable. Scary.
@@ -168,9 +150,9 @@ NOTE: first dependency <code>cache</code>.</p>
 (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/2c485ba353c252e913d8430a49cda39894f30431">see the commit</a>).
 I isolate the first dependency. At least for the test it is isolated now.</p>
 <pre><code class="undefinedjs">it(&#39;from the cache&#39;, () =&gt; {
-  const cache = { 42: &#39;student 42&#39; }; // &lt;&lt;&lt; no more globals :)
-  const student = loadStudent({ studentId: 42, cache });
-  assertThat(student, equalTo(&#39;student 42&#39;));
+const cache = { 42: &#39;student 42&#39; }; // &lt;&lt;&lt; no more globals :)
+const student = loadStudent({ studentId: 42, cache });
+assertThat(student, equalTo(&#39;student 42&#39;));
 });</code></pre>
 <p>To make this test green I need to change the production code. I need to 
 use the cache as given via parameter.</p>
@@ -178,10 +160,10 @@ use the cache as given via parameter.</p>
 having it fully covered with tests. The <code>fetch()</code> method is not tested yet at
 all. True. I am fine with that for now.</p>
 <pre><code class="undefinedjs">const loadStudent = ({ studentId, cache }) =&gt; {
-  if (!cache[studentId]) {
-    cache[studentId] = fetch({ studentId });
-  }
-  return cache[studentId];
+if (!cache[studentId]) {
+cache[studentId] = fetch({ studentId });
+}
+return cache[studentId];
 };</code></pre>
 <p>No more global <code>cache</code> variable. Great for testability. But actually the 
 real cache functionality got lost. Since there is no global cache anymore. Right.
@@ -194,12 +176,12 @@ The <code>studentId</code> is the actual parameter that this function requires i
 to do something useful. And the <code>cache</code> is an injected dependency.
 I want to make that clear in the function. So I split them (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/a17fec979562c0d58311b87bf431a8542878212f">the commit</a>).</p>
 <pre><code class="undefinedjs">const loadStudent = ({ studentId }, { cache }) =&gt; {
-  // ...
+// ...
 };  </code></pre>
 <p>And since I am a fan of explicitness I prefer to not destructure the second
 parameter, but to name the entire thing, like so (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/ce657f84069e27a4640c8fa0759b7fe7a5bf2bae">commit</a>):</p>
 <pre><code class="undefinedjs">const loadStudent = ({ studentId }, dependencies) =&gt; {
-  // ...
+// ...
 };  </code></pre>
 <p>This will bubble through the code and inside the function <code>cache</code> will need
 to be replaced by <code>dependencies.cache</code>. Which is more to write but every 
@@ -212,9 +194,8 @@ use currying, where a function gets kinda configured with it&#39;s dependencies
 and returns a function that only receives the actual &quot;business logic&quot; parameters.
 It can look like this:</p>
 <pre><code class="undefinedjs">const makeLoadStudent = (dependencies) =&gt; ({ studentId }) =&gt; {
-  // ...
+// ...
 }; 
-
 // Use like this: 
 const loadStudent = makeLoadStudent(dependencies);
 loadStudent({studentId: 42});</code></pre>
@@ -223,20 +204,20 @@ loadStudent({studentId: 42});</code></pre>
 It is a global function, currently. So we are treating it as a nasty global
 function for now, and just overriding it in the following test (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/aaf3278c68aaf39b060585b9b309f3a1295a0bbc">commit</a>).</p>
 <pre><code class="undefinedjs">it(&#39;fetch the student if not in the cache&#39;, () =&gt; {
-  let emptyCache = {};
-  fetch = () =&gt; &#39;student 23&#39;;
-  const student = loadStudent({ studentId: 23 }, { cache: emptyCache });
-  assertThat(student, equalTo(&#39;student 23&#39;));
+let emptyCache = {};
+fetch = () =&gt; &#39;student 23&#39;;
+const student = loadStudent({ studentId: 23 }, { cache: emptyCache });
+assertThat(student, equalTo(&#39;student 23&#39;));
 });</code></pre>
 <p>We <strong>know</strong> now that <code>fetch()</code> is used inside of <code>loadStudent()</code>. And that knowledge
 is not in our test, that is nasty too. We need to make that obvious.</p>
 <h2 is="more-h2" id="inject-the-second-dependency">Inject the Second Dependency</h2>
 <p>We make this obvious by (just say it with me), yes, correct: <strong>injecting the dependency</strong> (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/9d808180666de271e1c7a37e4e2a4f96add0b08f">commit</a>).</p>
 <pre><code class="undefinedjs">it(&#39;fetch the student if not in the cache&#39;, () =&gt; {
-  const emptyCache = {};
-  const dependencies = { cache: emptyCache, fetch: () =&gt; &#39;student 23&#39; };
-  const student = loadStudent({ studentId: 23 }, dependencies);
-  assertThat(student, equalTo(&#39;student 23&#39;));
+const emptyCache = {};
+const dependencies = { cache: emptyCache, fetch: () =&gt; &#39;student 23&#39; };
+const student = loadStudent({ studentId: 23 }, dependencies);
+assertThat(student, equalTo(&#39;student 23&#39;));
 });</code></pre>
 <p>See <code>fetch()</code> is passed in the <code>dependencies</code> object. And no global is overridden anymore.</p>
 <h2 is="more-h2" id="provide-production-dependencies">Provide Production Dependencies</h2>
@@ -247,10 +228,10 @@ And for that we need to provide the dependencies to it too.</p>
 <p>How? Let&#39;s try an integrated test for it, one that takes a working cache and a working <code>fetch()</code> 
 function as given (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/5f18dfbdc69fc38f4ee636f04aac286072ecdac8">commit</a>).</p>
 <pre><code class="undefinedjs">describe(&#39;Load a student&#39;, () =&gt; {
-  it(&#39;from the cache&#39;, () =&gt; {
-    const student = loadStudent({ studentId: 42 });
-    assertThat(student, equalTo(&#39;&#39;));
-  });
+it(&#39;from the cache&#39;, () =&gt; {
+const student = loadStudent({ studentId: 42 });
+assertThat(student, equalTo(&#39;&#39;));
+});
 });</code></pre>
 <p>As you can see, this test assumes 1) there is no student with the ID 42 and 2) a fetch for this student returns 
 an empty string. Yep, we are assuming to have these external dependencies under control that we <strong>know</strong> those
@@ -265,11 +246,10 @@ tiny and small tests (I am preventing the polluted name &quot;unit tests&quot;).
 There is many other ways of injecting dependencies. The following worked quite well for me until now (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/b58a9de0424f16b58a50b422c6c49e27d8f0c101">commit</a>).
 Though remember to try to keep the dependencies to be injected as tiny as possible and it will serve you well.</p>
 <pre><code class="undefinedjs">const defaultDependencies = () =&gt; {
-  return { fetch, cache };
+return { fetch, cache };
 };
-
 const loadStudent = ({ studentId }, dependencies = defaultDependencies()) =&gt; {
-  // ...
+// ...
 };</code></pre>
 <p>As you see above, I define the <code>defaultDependencies</code> above the function. Mostly those consist
 only of some imported items. One could go further and move this out and just inject a structure into this file.
@@ -294,49 +274,41 @@ can not simply hide asynchronicity in code.</p>
 It looks like it blows up the code? Think again! It also decouples your code in the places
 where you might not want it coupled. Decoupling is just like every person using a different glass when
 drinking from the same bottle, in order to not share all germs. It&#39;s pure hygiene.</p>
-
-
-  </article>
-    </div>
-    <aside class="right">
-    </aside>
-  </main>
-
-    <footer>
-    <div>
-      <b>Pages</b>
-        <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-    </div>
-
-    <div>
-      <b>Contact</b>
-      <ul>
-        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-      </ul>
-    </div>
-  </footer>
-
-    <nav class="secondary">
-    <div class="menu-button">&#9776;</div>
-      <ul>
-      <li><a href="/">Home 🏠</a></li>
-      <li><a href="/blog">Blog ✍️</a></li>
-      <li><a href="/tidbits">Tidbits 😋</a></li>
-      <li><a href="/projects">Projects 🛠‍‍</a></li>
-      <li><a href="/about">About 💡</a></li>
-  </ul>
-
-  </nav>
-
+</article>
+</div>
+<aside class="right">
+</aside>
+</main>
+<footer>
+<div>
+<b>Pages</b>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</div>
+<div>
+<b>Contact</b>
+<ul>
+<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+</ul>
+</div>
+</footer>
+<nav class="secondary">
+<div class="menu-button">&#9776;</div>
+<ul>
+<li><a href="/">Home 🏠</a></li>
+<li><a href="/blog">Blog ✍️</a></li>
+<li><a href="/tidbits">Tidbits 😋</a></li>
+<li><a href="/projects">Projects 🛠‍‍</a></li>
+<li><a href="/about">About 💡</a></li>
+</ul>
+</nav>
 </body>
 </html>
