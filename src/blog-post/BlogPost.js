@@ -39,7 +39,22 @@ export class BlogPost {
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
     const post = new BlogPost();
     post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
-    Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
+
+    post.abstract = rawBlogPostData.abstract;
+    post.abstractAsHtml = rawBlogPostData.abstractAsHtml;
+    post.bodyAsHtml = rawBlogPostData.bodyAsHtml;
+    post.canonicalHint = rawBlogPostData.canonicalHint;
+    post.canonicalUrl = rawBlogPostData.canonicalUrl;
+    post.dateCreated = rawBlogPostData.dateCreated;
+    post.headline = rawBlogPostData.headline;
+    post.headlineAsHtml = rawBlogPostData.headlineAsHtml;
+    post.isDraft = rawBlogPostData.isDraft;
+    post.oldUrls = rawBlogPostData.oldUrls;
+    post.previewImage = rawBlogPostData.previewImage;
+    post.tags = rawBlogPostData.tags;
+    post.vimeoId = rawBlogPostData.vimeoId;
+    post.videoStartTime = rawBlogPostData.videoStartTime;
+    post.youtubeId = rawBlogPostData.youtubeId;
     return post;
   }
   /**
