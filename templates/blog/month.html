@@ -1,11 +1,11 @@
-{% extends "_allFeatures.html" %}
+{% extends "_focus.html" %}
 
 {% block pagename %}month{% endblock %}
 {% block canonicalUrl %}https://picostitch.com/blog/{{yearAndMonth.split('-').join('/')}}/{% endblock %}
 {% block pageTitlePrefix %}{{ yearAndMonth | toReadableDate }}{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
 {% endblock %}
 
 {% block breadcrumb %}
@@ -14,12 +14,20 @@
   {{ yearAndMonth | toReadableDate }}
 {% endblock %}
 
+{% import "blog/_parts.html" as blogParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ blogParts.tagsNav(groupedBlogPosts.byTag.slice(0, 10)) }}
+    {{ blogParts.monthsNav(groupedBlogPosts.byMonth) }}
+  </aside>
+{% endblock %}
+
 {% block content %}
   <h1 id="{{yearAndMonth}}" is="more-h1">
     {{ yearAndMonth | toReadableDate }}
   </h1>
 
-  {% import "blog/_parts.html" as blogParts %}
   {% for post in posts %}
     {{ blogParts.articlePreview(post) }}
   {% endfor %}

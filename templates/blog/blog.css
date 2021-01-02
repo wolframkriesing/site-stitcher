@@ -4,27 +4,36 @@
 main {
   display: flex;
 }
-  aside {
+main .content {
+  flex: 3;
+  max-width: var(--readable-max-width);
+  min-width: 60%; /* Make sure this column gets at least a major amount of the available width! */
+}
+  main aside {
     flex: 1;
     overflow: auto;
   }
-    aside.right {
-      padding-left: var(--spacing-big);
-    }
-  aside > * {
+  main aside.left {
+    max-width: 15rem;
+  }
+  main aside.right {
+    flex: 0 auto;
+    padding-left: var(--spacing-big);
+  }
+  main aside > * {
     margin-bottom: var(--spacing-bigger);
     margin-right: 4rem;
-    white-space: nowrap;
   }
-  aside .tags:hover {
+  main aside .tags:hover {
     height: auto;
   }
+
 @media screen and (max-width: 600px) {
-  aside {
+  main aside {
     padding: var(--spacing-bigger);
     text-align: center;
   }
-    aside > * {
+    main aside > * {
       margin-right: 0;
     }
   main {

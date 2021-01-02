@@ -30,19 +30,6 @@
   {% endif %}
 {% endblock %}
 
-{% block sidebarRight %}
-  {% if (post.relatedPosts.length > 1) %}
-    <h3 id="related" is="more-h3">Related Posts</h3>
-    {% for p in post.relatedPosts %}
-      {% if (post === p) %}
-        <span>{{p.headline}}</span><br/>
-      {% else %}
-        <a href="{{p.url}}">{{p.headline}}</a><br/>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endblock %}
-
 {% block breadcrumb %}
   <a href="/">Home</a> &raquo;
   <a href="/blog">Blog</a> &raquo;
@@ -81,4 +68,19 @@
       <iframe src="https://player.vimeo.com/video/{{ post.vimeoId }}" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% endif %}
   </article>
+{% endblock %}
+
+{% block mainEnd %}
+  <aside class="right">
+    {% if (post.relatedPosts.length > 1) %}
+      <h3 id="related" is="more-h3">Related Posts</h3>
+      {% for p in post.relatedPosts %}
+        {% if (post === p) %}
+          <span>{{p.headline}}</span><br/>
+        {% else %}
+          <a href="{{p.url}}">{{p.headline}}</a><br/>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </aside>
 {% endblock %}

@@ -1,4 +1,4 @@
-{% extends "_allFeatures.html" %}
+{% extends "_focus.html" %}
 
 {% block pagename %}blog{% endblock %}
 {% block canonicalUrl %}https://picostitch.com/blog{% endblock %}
@@ -9,7 +9,17 @@
 {% endblock %}
 
 {% block breadcrumb %}
-  <a href="/">Home</a> &raquo; Blog
+  <a href="/">Home</a> &raquo;
+  Blog
+{% endblock %}
+
+{% import "blog/_parts.html" as blogParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ blogParts.tagsNav(groupedBlogPosts.byTag.slice(0, 10)) }}
+    {{ blogParts.monthsNav(groupedBlogPosts.byMonth) }}
+  </aside>
 {% endblock %}
 
 {% block content %}
@@ -31,7 +41,6 @@
     <a href="{{posts[0].url}}">Continue reading →</a>
   </article>
 
-  {% import "blog/_parts.html" as blogParts %}
   {% for post in posts.slice(1) %}
     {{ blogParts.articlePreview(post) }}
   {% endfor %}
