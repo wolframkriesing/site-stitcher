@@ -15,41 +15,41 @@ describe('Group blog posts by tags', () => {
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, hasItem(hasProperties({tag: {value: 'js'}, blogPosts: posts})));
   });
-  // it('GIVEN two blog posts with different tags THEN return two groups', () => {
-  //   const posts = [
-  //     newPost({headline: '', tags: ['js']}),
-  //     newPost({headline: '', tags: ['tdd']}),
-  //   ];
-  //   const grouped = groupBlogPostsByTag(posts);
-  //   assertThat(grouped, hasItems(
-  //     hasProperties({tag: 'js', blogPosts: [posts[0]]}),
-  //     hasProperties({tag: 'tdd', blogPosts: [posts[1]]}),
-  //   ));
-  // });
-  // it('GIVEN two blog posts with the same tags each THEN return exactly two groups with each post in it', () => {
-  //   const posts = [
-  //     newPost({headline: '', tags: ['js', 'tdd']}),
-  //     newPost({headline: '', tags: ['js', 'tdd']}),
-  //   ];
-  //   const grouped = groupBlogPostsByTag(posts);
-  //   assertThat(grouped, contains(
-  //     hasProperties({tag: 'js', blogPosts: posts}),
-  //     hasProperties({tag: 'tdd', blogPosts: posts}),
-  //   ));
-  // });
-  // it('GIVEN blog posts with different tags THEN return the groups sorted by the tag counts', () => {
-  //   const posts = [
-  //     newPost({headline: '', tags: ['three', 'two', 'one', ]}),
-  //     newPost({headline: '', tags: ['two', 'one', ]}),
-  //     newPost({headline: '', tags: ['one', ]}),
-  //   ];
-  //   const grouped = groupBlogPostsByTag(posts);
-  //   assertThat(grouped, contains(
-  //     hasProperties({tag: 'one'}),
-  //     hasProperties({tag: 'two'}),
-  //     hasProperties({tag: 'three'}),
-  //   ));
-  // });
+  it('GIVEN two blog posts with different tags THEN return two groups', () => {
+    const posts = [
+      newPost({headline: '', tags: ['js']}),
+      newPost({headline: '', tags: ['tdd']}),
+    ];
+    const grouped = groupBlogPostsByTag(posts);
+    assertThat(grouped, hasItems(
+      hasProperties({tag: {value: 'js'}, blogPosts: [posts[0]]}),
+      hasProperties({tag: {value: 'tdd'}, blogPosts: [posts[1]]}),
+    ));
+  });
+  it('GIVEN two blog posts with the same tags each THEN return exactly two groups with each post in it', () => {
+    const posts = [
+      newPost({headline: '', tags: ['js', 'tdd']}),
+      newPost({headline: '', tags: ['js', 'tdd']}),
+    ];
+    const grouped = groupBlogPostsByTag(posts);
+    assertThat(grouped, contains(
+      hasProperties({tag: {value: 'js'}, blogPosts: posts}),
+      hasProperties({tag: {value: 'tdd'}, blogPosts: posts}),
+    ));
+  });
+  it('GIVEN blog posts with different tags THEN return the groups sorted by the tag counts', () => {
+    const posts = [
+      newPost({headline: '', tags: ['three', 'two', 'one', ]}),
+      newPost({headline: '', tags: ['two', 'one', ]}),
+      newPost({headline: '', tags: ['one', ]}),
+    ];
+    const grouped = groupBlogPostsByTag(posts);
+    assertThat(grouped, contains(
+      hasProperties({tag: {value: 'one'}, blogPosts: posts}),
+      hasProperties({tag: {value: 'two'}, blogPosts: [posts[0], posts[1]]}),
+      hasProperties({tag: {value: 'three'}, blogPosts: [posts[0]]}),
+    ));
+  });
 });
 
 describe('Group blog posts by year+month', () => {

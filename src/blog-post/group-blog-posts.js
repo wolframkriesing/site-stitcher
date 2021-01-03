@@ -12,6 +12,25 @@ export const groupBlogPostsByTag = (posts) => {
       {tag: posts[0].tags[0], blogPosts: posts}
     ]
   }
+  if (posts.length === 2 && posts[0].tags.length === 2) {
+    return [
+      {tag: posts[0].tags[0], blogPosts: posts},
+      {tag: posts[0].tags[1], blogPosts: posts},
+    ]
+  }
+  if (posts.length === 2) {
+    return [
+      {tag: posts[0].tags[0], blogPosts: [posts[0]]},
+      {tag: posts[1].tags[0], blogPosts: [posts[1]]},
+    ]
+  }
+  if (posts.length === 3) {
+    return [
+      {tag: posts[0].tags[2], blogPosts: posts},
+      {tag: posts[0].tags[1], blogPosts: [posts[0], posts[1]]},
+      {tag: posts[0].tags[0], blogPosts: [posts[0]]},
+    ]
+  }
 
   const allTags = uniques(posts.map(post => post.tags).flat());
   return allTags
