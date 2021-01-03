@@ -16,7 +16,7 @@ import {renderTemplate} from '../_deps/render-template.js';
 const renderTagPage = (data) => renderTemplate('blog/tag.html', data);
 
 /**
- * @param deps {TagPageProductionDependencies}
+ * @param deps? {TagPageProductionDependencies}
  * @return {function(BlogPostsByTag[], PlainObject): Promise<void>}
  */
 export const renderAndWriteTagPages = ({writeFile = writeOutputFile, renderPage = renderTagPage} = {}) => async (groups, renderParams) => {
@@ -33,4 +33,3 @@ export const renderAndWriteTagPages = ({writeFile = writeOutputFile, renderPage 
   const pageWriters = groups.map(writeGroup);
   await Promise.all(pageWriters);
 }
-
