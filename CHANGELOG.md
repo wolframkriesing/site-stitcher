@@ -36,8 +36,8 @@
   - [ ] sluggify all tags, React => react, React Native => react-native, ...
   - [ ] create one page per tag slug only
   - [ ] store tag-object and provide tag: slug, value, ... extend the current tag object that exists in tidbits
-    - [ ] refactor blog tags to use the new tag object, with `value` prop, etc. (mainly to learn how the grouping is done currently and adapt for tidbits later)
-      - [ ] use the slugs to group by tags
+    - [x] refactor blog tags to use the new tag object, with `value` prop, etc. (mainly to learn how the grouping is done currently and adapt for tidbits later)
+      - [x] use the slugs to group by tags
         - [x] add slugs to blog tags
     - [ ] add tests to verify rendering the tpls, like in tidbits
     - [ ] render tag pages using slugs (not the tag itself anymore)
