@@ -25,7 +25,7 @@
     <header>Top Blog Tags</header>
     <ol>
       {% for group in groups %}
-        <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
+        <li><a href="/blog/tag/{{group.tagSlug}}/">#{{group.tagSlug}}</a></li>
       {% endfor %}
     </ol>
   </nav>
