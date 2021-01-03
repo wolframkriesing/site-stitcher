@@ -1,7 +1,11 @@
 import {describe, it} from '../test.js';
-import {assertThat, hasItem, matchesPattern, containsString} from 'hamjest';
+import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
 import {BlogPost} from "../blog-post/BlogPost.js";
 import {renderAndWriteTagPages} from "./render-page.js";
+
+/**
+ * @typedef {import('../blog-post/types').BlogPostsByTag} BlogPostsByTag
+ */
 
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
@@ -31,6 +35,23 @@ const createBlogPost = (overrideData = {}) => {
 describe('Render blog pages', () => {
   describe('GIVEN some blog posts WHEN rendering them', () => {
     describe('THEN render a page per tag', () => {
+      /**
+       * @param groups {BlogPostsByTag[]}
+       * @return {Promise<string>}
+       */
+      const renderTagPage = async (groups = [{tagSlug: 'one', blogPosts: [createBlogPost()]}]) => {
+        /** @type string */
+        let writtenToFile = '';
+        /**
+         * @param _ {Filename}
+         * @param content {string}
+         * @return {Promise<void>}
+         */
+        const writeFile = async (_, content) => { writtenToFile = content; };
+        await renderAndWriteTagPages({writeFile})(groups, renderParams);
+        return writtenToFile;
+      };
+
       it('AND write "one" tag`s page to "/blog/tag/one/index.html"', async () => {
         const groups = [
           {tagSlug: 'one', blogPosts: [createBlogPost()]}
@@ -47,63 +68,23 @@ describe('Render blog pages', () => {
         assertThat(writtenToFilenames, hasItem('/blog/tag/one/index.html'));
       });
       it('AND render the page headline H1', async () => {
-        const groups = [
-          {tagSlug: 'one', blogPosts: [createBlogPost()]}
-        ];
-        /** @type string */
-        let writtenToFile = '';
-        /**
-         * @param _ {Filename}
-         * @param content {string}
-         * @return {Promise<void>}
-         */
-        const writeFile = async (_, content) => { writtenToFile = content; };
-        await renderAndWriteTagPages({writeFile})(groups, renderParams);
-        assertThat(writtenToFile, matchesPattern(/<h1.*>.*Tagged with #one.*<\/h1>/gms));
+        assertThat(await renderTagPage(), matchesPattern(/<h1.*>.*Tagged with #one.*<\/h1>/gms));
       });
       it('AND render the tag in the breadcrumb', async () => {
-        const groups = [
-          {tagSlug: 'one', blogPosts: [createBlogPost()]}
-        ];
-        /** @type string */
-        let writtenToFile = '';
-        /**
-         * @param _ {Filename}
-         * @param content {string}
-         * @return {Promise<void>}
-         */
-        const writeFile = async (_, content) => { writtenToFile = content; };
-        await renderAndWriteTagPages({writeFile})(groups, renderParams);
-        assertThat(writtenToFile, matchesPattern(/<nav class="breadcrumb">.*Tag &raquo;.*#one.*<\/nav>/gms));
+        assertThat(await renderTagPage(), matchesPattern(/<nav class="breadcrumb">.*Tag &raquo;.*#one.*<\/nav>/gms));
       });
       it('AND render the post`s headlines as H2', async () => {
         const groups = [
           {tagSlug: 'one', blogPosts: [createBlogPost({headlineAsHtml: 'One tagged Blog-Post'})]}
         ];
-        /** @type string */
-        let writtenToFile = '';
-        /**
-         * @param _ {Filename}
-         * @param content {string}
-         * @return {Promise<void>}
-         */
-        const writeFile = async (_, content) => { writtenToFile = content; };
-        await renderAndWriteTagPages({writeFile})(groups, renderParams);
+        const writtenToFile = await renderTagPage(groups);
         assertThat(writtenToFile, matchesPattern(/<h2.*>.*One tagged Blog-Post.*<\/h2>/gms));
       });
       it('AND renders "tagged with: #one #two" under the post', async () => {
         const groups = [
           {tagSlug: 'one', blogPosts: [createBlogPost({tags: ['one', 'two']})]},
         ];
-        /** @type string */
-        let writtenToFile = '';
-        /**
-         * @param _ {Filename}
-         * @param content {string}
-         * @return {Promise<void>}
-         */
-        const writeFile = async (_, content) => { writtenToFile = content; };
-        await renderAndWriteTagPages({writeFile})(groups, renderParams);
+        const writtenToFile = await renderTagPage(groups);
         assertThat(writtenToFile, containsString('tagged with: #one #two'));
       });
     });
