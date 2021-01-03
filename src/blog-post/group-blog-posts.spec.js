@@ -13,7 +13,7 @@ describe('Group blog posts by tags', () => {
   it('GIVEN one blog post THEN return one group', () => {
     const posts = [newPost({headline: '', tags: ['js']})];
     const grouped = groupBlogPostsByTag(posts);
-    assertThat(grouped, hasItem(hasProperties({tag: {value: 'js'}, blogPosts: posts})));
+    assertThat(grouped, hasItem(hasProperties({tag: {value: 'js', slug: 'js'}, blogPosts: posts})));
   });
   it('GIVEN two blog posts with different tags THEN return two groups', () => {
     const posts = [
@@ -22,8 +22,8 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, hasItems(
-      hasProperties({tag: {value: 'js'}, blogPosts: [posts[0]]}),
-      hasProperties({tag: {value: 'tdd'}, blogPosts: [posts[1]]}),
+      hasProperties({tag: {value: 'js', slug: 'js'}, blogPosts: [posts[0]]}),
+      hasProperties({tag: {value: 'tdd', slug: 'tdd'}, blogPosts: [posts[1]]}),
     ));
   });
   it('GIVEN two blog posts with the same tags each THEN return exactly two groups with each post in it', () => {
@@ -33,8 +33,8 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, contains(
-      hasProperties({tag: {value: 'js'}, blogPosts: posts}),
-      hasProperties({tag: {value: 'tdd'}, blogPosts: posts}),
+      hasProperties({tag: {value: 'js', slug: 'js'}, blogPosts: posts}),
+      hasProperties({tag: {value: 'tdd', slug: 'tdd'}, blogPosts: posts}),
     ));
   });
   it('GIVEN blog posts with different tags THEN return the groups sorted by the tag counts', () => {
@@ -45,9 +45,9 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, contains(
-      hasProperties({tag: {value: 'one'}, blogPosts: posts}),
-      hasProperties({tag: {value: 'two'}, blogPosts: [posts[0], posts[1]]}),
-      hasProperties({tag: {value: 'three'}, blogPosts: [posts[0]]}),
+      hasProperties({tag: {value: 'one', slug: 'one'}, blogPosts: posts}),
+      hasProperties({tag: {value: 'two', slug: 'two'}, blogPosts: [posts[0], posts[1]]}),
+      hasProperties({tag: {value: 'three', slug: 'three'}, blogPosts: [posts[0]]}),
     ));
   });
 });

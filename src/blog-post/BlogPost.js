@@ -2,6 +2,8 @@
  * @param {Filename} markdownFilename
  * @return {Filename}
  */
+import {slug} from "../_shared/slug.js";
+
 const dateDirectoryAndFilename = markdownFilename => markdownFilename.match(/\d{4}\/\d{2}\/\d{2}-.*/)[0];
 /**
  * @param {string} s
@@ -96,6 +98,6 @@ export class BlogPost {
     this._dateCreated = dateCreated;
   }
   get tags() {
-    return this._rawTags.map(t => ({value: t}));
+    return this._rawTags.map(t => ({value: t, slug: slug(t)}));
   }
 }
