@@ -44,6 +44,7 @@ export class BlogPost {
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
     const post = new BlogPost();
     post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
+    post._rawTags = rawBlogPostData.tags;
 
     post.abstract = rawBlogPostData.abstract;
     post.abstractAsHtml = rawBlogPostData.abstractAsHtml;
@@ -56,7 +57,6 @@ export class BlogPost {
     post.isDraft = rawBlogPostData.isDraft;
     post.oldUrls = rawBlogPostData.oldUrls;
     post.previewImage = rawBlogPostData.previewImage;
-    post.tags = rawBlogPostData.tags;
     post.vimeoId = rawBlogPostData.vimeoId;
     post.videoStartTime = rawBlogPostData.videoStartTime;
     post.youtubeId = rawBlogPostData.youtubeId;
@@ -94,5 +94,8 @@ export class BlogPost {
   }
   set dateCreated(dateCreated) {
     this._dateCreated = dateCreated;
+  }
+  get tags() {
+    return this._rawTags.map(t => ({value: t}));
   }
 }

@@ -34,7 +34,7 @@ export class BlogPost {
   isDraft: BlogPostMetadata['isDraft'];
   markdownFilename: Filename;
   oldUrls:  BlogPostMetadata['oldUrls'];
-  tags:  BlogPostMetadata['tags'];
+  tags:  Tag[];
   previewImageUrl: BlogPostMetadata['previewImage'];
   url: string;
   vimeoId?: BlogPostMetadata['vimeoId'];
