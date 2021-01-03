@@ -31,16 +31,27 @@
         left space stays empty
 - [x] remove using pico-tester, since mocha is the better alternative and it is fast
 - [x] use `{strict as assert}`
-- [ ] ensure proper URLs from tags, e.g. currently there is /blog/tag/JavaScript and /blog/tag/javascript and same with "react native" and "reactnative", etc.
-  - [ ] provide a mapping for some, e.g. reactjs maps to react, ReactJS, react.js, ...
-  - [ ] sluggify all tags, React => react, React Native => react-native, ...
-  - [ ] create one page per tag slug only
-  - [ ] store tag-object and provide tag: slug, value, ... extend the current tag object that exists in tidbits
+- [x] refactor tags to be slugs when used as URL and to create pages    
+  - [x] sluggify all tags, React => react, React Native => react-native, ...
+  - [x] create one page per tag slug only
+  - [x] store tag-object and provide tag: slug, value, ... extend the current tag object that exists in tidbits
     - [x] refactor blog tags to use the new tag object, with `value` prop, etc. (mainly to learn how the grouping is done currently and adapt for tidbits later)
       - [x] use the slugs to group by tags
         - [x] add slugs to blog tags
-    - [ ] add tests to verify rendering the tpls, like in tidbits
-    - [ ] render tag pages using slugs (not the tag itself anymore)
+    - [x] add tests to verify rendering the tpls, like in tidbits
+    - [x] render tag pages using slugs (not the tag itself anymore)
+- [ ] show tags for tidbits overview page
+  - [ ] show tags as on blog page
+  - [ ] multiple views with tags:
+    - [ ] tabs: top-tags, alphabetical
+    - [ ] show: 10 or all tags 
+    - [ ] show bar in bg with amount of tags
+- [ ] solidify tag usage
+  - [ ] aliases: map multiple (same) tags to one slug, 
+        e.g. js, javascript, JavaScript => javascript
+        or: jscc, jscc17, jscc20 => JSCraftCamp
+       (see the genreated pages)
+  - [ ] enhance: generate additional tags, e.g. if "ruby" is given also add "programming language"
 - [ ] why is there no tags and months left sidebar on the tidbits page?
 
 # v2
