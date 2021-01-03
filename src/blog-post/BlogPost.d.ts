@@ -42,4 +42,5 @@ export class BlogPost {
   youtubeId?: BlogPostMetadata['youtubeId'];
 
   static withSourceFile(blogPostSourceFile: BlogPostSourceFile, rawBlogPostData: RawBlogPost): BlogPost;
+  static withRawData(rawBlogPostData: RawBlogPost): BlogPost;
 }

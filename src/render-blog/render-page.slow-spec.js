@@ -1,5 +1,5 @@
 import {describe, it} from '../test.js';
-import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
+import {assertThat, hasItem} from 'hamjest';
 import {BlogPost} from "../blog-post/BlogPost.js";
 import {renderAndWriteTagPages} from "./render-page.js";
 
