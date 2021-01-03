@@ -1,28 +1,45 @@
+import {BlogPostSourceFile} from "./BlogPostSourceFile";
+
+export type RawBlogPost = {
+  abstract: string;
+  abstractAsHtml: string;
+  bodyAsHtml: string;
+  hasAbstractOnly: boolean;
+  headline: string;
+  headlineAsHtml: string;
+};
+
 export type BlogPostMetadata = {
   canonicalUrl: string;
+  canonicalHint: string;
   dateCreated: DateString | DateTimeString;
   isDraft: boolean;
   oldUrls: string[];
   previewImage: string;
   tags: string[];
-}
+  vimeoId?: string;
+  videoStartTime?: string;
+  youtubeId?: string;
+};
 
 export class BlogPost {
-  abstract: string;
-  abstractAsHtml: string;
-  bodyAsHtml: string;
+  private _dateCreated: BlogPostMetadata['dateCreated'];
+  abstract: RawBlogPost['abstract'];
+  abstractAsHtml: RawBlogPost['abstractAsHtml'];
+  bodyAsHtml: RawBlogPost['bodyAsHtml'];
   canonicalUrl: BlogPostMetadata['canonicalUrl'];
+  canonicalHint: BlogPostMetadata['canonicalHint'];
   dateCreated: BlogPostMetadata['dateCreated'];
   hasVideo: boolean;
   isDraft: BlogPostMetadata['isDraft'];
   markdownFilename: Filename;
   oldUrls:  BlogPostMetadata['oldUrls'];
   tags:  BlogPostMetadata['tags'];
-  previewImageUrl: string;
+  previewImageUrl: BlogPostMetadata['previewImage'];
   url: string;
-  vimeoId?: string;
-  videoStartTime?: string;
-  youtubeId?: string;
+  vimeoId?: BlogPostMetadata['vimeoId'];
+  videoStartTime?: BlogPostMetadata['videoStartTime'];
+  youtubeId?: BlogPostMetadata['youtubeId'];
 
-  static preload(markdownFilename: string): BlogPost;
+  static withSourceFile(blogPostSourceFile: BlogPostSourceFile, rawBlogPostData: RawBlogPost): BlogPost;
 }

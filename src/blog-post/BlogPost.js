@@ -36,6 +36,11 @@ const urlForMonthFromMarkdownFilename = (markdownFilename) => {
 };
 
 export class BlogPost {
+  /**
+   * @param blogPostSourceFile {BlogPostSourceFile}
+   * @param rawBlogPostData {RawBlogPost}
+   * @return {BlogPost}
+   */
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
     const post = new BlogPost();
     post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
