@@ -110,15 +110,6 @@ const generateHomePage = async (posts, tidbits) => {
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
-const generateTagPage = async (group) => {
-  const tag = group.tag;
-  const destDir = path.join(OUTPUT_DIRECTORY, 'blog/tag', tag);
-  await fs.promises.mkdir(destDir, {recursive: true});
-  const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = renderTemplate('blog/tag.html', {...defaultRenderParams, tag, posts: group.blogPosts});
-  await fs.promises.writeFile(destFilename, renderedFile);
-};
-
 const generateMonthPage = async (group) => {
   const yearAndMonth = group.yearAndMonth;
   const destDir = path.join(OUTPUT_DIRECTORY, 'blog', yearAndMonth.replace('-', '/'));
@@ -128,7 +119,7 @@ const generateMonthPage = async (group) => {
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
-const generateTagPages = async (postGroups) => Promise.all(postGroups.map(generateTagPage));
+const generateTagPages = (postGroups) => renderAndWriteTagPages()(postGroups, defaultRenderParams);
 const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
 const runAndTimeIt = async (label, fn) => {
@@ -144,6 +135,7 @@ const runAndTimeIt = async (label, fn) => {
 }
 
 import {findRelatedPosts} from './blog-post/related-posts.js';
+import {renderAndWriteTagPages} from "./render-blog/render-page.js";
 
 const isNotDraft = post => post.isDraft === false;
 const loadPosts = async sourceFiles => {
