@@ -44,24 +44,34 @@ export class BlogPost {
    * @return {BlogPost}
    */
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
+    const raw = {
+      ...rawBlogPostData,
+      markdownFilename: blogPostSourceFile.filename, // should this become a BlogPostSourceFile instance?
+    };
+    return BlogPost.withRawData(raw);
+  }
+  /**
+   * @param raw {RawBlogPost}
+   * @return {BlogPost}
+   */
+  static withRawData(raw) {
     const post = new BlogPost();
-    post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
-    post._rawTags = rawBlogPostData.tags;
-
-    post.abstract = rawBlogPostData.abstract;
-    post.abstractAsHtml = rawBlogPostData.abstractAsHtml;
-    post.bodyAsHtml = rawBlogPostData.bodyAsHtml;
-    post.canonicalHint = rawBlogPostData.canonicalHint;
-    post.canonicalUrl = rawBlogPostData.canonicalUrl;
-    post.dateCreated = rawBlogPostData.dateCreated;
-    post.headline = rawBlogPostData.headline;
-    post.headlineAsHtml = rawBlogPostData.headlineAsHtml;
-    post.isDraft = rawBlogPostData.isDraft;
-    post.oldUrls = rawBlogPostData.oldUrls;
-    post.previewImage = rawBlogPostData.previewImage;
-    post.vimeoId = rawBlogPostData.vimeoId;
-    post.videoStartTime = rawBlogPostData.videoStartTime;
-    post.youtubeId = rawBlogPostData.youtubeId;
+    post._rawTags = raw.tags;
+    post.abstract = raw.abstract;
+    post.abstractAsHtml = raw.abstractAsHtml;
+    post.bodyAsHtml = raw.bodyAsHtml;
+    post.canonicalHint = raw.canonicalHint;
+    post.canonicalUrl = raw.canonicalUrl;
+    post.dateCreated = raw.dateCreated;
+    post.headline = raw.headline;
+    post.headlineAsHtml = raw.headlineAsHtml;
+    post.markdownFilename = raw.markdownFilename;
+    post.isDraft = raw.isDraft;
+    post.oldUrls = raw.oldUrls;
+    post.previewImage = raw.previewImage;
+    post.vimeoId = raw.vimeoId;
+    post.videoStartTime = raw.videoStartTime;
+    post.youtubeId = raw.youtubeId;
     return post;
   }
   /**
