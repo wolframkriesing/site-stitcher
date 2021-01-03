@@ -1,6 +1,4 @@
-import * as marked from "marked";
-
-const slug = s => new marked.Slugger().slug(s);
+import {slug} from "../_shared/slug.js";
 
 export class Tidbit {
   /**
