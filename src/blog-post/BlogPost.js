@@ -2,6 +2,8 @@
  * @param {Filename} markdownFilename
  * @return {Filename}
  */
+import {slug} from "../_shared/slug.js";
+
 const dateDirectoryAndFilename = markdownFilename => markdownFilename.match(/\d{4}\/\d{2}\/\d{2}-.*/)[0];
 /**
  * @param {string} s
@@ -36,10 +38,40 @@ const urlForMonthFromMarkdownFilename = (markdownFilename) => {
 };
 
 export class BlogPost {
+  /**
+   * @param blogPostSourceFile {BlogPostSourceFile}
+   * @param rawBlogPostData {RawBlogPost}
+   * @return {BlogPost}
+   */
   static withSourceFile(blogPostSourceFile, rawBlogPostData) {
+    const raw = {
+      ...rawBlogPostData,
+      markdownFilename: blogPostSourceFile.filename, // should this become a BlogPostSourceFile instance?
+    };
+    return BlogPost.withRawData(raw);
+  }
+  /**
+   * @param raw {RawBlogPost}
+   * @return {BlogPost}
+   */
+  static withRawData(raw) {
     const post = new BlogPost();
-    post.markdownFilename = blogPostSourceFile.filename; // should this become a BlogPostSourceFile instance?
-    Object.entries(rawBlogPostData).forEach(([key, value]) => post[key] = value);
+    post._rawTags = raw.tags;
+    post.abstract = raw.abstract;
+    post.abstractAsHtml = raw.abstractAsHtml;
+    post.bodyAsHtml = raw.bodyAsHtml;
+    post.canonicalHint = raw.canonicalHint;
+    post.canonicalUrl = raw.canonicalUrl;
+    post.dateCreated = raw.dateCreated;
+    post.headline = raw.headline;
+    post.headlineAsHtml = raw.headlineAsHtml;
+    post.markdownFilename = raw.markdownFilename;
+    post.isDraft = raw.isDraft;
+    post.oldUrls = raw.oldUrls;
+    post.previewImage = raw.previewImage;
+    post.vimeoId = raw.vimeoId;
+    post.videoStartTime = raw.videoStartTime;
+    post.youtubeId = raw.youtubeId;
     return post;
   }
   /**
@@ -74,5 +106,8 @@ export class BlogPost {
   }
   set dateCreated(dateCreated) {
     this._dateCreated = dateCreated;
+  }
+  get tags() {
+    return this._rawTags.map(t => ({value: t, slug: slug(t)}));
   }
 }

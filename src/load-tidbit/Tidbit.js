@@ -1,8 +1,10 @@
-import * as marked from "marked";
-
-const slug = s => new marked.Slugger().slug(s);
+import {slug} from "../_shared/slug.js";
 
 export class Tidbit {
+  /**
+   * @param raw {RawTidbit}
+   * @return {Tidbit}
+   */
   static withRawData(raw) {
     const tidbit = new Tidbit();
     tidbit.abstract = raw.abstract;

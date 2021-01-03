@@ -21,9 +21,9 @@ export class BlogPostSourceFile {
    * @return {BlogPostSourceFile}
    */
   static withFilename(filename) {
-    const blogPost = new BlogPostSourceFile();
-    blogPost.filename = filename;
-    return blogPost;
+    const sourceFile = new BlogPostSourceFile();
+    sourceFile.filename = filename;
+    return sourceFile;
   }
   get dateCreated() {
     return dateCreatedFromFilename(this.filename);

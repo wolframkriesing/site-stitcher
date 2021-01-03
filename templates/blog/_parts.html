@@ -10,7 +10,7 @@
       <div class="metadata">
         {{post.dateCreated | toReadableDate}}
         {% if post.tags.length > 0 %}
-          - tagged with: {% for tag in post.tags %}#{{tag}} {% endfor %}
+          - tagged with: {% for tag in post.tags %}#{{tag.value}} {% endfor %}
         {% endif %}
       </div>
     </header>
@@ -25,7 +25,7 @@
     <header>Top Blog Tags</header>
     <ol>
       {% for group in groups %}
-        <li><a href="/blog/tag/{{group.tag}}/">#{{group.tag}}</a></li>
+        <li><a href="/blog/tag/{{group.tagSlug}}/">#{{group.tagSlug}}</a></li>
       {% endfor %}
     </ol>
   </nav>

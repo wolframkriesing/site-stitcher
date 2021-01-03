@@ -7,13 +7,13 @@ describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
     const post = new BlogPost();
     post.headline = headline;
-    post.tags = tags;
+    post._rawTags = tags; // TODO this is not really a good idea setting the private prop, is it?
     return post;
   };
   it('GIVEN one blog post THEN return one group', () => {
     const posts = [newPost({headline: '', tags: ['js']})];
     const grouped = groupBlogPostsByTag(posts);
-    assertThat(grouped, hasItem(hasProperties({tag: 'js', blogPosts: posts})));
+    assertThat(grouped, hasItem(hasProperties({tagSlug: 'js', blogPosts: posts})));
   });
   it('GIVEN two blog posts with different tags THEN return two groups', () => {
     const posts = [
@@ -22,8 +22,8 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, hasItems(
-      hasProperties({tag: 'js', blogPosts: [posts[0]]}),
-      hasProperties({tag: 'tdd', blogPosts: [posts[1]]}),
+      hasProperties({tagSlug: 'js', blogPosts: [posts[0]]}),
+      hasProperties({tagSlug: 'tdd', blogPosts: [posts[1]]}),
     ));
   });
   it('GIVEN two blog posts with the same tags each THEN return exactly two groups with each post in it', () => {
@@ -33,8 +33,8 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, contains(
-      hasProperties({tag: 'js', blogPosts: posts}),
-      hasProperties({tag: 'tdd', blogPosts: posts}),
+      hasProperties({tagSlug: 'js', blogPosts: posts}),
+      hasProperties({tagSlug: 'tdd', blogPosts: posts}),
     ));
   });
   it('GIVEN blog posts with different tags THEN return the groups sorted by the tag counts', () => {
@@ -45,9 +45,9 @@ describe('Group blog posts by tags', () => {
     ];
     const grouped = groupBlogPostsByTag(posts);
     assertThat(grouped, contains(
-      hasProperties({tag: 'one'}),
-      hasProperties({tag: 'two'}),
-      hasProperties({tag: 'three'}),
+      hasProperties({tagSlug: 'one', blogPosts: posts}),
+      hasProperties({tagSlug: 'two', blogPosts: [posts[0], posts[1]]}),
+      hasProperties({tagSlug: 'three', blogPosts: [posts[0]]}),
     ));
   });
 });

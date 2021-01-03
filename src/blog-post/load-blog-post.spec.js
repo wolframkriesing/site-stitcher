@@ -80,7 +80,7 @@ describe('Load a blog post, with all data ready to render', () => {
       });
       it('WHEN it has the metadata `tags` THEN provide the property accordingly', async () => {
         const post = await loadPost({fileContent: `tags: tag1, tag2\n\n# headline\nabstract, yeah`});
-        assertThat(post, hasProperties({tags: ['tag1', 'tag2']}));
+        assertThat(post, hasProperties({tags: [{value: 'tag1', slug: 'tag1'}, {value: 'tag2', slug: 'tag2'}]}));
       });
       it('WHEN it has no `dateCreated` THEN the original dateCreated from the preloaded post is provided', async () => {
         const post = await loadPost({fileContent: `noDateCreated: :)\n\n# no dateCreated metadata`, markdownFilename: '2001/01/01-mmm.md'});
