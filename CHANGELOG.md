@@ -41,12 +41,12 @@
     - [x] add tests to verify rendering the tpls, like in tidbits
     - [x] render tag pages using slugs (not the tag itself anymore)
 - [ ] show tags for tidbits overview page
-  - [ ] show tags as on blog page
-  - [ ] multiple views with tags:
-    - [ ] tabs: top-tags, alphabetical (no all is needed, it adds no value, thanks Nick)
-    - [ ] show bar in bg with amount of tags
-      - [ ] provide counts to grouped data
-        - [ ] use the most count as 90% and adjust the others, so the widest bar looks "filled"
+- [ ] show tags as on blog page
+  - [ ] tabs: top-tags, alphabetical (no all is needed, it adds no value, thanks Nick)
+    - [ ] show tags alphabetically sorted 
+  - [x] show bar in bg with amount of tags
+    - [x] provide counts to grouped data
+  - [ ] use the most count as 90% and adjust the others, so the widest bar looks "filled"
 - [ ] show bg bar for posts count on month+year too
 - [ ] solidify tag usage
   - [ ] aliases: map multiple (same) tags to one slug, 
