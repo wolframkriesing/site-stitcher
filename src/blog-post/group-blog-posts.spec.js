@@ -1,5 +1,5 @@
 import {describe, it} from '../test.js';
-import {assertThat, hasItem, hasItems, hasProperties, contains} from 'hamjest';
+import {assertThat, contains, hasItem, hasItems, hasProperties, everyItem} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
 
@@ -49,6 +49,50 @@ describe('Group blog posts by tags', () => {
       hasProperties({tagSlug: 'two', blogPosts: [posts[0], posts[1]]}),
       hasProperties({tagSlug: 'three', blogPosts: [posts[0]]}),
     ));
+
+    describe('calculate the background-gradient-width (`gradientWidthInPercent` prop) depending on the number of posts', () => {
+      it('GIVEN one tag with one post THEN set `gradientWidthInPercent=100`', () => {
+        const posts = [
+          newPost({tags: ['one']}),
+        ];
+        assertThat(groupBlogPostsByTag(posts), contains(
+          hasProperties({gradientWidthInPercent: 100})
+        ));
+      });
+      it('GIVEN two tags with one post each THEN set `gradientWidthInPercent=100` for both', () => {
+        const posts = [
+          newPost({tags: ['one']}),
+          newPost({tags: ['two']}),
+        ];
+        assertThat(groupBlogPostsByTag(posts), everyItem(
+          hasProperties({gradientWidthInPercent: 100})
+        ));
+      });
+      it('GIVEN one tag used twice, the other once THEN set 100 for the first and 50 for the second', () => {
+        const posts = [
+          newPost({tags: ['one']}),
+          newPost({tags: ['one', 'two']}),
+        ];
+        const grouped = groupBlogPostsByTag(posts);
+        assertThat(grouped[0], hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}));
+        assertThat(grouped[1], hasProperties({tagSlug: 'two', gradientWidthInPercent: 50}));
+      });
+      it('GIVEN multiple tags, various percentages THEN set each properly', () => {
+        const posts = [
+          newPost({headline: 'no tags', tags: []}),
+          newPost({headline: '#one', tags: ['one']}),
+          newPost({headline: '#one and #two', tags: ['one', 'two']}),
+          newPost({headline: '#one and #two - v2', tags: ['one', 'two']}),
+          newPost({headline: '#one #two #three', tags: ['one', 'two', 'three']}),
+        ];
+        const grouped = groupBlogPostsByTag(posts);
+        assertThat(grouped, contains(
+          hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}),
+          hasProperties({tagSlug: 'two', gradientWidthInPercent: 75}),
+          hasProperties({tagSlug: 'three', gradientWidthInPercent: 25})
+        ));
+      });
+    });
   });
 });
 

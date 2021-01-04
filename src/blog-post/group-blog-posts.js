@@ -21,9 +21,17 @@ const postsByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(post)
 /**
  * @param tagSlug {Slug}
  * @param posts {BlogPost[]}
+ * @param maxTagCount {number}
  * @return {BlogPostsByTag}
  */
-const blogPostsGroupedByTag = (tagSlug, posts) => ({tagSlug, blogPosts: postsByTag(posts, tagSlug)});
+const blogPostsGroupedByTag = (tagSlug, posts, maxTagCount) => {
+  const blogPosts = postsByTag(posts, tagSlug);
+  return {
+    tagSlug,
+    blogPosts,
+    gradientWidthInPercent: (blogPosts.length / maxTagCount) * 100,
+  };
+};
 
 /**
  * @param arr {string[]}
@@ -44,8 +52,9 @@ const byBlogPostsCount = (group1, group2) => group1.blogPosts.length > group2.bl
  */
 export const groupBlogPostsByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
+  const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort().reverse()[0];
   return allTagsSlugs
-    .map(tagSlug => blogPostsGroupedByTag(tagSlug, posts))
+    .map(tagSlug => blogPostsGroupedByTag(tagSlug, posts, maxTagCount))
     .sort(byBlogPostsCount)
   ;
 };

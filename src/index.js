@@ -155,8 +155,11 @@ const loadPosts = async sourceFiles => {
   console.timeEnd('Load blog posts');
   console.time('Relate and group posts');
   posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
+  const blogPostsGroupedByTag = groupBlogPostsByTag(posts);
+  const sortAlphabeticallyByTag = (group1, group2) => group1.tagSlug > group2.tagSlug ? 1 : -1;
   const groupedBlogPosts = {
-    byTag: groupBlogPostsByTag(posts),
+    byTag: blogPostsGroupedByTag,
+    byTagSortedAlphabetically: [...blogPostsGroupedByTag].sort(sortAlphabeticallyByTag),
     byMonth: groupBlogPostsByYearAndMonth(posts),
   };
   defaultRenderParams.groupedBlogPosts = groupedBlogPosts;

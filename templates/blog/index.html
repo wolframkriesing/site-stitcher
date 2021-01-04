@@ -17,7 +17,7 @@
 
 {% block mainStart %}
   <aside class="left">
-    {{ blogParts.tagsNav(groupedBlogPosts.byTag.slice(0, 10)) }}
+    {{ blogParts.tagsNav(groupedBlogPosts.byTag.slice(0, 20), groupedBlogPosts.byTagSortedAlphabetically) }}
     {{ blogParts.monthsNav(groupedBlogPosts.byMonth) }}
   </aside>
 {% endblock %}
@@ -31,7 +31,7 @@
       <div class="metadata">
         {{ posts[0].dateCreated | toReadableDate }}
         {% if (posts[0].tags.length > 0) %}
-          - tagged with: {% for tag in posts[0].tags %}#{{tag}} {% endfor %}
+          - tagged with: {% for tag in posts[0].tags %}#{{tag.value}} {% endfor %}
         {% endif %}
       </div>
     </header>
