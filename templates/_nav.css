@@ -121,10 +121,10 @@ nav.tags ol.tags-alphabetically-sorted { /* initially dont show these tags */
 }
 
 /* the sibling selector `~` is used to show/hide the <ol> according to the checkbox being checked or not */
-nav.tags input[type=checkbox]:checked ~ nav.tags ol.tags-alphabetically-sorted {
+nav.tags input[type=checkbox]:checked ~ ol.tags-alphabetically-sorted {
   display: block;
 }
-nav.tags input[type=checkbox]:checked ~ nav.tags ol.top-tags {
+nav.tags input[type=checkbox]:checked ~ ol.top-tags {
   display: none;
 }
 
