@@ -94,7 +94,7 @@
       <div class="metadata">
         {{ posts[0].dateCreated | toReadableDate }}
         {% if (posts[0].tags.length > 0) %}
-          - tagged with: {% for tag in posts[0].tags %}#{{tag}} {% endfor %}
+          - tagged with: {% for tag in posts[0].tags %}#{{tag.value}} {% endfor %}
         {% endif %}
       </div>
     </header>
