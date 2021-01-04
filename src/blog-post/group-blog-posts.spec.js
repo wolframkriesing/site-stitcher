@@ -159,5 +159,21 @@ describe('Group blog posts by year+month', () => {
       hasProperties({yearAndMonth: '2001-01'}),
       hasProperties({yearAndMonth: '2000-01'}),
     ));
+    describe('calculate the background-gradient-width (`gradientWidthInPercent` prop) depending on the number of posts', () => {
+      it('GIVEN multiple tags, various percentages THEN set each properly', () => {
+        const posts = [
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2008-12-31'),
+          newPost('2009-01-01'),
+        ];
+        const grouped = groupBlogPostsByYearAndMonth(posts);
+        assertThat(grouped, contains(
+          hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 50}),
+          hasProperties({yearAndMonth: '2008-12', gradientWidthInPercent: 50}),
+          hasProperties({yearAndMonth: '2000-01', gradientWidthInPercent: 100}),
+        ));
+      });
+    });
   });
 });

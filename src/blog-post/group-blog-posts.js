@@ -79,9 +79,16 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
 
   /**
    * @param groups {BlogPostsByYearAndMonth[]}
+   * @param maxCount {number}
    * @return {function(BlogPost[], YearAndMonth): void}
    */
-  const addMapEntryToGroups = groups => (blogPosts, key) => { groups.push({yearAndMonth: key, blogPosts}); };
+  const addMapEntryToGroups = (groups, maxCount) => (blogPosts, key) => {
+    groups.push({
+      yearAndMonth: key,
+      blogPosts,
+      gradientWidthInPercent: (blogPosts.length / maxCount) * 100,
+    });
+  };
 
   /**
    * @param group1 {BlogPostsByYearAndMonth}
@@ -92,6 +99,8 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
   const mapByMonth = new Map();
   posts.forEach(addPostToMap(mapByMonth));
   const groups = /** @type {BlogPostsByYearAndMonth[]} */([]);
-  mapByMonth.forEach(addMapEntryToGroups(groups));
+  let maxCount = 0;
+  for (let posts of mapByMonth.values()) { if (posts.length > maxCount) maxCount = posts.length; }
+  mapByMonth.forEach(addMapEntryToGroups(groups, maxCount));
   return groups.sort(byYearAndMonthDesc);
 }
