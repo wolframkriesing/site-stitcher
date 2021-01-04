@@ -55,6 +55,10 @@ nav.breadcrumb {
 nav.tags ol, nav.months ol {
   margin-left: 0;
 }
+nav.tags ol {
+  max-height: 31rem;
+  overflow-y: scroll;
+}
 nav.tags header, nav.months header {
   margin-bottom: var(--spacing-small);
 }
