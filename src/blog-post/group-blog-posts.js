@@ -23,7 +23,13 @@ const postsByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(post)
  * @param posts {BlogPost[]}
  * @return {BlogPostsByTag}
  */
-const blogPostsGroupedByTag = (tagSlug, posts) => ({tagSlug, blogPosts: postsByTag(posts, tagSlug)});
+const blogPostsGroupedByTag = (tagSlug, posts) => {
+  return {
+    tagSlug,
+    blogPosts: postsByTag(posts, tagSlug),
+    gradientWidthInPercent: 100,
+  };
+};
 
 /**
  * @param arr {string[]}

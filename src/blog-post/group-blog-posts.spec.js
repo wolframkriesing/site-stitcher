@@ -1,5 +1,5 @@
 import {describe, it} from '../test.js';
-import {assertThat, hasItem, hasItems, hasProperties, contains} from 'hamjest';
+import {assertThat, contains, hasItem, hasItems, hasProperties, everyItem} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
 import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
 
@@ -49,6 +49,26 @@ describe('Group blog posts by tags', () => {
       hasProperties({tagSlug: 'two', blogPosts: [posts[0], posts[1]]}),
       hasProperties({tagSlug: 'three', blogPosts: [posts[0]]}),
     ));
+
+    describe('calculate the background-gradient-width depending on the number of posts', () => {
+      it('GIVEN one tag with one post THEN set `gradientWidthInPercent=100`', () => {
+        const posts = [
+          newPost({tags: ['one']}),
+        ];
+        assertThat(groupBlogPostsByTag(posts), contains(
+          hasProperties({gradientWidthInPercent: 100})
+        ));
+      });
+      it('GIVEN two tags with one post each THEN set `gradientWidthInPercent=100` for both', () => {
+        const posts = [
+          newPost({tags: ['one']}),
+          newPost({tags: ['two']}),
+        ];
+        assertThat(groupBlogPostsByTag(posts), everyItem(
+          hasProperties({gradientWidthInPercent: 100})
+        ));
+      });
+    });
   });
 });
 
