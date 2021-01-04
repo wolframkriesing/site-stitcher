@@ -55,6 +55,13 @@ nav.breadcrumb {
 nav.tags ol, nav.months ol {
   margin-left: 0;
 }
+nav.tags ol {
+  max-height: 31rem;
+  overflow-y: scroll;
+}
+nav.tags li {
+  white-space: nowrap;
+}
 nav.tags header, nav.months header {
   margin-bottom: var(--spacing-small);
 }
@@ -111,3 +118,51 @@ nav.secondary {
       right: auto;
     }
   }
+
+/**
+ *  The tags filter/toggle "functionality".
+ *  It is an invisible checkbox, that shows/hides the according <ol> tag with either top20 or a-z tags.
+ */
+nav.tags ol.tags-alphabetically-sorted { /* initially dont show these tags */
+  display: none;
+}
+
+/* the sibling selector `~` is used to show/hide the <ol> according to the checkbox being checked or not */
+nav.tags input[type=checkbox]:checked ~ ol.tags-alphabetically-sorted {
+  display: block;
+}
+nav.tags input[type=checkbox]:checked ~ ol.top-tags {
+  display: none;
+}
+
+/* Hide the checkbox completely, we only use it for setting and remember the value. */
+nav.tags input[type=checkbox] {
+  display: none;
+}
+
+nav.tags label {
+  display: flex;
+  width: 8rem; /* enough for both elements to nicely have 50% each and be fully readable, dont know how to automtically size this :( */
+}
+  nav.tags label span {
+    flex: 1;
+    white-space: nowrap;
+    text-align: center;
+    padding: var(--spacing-smaller);
+    margin-bottom: var(--spacing-medium);
+  }
+
+/* The un-checked option. */
+nav.tags input[type=checkbox]:not(checked) ~ label .all,
+nav.tags input[type=checkbox]:checked ~ label .top10 {
+  background: transparent;
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-highlight-lighter);
+}
+/* The checked option. */
+nav.tags input[type=checkbox]:checked ~ label .all,
+nav.tags input[type=checkbox]:not(checked) ~ label .top10 {
+  background: var(--color-highlight-lighter);
+  color: initial;
+  border-bottom: 1px solid transparent;
+}
