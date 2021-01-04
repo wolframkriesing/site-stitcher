@@ -21,6 +21,7 @@ const postsByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(post)
 /**
  * @param tagSlug {Slug}
  * @param posts {BlogPost[]}
+ * @param maxTagCount {number}
  * @return {BlogPostsByTag}
  */
 const blogPostsGroupedByTag = (tagSlug, posts, maxTagCount) => {

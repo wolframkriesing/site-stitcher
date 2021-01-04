@@ -39,7 +39,7 @@ describe('Render blog pages', () => {
        * @param groups {BlogPostsByTag[]}
        * @return {Promise<string>}
        */
-      const renderTagPage = async (groups = [{tagSlug: 'one', blogPosts: [createBlogPost()]}]) => {
+      const renderTagPage = async (groups = [{tagSlug: 'one', blogPosts: [createBlogPost()], gradientWidthInPercent: 100}]) => {
         /** @type string */
         let writtenToFile = '';
         /**
@@ -54,7 +54,7 @@ describe('Render blog pages', () => {
 
       it('AND write "one" tag`s page to "/blog/tag/one/index.html"', async () => {
         const groups = [
-          {tagSlug: 'one', blogPosts: [createBlogPost()]}
+          {tagSlug: 'one', blogPosts: [createBlogPost()], gradientWidthInPercent: 100}
         ];
         /** @type Filename[] */
         const writtenToFilenames = [];
@@ -75,14 +75,14 @@ describe('Render blog pages', () => {
       });
       it('AND render the post`s headlines as H2', async () => {
         const groups = [
-          {tagSlug: 'one', blogPosts: [createBlogPost({headlineAsHtml: 'One tagged Blog-Post'})]}
+          {tagSlug: 'one', blogPosts: [createBlogPost({headlineAsHtml: 'One tagged Blog-Post'})], gradientWidthInPercent: 100}
         ];
         const writtenToFile = await renderTagPage(groups);
         assertThat(writtenToFile, matchesPattern(/<h2.*>.*One tagged Blog-Post.*<\/h2>/gms));
       });
       it('AND renders "tagged with: #one #two" under the post', async () => {
         const groups = [
-          {tagSlug: 'one', blogPosts: [createBlogPost({tags: ['one', 'two']})]},
+          {tagSlug: 'one', blogPosts: [createBlogPost({tags: ['one', 'two']})], gradientWidthInPercent: 100},
         ];
         const writtenToFile = await renderTagPage(groups);
         assertThat(writtenToFile, containsString('tagged with: #one #two'));
