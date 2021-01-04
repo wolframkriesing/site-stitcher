@@ -59,6 +59,9 @@ nav.tags ol {
   max-height: 31rem;
   overflow-y: scroll;
 }
+nav.tags li {
+  white-space: nowrap;
+}
 nav.tags header, nav.months header {
   margin-bottom: var(--spacing-small);
 }

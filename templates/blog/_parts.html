@@ -22,7 +22,7 @@
 
 {% macro _tagsList(groups) %}
   {% for group in groups %}
-    <li style="background: linear-gradient(to right, var(--color-overlay) {{ group.blogPosts.length }}px, transparent 0)">
+    <li style="background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) {{ group.gradientWidthInPercent }}%, transparent 0)">
       <a href="/blog/tag/{{group.tagSlug}}/">#{{group.tagSlug}}</a>
     </li>
   {% endfor %}
