@@ -19,60 +19,19 @@
   <aside class="left">
     <nav class="tags">
       <header>Tags</header>
-      <style>
-        .tags-all {
-          display: none;
-        }
-        #checkbox-all:checked ~ .tags-all {
-          display: block;
-        }
-        #checkbox-all:checked ~ .tags-top10 {
-          display: none;
-        }
-        /* Hide the checkbox completely, we only use it for setting and remember the value. */
-        #checkbox-all {
-          display: none;
-        }
-        label {
-          display: flex;
-          width: 8rem; /* enough for both elements to nicely have 50% each and be fully readable, dont know how to automtically size this :( */
-        }
-        label span {
-          flex: 1;
-          white-space: nowrap;
-          text-align: center;
-          padding: var(--spacing-smaller);
-          margin-bottom: var(--spacing-medium);
-        }
-
-        /* The un-checked option. */
-        #checkbox-all:not(checked) ~ label .all,
-        #checkbox-all:checked ~ label .top10 {
-          background: transparent;
-          color: var(--color-secondary);
-          border-bottom: 1px solid var(--color-highlight-lighter);
-        }
-        /* The checked option. */
-        #checkbox-all:checked ~ label .all,
-        #checkbox-all:not(checked) ~ label .top10 {
-          background: var(--color-highlight-lighter);
-          color: initial;
-          border-bottom: 1px solid transparent;
-        }
-      </style>
-      <input type="checkbox" id="checkbox-all"/>
-      <label for="checkbox-all">
+      <input type="checkbox" id="which-tags-toggle"/>
+      <label for="which-tags-toggle">
         <span class="top10">Top 20</span>
         <span class="all">A-Z ↓</span>
       </label>
-      <ol class="tags-top10">
+      <ol class="top-tags">
         {% for group in groupedBlogPosts.byTag.slice(0, 20) %}
           <li style="background: linear-gradient(to right, var(--color-overlay) {{ group.blogPosts.length }}px, transparent 0)">
             <a href="/blog/tag/{{group.tagSlug}}/">#{{group.tagSlug}}</a>
           </li>
         {% endfor %}
       </ol>
-      <ol class="tags-all">
+      <ol class="tags-alphabetically-sorted">
         {% for group in groupedBlogPosts.byTag %}
         <li style="background: linear-gradient(to right, var(--color-overlay) {{ group.blogPosts.length }}px, transparent 0)">
             <a href="/blog/tag/{{group.tagSlug}}/">#{{group.tagSlug}}</a>
