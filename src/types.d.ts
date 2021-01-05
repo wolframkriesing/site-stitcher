@@ -37,4 +37,5 @@ interface ArticlesGroupedByYearAndMonth {
   yearAndMonth: YearAndMonth;
   articles: Article[];
   gradientWidthInPercent: number;
+  url: RelativeUrl;
 }

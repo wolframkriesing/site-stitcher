@@ -64,9 +64,10 @@ export const groupArticlesByTag = (posts, urlPrefix) => {
 
 /**
  * @param posts {Article[]}
+ * @param urlPrefix {string}
  * @return {ArticlesGroupedByYearAndMonth[]}
  */
-export const groupArticlesByYearAndMonth = (posts) => {
+export const groupArticlesByYearAndMonth = (posts, urlPrefix) => {
   /**
    * @param map {Map<YearAndMonth, Article[]>}
    * @return {function(Article): void}
@@ -90,6 +91,7 @@ export const groupArticlesByYearAndMonth = (posts) => {
       yearAndMonth: key,
       articles,
       gradientWidthInPercent: (articles.length / maxCount) * 100,
+      url: `${urlPrefix}/${key.replace('-', '/')}/`
     });
   };
 

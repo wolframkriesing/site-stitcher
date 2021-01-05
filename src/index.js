@@ -161,7 +161,7 @@ const loadPosts = async sourceFiles => {
   const groupedBlogPosts = {
     byTag: blogPostsGroupedByTag,
     byTagSortedAlphabetically: [...blogPostsGroupedByTag].sort(sortAlphabeticallyByTag),
-    byMonth: groupArticlesByYearAndMonth(posts),
+    byMonth: groupArticlesByYearAndMonth(posts, '/blog'),
   };
   defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
   console.timeEnd('Relate and group posts');
@@ -177,7 +177,7 @@ const loadPosts = async sourceFiles => {
   const groupedTidbits = {
     byTag: tidbitsGroupedByTag,
     byTagSortedAlphabetically: [...tidbitsGroupedByTag].sort(sortAlphabeticallyByTag),
-    byMonth: groupArticlesByYearAndMonth(tidbits),
+    byMonth: groupArticlesByYearAndMonth(tidbits, '/tidbits'),
   };
   defaultRenderParams.groupedTidbits = groupedTidbits;
   console.timeEnd('Relate and group tidbits');

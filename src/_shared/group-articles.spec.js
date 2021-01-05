@@ -131,6 +131,14 @@ describe('Group articles by tags', () => {
   });
 });
 
+/**
+ * @param articles {Article[]}
+ * @param urlPrefix? {string}
+ * @return {ArticlesGroupedByYearAndMonth[]}
+ */
+const groupByYearAndMonth = (articles, urlPrefix = '/irrelevant') =>
+  groupArticlesByYearAndMonth(articles, urlPrefix);
+
 describe('Group articles by year+month', () => {
   /**
    * @param dateCreated {DateString}
@@ -147,7 +155,7 @@ describe('Group articles by year+month', () => {
       newArticle('2000-01-01'),
       newArticle('2000-01-01'),
     ];
-    const grouped = groupArticlesByYearAndMonth(articles);
+    const grouped = groupByYearAndMonth(articles);
     assertThat(grouped, contains(
       hasProperties({yearAndMonth: '2000-01', articles}),
     ));
@@ -157,11 +165,18 @@ describe('Group articles by year+month', () => {
       newArticle('2000-01-01'),
       newArticle('2001-01-01'),
     ];
-    const grouped = groupArticlesByYearAndMonth(articles);
+    const grouped = groupByYearAndMonth(articles);
     assertThat(grouped, contains(
       hasProperties({yearAndMonth: '2001-01', articles: [articles[1]]}),
       hasProperties({yearAndMonth: '2000-01', articles: [articles[0]]}),
     ));
+  });
+  it('GIVEN an article THEN each group has the correct `url`', () => {
+    const articles = [
+      newArticle('2000-01-01'),
+    ];
+    const grouped = groupByYearAndMonth(articles, '/url/prefix');
+    assertThat(grouped, contains(hasProperties({url: '/url/prefix/2000/01/'})));
   });
   it('GIVEN multiple articles of different months THEN return grouped', () => {
     const articles = [
@@ -172,7 +187,7 @@ describe('Group articles by year+month', () => {
       newArticle('2009-01-01'),
       newArticle('2009-11-01'),
     ];
-    const grouped = groupArticlesByYearAndMonth(articles);
+    const grouped = groupByYearAndMonth(articles);
     assertThat(grouped, contains(
       hasProperties({yearAndMonth: '2009-11', articles: [articles[5]]}),
       hasProperties({yearAndMonth: '2009-01', articles: [articles[4]]}),
@@ -190,7 +205,7 @@ describe('Group articles by year+month', () => {
       newArticle('2009-11-01'),
       newArticle('2001-01-01'),
     ];
-    const grouped = groupArticlesByYearAndMonth(articles);
+    const grouped = groupByYearAndMonth(articles);
     assertThat(grouped, contains(
       hasProperties({yearAndMonth: '2009-11'}),
       hasProperties({yearAndMonth: '2009-01'}),
@@ -206,7 +221,7 @@ describe('Group articles by year+month', () => {
           newArticle('2008-12-31'),
           newArticle('2009-01-01'),
         ];
-        const grouped = groupArticlesByYearAndMonth(articles);
+        const grouped = groupByYearAndMonth(articles);
         assertThat(grouped, contains(
           hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 50}),
           hasProperties({yearAndMonth: '2008-12', gradientWidthInPercent: 50}),
@@ -230,7 +245,7 @@ describe('Group articles by year+month', () => {
           newArticle('2009-01-01'),
           newArticle('2009-01-01'),
         ];
-        const grouped = groupArticlesByYearAndMonth(articles);
+        const grouped = groupByYearAndMonth(articles);
         assertThat(grouped, contains(
           hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 20}),
           hasProperties({yearAndMonth: '2000-01', gradientWidthInPercent: 100}),

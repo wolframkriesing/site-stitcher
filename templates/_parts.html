@@ -83,7 +83,7 @@
     <ol>
       {% for group in groups %}
       <li style="{{ _backgroundGradient(group.gradientWidthInPercent) }}">
-          <a href="{{ urlPrefix }}/{{ group.yearAndMonth.replace('-', '/') }}/">{{ group.yearAndMonth | toReadableDate }}</a>
+          <a href="{{ group.url }}">{{ group.yearAndMonth | toReadableDate }}</a>
         </li>
       {% endfor %}
     </ol>
