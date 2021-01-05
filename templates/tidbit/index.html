@@ -5,11 +5,21 @@
 {% block pageTitlePrefix %}Tidbits{% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
 {% endblock %}
 
 {% block breadcrumb %}
-  <a href="/">Home</a> &raquo; Tidbits
+  <a href="/">Home</a> &raquo;
+  Tidbits
+{% endblock %}
+
+{% import "_parts.html" as parts %}
+{% import "tidbit/_parts.html" as tidbitParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ parts.tagsNav(groupedTidbits.byTag.slice(0, 20), groupedTidbits.byTagSortedAlphabetically) }}
+  </aside>
 {% endblock %}
 
 {% block content %}
@@ -25,7 +35,6 @@
     <a href="https://www.thesaurus.com/browse/tidbit">partly from thesaurus.com</a>.
   </p>
 
-  {% import "tidbit/_parts.html" as tidbitParts %}
   {% for tidbit in tidbits %}
     {{ tidbitParts.tidbitPreview(tidbit) }}
   {% endfor %}

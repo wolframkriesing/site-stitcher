@@ -40,7 +40,14 @@
         - [x] add slugs to blog tags
     - [x] add tests to verify rendering the tpls, like in tidbits
     - [x] render tag pages using slugs (not the tag itself anymore)
-- [ ] show tags for tidbits overview page
+- [x] show tags for tidbits overview page
+  - [x] generate tidbits tags pages
+  - [x] show the tags in the sidebar on the tidbits-index page  
+  - [x] make the grouping function generic (currently blog group functions are used with tidbits)
+    - [x] move them to a _shared place
+    - [x] rename the prop `blogPosts` to `articles`
+      - [x] adjust all usages (tpls, code, etc.)
+    - [x] make each group have a prop `url`, so we can remove `urlPrefix` from the macro
 - [x] show tags as on blog page
   - [x] tabs: top-tags, alphabetical (no all is needed, it adds no value, thanks Nick)
     - [x] show tags alphabetically sorted 
@@ -54,7 +61,7 @@
         or: jscc, jscc17, jscc20 => JSCraftCamp
        (see the genreated pages)
   - [ ] enhance: generate additional tags, e.g. if "ruby" is given also add "programming language"
-- [ ] why is there no tags and months left sidebar on the tidbits page?
+- [ ] generate tidbits date pages
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful

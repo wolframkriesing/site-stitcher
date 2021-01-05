@@ -85,7 +85,7 @@ Find [the book on leanpub](https://leanpub.com/get-your-hands-dirty-on-clean-arc
 # OpenSource Firmware is Important
 slug: open-source-firmware-is-important
 dateCreated: 2020-07-11 14:37 CET
-tags: open source, 
+tags: open source, firmware
 
 <figure>
     <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/mUTx61t443A" frameborder="0" allowfullscreen></iframe>
