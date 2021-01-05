@@ -52,11 +52,11 @@ const generatePost = async (post) => {
   await fs.promises.writeFile(destFilename, renderedFile);
 }
 
-import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './render-tidbit/render-page.js';
-const generateTidbitsPages = async (tidbits) => {
-  await renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
-  await renderAndWriteTidbitPages()(tidbits, defaultRenderParams);
-};
+import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage, renderAndWriteTidbitTagPages} from './render-tidbit/render-page.js';
+const generateSingleTidbitsPages = (tidbits) => renderAndWriteTidbitPages()(tidbits, defaultRenderParams);
+const generateTidbitsIndexPage = (tidbits) => renderAndWriteTidbitsIndexPage()(tidbits, defaultRenderParams);
+const generateTidbitTagPages = (tidbitGroups) => renderAndWriteTidbitTagPages()(tidbitGroups, defaultRenderParams);
+
 
 const aboutIndexPage = async () => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'about');
@@ -185,18 +185,24 @@ const loadPosts = async sourceFiles => {
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
   // blog
-  await runAndTimeIt(`All blog posts (${posts.length})`, () => Promise.all(posts.map(generatePost)));
-  await runAndTimeIt('Blog overview page', () => generateBlogOverviewPage(posts.excludingDrafts()));
+  console.log('Blog');
+  await runAndTimeIt(`  all posts (${posts.length})`, () => Promise.all(posts.map(generatePost)));
+  await runAndTimeIt('  /blog page', () => generateBlogOverviewPage(posts.excludingDrafts()));
+  await runAndTimeIt(`  tags pages (${groupedBlogPosts.byTag.length})`, () => generateTagPages(groupedBlogPosts.byTag));
+  await runAndTimeIt(`  month pages (${groupedBlogPosts.byMonth.length})`, () => generateMonthPages(groupedBlogPosts.byMonth));
 
-  await runAndTimeIt(`All tags pages (${groupedBlogPosts.byTag.length})`, () => generateTagPages(groupedBlogPosts.byTag));
-  await runAndTimeIt(`All month pages (${groupedBlogPosts.byMonth.length})`, () => generateMonthPages(groupedBlogPosts.byMonth));
+  console.log('Tidbit');
+  await runAndTimeIt(`  /tidbits page`, () => generateTidbitsIndexPage(tidbits));
+  await runAndTimeIt(`  all pages (${tidbits.length})`, () => generateSingleTidbitsPages(tidbits));
+  await runAndTimeIt(`  tags pages (${groupedTidbits.byTag.length})`, () => generateTidbitTagPages(groupedTidbits.byTag));
   await runAndTimeIt('About pages', () => generateAboutPages());
-  await runAndTimeIt(`Tidbit pages (${tidbits.length})`, () => generateTidbitsPages(tidbits));
   await runAndTimeIt('Projects page', () => generateProjectsPage());
   await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());
+
+  console.log('HTTP pages');
   const oldUrlsCount = posts.reduce((prev, cur) => cur.oldUrls.length + prev, 0);
-  await runAndTimeIt(`All 301 pages (${oldUrlsCount})`, () => Promise.all(posts.map(generate301Pages)));
-  await runAndTimeIt('404 page', () => generate404Page(posts.slice(0, 5)));
+  await runAndTimeIt(`  301 pages (${oldUrlsCount})`, () => Promise.all(posts.map(generate301Pages)));
+  await runAndTimeIt('  404 page', () => generate404Page(posts.slice(0, 5)));
   
   console.log('-----');
   console.timeEnd('Overall');

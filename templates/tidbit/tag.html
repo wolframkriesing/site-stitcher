@@ -1,0 +1,34 @@
+{% extends "_focus.html" %}
+
+{% block pagename %}tag{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/tidbits/tag/{{tag}}/{% endblock %}
+{% block pageTitlePrefix %}#{{tag}}{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+{% endblock %}
+
+{% block breadcrumb %}
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits">Tidbits</a> &raquo;
+  Tag &raquo;
+  #{{tag}}
+{% endblock %}
+
+{% import "tidbit/_parts.html" as tidbitParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ tidbitParts.tagsNav(groupedTidbits.byTag.slice(0, 20), groupedTidbits.byTagSortedAlphabetically) }}
+  </aside>
+{% endblock %}
+
+{% block content %}
+  <h1 id="{{tag}}" is="more-h1">
+    Tagged with #{{tag}}
+  </h1>
+
+  {% for tidbit in posts %}
+    {{ tidbitParts.tidbitPreview(tidbit) }}
+  {% endfor %}
+{% endblock %}
