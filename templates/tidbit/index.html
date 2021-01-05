@@ -13,6 +13,16 @@
   Tidbits
 {% endblock %}
 
+{% import "_parts.html" as parts %}
+{% import "tidbit/_parts.html" as tidbitParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ parts.tagsNav(groupedBlogPosts.byTag.slice(0, 20), groupedBlogPosts.byTagSortedAlphabetically) }}
+    {{ parts.monthsNav(groupedBlogPosts.byMonth) }}
+  </aside>
+{% endblock %}
+
 {% block content %}
   <h1 style="display: inline" is="more-h1" id="tidbits">Tidbits 😋</h1>
   <p style="display: inline;">
@@ -26,7 +36,6 @@
     <a href="https://www.thesaurus.com/browse/tidbit">partly from thesaurus.com</a>.
   </p>
 
-  {% import "tidbit/_parts.html" as tidbitParts %}
   {% for tidbit in tidbits %}
     {{ tidbitParts.tidbitPreview(tidbit) }}
   {% endfor %}
