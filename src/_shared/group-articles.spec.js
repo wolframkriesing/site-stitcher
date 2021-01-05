@@ -3,6 +3,13 @@ import {assertThat, contains, hasItem, hasItems, hasProperties, everyItem} from 
 import {BlogPost} from '../blog-post/BlogPost.js';
 import {groupArticlesByTag, groupArticlesByYearAndMonth} from './group-articles.js';
 
+/**
+ * @param articles {Article[]}
+ * @param urlPrefix? {string}
+ * @return {ArticlesGroupedByTag[]}
+ */
+const groupByTag = (articles, urlPrefix = '/irrelevant') => groupArticlesByTag(articles, urlPrefix);
+
 describe('Group articles by tags', () => {
   /**
    * @param {{headline?: string, tags: string[]}} props
@@ -14,17 +21,24 @@ describe('Group articles by tags', () => {
     article._rawTags = tags; // TODO this is not really a good idea setting the private prop, is it?
     return article;
   };
-  it('GIVEN one article THEN return one group', () => {
-    const articles = [newArticle({headline: '', tags: ['js']})];
-    const grouped = groupArticlesByTag(articles);
-    assertThat(grouped, hasItem(hasProperties({tagSlug: 'js', articles})));
+  describe('GIVEN one article', () => {
+    it('THEN return one group', () => {
+      const articles = [newArticle({headline: '', tags: ['js']})];
+      const grouped = groupByTag(articles);
+      assertThat(grouped, hasItem(hasProperties({tagSlug: 'js', articles})));
+    });
+    it('THEN the group has a `url` prop built with the prefix and the tag', () => {
+      const articles = [newArticle({headline: '', tags: ['js']})];
+      const grouped = groupByTag(articles, '/url/prefix');
+      assertThat(grouped, hasItem(hasProperties({url: '/url/prefix/js/'})));
+    });
   });
   it('GIVEN two articles with different tags THEN return two groups', () => {
     const articles = [
       newArticle({headline: '', tags: ['js']}),
       newArticle({headline: '', tags: ['tdd']}),
     ];
-    const grouped = groupArticlesByTag(articles);
+    const grouped = groupByTag(articles);
     assertThat(grouped, hasItems(
       hasProperties({tagSlug: 'js', articles: [articles[0]]}),
       hasProperties({tagSlug: 'tdd', articles: [articles[1]]}),
@@ -35,7 +49,7 @@ describe('Group articles by tags', () => {
       newArticle({headline: '', tags: ['js', 'tdd']}),
       newArticle({headline: '', tags: ['js', 'tdd']}),
     ];
-    const grouped = groupArticlesByTag(articles);
+    const grouped = groupByTag(articles);
     assertThat(grouped, contains(
       hasProperties({tagSlug: 'js', articles}),
       hasProperties({tagSlug: 'tdd', articles}),
@@ -47,7 +61,7 @@ describe('Group articles by tags', () => {
       newArticle({headline: '', tags: ['two', 'one', ]}),
       newArticle({headline: '', tags: ['one', ]}),
     ];
-    const grouped = groupArticlesByTag(articles);
+    const grouped = groupByTag(articles);
     assertThat(grouped, contains(
       hasProperties({tagSlug: 'one', articles}),
       hasProperties({tagSlug: 'two', articles: [articles[0], articles[1]]}),
@@ -59,7 +73,7 @@ describe('Group articles by tags', () => {
         const articles = [
           newArticle({tags: ['one']}),
         ];
-        assertThat(groupArticlesByTag(articles), contains(
+        assertThat(groupByTag(articles), contains(
           hasProperties({gradientWidthInPercent: 100})
         ));
       });
@@ -68,7 +82,7 @@ describe('Group articles by tags', () => {
           newArticle({tags: ['one']}),
           newArticle({tags: ['two']}),
         ];
-        assertThat(groupArticlesByTag(articles), everyItem(
+        assertThat(groupByTag(articles), everyItem(
           hasProperties({gradientWidthInPercent: 100})
         ));
       });
@@ -77,7 +91,7 @@ describe('Group articles by tags', () => {
           newArticle({tags: ['one']}),
           newArticle({tags: ['one', 'two']}),
         ];
-        const grouped = groupArticlesByTag(articles);
+        const grouped = groupByTag(articles);
         assertThat(grouped[0], hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}));
         assertThat(grouped[1], hasProperties({tagSlug: 'two', gradientWidthInPercent: 50}));
       });
@@ -89,7 +103,7 @@ describe('Group articles by tags', () => {
           newArticle({headline: '#one and #two - v2', tags: ['one', 'two']}),
           newArticle({headline: '#one #two #three', tags: ['one', 'two', 'three']}),
         ];
-        const grouped = groupArticlesByTag(articles);
+        const grouped = groupByTag(articles);
         assertThat(grouped, contains(
           hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}),
           hasProperties({tagSlug: 'two', gradientWidthInPercent: 75}),
@@ -109,7 +123,7 @@ describe('Group articles by tags', () => {
           newArticle({tags: ['one', 'two']}),
           newArticle({tags: ['one', 'two']}),
         ];
-        const grouped = groupArticlesByTag(articles);
+        const grouped = groupByTag(articles);
         assertThat(grouped[0], hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}));
         assertThat(grouped[1], hasProperties({tagSlug: 'two', gradientWidthInPercent: 20}));
       });
