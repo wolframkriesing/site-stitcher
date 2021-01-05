@@ -44,10 +44,10 @@
   - [ ] generate tidbits date pages
   - [x] generate tidbits tags pages
   - [x] show the tags in the sidebar on the tidbits-index page  
-  - [ ] make the grouping function generic (currently blog group functions are used with tidbits)
-    - [ ] move them to a _shared place
-    - [ ] rename the prop `blogPosts` to `articles`
-      - [ ] adjust all usages (tpls, code, etc.)
+  - [x] make the grouping function generic (currently blog group functions are used with tidbits)
+    - [x] move them to a _shared place
+    - [x] rename the prop `blogPosts` to `articles`
+      - [x] adjust all usages (tpls, code, etc.)
     - [ ] make each group have a prop `url`, so we can remove `urlPrefix` from the macro
 - [x] show tags as on blog page
   - [x] tabs: top-tags, alphabetical (no all is needed, it adds no value, thanks Nick)
