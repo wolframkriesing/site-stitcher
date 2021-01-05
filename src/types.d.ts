@@ -18,3 +18,23 @@ type Tag = {
   slug: Slug;
 }
 
+type YearAndMonth = string; // e.g. '2020-10'
+
+interface Article {
+  dateCreated: DateString | DateTimeString;
+  isDraft: boolean;
+  oldUrls:  RelativeUrl[];
+  tags:  Tag[];
+  url: string;
+}
+
+interface ArticlesGroupedByTag {
+  tagSlug: Tag['slug'];
+  blogPosts: Article[]; // TODO rename to articles
+  gradientWidthInPercent: number;
+}
+interface ArticlesGroupedByYearAndMonth {
+  yearAndMonth: YearAndMonth;
+  blogPosts: Article[];
+  gradientWidthInPercent: number;
+}

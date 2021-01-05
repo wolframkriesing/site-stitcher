@@ -1,28 +1,21 @@
 /**
- * @typedef {import('./BlogPost').BlogPost} BlogPost
- * @typedef {import('./types').BlogPostsByTag} BlogPostsByTag
- * @typedef {import('./types').BlogPostsByYearAndMonth} BlogPostsByYearAndMonth
- * @typedef {import('./types').YearAndMonth} YearAndMonth
- */
-
-/**
- * @param post {BlogPost}
+ * @param post {Article}
  * @return {Slug[]}
  */
 const tagSlugsOfPost = (post) => post.tags.map(t => t.slug);
 
 /**
- * @param posts {BlogPost[]}
+ * @param posts {Article[]}
  * @param tagSlug {Slug}
- * @return {BlogPost[]}
+ * @return {Article[]}
  */
 const postsByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(post).includes(tagSlug));
 
 /**
  * @param tagSlug {Slug}
- * @param posts {BlogPost[]}
+ * @param posts {Article[]}
  * @param maxTagCount {number}
- * @return {BlogPostsByTag}
+ * @return {ArticlesGroupedByTag}
  */
 const blogPostsGroupedByTag = (tagSlug, posts, maxTagCount) => {
   const blogPosts = postsByTag(posts, tagSlug);
@@ -40,8 +33,8 @@ const blogPostsGroupedByTag = (tagSlug, posts, maxTagCount) => {
 const uniques = arr => [...new Set(arr)];
 
 /**
- * @param group1 {BlogPostsByTag}
- * @param group2 {BlogPostsByTag}
+ * @param group1 {ArticlesGroupedByTag}
+ * @param group2 {ArticlesGroupedByTag}
  * @return {number}
  */
 const byBlogPostsCount = (group1, group2) => group1.blogPosts.length > group2.blogPosts.length ? -1 : 1;
@@ -54,8 +47,8 @@ const byBlogPostsCount = (group1, group2) => group1.blogPosts.length > group2.bl
 const sortByNumber = (a, b) => a - b;
 
 /**
- * @param posts {BlogPost[]}
- * @return {BlogPostsByTag[]}
+ * @param posts {Article[]}
+ * @return {ArticlesGroupedByTag[]}
  */
 export const groupBlogPostsByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
@@ -67,13 +60,13 @@ export const groupBlogPostsByTag = (posts) => {
 };
 
 /**
- * @param posts {BlogPost[]}
- * @return {BlogPostsByYearAndMonth[]}
+ * @param posts {Article[]}
+ * @return {ArticlesGroupedByYearAndMonth[]}
  */
 export const groupBlogPostsByYearAndMonth = (posts) => {
   /**
-   * @param map {Map<YearAndMonth, BlogPost[]>}
-   * @return {function(BlogPost): void}
+   * @param map {Map<YearAndMonth, Article[]>}
+   * @return {function(Article): void}
    */
   const addPostToMap = map => post => {
     const [yearLength, spaceLength, monthLength] = [4, 1, 2];
@@ -81,13 +74,13 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
     if (!map.has(key)) {
       map.set(key, []);
     }
-    map.set(key, [...(/** @type {BlogPost[]} */(map.get(key))), post]);
+    map.set(key, [...(/** @type {Article[]} */(map.get(key))), post]);
   };
 
   /**
-   * @param groups {BlogPostsByYearAndMonth[]}
+   * @param groups {ArticlesGroupedByYearAndMonth[]}
    * @param maxCount {number}
-   * @return {function(BlogPost[], YearAndMonth): void}
+   * @return {function(Article[], YearAndMonth): void}
    */
   const addMapEntryToGroups = (groups, maxCount) => (blogPosts, key) => {
     groups.push({
@@ -98,14 +91,14 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
   };
 
   /**
-   * @param group1 {BlogPostsByYearAndMonth}
-   * @param group2 {BlogPostsByYearAndMonth}
+   * @param group1 {ArticlesGroupedByYearAndMonth}
+   * @param group2 {ArticlesGroupedByYearAndMonth}
    * @return {number}
    */
   const byYearAndMonthDesc = (group1, group2) => group1.yearAndMonth > group2.yearAndMonth ? -1 : 1;
   const mapByMonth = new Map();
   posts.forEach(addPostToMap(mapByMonth));
-  const groups = /** @type {BlogPostsByYearAndMonth[]} */([]);
+  const groups = /** @type {ArticlesGroupedByYearAndMonth[]} */([]);
   let maxCount = 0;
   for (let posts of mapByMonth.values()) { if (posts.length > maxCount) maxCount = posts.length; }
   mapByMonth.forEach(addMapEntryToGroups(groups, maxCount));

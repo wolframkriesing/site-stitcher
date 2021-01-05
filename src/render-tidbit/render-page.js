@@ -41,7 +41,7 @@ const renderTagPage = (data) => renderTemplate('tidbit/tag.html', data);
 
 /**
  * @param deps? {TagPageProductionDependencies}
- * @return {function(BlogPostsByTag[], PlainObject): Promise<void>}
+ * @return {function(ArticlesGroupedByTag[], PlainObject): Promise<void>}
  */
 export const renderAndWriteTidbitTagPages = ({writeFile = writeOutputFile, renderPage = renderTagPage} = {}) => async (groups, renderParams) => {
   /**
@@ -50,7 +50,7 @@ export const renderAndWriteTidbitTagPages = ({writeFile = writeOutputFile, rende
    */
   const destFilename = tagSlug => `/tidbits/tag/${tagSlug}/index.html`;
   /**
-   * @param group {BlogPostsByTag}
+   * @param group {ArticlesGroupedByTag}
    * @return {Promise<void>}
    */
   const writeGroup = group => writeFile(destFilename(group.tagSlug), renderPage({...renderParams, tag: group.tagSlug, posts: group.blogPosts}));

@@ -3,10 +3,6 @@ import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
 import {BlogPost} from "../blog-post/BlogPost.js";
 import {renderAndWriteTagPages} from "./render-page.js";
 
-/**
- * @typedef {import('../blog-post/types').BlogPostsByTag} BlogPostsByTag
- */
-
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
 const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth: []}};
@@ -36,7 +32,7 @@ describe('Render blog pages', () => {
   describe('GIVEN some blog posts WHEN rendering them', () => {
     describe('THEN render a page per tag', () => {
       /**
-       * @param groups {BlogPostsByTag[]}
+       * @param groups {ArticlesGroupedByTag[]}
        * @return {Promise<string>}
        */
       const renderTagPage = async (groups = [{tagSlug: 'one', blogPosts: [createBlogPost()], gradientWidthInPercent: 100}]) => {
