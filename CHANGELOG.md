@@ -12,11 +12,11 @@
 - [ ] show some beautiful tag cloud/overview in the space right or left
 - [ ] show tags, related articles, tweets, assets, TOC, to the right of the article
 - [ ] move the hc-charts to my own repos, <pico-bar-chart>, <pico-waterfall-chart>, <pico-resource-timing-stats>
-- [ ] make the site use full width
+- [x] make the site use full width
   - [x] render footer nicely
   - [x] h1 on home page should render in the center
-  - [ ] ensure the 50em width of <main> text
-    - [ ] split main and .content CSS ONLY on the page specific css files, never on _global.css, 
+  - [x] ensure the 50em width of <main> text
+    - [x] split main and .content CSS ONLY on the page specific css files, never on _global.css, 
           so it HAS to be configured for each page
       - [x] make the tpl code more reusable and allow extending blocks more flexible with default content
             and allow flexible extending of the tpls _empty, _focus, _allFeatures (as they are called now)
