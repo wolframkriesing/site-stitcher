@@ -11,4 +11,5 @@ type YearAndMonth = string; // e.g. '2020-10'
 interface BlogPostsByYearAndMonth {
   yearAndMonth: YearAndMonth;
   blogPosts: BlogPost[];
+  gradientWidthInPercent: number;
 }

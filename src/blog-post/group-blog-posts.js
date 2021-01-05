@@ -47,12 +47,19 @@ const uniques = arr => [...new Set(arr)];
 const byBlogPostsCount = (group1, group2) => group1.blogPosts.length > group2.blogPosts.length ? -1 : 1;
 
 /**
+ * @param a {number}
+ * @param b {number}
+ * @return {number}
+ */
+const sortByNumber = (a, b) => a - b;
+
+/**
  * @param posts {BlogPost[]}
  * @return {BlogPostsByTag[]}
  */
 export const groupBlogPostsByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
-  const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort().reverse()[0];
+  const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort(sortByNumber).reverse()[0];
   return allTagsSlugs
     .map(tagSlug => blogPostsGroupedByTag(tagSlug, posts, maxTagCount))
     .sort(byBlogPostsCount)
@@ -79,9 +86,16 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
 
   /**
    * @param groups {BlogPostsByYearAndMonth[]}
+   * @param maxCount {number}
    * @return {function(BlogPost[], YearAndMonth): void}
    */
-  const addMapEntryToGroups = groups => (blogPosts, key) => { groups.push({yearAndMonth: key, blogPosts}); };
+  const addMapEntryToGroups = (groups, maxCount) => (blogPosts, key) => {
+    groups.push({
+      yearAndMonth: key,
+      blogPosts,
+      gradientWidthInPercent: (blogPosts.length / maxCount) * 100,
+    });
+  };
 
   /**
    * @param group1 {BlogPostsByYearAndMonth}
@@ -92,6 +106,8 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
   const mapByMonth = new Map();
   posts.forEach(addPostToMap(mapByMonth));
   const groups = /** @type {BlogPostsByYearAndMonth[]} */([]);
-  mapByMonth.forEach(addMapEntryToGroups(groups));
+  let maxCount = 0;
+  for (let posts of mapByMonth.values()) { if (posts.length > maxCount) maxCount = posts.length; }
+  mapByMonth.forEach(addMapEntryToGroups(groups, maxCount));
   return groups.sort(byYearAndMonthDesc);
 }

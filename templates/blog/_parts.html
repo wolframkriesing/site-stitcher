@@ -20,9 +20,13 @@
   </article>
 {% endmacro %}
 
+{% macro _backgroundGradient(percent) %}
+  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) {{ percent }}%, transparent 0)
+{% endmacro %}
+
 {% macro _tagsList(groups) %}
   {% for group in groups %}
-    <li style="background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) {{ group.gradientWidthInPercent }}%, transparent 0)">
+    <li style="{{ _backgroundGradient(group.gradientWidthInPercent) }}">
       <a href="/blog/tag/{{group.tagSlug}}/">#{{group.tagSlug}}</a>
     </li>
   {% endfor %}
@@ -50,7 +54,9 @@
     <header>Posts by Month</header>
     <ol>
       {% for group in groups %}
-        <li><a href="/blog/{{ group.yearAndMonth.replace('-', '/') }}/">{{ group.yearAndMonth | toReadableDate }}</a></li>
+      <li style="{{ _backgroundGradient(group.gradientWidthInPercent) }}">
+          <a href="/blog/{{ group.yearAndMonth.replace('-', '/') }}/">{{ group.yearAndMonth | toReadableDate }}</a>
+        </li>
       {% endfor %}
     </ol>
   </nav>

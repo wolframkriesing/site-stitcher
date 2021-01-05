@@ -92,6 +92,23 @@ describe('Group blog posts by tags', () => {
           hasProperties({tagSlug: 'three', gradientWidthInPercent: 25})
         ));
       });
+      it('GIVEN many tags THEN sort correctly also for big numbers', () => {
+        const posts = [
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', ]}),
+          newPost({tags: ['one', 'two']}),
+          newPost({tags: ['one', 'two']}),
+        ];
+        const grouped = groupBlogPostsByTag(posts);
+        assertThat(grouped[0], hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}));
+        assertThat(grouped[1], hasProperties({tagSlug: 'two', gradientWidthInPercent: 20}));
+      });
     });
   });
 });
@@ -159,5 +176,44 @@ describe('Group blog posts by year+month', () => {
       hasProperties({yearAndMonth: '2001-01'}),
       hasProperties({yearAndMonth: '2000-01'}),
     ));
+    describe('calculate the background-gradient-width (`gradientWidthInPercent` prop) depending on the number of posts', () => {
+      it('GIVEN multiple posts per month, various percentages THEN set each properly', () => {
+        const posts = [
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2008-12-31'),
+          newPost('2009-01-01'),
+        ];
+        const grouped = groupBlogPostsByYearAndMonth(posts);
+        assertThat(grouped, contains(
+          hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 50}),
+          hasProperties({yearAndMonth: '2008-12', gradientWidthInPercent: 50}),
+          hasProperties({yearAndMonth: '2000-01', gradientWidthInPercent: 100}),
+        ));
+      });
+      it('GIVEN many posts THEN sort correctly also for big numbers', () => {
+        const posts = [
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+          newPost('2000-01-01'),
+
+          newPost('2009-01-01'),
+          newPost('2009-01-01'),
+        ];
+        const grouped = groupBlogPostsByYearAndMonth(posts);
+        assertThat(grouped, contains(
+          hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 20}),
+          hasProperties({yearAndMonth: '2000-01', gradientWidthInPercent: 100}),
+        ));
+      });
+    });
   });
 });
