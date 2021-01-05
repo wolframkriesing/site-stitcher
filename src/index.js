@@ -5,7 +5,7 @@ import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, OUTPUT_DIRECTORY} from './confi
 import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
 import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
-import {groupArticlesByTag, groupArticlesByYearAndMonth} from './blog-post/group-blog-posts.js';
+import {groupArticlesByTag, groupArticlesByYearAndMonth} from './_shared/group-articles.js';
 import {loadTidbits} from './load-tidbit/load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
 import {renderTemplate} from './_deps/render-template.js';

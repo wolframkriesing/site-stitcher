@@ -19,7 +19,6 @@
     "src/blog-post/types.d.ts",
     "src/BlogPost.d.ts",
     "src/blog-post/BlogPost.d.ts",
-    "src/blog-post/group-blog-posts.js",
     "src/load-tidbit/Tidbit.d.ts",
     "src/load-tidbit/TidbitSourceFile.d.ts",
     "src/load-tidbit/load-tidbit.spec.js",

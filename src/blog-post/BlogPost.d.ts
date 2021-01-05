@@ -24,6 +24,7 @@ export type BlogPostMetadata = {
 
 export class BlogPost implements Article {
   private _dateCreated: BlogPostMetadata['dateCreated'];
+  _rawTags: string[];
   abstract: RawBlogPost['abstract'];
   abstractAsHtml: RawBlogPost['abstractAsHtml'];
   bodyAsHtml: RawBlogPost['bodyAsHtml'];
@@ -31,6 +32,8 @@ export class BlogPost implements Article {
   canonicalHint: BlogPostMetadata['canonicalHint'];
   dateCreated: BlogPostMetadata['dateCreated'];
   hasVideo: boolean;
+  headline: string;
+  headlineAsHtml: string;
   isDraft: BlogPostMetadata['isDraft'];
   markdownFilename: Filename;
   oldUrls:  BlogPostMetadata['oldUrls'];
