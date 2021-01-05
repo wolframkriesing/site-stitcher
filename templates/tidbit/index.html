@@ -13,11 +13,12 @@
   Tidbits
 {% endblock %}
 
+{% import "_parts.html" as parts %}
 {% import "tidbit/_parts.html" as tidbitParts %}
 
 {% block mainStart %}
   <aside class="left">
-    {{ tidbitParts.tagsNav(groupedTidbits.byTag.slice(0, 20), groupedTidbits.byTagSortedAlphabetically) }}
+    {{ parts.tagsNav(groupedTidbits.byTag.slice(0, 20), groupedTidbits.byTagSortedAlphabetically) }}
   </aside>
 {% endblock %}
 

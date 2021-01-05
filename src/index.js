@@ -156,7 +156,7 @@ const loadPosts = async sourceFiles => {
 
   console.time('Relate and group posts');
   posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
-  const blogPostsGroupedByTag = groupArticlesByTag(posts);
+  const blogPostsGroupedByTag = groupArticlesByTag(posts, '/blog/tag');
   const sortAlphabeticallyByTag = (group1, group2) => group1.tagSlug > group2.tagSlug ? 1 : -1;
   const groupedBlogPosts = {
     byTag: blogPostsGroupedByTag,
@@ -173,7 +173,7 @@ const loadPosts = async sourceFiles => {
   console.timeEnd('Load tidbits');
 
   console.time('Relate and group tidbits');
-  const tidbitsGroupedByTag = groupArticlesByTag(tidbits);
+  const tidbitsGroupedByTag = groupArticlesByTag(tidbits, '/tidbits/tag');
   const groupedTidbits = {
     byTag: tidbitsGroupedByTag,
     byTagSortedAlphabetically: [...tidbitsGroupedByTag].sort(sortAlphabeticallyByTag),

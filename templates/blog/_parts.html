@@ -22,10 +22,6 @@
 
 {% import "_parts.html" as parts %}
 
-{% macro tagsNav(topGroups, alphabeticallySortedGroups) %}
-  {{ parts.tagsNav('/blog/tag', topGroups, alphabeticallySortedGroups) }}
-{% endmacro %}
-
 {% macro monthsNav(groups) %}
   {{ parts.monthsNav('/blog', groups) }}
 {% endmacro %}

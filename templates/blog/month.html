@@ -14,11 +14,12 @@
   {{ yearAndMonth | toReadableDate }}
 {% endblock %}
 
+{% import "_parts.html" as parts %}
 {% import "blog/_parts.html" as blogParts %}
 
 {% block mainStart %}
   <aside class="left">
-    {{ blogParts.tagsNav(groupedBlogPosts.byTag.slice(0, 20), groupedBlogPosts.byTagSortedAlphabetically) }}
+    {{ parts.tagsNav(groupedBlogPosts.byTag.slice(0, 20), groupedBlogPosts.byTagSortedAlphabetically) }}
     {{ blogParts.monthsNav(groupedBlogPosts.byMonth) }}
   </aside>
 {% endblock %}

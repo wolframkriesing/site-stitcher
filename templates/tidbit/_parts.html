@@ -23,10 +23,6 @@
 
 {% import "_parts.html" as parts %}
 
-{% macro tagsNav(topGroups, alphabeticallySortedGroups) %}
-  {{ parts.tagsNav('/tidbits/tag', topGroups, alphabeticallySortedGroups) }}
-{% endmacro %}
-
 {% macro monthsNav(groups) %}
   {{ parts.monthsNav('/tidbits', groups) }}
 {% endmacro %}
