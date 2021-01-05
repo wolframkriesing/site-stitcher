@@ -153,6 +153,7 @@ const loadPosts = async sourceFiles => {
   console.time('Load blog posts');
   const posts = await loadPosts(sourceFiles);
   console.timeEnd('Load blog posts');
+
   console.time('Relate and group posts');
   posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
   const blogPostsGroupedByTag = groupBlogPostsByTag(posts);
@@ -170,6 +171,16 @@ const loadPosts = async sourceFiles => {
   const tidbitSourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
   const tidbits = await loadTidbits()(tidbitSourceFiles);
   console.timeEnd('Load tidbits');
+
+  console.time('Relate and group tidbits');
+  const tidbitsGroupedByTag = groupBlogPostsByTag(tidbits);
+  const groupedTidbits = {
+    byTag: tidbitsGroupedByTag,
+    byTagSortedAlphabetically: [...tidbitsGroupedByTag].sort(sortAlphabeticallyByTag),
+    byMonth: groupBlogPostsByYearAndMonth(tidbits),
+  };
+  defaultRenderParams.groupedTidbits = groupedTidbits;
+  console.timeEnd('Relate and group tidbits');
 
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
