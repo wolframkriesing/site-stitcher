@@ -5,7 +5,7 @@ import {CONTENT_DIRECTORY, BLOG_POSTS_DIRECTORY, OUTPUT_DIRECTORY} from './confi
 import {loadManyBlogPostSourceFiles} from './blog-post/load-blog-post-source-file.js';
 import {loadManyBlogPosts} from './blog-post/load-blog-post.js';
 import {sortByDateCreatedDescending} from './blog-post/sort-blog-post.js';
-import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './blog-post/group-blog-posts.js';
+import {groupArticlesByTag, groupArticlesByYearAndMonth} from './blog-post/group-blog-posts.js';
 import {loadTidbits} from './load-tidbit/load-tidbit.js';
 import {loadManyTidbitSourceFiles} from './load-tidbit/load-tidbit-source-file.js';
 import {renderTemplate} from './_deps/render-template.js';
@@ -156,12 +156,12 @@ const loadPosts = async sourceFiles => {
 
   console.time('Relate and group posts');
   posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
-  const blogPostsGroupedByTag = groupBlogPostsByTag(posts);
+  const blogPostsGroupedByTag = groupArticlesByTag(posts);
   const sortAlphabeticallyByTag = (group1, group2) => group1.tagSlug > group2.tagSlug ? 1 : -1;
   const groupedBlogPosts = {
     byTag: blogPostsGroupedByTag,
     byTagSortedAlphabetically: [...blogPostsGroupedByTag].sort(sortAlphabeticallyByTag),
-    byMonth: groupBlogPostsByYearAndMonth(posts),
+    byMonth: groupArticlesByYearAndMonth(posts),
   };
   defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
   console.timeEnd('Relate and group posts');
@@ -173,11 +173,11 @@ const loadPosts = async sourceFiles => {
   console.timeEnd('Load tidbits');
 
   console.time('Relate and group tidbits');
-  const tidbitsGroupedByTag = groupBlogPostsByTag(tidbits);
+  const tidbitsGroupedByTag = groupArticlesByTag(tidbits);
   const groupedTidbits = {
     byTag: tidbitsGroupedByTag,
     byTagSortedAlphabetically: [...tidbitsGroupedByTag].sort(sortAlphabeticallyByTag),
-    byMonth: groupBlogPostsByYearAndMonth(tidbits),
+    byMonth: groupArticlesByYearAndMonth(tidbits),
   };
   defaultRenderParams.groupedTidbits = groupedTidbits;
   console.timeEnd('Relate and group tidbits');

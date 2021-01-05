@@ -27,7 +27,7 @@ export const renderAndWriteTagPages = ({writeFile = writeOutputFile, renderPage 
    * @param group {ArticlesGroupedByTag}
    * @return {Promise<void>}
    */
-  const writeGroup = group => writeFile(destFilename(group.tagSlug), renderPage({...renderParams, tag: group.tagSlug, posts: group.blogPosts}));
+  const writeGroup = group => writeFile(destFilename(group.tagSlug), renderPage({...renderParams, tag: group.tagSlug, articles: group.articles}));
   const pageWriters = groups.map(writeGroup);
   await Promise.all(pageWriters);
 }

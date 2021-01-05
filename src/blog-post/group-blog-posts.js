@@ -21,7 +21,7 @@ const blogPostsGroupedByTag = (tagSlug, posts, maxTagCount) => {
   const blogPosts = postsByTag(posts, tagSlug);
   return {
     tagSlug,
-    blogPosts,
+    articles: blogPosts,
     gradientWidthInPercent: (blogPosts.length / maxTagCount) * 100,
   };
 };
@@ -37,7 +37,7 @@ const uniques = arr => [...new Set(arr)];
  * @param group2 {ArticlesGroupedByTag}
  * @return {number}
  */
-const byBlogPostsCount = (group1, group2) => group1.blogPosts.length > group2.blogPosts.length ? -1 : 1;
+const byArticlesCount = (group1, group2) => group1.articles.length > group2.articles.length ? -1 : 1;
 
 /**
  * @param a {number}
@@ -50,12 +50,12 @@ const sortByNumber = (a, b) => a - b;
  * @param posts {Article[]}
  * @return {ArticlesGroupedByTag[]}
  */
-export const groupBlogPostsByTag = (posts) => {
+export const groupArticlesByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
   const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort(sortByNumber).reverse()[0];
   return allTagsSlugs
     .map(tagSlug => blogPostsGroupedByTag(tagSlug, posts, maxTagCount))
-    .sort(byBlogPostsCount)
+    .sort(byArticlesCount)
   ;
 };
 
@@ -63,7 +63,7 @@ export const groupBlogPostsByTag = (posts) => {
  * @param posts {Article[]}
  * @return {ArticlesGroupedByYearAndMonth[]}
  */
-export const groupBlogPostsByYearAndMonth = (posts) => {
+export const groupArticlesByYearAndMonth = (posts) => {
   /**
    * @param map {Map<YearAndMonth, Article[]>}
    * @return {function(Article): void}
@@ -85,7 +85,7 @@ export const groupBlogPostsByYearAndMonth = (posts) => {
   const addMapEntryToGroups = (groups, maxCount) => (blogPosts, key) => {
     groups.push({
       yearAndMonth: key,
-      blogPosts,
+      articles: blogPosts,
       gradientWidthInPercent: (blogPosts.length / maxCount) * 100,
     });
   };

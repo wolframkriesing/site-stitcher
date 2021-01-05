@@ -1,7 +1,7 @@
 import {describe, it} from '../test.js';
 import {assertThat, contains, hasItem, hasItems, hasProperties, everyItem} from 'hamjest';
 import {BlogPost} from './BlogPost.js';
-import {groupBlogPostsByTag, groupBlogPostsByYearAndMonth} from './group-blog-posts.js';
+import {groupArticlesByTag, groupArticlesByYearAndMonth} from './group-blog-posts.js';
 
 describe('Group blog posts by tags', () => {
   const newPost = ({headline, tags}) => {
@@ -12,18 +12,18 @@ describe('Group blog posts by tags', () => {
   };
   it('GIVEN one blog post THEN return one group', () => {
     const posts = [newPost({headline: '', tags: ['js']})];
-    const grouped = groupBlogPostsByTag(posts);
-    assertThat(grouped, hasItem(hasProperties({tagSlug: 'js', blogPosts: posts})));
+    const grouped = groupArticlesByTag(posts);
+    assertThat(grouped, hasItem(hasProperties({tagSlug: 'js', articles: posts})));
   });
   it('GIVEN two blog posts with different tags THEN return two groups', () => {
     const posts = [
       newPost({headline: '', tags: ['js']}),
       newPost({headline: '', tags: ['tdd']}),
     ];
-    const grouped = groupBlogPostsByTag(posts);
+    const grouped = groupArticlesByTag(posts);
     assertThat(grouped, hasItems(
-      hasProperties({tagSlug: 'js', blogPosts: [posts[0]]}),
-      hasProperties({tagSlug: 'tdd', blogPosts: [posts[1]]}),
+      hasProperties({tagSlug: 'js', articles: [posts[0]]}),
+      hasProperties({tagSlug: 'tdd', articles: [posts[1]]}),
     ));
   });
   it('GIVEN two blog posts with the same tags each THEN return exactly two groups with each post in it', () => {
@@ -31,10 +31,10 @@ describe('Group blog posts by tags', () => {
       newPost({headline: '', tags: ['js', 'tdd']}),
       newPost({headline: '', tags: ['js', 'tdd']}),
     ];
-    const grouped = groupBlogPostsByTag(posts);
+    const grouped = groupArticlesByTag(posts);
     assertThat(grouped, contains(
-      hasProperties({tagSlug: 'js', blogPosts: posts}),
-      hasProperties({tagSlug: 'tdd', blogPosts: posts}),
+      hasProperties({tagSlug: 'js', articles: posts}),
+      hasProperties({tagSlug: 'tdd', articles: posts}),
     ));
   });
   it('GIVEN blog posts with different tags THEN return the groups sorted by the tag counts', () => {
@@ -43,11 +43,11 @@ describe('Group blog posts by tags', () => {
       newPost({headline: '', tags: ['two', 'one', ]}),
       newPost({headline: '', tags: ['one', ]}),
     ];
-    const grouped = groupBlogPostsByTag(posts);
+    const grouped = groupArticlesByTag(posts);
     assertThat(grouped, contains(
-      hasProperties({tagSlug: 'one', blogPosts: posts}),
-      hasProperties({tagSlug: 'two', blogPosts: [posts[0], posts[1]]}),
-      hasProperties({tagSlug: 'three', blogPosts: [posts[0]]}),
+      hasProperties({tagSlug: 'one', articles: posts}),
+      hasProperties({tagSlug: 'two', articles: [posts[0], posts[1]]}),
+      hasProperties({tagSlug: 'three', articles: [posts[0]]}),
     ));
 
     describe('calculate the background-gradient-width (`gradientWidthInPercent` prop) depending on the number of posts', () => {
@@ -55,7 +55,7 @@ describe('Group blog posts by tags', () => {
         const posts = [
           newPost({tags: ['one']}),
         ];
-        assertThat(groupBlogPostsByTag(posts), contains(
+        assertThat(groupArticlesByTag(posts), contains(
           hasProperties({gradientWidthInPercent: 100})
         ));
       });
@@ -64,7 +64,7 @@ describe('Group blog posts by tags', () => {
           newPost({tags: ['one']}),
           newPost({tags: ['two']}),
         ];
-        assertThat(groupBlogPostsByTag(posts), everyItem(
+        assertThat(groupArticlesByTag(posts), everyItem(
           hasProperties({gradientWidthInPercent: 100})
         ));
       });
@@ -73,7 +73,7 @@ describe('Group blog posts by tags', () => {
           newPost({tags: ['one']}),
           newPost({tags: ['one', 'two']}),
         ];
-        const grouped = groupBlogPostsByTag(posts);
+        const grouped = groupArticlesByTag(posts);
         assertThat(grouped[0], hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}));
         assertThat(grouped[1], hasProperties({tagSlug: 'two', gradientWidthInPercent: 50}));
       });
@@ -85,7 +85,7 @@ describe('Group blog posts by tags', () => {
           newPost({headline: '#one and #two - v2', tags: ['one', 'two']}),
           newPost({headline: '#one #two #three', tags: ['one', 'two', 'three']}),
         ];
-        const grouped = groupBlogPostsByTag(posts);
+        const grouped = groupArticlesByTag(posts);
         assertThat(grouped, contains(
           hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}),
           hasProperties({tagSlug: 'two', gradientWidthInPercent: 75}),
@@ -105,7 +105,7 @@ describe('Group blog posts by tags', () => {
           newPost({tags: ['one', 'two']}),
           newPost({tags: ['one', 'two']}),
         ];
-        const grouped = groupBlogPostsByTag(posts);
+        const grouped = groupArticlesByTag(posts);
         assertThat(grouped[0], hasProperties({tagSlug: 'one', gradientWidthInPercent: 100}));
         assertThat(grouped[1], hasProperties({tagSlug: 'two', gradientWidthInPercent: 20}));
       });
@@ -125,9 +125,9 @@ describe('Group blog posts by year+month', () => {
       newPost('2000-01-01'),
       newPost('2000-01-01'),
     ];
-    const grouped = groupBlogPostsByYearAndMonth(posts);
+    const grouped = groupArticlesByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({yearAndMonth: '2000-01', blogPosts: posts}),
+      hasProperties({yearAndMonth: '2000-01', articles: posts}),
     ));
   });
   it('GIVEN two blog posts of different months THEN return two groups', () => {
@@ -135,10 +135,10 @@ describe('Group blog posts by year+month', () => {
       newPost('2000-01-01'),
       newPost('2001-01-01'),
     ];
-    const grouped = groupBlogPostsByYearAndMonth(posts);
+    const grouped = groupArticlesByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({yearAndMonth: '2001-01', blogPosts: [posts[1]]}),
-      hasProperties({yearAndMonth: '2000-01', blogPosts: [posts[0]]}),
+      hasProperties({yearAndMonth: '2001-01', articles: [posts[1]]}),
+      hasProperties({yearAndMonth: '2000-01', articles: [posts[0]]}),
     ));
   });
   it('GIVEN multiple blog posts of different months THEN return grouped', () => {
@@ -150,13 +150,13 @@ describe('Group blog posts by year+month', () => {
       newPost('2009-01-01'),
       newPost('2009-11-01'),
     ];
-    const grouped = groupBlogPostsByYearAndMonth(posts);
+    const grouped = groupArticlesByYearAndMonth(posts);
     assertThat(grouped, contains(
-      hasProperties({yearAndMonth: '2009-11', blogPosts: [posts[5]]}),
-      hasProperties({yearAndMonth: '2009-01', blogPosts: [posts[4]]}),
-      hasProperties({yearAndMonth: '2008-12', blogPosts: [posts[3]]}),
-      hasProperties({yearAndMonth: '2001-01', blogPosts: [posts[2]]}),
-      hasProperties({yearAndMonth: '2000-01', blogPosts: [posts[0], posts[1]]}),
+      hasProperties({yearAndMonth: '2009-11', articles: [posts[5]]}),
+      hasProperties({yearAndMonth: '2009-01', articles: [posts[4]]}),
+      hasProperties({yearAndMonth: '2008-12', articles: [posts[3]]}),
+      hasProperties({yearAndMonth: '2001-01', articles: [posts[2]]}),
+      hasProperties({yearAndMonth: '2000-01', articles: [posts[0], posts[1]]}),
     ));
   });
   it('GIVEN some posts WHEN grouping them THEN return them sorted chronologically reverse (newest first)', () => {
@@ -168,7 +168,7 @@ describe('Group blog posts by year+month', () => {
       newPost('2009-11-01'),
       newPost('2001-01-01'),
     ];
-    const grouped = groupBlogPostsByYearAndMonth(posts);
+    const grouped = groupArticlesByYearAndMonth(posts);
     assertThat(grouped, contains(
       hasProperties({yearAndMonth: '2009-11'}),
       hasProperties({yearAndMonth: '2009-01'}),
@@ -184,7 +184,7 @@ describe('Group blog posts by year+month', () => {
           newPost('2008-12-31'),
           newPost('2009-01-01'),
         ];
-        const grouped = groupBlogPostsByYearAndMonth(posts);
+        const grouped = groupArticlesByYearAndMonth(posts);
         assertThat(grouped, contains(
           hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 50}),
           hasProperties({yearAndMonth: '2008-12', gradientWidthInPercent: 50}),
@@ -208,7 +208,7 @@ describe('Group blog posts by year+month', () => {
           newPost('2009-01-01'),
           newPost('2009-01-01'),
         ];
-        const grouped = groupBlogPostsByYearAndMonth(posts);
+        const grouped = groupArticlesByYearAndMonth(posts);
         assertThat(grouped, contains(
           hasProperties({yearAndMonth: '2009-01', gradientWidthInPercent: 20}),
           hasProperties({yearAndMonth: '2000-01', gradientWidthInPercent: 100}),

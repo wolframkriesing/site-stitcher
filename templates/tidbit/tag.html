@@ -28,7 +28,7 @@
     Tidbits tagged with #{{tag}} ({{ posts | length }})
   </h1>
 
-  {% for tidbit in posts %}
+  {% for tidbit in articles %}
     {{ tidbitParts.tidbitPreview(tidbit) }}
   {% endfor %}
 {% endblock %}

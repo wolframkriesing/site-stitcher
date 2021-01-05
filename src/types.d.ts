@@ -29,11 +29,11 @@ interface Article {
 
 interface ArticlesGroupedByTag {
   tagSlug: Tag['slug'];
-  blogPosts: Article[]; // TODO rename to articles
+  articles: Article[];
   gradientWidthInPercent: number;
 }
 interface ArticlesGroupedByYearAndMonth {
   yearAndMonth: YearAndMonth;
-  blogPosts: Article[];
+  articles: Article[];
   gradientWidthInPercent: number;
 }
