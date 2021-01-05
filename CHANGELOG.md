@@ -41,6 +41,12 @@
     - [x] add tests to verify rendering the tpls, like in tidbits
     - [x] render tag pages using slugs (not the tag itself anymore)
 - [ ] show tags for tidbits overview page
+  - [ ] generate tidbits date pages
+  - [ ] generate tidbits tags pages
+  - [ ] make the grouping function generic (currently blog group functions are used with tidbits)
+    - [ ] move them to a _shared place
+    - [ ] rename the prop `blogPosts` to `items`
+      - [ ] adjust all usages (tpls, code, etc.)
 - [x] show tags as on blog page
   - [x] tabs: top-tags, alphabetical (no all is needed, it adds no value, thanks Nick)
     - [x] show tags alphabetically sorted 
@@ -54,7 +60,6 @@
         or: jscc, jscc17, jscc20 => JSCraftCamp
        (see the genreated pages)
   - [ ] enhance: generate additional tags, e.g. if "ruby" is given also add "programming language"
-- [ ] why is there no tags and months left sidebar on the tidbits page?
 
 # v2
 - [ ] rename tidbits/post.html to something more meaningful
