@@ -115,7 +115,7 @@ const generateMonthPage = async (group) => {
   const destDir = path.join(OUTPUT_DIRECTORY, 'blog', yearAndMonth.replace('-', '/'));
   await fs.promises.mkdir(destDir, {recursive: true});
   const destFilename = path.join(destDir, 'index.html');
-  const renderedFile = renderTemplate('blog/month.html', {...defaultRenderParams, yearAndMonth, posts: group.blogPosts});
+  const renderedFile = renderTemplate('blog/month.html', {...defaultRenderParams, yearAndMonth, articles: group.articles});
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
