@@ -58,6 +58,7 @@ nav.tags ol, nav.months ol {
 nav.tags ol {
   max-height: 31rem;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 nav.tags li {
   white-space: nowrap;
