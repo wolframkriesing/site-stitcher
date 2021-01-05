@@ -22,7 +22,6 @@ type YearAndMonth = string; // e.g. '2020-10'
 
 interface Article {
   dateCreated: DateString | DateTimeString;
-  isDraft: boolean;
   oldUrls:  RelativeUrl[];
   tags:  Tag[];
   url: string;

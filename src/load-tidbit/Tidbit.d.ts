@@ -19,7 +19,7 @@ export type TidbitMetadata = {
   tags: string[];
 }
 
-export class Tidbit {
+export class Tidbit implements Article {
   abstract: RawTidbit['abstract'];
   abstractAsHtml: RawTidbit['abstractAsHtml'];
   bodyAsHtml: RawTidbit['bodyAsHtml'];

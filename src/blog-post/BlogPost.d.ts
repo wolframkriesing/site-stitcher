@@ -22,7 +22,7 @@ export type BlogPostMetadata = {
   youtubeId?: string;
 };
 
-export class BlogPost {
+export class BlogPost implements Article {
   private _dateCreated: BlogPostMetadata['dateCreated'];
   abstract: RawBlogPost['abstract'];
   abstractAsHtml: RawBlogPost['abstractAsHtml'];
