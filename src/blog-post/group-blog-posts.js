@@ -9,20 +9,20 @@ const tagSlugsOfPost = (post) => post.tags.map(t => t.slug);
  * @param tagSlug {Slug}
  * @return {Article[]}
  */
-const postsByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(post).includes(tagSlug));
+const articlesByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(post).includes(tagSlug));
 
 /**
  * @param tagSlug {Slug}
- * @param posts {Article[]}
+ * @param articles {Article[]}
  * @param maxTagCount {number}
  * @return {ArticlesGroupedByTag}
  */
-const blogPostsGroupedByTag = (tagSlug, posts, maxTagCount) => {
-  const blogPosts = postsByTag(posts, tagSlug);
+const articlesGroupedByTag = (tagSlug, articles, maxTagCount) => {
+  const filteredArticles = articlesByTag(articles, tagSlug);
   return {
     tagSlug,
-    articles: blogPosts,
-    gradientWidthInPercent: (blogPosts.length / maxTagCount) * 100,
+    articles: filteredArticles,
+    gradientWidthInPercent: (filteredArticles.length / maxTagCount) * 100,
   };
 };
 
@@ -52,9 +52,9 @@ const sortByNumber = (a, b) => a - b;
  */
 export const groupArticlesByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
-  const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort(sortByNumber).reverse()[0];
+  const maxTagCount = allTagsSlugs.map(tagSlug => articlesByTag(posts, tagSlug).length).sort(sortByNumber).reverse()[0];
   return allTagsSlugs
-    .map(tagSlug => blogPostsGroupedByTag(tagSlug, posts, maxTagCount))
+    .map(tagSlug => articlesGroupedByTag(tagSlug, posts, maxTagCount))
     .sort(byArticlesCount)
   ;
 };
@@ -82,11 +82,11 @@ export const groupArticlesByYearAndMonth = (posts) => {
    * @param maxCount {number}
    * @return {function(Article[], YearAndMonth): void}
    */
-  const addMapEntryToGroups = (groups, maxCount) => (blogPosts, key) => {
+  const addMapEntryToGroups = (groups, maxCount) => (articles, key) => {
     groups.push({
       yearAndMonth: key,
-      articles: blogPosts,
-      gradientWidthInPercent: (blogPosts.length / maxCount) * 100,
+      articles,
+      gradientWidthInPercent: (articles.length / maxCount) * 100,
     });
   };
 
