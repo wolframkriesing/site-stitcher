@@ -42,7 +42,8 @@
     - [x] render tag pages using slugs (not the tag itself anymore)
 - [ ] show tags for tidbits overview page
   - [ ] generate tidbits date pages
-  - [ ] generate tidbits tags pages
+  - [x] generate tidbits tags pages
+  - [x] show the tags in the sidebar on the tidbits-index page  
   - [ ] make the grouping function generic (currently blog group functions are used with tidbits)
     - [ ] move them to a _shared place
     - [ ] rename the prop `blogPosts` to `items`
