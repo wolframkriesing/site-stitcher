@@ -47,12 +47,19 @@ const uniques = arr => [...new Set(arr)];
 const byBlogPostsCount = (group1, group2) => group1.blogPosts.length > group2.blogPosts.length ? -1 : 1;
 
 /**
+ * @param a {number}
+ * @param b {number}
+ * @return {number}
+ */
+const sortByNumber = (a, b) => a - b;
+
+/**
  * @param posts {BlogPost[]}
  * @return {BlogPostsByTag[]}
  */
 export const groupBlogPostsByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
-  const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort().reverse()[0];
+  const maxTagCount = allTagsSlugs.map(tagSlug => postsByTag(posts, tagSlug).length).sort(sortByNumber).reverse()[0];
   return allTagsSlugs
     .map(tagSlug => blogPostsGroupedByTag(tagSlug, posts, maxTagCount))
     .sort(byBlogPostsCount)
