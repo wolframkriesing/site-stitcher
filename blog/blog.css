@@ -13,20 +13,20 @@ main .content {
     flex: 1;
     overflow: auto;
   }
-  main aside.left {
-    max-width: 15rem;
-  }
-  main aside.right {
-    flex: 0 auto;
-    padding-left: var(--spacing-big);
-  }
-  main aside > * {
-    margin-bottom: var(--spacing-bigger);
-    margin-right: 4rem;
-  }
-  main aside .tags:hover {
-    height: auto;
-  }
+    main aside.left {
+      max-width: 15rem;
+    }
+    main aside.right {
+      flex: 0 auto;
+      padding-left: var(--spacing-big);
+    }
+    main aside > * {
+      margin-bottom: var(--spacing-bigger);
+      margin-right: 4rem;
+    }
+    main aside .tags:hover {
+      height: auto;
+    }
 
 @media screen and (max-width: 600px) {
   main aside {

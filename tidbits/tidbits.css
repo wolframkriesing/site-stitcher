@@ -1,10 +1,29 @@
 @import "../_global.css";
 @import "../_nav.css";
 
+main {
+  display: flex;
+}
 main .content {
+  flex: 3;
   max-width: var(--readable-max-width);
   min-width: 60%; /* Make sure this column gets at least a major amount of the available width! */
 }
+  main aside {
+    flex: 1;
+    overflow: auto;
+  }
+    main aside.left {
+      max-width: 15rem;
+    }
+    main aside > * {
+      margin-bottom: var(--spacing-bigger);
+      margin-right: 4rem;
+    }
+
+
+
+
 
 .page-tidbits code {
   background: none;
