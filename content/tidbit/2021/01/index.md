@@ -2,6 +2,7 @@
 slug: docker-compose-and-export-path
 dateCreated: 2021-01-08 17:02 CET
 tags: docker, tools, docker-compose, containers
+previewImage: ../export-path-preview.jpeg
 
 [All my projects use docker-compose](/tidbits/2021/01/docker-vs-docker-compose/).
 In my setup I want every nodejs packages that provides an executable, such as `mocha` or `tsc`
@@ -91,6 +92,7 @@ directory and use it as it's context.
 slug: docker-vs-docker-compose
 dateCreated: 2021-01-08 12:14 CET
 tags: docker, docker-compose, tools, containers, project setup
+previewImage: ../docker-compose-preview.jpeg
 
 After clarifying why [I use Docker for every project I set up](/tidbits/2021/01/why-i-use-docker-for-every-project/)
 let me try to clarify also: **Why would I use a docker-compose setup over a single Dockerfile setup?**
@@ -127,6 +129,7 @@ consistent way. Additionally docker-compose does it for any number of containers
 slug: why-i-use-docker-for-every-project
 dateCreated: 2021-01-08 10:13 CET
 tags: docker, tools, containers
+previewImage: ../docker-preview.jpeg
 
 I used to install everything on my machine. I used to have ruby, nodejs, python, java, rebol, red
 and all the programming languages and environments, their packagers and tools I needed installed
