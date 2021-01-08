@@ -1,110 +1,131 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Disclosure Widgets - by Adrian Roselli" />
-<meta property="og:title" content="Disclosure Widgets - by Adrian Roselli">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Disclosure Widgets - by Adrian Roselli" />
+
+  <meta property="og:title" content="Disclosure Widgets - by Adrian Roselli">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2020/05/disclosure-widgets-by-adrian-roselli/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2020/05/disclosure-widgets-by-adrian-roselli/">  <title>Disclosure Widgets - by Adrian Roselli | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="a11y" />
-<meta property="article:tag" content="web" />
-<meta property="article:tag" content="browser" />
-<meta property="article:tag" content="link" />
-<meta property="og:description" content="A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="a11y" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="browser" />
+    <meta property="article:tag" content="link" />
+
+  <meta property="og:description" content="A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
 See his article for very in depth content on how to use `&lt;details&gt;` and `&lt;summary&gt;` tags. 
 https://adrianroselli.com/2020/05/disclosure-widgets.html" />
-<meta property="article:description" content="A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
+  <meta property="article:description" content="A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
 See his article for very in depth content on how to use `&lt;details&gt;` and `&lt;summary&gt;` tags. 
 https://adrianroselli.com/2020/05/disclosure-widgets.html" />
-<meta name="twitter:description" content="A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
+  <meta name="twitter:description" content="A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
 See his article for very in depth content on how to use `&lt;details&gt;` and `&lt;summary&gt;` tags. 
 https://adrianroselli.com/2020/05/disclosure-widgets.html" />
-<meta property="og:image" content="https://picostitch.com/tidbits/2020/05" />
-<meta property="og:image:url" content="https://picostitch.com/tidbits/2020/05" />
-<meta name="twitter:image" content="https://picostitch.com/tidbits/2020/05" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/05" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/05" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/05" />
 </head>
 <body class="page-tidbit">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/tidbits/">Tidbits</a> &raquo;
-Disclosure Widgets - by Adrian Roselli
-</nav>
-<main>
-<div class="content">
-<article>
-<header>
-<div class="tag" data-tag="a11y">#a11y</div>
-<h1 id="disclosure-widgets-by-adrian-roselli" is="more-h1">Disclosure Widgets - by Adrian Roselli</h1>
-<div class="metadata">
-Wolfram Kriesing
-- May 20, 2020
-- tagged with: #a11y #web #browser #link       </div>
-</header>
-<p>A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Disclosure Widgets - by Adrian Roselli
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+    <header>
+      <div class="tag" data-tag="a11y">#a11y</div>
+      <h1 id="disclosure-widgets-by-adrian-roselli" is="more-h1">Disclosure Widgets - by Adrian Roselli</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - May 20, 2020
+          - tagged with: #a11y #web #browser #link       </div>
+    </header>
+
+    <p>A disclosure widget is a simple control whose sole purpose is to hide or show stuff.
 See his article for very in depth content on how to use <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> tags. 
 <a href="https://adrianroselli.com/2020/05/disclosure-widgets.html">https://adrianroselli.com/2020/05/disclosure-widgets.html</a></p>
-</article>
-</div>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

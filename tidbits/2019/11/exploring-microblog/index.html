@@ -1,108 +1,129 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Exploring micro.blog" />
-<meta property="og:title" content="Exploring micro.blog">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Exploring micro.blog" />
+
+  <meta property="og:title" content="Exploring micro.blog">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2019/11/exploring-microblog/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2019/11/exploring-microblog/">  <title>Exploring micro.blog | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="indieweb" />
-<meta property="og:description" content="The tries I had with &quot;tweeting&quot; from [micro.blog](https://micro.blog) and how it lands on twitter and 
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="indieweb" />
+
+  <meta property="og:description" content="The tries I had with &quot;tweeting&quot; from [micro.blog](https://micro.blog) and how it lands on twitter and 
 also how I see and can act on replies is still too basic. I know I am twitter spoiled, 
 but it&#39;s currently my source of information. Should I build my own #indieweb twitter frontend? mmmh" />
-<meta property="article:description" content="The tries I had with &quot;tweeting&quot; from [micro.blog](https://micro.blog) and how it lands on twitter and 
+  <meta property="article:description" content="The tries I had with &quot;tweeting&quot; from [micro.blog](https://micro.blog) and how it lands on twitter and 
 also how I see and can act on replies is still too basic. I know I am twitter spoiled, 
 but it&#39;s currently my source of information. Should I build my own #indieweb twitter frontend? mmmh" />
-<meta name="twitter:description" content="The tries I had with &quot;tweeting&quot; from [micro.blog](https://micro.blog) and how it lands on twitter and 
+  <meta name="twitter:description" content="The tries I had with &quot;tweeting&quot; from [micro.blog](https://micro.blog) and how it lands on twitter and 
 also how I see and can act on replies is still too basic. I know I am twitter spoiled, 
 but it&#39;s currently my source of information. Should I build my own #indieweb twitter frontend? mmmh" />
-<meta property="og:image" content="https://picostitch.com/tidbits/2019/11" />
-<meta property="og:image:url" content="https://picostitch.com/tidbits/2019/11" />
-<meta name="twitter:image" content="https://picostitch.com/tidbits/2019/11" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2019/11" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2019/11" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2019/11" />
 </head>
 <body class="page-tidbit">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/tidbits/">Tidbits</a> &raquo;
-Exploring micro.blog
-</nav>
-<main>
-<div class="content">
-<article>
-<header>
-<div class="tag" data-tag="indieweb">#indieweb</div>
-<h1 id="exploring-microblog" is="more-h1">Exploring micro.blog</h1>
-<div class="metadata">
-Wolfram Kriesing
-- November 29, 2019
-- tagged with: #indieweb       </div>
-</header>
-<p>The tries I had with &quot;tweeting&quot; from <a href="https://micro.blog">micro.blog</a> and how it lands on twitter and 
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Exploring micro.blog
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+    <header>
+      <div class="tag" data-tag="indieweb">#indieweb</div>
+      <h1 id="exploring-microblog" is="more-h1">Exploring micro.blog</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - November 29, 2019
+          - tagged with: #indieweb       </div>
+    </header>
+
+    <p>The tries I had with &quot;tweeting&quot; from <a href="https://micro.blog">micro.blog</a> and how it lands on twitter and 
 also how I see and can act on replies is still too basic. I know I am twitter spoiled, 
 but it&#39;s currently my source of information. Should I build my own #indieweb twitter frontend? mmmh</p>
 <p>Originally posted at <a href="http://wolframkriesing.micro.blog/2019/11/29/the-tries-i.html">http://wolframkriesing.micro.blog/2019/11/29/the-tries-i.html</a></p>
-</article>
-</div>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

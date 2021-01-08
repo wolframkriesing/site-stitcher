@@ -1,117 +1,141 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="C# v6 goodies" />
-<meta property="og:title" content="C# v6 goodies">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="C# v6 goodies" />
+
+  <meta property="og:title" content="C# v6 goodies">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2015/10/23-c-v6-goodies/">  <title>C# v6 goodies | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="C#" />
-<meta property="og:description" content="C# has a way better expression for what we write in JavaScript like so 
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="C#" />
+
+  <meta property="og:description" content="C# has a way better expression for what we write in JavaScript like so 
 `obj.method &amp;&amp; obj.method()` and in C# you can do `obj?.method()`
 which is pretty slick I think.
 See [this video (in german)][c# goodies exists operator] for a short explaination." />
-<meta property="article:description" content="C# has a way better expression for what we write in JavaScript like so 
+  <meta property="article:description" content="C# has a way better expression for what we write in JavaScript like so 
 `obj.method &amp;&amp; obj.method()` and in C# you can do `obj?.method()`
 which is pretty slick I think.
 See [this video (in german)][c# goodies exists operator] for a short explaination." />
-<meta name="twitter:description" content="C# has a way better expression for what we write in JavaScript like so 
+  <meta name="twitter:description" content="C# has a way better expression for what we write in JavaScript like so 
 `obj.method &amp;&amp; obj.method()` and in C# you can do `obj?.method()`
 which is pretty slick I think.
 See [this video (in german)][c# goodies exists operator] for a short explaination." />
-<meta property="og:image" content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/" />
-<meta property="og:image:url"  content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/" />
-<meta name="twitter:image" content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/" />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2015/10/23-c-v6-goodies/" />
 </head>
 <body class="page-post">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/blog">Blog</a> &raquo;
-<a href="/blog/2015/10/">October 2015</a> &raquo;
-C# v6 goodies
-</nav>
-<main>
-<div class="content">
-<article class="">
-<header>
-<h1 id="c-v6-goodies" is="more-h1">
-C# v6 goodies
-</h1>
-<div class="metadata">
-Wolfram Kriesing
-- October 23, 2015
-- tagged with: #C#       </div>
-</header>
-<p>C# has a way better expression for what we write in JavaScript like so 
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2015/10/">October 2015</a> &raquo;
+  C# v6 goodies
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+    <header>
+      <h1 id="c-v6-goodies" is="more-h1">
+        C# v6 goodies
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - October 23, 2015
+          - tagged with: #C#       </div>
+    </header>
+
+
+    <p>C# has a way better expression for what we write in JavaScript like so 
 <code>obj.method &amp;&amp; obj.method()</code> and in C# you can do <code>obj?.method()</code>
 which is pretty slick I think.
 See <a href="https://www.youtube.com/watch?v=-mKqAsZs808&amp;feature=youtu.be&amp;t=290">this video (in german)</a> for a short explaination.</p>
 <p>nameof - is another nice C# feature, which allows us to get the name of an argument
 as explained <a href="https://www.youtube.com/watch?v=-mKqAsZs808&amp;feature=youtu.be&amp;t=70">here (in german)</a>.</p>
-</article>
-</div>
-<aside class="right">
-</aside>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+
+  </article>
+    </div>
+  <aside class="right">
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

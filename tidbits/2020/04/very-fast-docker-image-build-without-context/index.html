@@ -1,112 +1,133 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Very Fast Docker Image Build - Without Context" />
-<meta property="og:title" content="Very Fast Docker Image Build - Without Context">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Very Fast Docker Image Build - Without Context" />
+
+  <meta property="og:title" content="Very Fast Docker Image Build - Without Context">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2020/04/very-fast-docker-image-build-without-context/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2020/04/very-fast-docker-image-build-without-context/">  <title>Very Fast Docker Image Build - Without Context | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="docker" />
-<meta property="article:tag" content="knowledgebase" />
-<meta property="og:description" content="I use docker images to provide the environment for development. My nodejs
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="docker" />
+    <meta property="article:tag" content="knowledgebase" />
+
+  <meta property="og:description" content="I use docker images to provide the environment for development. My nodejs
 is installed only inside the docker image. That means I always map my working directory
 into the container. This means I don&#39;t need to send no build context to the docker deamon." />
-<meta property="article:description" content="I use docker images to provide the environment for development. My nodejs
+  <meta property="article:description" content="I use docker images to provide the environment for development. My nodejs
 is installed only inside the docker image. That means I always map my working directory
 into the container. This means I don&#39;t need to send no build context to the docker deamon." />
-<meta name="twitter:description" content="I use docker images to provide the environment for development. My nodejs
+  <meta name="twitter:description" content="I use docker images to provide the environment for development. My nodejs
 is installed only inside the docker image. That means I always map my working directory
 into the container. This means I don&#39;t need to send no build context to the docker deamon." />
-<meta property="og:image" content="https://picostitch.com/tidbits/2020/04" />
-<meta property="og:image:url" content="https://picostitch.com/tidbits/2020/04" />
-<meta name="twitter:image" content="https://picostitch.com/tidbits/2020/04" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/04" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/04" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/04" />
 </head>
 <body class="page-tidbit">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/tidbits/">Tidbits</a> &raquo;
-Very Fast Docker Image Build - Without Context
-</nav>
-<main>
-<div class="content">
-<article>
-<header>
-<div class="tag" data-tag="docker">#docker</div>
-<h1 id="very-fast-docker-image-build-without-context" is="more-h1">Very Fast Docker Image Build - Without Context</h1>
-<div class="metadata">
-Wolfram Kriesing
-- April 26, 2020
-- tagged with: #docker #knowledgebase       </div>
-</header>
-<p>I use docker images to provide the environment for development. My nodejs
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Very Fast Docker Image Build - Without Context
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+    <header>
+      <div class="tag" data-tag="docker">#docker</div>
+      <h1 id="very-fast-docker-image-build-without-context" is="more-h1">Very Fast Docker Image Build - Without Context</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - April 26, 2020
+          - tagged with: #docker #knowledgebase       </div>
+    </header>
+
+    <p>I use docker images to provide the environment for development. My nodejs
 is installed only inside the docker image. That means I always map my working directory
 into the container. This means I don&#39;t need to send no build context to the docker deamon.</p>
 <p>Before my <strong>slow docker build</strong> started like this:<br><code>Sending build context to Docker daemon  </code> <strong><code> 88.67MB</code></strong> VERY SLOW<br>that happens when you use<br><code>docker build -t ${IMAGE_NAME} -f Dockerfile .</code> and it takes forever.</p>
 <p>I got the <strong>fast docker build</strong> after I discovered in the docker docs, that one can also not send the context,
 now the context is tiny:<br><code>Sending build context to Docker daemon  </code> <strong><code> 2.048kB</code></strong> VERY FAST.<br>Build your image like this:<br><code>docker build -t ${IMAGE_NAME} - &lt; Dockerfile</code><br>Remember: you get no context in the container, so either you don&#39;t need it
 or you map in volumes, or you know ...</p>
-</article>
-</div>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

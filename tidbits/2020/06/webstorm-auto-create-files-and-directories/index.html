@@ -1,114 +1,135 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="WebStorm: &amp;quot;New File&amp;quot; Creates Directories and File" />
-<meta property="og:title" content="WebStorm: &amp;quot;New File&amp;quot; Creates Directories and File">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="WebStorm: &amp;quot;New File&amp;quot; Creates Directories and File" />
+
+  <meta property="og:title" content="WebStorm: &amp;quot;New File&amp;quot; Creates Directories and File">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2020/06/webstorm-auto-create-files-and-directories/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2020/06/webstorm-auto-create-files-and-directories/">  <title>WebStorm: &amp;quot;New File&amp;quot; Creates Directories and File | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="tools" />
-<meta property="article:tag" content="WebStorm" />
-<meta property="og:description" content="I saw a video that VS Code creates directories and file when
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="tools" />
+    <meta property="article:tag" content="WebStorm" />
+
+  <meta property="og:description" content="I saw a video that VS Code creates directories and file when
 adding a file named like `dir1/dir2/file.js`, I tried it in WebStorm.
 It works." />
-<meta property="article:description" content="I saw a video that VS Code creates directories and file when
+  <meta property="article:description" content="I saw a video that VS Code creates directories and file when
 adding a file named like `dir1/dir2/file.js`, I tried it in WebStorm.
 It works." />
-<meta name="twitter:description" content="I saw a video that VS Code creates directories and file when
+  <meta name="twitter:description" content="I saw a video that VS Code creates directories and file when
 adding a file named like `dir1/dir2/file.js`, I tried it in WebStorm.
 It works." />
-<meta property="og:image" content="https://picostitch.com/tidbits/2020/06" />
-<meta property="og:image:url" content="https://picostitch.com/tidbits/2020/06" />
-<meta name="twitter:image" content="https://picostitch.com/tidbits/2020/06" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/06" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/06" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/06" />
 </head>
 <body class="page-tidbit">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/tidbits/">Tidbits</a> &raquo;
-WebStorm: &quot;New File&quot; Creates Directories and File
-</nav>
-<main>
-<div class="content">
-<article>
-<header>
-<div class="tag" data-tag="tools">#tools</div>
-<h1 id="webstorm-auto-create-files-and-directories" is="more-h1">WebStorm: &quot;New File&quot; Creates Directories and File</h1>
-<div class="metadata">
-Wolfram Kriesing
-- June 1, 2020
-- tagged with: #tools #WebStorm       </div>
-</header>
-<p>I saw a video that VS Code creates directories and file when
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  WebStorm: &quot;New File&quot; Creates Directories and File
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+    <header>
+      <div class="tag" data-tag="tools">#tools</div>
+      <h1 id="webstorm-auto-create-files-and-directories" is="more-h1">WebStorm: &quot;New File&quot; Creates Directories and File</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - June 1, 2020
+          - tagged with: #tools #WebStorm       </div>
+    </header>
+
+    <p>I saw a video that VS Code creates directories and file when
 adding a file named like <code>dir1/dir2/file.js</code>, I tried it in WebStorm.
 It works.</p>
 <p>Just do &quot;New File&quot; (<kbd>Command</kbd> + <kbd>n</kbd> for me) and type
 the full path and all directories needed get created. Cool.</p>
 <figure>
-<img src="../webstorm-newfile.gif" alt="'New file' dialog in WebStorm also accepts path names." width="400" />
-<figcaption>'New file' dialog in WebStorm also accepts path names.</figcaption>
+    <img src="../webstorm-newfile.gif" alt="'New file' dialog in WebStorm also accepts path names." width="400" />
+    <figcaption>'New file' dialog in WebStorm also accepts path names.</figcaption>
 </figure>
-</article>
-</div>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

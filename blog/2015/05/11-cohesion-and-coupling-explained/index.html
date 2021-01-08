@@ -1,113 +1,137 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Cohesion and Coupling explained" />
-<meta property="og:title" content="Cohesion and Coupling explained">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Cohesion and Coupling explained" />
+
+  <meta property="og:title" content="Cohesion and Coupling explained">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/">  <title>Cohesion and Coupling explained | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="oop" />
-<meta property="article:tag" content="coupling" />
-<meta property="article:tag" content="cohesion" />
-<meta property="article:tag" content="classes" />
-<meta property="article:tag" content="video" />
-<meta property="article:tag" content="knowledgebase" />
-<meta property="og:description" content="Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="oop" />
+    <meta property="article:tag" content="coupling" />
+    <meta property="article:tag" content="cohesion" />
+    <meta property="article:tag" content="classes" />
+    <meta property="article:tag" content="video" />
+    <meta property="article:tag" content="knowledgebase" />
+
+  <meta property="og:description" content="Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
 And about ***coupling*** it says [*how closely connected two routines or modules are*][coupling]." />
-<meta property="article:description" content="Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
+  <meta property="article:description" content="Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
 And about ***coupling*** it says [*how closely connected two routines or modules are*][coupling]." />
-<meta name="twitter:description" content="Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
+  <meta name="twitter:description" content="Wikipedia says about ***cohesion***, it [*refers to the degree to which the elements of a module belong together*][cohesion].  
 And about ***coupling*** it says [*how closely connected two routines or modules are*][coupling]." />
-<meta property="og:image" content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/" />
-<meta property="og:image:url"  content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/" />
-<meta name="twitter:image" content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/" />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2015/05/11-cohesion-and-coupling-explained/" />
 </head>
 <body class="page-post">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/blog">Blog</a> &raquo;
-<a href="/blog/2015/05/">May 2015</a> &raquo;
-Cohesion and Coupling explained
-</nav>
-<main>
-<div class="content">
-<article class="">
-<header>
-<h1 id="cohesion-and-coupling-explained" is="more-h1">
-Cohesion and Coupling explained
-</h1>
-<div class="metadata">
-Wolfram Kriesing
-- May 11, 2015
-- tagged with: #oop #coupling #cohesion #classes #video #knowledgebase       </div>
-</header>
-<p>Wikipedia says about <strong><em>cohesion</em></strong>, it <a href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)"><em>refers to the degree to which the elements of a module belong together</em></a>.<br>And about <strong><em>coupling</em></strong> it says <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)"><em>how closely connected two routines or modules are</em></a>.</p>
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2015/05/">May 2015</a> &raquo;
+  Cohesion and Coupling explained
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+    <header>
+      <h1 id="cohesion-and-coupling-explained" is="more-h1">
+        Cohesion and Coupling explained
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - May 11, 2015
+          - tagged with: #oop #coupling #cohesion #classes #video #knowledgebase       </div>
+    </header>
+
+
+    <p>Wikipedia says about <strong><em>cohesion</em></strong>, it <a href="https://en.wikipedia.org/wiki/Cohesion_(computer_science)"><em>refers to the degree to which the elements of a module belong together</em></a>.<br>And about <strong><em>coupling</em></strong> it says <a href="https://en.wikipedia.org/wiki/Coupling_(computer_programming)"><em>how closely connected two routines or modules are</em></a>.</p>
 <p>See below for a <a href="https://www.youtube.com/watch?v=XCXdsjINP0U">very good short 6min video</a> explaining how and why you should aim for high cohesion and loose coupling!<br>And if you want to spend more time watch <a href="https://www.youtube.com/watch?v=hd0v72pD1MI">this video 57min</a> with all the stars :) discussing this topic more in detail.</p>
-<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/XCXdsjINP0U?start=" frameborder="0" allowfullscreen></iframe>
-</article>
-</div>
-<aside class="right">
-</aside>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+
+      <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/XCXdsjINP0U?start=" frameborder="0" allowfullscreen></iframe>
+  </article>
+    </div>
+  <aside class="right">
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

@@ -1,124 +1,145 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Semantic HTML: Usage of Headings, Sections" />
-<meta property="og:title" content="Semantic HTML: Usage of Headings, Sections">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Semantic HTML: Usage of Headings, Sections" />
+
+  <meta property="og:title" content="Semantic HTML: Usage of Headings, Sections">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2020/04/semantic-html-usage-of-headings-sections/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2020/04/semantic-html-usage-of-headings-sections/">  <title>Semantic HTML: Usage of Headings, Sections | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="html" />
-<meta property="article:tag" content="knowledgebase" />
-<meta property="og:description" content="Wondering how to layout and use `&lt;section&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, etc. I came across
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="html" />
+    <meta property="article:tag" content="knowledgebase" />
+
+  <meta property="og:description" content="Wondering how to layout and use `&lt;section&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, etc. I came across
 the first place one should read on MDN
 [Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
 also very insightful and more specific is this on the W3C wiki
 [HTML/Usage/Headings/Missing](https://www.w3.org/wiki/HTML/Usage/Headings/Missing).
 If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp&#39;s 
 [Semantic Elements and Structure](https://www.youtube.com/watch?v=-dQ2Big9ueg) a very well explained video." />
-<meta property="article:description" content="Wondering how to layout and use `&lt;section&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, etc. I came across
+  <meta property="article:description" content="Wondering how to layout and use `&lt;section&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, etc. I came across
 the first place one should read on MDN
 [Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
 also very insightful and more specific is this on the W3C wiki
 [HTML/Usage/Headings/Missing](https://www.w3.org/wiki/HTML/Usage/Headings/Missing).
 If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp&#39;s 
 [Semantic Elements and Structure](https://www.youtube.com/watch?v=-dQ2Big9ueg) a very well explained video." />
-<meta name="twitter:description" content="Wondering how to layout and use `&lt;section&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, etc. I came across
+  <meta name="twitter:description" content="Wondering how to layout and use `&lt;section&gt;`, `&lt;h1&gt;`, `&lt;h2&gt;`, etc. I came across
 the first place one should read on MDN
 [Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
 also very insightful and more specific is this on the W3C wiki
 [HTML/Usage/Headings/Missing](https://www.w3.org/wiki/HTML/Usage/Headings/Missing).
 If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp&#39;s 
 [Semantic Elements and Structure](https://www.youtube.com/watch?v=-dQ2Big9ueg) a very well explained video." />
-<meta property="og:image" content="https://picostitch.com/tidbits/2020/04" />
-<meta property="og:image:url" content="https://picostitch.com/tidbits/2020/04" />
-<meta name="twitter:image" content="https://picostitch.com/tidbits/2020/04" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/04" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/04" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/04" />
 </head>
 <body class="page-tidbit">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/tidbits/">Tidbits</a> &raquo;
-Semantic HTML: Usage of Headings, Sections
-</nav>
-<main>
-<div class="content">
-<article>
-<header>
-<div class="tag" data-tag="html">#html</div>
-<h1 id="semantic-html-usage-of-headings-sections" is="more-h1">Semantic HTML: Usage of Headings, Sections</h1>
-<div class="metadata">
-Wolfram Kriesing
-- April 25, 2020
-- tagged with: #html #knowledgebase       </div>
-</header>
-<p>Wondering how to layout and use <code>&lt;section&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, etc. I came across
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Semantic HTML: Usage of Headings, Sections
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+    <header>
+      <div class="tag" data-tag="html">#html</div>
+      <h1 id="semantic-html-usage-of-headings-sections" is="more-h1">Semantic HTML: Usage of Headings, Sections</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - April 25, 2020
+          - tagged with: #html #knowledgebase       </div>
+    </header>
+
+    <p>Wondering how to layout and use <code>&lt;section&gt;</code>, <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, etc. I came across
 the first place one should read on MDN
 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines">Using HTML sections and outlines</a>
 also very insightful and more specific is this on the W3C wiki
 <a href="https://www.w3.org/wiki/HTML/Usage/Headings/Missing">HTML/Usage/Headings/Missing</a>.
 If you have 27 minutes to learn how to use all those semantic tags watch Brian Haferkamp&#39;s 
 <a href="https://www.youtube.com/watch?v=-dQ2Big9ueg">Semantic Elements and Structure</a> a very well explained video.</p>
-</article>
-</div>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

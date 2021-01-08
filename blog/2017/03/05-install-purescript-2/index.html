@@ -1,84 +1,100 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Purescript #2 - Installing" />
-<meta property="og:title" content="Purescript #2 - Installing">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Purescript #2 - Installing" />
+
+  <meta property="og:title" content="Purescript #2 - Installing">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2017/03/05-install-purescript-2/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2017/03/05-install-purescript-2/">  <title>Purescript #2 - Installing | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="purescript" />
-<meta property="article:tag" content="notes" />
-<meta property="article:tag" content="yarn" />
-<meta property="article:tag" content="npm" />
-<meta property="article:tag" content="nodejs" />
-<meta property="og:description" content="This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="purescript" />
+    <meta property="article:tag" content="notes" />
+    <meta property="article:tag" content="yarn" />
+    <meta property="article:tag" content="npm" />
+    <meta property="article:tag" content="nodejs" />
+
+  <meta property="og:description" content="This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
 the book by [Phil Freeman][phil-freeman], the author of purescript.
 Now about chapter 2, where I install Purescript and touch the tools
 for the first time. I am gonna use `yarn` instead of `npm`,
 let&#39;s see how that goes :)." />
-<meta property="article:description" content="This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
+  <meta property="article:description" content="This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
 the book by [Phil Freeman][phil-freeman], the author of purescript.
 Now about chapter 2, where I install Purescript and touch the tools
 for the first time. I am gonna use `yarn` instead of `npm`,
 let&#39;s see how that goes :)." />
-<meta name="twitter:description" content="This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
+  <meta name="twitter:description" content="This post is my 2nd write-down inspired by [&quot;Purescript by Example&quot;][ps-book],
 the book by [Phil Freeman][phil-freeman], the author of purescript.
 Now about chapter 2, where I install Purescript and touch the tools
 for the first time. I am gonna use `yarn` instead of `npm`,
 let&#39;s see how that goes :)." />
-<meta property="og:image" content="https://picostitch.com/blog/2017/03/05-install-purescript-2/" />
-<meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/05-install-purescript-2/" />
-<meta name="twitter:image" content="https://picostitch.com/blog/2017/03/05-install-purescript-2/" />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2017/03/05-install-purescript-2/" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2017/03/05-install-purescript-2/" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2017/03/05-install-purescript-2/" />
 </head>
 <body class="page-post">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/blog">Blog</a> &raquo;
-<a href="/blog/2017/03/">March 2017</a> &raquo;
-Purescript #2 - Installing
-</nav>
-<main>
-<div class="content">
-<article class="">
-<header>
-<h1 id="install-purescript-2" is="more-h1">
-Purescript #2 - Installing
-</h1>
-<div class="metadata">
-Wolfram Kriesing
-- March 5, 2017
-- tagged with: #purescript #notes #yarn #npm #nodejs       </div>
-</header>
-<p>This post is my 2nd write-down inspired by <a href="https://leanpub.com/purescript/read">&quot;Purescript by Example&quot;</a>,
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2017/03/">March 2017</a> &raquo;
+  Purescript #2 - Installing
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+    <header>
+      <h1 id="install-purescript-2" is="more-h1">
+        Purescript #2 - Installing
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - March 5, 2017
+          - tagged with: #purescript #notes #yarn #npm #nodejs       </div>
+    </header>
+
+
+    <p>This post is my 2nd write-down inspired by <a href="https://leanpub.com/purescript/read">&quot;Purescript by Example&quot;</a>,
 the book by <a href="https://twitter.com/paf31">Phil Freeman</a>, the author of purescript.
 Now about chapter 2, where I install Purescript and touch the tools
 for the first time. I am gonna use <code>yarn</code> instead of <code>npm</code>,
@@ -122,6 +138,7 @@ After having been reminded, that yarn is is growing up and now has it&#39;s own 
 yarn add v0.15.1
 # ... many lines later
 ✨  Done in 4.40s.
+
 &gt; psc # Trying out the executable we have installed
 psc: No input files.</code></pre>
 <p>Ok, <code>psc</code> the Purescript compiler is installed. Before I am going to use it a short reminder.
@@ -132,16 +149,19 @@ Let&#39;s inspect where the <code>psc</code> command comes from:</p>
 I configured it before (remember I enhanced the <code>PATH</code> environment variable).<br>So, what can I do now, with Purescript, the <code>psc</code> executable?</p>
 <pre><code class="undefinedshell">&gt; psc --help
 psc - Compiles PureScript to Javascript
+
 Usage: psc [FILE] [-o|--output ARG] [--no-tco] [--no-magic-do] [--no-opts]
-[-v|--verbose-errors] [-c|--comments] [--source-maps] [--dump-corefn]
-[-p|--no-prefix] [--json-errors]
+           [-v|--verbose-errors] [-c|--comments] [--source-maps] [--dump-corefn]
+           [-p|--no-prefix] [--json-errors]
+
 Available options:
---version                Show the version number
-# ...snip...
-FILE                     The input .purs file(s)
-# ...snip...
--c,--comments            Include comments in the generated code
-# ...snip...
+  --version                Show the version number
+  # ...snip...
+  FILE                     The input .purs file(s)
+  # ...snip...
+  -c,--comments            Include comments in the generated code
+  # ...snip...
+
 psc 0.10.7</code></pre>
 <p>We already see the current version
 on the last line of the help output, no need to try out <code>psc --version</code> again, we won&#39;t
@@ -179,6 +199,7 @@ I will try it by simply assigning a string to the variable <code>main</code>.
 <code>Main.purs</code> looks like this now</p>
 <pre><code class="undefinedtext">-- src/Main.purs (this line is a comment, started by `--` in purescript)
 module Main where
+
 main = &quot;hello world&quot;</code></pre>
 <p>I would expect this now to provide <code>main</code> in the <code>exports</code> as string
 containing &quot;hello world&quot;. Let&#39;s see if this compiles something that looks like
@@ -188,10 +209,12 @@ Compiling Main
 Warning found:
 in module Main
 at /Users/wk/purescript-series/src/Main.purs line 4, column 1 - line 4, column 8
-No type declaration was provided for the top-level declaration of main.
-It is good practice to provide type declarations as a form of documentation.
-The inferred type of main was:
-String
+
+  No type declaration was provided for the top-level declaration of main.
+  It is good practice to provide type declarations as a form of documentation.
+  The inferred type of main was:
+
+    String
 </code></pre>
 <p>Oh, a warning. Tbh I kinda was waiting for that, since in a strictly typed language
 the <code>main = &lt;a string&gt;</code> could do it via type inference but that is an external interface
@@ -204,7 +227,7 @@ so my gut was not wrong :). But let&#39;s look at the output anyways.</p>
 &quot;use strict&quot;;
 var main = &quot;hello world&quot;;
 module.exports = {
-main: main
+    main: main
 };</code></pre>
 <p>And there it is. The variable <code>main</code> gets exported in <a href="https://en.wikipedia.org/wiki/CommonJS">CommonJS</a> style
 which means the compiled file could now be required and used by any normal
@@ -217,6 +240,7 @@ import wherever we need to.</p>
 the code, I quickly found out that the right thing to do is:</p>
 <pre><code class="undefinedtext">-- src/Main.purs (this line is a comment, started by `--` in purescript)
 module Main where
+
 main :: String
 main = &quot;hello world&quot;</code></pre>
 <p>Compiling the file and outputing the result is as expected, no error and the 
@@ -228,7 +252,7 @@ Compiling Main
 &quot;use strict&quot;;
 var main = &quot;hello world&quot;;
 module.exports = {
-main: main
+    main: main
 };</code></pre>
 <p>Reading a bit in the Syntax docs I read that <a href="https://github.com/purescript/documentation/blob/master/language/Types.md#type-annotations">type annotations</a>
 can also be done right on the value by adding <code>::</code> after it. So let&#39;s rewrite the code
@@ -241,7 +265,7 @@ reminded me of two languages Python and Red. In Purescript whitespace matter for
 e.g. for multiline declarations, best to be explained by an example:</p>
 <pre><code class="undefinedtext">-- valid
 main = 
-&quot;hello world&quot;</code></pre>
+  &quot;hello world&quot;</code></pre>
 <p>this compiles without an error. Just as I understood it from the syntax docs.</p>
 <pre><code class="undefinedtext">-- invalid
 main = 
@@ -250,55 +274,64 @@ main =
 <pre><code class="undefinedshell">&gt; psc src/Main.purs 
 Error found:
 at /Users/wk/purescript-series/src/Main.purs line 6, column 1 - line 6, column 1
-Unable to parse module:
-expecting indentation past column 1</code></pre>
+
+  Unable to parse module:
+  expecting indentation past column 1</code></pre>
 <p>Enough learnings for now.<br>Next we will look at <a href="https://github.com/bodil/pulp"><code>pulp</code></a> a Purescript build tool, written by <a href="https://twitter.com/bodil">Bodil</a> it seems,
 at least it on github under her account. So I guess she had kicked it off.</p>
 <p>related_tweets:</p>
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I installed <a href="https://twitter.com/hashtag/Purescript?src=hash">#Purescript</a> using <a href="https://twitter.com/hashtag/yarn?src=hash">#yarn</a> and wrote my first script that compiles :) read about how =&gt;   <a href="https://t.co/BMiizTD3fQ">https://t.co/BMiizTD3fQ</a></p>&mdash; pico stitch (@wolframkriesing) <a href="https://twitter.com/wolframkriesing/status/838698426929860608">March 6, 2017</a></blockquote>
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/wolframkriesing">@wolframkriesing</a> you can also install purescript using yarn at the global level. It&#39;s working for our team.</p>&mdash; Sudhir Kumar ⚛ (@sudhirvkumar) <a href="https://twitter.com/sudhirvkumar/status/838810514897702912">March 6, 2017</a></blockquote>
 <blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/wolframkriesing">@wolframkriesing</a> thanks for the blog. We need more blogs to promote PureScript.</p>&mdash; Sudhir Kumar ⚛ (@sudhirvkumar) <a href="https://twitter.com/sudhirvkumar/status/838810635001528320">March 6, 2017</a></blockquote>
-</article>
-</div>
-<aside class="right">
-<h3 id="related" is="more-h3">Related Posts</h3>
-<a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
-<a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
-<a href="/blog/2017/03/07-purescript-build-tool-pulp-3/">Purescript #3 - Build tool, pulp</a><br/>
-<span>Purescript #2 - Installing</span><br/>
-<a href="/blog/2017/03/01-starting-with-purescript/">Purescript #1 - the semantics of JavaScript with types</a><br/>
-</aside>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+
+  </article>
+    </div>
+  <aside class="right">
+      <h3 id="related" is="more-h3">Related Posts</h3>
+          <a href="/blog/2017/03/11-purescript-5/">Purescript #5 - Compiling for the browser</a><br/>
+          <a href="/blog/2017/03/10-purescript-4/">Purescript #4</a><br/>
+          <a href="/blog/2017/03/07-purescript-build-tool-pulp-3/">Purescript #3 - Build tool, pulp</a><br/>
+          <span>Purescript #2 - Installing</span><br/>
+          <a href="/blog/2017/03/01-starting-with-purescript/">Purescript #1 - the semantics of JavaScript with types</a><br/>
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

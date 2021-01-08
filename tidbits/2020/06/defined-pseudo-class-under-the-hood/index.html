@@ -1,74 +1,88 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Pseudo-Class `:defined` Under the Hood" />
-<meta property="og:title" content="Pseudo-Class `:defined` Under the Hood">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Pseudo-Class `:defined` Under the Hood" />
+
+  <meta property="og:title" content="Pseudo-Class `:defined` Under the Hood">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2020/06/defined-pseudo-class-under-the-hood/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/tidbits/2020/06/defined-pseudo-class-under-the-hood/">  <title>Pseudo-Class `:defined` Under the Hood | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="web" />
-<meta property="article:tag" content="CSS" />
-<meta property="article:tag" content="Web Components" />
-<meta property="og:description" content="The CSS pseudo-class `:defined` is for defined (custom) elements, sure.
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="CSS" />
+    <meta property="article:tag" content="Web Components" />
+
+  <meta property="og:description" content="The CSS pseudo-class `:defined` is for defined (custom) elements, sure.
 But what does &quot;defined&quot; really mean? While reading about [upgrading CBEs](./html-elements-not-upgradable-to-cbes)
 I came across the definition for it. Let me [quote the DOM spec a bit](https://dom.spec.whatwg.org/#concept-element-is-value).  " />
-<meta property="article:description" content="The CSS pseudo-class `:defined` is for defined (custom) elements, sure.
+  <meta property="article:description" content="The CSS pseudo-class `:defined` is for defined (custom) elements, sure.
 But what does &quot;defined&quot; really mean? While reading about [upgrading CBEs](./html-elements-not-upgradable-to-cbes)
 I came across the definition for it. Let me [quote the DOM spec a bit](https://dom.spec.whatwg.org/#concept-element-is-value).  " />
-<meta name="twitter:description" content="The CSS pseudo-class `:defined` is for defined (custom) elements, sure.
+  <meta name="twitter:description" content="The CSS pseudo-class `:defined` is for defined (custom) elements, sure.
 But what does &quot;defined&quot; really mean? While reading about [upgrading CBEs](./html-elements-not-upgradable-to-cbes)
 I came across the definition for it. Let me [quote the DOM spec a bit](https://dom.spec.whatwg.org/#concept-element-is-value).  " />
-<meta property="og:image" content="https://picostitch.com/tidbits/2020/06" />
-<meta property="og:image:url" content="https://picostitch.com/tidbits/2020/06" />
-<meta name="twitter:image" content="https://picostitch.com/tidbits/2020/06" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2020/06" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2020/06" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2020/06" />
 </head>
 <body class="page-tidbit">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/tidbits/">Tidbits</a> &raquo;
-Pseudo-Class <code>:defined</code> Under the Hood
-</nav>
-<main>
-<div class="content">
-<article>
-<header>
-<div class="tag" data-tag="web">#web</div>
-<h1 id="defined-pseudo-class-under-the-hood" is="more-h1">Pseudo-Class <code>:defined</code> Under the Hood</h1>
-<div class="metadata">
-Wolfram Kriesing
-- June 1, 2020
-- tagged with: #web #CSS #Web Components       </div>
-</header>
-<p>The CSS pseudo-class <code>:defined</code> is for defined (custom) elements, sure.
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Pseudo-Class <code>:defined</code> Under the Hood
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+    <header>
+      <div class="tag" data-tag="web">#web</div>
+      <h1 id="defined-pseudo-class-under-the-hood" is="more-h1">Pseudo-Class <code>:defined</code> Under the Hood</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - June 1, 2020
+          - tagged with: #web #CSS #Web Components       </div>
+    </header>
+
+    <p>The CSS pseudo-class <code>:defined</code> is for defined (custom) elements, sure.
 But what does &quot;defined&quot; really mean? While reading about <a href="./html-elements-not-upgradable-to-cbes">upgrading CBEs</a>
 I came across the definition for it. Let me <a href="https://dom.spec.whatwg.org/#concept-element-is-value">quote the DOM spec a bit</a>.  </p>
 <blockquote>
@@ -83,59 +97,70 @@ It just says when the value is set to what.
 There is one <a href="https://dom.spec.whatwg.org/#example-c5b21302">example in the spec that shows the four states</a>.</p>
 <pre><code>&lt;!DOCTYPE html&gt;
 &lt;script&gt;
-window.customElements.define(&quot;sw-rey&quot;, class extends HTMLElement {})
-window.customElements.define(&quot;sw-finn&quot;, class extends HTMLElement {}, { extends: &quot;p&quot; })
-window.customElements.define(&quot;sw-kylo&quot;, class extends HTMLElement {
-constructor() {
-// super() intentionally omitted for this example
-}
-})
+  window.customElements.define(&quot;sw-rey&quot;, class extends HTMLElement {})
+  window.customElements.define(&quot;sw-finn&quot;, class extends HTMLElement {}, { extends: &quot;p&quot; })
+  window.customElements.define(&quot;sw-kylo&quot;, class extends HTMLElement {
+    constructor() {
+      // super() intentionally omitted for this example
+    }
+  })
 &lt;/script&gt;
+
 &lt;!-- &quot;undefined&quot; (not defined, not custom) --&gt;
 &lt;sw-han&gt;&lt;/sw-han&gt;
 &lt;p is=&quot;sw-luke&quot;&gt;&lt;/p&gt;
 &lt;p is=&quot;asdf&quot;&gt;&lt;/p&gt;
+
 &lt;!-- &quot;failed&quot; (not defined, not custom) --&gt;
 &lt;sw-kylo&gt;&lt;/sw-kylo&gt;
+
 &lt;!-- &quot;uncustomized&quot; (defined, not custom) --&gt;
 &lt;p&gt;&lt;/p&gt;
 &lt;asdf&gt;&lt;/asdf&gt;
+
 &lt;!-- &quot;custom&quot; (defined, custom) --&gt;
 &lt;sw-rey&gt;&lt;/sw-rey&gt;
 &lt;p is=&quot;sw-finn&quot;&gt;&lt;/p&gt;</code></pre>
-</article>
-</div>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>

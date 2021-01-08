@@ -1,81 +1,97 @@
 <!doctype html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
 <head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<meta name="mobile-web-app-capable" content="yes" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="author" content="Wolfram Kriesing">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="picostitch - crafting (and) JavaScript">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wolframkriesing" />
-<meta name="twitter:title" content="Resource Timing (part 1) - The API" />
-<meta property="og:title" content="Resource Timing (part 1) - The API">
-<meta property="og:type" content="website">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Resource Timing (part 1) - The API" />
+
+  <meta property="og:title" content="Resource Timing (part 1) - The API">
+  <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
-<script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
 <link rel="canonical" href="https://picostitch.com/blog/2020/11/28-resource-timing-part1/">  <title>Resource Timing (part 1) - The API | picostitch - crafting (and) JavaScript</title>
-<script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
-<link rel="stylesheet" href="/blog/blog.css" type="text/css">
-<meta property="article:type" content="article" />
-<meta property="article:tag" content="browsertools" />
-<meta property="article:tag" content="knowledgebase" />
-<meta property="article:tag" content="web" />
-<meta property="article:tag" content="site speed" />
-<meta property="article:tag" content="performance" />
-<meta property="og:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="browsertools" />
+    <meta property="article:tag" content="knowledgebase" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="site speed" />
+    <meta property="article:tag" content="performance" />
+
+  <meta property="og:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
 kind of tools or APIs in and around the browser, things web developers will hopefully find useful." />
-<meta property="article:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
+  <meta property="article:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
 kind of tools or APIs in and around the browser, things web developers will hopefully find useful." />
-<meta name="twitter:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
+  <meta name="twitter:description" content="I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  
 This post is the start of a series of [blog posts about browser tools][tag-browsertools], in which I look into any
 kind of tools or APIs in and around the browser, things web developers will hopefully find useful." />
-<meta property="og:image" content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
-<meta property="og:image:url"  content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
-<meta name="twitter:image" content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2020/11/28-resource-timing-part1/header.png" />
 </head>
 <body class="page-post">
-<header>
-<nav class="primary">
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
-<div class="sitename">
-<a href="/">picostitch</a>
-<div class="subtitle">
-crafting (and) JavaScript
-</div>
-</div>
-</header>
-<nav class="breadcrumb">
-<a href="/">Home</a> &raquo;
-<a href="/blog">Blog</a> &raquo;
-<a href="/blog/2020/11/">November 2020</a> &raquo;
-Resource Timing (part 1) - The API
-</nav>
-<main>
-<div class="content">
-<article class="">
-<header>
-<h1 id="resource-timing-part1" is="more-h1">
-Resource Timing (part 1) - The API
-</h1>
-<div class="metadata">
-Wolfram Kriesing
-- November 28, 2020
-- tagged with: #browsertools #knowledgebase #web #site speed #performance       </div>
-</header>
-<p>I want to explore the Resource Timing API, one of the Performance APIs, accessible via <code>window.performance</code> 
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2020/11/">November 2020</a> &raquo;
+  Resource Timing (part 1) - The API
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+    <header>
+      <h1 id="resource-timing-part1" is="more-h1">
+        Resource Timing (part 1) - The API
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - November 28, 2020
+          - tagged with: #browsertools #knowledgebase #web #site speed #performance       </div>
+    </header>
+
+
+    <p>I want to explore the Resource Timing API, one of the Performance APIs, accessible via <code>window.performance</code> 
 in all modern browsers.<br>This post is the start of a series of <a href="/blog/tag/browsertools/">blog posts about browser tools</a>, in which I look into any
 kind of tools or APIs in and around the browser, things web developers will hopefully find useful.</p>
 <h2 is="more-h2" id="first-live-stats">First Live Stats</h2>
@@ -91,19 +107,21 @@ When you clicked the link, the page had long been rendered completely.
 If you click again to update the stats, the numbers will probably NOT change, because the page had
 been loaded completely when you first clicked the link, no new assets/resources have been loaded on the site since.</p>
 <script type="text/javascript">
-const getMaxResponseEnd = (resources) => {
-return resources.map(r => r.responseEnd).reduce((a, b) => Math.max(a, b));
-};
-const __updateInlineStats__ = (index) => {
-try {
-const r = window.performance.getEntriesByType('resource');
-document.querySelector(`#num-assets-loaded-${index}`).textContent = r.length;
-document.querySelector(`#time-taken-loading-${index}`).textContent = (getMaxResponseEnd(r) / 1000).toFixed(2);
-document.querySelector(`#loading-failed-hint-${index}`).remove();
-} catch (e) { /* swallow errors */ }
-};
-__updateInlineStats__(1);
+    const getMaxResponseEnd = (resources) => {
+      return resources.map(r => r.responseEnd).reduce((a, b) => Math.max(a, b));
+    };
+
+    const __updateInlineStats__ = (index) => {
+      try {
+        const r = window.performance.getEntriesByType('resource');
+        document.querySelector(`#num-assets-loaded-${index}`).textContent = r.length;
+        document.querySelector(`#time-taken-loading-${index}`).textContent = (getMaxResponseEnd(r) / 1000).toFixed(2);
+        document.querySelector(`#loading-failed-hint-${index}`).remove();
+      } catch (e) { /* swallow errors */ }
+    };
+    __updateInlineStats__(1);
 </script>
+
 <h2 is="more-h2" id="what-is-the-resource-timing-api">What is the Resource Timing API?</h2>
 <p>These tiny statistics were gathered via the Resource Timing API. 
 At the end of this article you get the same stats with the data collected at that point in time of rendering this site,
@@ -141,12 +159,12 @@ The API call for this is:</p>
 <pre><code class="undefinedjs">window.performance.getEntriesByType(&#39;resource&#39;)</code></pre>
 <p>This returns an array of all resources, among which it has attributes <code>name</code>, <code>duration</code>, <code>startTime</code> and <code>responseEnd</code>:</p>
 <pre><code class="undefinedjs">[{
-// ... shortened
-name: &quot;https://picostitch.com/_global.css&quot;,
-duration: 14.79000000108499,
-startTime: 65.99000000278465,
-responseEnd: 84.66500000213273,
-// ... shortened
+    // ... shortened
+    name: &quot;https://picostitch.com/_global.css&quot;,
+    duration: 14.79000000108499,
+    startTime: 65.99000000278465,
+    responseEnd: 84.66500000213273,
+    // ... shortened
 }, {...}]</code></pre>
 <p>The <code>duration</code> is given in milliseconds. The time is measured using the DOMHighResTimestamp API, which allows for 
 very exact time measuring. </p>
@@ -166,45 +184,49 @@ You can try it out on the console of your
 browser and see what kind of results you are getting. Feel free to copy line by line.</p>
 <pre><code class="undefinedjs">&gt; // Read all resource that our website has loaded.
 &gt; const resources = window.performance.getEntriesByType(&#39;resource&#39;);
+
 &gt; // Filter out the name and the duration. 
 &gt; const durations = resources.map(({name, duration}) =&gt; ({name, duration}));
+
 &gt; durations // Print out the contents of `durations`.</code></pre>
 <pre><code class="undefinedjs">[  
-// ... shortened
-{name: &quot;https://picostitch.com/blog/blog.css&quot;, duration: 18.619999988004565},
-{name: &quot;https://picostitch.com/blog/2020/11/28-resource-timing-part1/fallback-chart-1.png&quot;, duration: 51.56999998143874},
-{name: &quot;https://picostitch.com/_global.css&quot;, duration: 23.9000000001397},
-{name: &quot;https://picostitch.com/_nav.css&quot;, duration: 27.08499997970648},
-// ...
+    // ... shortened
+    {name: &quot;https://picostitch.com/blog/blog.css&quot;, duration: 18.619999988004565},
+    {name: &quot;https://picostitch.com/blog/2020/11/28-resource-timing-part1/fallback-chart-1.png&quot;, duration: 51.56999998143874},
+    {name: &quot;https://picostitch.com/_global.css&quot;, duration: 23.9000000001397},
+    {name: &quot;https://picostitch.com/_nav.css&quot;, duration: 27.08499997970648},
+    // ...
 ]</code></pre>
 <p>Looking at the output of an array is fun for developers, but seeing that data in a diagram offers
 a different perspective, so let&#39;s see the <code>duration</code> of all the resources loaded on this website, in a diagram.
 Try it: reload the page and see the bars update. This is life data.<br>Try also hard reloading the page (mostly done with pressing <kbd>Shift</kbd> additionally to your reload shortcut or click), 
 so that caches are not used and the durations will be very different again.</p>
 <figure>
-<hc-chart id="duration-chart" style="height: 15rem;">
-<img src="fallback-chart-1.png">
-</hc-chart>
-<figcaption style="padding-top: 2rem">The chart shows the durations it took to load the resources gathered using the Performance API.</figcaption>
+  <hc-chart id="duration-chart" style="height: 15rem;">
+    <img src="fallback-chart-1.png">
+  </hc-chart>
+  <figcaption style="padding-top: 2rem">The chart shows the durations it took to load the resources gathered using the Performance API.</figcaption>
 </figure>
+
 <script type="text/javascript">
-window.__runOnloaded__ = [];
-window.__runOnloaded__.push(() => {
-const onLoaded = () => {
-window.customElements.whenDefined('hc-chart').then(() => {
-const chart = document.querySelector('#duration-chart');
-const resources = window.performance.getEntriesByType('resource');
-const durations = resources.map(({name, duration}) => ({label: name, value: duration}));
-chart.updateChartData(durations);
-});
-};
-const scriptTag = document.createElement('script');
-scriptTag.onload = onLoaded;
-scriptTag.setAttribute('type', 'text/javascript');
-scriptTag.setAttribute('src', 'https://holidaycheck.github.io/hc-live-chart-component/HcChart.js');
-document.head.insertBefore(scriptTag, document.head.childNodes[0]);
-});
+  window.__runOnloaded__ = [];
+  window.__runOnloaded__.push(() => {
+    const onLoaded = () => {
+      window.customElements.whenDefined('hc-chart').then(() => {
+        const chart = document.querySelector('#duration-chart');
+        const resources = window.performance.getEntriesByType('resource');
+        const durations = resources.map(({name, duration}) => ({label: name, value: duration}));
+        chart.updateChartData(durations);
+      });
+    };
+    const scriptTag = document.createElement('script');
+    scriptTag.onload = onLoaded;
+    scriptTag.setAttribute('type', 'text/javascript');
+    scriptTag.setAttribute('src', 'https://holidaycheck.github.io/hc-live-chart-component/HcChart.js');
+    document.head.insertBefore(scriptTag, document.head.childNodes[0]);
+  });
 </script>
+
 <h2 is="more-h2" id="starttime-and-responseend-attributes"><code>startTime</code> and <code>responseEnd</code> Attributes</h2>
 <p>The <code>duration</code> attribute, is the result of <a href="https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/#performanceresourcetiming">subtracting</a> the <code>responseEnd - startTime</code> attribute.
 The <code>startTime</code> attribute is the time when fetching the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime">resource started</a>. The <code>responseEnd</code> is the timestamp 
@@ -216,22 +238,26 @@ The time taken how long loading all resources took I calculate by
 retreiving all <code>responseEnd</code> values and taking the biggest one, as you can see below:</p>
 <pre><code class="undefinedjs">&gt; // Helper function to find the max value in an array.
 &gt; const findMax = values =&gt; values.reduce((a, b) =&gt; Math.max(a, b));
+
 &gt; // Read all resource entries.
 &gt; const resources = window.performance.getEntriesByType(&#39;resource&#39;);
+
 &gt; // Filter out the `responseEnd` attribute and find the maximum.
 &gt; const allEnds = resources.map(r =&gt; r.responseEnd);
 &gt; resources.length + &#39; resources, &#39; + findMax(allEnds) + &#39; ms&#39;</code></pre>
 <pre id="inline-stats-result" class="highlight">
-If you see this either JavaScript is disabled, or something went wrong :(.
+  If you see this either JavaScript is disabled, or something went wrong :(.
 </pre>
+
 <script type="text/javascript">
-window.__runOnloaded__.push(() => {
-const resources = window.performance.getEntriesByType('resource');
-const resourcesStr = resources.length + ' resources, ';
-const timeStr = getMaxResponseEnd(resources) + ' ms';
-document.querySelector('#inline-stats-result').innerHTML = resourcesStr + timeStr;
-});
+  window.__runOnloaded__.push(() => {
+    const resources = window.performance.getEntriesByType('resource');
+    const resourcesStr = resources.length + ' resources, ';
+    const timeStr = getMaxResponseEnd(resources) + ' ms';
+    document.querySelector('#inline-stats-result').innerHTML = resourcesStr + timeStr;
+  });
 </script>
+
 <p>Try out: If you reload this page, the numbers will change, look closely at the duration (the second number).</p>
 <h2 is="more-h2" id="live-stats-again">Live Stats Again</h2>
 <p>Now that you got here. Let&#39;s pick up the live stats again, as seen at the beginning and list the tiny statistics again. 
@@ -241,9 +267,10 @@ this <strong>page loaded <span id="num-assets-loaded-2">??</span> assets</strong
 <span id="loading-failed-hint-2">(If you just see &quot;??&quot; then reading the data didn&#39;t work, do you have an old browser?)</span>
 <a href="javascript:__updateInlineStats__(2)">Click here to update the stats</a>, just like above.</p>
 <script type="text/javascript">
-window.__runOnloaded__.push(() => __updateInlineStats__(2));
-window.addEventListener('load',() => window.__runOnloaded__.forEach(fn => fn()));
+  window.__runOnloaded__.push(() => __updateInlineStats__(2));
+  window.addEventListener('load',() => window.__runOnloaded__.forEach(fn => fn()));
 </script>
+
 <h2 is="more-h2" id="finally">Finally</h2>
 <p>Hopefully this article shows that getting insights into resource timing of a site is not
 only possible in your browser&#39;s developer tools, but also right in the browser itself. 
@@ -251,45 +278,53 @@ What you can do with it I leave up to your imagination.
 If you have something interesting please <a href="https://twitter.com/wolframkriesing">ping me on twitter</a>, I am curious to see and learn more about it,
 especially about useful applications with it.</p>
 <p>You want to know more? Read <a href="/blog/2020/11/29-resource-timing-part-2/">part 2 of this series about &quot;Loading Dependencies&quot;</a>.<br><em>The first version of this post I wrote and published <a href="https://techblog.holidaycheck.com/post/2019/05/06/browsertools-1-resource-timing-part1">for the HolidayCheck TechBlog, May 2019</a>.</em></p>
-</article>
-</div>
-<aside class="right">
-<h3 id="related" is="more-h3">Related Posts</h3>
-<a href="/blog/2020/11/30-resource-timing-part-3/">Resource Timing (part 3) - Waterfall Chart</a><br/>
-<a href="/blog/2020/11/29-resource-timing-part-2/">Resource Timing (part 2) - Loading Dependencies</a><br/>
-<span>Resource Timing (part 1) - The API</span><br/>
-</aside>
-</main>
-<footer>
-<div>
-<b>Pages</b>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</div>
-<div>
-<b>Contact</b>
-<ul>
-<li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
-<li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
-<li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
-<li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
-</ul>
-</div>
-</footer>
-<nav class="secondary">
-<div class="menu-button">&#9776;</div>
-<ul>
-<li><a href="/">Home 🏠</a></li>
-<li><a href="/blog">Blog ✍️</a></li>
-<li><a href="/tidbits">Tidbits 😋</a></li>
-<li><a href="/projects">Projects 🛠‍‍</a></li>
-<li><a href="/about">About 💡</a></li>
-</ul>
-</nav>
+
+
+  </article>
+    </div>
+  <aside class="right">
+      <h3 id="related" is="more-h3">Related Posts</h3>
+          <a href="/blog/2020/11/30-resource-timing-part-3/">Resource Timing (part 3) - Waterfall Chart</a><br/>
+          <a href="/blog/2020/11/29-resource-timing-part-2/">Resource Timing (part 2) - Loading Dependencies</a><br/>
+          <span>Resource Timing (part 1) - The API</span><br/>
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
 </body>
 </html>
