@@ -1,3 +1,6 @@
+# Ideas
+- show all internal links in the right sidebar
+
 # v3 - use the wide screen better
 - [ ] show a page-load stats widgets in the space right and left
   - [ ] repost blog ResourceTiming posts from techblog
