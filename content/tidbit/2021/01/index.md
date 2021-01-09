@@ -137,34 +137,41 @@ on my machine. It was heaven. Except for the moment when I had to install a new 
 a newer version, and the old ones might broke and then I had to choose or reinstall every time, switch to
 rvm, nvm, pyenv or something else. For a while vagrant was cool.
 
-I settled with docker.
+Finally, I settled with docker.
 
 ## The itch
 
 I am working with nodejs for some years now. I worked in projects with many packages which we maintained. 
 We had linked the packages and worked on many of them in parallel. 
 Eventually the globally installed nodejs, even via nvm became a hazzle and
-caused bugs and glitches that consumed so much time, that I need to scratch this itch.
+caused bugs and glitches that consumed so much time, that I needed to scratch this itch.
 But that was not enough yet, I didn't fix it then. I also didn't know how.
 
-The next eye opener for me was when I (eventually) came back to a project years ago and had no reporducable environment
-set up anywhere, that can run the project. Even worse and more impactful, working in a team/company that has many projects and
+Another eye opener for me was when I came back to a project years later which had no reproducable environment
+set up anywhere, that can run the project. I didn't even know which node version it had used, which npm version and
+how to run the project (docs were missing too, right).
+Even worse and more impactful, working in a team or company that has many projects and
 environments running. Each project needs to be installed on my machine. The worst and most time consuming
 I had until now was setting up a ruby environment just for running some CSS pre-processor, back in the days.
-I think I spent two days to get all the versions right.
+I think I spent two days to get all the versions right and the CSS pre-processor to run.
 
 ## Docker to the Rescue
 
 The **reproducability** and the **isolation** of the environments are the main reasons why I started
 using docker, after a short detour to nixpkgs, where the UX made me fail.
-With docker I need one dependencies, the docker runtime (and docker-compose) and I can install
-any package or setup, even a complex setup in a way that even any colleague can get it up and running
-in minutes and, the most important part, **it will create the same environment and no hidden, lingering side-effects**
+
+With docker I need two dependencies, the docker runtime and docker-compose and I can install
+any package or setup, even a complex setup, in a way that even any colleague can get it up and running
+in minutes. The most important part is that **it will create the same environment and no hidden, lingering side-effects**
 caused by a tiny difference or alike that will cost a lot more time some time later.
+Ok, there are flaws to docker, there are side-effects and issues, but way less compared to not using it.
+
+See [my repo site-stitcher](https://github.com/wolframkriesing/site-stitcher#develop-run-locally)
+for an example of how I am using it for generating this website
+and read in [docker vs. docker-compose](/tidbits/2021/01/docker-vs-docker-compose/)
+about which I chose.
 
 ## More
 
 If you like to go deeper and ensure that even this setup is tested and wont break when you update your `Dockerfile`
 I even gave a talk on how to [TDD your next docker container](https://www.youtube.com/watch?v=ZSLQ02vpZUg).
-
-Read on in [Docker vs. docker-compose](/tidbits/2021/01/docker-vs-docker-compose/).

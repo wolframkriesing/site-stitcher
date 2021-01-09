@@ -9,11 +9,12 @@ Currently this tool serves for creating the (mostly) static website https://pico
 This project uses docker to provide the environment needed to run this site.
 This way only docker and docker-compose are required for running this project locally.
 
-```
-> docker-compose up --detach # start the container(s) in the background
+```shell-session
+> docker-compose up --detach              # start the container(s) in the background
 Creating network "site-stitcher_default" with the default driver
 Creating picostitch ... done
-> docker exec -it picostitch bash # enter the container
+> 
+> docker-compose exec picostitch bash     # enter the container
 root@12345:/app# npm install 
 root@12345:/app# npm run dev:start
 
