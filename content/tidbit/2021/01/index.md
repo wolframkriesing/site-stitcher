@@ -125,7 +125,7 @@ consistent way. Additionally docker-compose does it for any number of containers
 
 
 
-# Why I Use Docker for Every Project?
+# Why I Use Docker for Every Project
 slug: why-i-use-docker-for-every-project
 dateCreated: 2021-01-08 10:13 CET
 tags: docker, tools, containers
