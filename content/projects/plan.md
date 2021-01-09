@@ -3,6 +3,10 @@
 Some things run in parallel, those are in chapters.
 
 ## jskatas.org
+- [ ] sustainability
+  - [ ] content findability
+    - [ ] post on "Learn and re-learn (all of JavaScript), at your level and your speed"
+  - [ ] store state of progress  
 - [ ] make each kata's test description a page (using test-stitcher) SEO indexable, so jskatas.org is found when searching on google
   - [ ] render the meta data in a useful way, eg. dependencies of katas, more in depth links (e.g. with quotes)
 - [ ] eventually show a completeness compared to the ECMAScript spec, once all is covered it will be the year 3000 anyways ;)
