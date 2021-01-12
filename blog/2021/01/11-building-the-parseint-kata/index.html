@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Building the `parseInt()` Katas" />
+
+  <meta property="og:title" content="Building the `parseInt()` Katas">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://blog.jskatas.org/blog/2021/01/11-building-the-parseint-kata/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://blog.jskatas.org/blog/2021/01/11-building-the-parseint-kata/">  <title>Building the `parseInt()` Katas | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="kata" />
+    <meta property="article:tag" content="Number" />
+    <meta property="article:tag" content="parseInt" />
+    <meta property="article:tag" content="ES1" />
+    <meta property="article:tag" content="ES3" />
+    <meta property="article:tag" content="ES5" />
+    <meta property="article:tag" content="ES6" />
+
+  <meta property="og:description" content="I had planned building the kata for `Number.parseInt()` already a while ago.
+Starting to work I discovered very quickly that this seemingly tiny kata is quite a 
+rabbit hole that offers a lot of things one can learn.
+Especially about how things evolve in the spec and how to read the spec, fortunately
+this is a pretty easy to read part of the spec." />
+  <meta property="article:description" content="I had planned building the kata for `Number.parseInt()` already a while ago.
+Starting to work I discovered very quickly that this seemingly tiny kata is quite a 
+rabbit hole that offers a lot of things one can learn.
+Especially about how things evolve in the spec and how to read the spec, fortunately
+this is a pretty easy to read part of the spec." />
+  <meta name="twitter:description" content="I had planned building the kata for `Number.parseInt()` already a while ago.
+Starting to work I discovered very quickly that this seemingly tiny kata is quite a 
+rabbit hole that offers a lot of things one can learn.
+Especially about how things evolve in the spec and how to read the spec, fortunately
+this is a pretty easy to read part of the spec." />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2021/01/11-building-the-parseint-kata/preview.jpg" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2021/01/11-building-the-parseint-kata/preview.jpg" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2021/01/11-building-the-parseint-kata/preview.jpg" />
+</head>
+<body class="page-post">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2021/01/">January 2021</a> &raquo;
+  Building the <code>parseInt()</code> Katas
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+    <header>
+      <h1 id="building-the-parseint-kata" is="more-h1">
+        Building the <code>parseInt()</code> Katas
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - January 11, 2021
+          - tagged with: #kata #Number #parseInt #ES1 #ES3 #ES5 #ES6       </div>
+    </header>
+
+      <p>
+        <a href="https://blog.jskatas.org/blog/2021/01/11-building-the-parseint-kata/">Originally posted on the JSKatas Blog</a>
+      </p>
+
+    <p>I had planned building the kata for <code>Number.parseInt()</code> already a while ago.
+Starting to work I discovered very quickly that this seemingly tiny kata is quite a 
+rabbit hole that offers a lot of things one can learn.
+Especially about how things evolve in the spec and how to read the spec, fortunately
+this is a pretty easy to read part of the spec.</p>
+<figure>
+    <img src="1-1.jpg" alt="The kata is in the planning." width="200" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>The kata is in the planning.</figcaption>
+</figure>
+
+<h2 is="more-h2" id="content">Content</h2>
+<ol>
+<li><a href="#numberparseint-and-the-global-parseint"><code>Number.parseInt()</code> and the Global <code>parseInt()</code></a>  </li>
+<li><a href="#es1-parseint">ES1: <code>parseInt()</code></a></li>
+<li><a href="#diff-between-es1-and-es6">Diff Between ES1 and ES6</a></li>
+<li><a href="#es5-introduced-one-change">ES5 Introduced one Change</a></li>
+<li><a href="#katas-done">Katas Done</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 is="more-h2" id="numberparseint-and-the-global-parseint"><code>Number.parseInt()</code> and the Global <code>parseInt()</code></h2>
+<p>Actually ES6 makes the <code>Number.parseInt()</code> kata very simple. 
+Because it just says it&#39;s the same as the global <code>parseInt</code>.
+Reading the spec it seems this is a simple piece of JavaScript.
+The kata should be easy to build. It builds on the existing global <code>parseInt</code>
+function, so what is there left to learn for <code>Number.parseInt()</code>? Can I not just simply
+link to the ES1 kata for <code>parseInt</code>?</p>
+<figure>
+    <img src="1-2.jpg" alt="The Number.parseInt spec text." width="100%" />
+    <figcaption>The Number.parseInt spec text.</figcaption>
+</figure>
+
+<p>In the ES6 kata I currently just plan to have two tests (see image below). 
+And I am thinking of adding a third one that just says &quot;look into the ES1 kata for the global <code>parseInt</code>&quot;.
+And this is where it gets a bit difficult.</p>
+<figure>
+    <img src="2-1.jpg" alt="To begin with, two tests in this kata." width="300" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>To begin with, two tests in this kata.</figcaption>
+</figure>
+
+<h2 is="more-h2" id="es1-parseint">ES1: <code>parseInt()</code></h2>
+<p>I looked up <a href="https://www.ecma-international.org/publications/standards/Ecma-262-arch.htm">the spec archive</a> 
+and <a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf">in ES1 <code>parseInt</code> was already specified</a> 
+(see image below). 
+But the content in the ES6 spec is quite different (see 2nd image below).
+The ES1 spec has a list of 26 items defining the global <code>parseInt()</code> function, ES6 only 16.</p>
+<figure>
+    <img src="3-1.jpg" alt="The ES1 spec text for parseInt." width="100%" />
+    <figcaption>The ES1 spec text for parseInt.</figcaption>
+</figure>
+<figure>
+    <img src="3-2.jpg" alt="The ES6 spec text for parseInt, different to ES1." width="100%" />
+    <figcaption>The ES6 spec text for parseInt, different to ES1.</figcaption>
+</figure>
+
+<p>The change is interesting, since I was always under the assumption that JavaScript
+only gets extended and never (or only very rarely) changed, so that it stays backwards 
+compatible all the time.</p>
+<h2 is="more-h2" id="diff-between-es1-and-es6">Diff Between ES1 and ES6</h2>
+<p>Now, I have to decide how to continue for building the kata.
+I had two choices:</p>
+<ol>
+<li>figure out when it changed, between ES1 and ES6, or</li>
+<li>read the spec texts carefully and figure out if it matters for my kata.</li>
+</ol>
+<p>I went with 1), since I am too lazy for 2) and doubt I get it done this year.</p>
+<p>The <code>parseInt</code> spec text changed significantly <a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%203rd%20edition,%20December%201999.pdf">in ES3</a>. 
+It is still not the same as <a href="https://www.ecma-international.org/ecma-262/6.0/index.html#sec-parseint-string-radix">in ES6</a> 
+and also different to <a href="https://www.ecma-international.org/ecma-262/10.0/index.html#sec-parseint-string-radix">ES10</a>.</p>
+<figure>
+    <img src="5-1.jpg" alt="The ES3 spec of parseInt." width="100%" />
+    <figcaption>The ES3 spec of parseInt.</figcaption>
+</figure>
+
+
+<p>The original question I wanted to answer was: In which category does the kata for <code>parseInt</code> belong? 
+Into &quot;ES1&quot; or somewhere else?
+I guess the answer is I put it into ES1 but will use the latest spec to write the kata, 
+and assume the functionality has not changed (significantly).</p>
+<p>In case I ever figure out that the functionality of <code>parseInt</code> has changed between ES1 and ES10, 
+I would have to come back and split the <code>parseInt</code> kata and move the changes into the according ESx kata.</p>
+<h2 is="more-h2" id="es5-introduced-one-change">ES5 Introduced one Change</h2>
+<p>One thing <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#ECMAScript_5_removes_octal_interpretation">changed with ES5 about how <code>parseInt</code> works</a>. 
+&quot;ECMAScript 5 removes octal interpretation&quot; - I am glad this has changed, it did bite me hard once.
+See below for the entire explanation from MDN. 
+So good to read this, and also to read the hint <strong>&quot;always specify a radix&quot;</strong>.</p>
+<figure>
+    <img src="10-1.jpg" alt="ECMAScript 5 removes octal interpretation" width="300" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>ECMAScript 5 removes octal interpretation</figcaption>
+</figure>
+
+<h2 is="more-h2" id="katas-done">Katas Done</h2>
+<p>So I finished two new katas for <code>parseInt</code>. 
+One <a href="https://jskatas.org/#bundle-es6-katas">the ES6 version</a>, 
+the other in <a href="https://jskatas.org/#bundle-es1-katas">ES1</a> 
+and the in-depth one is just a draft. 
+<a href="https://github.com/tddbin/katas/pull/80">PR is ready</a>. 
+Input welcome.</p>
+<p>Here is what it looks like currently, on my local system, and is probably already merged at the time you are reading this.</p>
+<figure>
+    <img src="12-1.jpg" alt="The ES1 and ES6 katas." width="300" />
+    <figcaption>The ES1 and ES6 katas.</figcaption>
+</figure>
+
+<p>It is live.
+The ES1 <code>parseInt()</code> kata is live, now. The in-depth one will follow.
+<a href="https://jskatas.org">https://jskatas.org</a></p>
+<h2 is="more-h2" id="conclusion">Conclusion</h2>
+<p>I would sum up my learning like this: </p>
+<ul>
+<li>read the spec, </li>
+<li>get your hands dirty, </li>
+<li>investigate the roots, </li>
+<li>you will always learn something along the way. </li>
+</ul>
+<p>The best part, is that you never know when the different dots of your knowledge connect.
+Stay hungry, keep learning.</p>
+<p>Find the original <a href="https://twitter.com/wolframkriesing/status/1180533105221873672">thread on twitter</a> 
+where I had first collected some info for this blog post.</p>
+
+
+  </article>
+    </div>
+  <aside class="right">
+      <h3 id="related" is="more-h3">Related Posts</h3>
+          <span>Building the `parseInt()` Katas</span><br/>
+          <a href="/blog/2014/01/18-building-a-parallel-browser/">Building a Parallel Browser</a><br/>
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
