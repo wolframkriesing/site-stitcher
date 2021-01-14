@@ -39,6 +39,11 @@
 
 {% block content %}
   <article class="{{ 'isDraft' if post.isDraft else '' }}">
+
+    {% if post.previewImage %}
+      <img src="{{ post.previewImage }}" style="width: 100%; height: 10rem; object-fit: cover;"/>
+    {% endif %}
+
     <header>
       <h1 id="{{post.slug}}" is="more-h1">
         {{ post.headlineAsHtml | safe }}

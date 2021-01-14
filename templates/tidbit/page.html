@@ -38,6 +38,11 @@
 
 {% block content %}
   <article>
+
+    {% if tidbit.previewImage %}
+      <img src="{{ tidbit.previewImage }}" style="width: 100%; height: 10rem; object-fit: cover;"/>
+    {% endif %}
+
     <header>
       <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
       <h1 id="{{tidbit.slug}}" is="more-h1">{{ tidbit.headlineAsHtml | safe }}</h1>
