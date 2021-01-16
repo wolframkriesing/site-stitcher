@@ -19,6 +19,15 @@ const navigationItems = [
 ];
 const defaultRenderParams = {
   navigationItems,
+  site: { // TODO to be used on the site!
+    title: 'picostitch',
+    subtitle: 'crafting (and) JavaScript',
+    domain: 'picostitch.com',
+  },
+  blogroll: [
+    {url: 'https://ruben.verborgh.org/', name: 'Ruben Verborgh', tags: ['solid project', 'privacy', 'decentralized web']},
+    {url: 'https://component.kitchen/elix', name: 'Elix - High Quality Web Components', tags: ['project', 'open source', 'web components', 'JavaScript']},
+  ]
 };
 
 const generate301Page = async (oldPath, newPath) => {
