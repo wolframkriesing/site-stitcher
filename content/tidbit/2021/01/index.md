@@ -103,7 +103,9 @@ But that was not sustainable, and it didn't scale.
 ## How I Automate every Projects' Setup
 
 My setup with one docker container always contained a [`run.sh` file](https://github.com/wolframkriesing/site-stitcher/blob/76ba1541673a156d5cd944241ea7f29200fffeb5/run.sh),
-which grew over time and taught me a lot of bash, but docker-compose does it all. More about that in a bit.
+and a `Dockerfile`.
+The `run.sh` file grew over time and taught me a lot of bash, but docker-compose does all I need without any bash scripting. 
+More about that in a bit. 
 The `run.sh` had the following purposes:
 1. **start and enter a container** - via `./run.sh bash` I built, started, entered a container and landed on the command line inside that container
 1. **enter a running container** - the above command also detected if a container was already running and just entered it, 
@@ -119,8 +121,27 @@ The `run.sh` had the following purposes:
 Long story short: docker-compose does all that. A bit different, maybe not as convinient, but in a standardized and 
 consistent way. Additionally docker-compose does it for any number of containers!
 
+For using `docker-compose` I use [this `docker-compose.yml` file](https://github.com/wolframkriesing/site-stitcher/blob/76ba1541673a156d5cd944241ea7f29200fffeb5/docker-compose.yml).
+All things I configured in my `run.sh` before are in this file. 
+Using `docker-compose` I do the above like this:
+1. **start and enter a container** - this needs two commands with `docker-compose`, 1) `docker-compose up -d` starts
+   the container(s) in the background and 2) `docker-compose exec <name> bash` opens a bash in the container with `<name>`
+1. **enter a running container** - just like before, `docker-compose exec <name> bash` opens a bash in the container with `<name>`
+   the `<name>` is defined in the `docker-compose.yml` file as the service's name
+1. **build the image on demand** - `docker-compose build` this builds all docker containers as needed,
+   `docker-compose build --pull` will try to find newer docker images, e.g. when you just used the image "node"
+1. **configure the docker runtime** - all the configuration of mapping ports or volumes are done in the
+   `docker-compose.yml` file, normally located at the root of the project's directory.
+   
+## Finally
 
-
+I am quite happy with that setup now. Every project works the same.
+I am thinking of using the same name "app" for the main container, so I can always do
+`docker-compose exec app bash` to enter the app (or main) container.
+This could make it even more unified and easier.
+The [`docker-compose.yml` file](https://github.com/wolframkriesing/site-stitcher/blob/76ba1541673a156d5cd944241ea7f29200fffeb5/docker-compose.yml)
+I use for this site the container is called "picostitch" right now, which I need
+to know. Not as ideal as using "app" every time.
 
 
 
