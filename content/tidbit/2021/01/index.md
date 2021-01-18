@@ -133,6 +133,9 @@ Using `docker-compose` I do the above like this:
 1. **configure the docker runtime** - all the configuration of mapping ports or volumes are done in the
    `docker-compose.yml` file, normally located at the root of the project's directory.
    
+In the [README.md](https://github.com/wolframkriesing/site-stitcher/tree/5381c9776c265e48d6f903f5019f02d9b64cda6c#develop-run-locally)
+I also described how I am using `docker-compose` for this project.
+
 ## Finally
 
 I am quite happy with that setup now. Every project works the same.
