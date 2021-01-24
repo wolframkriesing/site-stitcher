@@ -25,6 +25,8 @@ const defaultRenderParams = {
     domain: 'picostitch.com',
   },
   blogroll: [
+    {url: 'https://blog.thecodewhisperer.com/', name: 'JB Rainsberger', tags: ['good software', 'tdd', 'testing']},
+    {url: 'https://michaelfeathers.silvrback.com/', name: 'Michae Feathers', tags: ['good software', 'legacy code']},
     {url: 'https://ruben.verborgh.org/', name: 'Ruben Verborgh', tags: ['solid project', 'privacy', 'decentralized web']},
     {url: 'https://component.kitchen/elix', name: 'Elix - High Quality Web Components', tags: ['project', 'open source', 'web components', 'JavaScript']},
   ]
