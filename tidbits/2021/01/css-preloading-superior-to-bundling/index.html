@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="CSS Preloading - Superior To Bundling?" />
+
+  <meta property="og:title" content="CSS Preloading - Superior To Bundling?">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/01/css-preloading-superior-to-bundling/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/01/css-preloading-superior-to-bundling/">  <title>CSS Preloading - Superior To Bundling? | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="HTML" />
+    <meta property="article:tag" content="preload" />
+    <meta property="article:tag" content="site speed" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="fast sites" />
+
+  <meta property="og:description" content="Do you want to speed up CSS file loading? Do you also see this waterfall chart in the Network
+Tab of your DevTools?
+There is a simple measure to help the browser optimize loading assets. Preload them.  
+I think it is **superior to bundling**. It is less complex and has better caching behavior." />
+  <meta property="article:description" content="Do you want to speed up CSS file loading? Do you also see this waterfall chart in the Network
+Tab of your DevTools?
+There is a simple measure to help the browser optimize loading assets. Preload them.  
+I think it is **superior to bundling**. It is less complex and has better caching behavior." />
+  <meta name="twitter:description" content="Do you want to speed up CSS file loading? Do you also see this waterfall chart in the Network
+Tab of your DevTools?
+There is a simple measure to help the browser optimize loading assets. Preload them.  
+I think it is **superior to bundling**. It is less complex and has better caching behavior." />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/01/preload-preview.jpeg" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/01/preload-preview.jpeg" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/01/preload-preview.jpeg" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  CSS Preloading - Superior To Bundling?
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+      <img src="../preload-preview.jpeg" style="width: 100%; height: 10rem; object-fit: cover;"/>
+
+    <header>
+      <div class="tag" data-tag="html">#HTML</div>
+      <h1 id="css-preloading-superior-to-bundling" is="more-h1">CSS Preloading - Superior To Bundling?</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - January 24, 2021
+          - tagged with: #HTML #preload #site speed #web #fast sites       </div>
+    </header>
+
+    <p>Do you want to speed up CSS file loading? Do you also see this waterfall chart in the Network
+Tab of your DevTools?
+There is a simple measure to help the browser optimize loading assets. Preload them.<br>I think it is <strong>superior to bundling</strong>. It is less complex and has better caching behavior.</p>
+<p>Let&#39;s start by looking at how we used to do it.</p>
+<h2 is="more-h2" id="before">Before</h2>
+<p>We normally use </p>
+<pre><code class="undefinedhtml">&lt;!-- blog.html --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;blog.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;_nav.css&quot;&gt;</code></pre>
+<p>This loads two CSS files, which might look like this:</p>
+<pre><code class="undefinedcss">/* blog.css */
+@import &quot;../_global.css&quot;;
+@import &quot;../_nav.css&quot;;
+
+/* _global.css */
+@import &quot;./_vars.css&quot;;
+@import &quot;./_reset.css&quot;;</code></pre>
+<p>They causes the network view to show this graph and clearly shows that loading one file
+results in loading more files. Even though we actually know what other files will need to be loaded.</p>
+<figure>
+    <img src="../preload-1.png" alt="Preload waterfall, not ideal" width="100%" />
+    <figcaption>Preload waterfall, not ideal</figcaption>
+</figure>
+
+<p>Let&#39;s optimize loading the CSS files.</p>
+<h2 is="more-h2" id="after">After</h2>
+<p>Preloading the assets is as easy as adding a couple of lines in your site&#39;s <code>&lt;head&gt;</code>.
+In the above example we can preload like this:</p>
+<pre><code class="undefinedhtml">&lt;link rel=&quot;preload&quot; href=&quot;/_vars.css&quot; as=&quot;style&quot;&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/_reset.css&quot; as=&quot;style&quot;&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/_global.css&quot; as=&quot;style&quot;&gt;
+&lt;link rel=&quot;preload&quot; href=&quot;/_nav.css&quot; as=&quot;style&quot;&gt;</code></pre>
+<p>and it will result in a network graph looking like this:</p>
+<figure>
+    <img src="../preload-2.png" alt="Preloading all CSS files. No waterfall. Ideal." width="100%" />
+    <figcaption>Preloading all CSS files. No waterfall. Ideal.</figcaption>
+</figure>
+
+<h2 is="more-h2" id="superior-to-bundling---why">Superior to Bundling - Why?</h2>
+<p>It brings <strong>less complexity</strong>. Bundlers themselves are complex tools. You can drops them
+completely for the CSS part of a site by leveraging preloading. You might want to
+generate the preload-tags if manual maintanence is a burden. For this site I am sticking to
+manually building them. It&#39;s not worth the effort (yet).</p>
+<p>The browser can <strong>optimize caching</strong> of small files, instead of a big bundled CSS file.
+If you deploy multiple times a day you can prevent the customer to have to download a new
+bundle every time they visit the site. Using this approach files like <code>_vars.css</code> or <code>_reset.css</code>
+may not change as often as others, so the browser won&#39;t need to reload them, and even less
+a big bundled CSS file.</p>
+<h2 is="more-h2" id="details">Details</h2>
+<p>On MDN the article 
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content">Preloading content with rel=&quot;preload&quot;</a>
+describes how and what can be preloaded in way more detail.</p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
