@@ -1,3 +1,88 @@
+# CSS Preloading - Superior To Bundling?
+slug: css-preloading-superior-to-bundling
+dateCreated: 2021-01-24 15:54 CET
+tags: HTML, preload, site speed, web, fast sites
+previewImage: ../preload-preview.jpeg
+
+Do you want to speed up CSS file loading? Do you also see this waterfall chart in the Network
+Tab of your DevTools?
+There is a simple measure to help the browser optimize loading assets. Preload them.  
+I think it is **superior to bundling**. It is less complex and has better caching behavior.
+
+Let's start by looking at how we used to do it.
+
+## Before
+
+We normally use 
+```html
+<!-- blog.html -->
+<link rel="stylesheet" href="blog.css">
+<link rel="stylesheet" href="_nav.css">
+```
+
+This loads two CSS files, which might look like this:
+
+```css
+/* blog.css */
+@import "../_global.css";
+@import "../_nav.css";
+
+/* _global.css */
+@import "./_vars.css";
+@import "./_reset.css";
+```
+
+They causes the network view to show this graph and clearly shows that loading one file
+results in loading more files. Even though we actually know what other files will need to be loaded.
+
+<figure>
+    <img src="../preload-1.png" alt="Preload waterfall, not ideal" width="100%" />
+    <figcaption>Preload waterfall, not ideal</figcaption>
+</figure>
+
+Let's optimize loading the CSS files.
+
+## After
+
+Preloading the assets is as easy as adding a couple of lines in your site's `<head>`.
+In the above example we can preload like this:
+```html
+<link rel="preload" href="/_vars.css" as="style">
+<link rel="preload" href="/_reset.css" as="style">
+<link rel="preload" href="/_global.css" as="style">
+<link rel="preload" href="/_nav.css" as="style">
+```
+
+and it will result in a network graph looking like this:
+
+<figure>
+    <img src="../preload-2.png" alt="Preloading all CSS files. No waterfall. Ideal." width="100%" />
+    <figcaption>Preloading all CSS files. No waterfall. Ideal.</figcaption>
+</figure>
+
+## Superior to Bundling - Why?
+
+It brings **less complexity**. Bundlers themselves are complex tools. You can drops them
+completely for the CSS part of a site by leveraging preloading. You might want to
+generate the preload-tags if manual maintanence is a burden. For this site I am sticking to
+manually building them. It's not worth the effort (yet).
+
+The browser can **optimize caching** of small files, instead of a big bundled CSS file.
+If you deploy multiple times a day you can prevent the customer to have to download a new
+bundle every time they visit the site. Using this approach files like `_vars.css` or `_reset.css`
+may not change as often as others, so the browser won't need to reload them, and even less
+a big bundled CSS file.
+
+## Details
+
+On MDN the article 
+[Preloading content with rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)
+describes how and what can be preloaded in way more detail.
+
+
+
+
+
 # docker-compose and Export $PATH
 slug: docker-compose-and-export-path
 dateCreated: 2021-01-08 17:02 CET

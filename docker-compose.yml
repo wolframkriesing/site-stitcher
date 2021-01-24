@@ -1,6 +1,6 @@
 version: '3'
 services:
-  picostitch:
+  node:
     build: .
     container_name: picostitch
     ports:
