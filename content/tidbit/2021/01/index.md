@@ -2,6 +2,7 @@
 slug: six-working-flexbox-layouts
 dateCreated: 2021-01-25 22:26 CET
 tags: css, flexbox
+previewImage: ../flexbox-preview.jpeg
 
 Layouting a site with CSS is initially easy. It becomes fun and more difficult when
 it shall become responsive, when you have a special design in mind and when one browser
