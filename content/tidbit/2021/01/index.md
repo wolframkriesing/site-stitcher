@@ -1,3 +1,30 @@
+# Six Working Flexbox Layouts
+slug: six-working-flexbox-layouts
+dateCreated: 2021-01-25 22:26 CET
+tags: css, flexbox
+
+Layouting a site with CSS is initially easy. It becomes fun and more difficult when
+it shall become responsive, when you have a special design in mind and when one browser
+does not work as expected.  
+The site [Solved by Flexbox](https://philipwalton.github.io/solved-by-flexbox/)
+by [@philwalton](https://twitter.com/philwalton)
+is a great resource where he shows six major use cases and describes
+the solutions.  
+
+Thanks a lot Phil, great job!
+
+<figure>
+    <img src="../flexbox-browser-support.jpeg" alt="The best, a lot of browsers are covered." width="100%" />
+    <figcaption>The best, a lot of browsers are covered.</figcaption>
+</figure>
+
+[Visit: "Solved by Flexbox" it is worth it!](https://philipwalton.github.io/solved-by-flexbox/)
+
+
+
+
+
+
 # CSS Preloading - Superior To Bundling?
 slug: css-preloading-superior-to-bundling
 dateCreated: 2021-01-24 15:54 CET
