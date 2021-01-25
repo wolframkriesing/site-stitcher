@@ -12,7 +12,7 @@
 {% block content %}
   {% import "blog/_parts.html" as blogParts %}
   <section>
-    <h2>Latest Blog Posts ✍</h2>
+    <h2>Latest <a href="/blog">Blog Posts ✍</a></h2>
 
     {% for post in posts.slice(0, 10) %}
       {{ blogParts.articlePreview(post) }}
@@ -23,7 +23,7 @@
 
   {% import "tidbit/_parts.html" as tidbitParts %}
   <section>
-    <h2>Latest Tidbits 😋</h2>
+    <h2>Latest <a href="/tidbits">Tidbits 😋</a></h2>
 
     {% for tidbit in tidbits.slice(0, 10) %}
       {{ tidbitParts.tidbitPreview(tidbit) }}
