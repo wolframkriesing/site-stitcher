@@ -19,7 +19,7 @@ Here is my list of git commands. As usual I created this collection so I know wh
 | `git branch --move <old-name> <new-name>` | Rename a local branch |
 | `git branch` | List all local branches |
 | `git fetch; git branch --all`<br/>`git fetch; git branch -a` | List all local AND remote branches, before fetch all branch info from remote  |
-| `git checkout about`<br/>`git rebase main` | I want to get my branch "about" to be on top of "main" |
+| `git checkout about`<br/>`git rebase main`<br/>`git push origin --force-with-lease` | I want to get my branch "about" to be on top of "main", and push it without overriding updates in `origin` |
 | `git checkout --track origin/remote-branch` | Checkout a remote branch locally, with tracking  |
 
 ## Commit
