@@ -136,8 +136,8 @@ Here is my list of git commands. As usual I created this collection so I know wh
 <td>List all local AND remote branches, before fetch all branch info from remote</td>
 </tr>
 <tr>
-<td><code>git checkout about</code><br/><code>git rebase main</code></td>
-<td>I want to get my branch &quot;about&quot; to be on top of &quot;main&quot;</td>
+<td><code>git checkout about</code><br/><code>git rebase main</code><br/><code>git push origin --force-with-lease</code></td>
+<td>I want to get my branch &quot;about&quot; to be on top of &quot;main&quot;, and push it without overriding updates in <code>origin</code></td>
 </tr>
 <tr>
 <td><code>git checkout --track origin/remote-branch</code></td>
