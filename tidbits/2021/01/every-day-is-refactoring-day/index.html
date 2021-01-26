@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Every Day is Refactoring Day" />
+
+  <meta property="og:title" content="Every Day is Refactoring Day">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/01/every-day-is-refactoring-day/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/01/every-day-is-refactoring-day/">  <title>Every Day is Refactoring Day | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="crafting" />
+    <meta property="article:tag" content="good code" />
+    <meta property="article:tag" content="refactoring" />
+
+  <meta property="og:description" content="It is always good to remind oneself constantly how and why to do things.
+Refactoring is one of the things that I see getting too little attention.
+I don&#39;t mean in our sprints or tickets, I mean in our professional lifes.
+**Refactoring is a tool we have, use it** (right). I guess &quot;right&quot; is more
+often than one thinks." />
+  <meta property="article:description" content="It is always good to remind oneself constantly how and why to do things.
+Refactoring is one of the things that I see getting too little attention.
+I don&#39;t mean in our sprints or tickets, I mean in our professional lifes.
+**Refactoring is a tool we have, use it** (right). I guess &quot;right&quot; is more
+often than one thinks." />
+  <meta name="twitter:description" content="It is always good to remind oneself constantly how and why to do things.
+Refactoring is one of the things that I see getting too little attention.
+I don&#39;t mean in our sprints or tickets, I mean in our professional lifes.
+**Refactoring is a tool we have, use it** (right). I guess &quot;right&quot; is more
+often than one thinks." />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/01/refactoring-preview.jpeg" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/01/refactoring-preview.jpeg" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/01/refactoring-preview.jpeg" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Every Day is Refactoring Day
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+      <img src="../refactoring-preview.jpeg" style="width: 100%; height: 10rem; object-fit: cover;"/>
+
+    <header>
+      <div class="tag" data-tag="crafting">#crafting</div>
+      <h1 id="every-day-is-refactoring-day" is="more-h1">Every Day is Refactoring Day</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - January 26, 2021
+          - tagged with: #crafting #good code #refactoring       </div>
+    </header>
+
+    <p>It is always good to remind oneself constantly how and why to do things.
+Refactoring is one of the things that I see getting too little attention.
+I don&#39;t mean in our sprints or tickets, I mean in our professional lifes.
+<strong>Refactoring is a tool we have, use it</strong> (right). I guess &quot;right&quot; is more
+often than one thinks.</p>
+<p>I was just reading <a href="https://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/">Ron Jeffries&#39; post on why refactoring does not belong in the
+backlog</a>, 
+which I had not seen before. Even though it sounds quite logical and makes no sense
+to stop development for half a year just to refactor to a happy place, it is
+discussed as an option, too often. Just don&#39;t!</p>
+<p>One of my favourite quote (by Kent Beck) is:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">
+    for each desired change, make the change easy (warning: this may be hard), 
+    then make the easy change</p>&mdash; @KentBeck 
+    <a href="https://twitter.com/KentBeck/status/250733358307500032?ref_src=twsrc%5Etfw">September 25, 2012</a>
+</blockquote>
+
+<p>It does take discipline not to run to the finish line as fast as one can, because &quot;it is just right there&quot;.
+It does take discipline to take a step back and make the new puzzle piece fit.
+Making it fit sometimes means adjusting the entire puzzle a bit.</p>
+<h2 is="more-h2" id="software-is-soft">Software is SOFT</h2>
+<p>This is another one of my favourite sayings. Software is soft.
+You can always massage software to where you need it now.
+We rarely work on software where we know exactly what it will look like in the future.
+We write most of software to support a (fast) changing business.</p>
+<h2 is="more-h2" id="ron-reminds">Ron Reminds</h2>
+<p>Refactoring is part of the job every day. It is like renaming, like fixing indentation,
+like optimizing imports, like compiling again, like learning a new language feature, it is
+just like everything else, it is not a task that stands alone and should be done solely for
+days or weeks.
+Ron sums it up well, I think:</p>
+<blockquote>
+<p>We improve the code where we work, and ignore the code where we don&#39;t have to work.</p>
+</blockquote>
+<p>By doing so we have NOT &quot;wasted effort on places that don&#39;t provide benefit&quot;.
+This often means to just ignore some of the trash laying around. Yep, there is trade offs
+everywhere. It takes discipline to not refactor everything and touch all places once
+one found a thing that should be ironed out. </p>
+<p>Going into extremes and cleaning the heck out of code is good when practicing, but
+at some point we also want to contribute and help moving things forward with our team, 
+and then refactoring might not always be needed as much as a developer would like to.</p>
+<p>I love how Ron ends his article:</p>
+<blockquote>
+<p>This is how you do it.</p>
+</blockquote>
+<p>;)</p>
+<p><span>Photo by <a href="https://unsplash.com/@carlevarino?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Cesar Carlevarino Aragon</a> on <a href="https://unsplash.com/s/photos/tools?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span></p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
