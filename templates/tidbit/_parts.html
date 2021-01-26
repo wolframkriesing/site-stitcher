@@ -12,7 +12,11 @@
         {% endif %}
       </div>
     </header>
-    <p class="abstract">{{ tidbit.abstractAsHtml | safe }}
+    <p class="abstract">
+      {% if tidbit.previewImage %}
+        <img src="{{ tidbit.previewImage }}" style="float: right; width: 30%; height: 5rem; object-fit: cover; margin-left: 1rem;"/>
+      {% endif %}
+      {{ tidbit.abstractAsHtml | safe }}
       {% if not tidbit.hasAbstractOnly %}
         <br/>
         <a  href="{{tidbit.url}}">Continue reading →</a>
