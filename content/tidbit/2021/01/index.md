@@ -2,6 +2,7 @@
 slug: every-day-is-refactoring-day
 dateCreated: 2021-01-26 18:49 CET
 tags: crafting, good code, refactoring
+previewImage: ../refactoring-preview.jpeg
 
 It is always good to remind oneself constantly how and why to do things.
 Refactoring is one of the things that I see getting too little attention.
@@ -57,6 +58,7 @@ I love how Ron ends his article:
 
 ;)
 
+<span>Photo by <a href="https://unsplash.com/@carlevarino?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Cesar Carlevarino Aragon</a> on <a href="https://unsplash.com/s/photos/tools?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 
 
 
