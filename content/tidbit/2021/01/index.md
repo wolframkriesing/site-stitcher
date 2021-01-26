@@ -1,3 +1,65 @@
+# Every Day is Refactoring Day
+slug: every-day-is-refactoring-day
+dateCreated: 2021-01-26 18:49 CET
+tags: crafting, good code, refactoring
+
+It is always good to remind oneself constantly how and why to do things.
+Refactoring is one of the things that I see getting too little attention.
+I don't mean in our sprints or tickets, I mean in our professional lifes.
+**Refactoring is a tool we have, use it** (right). I guess "right" is more
+often than one thinks.
+
+I was just reading [Ron Jeffries' post on why refactoring does not belong in the
+backlog](https://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/), 
+which I had not seen before. Even though it sounds quite logical and makes no sense
+to stop development for half a year just to refactor to a happy place, it is
+discussed as an option, too often. Just don't!
+
+One of my favourite quote (by Kent Beck) is:
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">
+    for each desired change, make the change easy (warning: this may be hard), 
+    then make the easy change</p>&mdash; @KentBeck 
+    <a href="https://twitter.com/KentBeck/status/250733358307500032?ref_src=twsrc%5Etfw">September 25, 2012</a>
+</blockquote>
+
+It does take discipline not to run to the finish line as fast as one can, because "it is just right there".
+It does take discipline to take a step back and make the new puzzle piece fit.
+Making it fit sometimes means adjusting the entire puzzle a bit.
+
+## Software is SOFT
+This is another one of my favourite sayings. Software is soft.
+You can always massage software to where you need it now.
+We rarely work on software where we know exactly what it will look like in the future.
+We write most of software to support a (fast) changing business.
+
+## Ron Reminds
+Refactoring is part of the job every day. It is like renaming, like fixing indentation,
+like optimizing imports, like compiling again, like learning a new language feature, it is
+just like everything else, it is not a task that stands alone and should be done solely for
+days or weeks.
+Ron sums it up well, I think:
+
+> We improve the code where we work, and ignore the code where we don't have to work.
+
+By doing so we have NOT "wasted effort on places that don't provide benefit".
+This often means to just ignore some of the trash laying around. Yep, there is trade offs
+everywhere. It takes discipline to not refactor everything and touch all places once
+one found a thing that should be ironed out. 
+
+Going into extremes and cleaning the heck out of code is good when practicing, but
+at some point we also want to contribute and help moving things forward with our team, 
+and then refactoring might not always be needed as much as a developer would like to.
+
+I love how Ron ends his article:
+
+> This is how you do it.
+
+;)
+
+
+
+
 # Six Working Flexbox Layouts
 slug: six-working-flexbox-layouts
 dateCreated: 2021-01-25 22:26 CET
