@@ -103,4 +103,51 @@ is a very good way to do it, hence
 I just can't stop having the impression that this is more of a sales talk
 than a talk for a conference.
 
+## Panel Discussion 
+
+The moderator Yoni Goldberg is throwing some numbers in the room, I like that to
+get a feeling for the speed in the field of testing javascript.
+
+First question is about Github Actions. Kent C. Dodds touches on the monopolistic
+trend just briefly, not enough I think. I have my problems with github actions being
+so dominating. I have a [draft post](/blog/2020/06/26-why-move-to-codeberg/) 
+that was triggered by me learning github actions,
+leading to go to codeberg (without having anything like github actions).
+The marketplace makes it "open source" was a sense I got from the discussion, I am not
+sure I can agree.
+
+Also here it sounds like the browser testing is what people like a lot.
+Unit tests are always mentioned on the side, but I am not sure it gets the love
+it should. Maybe I just have an old style view on this.
+
+Oren says "integration testing you get high coverage really fast", without
+touching on the tradeoffs. Then he mentions that he also hates flakiness and
+prefers 20% of his code tested and be reliable, over 100% tested but flaky.
+Later he does state the big difference of testing at the top of the test pyramid
+and at the bottom. Well done.
+
+Jason Palmer says "keeping quality high pays dividence over time". *nodding hard*
+
+"When should I write a unit test?" and "What is a component test?" Yoni asks the panel.
+Kent states that more integration tests prevent needing unit tests (how I heard it). Aha.
+Though he also says that algorithmic things (as he calls them) are 
+where he sees unit tests being needed.
+Yet another time that I understand that we don't really have the same view
+on testing.
+
+Nancy says it: "integration tests is a term we are not aligned on". I agree.
+
+Mmmh, Yoni summarizes the panel kinda like this: test on the user's side, 
+network and UI! And (he said) we still have the "old tools" like 
+unit testing.
+And that gives me food for thought, having learned testing from 
+JB Rainsberger's and
+[Integrated Tests Are A Scam](https://www.youtube.com/watch?v=VDfX44fZoMc).
+Do I look at it from the wrong angle. But the test quality I have seen 
+in the last years and I see in most places is so low, that I am not sure
+we are on the right track dismissing testing the small things and just 
+testing from the user's chair.
+
+I need a break ... bbl
+
 tbc...
