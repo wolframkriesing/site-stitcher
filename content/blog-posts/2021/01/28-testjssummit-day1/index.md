@@ -4,6 +4,9 @@ previewImage: preview.png
 
 # TestJSSummit Day 1
 
+I am taking some notes here, basically for deeper learning and reminding me of knowledge.
+If it is helpful for others, cool.
+
 [It](https://www.testjssummit.com/) 
 just started. I warmed up talking to Jacek, we both thought it starts at 15:00
 but it didn't so it gave us 1h to warm up.
@@ -14,7 +17,8 @@ Wow, more then 5000 participants.
 I guess that is the advantage of online conferences, the number of people joining
 is basically unlimited.
 
-They have all kinda stuff set up, discord (a chat), spatial (a kinda virtual env where you can work around).
+They have all kinda stuff set up, discord (a chat), spatial (a kinda virtual env where you can work around)
+and of course you can watch the video in live.
 
 ## Talk 1: Evolution of Browser Testing
 
@@ -157,4 +161,10 @@ Thanks. I am not loosing faith.
 Yep, contract tests, this is the thing we want between parts of our system.
 
 Ok, I realize the integration tests things like *-testing-library
-is a different flight level to what pact.io and the thing Matt talked about.
+is a different flight level to what pact.io and the integration tests Matt talked about.
+
+Matt says it "End to End Testing means too many things".
+Where does contract testing fits in the test pyramid? It's rather close to a 
+unit test Matt says. On the provider side it sits more in the middle of the pyramid.
+"They are closer to unit tests, but they still run through a couple layers".
+"Contract tests removes tests from the end-to-end test." Matt says in the Q&As.
