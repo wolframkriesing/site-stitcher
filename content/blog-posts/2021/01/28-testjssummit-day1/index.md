@@ -150,4 +150,11 @@ testing from the user's chair.
 
 I need a break ... bbl
 
-tbc...
+## Talk X: Contract Testing with pact.io
+
+Matt Fellows shows us how integration tests actually will fail you when your system grows.
+Thanks. I am not loosing faith.
+Yep, contract tests, this is the thing we want between parts of our system.
+
+Ok, I realize the integration tests things like *-testing-library
+is a different flight level to what pact.io and the thing Matt talked about.
