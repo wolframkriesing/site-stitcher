@@ -83,8 +83,12 @@ Pffff... 🤷🏽
 ## Talk 3: Your Tests Lack Vision
 
 [Angie Jones](https://twitter.com/techgirl1908)
+starts with [a video on inattentional blindness](https://www.youtube.com/watch?v=ubNF9QNEQLA&t=15s), 
+which already makes very clear where she is going (since I know what applitools does).
+Then comes a lot of slides for nodding, especially if you have done visual testing a couple 
+of times.
 
-> When you are writing your tests, you are scripting in your unintentional blindness.
+> When you are writing your tests, you are scripting in your inattentional blindness.
 
 She came across a broken website, and then:
 > I did what any of you would do, I opened the dev tools.
@@ -92,5 +96,11 @@ She came across a broken website, and then:
 I love that. She still finished the process but also mentioned that she thought
 about the non-devs that don't even know about devtools. Yo yo.
 
+She is getting her point across quite well, she bascially sells the AI browser testing
+approach the company she works for does. I am totally on board and I think this
+is a very good way to do it, hence 
+[my ML tidbit on "Machine Learning vs. Screenshot Comparing"](/tidbits/2020/08/machine-learning-vs-screenshot-comparing/).
+I just can't stop having the impression that this is more of a sales talk
+than a talk for a conference.
 
 tbc...
