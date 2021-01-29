@@ -1,5 +1,6 @@
 dateCreated: 2021-01-29 16:20 CET  
 tags: conference, JavaScript, a11y   
+previewImage: preview.png  
 
 # TestJSSummit - Notes for Day 2
 
