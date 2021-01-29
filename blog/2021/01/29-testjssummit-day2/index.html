@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="TestJSSummit - Notes for Day 2" />
+
+  <meta property="og:title" content="TestJSSummit - Notes for Day 2">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/blog/2021/01/29-testjssummit-day2/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/blog/2021/01/29-testjssummit-day2/">  <title>TestJSSummit - Notes for Day 2 | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="conference" />
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="a11y" />
+
+  <meta property="og:description" content="He starts taking apart how he categorizes tests. 
+What kind of tests he suggests to use for what kind of part of an application.
+They are tied to technical boundaries.
+For example testing a server backend he suggests to use API tests,
+for &quot;individual piece of code&quot; he suggests a unit test, and so on.
+In the end he is advertising that cypress will have a node test runner.
+I think I get it, this is how cypress &quot;sees&quot; the kinds of tests. Maybe
+I didn&#39;t listen properly in the beginning :)." />
+  <meta property="article:description" content="He starts taking apart how he categorizes tests. 
+What kind of tests he suggests to use for what kind of part of an application.
+They are tied to technical boundaries.
+For example testing a server backend he suggests to use API tests,
+for &quot;individual piece of code&quot; he suggests a unit test, and so on.
+In the end he is advertising that cypress will have a node test runner.
+I think I get it, this is how cypress &quot;sees&quot; the kinds of tests. Maybe
+I didn&#39;t listen properly in the beginning :)." />
+  <meta name="twitter:description" content="He starts taking apart how he categorizes tests. 
+What kind of tests he suggests to use for what kind of part of an application.
+They are tied to technical boundaries.
+For example testing a server backend he suggests to use API tests,
+for &quot;individual piece of code&quot; he suggests a unit test, and so on.
+In the end he is advertising that cypress will have a node test runner.
+I think I get it, this is how cypress &quot;sees&quot; the kinds of tests. Maybe
+I didn&#39;t listen properly in the beginning :)." />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2021/01/29-testjssummit-day2/preview.png" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2021/01/29-testjssummit-day2/preview.png" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2021/01/29-testjssummit-day2/preview.png" />
+</head>
+<body class="page-post">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2021/01/">January 2021</a> &raquo;
+  TestJSSummit - Notes for Day 2
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+
+      <img src="preview.png" style="width: 100%; height: 10rem; object-fit: cover;"/>
+
+    <header>
+      <h1 id="testjssummit-day2" is="more-h1">
+        TestJSSummit - Notes for Day 2
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - January 29, 2021
+          - tagged with: #conference #JavaScript #a11y       </div>
+    </header>
+
+
+    <h2 is="more-h2" id="talk-1-the-cypress-talk">Talk 1: The Cypress Talk</h2>
+<p>He starts taking apart how he categorizes tests. 
+What kind of tests he suggests to use for what kind of part of an application.
+They are tied to technical boundaries.
+For example testing a server backend he suggests to use API tests,
+for &quot;individual piece of code&quot; he suggests a unit test, and so on.
+In the end he is advertising that cypress will have a node test runner.
+I think I get it, this is how cypress &quot;sees&quot; the kinds of tests. Maybe
+I didn&#39;t listen properly in the beginning :).</p>
+<p>Next he suggests that certain kinds of tests (written using cypress)
+is &quot;too short&quot; he says, &quot;this is unproductive&quot;. The tests are testing a single
+DOM element&#39;s attribute each. I would not say they are too short, these
+are just the wrong kinds of tests. Testing DOM elements&#39; attributes&#39;
+values is not very often useful. As usual, it depends. <a href="..">I did that too</a>.
+Though I am not sure if putting all assertions into one test is the better
+strategy, this will result in not knowing why a test failed. Maybe another
+indication for the wrong kind of test?</p>
+<p>Confirming my above assumption, he says too long tests make you unproductive,
+but I am not sure I can agree to the reasons, like &quot;the longer the test 
+the higher the chance the browser will run out of memory and crash&quot;. What?
+I am not sure I want this kind of web application. Does this imply that cypress
+causes those memory overflows? I mean browsers are kept open on websites for ages
+nowadays, right?
+Also, the argument that shorter tests allow for faster problem detection, is what
+I tried to say above too.</p>
+<p>As usual, it depends. I think long tests are sometimes very useful. For example
+I prefer just a handful of tests to ensure the critical paths of my site/app
+work and people can do the most important things. They can take long and give
+me security and are easy to maintain, because there are few of them.</p>
+<p>A cypress assertion might be like <code>should(&#39;not.be.visible&#39;)</code>? String?
+Mmmh, that is what I am always struggling with with the expect-kind approach
+of writeing assertions. Have a look at <a href="..">hamjest</a> an assertion library that allows
+you to write very expressive assertion, that are readable, auto-complete and
+output well readable, useful errors.</p>
+<p>He brings forward really good arguments for good documentation.
+Oh yeah, good docs makes life easier. Not only for the users, also for the maintainers.
+He even looks for searches on the docs page that return no results and writes
+docs for it. Pretty cool!<br>Cypress team has a tool that parses markdown files and runs the examples that are in there,
+just like <a href="http://fitnesse.org">http://fitnesse.org</a> does.<br>Promote your own docs, as he does. This is pretty cool, forces you to improve them
+but also focuses on usability! Kudos!!!</p>
+<p>Mmmh, in the Q&amp;As Gleb mentions the &quot;big test&quot; for testing a user journey,
+like an entire shopping experience, as a good test. I agree. So I guess how I understood
+his arguments about big tests being unproductive,
+in the beginning, is just not to be understood as the absolute. As usual, it depends.</p>
+<h2 is="more-h2" id="talk-2-playwright">Talk 2: Playwright</h2>
+<p>There is pupeteer out there, but now there is <a href="https://playwright.dev">Playwright</a>, the cross platform
+browser automation testing tool, headless as far as I know.
+It is not like selenium but rather like a virtual user
+using the browser, by interacting via the native interfaces, I think.<br>This was my 2 cents, before the talk starts. Now off to listen to Arjun Attam from
+Microsoft talking about Playwright.</p>
+<p>He touches on new features coming to the web continuously. I am curious how
+he gonna show that Playwright will be catching up fast with those.</p>
+<p>I like this example, it shows well what plywright is good at and made for:</p>
+<pre><code class="undefinedjs">const {chromium, firefox, webkit} = require(&#39;playwright&#39;);</code></pre>
+<p>Ok, the <code>require</code> is old-style, but it shows well that playwright is for automating all
+browsers. Yeah!
+Oh, and &quot;Playwright webkit is available across all platforms [...] you can use webkit
+to test for your Safari issues in your Linux CI environment&quot;. Isn&#39;t that cool?</p>
+<ul>
+<li>Playwright can run in headless and headful mode.</li>
+<li>it can emulate devices, like an iPhone 11</li>
+<li>it can tell the browser to have certain permissions turned on (e.g. geolocation, notifications, ...)</li>
+<li>you can set color scheme to dark,</li>
+<li>you can set the browser &quot;to be&quot; in a certain geo location (giving lat+lng)</li>
+<li>set a locale</li>
+<li>mock certain URLs</li>
+<li>listen to events such as console calls, domcontentloaded, websocket connections, ...</li>
+<li>...</li>
+</ul>
+<p>All this is just not possible with tools that run inside the browser.
+I love it. This is the right way, I think.</p>
+<p>Very important is what he says about how interactions on the page are handled,
+e.g. the code:</p>
+<pre><code class="undefinedjs">await page.goto(&#39;irrelevent-url&#39;);
+await page.click(&#39;a-selector&#39;);</code></pre>
+<p>he says that playwright prevents the use for waiting and timeouts by automatically 
+waiting internally before executing the <code>page.click</code> until the element</p>
+<ul>
+<li>is visible,</li>
+<li>is done animating,</li>
+<li>is ready to receive click events.</li>
+</ul>
+<p>&quot;All this internally done for you&quot;. Cool. Of course you can build the wait conditions yourself too. Good.
+Isn&#39;t that what cypress is doing under the hood too?
+I am curious how much those two are aligned, work together, etc.</p>
+<p>In the Q&amp;A Arjun mentions that Playwright will provide a test runner. 🙈
+Why? There are enough out there. I am sure users wanted it, that&#39;s why they are
+doing it but why not invest the time in things that playwright can become better
+at than redoing what others do. Why not just document better how to use test runner
+X or Y with playwright? I guess they discussed that.
+I didn&#39;t find the test runner on the website. Mmmh.</p>
+<h2 is="more-h2" id="talk-3-detox-mobile-end-to-end-test-for-apps">Talk 3: Detox (Mobile end-to-end test for apps)</h2>
+<p>Rotem Mizrachi-Meidan says they started <a href="https://github.com/wix/Detox">detox</a> 
+for testing their React Native app.
+Oh, this sounds like I need this at my current job. We have it set up, but until
+now we didn&#39;t have time to catch up and tbh I was also a bit reluctant to use
+such a (seemingly) heavy tool. I only heard about installation problems until now ;).
+Let&#39;s see how well Rotem will sell it (to me).</p>
+<p>Detox only &quot;acts&quot; when there is nothing more to do, no network requests, no animation,
+the app has nothing to do he says. Mmmh, that sounds clever.</p>
+<p>&quot;Our test are easy to run and they are cheap to run.&quot; He says after he has explained
+the imho complex and big architecture of their Wix app. I am really curious how
+those two go together.</p>
+<p>&quot;Detox doesn&#39;t have any screenshot comparison mechanisms. It can take device-level screenshots
+and element-level screenshots, to compare them with external apps.&quot; That is one piece
+of information I was looking for. Thanks for sharing Rotem!
+They use aplitools to compare the screenshots, to prevent the slight pixel diffs.
+Sounds clever.</p>
+<p>He later touches on mobile CI and mentions that they tried all the tools.
+He says that the problem is always android emulators, which he states run
+better on Mac than on Linux. This is news to me. I have not experienced that yet.
+They have an internal CI on VMWare with real Macs.
+Oho, compilation times are slow. Yep, I know what you talk about.
+Mac Minis he says they reached 2x compile speed.
+Oh, I misinterpreted, he is of course talking about running the detox tests on those machines.
+Yep, I can imagine this to be fun (not).
+Their QA engineers are faster than running their tests on servers. Oho.</p>
+<p>And the talk is over. Surprise.</p>
+<p>Afterwards the poll actually offers me the list of (all the) mobile test automation tools.
+There is: Appium-based, Detox, Espresso and XCUITest.</p>
+<p>Oh, in the Q&amp;A when Rotem was asked about device features like camera, turning the device on/off,
+going offline, etc.
+he says that detox runs on simulators, not on real devices yet (on iOS).
+But they seem to be working on that on iOS.
+Faking/mocking network stuff is nothing they can solve and do yet.
+Camera just works, there is nothing that blocks it, he says. Not sure what that means.
+He mentions that he has just written 
+<a href="https://medium.com/wix-engineering/detox-writing-stable-test-suites-372c9d537184">this blog post &quot;Detox: Writing Stable Test Suites&quot;</a>.</p>
+<h2 is="more-h2" id="talk-4-a11y">Talk 4: A11y</h2>
+<p><a href="https://www.wroten.me/">Ava Wroten</a> 
+starts by saying that in her talk she will be using a lot of emberjs, the
+framework she works with mostly. Very interesting, I used to do quite some ember
+a while ago, we did not become best friends. I remember it shipping yet one more npm
+with it. That made me very suspicious. But I have heard things have improved.</p>
+<blockquote>
+<p>People with disabilities are the worlds largest minority</p>
+</blockquote>
+<p>Well said. Emberjs has first class a11y support. That is cool. Reminds me
+of dojo, it had also brought this from the beginning all the time.
+Yep, if there are pitfalls in the framework they bubble up all the way 
+into every app using this framework, she says.</p>
+<p>So many good hints, I will fallback to listing the tools she mentioned and examples she listed, 
+which often make it clear what the tool does:</p>
+<ul>
+<li><a href="https://github.com/dequelabs/axe-core">axe-core</a> </li>
+<li><a href="https://www.deque.com/axe/">https://www.deque.com/axe/</a> has browser extensions</li>
+<li>axe support is built into Svelte 🎉</li>
+<li>@axe-core/react, <code>axe(React, ReactDOM, 1000)</code></li>
+<li>vue-axe, <code>Vue.use(VueAxe)</code></li>
+<li>jest-axe, <code>exepct(await axe(html)).toHaveNoViolations()</code></li>
+<li>@axe-core/webdriverjs</li>
+<li>cypress-axe, <code>cy.injectAxe(); cy.checkA11y()</code></li>
+</ul>
+<p>Good tip, is that a11y testing will always involve some manual testing.
+And it is never complete without manual testing an app or site.
+Automation is not getting it all.</p>
+<p>Great request at the end:</p>
+<blockquote>
+<p>Hire someone different than you.</p>
+</blockquote>
+<p>Thanks a lot Ava!</p>
+
+
+  </article>
+    </div>
+  <aside class="right">
+      <h3 id="related" is="more-h3">Related Posts</h3>
+          <span>TestJSSummit - Notes for Day 2</span><br/>
+          <a href="/blog/2021/01/28-testjssummit-day1/">TestJSSummit Day 1</a><br/>
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
