@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="TestJSSummit Day 1" />
+
+  <meta property="og:title" content="TestJSSummit Day 1">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/blog/2021/01/28-testjssummit-day1/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/blog/2021/01/28-testjssummit-day1/">  <title>TestJSSummit Day 1 | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="conference" />
+    <meta property="article:tag" content="JavaScript" />
+
+  <meta property="og:description" content="I am taking some notes here, basically for deeper learning and reminding me of knowledge.
+If it is helpful for others, cool." />
+  <meta property="article:description" content="I am taking some notes here, basically for deeper learning and reminding me of knowledge.
+If it is helpful for others, cool." />
+  <meta name="twitter:description" content="I am taking some notes here, basically for deeper learning and reminding me of knowledge.
+If it is helpful for others, cool." />
+
+    <meta property="og:image" content="https://picostitch.com/blog/2021/01/28-testjssummit-day1/preview.png" />
+    <meta property="og:image:url"  content="https://picostitch.com/blog/2021/01/28-testjssummit-day1/preview.png" />
+    <meta name="twitter:image" content="https://picostitch.com/blog/2021/01/28-testjssummit-day1/preview.png" />
+</head>
+<body class="page-post">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/blog">Blog</a> &raquo;
+  <a href="/blog/2021/01/">January 2021</a> &raquo;
+  TestJSSummit Day 1
+  </nav>
+
+  <main>
+    <div class="content">
+  <article class="">
+
+      <img src="preview.png" style="width: 100%; height: 10rem; object-fit: cover;"/>
+
+    <header>
+      <h1 id="testjssummit-day1" is="more-h1">
+        TestJSSummit Day 1
+        
+      </h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - January 28, 2021
+          - tagged with: #conference #JavaScript       </div>
+    </header>
+
+
+    <p>I am taking some notes here, basically for deeper learning and reminding me of knowledge.
+If it is helpful for others, cool.</p>
+<p><a href="https://www.testjssummit.com/">It</a> 
+just started. I warmed up talking to Jacek, we both thought it starts at 15:00
+but it didn&#39;t so it gave us 1h to warm up.</p>
+<h2 is="more-h2" id="intro">Intro</h2>
+<p>Wow, more then 5000 participants.
+I guess that is the advantage of online conferences, the number of people joining
+is basically unlimited.</p>
+<p>They have all kinda stuff set up, discord (a chat), spatial (a kinda virtual env where you can work around)
+and of course you can watch the video in live.</p>
+<h2 is="more-h2" id="talk-1-evolution-of-browser-testing">Talk 1: Evolution of Browser Testing</h2>
+<p><a href="https://twitter.com/bromann">@Christian Bromann</a> 
+from Saucelabs starts with a 25min talk on how browser 
+automation has evolved over the last year. So I expect a high level overview.
+Let&#39;s see if there is something to learn.<br>Half in he very well explained the history and also the tech setups of all the browser
+testing tools.</p>
+<p>I start to get the feeling that the conference is going to be <strong>just about browser testing (?)</strong>,
+which I would call integration testing. I am not sure this is going to satisfy what
+I expected from &quot;Test JS Summit&quot;. That makes me think about what I did expect.
+I beleive I expect to hear about good testing approaches, which start at a lower level
+for me. I actually see testing more as a way of driving code, which means drive design
+and architecture of a software.</p>
+<p>Aha, he is introducing <a href="https://github.com/w3c/webdriver-bidi">webdrive-bidi</a> now.</p>
+<blockquote>
+<p>WebDriver BiDi is a proposed bidirectional protocol for browser automation, building on and extending WebDriver.</p>
+<p>WebDriver BiDi is not ready.</p>
+</blockquote>
+<p>Christian is saying &quot;you can finally talk to your Safari-friend&quot;.
+Seeing the latest focus that Apple puts on browser development I would not be so sure that
+they will help us on that front.</p>
+<p>I am glad that there are things moving forward in the space of browser testing.</p>
+<p>In the Q&amp;A at the end the question came up &quot;How can I prevent the <code>waitForElement()</code>?&quot;.
+Christian says &quot;it is something that you need there&quot;.
+This is what I also see as the main issue, it causes lags, flaky tests, devs pulling out their hair
+and tests to become hard to maintain. I have no solution either, I am also thinking about this
+for years already ;).</p>
+<h2 is="more-h2" id="talk-2-its-not-about-your-assertion-library">Talk 2: It&#39;s not About Your Assertion Library</h2>
+<p>Now <a href="https://twitter.com/novemberborn">@Mark</a>,
+maintainer of <a href="https://github.com/avajs/ava">ava</a>, 
+starts by giving a different talk. Cool.
+The headline sounds like this will meet my expectations, he will talk about how to test,
+not the painful browser testing.</p>
+<p>The talk was not about assertion libraries or anything alike, it was an even higher
+level talk. Ok. I didn&#39;t expect that either.<br>Still it was very good to have this kind of talk, we don&#39;t talk about why and how to test
+right often enough. Still it felt a bit like he was not able to find the rights words
+to get through to me, but I know what he means. 🤔</p>
+<p>Mark says in the after-talk Q&amp;A.</p>
+<blockquote>
+<p>Back in the days, before docker, when you installed node on your machine ...</p>
+</blockquote>
+<p>Thanks ;).</p>
+<p>In the Q&amp;A &quot;What is your definition of integration tests?&quot;.
+Define it yourself. Align with your team what are the right tests for your product
+and call them whatever you want.</p>
+<h2 is="more-h2" id="sponsoring">Sponsoring</h2>
+<p>What? There are companies that really label themselves to do 
+&quot;Enterprise Jamstack Websites&quot;? Wow, what happens when the Jam is not sweet anymore?
+Pffff... 🤷🏽</p>
+<h2 is="more-h2" id="talk-3-your-tests-lack-vision">Talk 3: Your Tests Lack Vision</h2>
+<p><a href="https://twitter.com/techgirl1908">Angie Jones</a>
+starts with <a href="https://www.youtube.com/watch?v=ubNF9QNEQLA&amp;t=15s">a video on inattentional blindness</a>, 
+which already makes very clear where she is going (since I know what applitools does).
+Then comes a lot of slides for nodding, especially if you have done visual testing a couple 
+of times.</p>
+<blockquote>
+<p>When you are writing your tests, you are scripting in your inattentional blindness.</p>
+</blockquote>
+<p>She came across a broken website, and then:</p>
+<blockquote>
+<p>I did what any of you would do, I opened the dev tools.</p>
+</blockquote>
+<p>I love that. She still finished the process but also mentioned that she thought
+about the non-devs that don&#39;t even know about devtools. Yo yo.</p>
+<p>She is getting her point across quite well, she bascially sells the AI browser testing
+approach the company she works for does. I am totally on board and I think this
+is a very good way to do it, hence 
+<a href="/tidbits/2020/08/machine-learning-vs-screenshot-comparing/">my ML tidbit on &quot;Machine Learning vs. Screenshot Comparing&quot;</a>.
+I just can&#39;t stop having the impression that this is more of a sales talk
+than a talk for a conference.</p>
+<h2 is="more-h2" id="panel-discussion">Panel Discussion</h2>
+<p>The moderator Yoni Goldberg is throwing some numbers in the room, I like that to
+get a feeling for the speed in the field of testing javascript.</p>
+<p>First question is about Github Actions. Kent C. Dodds touches on the monopolistic
+trend just briefly, not enough I think. I have my problems with github actions being
+so dominating. I have a <a href="/blog/2020/06/26-why-move-to-codeberg/">draft post</a> 
+that was triggered by me learning github actions,
+leading to go to codeberg (without having anything like github actions).
+The marketplace makes it &quot;open source&quot; was a sense I got from the discussion, I am not
+sure I can agree.</p>
+<p>Also here it sounds like the browser testing is what people like a lot.
+Unit tests are always mentioned on the side, but I am not sure it gets the love
+it should. Maybe I just have an old style view on this.</p>
+<p>Oren says &quot;integration testing you get high coverage really fast&quot;, without
+touching on the tradeoffs. Then he mentions that he also hates flakiness and
+prefers 20% of his code tested and be reliable, over 100% tested but flaky.
+Later he does state the big difference of testing at the top of the test pyramid
+and at the bottom. Well done.</p>
+<p>Jason Palmer says &quot;keeping quality high pays dividence over time&quot;. <em>nodding hard</em></p>
+<p>&quot;When should I write a unit test?&quot; and &quot;What is a component test?&quot; Yoni asks the panel.
+Kent states that more integration tests prevent needing unit tests (how I heard it). Aha.
+Though he also says that algorithmic things (as he calls them) are 
+where he sees unit tests being needed.
+Yet another time that I understand that we don&#39;t really have the same view
+on testing.</p>
+<p>Nancy says it: &quot;integration tests is a term we are not aligned on&quot;. I agree.</p>
+<p>Mmmh, Yoni summarizes the panel kinda like this: test on the user&#39;s side, 
+network and UI! And (he said) we still have the &quot;old tools&quot; like 
+unit testing.
+And that gives me food for thought, having learned testing from 
+JB Rainsberger&#39;s and
+<a href="https://www.youtube.com/watch?v=VDfX44fZoMc">Integrated Tests Are A Scam</a>.
+Do I look at it from the wrong angle. But the test quality I have seen 
+in the last years and I see in most places is so low, that I am not sure
+we are on the right track dismissing testing the small things and just 
+testing from the user&#39;s chair.</p>
+<p>I need a break ... bbl</p>
+<h2 is="more-h2" id="talk-x-contract-testing-with-pactio">Talk X: Contract Testing with pact.io</h2>
+<p>Matt Fellows shows us how integration tests actually will fail you when your system grows.
+Thanks. I am not loosing faith.
+Yep, contract tests, this is the thing we want between parts of our system.</p>
+<p>Ok, I realize the integration tests things like *-testing-library
+is a different flight level to what pact.io and the integration tests Matt talked about.</p>
+<p>Matt says it &quot;End to End Testing means too many things&quot;.
+Where does contract testing fits in the test pyramid? It&#39;s rather close to a 
+unit test Matt says. On the provider side it sits more in the middle of the pyramid.
+&quot;They are closer to unit tests, but they still run through a couple layers&quot;.
+&quot;Contract tests removes tests from the end-to-end test.&quot; Matt says in the Q&amp;As.</p>
+
+
+  </article>
+    </div>
+  <aside class="right">
+  </aside>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
