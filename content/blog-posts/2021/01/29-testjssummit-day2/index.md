@@ -4,6 +4,26 @@ previewImage: preview.png
 
 # TestJSSummit - Notes for Day 2
 
+After live blogging on day 1 I made a plan for day 2.
+I will watch all content in 2x speed and just pause whenever I need a bit to
+write. It's just a video, so I can catch up by higher speed.
+Also I came to the conclusion that I don't even need to be fully in sync,
+except for the polls and the live chatting, but there is too much life
+going on in parallel that I am glad about the pause button.
+
+I still don't get why my (intended) joke from yesterday didn't catch on. hehe
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck">
+<p lang="en" dir="ltr">Live watching 
+<a href="https://twitter.com/hashtag/TestJSSummit?src=hash&amp;ref_src=twsrc%5Etfw">#TestJSSummit</a><br><br>Set 2x speed in the youtube player =&gt; maybe advances (me in) time. <a href="https://twitter.com/hashtag/mindblown?src=hash&amp;ref_src=twsrc%5Etfw">#mindblown</a> <br><br>Didn’t work :(
+</p>&mdash; @wolframkriesing 
+<a href="https://twitter.com/wolframkriesing/status/1354871280818917377?ref_src=twsrc%5Etfw">January 28, 2021</a>
+</blockquote>
+
+After day 1 I have to say I am not that amazed. It is a lot about tooling and
+showing products.
+Anyways, let's dive right into day 2.
+
 ## Talk 1: The Cypress Talk
 
 He starts taking apart how he categorizes tests. 
@@ -196,5 +216,118 @@ Great request at the end:
 
 Thanks a lot Ava!
 
-[testing-dom-attributes]: ..
-[hamjest]: ..
+## Talk 5: Site Speed
+
+[Martin Splitt](https://twitter.com/g33konaut)
+is talking about website speed. He always brings a lot of insights
+directly from where google builds their tools, he knows that stuff.
+It is always worth watching him and his talks, they are very insightful.
+Since it was a topic I had been deeply involved and working with over the last
+years I don't expect much new. 
+Let's see.
+
+He mentions one thing that I remember I also had to fight for
+"lab vs. real user metrics". Make sure to measure both!
+
+**Core Web Vitals** is what Google calls their new approach to measuring this
+speed stuff. I am not sure we are getting anywhere by changing the approach every year :).
+
+> Metrics will be updated ~yearly
+
+Hehe.
+Which ones are these vitals?
+1) **LCP - Largest Contentful Paint**, good <2.5sec, poor >4sec
+   specifies when the main content is likely visible
+2) **FID - First Input Delay**, good <100ms, poor >300ms
+   how fast the page responds to user inputs
+3) **CLS - Cumulative Layout Shift**, good <0.1, poor >0.25
+   (the unit is roughly percent of change on the visible are of the page)
+   how much of the layout is shifting unexpectedly
+   (sounds like a good measurement for the evil ads)
+   
+Actually this seems like a well thought through set of numbers, esp. CLS since it
+takes into account where and therefore how much of the pages change.
+But in the Q&A afterwards he already admits the CLS is problematic with SPAs.
+So we might get a couple more metrics next year ;).
+   
+All these factors will start to flow into the ranking factor of google 
+starting around May 2021. This chart below shows some of those factors well.
+I am sure Google won't show us all of them.
+
+<figure>
+    <img src="google-ranking-factors.jpg" alt="Google Ranking Factors, starting May 2021" width="100%" />
+    <figcaption>Google Ranking Factors, starting May 2021</figcaption>
+</figure>
+
+Oh wow, and Google will not require AMP sites to show up in their
+"awesome", best selling, first on page, fast loading and most visible carousel
+at the top of every search result page. This is definitely a good signal for 
+fast pages that had not felt the inspiration to use AMP yet, which I support fully.
+I am looking fwd to picostitch in these carousels.
+
+Hehe, the poll after his talk states 3rd party JS to have the biggest impact on
+the performance of most people's sites.
+The 3rd party must be someone's own JavaScript, right? Those people are probably not
+watching this conference.
+
+## Talk 6: Beyond API Mocking
+
+After I thought I am not going to write stuff for Martin's talk, I did in the end.
+Let me start into blogging about this next talk with a tweet that I was triggered 
+to send out by the organizers' poll:
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck">
+    <p lang="en" dir="ltr">
+        „How do you mock API at work?“<br><br>
+        where is the option &quot;dependency injection&quot;?
+        <a href="https://twitter.com/hashtag/poll?src=hash&amp;ref_src=twsrc%5Etfw">#poll</a>
+        at <a href="https://twitter.com/hashtag/TestJSSummit?src=hash&amp;ref_src=twsrc%5Etfw">#TestJSSummit</a>
+    </p>
+    &mdash; @wolframkriesing 
+    <a href="https://twitter.com/wolframkriesing/status/1355220650059837441?ref_src=twsrc%5Etfw">January 29, 2021</a>
+</blockquote>
+
+"Why are we writing tests?". Confidence is his answer. We should follow two principles he says, 1) 
+test as a user and 2) establish boundaries.
+He sees mocking to distribute these boundaries. I didn't understand that sentence properly. Maybe it will come.
+Now he explains 2 mock practices the first 1) mock server and 2) mock client.
+He next shows how to mock `fetch`.
+Aha, now he is coming and talking about real problems with mocks, the disconnect between the production code
+and the mocked code. The solution he suggests is Service Worker. That is a surprise.
+This switched from methodoligy to technology. Mmmh. He shows his project "Mock Service Worker".
+Somehow I get the impression that Playwright is the right solution here, he is talking about
+working in the browser all the time, so scroll up and read what I learned today that Playwright covers.
+
+Oh funny, in the poll results in the end Anna says "What? 24% don't mock their APIs. What?".
+I guess "not mocking the API" means different things to different people. I understood this option
+to ask if I mock network requests, routes or alike.
+Anyway, dependency injection was missing ;).
+
+## Talk 7: Testing, Serverless, Hexagonal Architectures
+
+[Slobodan Stojanovic](https://slobodan.me) 
+starts by saying that vendor lock-in is the biggest problem.
+He uses some mysterious Jeff that runs cloud services and goes evil at some point. I couldn't stop laughing.
+The next guy he moves his servers to is Bill. LOL. Jeff's servers are in yellow, Bill's in blue.
+Thanks Slobodan, this is a great good night story!
+He renames vendor lock-in to switching costs.
+He is now getting to his topic "Writing testable serverless apps and preventing vendor lock-in using
+hexagonal architecture". I get a little bit the feeling that this providing the vendor lock-in is
+something that either he ran into or feels it will become a problem. Not sure if it is this relevant.
+Let's see. A lot of text on the slides. At my 2x speed watching this becomes hard.
+
+> The serverless testing pyramid would look more like a mayan pyramid then an egyptian pyramid.
+
+Nice one.
+
+He shows a function with three arguments that seem to connect to the outside.
+Looks like dependency injection to me.
+His example of switching from mongo to dynamo is really nice, even if it is nothing that is exclusive
+to hexagonal archtiectures it is very important to mention that the DB should never leak into your
+business logic.
+
+Ok, this talk was bascially pushing a bit for good architecture, a topic that fell a bit short
+at the conference. Testing and good architecture go very much hand in hand.
+
+[testing-dom-attributes]: https://github.com/wolframkriesing/site-stitcher/blob/master/src/render-tidbit/render-page.slow-spec.js#L65
+[hamjest]: https://github.com/rluba/hamjest
