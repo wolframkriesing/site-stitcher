@@ -259,7 +259,10 @@ starting around May 2021. This chart below shows some of those factors well.
 I am sure Google won't show us all of them.
 
 <figure>
-    <img src="google-ranking-factors.jpg" alt="Google Ranking Factors, starting May 2021" width="100%" />
+    <picture>
+        <source srcset="google-ranking-factors.webp">
+        <img src="google-ranking-factors.jpg" alt="Google Ranking Factors, starting May 2021" width="100%" />
+    </picture>
     <figcaption>Google Ranking Factors, starting May 2021</figcaption>
 </figure>
 
