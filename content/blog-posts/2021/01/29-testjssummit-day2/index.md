@@ -4,7 +4,8 @@ previewImage: preview.png
 
 # TestJSSummit - Notes for Day 2
 
-After live blogging on day 1 I made a plan for day 2.
+After live [blogging on day 1](/blog/2021/01/28-testjssummit-day1/) 
+I made a plan for day 2.
 I will watch all content in 2x speed and just pause whenever I need a bit to
 write. It's just a video, so I can catch up by higher speed.
 Also I came to the conclusion that I don't even need to be fully in sync,
@@ -26,7 +27,8 @@ Anyways, let's dive right into day 2.
 
 ## Talk 1: The Cypress Talk
 
-He starts taking apart how he categorizes tests. 
+[Gleb Bahmutov](https://twitter.com/bahmutov)
+starts taking apart how he categorizes tests. 
 What kind of tests he suggests to use for what kind of part of an application.
 They are tied to technical boundaries.
 For example testing a server backend he suggests to use API tests,
@@ -56,7 +58,7 @@ I tried to say above too.
 As usual, it depends. I think long tests are sometimes very useful. For example
 I prefer just a handful of tests to ensure the critical paths of my site/app
 work and people can do the most important things. They can take long and give
-me security and are easy to maintain, because there are few of them.
+me safety and are easy to maintain, because there are few of them.
 
 A cypress assertion might be like `should('not.be.visible')`? String?
 Mmmh, that is what I am always struggling with with the expect-kind approach
@@ -66,7 +68,7 @@ output well readable, useful errors.
 
 He brings forward really good arguments for good documentation.
 Oh yeah, good docs makes life easier. Not only for the users, also for the maintainers.
-He even looks for searches on the docs page that return no results and writes
+Gleb even looks for searches on the docs page that return no results and writes
 docs for it. Pretty cool!  
 Cypress team has a tool that parses markdown files and runs the examples that are in there,
 just like http://fitnesse.org does.  
@@ -84,7 +86,8 @@ There is pupeteer out there, but now there is [Playwright](https://playwright.de
 browser automation testing tool, headless as far as I know.
 It is not like selenium but rather like a virtual user
 using the browser, by interacting via the native interfaces, I think.  
-This was my 2 cents, before the talk starts. Now off to listen to Arjun Attam from
+This was my 2 cents, before the talk starts. Now off to listen to 
+[Arjun Attam](https://twitter.com/arjunattam) from
 Microsoft talking about Playwright.
 
 He touches on new features coming to the web continuously. I am curious how
@@ -136,7 +139,8 @@ I didn't find the test runner on the website. Mmmh.
 
 ## Talk 3: Detox (Mobile end-to-end test for apps)
 
-Rotem Mizrachi-Meidan says they started [detox](https://github.com/wix/Detox) 
+[Rotem Mizrachi-Meidan](https://twitter.com/rotemmiz)
+says they started [detox](https://github.com/wix/Detox) 
 for testing their React Native app.
 Oh, this sounds like I need this at my current job. We have it set up, but until
 now we didn't have time to catch up and tbh I was also a bit reluctant to use
