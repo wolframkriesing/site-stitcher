@@ -2,7 +2,7 @@ dateCreated: 2021-01-28 16:10 CET
 tags: conference, JavaScript  
 previewImage: preview.png  
 
-# TestJSSummit Day 1
+# TestJSSummit - Day 1
 
 I am taking some notes here, basically for deeper learning and reminding me of knowledge.
 If it is helpful for others, cool.
