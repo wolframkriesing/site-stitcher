@@ -1,3 +1,53 @@
+# Codeberg Repo as npm Dependency
+slug: codeberg-repo-as-npm-dependency
+dateCreated: 2021-02-03 00:25 CET
+tags: npm, nodejs, JavaScript, codeberg
+previewImage: ../codeberg-preview.jpeg
+
+I am gladly using [codeberg](https://codeberg.org) (as github alternative)
+for as many projects as I can, really support their mission.
+"Independent and powered by your donations and contributions".  
+I struggled a little bit [to figure out the URL that works](#how-it-works)
+for a package
+that is not on npm yet, but exists just as a codeberg repo.
+
+## Failed Tries
+
+I tried a lot of the known URL patterns as dependency in my `package.json`.   
+**Those that failed** were:
+* https://codeberg.org/wolframkriesing/test-stitcher.git
+* git://codeberg.org/wolframkriesing/test-stitcher.git
+* git@codeberg.org:wolframkriesing/test-stitcher.git
+* git+ssh://git@codeberg.org/wolframkriesing/test-stitcher.git
+* git+ssh://git@codeberg.org:wolframkriesing/test-stitcher.git
+* git+https://codeberg.org/wolframkriesing/test-stitcher.git 
+
+Just to quote one error that I received when I called `npm install`: 
+```
+> npm install
+npm ERR! code ENOLOCAL
+npm ERR! Could not install from "git@codeberg.org:wolframkriesing/test-stitcher.git" as it does not contain a package.json file.
+```
+
+## How it Works
+
+The URL that **works** is prefixed with "git+https":
+* git+https://codeberg.org/wolframkriesing/test-stitcher.git
+
+```json
+{
+  "dependencies": {
+    "test-stitcher": "git+https://codeberg.org/wolframkriesing/test-stitcher.git"
+  }
+}
+```
+
+I have not seen and used the combination "git" and "https" before, but hey if 
+npm accepts this. Cool. hth
+
+
+
+
 # React: Hooks vs. Saga
 slug: react-hooks-vs-saga
 dateCreated: 2021-02-02 14:31 CET
