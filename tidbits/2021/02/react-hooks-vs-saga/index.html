@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="React: Hooks vs. Saga" />
+
+  <meta property="og:title" content="React: Hooks vs. Saga">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/02/react-hooks-vs-saga/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/02/react-hooks-vs-saga/">  <title>React: Hooks vs. Saga | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="react" />
+    <meta property="article:tag" content="tools" />
+    <meta property="article:tag" content="frontend" />
+    <meta property="article:tag" content="web" />
+    <meta property="article:tag" content="JavaScript" />
+
+  <meta property="og:description" content="I am currently working on a React Native app that uses redux saga heavily.
+My main concern with it is the traceability of code that goes together, the modularization. It is hard, if not impossible to know
+what belongs together, what is needed in combination with what. " />
+  <meta property="article:description" content="I am currently working on a React Native app that uses redux saga heavily.
+My main concern with it is the traceability of code that goes together, the modularization. It is hard, if not impossible to know
+what belongs together, what is needed in combination with what. " />
+  <meta name="twitter:description" content="I am currently working on a React Native app that uses redux saga heavily.
+My main concern with it is the traceability of code that goes together, the modularization. It is hard, if not impossible to know
+what belongs together, what is needed in combination with what. " />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/02" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/02" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/02" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  React: Hooks vs. Saga
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+
+    <header>
+      <div class="tag" data-tag="react">#react</div>
+      <h1 id="react-hooks-vs-saga" is="more-h1">React: Hooks vs. Saga</h1>
+      <div class="metadata">
+        Wolfram Kriesing
+        - February 2, 2021
+          - tagged with: #react #tools #frontend #web #JavaScript       </div>
+    </header>
+
+    <p>I am currently working on a React Native app that uses redux saga heavily.
+My main concern with it is the traceability of code that goes together, the modularization. It is hard, if not impossible to know
+what belongs together, what is needed in combination with what. </p>
+<p>Currently, the different parts, actions, sagas, etc. are spread
+across multiple places in the source code. I prefer to have, things that belong together, in one place,
+and whatever is shared across the code base I put in <code>shared-*</code> directories. If I have a &quot;simple&quot; API request that puts some
+data in a store, the API request, its error handling and placing the data in the store goes in one place, best in one file.
+If don&#39;t need it, I can delete it and my IDE can help me detect unused code.</p>
+<h2 is="more-h2" id="learning-from-others">Learning From Others</h2>
+<p>So I searched for articles via <a href="https://duckduckgo.com/?t=canonical&amp;q=react+saga+vs+hooks&amp;ia=web">&quot;react saga vs hooks&quot;</a>
+to prove my bias, nah, to learn from others how they did it.</p>
+<p>Even though I am not a big fan of react hooks either, since they impose so much magic on me and don&#39;t make testing stuff easy,
+it&#39;s the better choice here. And, I actually have a way of testing the hooks in an acceptable manner.
+(Reading this myself, I am bothered by the many tradeoffs the react ecosystem forces on me constantly, 
+but that is a constant itch of mine, as my twitter timeline underlines.)</p>
+<p>Rossi Tri Le wrote
+<a href="https://medium.com/@rossitrile93/how-i-replace-redux-redux-saga-with-react-446b4c84f788">How I replace Redux, Redux Saga with React Hooks</a></p>
+<blockquote>
+<p>This article will show you how to easily and effectively replace redux, redux saga with React Hooks.</p>
+</blockquote>
+<p>This sounds like the right thing.</p>
+<blockquote>
+<p>Most [...] use [...] useState/ useReducer, which is fine if you only need to make a few API calls. 
+But if you plan to go production, with a lot of API call, then maintaining the codebase with this approach will soon become a nightmare.</p>
+</blockquote>
+<p>This sounds interesting. I want to learn how to prevent nightmares and still get away from sagas.
+(I also think that generators are not fitting this problem well.)</p>
+<blockquote>
+<p>For the middleware, I am going to use a pure javascript function to replace it.
+Now we understand our problem, and have a plan to tackle it, let’s get started.</p>
+</blockquote>
+<p>I really like the direction this is going.
+I like it for two reasons:</p>
+<ol>
+<li>The author seems not to <strong>require</strong> a framework for everything, nowadays I see too many programmers &quot;needing&quot;
+big tools to solve small problems.</li>
+<li>The author states clearly what is the problem and lays out a plan This is so refreshing. Not just jumping in,
+coding away and figuring out on the way where one wants to go.</li>
+</ol>
+<blockquote>
+<p>I don’t directly pass the dispatch function down the component tree, but the actions function.</p>
+</blockquote>
+<p>that was also one of the things that always bothered me. Why do I need to see the store inner workings in my
+business logic code.</p>
+<p>Oh, and the article, almost abruptly ends here.<br>Unfortunately I did not learn why just using hooks ends in a nightmare, as the author mentioned above. I believe
+sorting hooks properly together and splitting the &quot;put in a store&quot; part makes it well to handle, but I need
+to gain more experience here.</p>
+<p>There is a repo with the really simplified way of how to do it.
+<a href="https://github.com/rossitrile/replace-redux-saga-by-react-hooks">https://github.com/rossitrile/replace-redux-saga-by-react-hooks</a>
+Thanks Rossi. At least I got my assumptions confirmed. I am going down that route too.</p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
