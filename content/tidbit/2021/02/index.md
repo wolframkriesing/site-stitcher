@@ -11,8 +11,18 @@ I struggled a little bit [to figure out the URL that works](#how-it-works)
 for a package
 that is not on npm yet, but exists just as a codeberg repo.
 
-## Failed Tries
+## Npm Module From a Repo
+Npm modules are normally installed via `npm install <package-name>`, but
+this works only once the package is published on npm.
+If I try to install `npm install test-stitcher`, this fails.
 
+To work with a package straight from the repository one can also use a URL
+as dependency, for a codeberg repo it works like this:
+`npm install git+https://codeberg.org/wolframkriesing/test-stitcher.git`.
+The URL is used as the package name, just the prefix "git+https" was what I had to 
+try and play with until I figured it out.
+
+## Failed Tries
 I tried a lot of the known URL patterns as dependency in my `package.json`.   
 **Those that failed** were:
 * https://codeberg.org/wolframkriesing/test-stitcher.git
