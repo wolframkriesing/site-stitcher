@@ -1,3 +1,102 @@
+# What is a "unary" operator?
+slug: what-is-a-unary-operator
+dateCreated: 2021-02-06 12:48 CET
+tags: learning, words, knowledge, JavaScript
+
+Coming across "unary operators" might happen in JavaScript, or (m)any other programming language(s).
+A couple examples for what is a "unary operator".  
+In JavaScript you may find: `+1`, `-42`, `+ "1"`, `!true`, `delete x`.
+All those are unary operators as you can also read on
+[MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#unary_operators)
+and in the 
+[spec](https://tc39.es/ecma262/#sec-unary-operators). **But what does the "unary" really mean?**
+And why is `1 + 1` not using a unary operator?
+
+## Definition
+In [Merriam-Webster "unary" is defined like so](https://www.merriam-webster.com/dictionary/unary)
+> having, consisting of, or acting on a single element, item, or component
+ 
+The `+`, the `-`, the `!` or the `delete` are applied to one "element".
+In spec terms, a unary "operator" is applied to one and only one variable, identifier or alike.
+In `+1` the operator is the `+` and it is applied on the `1`. Because it is applied only to
+one operand, in this case the `1`, it is a unary (not binary, not ternary, not quaternary) operator.
+
+## What is the Opposite of "Unary"?
+Just before I used "binary", "ternary" and "quaternary", because I jumped a little bit ahead.
+I had asked myself what else "unary" does belong to, if there was something like "multi-nary" or alike.
+So I hunted the web and found 
+[the answer on english.stackexchange.com](https://english.stackexchange.com/questions/342557/is-there-a-word-like-unary-meaning-consisting-of-more-than-one-element).
+This seems to be the place where people who know language(s) seem to hang out.
+
+On that site exactly my question was asked and discussed
+"Is there a word like “unary” meaning “consisting of *more than one* element”?".
+The discussion of the term is short and insightful (not so full of trolling as the web sometimes offers).
+And we end up in computer science space again, the final answer that leads me to 
+the definition of "Arity" resolves all the mystery and clears up the space around the "??-ary"
+word.
+
+> You can use multiple-arity if different numbers of arguments are accepted (e.g. a polymorphic function/method), or n-ary if you want to be indefinite about the arity.
+
+## Arity
+
+The above is [the best answer](https://english.stackexchange.com/a/342560) on what the opposite or "unary" is,
+it also links on to the 
+[wikipedia article on "Arity"](https://en.wikipedia.org/wiki/Arity)
+where one can go into depth and sees all the other arities, as touched on above.
+The variable number of "elements", or arguments is called "n-ary" 
+as [the according paragraph explains](https://en.wikipedia.org/wiki/Arity#n-ary).
+
+## Back to JavaScript
+
+Coming back to JavaScript. When reading about the 
+["unary plus" on MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Unary_plus)
+it is easier to understand now. 
+The difference to
+[the other "+"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Addition),
+[the arithmetic operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators#arithmetic_operators)
+is not just the name but also the functionality.
+The one adds two "things" (the arithmetic operator) and the other only converts one "thing" (the unary operator)
+to a Number type.
+This answers the second question I started with, about the difference to `1 + 1`.
+
+Let's see three unary and one arithmetic operator in action:
+```
+> + '1'
+1
+
+> 1 + 1
+2
+
+> typeof + '1'
+"number"
+```
+Are you seeing the three unary operators? Hint: `typeof` is also a unary operator.
+
+## The ECMAScript Spec
+
+<figure>
+    <picture>
+        <source srcset="../unary-spec.webp">
+        <img src="../unary-spec.png" alt="ECMAScript Spec chapter on unary + operator" style="width:30rem" />
+    </picture>
+    <figcaption>ECMAScript Spec chapter on unary + operator</figcaption>
+</figure>
+
+Not very surprisingly the 
+[spec also has the chapter "Unary + Operator"](https://tc39.es/ecma262/#sec-unary-plus-operator).
+Understanding that this is not a JavaScript specific term, but seemingly even more computer science, 
+even rooted in math takes away more of the fear of touching it, because the usefulness and possible application
+of the term has just increased.
+
+So far my learnings on "unary". If you find any errors or possible improvements let me know. I am always curious.
+
+
+
+
+
+
+
+
 # Codeberg Repo as npm Dependency
 slug: codeberg-repo-as-npm-dependency
 dateCreated: 2021-02-03 00:25 CET
