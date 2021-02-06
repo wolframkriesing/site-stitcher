@@ -1,4 +1,4 @@
-# What is a "unary" operator?
+# What is a "Unary" Operator?
 slug: what-is-a-unary-operator
 dateCreated: 2021-02-06 12:48 CET
 tags: learning, words, knowledge, JavaScript
