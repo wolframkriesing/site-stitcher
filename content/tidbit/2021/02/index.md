@@ -2,6 +2,7 @@
 slug: what-is-a-unary-operator
 dateCreated: 2021-02-06 12:48 CET
 tags: learning, words, knowledge, JavaScript
+previewImage: ../unary-preview.png
 
 Coming across "unary operators" might happen in JavaScript, or (m)any other programming language(s).
 A couple examples for what is a "unary operator".  
