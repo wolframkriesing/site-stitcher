@@ -54,6 +54,7 @@
 
 {% macro _tagsList(groups) %}
   {% for group in groups %}
+    <li>{{group.tagSlug[0] | upper}}</li>
     <li style="{{ _backgroundGradient(group.gradientWidthInPercent) }}">
       <a href="{{ group.url }}">#{{group.tagSlug}}</a>
     </li>

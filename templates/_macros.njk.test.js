@@ -28,4 +28,10 @@ describe('macro: tagsNav - used to render a list of top and alphabetically sorte
     assertThat(html, containsString('<li'));
     assertThat(html, containsString('<a href="">#one</a>'));
   });
+
+  it('WHEN there is alphabetically sorted tag THEN add a <li with the starting letter before', () => {
+    const tag = createTag({tagSlug: 'a tag', url: ''});
+    const html = render({topTags: [], alphabeticallySortedTags: [tag]});
+    assertThat(html, containsString('<li>A</li>'));
+  });
 });
