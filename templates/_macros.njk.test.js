@@ -1,5 +1,5 @@
 import {describe, it} from '../src/test.js';
-import {assertThat, not, containsString, matchesPattern} from 'hamjest';
+import {assertThat, not, containsString, hasSize} from 'hamjest';
 import {renderString_forTesting} from '../src/_deps/render-template.js';
 
 const tpl = `
@@ -33,5 +33,16 @@ describe('macro: tagsNav - used to render a list of top and alphabetically sorte
     const tag = createTag({tagSlug: 'a tag', url: ''});
     const html = render({topTags: [], alphabeticallySortedTags: [tag]});
     assertThat(html, containsString('<li>A</li>'));
+  });
+  it('WHEN there are tags "a tag" and "b tag" THEN add the "headline" before each', () => {
+    const tags = [
+      createTag({tagSlug: 'a tag', url: ''}),
+      createTag({tagSlug: 'b tag', url: ''}),
+      createTag({tagSlug: 'b tag 1', url: ''}),
+    ];
+    const html = render({topTags: [], alphabeticallySortedTags: tags});
+    assertThat(html, containsString('<li>A</li>'));
+    assertThat(html, containsString('<li>B</li>'));
+    assertThat('Found <li>B</li> NOT (ONLY) once', html.split('<li>B</li>'), hasSize(2));
   });
 });

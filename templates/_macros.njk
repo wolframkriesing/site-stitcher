@@ -53,8 +53,13 @@
 {% endmacro %}
 
 {% macro _tagsList(groups) %}
+  {% set lastTag = '' %}
   {% for group in groups %}
-    <li>{{group.tagSlug[0] | upper}}</li>
+    {% if (lastTag[0] | upper) != (group.tagSlug[0] | upper) %}
+      <li>{{group.tagSlug[0] | upper}}</li>
+    {% endif %}
+    {% set lastTag = group.tagSlug %}
+
     <li style="{{ _backgroundGradient(group.gradientWidthInPercent) }}">
       <a href="{{ group.url }}">#{{group.tagSlug}}</a>
     </li>
