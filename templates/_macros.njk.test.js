@@ -45,4 +45,9 @@ describe('macro: tagsNav - used to render a list of top and alphabetically sorte
     assertThat(html, containsString('<li>B</li>'));
     assertThat('Found <li>B</li> NOT (ONLY) once', html.split('<li>B</li>'), hasSize(2));
   });
+  it('WHEN only top tags are given THEN show NO headline-letter', () => {
+    const tag = createTag({tagSlug: 'one', url: ''});
+    const html = render({topTags: [tag], alphabeticallySortedTags: []});
+    assertThat(html, not(containsString('<li>O</li>')));
+  });
 });

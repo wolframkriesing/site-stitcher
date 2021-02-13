@@ -52,10 +52,10 @@
   background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) {{ percent }}%, transparent 0)
 {% endmacro %}
 
-{% macro _tagsList(groups) %}
+{% macro _tagsList(groups, showHeadlineLetter) %}
   {% set lastTag = '' %}
   {% for group in groups %}
-    {% if (lastTag[0] | upper) != (group.tagSlug[0] | upper) %}
+    {% if showHeadlineLetter and (lastTag[0] | upper) != (group.tagSlug[0] | upper) %}
       <li>{{group.tagSlug[0] | upper}}</li>
     {% endif %}
     {% set lastTag = group.tagSlug %}
@@ -78,7 +78,7 @@
       {{ _tagsList(topGroups) }}
     </ol>
     <ol class="tags-alphabetically-sorted">
-      {{ _tagsList(alphabeticallySortedGroups) }}
+      {{ _tagsList(alphabeticallySortedGroups, true) }}
     </ol>
   </nav>
 {% endmacro %}
