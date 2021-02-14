@@ -20,8 +20,8 @@
 
 {% block mainStart %}
   <aside class="left">
-    {{ parts.tagsNav(groupedBlogPosts.byTag.slice(0, 20), groupedBlogPosts.byTagSortedAlphabetically) }}
-    {{ parts.monthsNav(groupedBlogPosts.byMonth) }}
+    {{ parts.tagsNav(groupedArticles.byTag.slice(0, 20), groupedArticles.byTagSortedAlphabetically) }}
+    {{ parts.monthsNav(groupedArticles.byMonth) }}
   </aside>
 {% endblock %}
 

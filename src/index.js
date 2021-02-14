@@ -165,33 +165,25 @@ const loadPosts = async sourceFiles => {
   const posts = await loadPosts(sourceFiles);
   console.timeEnd('Load blog posts');
 
-  console.time('Relate and group posts');
-  posts.forEach(post => post.relatedPosts = findRelatedPosts(post, posts));
-  const blogPostsGroupedByTag = groupArticlesByTag(posts, '/blog/tag');
-  const sortAlphabeticallyByTag = (group1, group2) => group1.tagSlug > group2.tagSlug ? 1 : -1;
-  const groupedBlogPosts = {
-    byTag: blogPostsGroupedByTag,
-    byTagSortedAlphabetically: [...blogPostsGroupedByTag].sort(sortAlphabeticallyByTag),
-    byMonth: groupArticlesByYearAndMonth(posts, '/blog'),
-  };
-  defaultRenderParams.groupedBlogPosts = groupedBlogPosts;
-  console.timeEnd('Relate and group posts');
-
   console.time('Load tidbits');
   const tidbitsDirectory = path.join(CONTENT_DIRECTORY, 'tidbit');
   const tidbitSourceFiles = await loadManyTidbitSourceFiles()(tidbitsDirectory);
   const tidbits = await loadTidbits()(tidbitSourceFiles);
   console.timeEnd('Load tidbits');
 
-  console.time('Relate and group tidbits');
-  const tidbitsGroupedByTag = groupArticlesByTag(tidbits, '/tidbits/tag');
-  const groupedTidbits = {
-    byTag: tidbitsGroupedByTag,
-    byTagSortedAlphabetically: [...tidbitsGroupedByTag].sort(sortAlphabeticallyByTag),
-    byMonth: groupArticlesByYearAndMonth(tidbits, '/tidbits'),
+  const articles = [...posts, ...tidbits];
+
+  console.time('Relate and group blog+tidbits');
+  articles.forEach(post => post.relatedPosts = findRelatedPosts(post, articles));
+  const articlesGroupedByTag = groupArticlesByTag(articles, '/blog/tag');
+  const sortAlphabeticallyByTag = (group1, group2) => group1.tagSlug > group2.tagSlug ? 1 : -1;
+  const groupedArticles = {
+    byTag: articlesGroupedByTag,
+    byTagSortedAlphabetically: [...articlesGroupedByTag].sort(sortAlphabeticallyByTag),
+    byMonth: groupArticlesByYearAndMonth(articles, '/blog'),
   };
-  defaultRenderParams.groupedTidbits = groupedTidbits;
-  console.timeEnd('Relate and group tidbits');
+  defaultRenderParams.groupedArticles = groupedArticles;
+  console.timeEnd('Relate and group blog+tidbits');
 
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
@@ -199,13 +191,13 @@ const loadPosts = async sourceFiles => {
   console.log('Blog');
   await runAndTimeIt(`  all posts (${posts.length})`, () => Promise.all(posts.map(generatePost)));
   await runAndTimeIt('  /blog page', () => generateBlogOverviewPage(posts.excludingDrafts()));
-  await runAndTimeIt(`  tags pages (${groupedBlogPosts.byTag.length})`, () => generateTagPages(groupedBlogPosts.byTag));
-  await runAndTimeIt(`  month pages (${groupedBlogPosts.byMonth.length})`, () => generateMonthPages(groupedBlogPosts.byMonth));
+  await runAndTimeIt(`  tags pages (${groupedArticles.byTag.length})`, () => generateTagPages(groupedArticles.byTag));
+  await runAndTimeIt(`  month pages (${groupedArticles.byMonth.length})`, () => generateMonthPages(groupedArticles.byMonth));
 
   console.log('Tidbit');
   await runAndTimeIt(`  /tidbits page`, () => generateTidbitsIndexPage(tidbits));
   await runAndTimeIt(`  all pages (${tidbits.length})`, () => generateSingleTidbitsPages(tidbits));
-  await runAndTimeIt(`  tags pages (${groupedTidbits.byTag.length})`, () => generateTidbitTagPages(groupedTidbits.byTag));
+  await runAndTimeIt(`  tags pages (${groupedArticles.byTag.length})`, () => generateTidbitTagPages(groupedArticles.byTag));
   await runAndTimeIt('About pages', () => generateAboutPages());
   await runAndTimeIt('Projects page', () => generateProjectsPage());
   await runAndTimeIt('Projects plan page', () => generateProjectsPlanPage());

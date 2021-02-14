@@ -7,8 +7,7 @@ import {renderAndWriteTidbitPages, renderAndWriteTidbitsIndexPage} from './rende
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
 const renderParams = {
   navigationItems: [],
-  groupedBlogPosts: {byTag: [], byMonth: []},
-  groupedTidbits: {byTag: [], byMonth: []},
+  groupedArticles: {byTag: [], byMonth: []},
 };
 
 const defaultRawTidbitData = {

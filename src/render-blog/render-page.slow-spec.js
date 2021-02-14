@@ -5,7 +5,7 @@ import {renderAndWriteTagPages} from "./render-page.js";
 
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
-const renderParams = {navigationItems: [], groupedBlogPosts: {byTag: [], byMonth: []}};
+const renderParams = {navigationItems: [], groupedArticles: {byTag: [], byMonth: []}};
 
 const defaultRawBlogPostData = {
   abstract: '',
