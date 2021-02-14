@@ -2,12 +2,25 @@ import {describe, it} from '../src/test.js';
 import {assertThat, not, containsString, hasSize} from 'hamjest';
 import {renderString_forTesting} from '../src/_deps/render-template.js';
 
+/**
+ * @typedef {{gradientWidthInPercent: number, tagSlug: string, url: string}} TagToRenderInMacro
+ */
+
 const tpl = `
 {% import "_macros.njk" as parts %}
 {{ parts.tagsNav(topTags, alphabeticallySortedTags) }}
 `
+
+/**
+ * @param data {PlainObject}
+ * @return {string}
+ */
 const render = (data) => renderString_forTesting(tpl, data);
 
+/**
+ * @param overrides {PlainObject}
+ * @return {TagToRenderInMacro}
+ */
 const createTag = (overrides) => {
   return {
     gradientWidthInPercent: 0,
