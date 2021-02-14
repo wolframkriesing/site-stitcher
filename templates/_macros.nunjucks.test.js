@@ -7,7 +7,7 @@ import {renderString_forTesting} from '../src/_deps/render-template.js';
  */
 
 const tpl = `
-{% import "_macros.njk" as parts %}
+{% import "_macros.nunjucks" as parts %}
 {{ parts.tagsNav(topTags, alphabeticallySortedTags) }}
 `
 

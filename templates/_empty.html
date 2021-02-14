@@ -22,7 +22,7 @@
   {% block head %}{% endblock %}
 </head>
 <body class="page-{% block pagename %}{% endblock %}">
-  {% import "_macros.njk" as parts %}
+  {% import "_macros.nunjucks" as parts %}
 
   {{ parts.header(navigationItems) }}
 

@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block content %}
-  {% import "blog/_macros.njk" as blogParts %}
+  {% import "blog/_macros.nunjucks" as blogParts %}
   <section>
     <h2>Latest <a href="/blog">Blog Posts ✍</a></h2>
 
@@ -21,7 +21,7 @@
     <a  href="/blog">All Blog Posts →</a>
   </section>
 
-  {% import "tidbit/_macros.njk" as tidbitParts %}
+  {% import "tidbit/_macros.nunjucks" as tidbitParts %}
   <section>
     <h2>Latest <a href="/tidbits">Tidbits 😋</a></h2>
 
