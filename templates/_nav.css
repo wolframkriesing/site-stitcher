@@ -127,6 +127,11 @@ nav.secondary {
 nav.tags ol.tags-alphabetically-sorted { /* initially dont show these tags */
   display: none;
 }
+nav.tags ol.tags-alphabetically-sorted:hover {
+  position: absolute;
+  max-height: 100%;
+  background-color: white;
+}
 
 /* the sibling selector `~` is used to show/hide the <ol> according to the checkbox being checked or not */
 nav.tags input[type=checkbox]:checked ~ ol.tags-alphabetically-sorted {
