@@ -27,6 +27,11 @@ export const renderTemplate = (templateFilename, data) => {
   }
 }
 
+/**
+ * @param s {string}
+ * @param data {PlainObject}
+ * @return {string}
+ */
 export const renderString_forTesting = (s, data) => {
   return nunjucksEnv.renderString(s, data);
 }
