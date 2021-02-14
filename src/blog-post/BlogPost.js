@@ -56,6 +56,7 @@ export class BlogPost {
    */
   static withRawData(raw) {
     const post = new BlogPost();
+    post.type = 'blog';  // THIS IS Just a hack, to determine if its a blog of tidbit in the tpl ... DO BETTER
     post._rawTags = raw.tags;
     post.abstract = raw.abstract;
     post.abstractAsHtml = raw.abstractAsHtml;

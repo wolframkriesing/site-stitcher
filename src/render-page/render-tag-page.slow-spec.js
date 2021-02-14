@@ -1,7 +1,7 @@
 import {describe, it} from '../test.js';
 import {assertThat, containsString, hasItem, matchesPattern} from 'hamjest';
 import {BlogPost} from "../blog-post/BlogPost.js";
-import {renderAndWriteTagPages} from "./render-page.js";
+import {renderAndWriteTagPages, forTesting} from "./render-tag-page.js";
 
 // TODO THIS is really ugly, that we have to inject that every time.
 // Maybe intro a `DefaultRenderParameters.empty()` or something.
@@ -36,8 +36,8 @@ const newGroup = ({tagSlug, articles, gradientWidthInPercent = 42, url = '/irrel
   return {tagSlug, articles, gradientWidthInPercent, url};
 };
 
-describe('Render blog pages', () => {
-  describe('GIVEN some blog posts WHEN rendering them', () => {
+describe('Render tag pages', () => {
+  describe('GIVEN some blog posts that are already grouped by tag WHEN rendering them', () => {
     describe('THEN render a page per tag', () => {
       /**
        * @param groups {ArticlesGroupedByTag[]}
@@ -52,25 +52,10 @@ describe('Render blog pages', () => {
          * @return {Promise<void>}
          */
         const writeFile = async (_, content) => { writtenToFile = content; };
-        await renderAndWriteTagPages({writeFile})(groups, renderParams);
+        await renderAndWriteTagPages({writeFile, renderPage: forTesting.renderBlogPostTagPage})(groups, renderParams);
         return writtenToFile;
       };
 
-      it('AND write "one" tag`s page to "/blog/tag/one/index.html"', async () => {
-        const groups = [
-          newGroup({tagSlug: 'one', articles: [createBlogPost()]}),
-        ];
-        /** @type Filename[] */
-        const writtenToFilenames = [];
-        /**
-         * @param filename {Filename}
-         * @param _ {string}
-         * @return {Promise<void>}
-         */
-        const writeFile = async (filename, _) => { writtenToFilenames.push(filename); };
-        await renderAndWriteTagPages({writeFile})(groups, renderParams);
-        assertThat(writtenToFilenames, hasItem('/blog/tag/one/index.html'));
-      });
       it('AND render the page headline H1', async () => {
         assertThat(await renderTagPage(), matchesPattern(/<h1.*>.*Tagged with #one.*<\/h1>/gms));
       });

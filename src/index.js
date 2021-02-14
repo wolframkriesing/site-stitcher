@@ -130,7 +130,8 @@ const generateMonthPage = async (group) => {
   await fs.promises.writeFile(destFilename, renderedFile);
 };
 
-const generateTagPages = (postGroups) => renderAndWriteTagPages()(postGroups, defaultRenderParams);
+const generateAllTagPages = (articleGroups) => renderAndWriteAllTagPages(articleGroups, defaultRenderParams);
+const generateBlogTagPages = (postGroups) => renderAndWriteBlogTagPages(postGroups, defaultRenderParams);
 const generateMonthPages = async (postGroups) => Promise.all(postGroups.map(generateMonthPage));
 
 const runAndTimeIt = async (label, fn) => {
@@ -146,7 +147,7 @@ const runAndTimeIt = async (label, fn) => {
 }
 
 import {findRelatedPosts} from './blog-post/related-posts.js';
-import {renderAndWriteTagPages} from "./render-blog/render-page.js";
+import {renderAndWriteAllTagPages, renderAndWriteBlogTagPages} from "./render-page/render-tag-page.js";
 
 const isNotDraft = post => post.isDraft === false;
 const loadPosts = async sourceFiles => {
@@ -187,11 +188,12 @@ const loadPosts = async sourceFiles => {
 
   console.log('\nBuilding pages\n========');
   await runAndTimeIt('Home page', () => generateHomePage(posts.excludingDrafts(), tidbits));
+  await runAndTimeIt(`Articles: all tags pages (${groupedArticles.byTag.length})`, () => generateAllTagPages(groupedArticles.byTag));
   // blog
   console.log('Blog');
   await runAndTimeIt(`  all posts (${posts.length})`, () => Promise.all(posts.map(generatePost)));
   await runAndTimeIt('  /blog page', () => generateBlogOverviewPage(posts.excludingDrafts()));
-  await runAndTimeIt(`  tags pages (${groupedArticles.byTag.length})`, () => generateTagPages(groupedArticles.byTag));
+  await runAndTimeIt(`  tags pages (${groupedArticles.byTag.length})`, () => generateBlogTagPages(groupedArticles.byTag));
   await runAndTimeIt(`  month pages (${groupedArticles.byMonth.length})`, () => generateMonthPages(groupedArticles.byMonth));
 
   console.log('Tidbit');

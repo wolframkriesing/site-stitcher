@@ -1,0 +1,40 @@
+{% extends "_focus.html" %}
+
+{% block pagename %}tag{% endblock %}
+{% block canonicalUrl %}https://picostitch.com/tidbits/tag/{{tag}}/{% endblock %}
+{% block pageTitlePrefix %}#{{tag}}{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="/blog/blog.css" type="text/css">
+{% endblock %}
+
+{% block breadcrumb %}
+  <a href="/">Home</a> &raquo;
+  Tag &raquo;
+  #{{tag}}
+{% endblock %}
+
+{% import "_macros.nunjucks" as parts %}
+{% import "tidbit/_macros.nunjucks" as tidbitParts %}
+{% import "blog/_macros.nunjucks" as blogParts %}
+
+{% block mainStart %}
+  <aside class="left">
+    {{ parts.tagsNav(groupedArticles.byTag.slice(0, 20), groupedArticles.byTagSortedAlphabetically) }}
+    {{ parts.monthsNav(groupedArticles.byMonth) }}
+  </aside>
+{% endblock %}
+
+{% block content %}
+  <h1 id="{{tag}}" is="more-h1">
+    Articles tagged with #{{tag}} ({{ articles | length }})
+  </h1>
+
+  {% for article in articles %}
+    {% if article.type === 'blog' %}
+      {{ blogParts.articlePreview(article) }}
+    {% else %}
+      {{ tidbitParts.tidbitPreview(article) }}
+    {% endif %}
+  {% endfor %}
+{% endblock %}
