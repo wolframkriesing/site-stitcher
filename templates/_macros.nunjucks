@@ -95,3 +95,12 @@
     </ol>
   </nav>
 {% endmacro %}
+
+{% macro taggedWith(tags) %}
+  {% if (tags.length > 0) %}
+    - tagged with:
+    {% for tag in tags %}
+      <a href="/tag/{{ tag.slug }}/">#{{tag.value}}</a>
+    {% endfor %}
+  {% endif %}
+{% endmacro %}

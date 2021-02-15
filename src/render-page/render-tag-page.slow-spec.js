@@ -74,7 +74,9 @@ describe('Render tag pages', () => {
           newGroup({tagSlug: 'one', articles: [createBlogPost({tags: ['one', 'two']})]}),
         ];
         const writtenToFile = await renderTagPage(groups);
-        assertThat(writtenToFile, containsString('tagged with: #one #two'));
+        assertThat(writtenToFile, containsString('tagged with:'));
+        assertThat(writtenToFile, containsString('<a href="/tag/one/">#one</a>'));
+        assertThat(writtenToFile, containsString('<a href="/tag/two/">#two</a>'));
       });
     });
   });

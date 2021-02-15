@@ -1,3 +1,5 @@
+{% import "_macros.nunjucks" as parts %}
+
 {% macro tidbitPreview(tidbit) %}
   <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
@@ -7,9 +9,7 @@
       </h2>
       <div class="metadata">
         {{ tidbit.dateCreated | toReadableDate }}
-        {% if tidbit.tags.length > 0 %}
-          - tagged with: {% for tag in tidbit.tags.slice(1) %}#{{tag.value}} {% endfor %}
-        {% endif %}
+        {{ parts.taggedWith(tidbit.tags.slice(1)) }}
       </div>
     </header>
     <p class="abstract">

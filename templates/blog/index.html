@@ -31,9 +31,7 @@
       </h1>
       <div class="metadata">
         {{ posts[0].dateCreated | toReadableDate }}
-        {% if (posts[0].tags.length > 0) %}
-          - tagged with: {% for tag in posts[0].tags %}#{{tag.value}} {% endfor %}
-        {% endif %}
+        {{ parts.taggedWith(posts[0].tags) }}
       </div>
     </header>
     <p class="abstract">

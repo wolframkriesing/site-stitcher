@@ -37,6 +37,8 @@
   {{ post.headlineAsHtml | safe }}
 {% endblock %}
 
+{% import "_macros.nunjucks" as parts %}
+
 {% block content %}
   <article class="{{ 'isDraft' if post.isDraft else '' }}">
 
@@ -50,11 +52,8 @@
         {{ ' [this is a draft]' if post.isDraft else ''}}
       </h1>
       <div class="metadata">
-        Wolfram Kriesing
-        - {{ post.dateCreated | toReadableDate }}
-        {% if (post.tags.length > 0) %}
-          - tagged with: {% for tag in post.tags %}#{{tag.value}} {% endfor %}
-        {% endif %}
+        Wolfram Kriesing - {{ post.dateCreated | toReadableDate }}
+        {{ parts.taggedWith(post.tags) }}
       </div>
     </header>
 

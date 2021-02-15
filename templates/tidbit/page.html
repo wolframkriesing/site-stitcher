@@ -47,11 +47,8 @@
       <div class="tag" data-tag="{{tidbit.tags[0].slug}}">#{{tidbit.tags[0].value}}</div>
       <h1 id="{{tidbit.slug}}" is="more-h1">{{ tidbit.headlineAsHtml | safe }}</h1>
       <div class="metadata">
-        Wolfram Kriesing
-        - {{ tidbit.dateCreated | toReadableDate }}
-        {% if (tidbit.tags.length > 0) %}
-          - tagged with: {% for tag in tidbit.tags %}#{{tag.value}} {% endfor %}
-        {% endif %}
+        Wolfram Kriesing - {{ tidbit.dateCreated | toReadableDate }}
+        {{ parts.taggedWith(tidbit.tags) }}
       </div>
     </header>
 
