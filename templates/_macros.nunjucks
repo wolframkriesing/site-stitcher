@@ -61,7 +61,7 @@
     {% set lastTag = tag.tagSlug %}
 
     <li style="{{ _backgroundGradient(tag.gradientWidthInPercent) }}">
-      <a href="{{ tag.url }}">#{{tag.tagSlug}}</a>
+      <a href="/tag/{{ tag.tagSlug }}/">#{{tag.tagSlug}}</a>
     </li>
   {% endfor %}
 {% endmacro %}

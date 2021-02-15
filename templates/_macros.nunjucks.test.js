@@ -34,7 +34,7 @@ describe('macro: `tagsNav` - renders top tags and alphabetically sorted tags', (
   it('WHEN there is one top tag THEN render a <li> and the link with the slug inside', () => {
     const tag = createTag({tagSlug: 'one', url: ''});
     const html = render({topTags: [tag], alphabeticallySortedTags: []});
-    assertThat(html, matchesPattern(/<li [^>]*>\s*<a href="">#one<\/a>\s*<\/li>/));
+    assertThat(html, matchesPattern(/<li [^>]*>\s*<a href="[^"]*">#one<\/a>\s*<\/li>/));
   });
 
   it('WHEN there is alphabetically sorted tag THEN add a <li with the starting letter before', () => {

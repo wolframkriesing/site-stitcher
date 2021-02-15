@@ -27,11 +27,6 @@ describe('Group articles by tags', () => {
       const grouped = groupByTag(articles);
       assertThat(grouped, hasItem(hasProperties({tagSlug: 'js', articles})));
     });
-    it('THEN the group has a `url` prop built with the prefix and the tag', () => {
-      const articles = [newArticle({headline: '', tags: ['js']})];
-      const grouped = groupByTag(articles, '/url/prefix');
-      assertThat(grouped, hasItem(hasProperties({url: '/url/prefix/js/'})));
-    });
   });
   it('GIVEN two articles with different tags THEN return two groups', () => {
     const articles = [

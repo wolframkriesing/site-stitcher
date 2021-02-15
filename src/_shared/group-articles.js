@@ -14,17 +14,15 @@ const articlesByTag = (posts, tagSlug) => posts.filter(post => tagSlugsOfPost(po
 /**
  * @param tagSlug {Slug}
  * @param articles {Article[]}
- * @param urlPrefix {string}
  * @param maxTagCount {number}
  * @return {ArticlesGroupedByTag}
  */
-const articlesGroupedByTag = (tagSlug, articles, urlPrefix, maxTagCount) => {
+const articlesGroupedByTag = (tagSlug, articles, maxTagCount) => {
   const filteredArticles = articlesByTag(articles, tagSlug);
   return {
     tagSlug,
     articles: filteredArticles,
     gradientWidthInPercent: (filteredArticles.length / maxTagCount) * 100,
-    url: `${urlPrefix}/${tagSlug}/`,
   };
 };
 
@@ -50,14 +48,13 @@ const sortByNumber = (a, b) => a - b;
 
 /**
  * @param posts {Article[]}
- * @param urlPrefix {string}
  * @return {ArticlesGroupedByTag[]}
  */
-export const groupArticlesByTag = (posts, urlPrefix) => {
+export const groupArticlesByTag = (posts) => {
   const allTagsSlugs = uniques(posts.map(tagSlugsOfPost).flat());
   const maxTagCount = allTagsSlugs.map(tagSlug => articlesByTag(posts, tagSlug).length).sort(sortByNumber).reverse()[0];
   return allTagsSlugs
-    .map(tagSlug => articlesGroupedByTag(tagSlug, posts, urlPrefix, maxTagCount))
+    .map(tagSlug => articlesGroupedByTag(tagSlug, posts, maxTagCount))
     .sort(byArticlesCount)
   ;
 };
