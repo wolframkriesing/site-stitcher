@@ -195,6 +195,12 @@ td {
   color: var(--color-secondary);
   margin-bottom: var(--spacing-small);
 }
+  .metadata a.tag {
+    color: var(--color-secondary)
+  }
+  .metadata a.tag:hover {
+    color: var(--color-highlight);
+  }
 
 footer {
   padding: var(--spacing-bigger);
