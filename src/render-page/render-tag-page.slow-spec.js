@@ -75,8 +75,8 @@ describe('Render tag pages', () => {
         ];
         const writtenToFile = await renderTagPage(groups);
         assertThat(writtenToFile, containsString('tagged with:'));
-        assertThat(writtenToFile, containsString('<a href="/tag/one/">#one</a>'));
-        assertThat(writtenToFile, containsString('<a href="/tag/two/">#two</a>'));
+        assertThat(writtenToFile, containsString('<a href="/tag/one/" class="tag">#one</a>'));
+        assertThat(writtenToFile, containsString('<a href="/tag/two/" class="tag">#two</a>'));
       });
     });
   });

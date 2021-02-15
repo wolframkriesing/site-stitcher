@@ -100,7 +100,7 @@
   {% if (tags.length > 0) %}
     - tagged with:
     {% for tag in tags %}
-      <a href="/tag/{{ tag.slug }}/">#{{tag.value}}</a>
+      <a href="/tag/{{ tag.slug }}/" class="tag">#{{tag.value}}</a>
     {% endfor %}
   {% endif %}
 {% endmacro %}
