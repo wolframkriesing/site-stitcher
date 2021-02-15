@@ -5,10 +5,9 @@ import {groupArticlesByTag, groupArticlesByYearAndMonth} from './group-articles.
 
 /**
  * @param articles {Article[]}
- * @param urlPrefix? {string}
  * @return {ArticlesGroupedByTag[]}
  */
-const groupByTag = (articles, urlPrefix = '/irrelevant') => groupArticlesByTag(articles, urlPrefix);
+const groupByTag = (articles) => groupArticlesByTag(articles);
 
 describe('Group articles by tags', () => {
   /**

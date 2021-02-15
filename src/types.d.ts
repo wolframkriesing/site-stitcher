@@ -31,7 +31,6 @@ interface ArticlesGroupedByTag {
   tagSlug: Tag['slug'];
   articles: Article[];
   gradientWidthInPercent: number;
-  url: RelativeUrl;
 }
 interface ArticlesGroupedByYearAndMonth {
   yearAndMonth: YearAndMonth;
