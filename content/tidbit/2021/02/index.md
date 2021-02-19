@@ -1,3 +1,24 @@
+# Cancel a fetch request using AbortController
+slug: cancel-fetch-request-using-abortcontroller
+tags: web, react, fetch, JavaScript, HTTP
+dateCreated: 2021-02-19 18:48 CET
+
+Finally I learned how to abort a fetch, see the post
+[React useEffect and fetch API](https://blog.fullsnackdev.com/post/react-use-effect-and-fetch/)
+by [@Jaime](https://twitter.com/jaimefebres).
+
+As easy as this:
+```js
+const controller = new AbortController();        
+// we pass in a `signal` to `fetch` so that we can cancel the requests
+fetch('http://example.com', { signal: controller.signal });
+controller.abort();
+```
+
+Thanks Jaime!
+
+
+
 # What's an "Unary" Operator?
 slug: what-is-a-unary-operator
 dateCreated: 2021-02-06 12:48 CET
