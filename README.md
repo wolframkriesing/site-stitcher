@@ -46,5 +46,5 @@ on [picostitch.com](https://picostitch.com).
 
 How to make a webp image?
 Inside the docker container `cwebp` the executable is available, use like so:
-`cwebp -q 80 in.pgn -o out.webp`
+`cwebp -q 80 in.png -o out.webp`
 

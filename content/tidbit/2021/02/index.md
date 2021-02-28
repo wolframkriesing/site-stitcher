@@ -1,3 +1,253 @@
+# How to Convert Images to WebP
+slug: how-to-convert-images-to-webp
+dateCreated: 2021-02-28 13:02 CET
+tags: images, website, tools, images, webp
+
+A while ago I optimized some images to use the 
+[webp format](https://developers.google.com/speed/webp)
+because I had forgotten and 
+[PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+suggested to do so.
+Now I forgot how to use it, so I am writing it down. Basically doing
+the thing this blog is meant for.
+
+## Install the Executable
+
+I am using a docker setup, so 
+[I added](https://github.com/wolframkriesing/site-stitcher/commit/0351946d978a9973ead489233b512d1f6960ba6e)
+the following line to my Dockerfile
+```
+# in Dockerfile
+RUN apt-get -y install webp
+```
+
+## Convert an Image to webp
+
+Next I want to convert images I use on my site to be available in webp too.
+[The command I use](https://github.com/wolframkriesing/site-stitcher/commit/0980190849d8faa13a1f83f431706436e2044f7d)
+for that runs in the docker container where I added the webp executable to.
+I run it via
+```shell
+cwebp -q 80 in.png -o out.webp
+```
+
+Where `-q 80` means reduce the quality to 80%, which I am fine with.
+I don't want to fiddle around too much with the quality.
+The parameter `in.png` is the original image, in this case a png, but it can be a jpg or gif,
+I had not had any problems with other image formats yet.
+
+Finally `-o out.webp` is the file name of the resulting webp image.
+For one of the images I just added I ran the following command:
+```shell
+cwebp -q 80 content/tidbit/2021/02/hexagonal-visual.png -o content/tidbit/2021/02/hexagonal-visual.webp
+```
+
+## Embed it in the Site
+
+In order for (older) browsers that do not yet support webp format, a bit of HTML is needed
+to provide both image types. 
+
+This is done like this:
+
+```html
+<figure>
+    <picture>
+        <source srcset="hexagonal-visual.webp">
+        <img src="hexagonal-visual.png" alt="A hexagonal diagram" width="100%" />
+    </picture>
+    <figcaption>A hexagonal diagram</figcaption>
+</figure>
+```
+
+
+
+
+# ArchUnit For JavaScript - archijs
+slug: arch-unit-for-java-script-archijs
+dateCreated: 2021-02-28 12:33 CET
+tags: testing, architecture, software design
+
+[Archijs](https://github.com/migh1/archijs#readme)
+describes itself as "A package to test javascript architecture".
+
+Use it in your project now, via:
+```shell
+yarn add archijs
+```
+
+and you can write a test like this
+```js
+const project = Archijs.parseFromPath("src"); 
+const rule = Archijs
+  .defineThat()
+  .folder()
+  .withNameMatching('actions')
+  .should()
+  .matchChildrensName('actions')
+
+expect(project).toMatchArch(rule);
+```
+
+
+
+# Advices, not only for Rails Projects
+slug: advices-not-only-for-rails-projects
+dateCreated: 2021-02-27 23:11 CET
+tags: architecture, software design, patterns
+
+[What advice/rules I may give to junior developers about the Ruby on Rails app design?](https://medium.com/@Killavus/what-advice-rules-i-may-give-to-junior-developers-about-the-ruby-on-rails-app-design-6a129bd86b85)
+This article is not only relevant for Rails developers, but also
+very general. I feel that rails devs need more support here, because
+Rails makes it especially hard to use magic.  
+Make sure to open the hood and understand how the engine ticks!
+
+
+
+
+# Hexagonal Architecture (in JavaScript)
+slug: hexagonal-architecture-in-javascript
+dateCreated: 2021-02-27 18:44 CET
+tags: architecture, software design, patterns
+
+The [original article where Alistair Cockburn describes 
+Hexagonal architecture](https://alistair.cockburn.us/hexagonal-architecture/) 
+is the best intro and a good read,
+no matter what year it is.
+
+The sentence
+> First and worst, people tend not to take the “lines” in the layered drawing seriously. 
+> They let the application logic leak across the layer boundaries
+
+made me think that I want a linter for verifying that the code that is written
+does not violate the architecture boundaries, and that for example
+a port never uses a use case, but only the other way around.
+
+## Arch(Unit)
+
+Welcome ArchUnit. As I learned in 
+[@Ted's video](#very-good-1h-in-depth)
+there is [ArchUnit](https://www.archunit.org/use-cases) which allows writing unit tests for
+exactly this, in Java. Fun fact, ArchUnit is maintained by TNG, a Munich-based company,
+around the corner, an active Munich community member 👋🏽 over. (Soon we will all be back in person.)
+
+There is even a JavaScript pendant for it ["archijs"](https://github.com/migh1/archijs#readme), 
+looks like it didn't get much attention from the world yet. Let's change that. I write about it separately in
+["ArchUnit For JavaScript - archijs"](../arch-unit-for-java-script-archijs/), 
+so search engines will eventually find it too ☺️.
+
+Back to hexagonal architecture as such.
+
+## Primary and Secondary Actors
+
+Alistair observed in applications he built, that there are two
+types of actors.
+
+> A "primary actor" is an actor that drives the application [...].  
+> A "secondary actor" is one that the application drives
+
+These actors are also reflected in what the hexagonal architecture diagram looks like.
+
+> draw the "primary ports "and" primary adapters" on the left side (or top) of the hexagon, 
+> and the "secondary ports" and "secondary adapters" on the right (or bottom) side of the hexagon
+
+In the [video linked below](#naming-ports), 
+he says that the difference between a primary and a secondary
+actor is just "who initiates the conversation". The one who does is the primary actor.
+
+## "How Many Ports?"
+
+The headline is actually from his article and was one of the questions I had too.
+
+> What exactly a port is and isn’t is largely a matter of taste.
+
+Still he gives some good example. Where a port is something as abstract
+like "trigger data" or "incoming events" or alike. These can be multiple things,
+depending what the system does. But it shows a very abstract kind of port.
+In another example he uses "user-site API" for the incoming data (primary port) and
+"data-side API" for the outgoing (secondary port).
+
+I read this as "think about it yourself and it might be very different for every app".
+As usual, there is no one silver bullet.
+
+## Naming Ports
+
+[Alistair in the "Hexagone" 1/3](https://www.youtube.com/watch?v=th4AgBcrEHA) (youtube video, >30min)  
+Alistair Cockburn talking (the first time) about Hexagonal Architecture
+he takes the magic out of the word "ports" by:
+> What's a "port"? It's an interface. Done
+ 
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/th4AgBcrEHA" frameborder="0" allowfullscreen></iframe>
+
+A "translation" of port, or how to find what to call the port is
+fill the gaps in "for ___ing", or as he says around minute 12
+a "port is the intention of the dialog, it's not the technology"
+That's why a port might be called "adding events" but never "reading kafka".
+
+## The Test Case is the First User of your System
+
+"A test case is the first user of your system"
+That makes even so much more sense when you know hexagonal architecture.
+Alistair says in the video around minute 29.
+
+## Hexagonal and React (JavaScript)
+
+Initially I started reading because I want to find a good example of how
+someone uses React and hexagonal architecture. Yes, there are many examples
+which show how flux and redux are hexagonal architecture. But I feel these are 
+too often used in a way to create "store all things in global state and call it 
+a redux store". I have not seen really good encapsulated examples of that yet.
+
+One article I found is 
+["Hexagonal architecture in JavaScript applications — and how it relates to Flux"](https://medium.com/@Killavus/hexagonal-architecture-in-javascript-applications-and-how-it-relates-to-flux-349616d1268d#.ik8250i7s)
+I really like the readability of the code.
+Once you understand what a port and a use case is, this makes so much sense.
+
+## More Resources
+
+### In Depth Post
+[Hexagonal Architecture: three principles and an implementation example](https://blog.octo.com/en/hexagonal-architecture-three-principles-and-an-implementation-example/)  
+This post contains helpful explanations and also good example code.
+It even explains how to organize the code inside a method that works
+with ports, adapters etc.
+
+### Alistair Cockburn, Part 2 and 3
+[Alistair in the "Hexagone" 2/3](https://www.youtube.com/watch?v=iALcE8BPs94)  
+[Alistair in the "Hexagone" 3/3](https://www.youtube.com/watch?v=DAe0Bmcyt-4)  
+
+### Very good 1h in depth
+[More Testable Code with the Hexagonal Architecture](https://www.youtube.com/watch?v=ujb_O6myknY)
+is a very detailed and well explained lesson. Also explaining many related terms.
+By [@Ted M. Young](https://twitter.com/jitterted).
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/ujb_O6myknY" frameborder="0" allowfullscreen></iframe>
+
+### A must see
+It took me years to understand what he means with this. I mean I get the words,
+the logic, I get the reasoning, but how to do it and understanding that there is still a lot
+to learn before accomplishing this, it is not easy.
+A Classic 
+[J.B. Rainsberger - Integrated Tests Are A Scam](https://vimeo.com/80533536)
+he sientifically proves why splitting up code, e.g. using hexagonal architecture, pays off.
+<iframe src="https://player.vimeo.com/video/80533536" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+### More Input from Output
+[Searching for "hexagonal architecture"](https://twitter.com/search?q=%22hexagonal%20architecture%22&f=live)
+on twitter reveals constantly new and interesting pieces of knowledge.
+
+### Very nice Visualization
+
+https://github.com/Sairyss/domain-driven-hexagon#Diagram
+
+<figure>
+    <picture>
+        <source srcset="../hexagonal-visual.webp">
+        <img src="../hexagonal-visual.png" alt="A hexagonal diagram" width="100%" />
+    </picture>
+    <figcaption>A hexagonal diagram</figcaption>
+</figure>
+
+
+
+
 # Cancel a fetch request using AbortController
 slug: cancel-fetch-request-using-abortcontroller
 tags: web, react, fetch, JavaScript, HTTP
