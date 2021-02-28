@@ -41,3 +41,10 @@ on [picostitch.com](https://picostitch.com).
 - `npm run dev:typecheck` continuous typechecking
 - `npm run dev:start` continuously updates the served files, just reload the browser, useful when developing 
   the templates etc.
+  
+## Other
+
+How to make a webp image?
+Inside the docker container `cwebp` the executable is available, use like so:
+`cwebp -q 80 in.pgn -o out.webp`
+
