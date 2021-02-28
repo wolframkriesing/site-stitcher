@@ -81,10 +81,11 @@ Have fun.
 # ArchUnit For JavaScript - archijs
 slug: arch-unit-for-java-script-archijs
 dateCreated: 2021-02-28 12:33 CET
-tags: testing, architecture, software design
+tags: testing, architecture, software design, clean architecture, hexagonal architecture
 
 [Archijs](https://github.com/migh1/archijs#readme)
-describes itself as "A package to test javascript architecture".
+describes itself as "A package to test javascript architecture".  
+TL;DR - it is not ready for use yet, I would not.
 
 Use it in your project now, via:
 ```shell
@@ -103,6 +104,38 @@ const rule = Archijs
 
 expect(project).toMatchArch(rule);
 ```
+
+## Under the Hood
+
+I have opened the hood a bit. The 
+[core file "Archijs.js"](https://github.com/migh1/archijs/blob/master/src/Archijs.js)
+is a bit less than 100 lines and does currently only focus on directory structures
+as far as I understand it. So the use seems to be very limitted at the moment.
+
+### The tests
+
+The test in [arhcijs/test](https://github.com/migh1/archijs/tree/master/test)
+are quite basic. They do only run this one example that is also listed in the README file.
+Except for the `index.spec.js` all files are just fixtures for the tests to "see" them, this
+is a bit irritating.
+
+## Not Really an ArchUnit version for JavaScript
+
+In the end, I am glad I found it, but I will keep looking for JavaScript versions
+of ArchUnit. I am not considering it for any project. It seems to be a "here is the idea" thin, until now.
+
+## I want
+
+I started thinking about what I want from such a package just a couple of days ago.
+So I am not that far yet. But I know it will be different to what ArchUnit does.
+A JavaScript version is just very different to how Java "sees" architecture.
+It is so much looser and simply a dynamic language.
+
+The first thing I would want to see is something like:
+"file X must never import a file from directory Y"
+to ensure that a module from inside the hexagon never imports a file from "outside".
+
+
 
 
 
