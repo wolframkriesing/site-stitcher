@@ -1,3 +1,26 @@
+# A Hexagonal Blog (in JavaScript)
+slug: a-hexagonal-blog-in-javascript
+dateCreated: 2021-02-28 23:42 CET
+tags: JavaScript, architecture, software design
+
+Somehow I came across a good example of applied hexagonal architecture 
+in JavaScript, it's [César Alberca's blog](https://cesalberca.com/).
+He has all the [source code on github](https://github.com/cesalberca/blog).
+
+I enjoyed reading the code and learning ideas how to apply
+hexagonal architecture to a blog. I also want to practice it a bit
+on the site you are currently on.
+
+I really appreciate  his site is using webcomponent. Yeah!
+A fundamental difference in how this blog is made to how I do it,
+is that César's blog requires JavaScript and loads all sources and
+creates the page in the browser. Turn of JS and you see what I mean.
+I want to ship pure HTML and only enhance it where needed and possible.
+
+Read the source, it's very teaching. Thanks a lot César!
+
+
+
 # How to Convert Images to webp (and use them)
 slug: how-to-convert-images-to-webp
 dateCreated: 2021-02-28 13:02 CET
