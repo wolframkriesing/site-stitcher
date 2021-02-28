@@ -1,25 +1,34 @@
-# How to Convert Images to WebP
+# How to Convert Images to webp (and use them)
 slug: how-to-convert-images-to-webp
 dateCreated: 2021-02-28 13:02 CET
 tags: images, website, tools, images, webp
+previewImage: ../webp-logo.png
 
-A while ago I optimized some images to use the 
+A while ago I optimized some images for the site you are looking at, by using the 
 [webp format](https://developers.google.com/speed/webp)
-because I had forgotten and 
+because I had forgotten to do that, and 
 [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
-suggested to do so.
-Now I forgot how to use it, so I am writing it down. Basically doing
-the thing this blog is meant for.
+suggested to do so.  
+I forgot how to do that, so I am writing it down now. Read on if you also want
+to know how to convert any kind of image to webp and embed it in your site.
 
 ## Install the Executable
 
 I am using a docker setup, so 
 [I added](https://github.com/wolframkriesing/site-stitcher/commit/0351946d978a9973ead489233b512d1f6960ba6e)
 the following line to my Dockerfile
+
 ```
 # in Dockerfile
 RUN apt-get -y install webp
 ```
+
+This installs the webp binary inside this container.
+The [description](https://developers.google.com/speed/webp/docs/cwebp) 
+says. It
+
+> compresses an image using the WebP format. Input format can be either PNG, JPEG, TIFF, WebP or raw Y'CbCr samples.   
+> Note: Animated PNG and WebP files are not supported.
 
 ## Convert an Image to webp
 
@@ -33,7 +42,7 @@ cwebp -q 80 in.png -o out.webp
 
 Where `-q 80` means reduce the quality to 80%, which I am fine with.
 I don't want to fiddle around too much with the quality.
-The parameter `in.png` is the original image, in this case a png, but it can be a jpg or gif,
+The parameter `in.png` is the original image, in this case a png, but it can be a jpg (or see above),
 I had not had any problems with other image formats yet.
 
 Finally `-o out.webp` is the file name of the resulting webp image.
@@ -42,7 +51,7 @@ For one of the images I just added I ran the following command:
 cwebp -q 80 content/tidbit/2021/02/hexagonal-visual.png -o content/tidbit/2021/02/hexagonal-visual.webp
 ```
 
-## Embed it in the Site
+## Embed in the Site
 
 In order for (older) browsers that do not yet support webp format, a bit of HTML is needed
 to provide both image types. 
@@ -58,6 +67,13 @@ This is done like this:
     <figcaption>A hexagonal diagram</figcaption>
 </figure>
 ```
+
+The `<picture>` element contains multiple sources (the webp and the png image),
+so the browser can choose the most appropriate one.
+In short, a browser that does NOT support webp will use the other image.
+Done.
+
+Have fun.
 
 
 
