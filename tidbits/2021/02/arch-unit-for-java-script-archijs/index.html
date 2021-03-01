@@ -124,9 +124,12 @@ of ArchUnit. I am not considering it for any project. It seems to be a &quot;her
 So I am not that far yet. But I know it will be different to what ArchUnit does.
 A JavaScript version is just very different to how Java &quot;sees&quot; architecture.
 It is so much looser and simply a dynamic language.</p>
-<p>The first thing I would want to see is something like:
-&quot;file X must never import a file from directory Y&quot;
-to ensure that a module from inside the hexagon never imports a file from &quot;outside&quot;.</p>
+<p>The things I would want to start with:</p>
+<ul>
+<li>file X must never import a file from directory Y
+to ensure that a module from inside the hexagon never imports a file from &quot;outside&quot;</li>
+<li>files X must be type-checked (relevant in JS)<br>I don&#39;t want to have adapters that just fail because of not adhering to the ports interface</li>
+</ul>
 
   </article>
     </div>
