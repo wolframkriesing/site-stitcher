@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Hermes - Mobile JavaScript Engine" />
+
+  <meta property="og:title" content="Hermes - Mobile JavaScript Engine">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/03/hermes-mobile-javascript-engine/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/03/hermes-mobile-javascript-engine/">  <title>Hermes - Mobile JavaScript Engine | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="mobile" />
+    <meta property="article:tag" content="React Native" />
+
+  <meta property="og:description" content="[React Native (RN) 0.64 was just released](https://reactnative.dev/blog/2021/03/12/version-0.64). 
+One of the things I had stumbled upon more often lately in RN
+code was the word &quot;hermes&quot;. I didn&#39;t know what kinda tool or package that was.
+Until I informed myself a bit.  
+In short: [Hermes](https://hermesengine.dev/) is a mobile optimized JavaScript engine." />
+  <meta property="article:description" content="[React Native (RN) 0.64 was just released](https://reactnative.dev/blog/2021/03/12/version-0.64). 
+One of the things I had stumbled upon more often lately in RN
+code was the word &quot;hermes&quot;. I didn&#39;t know what kinda tool or package that was.
+Until I informed myself a bit.  
+In short: [Hermes](https://hermesengine.dev/) is a mobile optimized JavaScript engine." />
+  <meta name="twitter:description" content="[React Native (RN) 0.64 was just released](https://reactnative.dev/blog/2021/03/12/version-0.64). 
+One of the things I had stumbled upon more often lately in RN
+code was the word &quot;hermes&quot;. I didn&#39;t know what kinda tool or package that was.
+Until I informed myself a bit.  
+In short: [Hermes](https://hermesengine.dev/) is a mobile optimized JavaScript engine." />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/03/hermes-preview.webp" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/03/hermes-preview.webp" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/03/hermes-preview.webp" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Hermes - Mobile JavaScript Engine
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+      <img src="../hermes-preview.webp" style="width: 100%; height: 10rem; object-fit: cover;"/>
+
+    <header>
+      <div class="tag" data-tag="javascript">#JavaScript</div>
+      <h1 id="hermes-mobile-javascript-engine" is="more-h1">Hermes - Mobile JavaScript Engine</h1>
+      <div class="metadata">
+        Wolfram Kriesing - March 14, 2021
+            - tagged with:
+      <a href="/tag/javascript/" class="tag">#JavaScript</a>
+      <a href="/tag/mobile/" class="tag">#mobile</a>
+      <a href="/tag/react-native/" class="tag">#React Native</a>
+
+      </div>
+    </header>
+
+    <p><a href="https://reactnative.dev/blog/2021/03/12/version-0.64">React Native (RN) 0.64 was just released</a>. 
+One of the things I had stumbled upon more often lately in RN
+code was the word &quot;hermes&quot;. I didn&#39;t know what kinda tool or package that was.
+Until I informed myself a bit.<br>In short: <a href="https://hermesengine.dev/">Hermes</a> is a mobile optimized JavaScript engine.</p>
+<h2 is="more-h2" id="react-native-needs-a-javascript-engine">React Native needs a JavaScript Engine</h2>
+<p>Just to give the context, let me quickly sum up why RN needs a JavaScript Engine.
+For RN you write JavaScript code, which can run on multiple platforms, such as iOS and Android.
+The app code you are writing uses <a href="https://reactjs.org/">ReactJS</a>. The JavaScript code
+gets bundled into on big JS file and shipped with the mobile app file, for example the <code>*.apk</code> file
+on Android. On the phone the code needs to be run, that is where the JS engine comes into play.
+The native components are being talked to over a bridge, that&#39;s why every React Native project
+also always consists of native code too.</p>
+<p>Hermes is one of the JavaScript engines, and since RN 0.64 also available for iOS.
+Beside that <a href="https://reactnative.dev/docs/javascript-environment#javascript-runtime">JavaScript engines used in RN</a> 
+are JSC (JavaScriptCore) and v8.</p>
+<h2 is="more-h2" id="goals">Goals</h2>
+<p>The best way to understand why Hermes exists is to watch the 15min
+video of ChainReactConf 2019.</p>
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/zEjqDWqeDdg" frameborder="0" allowfullscreen></iframe>
+
+<p>Anyway, let me sum it up in my own words.
+Hermes aims to:</p>
+<ul>
+<li>reduce the size of a mobile app (as downloaded from the app store), in the video he mentioned about 30% reduction</li>
+<li>speed up the app start-up time and the execution times, in the video from about 7s down to 5</li>
+<li>cause less out of memory crashes/bugs by reducing the RAM used on the phone, reduction by a 30% too</li>
+<li>allow RN apps to perform better, especially on less powerful phones</li>
+</ul>
+<p>Of course all those numbers depend on the kind of app you are running.</p>
+<h2 is="more-h2" id="no-jit">No JIT</h2>
+<p>From the talk I learned that hermes does NOT have a JIT, due to the assumption that there is not
+much code that is run multiple times, esp. code that needs optimization at start-up time.
+Also because the JS code gets compiled to bytecode optimizations can be done that an engine
+like v8 does at runtime (using a JIT). All this sounds interesting.</p>
+<h2 is="more-h2" id="less-of-javascript-features">Less of JavaScript Features</h2>
+<p>Hermes does NOT implement all features of JavaScript. In the video Marc explains that they analyzed
+their use of JavaScript and removed features that they never used and that are heavy on an engine, I assume.
+For example Proxies, <code>with</code>, <code>eval</code>, some <code>Symbol</code> stuff and other less known JavaScript features.
+Sounds like a clever move. I assume there is more that could be left out, like for loops ;).</p>
+<h2 is="more-h2" id="another-engine-really">Another Engine? Really?</h2>
+<p>I started out asking why this requires yet another JavaScript engine.</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck">
+    <p lang="en" dir="ltr">I am reading that <a href="https://twitter.com/hashtag/hermes?src=hash&amp;ref_src=twsrc%5Etfw">#hermes</a> [1] is (yet) another <a href="https://twitter.com/hashtag/JavaScript?src=hash&amp;ref_src=twsrc%5Etfw">#JavaScript</a> <a href="https://twitter.com/hashtag/engine?src=hash&amp;ref_src=twsrc%5Etfw">#engine</a> built for <a href="https://twitter.com/hashtag/reactnative?src=hash&amp;ref_src=twsrc%5Etfw">#reactnative</a> (but not only afaik).<br>Anyone knows where to read about motivations and goals? Didn’t find it yet. Just seeing docs, etc. about how it works, but not the whys.<br><br>[1] <a href="https://t.co/6v278WlPOj">https://t.co/6v278WlPOj</a>
+    </p>
+    &mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371127354903433217?ref_src=twsrc%5Etfw">March 14, 2021</a>
+</blockquote>
+
+<p>The video above tells some of the motivations. While I believe tackling the task
+of writing a JS engine is quite a challenge, I also thought that the upside might not
+be so huge. V8 seems to be really good in optimizing and running code optimally.
+Is is not possible to compile v8 without for example <code>eval</code> and <code>Proxy</code>, which hermes
+did not implement?</p>
+<p>On the one hand, it makes sense to democratize the JS engine space a bit and
+offer more choice. On the other hand, it also feels a bit like the tech giants
+need another playing field to do some arm wrestling. I am drawn between those
+two views. But I certainly don&#39;t know the truth behind the birth of hermes.
+So I keep looking forward to getting some more app speed with less cost.
+Thanks.</p>
+<h2 is="more-h2" id="more-info">More Info</h2>
+<p>The post that actually led me to watch the video was this one:
+<a href="https://medium.com/react-native-nigeria/react-native-what-you-need-to-know-about-hermes-b3686b446e49">React Native: What You Need To Know About Hermes.</a></p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
