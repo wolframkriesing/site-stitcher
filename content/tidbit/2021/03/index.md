@@ -77,3 +77,13 @@ Thanks.
 
 The post that actually led me to watch the video was this one:
 [React Native: What You Need To Know About Hermes.](https://medium.com/react-native-nigeria/react-native-what-you-need-to-know-about-hermes-b3686b446e49)
+
+A pretty recent article from Dec 2020
+[Boost Android performance using Hermes](https://engineering.instawork.com/boost-android-performance-using-hermes-e01da8a2baaa).
+
+There is not much going on, and therefore a
+[twitter search for "hermesengine"](https://twitter.com/search?q=hermesengine&src=typed_query&f=live)
+reveals quite interesting info.
+
+The [hermes playground](https://hermesengine.dev/playground/), 
+where you can compile JS code into Bytecode that hermes uses.
