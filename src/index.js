@@ -172,7 +172,7 @@ const loadPosts = async sourceFiles => {
   const tidbits = await loadTidbits()(tidbitSourceFiles);
   console.timeEnd('Load tidbits');
 
-  const articles = [...posts, ...tidbits];
+  const articles = [...posts, ...tidbits].sort(sortByDateCreatedDescending);
 
   console.time('Relate and group blog+tidbits');
   articles.forEach(post => post.relatedPosts = findRelatedPosts(post, articles));
