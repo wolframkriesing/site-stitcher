@@ -120,12 +120,7 @@
 
     <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 11.627906976744185%, transparent 0)
 ">
-      <a href="/tag/nodejs/">#nodejs</a>
-    </li>
-
-    <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 11.627906976744185%, transparent 0)
-">
-      <a href="/tag/refactoring/">#refactoring</a>
+      <a href="/tag/architecture/">#architecture</a>
     </li>
 
     <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 11.627906976744185%, transparent 0)
@@ -135,7 +130,12 @@
 
     <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 11.627906976744185%, transparent 0)
 ">
-      <a href="/tag/architecture/">#architecture</a>
+      <a href="/tag/nodejs/">#nodejs</a>
+    </li>
+
+    <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 11.627906976744185%, transparent 0)
+">
+      <a href="/tag/refactoring/">#refactoring</a>
     </li>
 
     <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 10.465116279069768%, transparent 0)
@@ -150,17 +150,17 @@
 
     <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 9.30232558139535%, transparent 0)
 ">
+      <a href="/tag/docker/">#docker</a>
+    </li>
+
+    <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 9.30232558139535%, transparent 0)
+">
       <a href="/tag/links/">#links</a>
     </li>
 
     <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 9.30232558139535%, transparent 0)
 ">
       <a href="/tag/ruby/">#ruby</a>
-    </li>
-
-    <li style="  background: linear-gradient(to bottom, white 30%, rgba(255,255,255,0.5) 0), linear-gradient(to right, var(--color-overlay) 9.30232558139535%, transparent 0)
-">
-      <a href="/tag/docker/">#docker</a>
     </li>
 
     </ol>
@@ -1820,32 +1820,6 @@
 
       <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
-      <div class="tag" data-tag="command-line">#command line</div>
-      <h2 id="which-process-uses-this-port" is="more-h2">
-        <a href="/blog/2017/02/09-which-process-uses-this-port/">Find out which process listens on which port</a>
-      </h2>
-      <div class="metadata">
-        February 9, 2017
-            - tagged with:
-      <a href="/tag/linux/" class="tag">#linux</a>
-      <a href="/tag/tooling/" class="tag">#tooling</a>
-      <a href="/tag/lsof/" class="tag">#lsof</a>
-      <a href="/tag/knowledgebase/" class="tag">#knowledgebase</a>
-
-      </div>
-    </header>
-    <p class="abstract">
-      The annoying <code>port 8080 is already in use</code> message and not knowing which
-process is occupying this port sucks. I knew it was <code>lsof</code> that can help me.
-But how exactly?
-TL;DR: <code>ps -p `lsof -i :8080 -t` -o command=</code> (on Mac OSX)
-        <br/>
-        <a  href="/blog/2017/02/09-which-process-uses-this-port/">Continue reading →</a>
-    </p>
-  </article>
-
-      <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
-    <header>
       <div class="tag" data-tag="tools">#tools</div>
       <h2 id="start-docker-on-boot-on-linux" is="more-h2">
         <a href="/tidbits/2020/12/start-docker-on-boot-on-linux/">Start Dockerized Apps on Boot, on Linux</a>
@@ -1903,6 +1877,32 @@ has the answers how to do it.
     <p class="abstract">
       <code>diff --recursive &lt;dir1&gt; &lt;dir2&gt;</code> to diff the files and their contents in two directories
 I just needed to do some golden master tests after updating a dependency
+    </p>
+  </article>
+
+      <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <div class="tag" data-tag="command-line">#command line</div>
+      <h2 id="which-process-uses-this-port" is="more-h2">
+        <a href="/blog/2017/02/09-which-process-uses-this-port/">Find out which process listens on which port</a>
+      </h2>
+      <div class="metadata">
+        February 9, 2017
+            - tagged with:
+      <a href="/tag/linux/" class="tag">#linux</a>
+      <a href="/tag/tooling/" class="tag">#tooling</a>
+      <a href="/tag/lsof/" class="tag">#lsof</a>
+      <a href="/tag/knowledgebase/" class="tag">#knowledgebase</a>
+
+      </div>
+    </header>
+    <p class="abstract">
+      The annoying <code>port 8080 is already in use</code> message and not knowing which
+process is occupying this port sucks. I knew it was <code>lsof</code> that can help me.
+But how exactly?
+TL;DR: <code>ps -p `lsof -i :8080 -t` -o command=</code> (on Mac OSX)
+        <br/>
+        <a  href="/blog/2017/02/09-which-process-uses-this-port/">Continue reading →</a>
     </p>
   </article>
 
