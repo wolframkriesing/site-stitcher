@@ -87,3 +87,95 @@ reveals quite interesting info.
 
 The [hermes playground](https://hermesengine.dev/playground/), 
 where you can compile JS code into Bytecode that hermes uses.
+
+
+
+
+
+# Hermes Analysis
+slug: hermes-analysis
+dateCreated: 2021-03-15 09:01 CET
+tags: JavaScript, engine, insights, React Native
+
+I have been digging a little bit into [Hermes (a mobile first JS engine)](../hermes-mobile-javascript-engine/)
+focused on [React Native](https://reactnative.dev/). Since I shared most of it on twitter, I want to "copy"
+the content here to persist it for me, I know I am coming back to this eventually and this way I get up to speed
+faster.
+
+## Object vs. Map
+
+I think I have an idea of how a bytecode based VM works, so I was curious to dig a little deeper.
+And I am going to use an example that I remember [@Benedikt](https://twitter.com/bmeurer)
+told me about once, where a v8 is struggling with. It is the usage of the very overloaded
+and powerful object literal in JavaScript, while one actually is "just" doing the work that a
+[JavaScript Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) 
+is way more ideal for. 
+
+Besides the speed gain a VM might give you when using a Map, I also like the explicitness in code.
+A piece of code that reads `map.has('key')` is way more explicit than any way you can write this
+with an object. And you also know it does ONLY that.
+
+So I thought I would like to see what kinda code hermes produces when I use an object literal
+vs. a Map. Find my annotated tweets below.
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I am digging into <a href="https://twitter.com/HermesEngine?ref_src=twsrc%5Etfw">@HermesEngine</a>’s bytecode.<br>Let’s see how object vs. Map.<br><br>// v1<br>const o = {one: 1, two: 2};<br>print(o.one);<br><br>// v2<br>const m = new Map([[&#39;one&#39;, 1], [&#39;two&#39;, 2]]);<br>print(m.get(&#39;one&#39;));<br><br>1/</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371213511339208707?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Why?<br>I once learned that object is so overloaded and complex (in v8) that for a simple map, using Map is way more efficient. Besides that the code is also way more explicit.<br><br>2/</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371213781309796355?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck">
+    <p lang="en" dir="ltr">
+        The resulting bytecode looks like this. I believe the images are the relevant parts of the bytecode.<br><br>
+        It’s easy to see which code is shorter. Not sure (yet) if relevant. 
+        Shorter bytecode is good for the bundle size, but now I need to look under the hood.
+        <br><br>3/
+    </p>
+    &mdash; @wolframkriesing 
+    <a href="https://twitter.com/wolframkriesing/status/1371214864853635085?ref_src=twsrc%5Etfw">March 14, 2021</a>
+</blockquote>
+
+<figure>
+    <img src="../hermes-bytecode-map.gif" alt="Hermes bytecode for Map code" width="300" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Hermes bytecode for Map code</figcaption>
+</figure>
+<figure>
+    <img src="../hermes-bytecode-object.gif" alt="Hermes bytecode for object code" width="300" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>Hermes bytecode for object code</figcaption>
+</figure>
+
+I have generated and screenshotted the images in the [hermes playground](https://hermesengine.dev/playground/).
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">Reading the <a href="https://twitter.com/hashtag/hermes?src=hash&amp;ref_src=twsrc%5Etfw">#hermes</a> VM interpreter code [1] I can’t but wonder why vm authors seem to like big code files instead of many smaller modular ones.<br><br>[1] <a href="https://github.com/facebook/hermes/blob/master/lib/VM/Interpreter.cpp">https://github.com/facebook/hermes/blob/master/lib/VM/Interpreter.cpp</a></p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371221113133531136?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+With uxebu we used to build a flash parser and a VM for ActionScript 3 bytecode, so I think I have
+seen some alike stuff being developed and I can't get rid of the feeling that there is a certian type
+of programmer, that likes to write this code :).
+
+Besides the style of code, it seems that I need to dive even deeper.
+Just looking at the bytecode is not very conclusive and reveals a different
+picture to what I expected. The bytecode for the Map-version is longer.
+So I guess the VM code under the hood might reveal some more insights.
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">v1<br>createObjectFromBuffer 120 LOC<br><br>v2<br>`CreateThis` sounds complex, it calls `Callable::newObject` which looks like it wants quite some memory.<br>To create the map an array is used, `Interpreter::createArrayFromBuffer` is just 25 LOC, Sounds efficient compared to an object.<br><br>/5</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371226121224794121?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">I definitely can’t draw any conclusion about object vs. Map in regards to resource usage. But I read some hermes VM code and believe I have a feeling for what is going on under the hood. I am far from understanding it, but it looks like there are people who love that stuff ;)<br><br>6/</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371227632105324548?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">In regards to bytecode size, bundle size, mobile app size in the end, objects (as used here) seems to result in a smaller bytecode size.<br>At runtime, I didn’t measure any numbers, so I can’t say.<br><br>7/</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371228910202073092?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">In the talk where Marc introduced <a href="https://twitter.com/hashtag/hermes?src=hash&amp;ref_src=twsrc%5Etfw">#hermes</a> he said it has no JIT. Looking at the parameters [1], it looks like this has changed, or I don&#39;t understand things really.<br>Anyways, this is me sharing my half-baked knowledge about hermes.<br><br>[1] <a href="https://hermesengine.dev/playground/">https://hermesengine.dev/playground/</a> (click the ?)<br><br>8/8</p>&mdash; @wolframkriesing <a href="https://twitter.com/wolframkriesing/status/1371230363788439559?ref_src=twsrc%5Etfw">March 14, 2021</a></blockquote>
+
+Besides all the analysis and the time spent, I can't say I understand all of it.
+But I get some feeling for hermes.
+I am wondering if there are more optimziation possible. Especially given, that 
+hermes dismisses some JS features already. There might be more possible to get 
+to a smaller but still very usable JS engine, that might has some good tradeoffs
+for an even bigger resource consumption gain.
+
+I keep look out.
+
+
+
+
+
+
+
+
