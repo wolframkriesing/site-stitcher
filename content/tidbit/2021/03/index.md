@@ -174,8 +174,55 @@ I keep look out.
 
 
 
+# Redux, Context or What
+slug: redux-context-or-what
+dateCreated: 2021-03-16 20:46 CET
+tags: React, JavaScript
 
+State management in react as it is most commonly spread among devs is suboptimal, I would say.
+I just looked up my first react app, it's from 2014 and we used react to make working with HTML
+in a "normal" DOM based page easier and code more readable. React didn't control all the page.
+We used jQuery to animate between the pages, where each page was a react component.
+Nowadays a react app tries to get the entire app to be react as quickly as possible.
+Has it turned around, against us?
 
+But let's look a bit into state management, some history and some opinions.
+I just did this and watched a couple interesting videos.
+I got stuck with [Zustand](https://github.com/pmndrs/zustand) (not biased by a German name, definitely not)
+suggested by [@Ben](https://twitter.com/benawad).
 
+## Choose Context or Redux 
+A very good very short video about when to choose Context or a state management library like redux.
+He shows very well where using Context only starts to get inefficient.  
+6 minutes
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/5gUHfe-ETuo" frameborder="0" allowfullscreen></iframe>
 
+<br/><br/>
 
+## Redux and Context Explained 
+Here is a five minutes (starting at 3:35min up to 8:30min) rundown of redux and 
+what the "new" Context API (in React since about v16.3) can do.  
+5 minutes
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/qT-6yHhzHqw?start=215" frameborder="0" allowfullscreen></iframe>
+
+<br/><br/>
+
+## From History to What to use Next 
+He starts from exploring the history of the Context API, and he ends with the question
+if you should use redux in a project you start today. Well done.  
+6 minutes
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/ws131BqvLRg" frameborder="0" allowfullscreen></iframe>
+
+<br/><br/>
+
+## The Three Types of State 
+In this video Ben explains very well what three kind of states he sees in React apps.
+He also says:
+> you are probably gonna be required to learn redux at some point, although I would recommend
+> to procastinate it as long as you can
+
+Made me smile. I succeeded in that too, I mean I know the theory and stuff, but ...    
+6 minutes
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/BhQYZmaxTCM" frameborder="0" allowfullscreen></iframe>
+
+Youtube has annoyed me enough with ads. Back to coding ...
