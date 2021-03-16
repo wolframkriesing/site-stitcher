@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Redux, Context or What" />
+
+  <meta property="og:title" content="Redux, Context or What">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/03/redux-context-or-what/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/03/redux-context-or-what/">  <title>Redux, Context or What | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="React" />
+    <meta property="article:tag" content="JavaScript" />
+
+  <meta property="og:description" content="State management in react as it is most commonly spread among devs is suboptimal, I would say.
+I just looked up my first react app, it&#39;s from 2014 and we used react to make working with HTML
+in a &quot;normal&quot; DOM based page easier and code more readable. React didn&#39;t control all the page.
+We used jQuery to animate between the pages, where each page was a react component.
+Nowadays a react app tries to get the entire app to be react as quickly as possible.
+Has it turned around, against us?" />
+  <meta property="article:description" content="State management in react as it is most commonly spread among devs is suboptimal, I would say.
+I just looked up my first react app, it&#39;s from 2014 and we used react to make working with HTML
+in a &quot;normal&quot; DOM based page easier and code more readable. React didn&#39;t control all the page.
+We used jQuery to animate between the pages, where each page was a react component.
+Nowadays a react app tries to get the entire app to be react as quickly as possible.
+Has it turned around, against us?" />
+  <meta name="twitter:description" content="State management in react as it is most commonly spread among devs is suboptimal, I would say.
+I just looked up my first react app, it&#39;s from 2014 and we used react to make working with HTML
+in a &quot;normal&quot; DOM based page easier and code more readable. React didn&#39;t control all the page.
+We used jQuery to animate between the pages, where each page was a react component.
+Nowadays a react app tries to get the entire app to be react as quickly as possible.
+Has it turned around, against us?" />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/03" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/03" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/03" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Redux, Context or What
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+
+    <header>
+      <div class="tag" data-tag="react">#React</div>
+      <h1 id="redux-context-or-what" is="more-h1">Redux, Context or What</h1>
+      <div class="metadata">
+        Wolfram Kriesing - March 16, 2021
+            - tagged with:
+      <a href="/tag/react/" class="tag">#React</a>
+      <a href="/tag/javascript/" class="tag">#JavaScript</a>
+
+      </div>
+    </header>
+
+    <p>State management in react as it is most commonly spread among devs is suboptimal, I would say.
+I just looked up my first react app, it&#39;s from 2014 and we used react to make working with HTML
+in a &quot;normal&quot; DOM based page easier and code more readable. React didn&#39;t control all the page.
+We used jQuery to animate between the pages, where each page was a react component.
+Nowadays a react app tries to get the entire app to be react as quickly as possible.
+Has it turned around, against us?</p>
+<p>But let&#39;s look a bit into state management, some history and some opinions.
+I just did this and watched a couple interesting videos.
+I got stuck with <a href="https://github.com/pmndrs/zustand">Zustand</a> (not biased by a German name, definitely not)
+suggested by <a href="https://twitter.com/benawad">@Ben</a>.</p>
+<h2 is="more-h2" id="choose-context-or-redux">Choose Context or Redux</h2>
+<p>A very good very short video about when to choose Context or a state management library like redux.
+He shows very well where using Context only starts to get inefficient.<br>6 minutes</p>
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/5gUHfe-ETuo" frameborder="0" allowfullscreen></iframe>
+
+<p><br/><br/></p>
+<h2 is="more-h2" id="redux-and-context-explained">Redux and Context Explained</h2>
+<p>Here is a five minutes (starting at 3:35min up to 8:30min) rundown of redux and 
+what the &quot;new&quot; Context API (in React since about v16.3) can do.<br>5 minutes</p>
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/qT-6yHhzHqw?start=215" frameborder="0" allowfullscreen></iframe>
+
+<p><br/><br/></p>
+<h2 is="more-h2" id="from-history-to-what-to-use-next">From History to What to use Next</h2>
+<p>He starts from exploring the history of the Context API, and he ends with the question
+if you should use redux in a project you start today. Well done.<br>6 minutes</p>
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/ws131BqvLRg" frameborder="0" allowfullscreen></iframe>
+
+<p><br/><br/></p>
+<h2 is="more-h2" id="the-three-types-of-state">The Three Types of State</h2>
+<p>In this video Ben explains very well what three kind of states he sees in React apps.
+He also says:</p>
+<blockquote>
+<p>you are probably gonna be required to learn redux at some point, although I would recommend
+to procastinate it as long as you can</p>
+</blockquote>
+<p>Made me smile. I succeeded in that too, I mean I know the theory and stuff, but ...<br>6 minutes</p>
+<iframe width="427" height="240" name="video" src="//www.youtube.com/embed/BhQYZmaxTCM" frameborder="0" allowfullscreen></iframe>
+
+<p>Youtube has annoyed me enough with ads. Back to coding ...</p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
