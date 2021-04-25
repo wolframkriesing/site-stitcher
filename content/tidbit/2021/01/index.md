@@ -7,8 +7,8 @@ previewImage: ../refactoring-preview.jpeg
 It is always good to remind oneself constantly how and why to do things.
 Refactoring is one of the things that I see getting too little attention.
 I don't mean in our sprints or tickets, I mean in our professional lifes.
-**Refactoring is a tool we have, use it** (right). I guess "right" is more
-often than one thinks.
+**Refactoring is a tool we have. Use it** (right)! I guess "right" is more
+often important than one thinks.
 
 I was just reading [Ron Jeffries' post on why refactoring does not belong in the
 backlog](https://ronjeffries.com/xprog/articles/refactoring-not-on-the-backlog/), 
