@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Learning ReScript - Part 2" />
+
+  <meta property="og:title" content="Learning ReScript - Part 2">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/05/learning-rescript-part-2/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/05/learning-rescript-part-2/">  <title>Learning ReScript - Part 2 | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="ReScript" />
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="typed language" />
+    <meta property="article:tag" content="typing" />
+    <meta property="article:tag" content="learning" />
+
+  <meta property="og:description" content="In [part 1](../learning-rescript-part-1) I started with ReScript,
+I set up a project and made my first steps, got it running.  
+Now I want to dive a bit deeper, lets see where it takes me." />
+  <meta property="article:description" content="In [part 1](../learning-rescript-part-1) I started with ReScript,
+I set up a project and made my first steps, got it running.  
+Now I want to dive a bit deeper, lets see where it takes me." />
+  <meta name="twitter:description" content="In [part 1](../learning-rescript-part-1) I started with ReScript,
+I set up a project and made my first steps, got it running.  
+Now I want to dive a bit deeper, lets see where it takes me." />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/05/rescript-red.gif" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/05/rescript-red.gif" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/05/rescript-red.gif" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Learning ReScript - Part 2
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+      <img src="../rescript-red.gif" style="width: 100%; height: 10rem; object-fit: contain;"/>
+
+    <header>
+      <div class="tag" data-tag="rescript">#ReScript</div>
+      <h1 id="learning-rescript-part-2" is="more-h1">Learning ReScript - Part 2</h1>
+      <div class="metadata">
+        Wolfram Kriesing - May 22, 2021
+            - tagged with:
+      <a href="/tag/rescript/" class="tag">#ReScript</a>
+      <a href="/tag/javascript/" class="tag">#JavaScript</a>
+      <a href="/tag/typed-language/" class="tag">#typed language</a>
+      <a href="/tag/typing/" class="tag">#typing</a>
+      <a href="/tag/learning/" class="tag">#learning</a>
+
+      </div>
+    </header>
+
+    <p>In <a href="../learning-rescript-part-1">part 1</a> I started with ReScript,
+I set up a project and made my first steps, got it running.<br>Now I want to dive a bit deeper, lets see where it takes me.</p>
+<h2 is="more-h2" id="automate-building-and-running">Automate Building and Running</h2>
+<p>I want to have one command that builds the files and runs them.
+I saw there </p>
+<h2 is="more-h2" id="want-to-use-rescript">Want to Use ReScript</h2>
+<p>After I finished the installation and have ReScript running, proven by the
+hello.res file, its compilation and letting it run </p>
+<p>go through docs
+next chapters are not intersting for me
+so i jump to lang-features overview
+but no examples or intro into using the language but a comparison to JS</p>
+<h2 is="more-h2" id="an-opinion-on-the-docs">An Opinion on the Docs</h2>
+<p>The docs have quite an opinionated touch to them and, to be honest, they don&#39;t
+read easy all the time. Sentences like &quot;ReScript is the language for folks who 
+don&#39;t necessarily love JavaScript, but who still acknowledge its importance.&quot;
+on the <a href="https://rescript-lang.org/docs/manual/latest/introduction">intro page of the docs</a>
+don&#39;t make me feel as if I want this language for those reasons. I really do like
+JavaScript, there is not just one language on this planet, but I also want to learn
+ReScript but for different reasons.</p>
+<p>The very opinionated &quot;thankfully&quot; sprinkled across the 
+<a href="https://rescript-lang.org/docs/manual/latest/overview#comparison-to-js">&quot;Comparison to JS&quot;</a> page,
+which I interpret (maybe wrongly) as &quot;what a stupid language feature&quot;,
+might scare off some people. Not sure if this is intentional.
+I don&#39;t like it.</p>
+<p>The <a href="https://rescript-lang.org/docs/manual/latest/introduction">intro page</a>,
+has some glorification and subjective comparisons on it, like
+&quot;TypeScript&#39;s type system is ...&quot;, &quot;Faster than JavaScript&quot; and &quot;Readable Output &amp; Great Interop&quot;.
+I am not sure this belongs in a technical language documentation.
+Maybe everything there is correct, but it feels kinda like &quot;ReScript is better&quot;,
+it doesn&#39;t make me feel too comfortable reading it.</p>
+<p>&quot;other crazy patterns you&#39;ll soon find horrible, after getting used to ReScript&#39;s alternatives.&quot;
+<a href="https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks">https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks</a>
+They are right, no doubt.
+&quot;The more you overload the poor string type, the less the type system (or a teammate) can help you!&quot;</p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>

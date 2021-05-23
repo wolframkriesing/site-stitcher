@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="author" content="Wolfram Kriesing">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="picostitch - crafting (and) JavaScript">
+
+    <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@wolframkriesing" />
+  <meta name="twitter:title" content="Learning ReScript - Part 1" />
+
+  <meta property="og:title" content="Learning ReScript - Part 1">
+  <meta property="og:type" content="website">
+<meta property="og:url" content="https://picostitch.com/tidbits/2021/05/learning-rescript-part-1/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
+
+  <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/05/learning-rescript-part-1/">  <title>Learning ReScript - Part 1 | picostitch - crafting (and) JavaScript</title>
+
+  <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
+  <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
+  <meta property="article:type" content="article" />
+    <meta property="article:tag" content="ReScript" />
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="typed language" />
+    <meta property="article:tag" content="typing" />
+    <meta property="article:tag" content="learning" />
+
+  <meta property="og:description" content="Finally I am taking the time to learn [ReScript](https://rescript-lang.org/).
+Follow me on my journey and read how I approach it, mixed with some of my opinions
+and experiences." />
+  <meta property="article:description" content="Finally I am taking the time to learn [ReScript](https://rescript-lang.org/).
+Follow me on my journey and read how I approach it, mixed with some of my opinions
+and experiences." />
+  <meta name="twitter:description" content="Finally I am taking the time to learn [ReScript](https://rescript-lang.org/).
+Follow me on my journey and read how I approach it, mixed with some of my opinions
+and experiences." />
+
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/05/rescript-dark.gif" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/05/rescript-dark.gif" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/05/rescript-dark.gif" />
+</head>
+<body class="page-tidbit">
+
+    <header>
+    <nav class="primary">
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </nav>
+
+    <div class="sitename">
+      <a href="/">picostitch</a>
+      <div class="subtitle">
+        crafting (and) JavaScript
+      </div>
+    </div>
+  </header>
+
+
+
+  <nav class="breadcrumb">
+  <a href="/">Home</a> &raquo;
+  <a href="/tidbits/">Tidbits</a> &raquo;
+  Learning ReScript - Part 1
+  </nav>
+
+  <main>
+    <div class="content">
+  <article>
+
+      <img src="../rescript-dark.gif" style="width: 100%; height: 10rem; object-fit: contain;"/>
+
+    <header>
+      <div class="tag" data-tag="rescript">#ReScript</div>
+      <h1 id="learning-rescript-part-1" is="more-h1">Learning ReScript - Part 1</h1>
+      <div class="metadata">
+        Wolfram Kriesing - May 22, 2021
+            - tagged with:
+      <a href="/tag/rescript/" class="tag">#ReScript</a>
+      <a href="/tag/javascript/" class="tag">#JavaScript</a>
+      <a href="/tag/typed-language/" class="tag">#typed language</a>
+      <a href="/tag/typing/" class="tag">#typing</a>
+      <a href="/tag/learning/" class="tag">#learning</a>
+
+      </div>
+    </header>
+
+    <p>Finally I am taking the time to learn <a href="https://rescript-lang.org/">ReScript</a>.
+Follow me on my journey and read how I approach it, mixed with some of my opinions
+and experiences.</p>
+<h2 is="more-h2" id="what-is-rescript">What is ReScript?</h2>
+<p>Here is my answer.<br>JavaScript is amazingly flexible, but has short comings when it comes to big
+projects, complex structures, growing team sizes and growing code bases.
+Types have proven over time to be helpful. Tests are helpful too, but that is
+nothing that ReScript helps with, besides maybe reducing the need for a couple
+of tests.</p>
+<p>ReScript rejects all incorrect programs (it is <a href="https://en.wikipedia.org/wiki/Type_system#Static_type_checking">sound</a>). 
+It is a typed-first language that compiles to JavaScript.
+It&#39;s designed from types and not mounted on top of JavaScript. It compiles
+to JavaScript, so it needs at least one compile step to be run.</p>
+<ol>
+<li>ReScript is a language that <a href="https://rescript-lang.org/docs/manual/latest/introduction#preservation-of-code-structure">compiles to JavaScript</a>.  </li>
+<li><a href="https://rescript-lang.org/docs/manual/latest/introduction#difference-vs-typescript">The type system is &quot;sound&quot;, the types will always be correct.</a></li>
+<li>ReScript promises to look and act like JS (I have to figure this out), <a href="https://rescript-lang.org/try">try here</a>.  </li>
+<li>ReScript was previously known as BuckleScript and Reason, <a href="https://rescript-lang.org/blog/bucklescript-is-rebranding">until August 2020</a>.</li>
+</ol>
+<h2 is="more-h2" id="installation">Installation</h2>
+<p>On the <a href="https://rescript-lang.org/docs/manual/latest/installation">docs install page</a> 
+it&#39;s suggested to clone an existing repo and
+go from there. I prefer to follow the instructions how to set up my own repo
+and add ReScript from scratch, for this one can follow the next chapter,
+<a href="https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project">the integration guide</a>.</p>
+<p>It basically just takes:</p>
+<ul>
+<li><code>npm init</code></li>
+<li><code>npm install rescript --save-dev</code></li>
+<li>create a bsconfig.json as described</li>
+<li>add npm scripts <code>build</code> and <code>start</code> to the package.json for building and on-the-fly compiling
+to JavaScript</li>
+<li>create a source directory, e.g. <code>src</code></li>
+<li>throw a first ReScript code in there, e.g. <code>hello.res</code> with the content
+  <code>Js.log(&quot;Hello World&quot;)</code></li>
+<li>build it via <code>npm run build</code>, which creates a <code>hello.bs.js</code> (&quot;bs&quot; from bucklescript, I guess)  </li>
+<li>running it with <code>node src/hello.bs.js</code> throws &quot;SyntaxError: Unexpected token &#39;export&#39;&quot;, of course because
+it&#39;s a proper ECMAScript module (esm), yeah - now what?</li>
+</ul>
+<p>The resulting JavaScript is the following:</p>
+<pre><code class="undefinedjs">console.log(&quot;Hello World&quot;);
+export {
+}</code></pre>
+<p>This is ES6 syntax, modern JavaScript and nodejs does not run this as is.</p>
+<h2 is="more-h2" id="not-buildless">Not Buildless</h2>
+<p>The &quot;norm&quot; nowadays is to install a lot of (fat) dependencies like webpack and babel to transpile and
+run this tiny &quot;hello world&quot; program. I prefer <a href="https://twitter.com/search?q=%23buildless">#buildless</a>, 
+working without building, bundling and any pre-processing step, run code as written.
+Which is actually not very hard. Every browser can run modern JavaScript, browsers can
+load JavaScript modules and, HTTP2 is quite fast with multiple files. Nodejs can handle any modern JS.
+So transpiling and bundling become just fallbacks for most of the pages out there, not 
+a necessity anymore.</p>
+<p>Of course ReScript adds one build step before the code can be run. It has to be turned into
+JavaScript, we have done that above. For me compiling ReScript is 
+one step worth adding, one acceptable exception to the buildless.
+The gain is quite substantial, compared to TypeScript, webpack, babel, which I
+try to prevent adding as a requirement to a project&#39;s pipeline.
+But let&#39;s come back to ReScript, the &quot;buildless&quot; is a topic of it&#39;s own.</p>
+<h2 is="more-h2" id="running-the-compiled-javascript">Running the Compiled JavaScript</h2>
+<p>In this case the easiest is adding <code>&quot;type&quot;: &quot;module&quot;</code> to the package.json
+which indicates to nodejs that all the files here are modern JavaScript, ECMAScript
+modules (esm). Running is via <code>node src/hello.bs.js</code> now outputs &quot;Hello World&quot;.
+Assuming this project is all ReScript this is fine I think. The <code>type=module</code>
+does not play too well with non-esm packages, 
+which is the case for most packages out there, still, sadly.</p>
+<p>Another way to run this script without changing the package.json is </p>
+<pre><code>node --input-type=module -e &quot;`cat src/hello.bs.js`&quot;</code></pre>
+<p>which tells nodejs to interpret the code as modern JS code using module syntax,
+for that we <code>cat</code> the code into the node interpreter via <code>-e</code>.
+I guess I never did this before like this. This might not be a way to go.
+With multiple files it might also become quite inefficient.</p>
+<p>Another way, especially useful when there will be some dependencies that are
+not esm can be to <code>npm install esm</code> and run <code>node -r esm src/hello.bs.js</code>.
+This will transpile esm code on the fly and basically, it&#39;s quite handy too,
+I am using this in a number of places, because the first solution is not so handy
+with non-esm dependencies.</p>
+<h2 is="more-h2" id="commit-changes">Commit Changes</h2>
+<p>One step done. Though the execution is not automated yet, for me this is
+worth to commit this into the repo. When doing so I see that a <code>lib</code> directory
+was created with a lot of stuff I don&#39;t know about. I guess rescript was doing that
+so I am adding <code>lib</code> to my <code>.gitignore</code> file.
+And there is a <code>.merlin</code> file, does this have something to do with magicians?
+I guess not, rescript just adds things in places. I will commit this file too.
+I don&#39;t know yet if this is a good idea or not.</p>
+<p>Also I am adding the <code>*.bs.js</code> files to the <code>.gitignore</code>, in the end these are 
+compiler results.</p>
+<p>Committing now.</p>
+<p>Read how I start automating, follow the docs
+and explore the executables in 
+<a href="../learning-rescript-part-2">part 2</a>.</p>
+
+  </article>
+    </div>
+  </main>
+
+    <footer>
+    <div>
+      <b>Pages</b>
+        <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+    </div>
+
+    <div>
+      <b>Contact</b>
+      <ul>
+        <li><a href="https://twitter.com/wolframkriesing" rel="me">Twitter</a></li>
+        <li><a href="https://codeberg.com/wolframkriesing" rel="me">Codeberg</a></li>
+        <li><a href="https://github.com/wolframkriesing" rel="me">Github</a></li>
+        <li><a href="mailto:w+through-picostitch-footer-contact@kriesing.de">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+    <nav class="secondary">
+    <div class="menu-button">&#9776;</div>
+      <ul>
+      <li><a href="/">Home 🏠</a></li>
+      <li><a href="/blog">Blog ✍️</a></li>
+      <li><a href="/tidbits">Tidbits 😋</a></li>
+      <li><a href="/projects">Projects 🛠‍‍</a></li>
+      <li><a href="/about">About 💡</a></li>
+  </ul>
+
+  </nav>
+
+</body>
+</html>
