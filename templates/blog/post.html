@@ -43,7 +43,7 @@
   <article class="{{ 'isDraft' if post.isDraft else '' }}">
 
     {% if post.previewImage %}
-      <img src="{{ post.previewImage }}" style="width: 100%; height: 10rem; object-fit: cover;"/>
+      <img src="{{ post.previewImage }}" style="width: 100%; height: 10rem; object-fit: contain;"/>
     {% endif %}
 
     <header>

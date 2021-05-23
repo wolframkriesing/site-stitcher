@@ -14,7 +14,7 @@
     </header>
     <p class="abstract">
       {% if tidbit.previewImage %}
-        <img src="{{ tidbit.previewImageUrl }}" style="float: right; width: 10rem; height: 5rem; object-fit: cover; margin-left: 1rem;"/>
+        <img src="{{ tidbit.previewImageUrl }}" style="float: right; width: 10rem; height: 5rem; object-fit: contain; margin-left: 1rem;"/>
       {% endif %}
       {{ tidbit.abstractAsHtml | safe }}
       {% if not tidbit.hasAbstractOnly %}
