@@ -375,7 +375,7 @@ export {
 }
 ```
 
-So here `helloWorld` is exported now and available when imports as a JS module.
+So here `helloWorld` is exported now and available when imported as a JS module.
 
 ### Shadowing
 
