@@ -138,9 +138,8 @@ Committing now ([see the code at this point in time](https://codeberg.org/wolfra
 
 ## To be Continued ...
 
-Read how I start automating, follow the docs
-and explore the executables in 
-[Part 2](../learning-rescript-part-2).
+Read how I start learning the rescript command and keep following the docs to learn more of the language,
+in [Part 2](../learning-rescript-part-2).
 
 
 
@@ -149,7 +148,7 @@ and explore the executables in
 
 
 
-# [WIP] Learning ReScript - Part 2 (rescript command)
+# Learning ReScript - Part 2 (rescript command)
 slug: learning-rescript-part-2  
 dateCreated: 2021-05-22 22:36 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
@@ -164,16 +163,16 @@ comfortable to start a project with ReScript.
 
 ## Contents
 
+1) [Contents](#contents)
 1) [Automate Building and Running](#automate-building-and-running)
 1) [The rescript CLI Command](#the-rescript-cli-command)
 1) [Build and Run](#build-and-run)
 1) [First Language Learning - Let Binding](#first-language-learning---let-binding)
     1) [Block Scope](#block-scope)
+    1) [Block Scope Compiles to ...](#block-scope-compiles-to-)
     1) [Shadowing](#shadowing)
     1) [Make it a Module](#make-it-a-module)
-1) [Formatting](#formatting)
-1) [Going Through the Docs](#going-through-the-docs)
-1) [An Opinion on the Docs](#an-opinion-on-the-docs)
+1) [To be Continued ...](#to-be-continued-)
 
 ## Automate Building and Running
 
@@ -340,6 +339,44 @@ FAILED: cannot make progress due to previous errors.
 
 I would say this proves that the curlies work for building a block.
 
+### Block Scope Compiles to ...
+
+Worth mentioning is also, that the block scoped code does NOT export anything, when
+compiled to JS.
+
+```rescript
+{
+  let helloWorld = "Hello World"
+  Js.log(helloWorld)
+}
+```
+
+The `console.log()` is run, but the export is empty.
+
+```js
+console.log("Hello World");
+export {}
+```
+
+Opposed to NOT surrounding it with a block 
+
+```rescript
+let helloWorld = "Hello World"
+Js.log(helloWorld)
+```
+
+it will export like this:
+
+```js
+var helloWorld = "Hello World";
+console.log(helloWorld);
+export {
+  helloWorld ,
+}
+```
+
+So here `helloWorld` is exported now and available when imports as a JS module.
+
 ### Shadowing
 
 In the current docs chapter there are a lot more details about private let binding,
@@ -354,6 +391,42 @@ about it right away. I would even prefer if I could turn it off.
 ### Make it a Module
 
 In the next commit [I wrap all the code into a module](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e46b8fe8621a662d6e9fa90ead9e00c9369b1bc5)
+
+```rescript
+module Printer = {
+  let printHelloWorld = {
+    let helloWorld = "Hello World"
+    Js.log(helloWorld)
+  }
+
+  printHelloWorld
+}
+```
+
+The code keeps working as is.
+I have to say at this point in time it is not very clear to me what the module does.
+Looking at the compiled JS it does export only the module, so it is kinda
+JS module, but is that it? I will leave this for later, I am not too curious right now.
+
+## To be Continued ...
+
+This Part 2 has become way longer and very different to what I thought it would become,
+but that's fine.
+Read how I dive deeper into the language and its tool and how I add my first type,
+in [Part 3](../learning-rescript-part-3).
+
+
+
+
+
+
+
+# [WIP] Learning ReScript - Part 3
+slug: learning-rescript-part-3  
+dateCreated: 2021-05-24 16:41 CET  
+tags: ReScript, JavaScript, typed language, typing, learning  
+previewImage: ../rescript-cutout2.gif  
+
 
 
 ## Formatting
