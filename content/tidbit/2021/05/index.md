@@ -162,6 +162,19 @@ Now I want to learn more and get to the point where I have a feeling for how to 
 lets see where it takes me. I guess it will take me more than this "Part 2" post to be
 comfortable to start a project with ReScript.
 
+## Contents
+
+1) [Automate Building and Running](#automate-building-and-running)
+1) [The rescript CLI Command](#the-rescript-cli-command)
+1) [Build and Run](#build-and-run)
+1) [First Language Learning - Let Binding](#first-language-learning---let-binding)
+    1) [Block Scope](#block-scope)
+    1) [Shadowing](#shadowing)
+    1) [Make it a Module](#make-it-a-module)
+1) [Formatting](#formatting)
+1) [Going Through the Docs](#going-through-the-docs)
+1) [An Opinion on the Docs](#an-opinion-on-the-docs)
+
 ## Automate Building and Running
 
 I want to have one command that builds the files and runs them, e.g. `npm start` or `npm run build` or alike.
@@ -257,7 +270,7 @@ see the [according commit](https://codeberg.org/wolframkriesing/rescript-learnin
 
 Running it has no suprises for me. It prints as above.
 
-## Block Scope
+### Block Scope
 
 Next on the [Let Binding](https://rescript-lang.org/docs/manual/latest/let-binding)
 page is "Block Scope". Ha, something I know from JavaScript.
@@ -327,7 +340,7 @@ FAILED: cannot make progress due to previous errors.
 
 I would say this proves that the curlies work for building a block.
 
-## Shadowing
+### Shadowing
 
 In the current docs chapter there are a lot more details about private let binding,
 shadowing and others. It might be interesting to read through them once, but 
@@ -338,7 +351,7 @@ is kinda re-binding a variable, e.g. like so `let x = 1; let x = x + 1`.
 This is valid ReScript, but it is not recommended and feels like I want to forget
 about it right away. I would even prefer if I could turn it off.
 
-## Make it a Module
+### Make it a Module
 
 In the next commit [I wrap all the code into a module](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e46b8fe8621a662d6e9fa90ead9e00c9369b1bc5)
 
