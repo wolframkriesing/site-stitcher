@@ -131,29 +131,215 @@ Committing now ([see the code at this point in time](https://codeberg.org/wolfra
 
 Read how I start automating, follow the docs
 and explore the executables in 
-[part 2](../learning-rescript-part-2).
+[Part 2](../learning-rescript-part-2).
 
 
 
 
 
-# Learning ReScript - Part 2
+
+
+
+# Learning ReScript - Part 2 (rescript command)
 slug: learning-rescript-part-2  
 dateCreated: 2021-05-22 22:36 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
-previewImage: ../rescript-red.gif  
+previewImage: ../rescript-cutout.gif  
 
-
-In [part 1](../learning-rescript-part-1) I started with ReScript,
-I set up a project and made my first steps, got it running.  
-Now I want to dive a bit deeper, lets see where it takes me.
+In [Part 1](../learning-rescript-part-1) I started with ReScript,
+I set up [a project](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit) 
+and made my first steps, got it running.  
+Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
+lets see where it takes me. I guess it will take me more than this "Part 2" post to be
+comfortable to start a project with ReScript.
 
 ## Automate Building and Running
 
-I want to have one command that builds the files and runs them.
-I saw there 
+I want to have one command that builds the files and runs them, e.g. `npm start` or `npm run build` or alike.
+Best would be of course, that it does that continuously in the background.
 
-## Want to Use ReScript
+Before automation that I like to understand how to compile and run the compiled file.
+
+## The `rescript` CLI Command
+
+Until now running `rescript` did the compilation. It generated the `hello.bs.js` file in the
+same directory as where the `hello.res` file is located, in `src/`.
+
+For me the rescript command is still a black box. I don't want to understand it down to the
+implementation (yet), but I want to know it a bit better. What can it do? Am I using it right?
+Why do I just call `rescript` and not e.g. `rescript compile`?
+So I let `rescript` tell me what it can tell to help me, via `rescript --help`.
+```shell-session
+# rescript --help
+Unknown subcommand or flags: --help
+Available flags
+-v, -version  display version number
+-h, -help     display help 
+Subcommands:
+    build    
+    clean
+    format
+    convert
+    help
+Run rescript subcommand -h for more details,
+For example:
+    rescript build -h
+    rescript format -h
+The default `rescript` is equivalent to `rescript build` subcommand
+```
+
+Very interesting first thing, that actually makes me a bit suspicious is
+"Unknown subcommand or flags: --help". I thought it was a standard for CLI commands to support `--help`.
+Is ReScript going a bit offroad here, or am I not up to date? Sounds like I want to read a little bit
+more about command line interfaces. I get the feeling there are many camps, and ReScript joined the one
+that supports `-h`, which feels kinda like Windows-style to me, but I am not an expert here.
+Unsurprisingly this line goes away when running `rescript -h`. Ok.
+
+Another question gets answered when I read the help instructions to the end
+
+> The default `rescript` is equivalent to `rescript build` subcommand
+ 
+Now I know that `rescript` is just an alias to `rescript build`, which I would have expected
+to be `rescript compile`. Fine. Learned it. So I will stick to the more explicit `rescript build`, 
+because I would have expected `rescript` to rather open a 
+[REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop),
+where I can play with the
+language, just like python or nodejs do. Since it does not do that, I prefer explicitly writing
+`rescript build` so I confuse less, the one person that would expect the same as me behind `rescript`.
+
+## Build and Run
+
+Ok, let's sum up. For compiling I use `rescript build` and for running `node src/hello.bs.js`.
+To run the code and interactively try if changes work I run:
+```shell-session
+# rescript build && node src/hello.bs.js 
+Hello World
+```
+
+For now I do this after every change. I prefer to "feel" the execution for some time
+until I get a good feeling what, if and how I want it automated. Until then I prefer one more
+click that I need to run my modified code.
+
+Now that I am ready to explore the actual language a bit more, let me do so.
+I will start continuing through the docs,
+under Language Features, which is the next big chapter the first one 
+[Overview](https://rescript-lang.org/docs/manual/latest/overview)
+which I did not find so useful, it's more a cheatsheet that might come in handy later.
+I jump to 
+[Let Binding](https://rescript-lang.org/docs/manual/latest/let-binding).
+
+## First Language Learning - Let Binding
+
+First sentence reminds me that learning and especially using the right terms
+in the according community is always important, here it starts with
+> "let binding", in other languages, might be called a "variable declaration"
+
+I guess I have seen this in languages like Haskell or PureScript. Ok, "let binding" it is.
+And I felt I had become good with using the terms that JavaScript land is using.
+Now I need to connect a new map to this knowledge. Brain, go and work!
+
+The first refactoring I do is introduce a let binding:
+```rescript
+let helloWorld = "Hello World"
+Js.log(helloWorld)
+```
+
+see the [according commit](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/ef269a3727b80c413efa716a428f0cf2ef61ef10).
+
+Running it has no suprises for me. It prints as above.
+
+## Block Scope
+
+Next on the [Let Binding](https://rescript-lang.org/docs/manual/latest/let-binding)
+page is "Block Scope". Ha, something I know from JavaScript.
+And it works a lot like JS, fulfilling the promise of ReScript "look and act like JS".
+Cool.
+
+So [I introduce a block around my code](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/c850bc0efd2f680084cd6d77dcf8e9f0f352a006).
+```rescript
+let printHelloWorld = {
+  let helloWorld = "Hello World"
+  Js.log(helloWorld)
+}
+
+printHelloWorld
+```
+
+I had started writing `printHelloWorld()` on the last line first, because I was a bit
+confused. Until [much later I figured out](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e53232480aa03efeb221a54c2e0040b966446f37) 
+that the code I wrote was acutally not really
+that useful in the sense I intended. I thought on the last line I call this block.
+
+At the time of writing this post (so after I had written the code and commited it)
+I know that the block is executed and the value of the last line is returned,
+and therefore the value of `printHelloWorld`,
+in this case the `Js.log()` call's return value. I don't even know what's its value.
+
+Still, the variable `helloWorld` is only available inside the block, which is surrounded
+by the curlies, `{` and `}`.
+
+I like to go even one further and, just like in JS, write
+```rescript
+{
+  let helloWorld = "Hello World"
+  Js.log(helloWorld)
+}
+```
+
+Which seems useless, but it is basically creating a block scope around this code,
+so no let binding (lets use the new terms) is accessible outside of it.
+Want proof? Here it is, the code:
+```rescript
+{
+  let helloWorld = "Hello World"
+  Js.log(helloWorld)
+}
+Js.log(helloWorld)
+```
+
+fails already at compilation time:
+
+```shell-session
+# rescript build
+rescript: [1/1] src/hello.cmj
+FAILED: src/hello.cmj
+
+  We've found a bug for you!
+  /app/src/hello.res:5:8-17
+
+  3 │   Js.log(helloWorld)
+  4 │ }
+  5 │ Js.log(helloWorld)
+
+  The value helloWorld can't be found
+
+FAILED: cannot make progress due to previous errors.
+```
+
+I would say this proves that the curlies work for building a block.
+
+## Shadowing
+
+In the current docs chapter there are a lot more details about private let binding,
+shadowing and others. It might be interesting to read through them once, but 
+they seem not that interesting to me right now. 
+
+Especially the shadowing, which
+is kinda re-binding a variable, e.g. like so `let x = 1; let x = x + 1`.
+This is valid ReScript, but it is not recommended and feels like I want to forget
+about it right away. I would even prefer if I could turn it off.
+
+## Make it a Module
+
+In the next commit [I wrap all the code into a module](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e46b8fe8621a662d6e9fa90ead9e00c9369b1bc5)
+
+
+## Formatting
+
+
+
+
+## Going Through the Docs
 
 After I finished the installation and have ReScript running, proven by the
 hello.res file, its compilation and letting it run 
