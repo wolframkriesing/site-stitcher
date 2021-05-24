@@ -149,7 +149,7 @@ and explore the executables in
 
 
 
-# Learning ReScript - Part 2 (rescript command)
+# [WIP] Learning ReScript - Part 2 (rescript command)
 slug: learning-rescript-part-2  
 dateCreated: 2021-05-22 22:36 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
