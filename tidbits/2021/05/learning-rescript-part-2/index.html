@@ -10,14 +10,14 @@
 
     <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Learning ReScript - Part 2" />
+  <meta name="twitter:title" content="Learning ReScript - Part 2 (rescript command)" />
 
-  <meta property="og:title" content="Learning ReScript - Part 2">
+  <meta property="og:title" content="Learning ReScript - Part 2 (rescript command)">
   <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2021/05/learning-rescript-part-2/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-<link rel="canonical" href="https://picostitch.com/tidbits/2021/05/learning-rescript-part-2/">  <title>Learning ReScript - Part 2 | picostitch - crafting (and) JavaScript</title>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/05/learning-rescript-part-2/">  <title>Learning ReScript - Part 2 (rescript command) | picostitch - crafting (and) JavaScript</title>
 
   <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
@@ -28,19 +28,28 @@
     <meta property="article:tag" content="typing" />
     <meta property="article:tag" content="learning" />
 
-  <meta property="og:description" content="In [part 1](../learning-rescript-part-1) I started with ReScript,
-I set up a project and made my first steps, got it running.  
-Now I want to dive a bit deeper, lets see where it takes me." />
-  <meta property="article:description" content="In [part 1](../learning-rescript-part-1) I started with ReScript,
-I set up a project and made my first steps, got it running.  
-Now I want to dive a bit deeper, lets see where it takes me." />
-  <meta name="twitter:description" content="In [part 1](../learning-rescript-part-1) I started with ReScript,
-I set up a project and made my first steps, got it running.  
-Now I want to dive a bit deeper, lets see where it takes me." />
+  <meta property="og:description" content="In [Part 1](../learning-rescript-part-1) I started with ReScript,
+I set up [a project](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit) 
+and made my first steps, got it running.  
+Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
+lets see where it takes me. I guess it will take me more than this &quot;Part 2&quot; post to be
+comfortable to start a project with ReScript." />
+  <meta property="article:description" content="In [Part 1](../learning-rescript-part-1) I started with ReScript,
+I set up [a project](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit) 
+and made my first steps, got it running.  
+Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
+lets see where it takes me. I guess it will take me more than this &quot;Part 2&quot; post to be
+comfortable to start a project with ReScript." />
+  <meta name="twitter:description" content="In [Part 1](../learning-rescript-part-1) I started with ReScript,
+I set up [a project](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit) 
+and made my first steps, got it running.  
+Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
+lets see where it takes me. I guess it will take me more than this &quot;Part 2&quot; post to be
+comfortable to start a project with ReScript." />
 
-    <meta property="og:image" content="https://picostitch.com/tidbits/2021/05/rescript-red.gif" />
-    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/05/rescript-red.gif" />
-    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/05/rescript-red.gif" />
+    <meta property="og:image" content="https://picostitch.com/tidbits/2021/05/rescript-cutout.gif" />
+    <meta property="og:image:url" content="https://picostitch.com/tidbits/2021/05/rescript-cutout.gif" />
+    <meta name="twitter:image" content="https://picostitch.com/tidbits/2021/05/rescript-cutout.gif" />
 </head>
 <body class="page-tidbit">
 
@@ -69,18 +78,18 @@ Now I want to dive a bit deeper, lets see where it takes me." />
   <nav class="breadcrumb">
   <a href="/">Home</a> &raquo;
   <a href="/tidbits/">Tidbits</a> &raquo;
-  Learning ReScript - Part 2
+  Learning ReScript - Part 2 (rescript command)
   </nav>
 
   <main>
     <div class="content">
   <article>
 
-      <img src="../rescript-red.gif" style="width: 100%; height: 10rem; object-fit: contain;"/>
+      <img src="../rescript-cutout.gif" style="width: 100%; height: 10rem; object-fit: contain;"/>
 
     <header>
       <div class="tag" data-tag="rescript">#ReScript</div>
-      <h1 id="learning-rescript-part-2" is="more-h1">Learning ReScript - Part 2</h1>
+      <h1 id="learning-rescript-part-2" is="more-h1">Learning ReScript - Part 2 (rescript command)</h1>
       <div class="metadata">
         Wolfram Kriesing - May 22, 2021
             - tagged with:
@@ -93,12 +102,147 @@ Now I want to dive a bit deeper, lets see where it takes me." />
       </div>
     </header>
 
-    <p>In <a href="../learning-rescript-part-1">part 1</a> I started with ReScript,
-I set up a project and made my first steps, got it running.<br>Now I want to dive a bit deeper, lets see where it takes me.</p>
+    <p>In <a href="../learning-rescript-part-1">Part 1</a> I started with ReScript,
+I set up <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit">a project</a> 
+and made my first steps, got it running.<br>Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
+lets see where it takes me. I guess it will take me more than this &quot;Part 2&quot; post to be
+comfortable to start a project with ReScript.</p>
 <h2 is="more-h2" id="automate-building-and-running">Automate Building and Running</h2>
-<p>I want to have one command that builds the files and runs them.
-I saw there </p>
-<h2 is="more-h2" id="want-to-use-rescript">Want to Use ReScript</h2>
+<p>I want to have one command that builds the files and runs them, e.g. <code>npm start</code> or <code>npm run build</code> or alike.
+Best would be of course, that it does that continuously in the background.</p>
+<p>Before automation that I like to understand how to compile and run the compiled file.</p>
+<h2 is="more-h2" id="the-rescript-cli-command">The <code>rescript</code> CLI Command</h2>
+<p>Until now running <code>rescript</code> did the compilation. It generated the <code>hello.bs.js</code> file in the
+same directory as where the <code>hello.res</code> file is located, in <code>src/</code>.</p>
+<p>For me the rescript command is still a black box. I don&#39;t want to understand it down to the
+implementation (yet), but I want to know it a bit better. What can it do? Am I using it right?
+Why do I just call <code>rescript</code> and not e.g. <code>rescript compile</code>?
+So I let <code>rescript</code> tell me what it can tell to help me, via <code>rescript --help</code>.</p>
+<pre><code class="undefinedshell-session"># rescript --help
+Unknown subcommand or flags: --help
+Available flags
+-v, -version  display version number
+-h, -help     display help 
+Subcommands:
+    build    
+    clean
+    format
+    convert
+    help
+Run rescript subcommand -h for more details,
+For example:
+    rescript build -h
+    rescript format -h
+The default `rescript` is equivalent to `rescript build` subcommand</code></pre>
+<p>Very interesting first thing, that actually makes me a bit suspicious is
+&quot;Unknown subcommand or flags: --help&quot;. I thought it was a standard for CLI commands to support <code>--help</code>.
+Is ReScript going a bit offroad here, or am I not up to date? Sounds like I want to read a little bit
+more about command line interfaces. I get the feeling there are many camps, and ReScript joined the one
+that supports <code>-h</code>, which feels kinda like Windows-style to me, but I am not an expert here.
+Unsurprisingly this line goes away when running <code>rescript -h</code>. Ok.</p>
+<p>Another question gets answered when I read the help instructions to the end</p>
+<blockquote>
+<p>The default <code>rescript</code> is equivalent to <code>rescript build</code> subcommand</p>
+</blockquote>
+<p>Now I know that <code>rescript</code> is just an alias to <code>rescript build</code>, which I would have expected
+to be <code>rescript compile</code>. Fine. Learned it. So I will stick to the more explicit <code>rescript build</code>, 
+because I would have expected <code>rescript</code> to rather open a 
+<a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>,
+where I can play with the
+language, just like python or nodejs do. Since it does not do that, I prefer explicitly writing
+<code>rescript build</code> so I confuse less, the one person that would expect the same as me behind <code>rescript</code>.</p>
+<h2 is="more-h2" id="build-and-run">Build and Run</h2>
+<p>Ok, let&#39;s sum up. For compiling I use <code>rescript build</code> and for running <code>node src/hello.bs.js</code>.
+To run the code and interactively try if changes work I run:</p>
+<pre><code class="undefinedshell-session"># rescript build &amp;&amp; node src/hello.bs.js 
+Hello World</code></pre>
+<p>For now I do this after every change. I prefer to &quot;feel&quot; the execution for some time
+until I get a good feeling what, if and how I want it automated. Until then I prefer one more
+click that I need to run my modified code.</p>
+<p>Now that I am ready to explore the actual language a bit more, let me do so.
+I will start continuing through the docs,
+under Language Features, which is the next big chapter the first one 
+<a href="https://rescript-lang.org/docs/manual/latest/overview">Overview</a>
+which I did not find so useful, it&#39;s more a cheatsheet that might come in handy later.
+I jump to 
+<a href="https://rescript-lang.org/docs/manual/latest/let-binding">Let Binding</a>.</p>
+<h2 is="more-h2" id="first-language-learning---let-binding">First Language Learning - Let Binding</h2>
+<p>First sentence reminds me that learning and especially using the right terms
+in the according community is always important, here it starts with</p>
+<blockquote>
+<p>&quot;let binding&quot;, in other languages, might be called a &quot;variable declaration&quot;</p>
+</blockquote>
+<p>I guess I have seen this in languages like Haskell or PureScript. Ok, &quot;let binding&quot; it is.
+And I felt I had become good with using the terms that JavaScript land is using.
+Now I need to connect a new map to this knowledge. Brain, go and work!</p>
+<p>The first refactoring I do is introduce a let binding:</p>
+<pre><code class="undefinedrescript">let helloWorld = &quot;Hello World&quot;
+Js.log(helloWorld)</code></pre>
+<p>see the <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/ef269a3727b80c413efa716a428f0cf2ef61ef10">according commit</a>.</p>
+<p>Running it has no suprises for me. It prints as above.</p>
+<h2 is="more-h2" id="block-scope">Block Scope</h2>
+<p>Next on the <a href="https://rescript-lang.org/docs/manual/latest/let-binding">Let Binding</a>
+page is &quot;Block Scope&quot;. Ha, something I know from JavaScript.
+And it works a lot like JS, fulfilling the promise of ReScript &quot;look and act like JS&quot;.
+Cool.</p>
+<p>So <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/c850bc0efd2f680084cd6d77dcf8e9f0f352a006">I introduce a block around my code</a>.</p>
+<pre><code class="undefinedrescript">let printHelloWorld = {
+  let helloWorld = &quot;Hello World&quot;
+  Js.log(helloWorld)
+}
+
+printHelloWorld</code></pre>
+<p>I had started writing <code>printHelloWorld()</code> on the last line first, because I was a bit
+confused. Until <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e53232480aa03efeb221a54c2e0040b966446f37">much later I figured out</a> 
+that the code I wrote was acutally not really
+that useful in the sense I intended. I thought on the last line I call this block.</p>
+<p>At the time of writing this post (so after I had written the code and commited it)
+I know that the block is executed and the value of the last line is returned,
+and therefore the value of <code>printHelloWorld</code>,
+in this case the <code>Js.log()</code> call&#39;s return value. I don&#39;t even know what&#39;s its value.</p>
+<p>Still, the variable <code>helloWorld</code> is only available inside the block, which is surrounded
+by the curlies, <code>{</code> and <code>}</code>.</p>
+<p>I like to go even one further and, just like in JS, write</p>
+<pre><code class="undefinedrescript">{
+  let helloWorld = &quot;Hello World&quot;
+  Js.log(helloWorld)
+}</code></pre>
+<p>Which seems useless, but it is basically creating a block scope around this code,
+so no let binding (lets use the new terms) is accessible outside of it.
+Want proof? Here it is, the code:</p>
+<pre><code class="undefinedrescript">{
+  let helloWorld = &quot;Hello World&quot;
+  Js.log(helloWorld)
+}
+Js.log(helloWorld)</code></pre>
+<p>fails already at compilation time:</p>
+<pre><code class="undefinedshell-session"># rescript build
+rescript: [1/1] src/hello.cmj
+FAILED: src/hello.cmj
+
+  We&#39;ve found a bug for you!
+  /app/src/hello.res:5:8-17
+
+  3 │   Js.log(helloWorld)
+  4 │ }
+  5 │ Js.log(helloWorld)
+
+  The value helloWorld can&#39;t be found
+
+FAILED: cannot make progress due to previous errors.</code></pre>
+<p>I would say this proves that the curlies work for building a block.</p>
+<h2 is="more-h2" id="shadowing">Shadowing</h2>
+<p>In the current docs chapter there are a lot more details about private let binding,
+shadowing and others. It might be interesting to read through them once, but 
+they seem not that interesting to me right now. </p>
+<p>Especially the shadowing, which
+is kinda re-binding a variable, e.g. like so <code>let x = 1; let x = x + 1</code>.
+This is valid ReScript, but it is not recommended and feels like I want to forget
+about it right away. I would even prefer if I could turn it off.</p>
+<h2 is="more-h2" id="make-it-a-module">Make it a Module</h2>
+<p>In the next commit <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e46b8fe8621a662d6e9fa90ead9e00c9369b1bc5">I wrap all the code into a module</a></p>
+<h2 is="more-h2" id="formatting">Formatting</h2>
+<h2 is="more-h2" id="going-through-the-docs">Going Through the Docs</h2>
 <p>After I finished the installation and have ReScript running, proven by the
 hello.res file, its compilation and letting it run </p>
 <p>go through docs

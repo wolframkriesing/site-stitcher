@@ -131,12 +131,10 @@ and add ReScript from scratch, if you also want to do that, follow the next chap
 <li><code>npm init --yes</code> - set up a npm project (<code>--yes</code> means: answer all questions with &quot;yes&quot;)</li>
 <li><code>npm install rescript --save-dev</code> - install rescript as a development dependency</li>
 <li><strong>create a bsconfig.json</strong> file, as <a href="https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project">described in the docs</a></li>
-<li><strong>add npm scripts <code>build</code> and <code>start</code></strong> to the package.json for building and on-the-fly compiling
-to JavaScript (I just copied and modified the one from the docs)</li>
 <li><strong>create a source directory</strong>, e.g. via <code>mkdir src</code></li>
 <li>throw our <strong>first ReScript code</strong> in there, e.g. <code>hello.res</code> with the content
  <code>Js.log(&quot;Hello World&quot;)</code>, my first piece of correct and working ReScript, ever </li>
-<li><strong>build it via <code>npm run build</code></strong>, which creates a <code>hello.bs.js</code> (&quot;bs&quot; from the previous name bucklescript, I guess)  </li>
+<li><strong>build it by running <code>rescript</code></strong>, which creates a <code>hello.bs.js</code> (the &quot;bs&quot; comes from the previous name bucklescript, I guess)  </li>
 <li><strong>run it</strong> with <code>node src/hello.bs.js</code> throws <code>&quot;SyntaxError: Unexpected token &#39;export&#39;&quot;</code>, of course because
 it&#39;s a proper ECMAScript module (esm), FAIL, yeah - now what?</li>
 </ol>
@@ -196,7 +194,7 @@ compiler&#39;s results.</p>
 <h2 is="more-h2" id="to-be-continued-">To be Continued ...</h2>
 <p>Read how I start automating, follow the docs
 and explore the executables in 
-<a href="../learning-rescript-part-2">part 2</a>.</p>
+<a href="../learning-rescript-part-2">Part 2</a>.</p>
 
   </article>
     </div>
