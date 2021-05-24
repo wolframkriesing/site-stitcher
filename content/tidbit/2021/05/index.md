@@ -50,12 +50,10 @@ It basically just takes:
 1) `npm init --yes` - set up a npm project (`--yes` means: answer all questions with "yes")
 1) `npm install rescript --save-dev` - install rescript as a development dependency
 1) **create a bsconfig.json** file, as [described in the docs](https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project)
-1) **add npm scripts `build` and `start`** to the package.json for building and on-the-fly compiling
-  to JavaScript (I just copied and modified the one from the docs)
 1) **create a source directory**, e.g. via `mkdir src`
 1) throw our **first ReScript code** in there, e.g. `hello.res` with the content
     `Js.log("Hello World")`, my first piece of correct and working ReScript, ever 
-1) **build it via `npm run build`**, which creates a `hello.bs.js` ("bs" from the previous name bucklescript, I guess)  
+1) **build it by running `rescript`**, which creates a `hello.bs.js` (the "bs" comes from the previous name bucklescript, I guess)  
 1) **run it** with `node src/hello.bs.js` throws `"SyntaxError: Unexpected token 'export'"`, of course because
   it's a proper ECMAScript module (esm), FAIL, yeah - now what?
   
