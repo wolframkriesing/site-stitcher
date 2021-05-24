@@ -8,6 +8,15 @@ Finally I am taking the time to learn [ReScript](https://rescript-lang.org/).
 Follow me on my journey and read how I approach it, mixed with some of my opinions
 and experiences.
 
+## Contents
+
+1) [What is ReScript?](#what-is-rescript)
+1) [Installation](#installation)
+1) [Not Buildless](#not-buildless)
+1) [Running the Compiled JavaScript](#running-the-compiled-javascript)
+1) [Commit the Changes](#commit-the-changes)
+1) [To be Continued ...](#to-be-continued-)
+
 ## What is ReScript?
 
 Here is my answer.  
