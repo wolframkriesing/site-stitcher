@@ -107,6 +107,21 @@ I set up <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-
 and made my first steps, got it running.<br>Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
 lets see where it takes me. I guess it will take me more than this &quot;Part 2&quot; post to be
 comfortable to start a project with ReScript.</p>
+<h2 is="more-h2" id="contents">Contents</h2>
+<ol>
+<li><a href="#automate-building-and-running">Automate Building and Running</a></li>
+<li><a href="#the-rescript-cli-command">The rescript CLI Command</a></li>
+<li><a href="#build-and-run">Build and Run</a></li>
+<li><a href="#first-language-learning---let-binding">First Language Learning - Let Binding</a><ol>
+<li><a href="#block-scope">Block Scope</a></li>
+<li><a href="#shadowing">Shadowing</a></li>
+<li><a href="#make-it-a-module">Make it a Module</a></li>
+</ol>
+</li>
+<li><a href="#formatting">Formatting</a></li>
+<li><a href="#going-through-the-docs">Going Through the Docs</a></li>
+<li><a href="#an-opinion-on-the-docs">An Opinion on the Docs</a></li>
+</ol>
 <h2 is="more-h2" id="automate-building-and-running">Automate Building and Running</h2>
 <p>I want to have one command that builds the files and runs them, e.g. <code>npm start</code> or <code>npm run build</code> or alike.
 Best would be of course, that it does that continuously in the background.</p>
@@ -180,7 +195,7 @@ Now I need to connect a new map to this knowledge. Brain, go and work!</p>
 Js.log(helloWorld)</code></pre>
 <p>see the <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/ef269a3727b80c413efa716a428f0cf2ef61ef10">according commit</a>.</p>
 <p>Running it has no suprises for me. It prints as above.</p>
-<h2 is="more-h2" id="block-scope">Block Scope</h2>
+<h3 is="more-h3" id="block-scope">Block Scope</h3>
 <p>Next on the <a href="https://rescript-lang.org/docs/manual/latest/let-binding">Let Binding</a>
 page is &quot;Block Scope&quot;. Ha, something I know from JavaScript.
 And it works a lot like JS, fulfilling the promise of ReScript &quot;look and act like JS&quot;.
@@ -231,7 +246,7 @@ FAILED: src/hello.cmj
 
 FAILED: cannot make progress due to previous errors.</code></pre>
 <p>I would say this proves that the curlies work for building a block.</p>
-<h2 is="more-h2" id="shadowing">Shadowing</h2>
+<h3 is="more-h3" id="shadowing">Shadowing</h3>
 <p>In the current docs chapter there are a lot more details about private let binding,
 shadowing and others. It might be interesting to read through them once, but 
 they seem not that interesting to me right now. </p>
@@ -239,7 +254,7 @@ they seem not that interesting to me right now. </p>
 is kinda re-binding a variable, e.g. like so <code>let x = 1; let x = x + 1</code>.
 This is valid ReScript, but it is not recommended and feels like I want to forget
 about it right away. I would even prefer if I could turn it off.</p>
-<h2 is="more-h2" id="make-it-a-module">Make it a Module</h2>
+<h3 is="more-h3" id="make-it-a-module">Make it a Module</h3>
 <p>In the next commit <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e46b8fe8621a662d6e9fa90ead9e00c9369b1bc5">I wrap all the code into a module</a></p>
 <h2 is="more-h2" id="formatting">Formatting</h2>
 <h2 is="more-h2" id="going-through-the-docs">Going Through the Docs</h2>
