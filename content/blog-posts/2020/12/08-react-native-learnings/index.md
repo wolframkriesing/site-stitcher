@@ -37,3 +37,18 @@ does not render a round corner, do
 <View style={{borderRadius: 5}}>
   <Text>
 ```
+
+## React.useEffect() - deep compare works on iOS
+
+Watch out. Actually `React.useEffect()` does not deep compare.
+Something like `React.useEffect(yourFn, [anObject])` triggers
+`yourFn` to be called on every render. You have to use the props explicitly
+`React.useEffect(yourFn, [anObject.prop1, anObject.prop2])`
+which makes sense.
+
+Here is the catch: I developed on iOS and it all worked, while I was
+using the deep-compare approach (`[anObject]`) accidentally.
+Then I tried it on Android and it did NOT work.
+
+I assume this is due to the different JS engines. Would be interesting to
+explore this some further.

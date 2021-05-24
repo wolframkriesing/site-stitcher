@@ -226,3 +226,19 @@ Made me smile. I succeeded in that too, I mean I know the theory and stuff, but 
 <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/BhQYZmaxTCM" frameborder="0" allowfullscreen></iframe>
 
 Youtube has annoyed me enough with ads. Back to coding ...
+
+
+
+
+# Immutable States Done Right with Immer  
+slug: immutable-states-done-right-with-immer  
+dateCreated: 2021-03-16 23:46 CET  
+tags: JavaScript, React, state  
+
+This blows me away, just like [Zustand](https://github.com/pmndrs/zustand/)
+which makes [state management very simple](https://twitter.com/wolframkriesing/status/1371944812253958145)
+[immer](https://immerjs.github.io/immer/docs/introduction) implements immutability
+in the way it had always wanted to be implemented.
+
+This 6min video explains it and you see what I mean.
+https://egghead.io/lessons/redux-simplify-creating-immutable-data-trees-with-immer
