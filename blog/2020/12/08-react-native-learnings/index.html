@@ -102,6 +102,17 @@
 <p>does not render a round corner, do</p>
 <pre><code>&lt;View style={{borderRadius: 5}}&gt;
   &lt;Text&gt;</code></pre>
+<h2 is="more-h2" id="reactuseeffect---deep-compare-works-on-ios">React.useEffect() - deep compare works on iOS</h2>
+<p>Watch out. Actually <code>React.useEffect()</code> does not deep compare.
+Something like <code>React.useEffect(yourFn, [anObject])</code> triggers
+<code>yourFn</code> to be called on every render. You have to use the props explicitly
+<code>React.useEffect(yourFn, [anObject.prop1, anObject.prop2])</code>
+which makes sense.</p>
+<p>Here is the catch: I developed on iOS and it all worked, while I was
+using the deep-compare approach (<code>[anObject]</code>) accidentally.
+Then I tried it on Android and it did NOT work.</p>
+<p>I assume this is due to the different JS engines. Would be interesting to
+explore this some further.</p>
 
 
   </article>
