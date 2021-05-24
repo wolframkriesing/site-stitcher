@@ -1,4 +1,4 @@
-# Learning ReScript - Part 1
+# Learning ReScript - Part 1 (Intro and Setup)
 slug: learning-rescript-part-1  
 dateCreated: 2021-05-22 17:31 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
@@ -18,7 +18,7 @@ nothing that ReScript helps with, besides maybe reducing the need for a couple
 of tests.
 
 ReScript rejects all incorrect programs (it is [sound](https://en.wikipedia.org/wiki/Type_system#Static_type_checking)). 
-It is a typed-first language that compiles to JavaScript.
+It is a typed-first language<sup>[1]</sup> that compiles to JavaScript.
 It's designed from types and not mounted on top of JavaScript. It compiles
 to JavaScript, so it needs at least one compile step to be run.
 
@@ -27,26 +27,37 @@ to JavaScript, so it needs at least one compile step to be run.
 1) ReScript promises to look and act like JS (I have to figure this out), [try here](https://rescript-lang.org/try).  
 1) ReScript was previously known as BuckleScript and Reason, [until August 2020](https://rescript-lang.org/blog/bucklescript-is-rebranding).
 
+<sup>[1]</sup> I wrote "typed-first language" above. As far as I know this is not
+a commonly used term, I just made it up (maybe it exists already, no idea).
+What I mean is, that this is a language that was created with types in mind at creation
+time. Things like exhaustiveness, soundness, preventing any-types and alike things that
+make a strong typed language powerful and prevent the bugs that untyped languages
+may come with, are baked in from the beginning. 
+No worries, therefore one can learn to make new mistakes ;).    
+Languages or type systems like flow or TypeScript have to deal with baking it onto the
+language, so they have to handle the complexity of the underlying language, JavaScript.  
+That's why I would name ReScript typed-first.
+
 ## Installation
 
 On the [docs install page](https://rescript-lang.org/docs/manual/latest/installation) 
 it's suggested to clone an existing repo and
 go from there. I prefer to follow the instructions how to set up my own repo
-and add ReScript from scratch, for this one can follow the next chapter,
+and add ReScript from scratch, if you also want to do that, follow the next chapter of the docs,
 [the integration guide](https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project).
 
 It basically just takes:
-* `npm init`
-* `npm install rescript --save-dev`
-* create a bsconfig.json as described
-* add npm scripts `build` and `start` to the package.json for building and on-the-fly compiling
-  to JavaScript
-* create a source directory, e.g. `src`
-* throw a first ReScript code in there, e.g. `hello.res` with the content
-    `Js.log("Hello World")`
-* build it via `npm run build`, which creates a `hello.bs.js` ("bs" from bucklescript, I guess)  
-* running it with `node src/hello.bs.js` throws "SyntaxError: Unexpected token 'export'", of course because
-  it's a proper ECMAScript module (esm), yeah - now what?
+1) `npm init --yes` - set up a npm project (`--yes` means: answer all questions with "yes")
+1) `npm install rescript --save-dev` - install rescript as a development dependency
+1) **create a bsconfig.json** file, as [described in the docs](https://rescript-lang.org/docs/manual/latest/installation#integrate-into-an-existing-js-project)
+1) **add npm scripts `build` and `start`** to the package.json for building and on-the-fly compiling
+  to JavaScript (I just copied and modified the one from the docs)
+1) **create a source directory**, e.g. via `mkdir src`
+1) throw our **first ReScript code** in there, e.g. `hello.res` with the content
+    `Js.log("Hello World")`, my first piece of correct and working ReScript, ever 
+1) **build it via `npm run build`**, which creates a `hello.bs.js` ("bs" from the previous name bucklescript, I guess)  
+1) **run it** with `node src/hello.bs.js` throws `"SyntaxError: Unexpected token 'export'"`, of course because
+  it's a proper ECMAScript module (esm), FAIL, yeah - now what?
   
 The resulting JavaScript is the following:
 ```js
@@ -56,6 +67,8 @@ export {
 ```
 
 This is ES6 syntax, modern JavaScript and nodejs does not run this as is.
+Let's analyze for one paragraph, what this means before diving into possible solutions,
+or jump straight to the paragraph [Running the Compiled JavaScript](#running-the-compiled-javascript).
 
 ## Not Buildless
 
@@ -76,42 +89,47 @@ But let's come back to ReScript, the "buildless" is a topic of it's own.
 
 ## Running the Compiled JavaScript
 
-In this case the easiest is adding `"type": "module"` to the package.json
-which indicates to nodejs that all the files here are modern JavaScript, ECMAScript
-modules (esm). Running is via `node src/hello.bs.js` now outputs "Hello World".
+For JS resulting out of the compilation of the ReScript code 
+the easiest is adding `"type": "module"` to the package.json
+which indicates to nodejs that all the files in this package are modern JavaScript, ECMAScript
+modules (esm). Running it via `node src/hello.bs.js` now outputs "Hello World".
 Assuming this project is all ReScript this is fine I think. The `type=module`
 does not play too well with non-esm packages, 
-which is the case for most packages out there, still, sadly.
+which is the case for most JS packages out there, still, sadly.
 
 Another way to run this script without changing the package.json is 
 ```
 node --input-type=module -e "`cat src/hello.bs.js`"
 ```
-which tells nodejs to interpret the code as modern JS code using module syntax,
+which tells nodejs to interpret the code as modern JS code using the module syntax
+that the compiled file contains,
 for that we `cat` the code into the node interpreter via `-e`.
 I guess I never did this before like this. This might not be a way to go.
-With multiple files it might also become quite inefficient.
+With multiple files it might also become quite cumbersome, but feel free to take it further.
 
 Another way, especially useful when there will be some dependencies that are
 not esm can be to `npm install esm` and run `node -r esm src/hello.bs.js`.
-This will transpile esm code on the fly and basically, it's quite handy too,
+This will transpile esm code on the fly. It's quite handy and simple, causing basically no headaches (until now).
 I am using this in a number of places, because the first solution is not so handy
 with non-esm dependencies.
 
-## Commit Changes
+## Commit the Changes
 
 One step done. Though the execution is not automated yet, for me this is
-worth to commit this into the repo. When doing so I see that a `lib` directory
-was created with a lot of stuff I don't know about. I guess rescript was doing that
-so I am adding `lib` to my `.gitignore` file.
+worth to commit this into [the repo](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit). 
+Before doing so, when looking at the diff, I see that a `lib` directory
+was created with a lot of stuff I don't know about. I guess ReScript was doing that.
+So I am adding `lib` to [my `.gitignore` file](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/src/branch/main/.gitignore).
 And there is a `.merlin` file, does this have something to do with magicians?
-I guess not, rescript just adds things in places. I will commit this file too.
+I guess not, ReScript just adds things in places. I will commit this file too.
 I don't know yet if this is a good idea or not.
 
 Also I am adding the `*.bs.js` files to the `.gitignore`, in the end these are 
-compiler results.
+compiler's results.
 
-Committing now.
+Committing now ([see the code at this point in time](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/src/commit/a920f856fd913d34ba93a3d4d7e1685ae99f298a)).
+
+## To be Continued ...
 
 Read how I start automating, follow the docs
 and explore the executables in 
