@@ -476,7 +476,7 @@ They are right, no doubt.
 
 
 
-# Learning ReScript - First Conclusions
+# [WIP] Learning ReScript - First Conclusions
 slug: learning-re-script-first-conclusions
 dateCreated: 2021-05-25 11:58 CET
 tags: ReScript, JavaScript, typed language, typing, learning  
