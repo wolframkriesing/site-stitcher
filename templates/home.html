@@ -73,10 +73,6 @@
             <a href="{{post.url}}" itemprop="url">
             <span itemprop="name headline">{{post.headlineAsHtml | safe }}</span></a>
           </h2>
-          <div class="metadata">
-            {{post.dateCreated | toReadableDate}}
-            {{ parts.taggedWith(post.tags) }}
-          </div>
         </header>
         <div class="content" style="flex-direction: column">
           {% if post.previewImage %}
