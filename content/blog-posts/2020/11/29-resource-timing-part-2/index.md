@@ -2,7 +2,7 @@ dateCreated: 2020-11-29 10:44 CET
 tags: browsertools, knowledgebase, web, site speed, performance
 previewImage: ben-harritt-75854-unsplash.jpg
 
-# Resource Timing (part 2) - Loading Dependencies
+# Resource Timing - Part 2 (Loading Dependencies)
 This is post #2 about Resource Timing, with a focus on understanding loading dependencies.
 In [part 1 "Resource Timing - The API"][3] I covered the attributes `responseEnd` and `startTime`. 
 Now I will try to show how the API can be used to see which resources block each other, which is the step

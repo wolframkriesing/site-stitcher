@@ -2,7 +2,7 @@ dateCreated: 2020-11-28 14:20 CET
 tags: browsertools, knowledgebase, web, site speed, performance
 previewImage: header.png
 
-# Resource Timing (part 1) - The API
+# Resource Timing - Part 1 (The API)
 
 I want to explore the Resource Timing API, one of the Performance APIs, accessible via `window.performance` 
 in all modern browsers.  

@@ -2,7 +2,7 @@ dateCreated: 2020-05-12 18:00 CET
 tags: javascript, typescript, typing, setup, ts4js  
 previewImage: road.jpg
 
-# TypeScript for JavaScript, Part 1 - Setup
+# TypeScript for JavaScript - Part 1 (Setup)
 You don't need to rename all your ".js" files to ".ts" to go all in on TypeScript, you can go gradually. 
 Adopt TypeScript step by step, become familiar with it in your existing JavaScript project.
 No need to put development on hold for weeks, while you convert the code base to TypeScript and fix all type errors.

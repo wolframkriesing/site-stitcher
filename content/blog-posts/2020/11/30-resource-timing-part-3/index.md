@@ -2,7 +2,7 @@ dateCreated: 2020-11-30 19:38 CET
 tags: browsertools, knowledgebase, web, site speed, performance
 previewImage: michelle-rosen-390381-unsplash.jpg
 
-# Resource Timing (part 3) - Waterfall Chart
+# Resource Timing - Part 3 (Waterfall Chart)
 
 This is post #3 in the [category "Browser Tools"][0], focusing on understanding the loading times by charting them in a 
 Waterfall chart. In [part 1][1] and [part 2 about Resource Timing][2] I covered the attributes `startTime`, 
