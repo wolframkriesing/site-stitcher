@@ -105,7 +105,7 @@ for as many projects as I can, really support their mission.
 &quot;Independent and powered by your donations and contributions&quot;.<br>I struggled a little bit <a href="#how-it-works">to figure out the URL that works</a>
 for a package
 that is not on npm yet, but exists just as a codeberg repo.</p>
-<h2 is="more-h2" id="npm-module-from-a-repo">Npm Module From a Repo</h2>
+<h2 is="more-h2" show-link-on-mouseover id="npm-module-from-a-repo">Npm Module From a Repo</h2>
 <p>Npm modules are normally installed via <code>npm install &lt;package-name&gt;</code>, but
 this works only once the package is published on npm.
 If I try to install <code>npm install test-stitcher</code>, this fails.</p>
@@ -114,12 +114,12 @@ as dependency, for a codeberg repo it works like this:
 <code>npm install git+https://codeberg.org/wolframkriesing/test-stitcher.git</code>.
 The URL is used as the package name, just the prefix &quot;git+https&quot; was what I had to 
 try and play with until I figured it out.</p>
-<h2 is="more-h2" id="failed-tries">Failed Tries</h2>
+<h2 is="more-h2" show-link-on-mouseover id="failed-tries">Failed Tries</h2>
 <p>I tried a lot of the known URL patterns as dependency in my <code>package.json</code>.<br><strong>Those that failed</strong> were:</p>
 <ul>
 <li><a href="https://codeberg.org/wolframkriesing/test-stitcher.git">https://codeberg.org/wolframkriesing/test-stitcher.git</a></li>
 <li>git://codeberg.org/wolframkriesing/test-stitcher.git</li>
-<li><a href="mailto:&#103;&#105;&#116;&#x40;&#99;&#x6f;&#x64;&#x65;&#98;&#101;&#x72;&#103;&#x2e;&#x6f;&#114;&#103;">&#103;&#105;&#116;&#x40;&#99;&#x6f;&#x64;&#x65;&#98;&#101;&#x72;&#103;&#x2e;&#x6f;&#114;&#103;</a>:wolframkriesing/test-stitcher.git</li>
+<li><a href="mailto:&#x67;&#105;&#x74;&#64;&#99;&#111;&#100;&#101;&#98;&#101;&#x72;&#103;&#x2e;&#x6f;&#114;&#103;">&#x67;&#105;&#x74;&#64;&#99;&#111;&#100;&#101;&#98;&#101;&#x72;&#103;&#x2e;&#x6f;&#114;&#103;</a>:wolframkriesing/test-stitcher.git</li>
 <li>git+ssh://git@codeberg.org/wolframkriesing/test-stitcher.git</li>
 <li>git+ssh://git@codeberg.org:wolframkriesing/test-stitcher.git</li>
 <li>git+<a href="https://codeberg.org/wolframkriesing/test-stitcher.git">https://codeberg.org/wolframkriesing/test-stitcher.git</a> </li>
@@ -128,7 +128,7 @@ try and play with until I figured it out.</p>
 <pre><code>&gt; npm install
 npm ERR! code ENOLOCAL
 npm ERR! Could not install from &quot;git@codeberg.org:wolframkriesing/test-stitcher.git&quot; as it does not contain a package.json file.</code></pre>
-<h2 is="more-h2" id="how-it-works">How it Works</h2>
+<h2 is="more-h2" show-link-on-mouseover id="how-it-works">How it Works</h2>
 <p>The URL that <strong>works</strong> is prefixed with &quot;git+https&quot;:</p>
 <ul>
 <li>git+<a href="https://codeberg.org/wolframkriesing/test-stitcher.git">https://codeberg.org/wolframkriesing/test-stitcher.git</a></li>

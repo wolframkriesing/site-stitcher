@@ -99,7 +99,7 @@ In short: [Hermes](https://hermesengine.dev/) is a mobile optimized JavaScript e
 One of the things I had stumbled upon more often lately in RN
 code was the word &quot;hermes&quot;. I didn&#39;t know what kinda tool or package that was.
 Until I informed myself a bit.<br>In short: <a href="https://hermesengine.dev/">Hermes</a> is a mobile optimized JavaScript engine.</p>
-<h2 is="more-h2" id="react-native-needs-a-javascript-engine">React Native needs a JavaScript Engine</h2>
+<h2 is="more-h2" show-link-on-mouseover id="react-native-needs-a-javascript-engine">React Native needs a JavaScript Engine</h2>
 <p>Just to give the context, let me quickly sum up why RN needs a JavaScript Engine.
 For RN you write JavaScript code, which can run on multiple platforms, such as iOS and Android.
 The app code you are writing uses <a href="https://reactjs.org/">ReactJS</a>. The JavaScript code
@@ -110,7 +110,7 @@ also always consists of native code too.</p>
 <p>Hermes is one of the JavaScript engines, and since RN 0.64 also available for iOS.
 Beside that <a href="https://reactnative.dev/docs/javascript-environment#javascript-runtime">JavaScript engines used in RN</a> 
 are JSC (JavaScriptCore) and v8.</p>
-<h2 is="more-h2" id="goals">Goals</h2>
+<h2 is="more-h2" show-link-on-mouseover id="goals">Goals</h2>
 <p>The best way to understand why Hermes exists is to watch the 15min
 video of ChainReactConf 2019.</p>
 <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/zEjqDWqeDdg" frameborder="0" allowfullscreen></iframe>
@@ -124,17 +124,17 @@ Hermes aims to:</p>
 <li>allow RN apps to perform better, especially on less powerful phones</li>
 </ul>
 <p>Of course all those numbers depend on the kind of app you are running.</p>
-<h2 is="more-h2" id="no-jit">No JIT</h2>
+<h2 is="more-h2" show-link-on-mouseover id="no-jit">No JIT</h2>
 <p>From the talk I learned that hermes does NOT have a JIT, due to the assumption that there is not
 much code that is run multiple times, esp. code that needs optimization at start-up time.
 Also because the JS code gets compiled to bytecode optimizations can be done that an engine
 like v8 does at runtime (using a JIT). All this sounds interesting.</p>
-<h2 is="more-h2" id="less-of-javascript-features">Less of JavaScript Features</h2>
+<h2 is="more-h2" show-link-on-mouseover id="less-of-javascript-features">Less of JavaScript Features</h2>
 <p>Hermes does NOT implement all features of JavaScript. In the video Marc explains that they analyzed
 their use of JavaScript and removed features that they never used and that are heavy on an engine, I assume.
 For example Proxies, <code>with</code>, <code>eval</code>, some <code>Symbol</code> stuff and other less known JavaScript features.
 Sounds like a clever move. I assume there is more that could be left out, like for loops ;).</p>
-<h2 is="more-h2" id="another-engine-really">Another Engine? Really?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="another-engine-really">Another Engine? Really?</h2>
 <p>I started out asking why this requires yet another JavaScript engine.</p>
 <blockquote class="twitter-tweet" data-partner="tweetdeck">
     <p lang="en" dir="ltr">I am reading that <a href="https://twitter.com/hashtag/hermes?src=hash&amp;ref_src=twsrc%5Etfw">#hermes</a> [1] is (yet) another <a href="https://twitter.com/hashtag/JavaScript?src=hash&amp;ref_src=twsrc%5Etfw">#JavaScript</a> <a href="https://twitter.com/hashtag/engine?src=hash&amp;ref_src=twsrc%5Etfw">#engine</a> built for <a href="https://twitter.com/hashtag/reactnative?src=hash&amp;ref_src=twsrc%5Etfw">#reactnative</a> (but not only afaik).<br>Anyone knows where to read about motivations and goals? Didn’t find it yet. Just seeing docs, etc. about how it works, but not the whys.<br><br>[1] <a href="https://t.co/6v278WlPOj">https://t.co/6v278WlPOj</a>
@@ -153,7 +153,7 @@ need another playing field to do some arm wrestling. I am drawn between those
 two views. But I certainly don&#39;t know the truth behind the birth of hermes.
 So I keep looking forward to getting some more app speed with less cost.
 Thanks.</p>
-<h2 is="more-h2" id="more-info">More Info</h2>
+<h2 is="more-h2" show-link-on-mouseover id="more-info">More Info</h2>
 <p>The post that actually led me to watch the video was this one:
 <a href="https://medium.com/react-native-nigeria/react-native-what-you-need-to-know-about-hermes-b3686b446e49">React Native: What You Need To Know About Hermes.</a></p>
 <p>A pretty recent article from Dec 2020

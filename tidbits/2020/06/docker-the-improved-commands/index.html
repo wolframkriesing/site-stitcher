@@ -96,20 +96,20 @@ they had been from the beginning</strong>. Like <code>docker container run</code
 <p>Looking around the web, I found the commands had been updated already in 2017, see
 <a href="https://www.docker.com/blog/whats-new-in-docker-1-13/">this blog post on the docker page</a>.
 Again a case of &quot;take more time to read the docs&quot;.</p>
-<h2 is="more-h2" id="some-new-commands">Some &quot;New&quot; Commands</h2>
+<h2 is="more-h2" show-link-on-mouseover id="some-new-commands">Some &quot;New&quot; Commands</h2>
 <p><code>docker container ls -a</code> was <del><code>docker ps -a</code></del><br>Listing all containers finally is named <code>ls</code>.</p>
 <p><code>docker container stop</code> was <del><code>docker stop</code></del><br>Stopping a container is explicit. Would have made my learning curve less steep because I never knew
 if the command applied to an image or a container.</p>
 <p><code>docker container logs</code> was <del><code>docker logs</code></del><br>Simply consistent.</p>
 <p><code>docker container rm</code> was <del><code>docker rm</code></del><br>Remove a container. There is also <code>docker image rm</code>.</p>
 <p><code>docker container --help</code><br>Just see them all.</p>
-<h2 is="more-h2" id="get-help">Get Help</h2>
+<h2 is="more-h2" show-link-on-mouseover id="get-help">Get Help</h2>
 <p>To get help for those commands use <code>docker --help container &lt;command&gt;</code>.
 I just struggled where to put the <code>--help</code>. Learned it now, will struggle less next time.</p>
-<h2 is="more-h2" id="also-have-a-look-at">Also Have a Look at</h2>
+<h2 is="more-h2" show-link-on-mouseover id="also-have-a-look-at">Also Have a Look at</h2>
 <p>As usual, inspecting the docs a bit more thoroughly I found commands I never looked at, but
 that are really valuable to know. Let me list a couple:</p>
-<h3 is="more-h3" id="docker-container-top-container-name"><code>docker container top &lt;container-name&gt;</code></h3>
+<h3 is="more-h3" show-link-on-mouseover id="docker-container-top-container-name"><code>docker container top &lt;container-name&gt;</code></h3>
 <p>It shows the processes for a given container. I didn&#39;t figure out how to run that continuously,
 and not just once, like the native <code>top</code> command. Also the help is not really helping.
 The docs say: <a href="https://docs.docker.com/engine/reference/commandline/container_top/">Display the running processes of a container</a></p>
@@ -123,13 +123,13 @@ PID                 USER                TIME                COMMAND
 20150               root                0:00                bash ./build-on-file-change.sh
 20155               root                0:00                sh -c http-server _output -d -i --port 5000
 20156               root                0:00                {node} http-server</code></pre>
-<h3 is="more-h3" id="docker-container-stats"><code>docker container stats</code></h3>
+<h3 is="more-h3" show-link-on-mouseover id="docker-container-stats"><code>docker container stats</code></h3>
 <p>The docs say: <a href="https://docs.docker.com/engine/reference/commandline/container_stats/">Display a live stream of container(s) resource usage statistics</a>
 Which may look like this</p>
 <pre><code>&gt; docker container stats
 CONTAINER ID        NAME                CPU %               MEM USAGE / LIMIT     MEM %               NET I/O             BLOCK I/O           PIDS
 d64cace6e8c9        site-stitcher       0.00%               35.41MiB / 1.944GiB   1.78%               16.3kB / 178kB      0B / 0B             38</code></pre>
-<h3 is="more-h3" id="docker-container-prune"><code>docker container prune</code></h3>
+<h3 is="more-h3" show-link-on-mouseover id="docker-container-prune"><code>docker container prune</code></h3>
 <p>Actually I needed it just last night, because I got lost in what was going on with my containers, so I just
 wanted to reset them all. The docs describe the command like this:
 <a href="https://docs.docker.com/engine/reference/commandline/container_prune/">Remove all stopped containers</a></p>
@@ -137,7 +137,7 @@ wanted to reset them all. The docs describe the command like this:
 WARNING! This will remove all stopped containers.
 Are you sure you want to continue? [y/N] y
 Total reclaimed space: 0B</code></pre>
-<h3 is="more-h3" id="docker-container-diff-container-name"><code>docker container diff &lt;container-name&gt;</code></h3>
+<h3 is="more-h3" show-link-on-mouseover id="docker-container-diff-container-name"><code>docker container diff &lt;container-name&gt;</code></h3>
 <p>Sounds like I can see what changes had been made, which is quite useful, especially when you want to 
 figure out what might better be a volume.
 The docs say: <a href="https://docs.docker.com/engine/reference/commandline/container_diff/">Inspect changes to files or directories on a container’s filesystem</a></p>

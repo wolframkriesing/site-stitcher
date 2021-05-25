@@ -103,7 +103,7 @@ kind of tools or APIs in and around the browser, things web developers will hope
     <p>I want to explore the Resource Timing API, one of the Performance APIs, accessible via <code>window.performance</code> 
 in all modern browsers.<br>This post is the start of a series of <a href="/blog/tag/browsertools/">blog posts about browser tools</a>, in which I look into any
 kind of tools or APIs in and around the browser, things web developers will hopefully find useful.</p>
-<h2 is="more-h2" id="first-live-stats">First Live Stats</h2>
+<h2 is="more-h2" show-link-on-mouseover id="first-live-stats">First Live Stats</h2>
 <p>Up to here <strong>this page loaded <span id="num-assets-loaded-1">??</span> assets</strong> (or resources) and 
 <strong>took <span id="time-taken-loading-1">??</span> seconds to load</strong>. 
 <a href="javascript:__updateInlineStats__(1)">Click here to update the stats</a> and the numbers will most probably change.
@@ -131,7 +131,7 @@ been loaded completely when you first clicked the link, no new assets/resources 
     __updateInlineStats__(1);
 </script>
 
-<h2 is="more-h2" id="what-is-the-resource-timing-api">What is the Resource Timing API?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="what-is-the-resource-timing-api">What is the Resource Timing API?</h2>
 <p>These tiny statistics were gathered via the Resource Timing API. 
 At the end of this article you get the same stats with the data collected at that point in time of rendering this site,
 so you can compare it to the above. The values will most probably differ. Why? The rendering progress of this page
@@ -162,7 +162,7 @@ timing information related to resources on a [website].</p>
 <p>The interface that the spec defines is called <strong>&quot;PerformanceResourceTiming&quot;, a collection 
 of attributes about one resource that a website loads</strong>. For example the attribute <code>duration</code> is the time
 it took to load a certain resource. </p>
-<h2 is="more-h2" id="use-the-resource-timing-api">Use the Resource Timing API</h2>
+<h2 is="more-h2" show-link-on-mouseover id="use-the-resource-timing-api">Use the Resource Timing API</h2>
 <p>To get all attributes we have to get all entries of the type &quot;resource&quot;, loaded by this site. 
 The API call for this is:</p>
 <pre><code class="undefinedjs">window.performance.getEntriesByType(&#39;resource&#39;)</code></pre>
@@ -177,14 +177,14 @@ The API call for this is:</p>
 }, {...}]</code></pre>
 <p>The <code>duration</code> is given in milliseconds. The time is measured using the DOMHighResTimestamp API, which allows for 
 very exact time measuring. </p>
-<h2 is="more-h2" id="measuring-using-domhighrestimestamp">Measuring using DOMHighResTimestamp</h2>
+<h2 is="more-h2" show-link-on-mouseover id="measuring-using-domhighrestimestamp">Measuring using DOMHighResTimestamp</h2>
 <p>Why is this needed? We could have used <code>Date.now()</code>, but <a href="https://www.w3.org/TR/hr-time-2/#abstract">the spec</a> says it &quot;does not 
 allow for sub-millisecond resolution and is subject to system clock skew&quot;. Measuring the timings very exact
 can make quite a difference with the high speed connections and always improving browser speeds.
 You can see the sub-milliseconds part in the <code>duration</code>&#39;s value above. 
 Good to know that we have reliable time measuring in the browser 
 available, details might become another blog post in this series.</p>
-<h2 is="more-h2" id="query-the-data">Query the Data</h2>
+<h2 is="more-h2" show-link-on-mouseover id="query-the-data">Query the Data</h2>
 <p>The <code>name</code> is the URL of the resource the website loaded and the API measured the resource timing for.
 Let me sum up, by looking at the part of the API seen so far.
 In the following I wrote two lines of JavaScript to extract <code>name</code> and <code>duration</code>,
@@ -236,7 +236,7 @@ so that caches are not used and the durations will be very different again.</p>
   });
 </script>
 
-<h2 is="more-h2" id="starttime-and-responseend-attributes"><code>startTime</code> and <code>responseEnd</code> Attributes</h2>
+<h2 is="more-h2" show-link-on-mouseover id="starttime-and-responseend-attributes"><code>startTime</code> and <code>responseEnd</code> Attributes</h2>
 <p>The <code>duration</code> attribute, is the result of <a href="https://www.w3.org/TR/2017/CR-resource-timing-1-20170330/#performanceresourcetiming">subtracting</a> the <code>responseEnd - startTime</code> attribute.
 The <code>startTime</code> attribute is the time when fetching the <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry/startTime">resource started</a>. The <code>responseEnd</code> is the timestamp 
 when the last byte was received or <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceResourceTiming/responseEnd">when the transport connection closes</a>.</p>
@@ -268,7 +268,7 @@ retreiving all <code>responseEnd</code> values and taking the biggest one, as yo
 </script>
 
 <p>Try out: If you reload this page, the numbers will change, look closely at the duration (the second number).</p>
-<h2 is="more-h2" id="live-stats-again">Live Stats Again</h2>
+<h2 is="more-h2" show-link-on-mouseover id="live-stats-again">Live Stats Again</h2>
 <p>Now that you got here. Let&#39;s pick up the live stats again, as seen at the beginning and list the tiny statistics again. 
 After the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event">event &quot;load&quot;</a> (the whole page has loaded, including all dependent resources such as stylesheets images) 
 this <strong>page loaded <span id="num-assets-loaded-2">??</span> assets</strong> (or resources) and 
@@ -280,7 +280,7 @@ this <strong>page loaded <span id="num-assets-loaded-2">??</span> assets</strong
   window.addEventListener('load',() => window.__runOnloaded__.forEach(fn => fn()));
 </script>
 
-<h2 is="more-h2" id="finally">Finally</h2>
+<h2 is="more-h2" show-link-on-mouseover id="finally">Finally</h2>
 <p>Hopefully this article shows that getting insights into resource timing of a site is not
 only possible in your browser&#39;s developer tools, but also right in the browser itself. 
 What you can do with it I leave up to your imagination.

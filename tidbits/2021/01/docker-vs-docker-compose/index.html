@@ -104,7 +104,7 @@ let me try to clarify also: <strong>Why would I use a docker-compose setup over 
 I had been doing the single Dockerfile setup for quite a while. 
 I was doing a lot of manual work, that made the setup work. But I don&#39;t regret it, it taught me a lot!
 But that was not sustainable, and it didn&#39;t scale.</p>
-<h2 is="more-h2" id="how-i-automate-every-projects-setup">How I Automate every Projects&#39; Setup</h2>
+<h2 is="more-h2" show-link-on-mouseover id="how-i-automate-every-projects-setup">How I Automate every Projects&#39; Setup</h2>
 <p>My setup with one docker container always contained a <a href="https://github.com/wolframkriesing/site-stitcher/blob/76ba1541673a156d5cd944241ea7f29200fffeb5/run.sh"><code>run.sh</code> file</a>,
 and a <code>Dockerfile</code>.
 The <code>run.sh</code> file grew over time and taught me a lot of bash, but docker-compose does all I need without any bash scripting. 
@@ -120,7 +120,7 @@ the container, my <code>run.sh</code> did this (more or less well) on demand</li
 or you need to map a folders into the container, so you can work with the files inside the container.
 All these things were inside my <code>run.sh</code>.</li>
 </ol>
-<h2 is="more-h2" id="docker-compose-ftw">docker-compose ftw</h2>
+<h2 is="more-h2" show-link-on-mouseover id="docker-compose-ftw">docker-compose ftw</h2>
 <p>Long story short: docker-compose does all that. A bit different, maybe not as convinient, but in a standardized and 
 consistent way. Additionally docker-compose does it for any number of containers!</p>
 <p>For using <code>docker-compose</code> I use <a href="https://github.com/wolframkriesing/site-stitcher/blob/76ba1541673a156d5cd944241ea7f29200fffeb5/docker-compose.yml">this <code>docker-compose.yml</code> file</a>.
@@ -138,7 +138,7 @@ the <code>&lt;name&gt;</code> is defined in the <code>docker-compose.yml</code> 
 </ol>
 <p>In the <a href="https://github.com/wolframkriesing/site-stitcher/tree/5381c9776c265e48d6f903f5019f02d9b64cda6c#develop-run-locally">README.md</a>
 I also described how I am using <code>docker-compose</code> for this project.</p>
-<h2 is="more-h2" id="finally">Finally</h2>
+<h2 is="more-h2" show-link-on-mouseover id="finally">Finally</h2>
 <p>I am quite happy with that setup now. Every project works the same.
 I am thinking of using the same name &quot;app&quot; for the main container, so I can always do
 <code>docker-compose exec app bash</code> to enter the app (or main) container.

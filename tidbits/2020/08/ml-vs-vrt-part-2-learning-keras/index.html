@@ -108,7 +108,7 @@ making visual regression tests (VRT) better.
 I described the problem to solve, explored Keras  very superficially and did also touched on the complexity
 of doing ML myself as opposed to having colleagues who are experts and who throw phrases
 like &quot;train a model&quot; and &quot;predict&quot; etc. around.<br>Oh boy, did I underestimate this.</p>
-<h2 is="more-h2" id="keras---a-deep-learning-api">Keras - A Deep Learning API</h2>
+<h2 is="more-h2" show-link-on-mouseover id="keras---a-deep-learning-api">Keras - A Deep Learning API</h2>
 <p>The above paragraph is gibberish? Let&#39;s take a step back  again.</p>
 <p>Since Kamal had pointed me to Keras I go with the flow, I trust his expertise  and I start reading what it is.  </p>
 <blockquote>
@@ -134,7 +134,7 @@ which sounds like the steps I need:</p>
 <li>Refine your model </li>
 </ol>
 <p>I guess I  have to  start taking some screenshot, to do step 1 &quot;Prepare data&quot;.</p>
-<h2 is="more-h2" id="preprocessing">Preprocessing</h2>
+<h2 is="more-h2" show-link-on-mouseover id="preprocessing">Preprocessing</h2>
 <p>The next step  is preprocessing data, the guide says:</p>
 <blockquote>
 <p>In general, you should seek to do data preprocessing as part of your model as much as possible, not via an external data preprocessing pipeline.</p>
@@ -153,7 +153,7 @@ your model, either during training or after training, which makes your models po
 The guide then lists some code, that looks readable but what&#39;s under the hood is magic to me.
 But let me get through the process first and eventually it will reveal it&#39;s magic, I learned that.
 The alternative would be to go deep into the science behind it, but then I would not get done in the next two years ;).</p>
-<h2 is="more-h2" id="building-models">Building Models</h2>
+<h2 is="more-h2" show-link-on-mouseover id="building-models">Building Models</h2>
 <p>This is just step three of the eight steps listed above.</p>
 <blockquote>
 <p>A &quot;layer&quot; is a simple input-output transformation (such as the scaling &amp; center-cropping transformations above).<br>[..]<br>You can think of a model as a &quot;bigger layer&quot; that encompasses multiple sublayers and that can be trained via exposure to data.</p>
@@ -165,7 +165,7 @@ inputs = keras.Input(shape=(None, None, 3))</code></pre>
 <p>Next are some details about building a model, which will have multiple  inputs
 <code>model = keras.Model(inputs=inputs, outputs=outputs)</code> but I will need to understand better
 once I am coding it.</p>
-<h2 is="more-h2" id="training-models">Training Models</h2>
+<h2 is="more-h2" show-link-on-mouseover id="training-models">Training Models</h2>
 <blockquote>
 <p>The next step is to train your model on your data.</p>
 </blockquote>

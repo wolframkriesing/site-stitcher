@@ -111,7 +111,7 @@ because I had forgotten to do that, and
 <a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a>
 suggested to do so.<br>I forgot how to do that, so I am writing it down now. Read on if you also want
 to know how to convert any kind of image to webp and embed it in your site.</p>
-<h2 is="more-h2" id="install-the-executable">Install the Executable</h2>
+<h2 is="more-h2" show-link-on-mouseover id="install-the-executable">Install the Executable</h2>
 <p>I am using a docker setup, so 
 <a href="https://github.com/wolframkriesing/site-stitcher/commit/0351946d978a9973ead489233b512d1f6960ba6e">I added</a>
 the following line to my Dockerfile</p>
@@ -123,7 +123,7 @@ says. It</p>
 <blockquote>
 <p>compresses an image using the WebP format. Input format can be either PNG, JPEG, TIFF, WebP or raw Y&#39;CbCr samples.<br>Note: Animated PNG and WebP files are not supported.</p>
 </blockquote>
-<h2 is="more-h2" id="convert-an-image-to-webp">Convert an Image to webp</h2>
+<h2 is="more-h2" show-link-on-mouseover id="convert-an-image-to-webp">Convert an Image to webp</h2>
 <p>Next I want to convert images I use on my site to be available in webp too.
 <a href="https://github.com/wolframkriesing/site-stitcher/commit/0980190849d8faa13a1f83f431706436e2044f7d">The command I use</a>
 for that runs in the docker container where I added the webp executable to.
@@ -136,7 +136,7 @@ I had not had any problems with other image formats yet.</p>
 <p>Finally <code>-o out.webp</code> is the file name of the resulting webp image.
 For one of the images I just added I ran the following command:</p>
 <pre><code class="undefinedshell">cwebp -q 80 content/tidbit/2021/02/hexagonal-visual.png -o content/tidbit/2021/02/hexagonal-visual.webp</code></pre>
-<h2 is="more-h2" id="embed-in-the-site">Embed in the Site</h2>
+<h2 is="more-h2" show-link-on-mouseover id="embed-in-the-site">Embed in the Site</h2>
 <p>In order for (older) browsers that do not yet support webp format, a bit of HTML is needed
 to provide both image types. </p>
 <p>This is done like this:</p>

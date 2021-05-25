@@ -117,7 +117,7 @@ COMMAND PID USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
 node    178 wk     13u  IPv4 0xaa0005c2e1d30003      0t0  TCP *:http-alt (LISTEN)</code></pre>
 <p>This is a nicely formatted table. It first lists <code>node</code> which is the command
 that was run and is still running and occupying the port 8080.</p>
-<h2 is="more-h2" id="which-program-is-running">Which program is running?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="which-program-is-running">Which program is running?</h2>
 <p>In order to find out the full command was run the PID (process identifier) will help
 us. Fortunately we got it in the line above, see the second column, it&#39;s 28161.
 By adding <code>-t</code> to the <code>lsof</code> command we can receive only the process ID.</p>
@@ -139,11 +139,11 @@ strange but works :).</p>
 <pre><code class="undefinedbash">&gt; ps -p `lsof -i :8080 -t` -o command=
 node /Users/wk/cosmowiki/node_modules/.bin/http-server dist</code></pre>
 <p>This results in just the command that I had run and which occupies port 8080.</p>
-<h2 is="more-h2" id="kill-the-running-process">Kill the running process</h2>
+<h2 is="more-h2" show-link-on-mouseover id="kill-the-running-process">Kill the running process</h2>
 <p>Now I know why and I know what I have to stop, if I want to stop the process
 right now, I can call</p>
 <pre><code class="undefinedbash">&gt; kill `lsof -i :8080 -t`</code></pre>
-<h2 is="more-h2" id="some-words-about-lsof">Some words about lsof</h2>
+<h2 is="more-h2" show-link-on-mouseover id="some-words-about-lsof">Some words about lsof</h2>
 <p>Just play around with it, and you will see there are many open files, and
 on a unix style system most of the things are files, that&#39;s why a line count
 of a <code>lsof</code> run will also show you quite a big number of lines.</p>

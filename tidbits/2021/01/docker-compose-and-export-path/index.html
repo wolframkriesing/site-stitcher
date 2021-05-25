@@ -100,14 +100,14 @@ to be available globally on the command line.</p>
 <p>I don&#39;t want to have to type the long version:</p>
 <pre><code class="undefinedshell-session">$ ./node_module/.bin/mocha
 ...</code></pre>
-<h2 is="more-h2" id="how-to-expose-nodejs-executables">How to Expose nodejs Executables?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="how-to-expose-nodejs-executables">How to Expose nodejs Executables?</h2>
 <p>I don&#39;t want to <code>cd</code> into the project directory
 and call the executable via <code>./node_module/.bin/mocha</code> or <code>./node_module/.bin/tsc</code> from there.
 I can set this up by extending my machine&#39;s path like this <code>PATH=$PATH:./node_modules/.bin</code>.</p>
 <p>The <a href="https://github.com/wolframkriesing/site-stitcher/blob/944038f503d8ae47c12de1982141dc8d9df6937a/Dockerfile#L3">according <code>Dockerfile</code></a> looks like this:</p>
 <pre><code class="undefineddockerfile">FROM node
 ENV PATH=$PATH:./node_modules/.bin</code></pre>
-<h2 is="more-h2" id="define-path-export-in-docker-compose">Define Path Export in docker-compose</h2>
+<h2 is="more-h2" show-link-on-mouseover id="define-path-export-in-docker-compose">Define Path Export in docker-compose</h2>
 <p>I was searching the <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/">docker-compose docs</a> but I could not find how to add a path to the existing path
 inside a docker-compose setup. The typical docker-compose setup is stored in a <code>docker-compose.yml</code>
 file and for nodejs it might look like this (very simplified):</p>
@@ -125,7 +125,7 @@ just a simple nodejs container, it exposes the port 5000 and maps the local dire
 under <code>/app</code>.</p>
 <p>Beside <code>ports</code>, <code>volumes</code> docker-compose also provides <code>environment</code> where one can define environment variables
 to be set inside the running container. But I did not find a way to export a path.</p>
-<h2 is="more-h2" id="use-docker-composes-build-option">Use docker-compose&#39;s <code>build</code> Option</h2>
+<h2 is="more-h2" show-link-on-mouseover id="use-docker-composes-build-option">Use docker-compose&#39;s <code>build</code> Option</h2>
 <p>In this case I used the <code>build</code> option, which takes a directory where it looks for a <code>Dockerfile</code>, in which I set the 
 path accordingly.</p>
 <pre><code class="undefinedyaml">version: &#39;3&#39;
@@ -137,7 +137,7 @@ my <strong>picostitch</strong> service.</p>
 <pre><code class="undefineddockerfile">FROM node:15
 ENV PATH=$PATH:./node_modules/.bin</code></pre>
 <p>See the <a href="https://github.com/wolframkriesing/site-stitcher/tree/944038f503d8ae47c12de1982141dc8d9df6937a">files in the repo</a>;</p>
-<h2 is="more-h2" id="multiple-containers">Multiple Containers</h2>
+<h2 is="more-h2" show-link-on-mouseover id="multiple-containers">Multiple Containers</h2>
 <p>When I have multiple containers that need a customized Dockerfile, I create a directory <code>docker-files/&lt;service-name&gt;</code>
 where I put the <code>Dockerfile</code> in each directory. <strong>docker-compose</strong> also needs that for building the image in that
 directory and use it as it&#39;s context.</p>

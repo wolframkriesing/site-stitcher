@@ -93,7 +93,7 @@ weird stuff, there is always a learning in it. This time it was about ValiditySt
     <p>It was the <a href="https://twitter.com/standardsbot">@standardsbot</a> that made me learn and look up
 <a href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">ValidityState</a>. While that bot tweets
 weird stuff, there is always a learning in it. This time it was about ValidityState.</p>
-<h2 is="more-h2" id="what-is-validitystate">What is <code>ValidityState</code>?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="what-is-validitystate">What is <code>ValidityState</code>?</h2>
 <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/ValidityState">MDN describes it</a> as</p>
 <blockquote>
 <p>The <code>ValidityState</code> interface represents the validity states that an element can be in, 
@@ -102,7 +102,7 @@ fails to validate, if it&#39;s not valid.</p>
 </blockquote>
 <p>I have to say, that this indirect explanation of an &quot;interface&quot; might be totally correct, but
 makes it harder to understand. One first needs to be sure to understand what an interface is.</p>
-<h2 is="more-h2" id="the-html-spec-says">The HTML Spec Says</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-html-spec-says">The HTML Spec Says</h2>
 <p>In this case the <a href="https://html.spec.whatwg.org/multipage/form-control-infrastructure.html#validitystate">explanation in the spec is much better</a>.</p>
 <blockquote>
 <p>A <code>ValidityState</code> object has the following attributes. On getting, they must return true 
@@ -124,7 +124,7 @@ Especially when you keep reading on. The spec explains it brief, short and expli
 <p><code>valid</code><br>None of the other conditions are true.</p>
 </blockquote>
 <p>So, don&#39;t be scared of specifications, they are sometimes really valuable, helpful and insightful.</p>
-<h2 is="more-h2" id="what-are-these-attributes-for">What are these Attributes for?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="what-are-these-attributes-for">What are these Attributes for?</h2>
 <p>That&#39;s the question, I asked myself next.</p>
 <p>The spec goes a bit abstract about it. I just pulled out three sentences that might need some
 explanation.</p>
@@ -144,18 +144,18 @@ true
 ValidityState {valueMissing: true, typeMismatch: false, patternMismatch: false, tooLong: false, tooShort: false, …}</code></pre>
 <p>This should give you a first good feeling for what the ValidityState consists of.
 I assume you can already imagine use cases like better, more detailed validation messages and alikes for your next web app.</p>
-<h2 is="more-h2" id="part-of-constraint-validation-api">Part of Constraint Validation API</h2>
+<h2 is="more-h2" show-link-on-mouseover id="part-of-constraint-validation-api">Part of Constraint Validation API</h2>
 <p>The <code>ValidityState</code> is part of <a href="https://developer.mozilla.org/en-US/docs/Web/API/Constraint_validation">Constraint Validation API</a>, 
 so there is quite some more to it, which MDN describes as</p>
 <blockquote>
 <p>The Constraint Validation API enables checking values that users have entered into form controls, 
 before submitting the values to the server.</p>
 </blockquote>
-<h2 is="more-h2" id="try-it-out">Try it out</h2>
+<h2 is="more-h2" show-link-on-mouseover id="try-it-out">Try it out</h2>
 <p>Since this is a web site, I think it makes sense to play around with it right on the site.
 So try out below what kind of <code>ValidityState</code> attributes you get depending on an input field
 with different attributes.</p>
-<h2 is="more-h2" id="the-simple-input-typetext">The Simple <code>&lt;input type=text&gt;</code></h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-simple-input-typetext">The Simple <code>&lt;input type=text&gt;</code></h2>
 <p>Simple text input with <strong>maxlength=3</strong>. Try to shorten the value down to three characters and see <code>tooLong</code> change.</p>
 <ul>
 <li><input disabled="" type="checkbox"> <code>&lt;input </code><strong><code>type=text</code></strong><code> maxlength=&quot;3&quot; value=&quot;12345&quot; /&gt;</code></li>

@@ -112,7 +112,7 @@ to optimize.</p>
 it is one of the Performance APIs, accessible via JavaScript using <code>window.performance</code>. 
 Here I will explore how much details can be gathered about each resource that is loaded (JS files, CSS files, fetches, etc.). 
 Especially about their timing and dependencies.</p>
-<h2 is="more-h2" id="the-context">The Context</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-context">The Context</h2>
 <p>Let&#39;s shortly sum up how we gather those data. In all modern browsers, 
 there is a built-in functionality that you see in action, right here:</p>
 <pre><code class="undefinedjs">window.performance.getEntriesByType(&#39;resource&#39;)</code></pre>
@@ -126,7 +126,7 @@ a set of defined properties.</p>
     startTime: 18.41499999864027,
     // ... shortened
 }, {...}]</code></pre>
-<h2 is="more-h2" id="the-starttime-attribute">The <code>startTime</code> Attribute</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-starttime-attribute">The <code>startTime</code> Attribute</h2>
 <p>The spec says that the attribute <code>startTime</code> is 
 <a href="https://www.w3.org/TR/resource-timing-2/#sec-performanceresourcetiming">&quot;the time immediately before the [browser] starts to queue the resource for fetching&quot;</a>. 
 This means, for example if the browser is about to load the HTML page the <code>startTime</code> is recorded. 
@@ -172,7 +172,7 @@ so they start to get loaded, hence they have the lowest <code>startTime</code>. 
 This is because it is referenced inside the &quot;blog.css&quot; file, which needs to be downloaded and read by the browser 
 first to know that the &quot;_global.css&quot; needs to get loaded. This way one can understand better how 
 the browser handles the resources, in which order and also using which constraints to load them.</p>
-<h2 is="more-h2" id="the-initiatortype-attribute">The <code>initiatorType</code> Attribute</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-initiatortype-attribute">The <code>initiatorType</code> Attribute</h2>
 <p>This attribute is the type that triggered this resource to be loaded. In the chart above one can see strings 
 like <code>initiatorType: &quot;navigation&quot;</code>, <code>initiatorType: &quot;link&quot;</code>, <code>initiatorType: &quot;script&quot;</code> and others. 
 There are basically two types of attributes, the <code>initiatorType</code> is either: </p>
@@ -198,7 +198,7 @@ directly triggered by a DOM node,</li>
 paragraph before easier to understand. A CSS file needs to be loaded by the browser, before it can know what other 
 files are referenced inside of it and need to be loaded. This might also surface the question how much should be inlined, 
 or if <a href="https://html.spec.whatwg.org/multipage/links.html#link-type-preload">preload</a> should be used to speed up website loading.</p>
-<h2 is="more-h2" id="focus-on-the-dependencies">Focus on the Dependencies</h2>
+<h2 is="more-h2" show-link-on-mouseover id="focus-on-the-dependencies">Focus on the Dependencies</h2>
 <p>I hope this post allows to gather better insights and hopefully also decouple the dependencies among resources 
 where accurate and therefore speed up the website. I tried to focus on just looking at the two attributes 
 <code>startTime</code> and <code>initiatorType</code> so the loading dependencies become very obvious and in case it is what one wants to focus on, 

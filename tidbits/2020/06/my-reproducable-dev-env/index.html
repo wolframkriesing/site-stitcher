@@ -95,12 +95,12 @@ and a 2-line Dockerfile for it." />
 just git-clone and run is <strong>AMAZING</strong>.
 I use a <a href="https://github.com/wolframkriesing/site-stitcher/blob/master/run.sh">bash script</a> 
 and a 2-line Dockerfile for it.</p>
-<h2 is="more-h2" id="i-used-to-use-nix">I Used to use Nix</h2>
+<h2 is="more-h2" show-link-on-mouseover id="i-used-to-use-nix">I Used to use Nix</h2>
 <p>About three years ago I used <a href="https://nixos.org/">nix</a> for it, which was definitely more compatible at runtime. 
 No separate filesystem (as volume mapped into a docker container), but still just the executables configured. 
 But it was too complicated, especially when it stopped working out of the box as on the latest MacOS (Catalina).
 I removed nix everywhere, I always say that you need a PhD to understand and efficiently use nix, so I am out.</p>
-<h2 is="more-h2" id="switch-to-docker">Switch to Docker</h2>
+<h2 is="more-h2" show-link-on-mouseover id="switch-to-docker">Switch to Docker</h2>
 <p>Now with having a docker setup for each project I find problems too. 
 Problems such as mapping the filesystem into the container only 
 that is available. All other files on my computer are invisible.
@@ -110,14 +110,14 @@ which parses various files also from outside of of my project it&#39;s painful, 
 to have access to all files (of other projects) for this project. Currently I think I map
 another volume into the container but I am not very happy with that solution either.
 To mention just one of the challenges I faced.</p>
-<h2 is="more-h2" id="improvable">Improvable</h2>
+<h2 is="more-h2" show-link-on-mouseover id="improvable">Improvable</h2>
 <p>Also docker is not as efficient with resources and with mapped volumes etc. So my fan does start 
 spinning 🌬 sometimes. But to be honest I prefer those things that make me aware of handling my resources 
 carefully and not just expect to have endless disk space and CPU power.
 Assuming endless resources will hurt much more down the road. I have seen that often. And it gets 
 expensive latest when multiple colleagues complain about the environment being slow, the development cycle slowing 
 down, and when this happens at scale it does cost and is harder to fix.</p>
-<h2 is="more-h2" id="to-be-continued-">To Be Continued ...</h2>
+<h2 is="more-h2" show-link-on-mouseover id="to-be-continued-">To Be Continued ...</h2>
 <p>I am looking forward to <a href="https://wasi.dev/">wasi.dev</a>. As far as I understand it has the features of nix that I appreciate 
 and the potential to set up the development and runtime environment one needs per project.
 I keep watching this space to improve my projects environments.</p>

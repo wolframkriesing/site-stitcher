@@ -98,7 +98,7 @@ I need to get my site&#39;s traffic better shareable. " />
     <p>On a friend&#39;s linkedin profile I saw some links to his content and since linkedin
 picks up in traffic and professional relevance, I thought
 I need to get my site&#39;s traffic better shareable. </p>
-<h2 is="more-h2" id="what-am-i-talking-about">What am I Talking About?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="what-am-i-talking-about">What am I Talking About?</h2>
 <p>Every website with content can be shared on other/social media,
 e.g. I can post a link to a video, blog post, tweet on linkedin or twitter, or any other
 online site. Most of those sites have a preview of the content.</p>
@@ -116,41 +116,41 @@ online site. Most of those sites have a preview of the content.</p>
 so that those &quot;consuming sites&quot; can build their previews.</p>
 <p>TL;DR<br>See these two files (<a href="https://github.com/wolframkriesing/site-stitcher/blob/485903ea77544e78f1287f066769debb3b1ffa64/templates/_focus.html#L7-L23">the base template</a> and the <a href="https://github.com/wolframkriesing/site-stitcher/blob/485903ea77544e78f1287f066769debb3b1ffa64/templates/blog/post.html#L9-L30">blog post template</a>) 
 for the code I use in the templates for allowing these previews for my blog posts.</p>
-<h2 is="more-h2" id="resources">Resources</h2>
+<h2 is="more-h2" show-link-on-mouseover id="resources">Resources</h2>
 <p>There are a lot of resources out there, and I had a hard time finding the right and relevant ones.
 I want to list them here. As usual, I do that so I will find them later again, because I will
 forget these kinda things.</p>
-<h3 is="more-h3" id="twitter-linkedin-facebook-pinterest---one-preview-tool-🤷🏽♂️">Twitter, LinkedIn, Facebook, Pinterest - One Preview Tool 🤷🏽‍♂️</h3>
+<h3 is="more-h3" show-link-on-mouseover id="twitter-linkedin-facebook-pinterest---one-preview-tool-🤷🏽♂️">Twitter, LinkedIn, Facebook, Pinterest - One Preview Tool 🤷🏽‍♂️</h3>
 <p>On <a href="https://socialsharepreview.com/">socialsharepreview.com</a> one can check these four social media
 previews. The tool is nice to get a quick overview and feeling for what tags to have on the site.
 I also had the impression not all info here are fully accurate. So better use multiple tools and
 double check.</p>
-<h3 is="more-h3" id="the-open-graph-protocol-💡">The Open Graph protocol 💡</h3>
+<h3 is="more-h3" show-link-on-mouseover id="the-open-graph-protocol-💡">The Open Graph protocol 💡</h3>
 <p>The <a href="https://ogp.me/">Open Graph protocol</a> 
 was introduced by Facebook in 2010. It mainly defines how to built the <code>property</code> attributes in meta tags like this
 <code>&lt;meta property=&quot;og:title&quot; content=&quot;...&quot; /&gt;</code>. It seems to be used by multiple sites, but I didn&#39;t investigate
 that any deeper.</p>
-<h3 is="more-h3" id="linkedin-preview-tool-👍🏿">LinkedIn Preview Tool 👍🏿</h3>
+<h3 is="more-h3" show-link-on-mouseover id="linkedin-preview-tool-👍🏿">LinkedIn Preview Tool 👍🏿</h3>
 <p>They call their tool <a href="https://www.linkedin.com/post-inspector/inspect">&quot;Post Inspector&quot;</a>.
 Here you get a preview of your link and good hints how to improve it.</p>
-<h3 is="more-h3" id="twitter-preview-tool--👎🏽">Twitter Preview Tool  👎🏽</h3>
+<h3 is="more-h3" show-link-on-mouseover id="twitter-preview-tool--👎🏽">Twitter Preview Tool  👎🏽</h3>
 <p>They call it the <a href="https://cards-dev.twitter.com/validator">&quot;Card validator&quot;</a>.
 Here you get a preview of your link and no real hints how to improve it.</p>
-<h3 is="more-h3" id="a-good-summary-👌🏾-👩🏼💻">A Good Summary 👌🏾 👩🏼‍💻</h3>
+<h3 is="more-h3" show-link-on-mouseover id="a-good-summary-👌🏾-👩🏼💻">A Good Summary 👌🏾 👩🏼‍💻</h3>
 <p><a href="https://css-tricks.com/essential-meta-tags-social-media/">&quot;The Essential Meta Tags for Social Media&quot; on css-tricks</a> -
 is an article from 2016 (so it might not be the most up to date) stating very well
 what needs to be implemented and which tags can also be used to reduce the page size.
 This article lacks linkedin completely though, which I note because it was what got me
 started.</p>
-<h3 is="more-h3" id="parsers-and-publishing-tools">Parsers and publishing tools</h3>
+<h3 is="more-h3" show-link-on-mouseover id="parsers-and-publishing-tools">Parsers and publishing tools</h3>
 <p>On the Open Graph page there are <a href="https://ogp.me/#implementations">some tools listed</a>.
 The most useful ones are the testing tools. Though those of competitors like twitter and linkedin 
 are missing here.</p>
-<h3 is="more-h3" id="mediums-help">Medium&#39;s Help</h3>
+<h3 is="more-h3" show-link-on-mouseover id="mediums-help">Medium&#39;s Help</h3>
 <p>On <a href="https://help.medium.com/hc/en-us/articles/215769058-Update-social-media-preview-cards">Medium&#39;s Help page</a>
 there are some info about the three major social media sites making it easy to test links and 
 their previews, but all the above tools should have covered it already.</p>
-<h2 is="more-h2" id="meta-tag-is-strange">Meta Tag is Strange</h2>
+<h2 is="more-h2" show-link-on-mouseover id="meta-tag-is-strange">Meta Tag is Strange</h2>
 <p>Some <code>&lt;meta&gt;</code> tags use the attribute <code>name</code> and some <code>property</code>.</p>
 <pre><code>&lt;meta property=&quot;og:description&quot; content=&quot;...&quot; /&gt;
 &lt;meta property=&quot;article:description&quot; content=&quot;...&quot; /&gt;
@@ -162,7 +162,7 @@ I had broken my linkedin previews (see <a href="https://github.com/wolframkriesi
 because I tried to apply only what MDN states (and what
 I assume is standard). The <a href="https://github.com/wolframkriesing/site-stitcher/commit/485903ea77544e78f1287f066769debb3b1ffa64">fixing commit is here</a>.
 The reason seems to be RDF, as someone <a href="https://stackoverflow.com/a/22418095">stated on stackoverflow</a>.</p>
-<h2 is="more-h2" id="plausible-supports-utm-parameters">Plausible Supports UTM Parameters</h2>
+<h2 is="more-h2" show-link-on-mouseover id="plausible-supports-utm-parameters">Plausible Supports UTM Parameters</h2>
 <p>At the same time I discovered that <a href="https://plausible.io">plausible.io</a> 
 the analytics tool on the site <a href="https://plausible.io/blog/utm-tracking-tags">supports UTM parameters</a>
 so I can better analyze which traffic source the readers came from.</p>

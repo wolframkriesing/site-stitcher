@@ -103,7 +103,7 @@ They let the application logic leak across the layer boundaries</p>
 <p>made me think that I want a linter for verifying that the code that is written
 does not violate the architecture boundaries, and that for example
 a port never uses a use case, but only the other way around.</p>
-<h2 is="more-h2" id="archunit">Arch(Unit)</h2>
+<h2 is="more-h2" show-link-on-mouseover id="archunit">Arch(Unit)</h2>
 <p>Welcome ArchUnit. As I learned in 
 <a href="#very-good-1h-in-depth">@Ted&#39;s video</a>
 there is <a href="https://www.archunit.org/use-cases">ArchUnit</a> which allows writing unit tests for
@@ -114,7 +114,7 @@ looks like it didn&#39;t get much attention from the world yet. Let&#39;s change
 <a href="../arch-unit-for-java-script-archijs/">&quot;ArchUnit For JavaScript - archijs&quot;</a>, 
 so search engines will eventually find it too ☺️.</p>
 <p>Back to hexagonal architecture as such.</p>
-<h2 is="more-h2" id="primary-and-secondary-actors">Primary and Secondary Actors</h2>
+<h2 is="more-h2" show-link-on-mouseover id="primary-and-secondary-actors">Primary and Secondary Actors</h2>
 <p>Alistair observed in applications he built, that there are two
 types of actors.</p>
 <blockquote>
@@ -128,7 +128,7 @@ and the &quot;secondary ports&quot; and &quot;secondary adapters&quot; on the ri
 <p>In the <a href="#naming-ports">video linked below</a>, 
 he says that the difference between a primary and a secondary
 actor is just &quot;who initiates the conversation&quot;. The one who does is the primary actor.</p>
-<h2 is="more-h2" id="how-many-ports">&quot;How Many Ports?&quot;</h2>
+<h2 is="more-h2" show-link-on-mouseover id="how-many-ports">&quot;How Many Ports?&quot;</h2>
 <p>The headline is actually from his article and was one of the questions I had too.</p>
 <blockquote>
 <p>What exactly a port is and isn’t is largely a matter of taste.</p>
@@ -140,7 +140,7 @@ In another example he uses &quot;user-site API&quot; for the incoming data (prim
 &quot;data-side API&quot; for the outgoing (secondary port).</p>
 <p>I read this as &quot;think about it yourself and it might be very different for every app&quot;.
 As usual, there is no one silver bullet.</p>
-<h2 is="more-h2" id="naming-ports">Naming Ports</h2>
+<h2 is="more-h2" show-link-on-mouseover id="naming-ports">Naming Ports</h2>
 <p><a href="https://www.youtube.com/watch?v=th4AgBcrEHA">Alistair in the &quot;Hexagone&quot; 1/3</a> (youtube video, &gt;30min)<br>Alistair Cockburn talking (the first time) about Hexagonal Architecture
 he takes the magic out of the word &quot;ports&quot; by:</p>
 <blockquote>
@@ -152,11 +152,11 @@ he takes the magic out of the word &quot;ports&quot; by:</p>
 fill the gaps in &quot;for ___ing&quot;, or as he says around minute 12
 a &quot;port is the intention of the dialog, it&#39;s not the technology&quot;
 That&#39;s why a port might be called &quot;adding events&quot; but never &quot;reading kafka&quot;.</p>
-<h2 is="more-h2" id="the-test-case-is-the-first-user-of-your-system">The Test Case is the First User of your System</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-test-case-is-the-first-user-of-your-system">The Test Case is the First User of your System</h2>
 <p>&quot;A test case is the first user of your system&quot;
 That makes even so much more sense when you know hexagonal architecture.
 Alistair says in the video around minute 29.</p>
-<h2 is="more-h2" id="hexagonal-and-react-javascript">Hexagonal and React (JavaScript)</h2>
+<h2 is="more-h2" show-link-on-mouseover id="hexagonal-and-react-javascript">Hexagonal and React (JavaScript)</h2>
 <p>Initially I started reading because I want to find a good example of how
 someone uses React and hexagonal architecture. Yes, there are many examples
 which show how flux and redux are hexagonal architecture. But I feel these are 
@@ -166,20 +166,20 @@ a redux store&quot;. I have not seen really good encapsulated examples of that y
 <a href="https://medium.com/@Killavus/hexagonal-architecture-in-javascript-applications-and-how-it-relates-to-flux-349616d1268d#.ik8250i7s">&quot;Hexagonal architecture in JavaScript applications — and how it relates to Flux&quot;</a>
 I really like the readability of the code.
 Once you understand what a port and a use case is, this makes so much sense.</p>
-<h2 is="more-h2" id="more-resources">More Resources</h2>
-<h3 is="more-h3" id="in-depth-post">In Depth Post</h3>
+<h2 is="more-h2" show-link-on-mouseover id="more-resources">More Resources</h2>
+<h3 is="more-h3" show-link-on-mouseover id="in-depth-post">In Depth Post</h3>
 <p><a href="https://blog.octo.com/en/hexagonal-architecture-three-principles-and-an-implementation-example/">Hexagonal Architecture: three principles and an implementation example</a><br>This post contains helpful explanations and also good example code.
 It even explains how to organize the code inside a method that works
 with ports, adapters etc.</p>
-<h3 is="more-h3" id="alistair-cockburn-part-2-and-3">Alistair Cockburn, Part 2 and 3</h3>
+<h3 is="more-h3" show-link-on-mouseover id="alistair-cockburn-part-2-and-3">Alistair Cockburn, Part 2 and 3</h3>
 <p><a href="https://www.youtube.com/watch?v=iALcE8BPs94">Alistair in the &quot;Hexagone&quot; 2/3</a><br><a href="https://www.youtube.com/watch?v=DAe0Bmcyt-4">Alistair in the &quot;Hexagone&quot; 3/3</a>  </p>
-<h3 is="more-h3" id="very-good-1h-in-depth">Very good 1h in depth</h3>
+<h3 is="more-h3" show-link-on-mouseover id="very-good-1h-in-depth">Very good 1h in depth</h3>
 <p><a href="https://www.youtube.com/watch?v=ujb_O6myknY">More Testable Code with the Hexagonal Architecture</a>
 is a very detailed and well explained lesson. Also explaining many related terms.
 By <a href="https://twitter.com/jitterted">@Ted M. Young</a>.</p>
 <iframe width="427" height="240" name="video" src="//www.youtube.com/embed/ujb_O6myknY" frameborder="0" allowfullscreen></iframe>
 
-<h3 is="more-h3" id="a-must-see">A must see</h3>
+<h3 is="more-h3" show-link-on-mouseover id="a-must-see">A must see</h3>
 <p>It took me years to understand what he means with this. I mean I get the words,
 the logic, I get the reasoning, but how to do it and understanding that there is still a lot
 to learn before accomplishing this, it is not easy.
@@ -188,10 +188,10 @@ A Classic
 he sientifically proves why splitting up code, e.g. using hexagonal architecture, pays off.</p>
 <iframe src="https://player.vimeo.com/video/80533536" width="427" height="240" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-<h3 is="more-h3" id="more-input-from-output">More Input from Output</h3>
+<h3 is="more-h3" show-link-on-mouseover id="more-input-from-output">More Input from Output</h3>
 <p><a href="https://twitter.com/search?q=%22hexagonal%20architecture%22&amp;f=live">Searching for &quot;hexagonal architecture&quot;</a>
 on twitter reveals constantly new and interesting pieces of knowledge.</p>
-<h3 is="more-h3" id="very-nice-visualization">Very nice Visualization</h3>
+<h3 is="more-h3" show-link-on-mouseover id="very-nice-visualization">Very nice Visualization</h3>
 <p><a href="https://github.com/Sairyss/domain-driven-hexagon#Diagram">https://github.com/Sairyss/domain-driven-hexagon#Diagram</a></p>
 <figure>
     <picture>

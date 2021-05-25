@@ -96,7 +96,7 @@ and experiences." />
     <p>Finally I am taking the time to learn <a href="https://rescript-lang.org/">ReScript</a>.
 Follow me on my journey and read how I approach it, mixed with some of my opinions
 and experiences.</p>
-<h2 is="more-h2" id="contents">Contents</h2>
+<h2 is="more-h2" show-link-on-mouseover id="contents">Contents</h2>
 <ol>
 <li><a href="#what-is-rescript">What is ReScript?</a></li>
 <li><a href="#installation">Installation</a></li>
@@ -105,7 +105,7 @@ and experiences.</p>
 <li><a href="#commit-the-changes">Commit the Changes</a></li>
 <li><a href="#to-be-continued-">To be Continued ...</a></li>
 </ol>
-<h2 is="more-h2" id="what-is-rescript">What is ReScript?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="what-is-rescript">What is ReScript?</h2>
 <p>Here is my answer.<br>JavaScript is amazingly flexible, but has short comings when it comes to big
 projects, complex structures, growing team sizes and growing code bases.
 Types have proven over time to be helpful. Tests are helpful too, but that is
@@ -129,7 +129,7 @@ make a strong typed language powerful and prevent the bugs that untyped language
 may come with, are baked in from the beginning. 
 No worries, therefore one can learn to make new mistakes ;).<br>Languages or type systems like flow or TypeScript have to deal with baking it onto the
 language, so they have to handle the complexity of the underlying language, JavaScript.<br>That&#39;s why I would name ReScript typed-first.</p>
-<h2 is="more-h2" id="installation">Installation</h2>
+<h2 is="more-h2" show-link-on-mouseover id="installation">Installation</h2>
 <p>On the <a href="https://rescript-lang.org/docs/manual/latest/installation">docs install page</a> 
 it&#39;s suggested to clone an existing repo and
 go from there. I prefer to follow the instructions how to set up my own repo
@@ -154,7 +154,7 @@ export {
 <p>This is ES6 syntax, modern JavaScript and nodejs does not run this as is.
 Let&#39;s analyze for one paragraph, what this means before diving into possible solutions,
 or jump straight to the paragraph <a href="#running-the-compiled-javascript">Running the Compiled JavaScript</a>.</p>
-<h2 is="more-h2" id="not-buildless">Not Buildless</h2>
+<h2 is="more-h2" show-link-on-mouseover id="not-buildless">Not Buildless</h2>
 <p>The &quot;norm&quot; nowadays is to install a lot of (fat) dependencies like webpack and babel to transpile and
 run this tiny &quot;hello world&quot; program. I prefer <a href="https://twitter.com/search?q=%23buildless">#buildless</a>, 
 working without building, bundling and any pre-processing step, run code as written.
@@ -168,7 +168,7 @@ one step worth adding, one acceptable exception to the buildless.
 The gain is quite substantial, compared to TypeScript, webpack, babel, which I
 try to prevent adding as a requirement to a project&#39;s pipeline.
 But let&#39;s come back to ReScript, the &quot;buildless&quot; is a topic of it&#39;s own.</p>
-<h2 is="more-h2" id="running-the-compiled-javascript">Running the Compiled JavaScript</h2>
+<h2 is="more-h2" show-link-on-mouseover id="running-the-compiled-javascript">Running the Compiled JavaScript</h2>
 <p>For JS resulting out of the compilation of the ReScript code 
 the easiest is adding <code>&quot;type&quot;: &quot;module&quot;</code> to the package.json
 which indicates to nodejs that all the files in this package are modern JavaScript, ECMAScript
@@ -188,7 +188,7 @@ not esm can be to <code>npm install esm</code> and run <code>node -r esm src/hel
 This will transpile esm code on the fly. It&#39;s quite handy and simple, causing basically no headaches (until now).
 I am using this in a number of places, because the first solution is not so handy
 with non-esm dependencies.</p>
-<h2 is="more-h2" id="commit-the-changes">Commit the Changes</h2>
+<h2 is="more-h2" show-link-on-mouseover id="commit-the-changes">Commit the Changes</h2>
 <p>One step done. Though the execution is not automated yet, for me this is
 worth to commit this into <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit">the repo</a>. 
 Before doing so, when looking at the diff, I see that a <code>lib</code> directory
@@ -200,7 +200,7 @@ I don&#39;t know yet if this is a good idea or not.</p>
 <p>Also I am adding the <code>*.bs.js</code> files to the <code>.gitignore</code>, in the end these are 
 compiler&#39;s results.</p>
 <p>Committing now (<a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/src/commit/a920f856fd913d34ba93a3d4d7e1685ae99f298a">see the code at this point in time</a>).</p>
-<h2 is="more-h2" id="to-be-continued-">To be Continued ...</h2>
+<h2 is="more-h2" show-link-on-mouseover id="to-be-continued-">To be Continued ...</h2>
 <p>Read how I start learning the rescript command and keep following the docs to learn more of the language,
 in <a href="../learning-rescript-part-2">Part 2</a>.</p>
 

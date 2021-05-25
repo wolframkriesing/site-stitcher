@@ -78,7 +78,7 @@
       </div>
     </header>
 
-    <h2 is="more-h2" id="failed-to-construct-customelement-the-result-must-not-have-children">&quot;Failed to construct &#39;CustomElement&#39;: The result must not have children&quot;</h2>
+    <h2 is="more-h2" show-link-on-mouseover id="failed-to-construct-customelement-the-result-must-not-have-children">&quot;Failed to construct &#39;CustomElement&#39;: The result must not have children&quot;</h2>
 <p>is caused by</p>
 <pre><code>// DONT !!!!
 class MyWebComp extends HTMLElement {
@@ -98,7 +98,7 @@ class MyWebComp extends HTMLElement {
   }
 }</code></pre>
 <p>see <a href="https://stackoverflow.com/a/43837330">https://stackoverflow.com/a/43837330</a></p>
-<h2 is="more-h2" id="attribute-callback-not-working">Attribute callback not working</h2>
+<h2 is="more-h2" show-link-on-mouseover id="attribute-callback-not-working">Attribute callback not working</h2>
 <pre><code class="undefinedjs">// DON&#39;T
 class MyWebComp extends HTMLElement {
   static get observedAttributes() { return [&#39;jobAsJsonString&#39;]; }
@@ -113,7 +113,7 @@ class MyWebComp extends HTMLElement {
 class MyWebComp extends HTMLElement {
   static get observedAttributes() { return [&#39;job-as-json-string&#39;]; }
 }</code></pre>
-<h2 is="more-h2" id="cant-query-the-dom-before-custom-element-was-inserted-into-dom-tree">Can&#39;t Query the DOM Before Custom Element was Inserted into DOM Tree</h2>
+<h2 is="more-h2" show-link-on-mouseover id="cant-query-the-dom-before-custom-element-was-inserted-into-dom-tree">Can&#39;t Query the DOM Before Custom Element was Inserted into DOM Tree</h2>
 <pre><code>const $job = document.createElement(&#39;more-job&#39;);
 $job.setAttribute(&#39;job-as-json-string&#39;, JSON.stringify(job));
 n.insertAdjacentElement(&#39;afterend&#39;, $job);</code></pre>
@@ -124,7 +124,7 @@ and then doing <code>this.querySelector()</code> does not yield any results.</p>
 n.insertAdjacentElement(&#39;afterend&#39;, $job);
 $job.setAttribute(&#39;job-as-json-string&#39;, JSON.stringify(job));</code></pre>
 <p>it works</p>
-<h2 is="more-h2" id="dataset-attributes-get-camel-cased">dataset Attributes get Camel Cased</h2>
+<h2 is="more-h2" show-link-on-mouseover id="dataset-attributes-get-camel-cased">dataset Attributes get Camel Cased</h2>
 <p><code>&lt;article id=&quot;&quot; data-is-position-most-relevant=&quot;&quot;&gt;</code>
 can be accessed like so
 <code>$article.dataset.isPositionMostRelevant = job.isMostRelevant;</code></p>

@@ -107,7 +107,7 @@ the book by <a href="https://twitter.com/paf31">Phil Freeman</a>, the author of 
 Now about chapter 2, where I install Purescript and touch the tools
 for the first time. I am gonna use <code>yarn</code> instead of <code>npm</code>,
 let&#39;s see how that goes :).</p>
-<h2 is="more-h2" id="preparation">Preparation</h2>
+<h2 is="more-h2" show-link-on-mouseover id="preparation">Preparation</h2>
 <p>This post builds up on <em>&quot;<a href="/blog/2017/03/starting-with-purescript/">Purescript - the semantics of JavaScript with types #1</a>&quot;</em>
 where I tried to put Purescript into perspective and explain what it is
 and where it comes from. All the knowledge in here is based on the book mentioned
@@ -129,7 +129,7 @@ the <code>psc</code> executable I can just write <code>psc</code> since I had ad
 <p>And: I am going to use <a href="https://yarnpkg.com/">yarn</a> instead of <a href="https://www.npmjs.com/">npm</a> to install Purescript. Why?
 Just because I can. And I need to practice a bit, why not
 learn two things at a time :).</p>
-<h2 is="more-h2" id="install-the-purescript-compiler">Install the Purescript compiler</h2>
+<h2 is="more-h2" show-link-on-mouseover id="install-the-purescript-compiler">Install the Purescript compiler</h2>
 <p>I create a directory <code>purescript-series</code> which will become a npm-package (or yarn package)
 where all the Purescript stuff gets installed into.</p>
 <pre><code class="undefinedshell">&gt; mkdir purescript-series
@@ -176,7 +176,7 @@ on the last line of the help output, no need to try out <code>psc --version</cod
 be surprised :).</p>
 <p>The Purescript compiler takes a <code>*.purs</code> file and compiles it into JavaScript code and
 the file lands in the directory <code>output/</code>. So let&#39;s do it.</p>
-<h2 is="more-h2" id="my-first-purescript-program">My first Purescript program</h2>
+<h2 is="more-h2" show-link-on-mouseover id="my-first-purescript-program">My first Purescript program</h2>
 <p>I am going to create a file <code>src/Main.purs</code> and put the simplest working
 source code in there, that I was able to come up with.</p>
 <pre><code class="undefinedshell">&gt; mkdir src
@@ -243,7 +243,7 @@ commonjs compatible file, such as a nodejs script. Wow, this opens up quite
 some possibilities I would say.<br>Possibilities? Well, as mentioned in <a href="/blog/2017/03/starting-with-purescript/">#1 of this series</a> we could just
 write part of our application (or our tests) in Purescript which we then
 import wherever we need to.</p>
-<h2 is="more-h2" id="adding-my-first-type-annotation">Adding my first type annotation</h2>
+<h2 is="more-h2" show-link-on-mouseover id="adding-my-first-type-annotation">Adding my first type annotation</h2>
 <p>The warning up there, is still a bit bothering me a bit. Looking up how to add typing to
 the code, I quickly found out that the right thing to do is:</p>
 <pre><code class="undefinedtext">-- src/Main.purs (this line is a comment, started by `--` in purescript)
@@ -267,7 +267,7 @@ can also be done right on the value by adding <code>::</code> after it. So let&#
 to annotate the string with the type, instead of the variable <code>main</code></p>
 <pre><code class="undefinedtext">main = &quot;hello world&quot; :: String</code></pre>
 <p>Perfect, this compiles and results in the same expected code.</p>
-<h2 is="more-h2" id="whitespace-matters">Whitespace matters</h2>
+<h2 is="more-h2" show-link-on-mouseover id="whitespace-matters">Whitespace matters</h2>
 <p>While reading about the Purescript syntax I saw that <a href="https://github.com/purescript/documentation/blob/master/language/Syntax.md#whitespace-rules">whitespace matters</a>. Which
 reminded me of two languages Python and Red. In Purescript whitespace matter for
 e.g. for multiline declarations, best to be explained by an example:</p>

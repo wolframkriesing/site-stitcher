@@ -107,7 +107,7 @@ I set up <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-
 and made my first steps, got it running.<br>Now I want to learn more and get to the point where I have a feeling for how to use ReScript, 
 lets see where it takes me. I guess it will take me more than this &quot;Part 2&quot; post to be
 comfortable to start a project with ReScript.</p>
-<h2 is="more-h2" id="contents">Contents</h2>
+<h2 is="more-h2" show-link-on-mouseover id="contents">Contents</h2>
 <ol>
 <li><a href="#contents">Contents</a></li>
 <li><a href="#automate-building-and-running">Automate Building and Running</a></li>
@@ -122,11 +122,11 @@ comfortable to start a project with ReScript.</p>
 </li>
 <li><a href="#to-be-continued-">To be Continued ...</a></li>
 </ol>
-<h2 is="more-h2" id="automate-building-and-running">Automate Building and Running</h2>
+<h2 is="more-h2" show-link-on-mouseover id="automate-building-and-running">Automate Building and Running</h2>
 <p>I want to have one command that builds the files and runs them, e.g. <code>npm start</code> or <code>npm run build</code> or alike.
 Best would be of course, that it does that continuously in the background.</p>
 <p>Before automation that I like to understand how to compile and run the compiled file.</p>
-<h2 is="more-h2" id="the-rescript-cli-command">The <code>rescript</code> CLI Command</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-rescript-cli-command">The <code>rescript</code> CLI Command</h2>
 <p>Until now running <code>rescript</code> did the compilation. It generated the <code>hello.bs.js</code> file in the
 same directory as where the <code>hello.res</code> file is located, in <code>src/</code>.</p>
 <p>For me the rescript command is still a black box. I don&#39;t want to understand it down to the
@@ -166,7 +166,7 @@ because I would have expected <code>rescript</code> to rather open a
 where I can play with the
 language, just like python or nodejs do. Since it does not do that, I prefer explicitly writing
 <code>rescript build</code> so I confuse less, the one person that would expect the same as me behind <code>rescript</code>.</p>
-<h2 is="more-h2" id="build-and-run">Build and Run</h2>
+<h2 is="more-h2" show-link-on-mouseover id="build-and-run">Build and Run</h2>
 <p>Ok, let&#39;s sum up. For compiling I use <code>rescript build</code> and for running <code>node src/hello.bs.js</code>.
 To run the code and interactively try if changes work I run:</p>
 <pre><code class="undefinedshell-session"># rescript build &amp;&amp; node src/hello.bs.js 
@@ -181,7 +181,7 @@ under Language Features, which is the next big chapter the first one
 which I did not find so useful, it&#39;s more a cheatsheet that might come in handy later.
 I jump to 
 <a href="https://rescript-lang.org/docs/manual/latest/let-binding">Let Binding</a>.</p>
-<h2 is="more-h2" id="first-language-learning---let-binding">First Language Learning - Let Binding</h2>
+<h2 is="more-h2" show-link-on-mouseover id="first-language-learning---let-binding">First Language Learning - Let Binding</h2>
 <p>First sentence reminds me that learning and especially using the right terms
 in the according community is always important, here it starts with</p>
 <blockquote>
@@ -195,7 +195,7 @@ Now I need to connect a new map to this knowledge. Brain, go and work!</p>
 Js.log(helloWorld)</code></pre>
 <p>see the <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/ef269a3727b80c413efa716a428f0cf2ef61ef10">according commit</a>.</p>
 <p>Running it has no suprises for me. It prints as above.</p>
-<h3 is="more-h3" id="block-scope">Block Scope</h3>
+<h3 is="more-h3" show-link-on-mouseover id="block-scope">Block Scope</h3>
 <p>Next on the <a href="https://rescript-lang.org/docs/manual/latest/let-binding">Let Binding</a>
 page is &quot;Block Scope&quot;. Ha, something I know from JavaScript.
 And it works a lot like JS, fulfilling the promise of ReScript &quot;look and act like JS&quot;.
@@ -246,7 +246,7 @@ FAILED: src/hello.cmj
 
 FAILED: cannot make progress due to previous errors.</code></pre>
 <p>I would say this proves that the curlies work for building a block.</p>
-<h3 is="more-h3" id="block-scope-compiles-to-">Block Scope Compiles to ...</h3>
+<h3 is="more-h3" show-link-on-mouseover id="block-scope-compiles-to-">Block Scope Compiles to ...</h3>
 <p>Worth mentioning is also, that the block scoped code does NOT export anything, when
 compiled to JS.</p>
 <pre><code class="undefinedrescript">{
@@ -266,7 +266,7 @@ export {
   helloWorld ,
 }</code></pre>
 <p>So here <code>helloWorld</code> is exported now and available when imported as a JS module.</p>
-<h3 is="more-h3" id="shadowing">Shadowing</h3>
+<h3 is="more-h3" show-link-on-mouseover id="shadowing">Shadowing</h3>
 <p>In the current docs chapter there are a lot more details about private let binding,
 shadowing and others. It might be interesting to read through them once, but 
 they seem not that interesting to me right now. </p>
@@ -274,7 +274,7 @@ they seem not that interesting to me right now. </p>
 is kinda re-binding a variable, e.g. like so <code>let x = 1; let x = x + 1</code>.
 This is valid ReScript, but it is not recommended and feels like I want to forget
 about it right away. I would even prefer if I could turn it off.</p>
-<h3 is="more-h3" id="make-it-a-module">Make it a Module</h3>
+<h3 is="more-h3" show-link-on-mouseover id="make-it-a-module">Make it a Module</h3>
 <p>In the next commit <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/e46b8fe8621a662d6e9fa90ead9e00c9369b1bc5">I wrap all the code into a module</a></p>
 <pre><code class="undefinedrescript">module Printer = {
   let printHelloWorld = {
@@ -288,7 +288,7 @@ about it right away. I would even prefer if I could turn it off.</p>
 I have to say at this point in time it is not very clear to me what the module does.
 Looking at the compiled JS it does export only the module, so it is kinda
 JS module, but is that it? I will leave this for later, I am not too curious right now.</p>
-<h2 is="more-h2" id="to-be-continued-">To be Continued ...</h2>
+<h2 is="more-h2" show-link-on-mouseover id="to-be-continued-">To be Continued ...</h2>
 <p>This Part 2 has become way longer and very different to what I thought it would become,
 but that&#39;s fine.
 Read how I dive deeper into the language and its tool and how I add my first type,

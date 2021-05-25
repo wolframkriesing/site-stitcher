@@ -105,7 +105,7 @@ to give a workshop on ES6 (and ES8) and [a talk][talk] on the static type checke
 I am already on the <a href="https://twitter.com/wolframkriesing/status/878137941880713217">next trip</a>, this time with HolidayCheck.
 So let me quickly sum up EnterJS where I had the pleasure to meet lots of interesting new people and
 to give a workshop on ES6 (and ES8) and <a href="https://www.enterjs.de/abstracts#flowtype-strikte-java-script-typisierung-in-beliebiger-dosis">a talk</a> on the static type checker flow.</p>
-<h2 is="more-h2" id="es6-and-beyond-workshop">ES6 and beyond workshop</h2>
+<h2 is="more-h2" show-link-on-mouseover id="es6-and-beyond-workshop">ES6 and beyond workshop</h2>
 <p>Actually we held a <a href="http://coderetreat.org/">CodeRetreat</a> but that seems not to sell so good to the EnterJS audience, so it was called workshop.
 We? I had the luck to do this workshop with <a href="https://twitter.com/marcoemrich">Marco Emrich</a>, who has some experience doing CodeRetreats. I was especially happy
 that he knew how to do retrospectives well, it&#39;s just not my area of expertise.</p>
@@ -133,7 +133,7 @@ Brian paired with one of the workshop attendees and guess what, they found somet
 keyword seems not to be allowed on getters and setters. And Brian took notes to find out what was the reason for it. 
 The last info I heard was, that it was not allowed to keep consistency. Because a setter does never return 
 anything, so it was simpler and easier to comprehend both just don&#39;t do <code>async</code>.</p>
-<h2 is="more-h2" id="typing-javascript-with-flow-talk">&quot;Typing JavaScript with Flow&quot; talk</h2>
+<h2 is="more-h2" show-link-on-mouseover id="typing-javascript-with-flow-talk">&quot;Typing JavaScript with Flow&quot; talk</h2>
 <p>The workshop shipped successfully, I guess. 
 Now it was time to get all preparations done for my upcoming 
 talk about <a href="https://flow.org/">flowtype or flow</a>. I had all the puzzle pieces done. I had slides and I had code. 
@@ -168,7 +168,7 @@ I had experienced this power in another project where I intensly used flow and a
 one type (it was a union type) flow warned me all the time to implement x and y and so on. And once all flow
 errors had been gone the code handled this new type wherever it needs to be handled. Getting this for JS
 seemed like enlightenment to me. So I turned in a talk about flow. And got accepted at enterjs :).</p>
-<h2 is="more-h2" id="what-got-typed---the-kata">What got typed? - The Kata</h2>
+<h2 is="more-h2" show-link-on-mouseover id="what-got-typed---the-kata">What got typed? - The Kata</h2>
 <p>As explained above, the use case for the live coding comes from the search area in HolidayCheck.
 So I wrote some code that implements a simplified search. The search can find three different 
 types of results and shows them all in the autosuggest box, just like it happens on the
@@ -205,7 +205,7 @@ what is going on. If you are interested in the progress feel free to read the
 commits in <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/tree/add-typing-incl-exhaustiveness-%233">this branch</a>.</p>
 <p>You want to try this and maybe practice this as a kata with your team?
 Feel free to find some minimal <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017#getting-started-as-a-kata">instructions in the README of the repo on gitlab</a>.</p>
-<h2 is="more-h2" id="types-dont-make-tests-obsolete">Types don&#39;t make Tests obsolete!</h2>
+<h2 is="more-h2" show-link-on-mouseover id="types-dont-make-tests-obsolete">Types don&#39;t make Tests obsolete!</h2>
 <p>One learning besides a lot of in depth flow knowledge and exhaustiveness checks was
 that I learned that types DO NOT make tests obsolete.</p>
 <p>The tests I had written for this task had focused on the use case, some might call them
@@ -216,7 +216,7 @@ to easier match the tests to the use case. Which is always a good thing, anyways
 The types basically just had impact on the code where those three types were
 either built or where they were consumed. The <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/blob/master/src/builders.js">builder.js</a> file contains all the construction
 and the <a href="https://gitlab.com/wolframkriesing/talk-flow-type-enterjs-2017/blob/master/src/search.js">search.js</a> contains all the consumer logic.</p>
-<h2 is="more-h2" id="cleaner-code-by-applying-flow">Cleaner Code by applying flow</h2>
+<h2 is="more-h2" show-link-on-mouseover id="cleaner-code-by-applying-flow">Cleaner Code by applying flow</h2>
 <p>And those two know about the different types. So those two files got pushed to
 change by applying types. The <code>builder.js</code> which uses the builder pattern was pushed to use <a href="https://flow.org/en/docs/types/generics/">generic type annotations</a>
 and the <code>search.js</code> was pushed to handle the cases for each type separatly.
@@ -228,7 +228,7 @@ JavaScript. If you come from a typed environment you might be thinking like that
 often already, but in the JS world I don&#39;t see this a lot. The pleasures and shortcut the
 language offer are often thankfully used without thinking deeper of consequences.</p>
 <p>.oO(Writing this here, I see that I should restructure my talk to carve out those learnings a bit more.)</p>
-<h2 is="more-h2" id="conclusion">Conclusion</h2>
+<h2 is="more-h2" show-link-on-mouseover id="conclusion">Conclusion</h2>
 <p>After all: this year&#39;s EnterJS was a great learning experience for me again. This year it pushed
 me deeper into the typing space, which I am thankful for.
 Especially <a href="https://twitter.com/vkurchatkin">Vladimir Kurchatkin</a> and <a href="http://www.adamsolove.com/js/flow/type/2016/04/15/flow-exhaustiveness.html">Adam Solove&#39;s</a> help really pushed

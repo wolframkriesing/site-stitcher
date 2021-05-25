@@ -95,7 +95,7 @@ Read here to find out the steps I found to separate the dependencies." />
     <p>While refactoring some badly tested code, a pattern of how I extract dependencies emerged. 
 The actual intention was to improve the testability. In this case dependency injection is the tool that helped me.
 Read here to find out the steps I found to separate the dependencies.</p>
-<h2 is="more-h2" id="tldr---the-pattern-that-emerged">TL;DR - The Pattern that Emerged</h2>
+<h2 is="more-h2" show-link-on-mouseover id="tldr---the-pattern-that-emerged">TL;DR - The Pattern that Emerged</h2>
 <p>The pattern and the article focus on the steps to <strong>discover and extract dependencies in existing code</strong>
 which </p>
 <ul>
@@ -117,7 +117,7 @@ which </p>
 <li>hints for how to modularize your code.
 (You need to practice listening to the code to see the hints! Take your time.)</li>
 </ul>
-<h2 is="more-h2" id="contents">Contents</h2>
+<h2 is="more-h2" show-link-on-mouseover id="contents">Contents</h2>
 <ol>
 <li><a href="#the-task">The Task</a></li>
 <li><a href="#the-first-test">The First Test</a></li>
@@ -130,7 +130,7 @@ which </p>
 <li><a href="#next-steps">Next Steps</a></li>
 <li><a href="#conclusions">Conclusions</a></li>
 </ol>
-<h2 is="more-h2" id="the-task">The Task</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-task">The Task</h2>
 <div style="float: left; padding: 1rem;">
 <img src="./load-student-flow.png" alt="program flow" width=200 class="sizeup-onhover-image scale4 origin-left-top" />
 <br/><em>loadStudent function flow</em>
@@ -153,7 +153,7 @@ const loadStudent = ({ studentId }) =&gt; {
   }
   return cache[studentId];
 };</code></pre>
-<h2 is="more-h2" id="the-first-test">The First Test</h2>
+<h2 is="more-h2" show-link-on-mouseover id="the-first-test">The First Test</h2>
 <p>The first test I wrote was for the cache (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/a3dba52ce7789c5517ceb60f953cfa33bb6ad499">see the commit</a>). Actually I am not sure it&#39;s the right
 test to write, since the fetch is more important. But anyways. I follow
 the code&#39;s flow.</p>
@@ -169,7 +169,7 @@ The production code and the test share it now through the access of a global var
 This is not good. In this case I want to have the cache under control, so I need
 to inject it. That is my first conclusion and the first dependency I found.
 NOTE: first dependency <code>cache</code>.</p>
-<h2 is="more-h2" id="isolate-the-first-dependency">Isolate the First Dependency</h2>
+<h2 is="more-h2" show-link-on-mouseover id="isolate-the-first-dependency">Isolate the First Dependency</h2>
 <p>I rewrite the test (and make it fail), I pass the <code>cache</code> into the function as a parameter 
 (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/2c485ba353c252e913d8430a49cda39894f30431">see the commit</a>).
 I isolate the first dependency. At least for the test it is isolated now.</p>
@@ -192,7 +192,7 @@ all. True. I am fine with that for now.</p>
 <p>No more global <code>cache</code> variable. Great for testability. But actually the 
 real cache functionality got lost. Since there is no global cache anymore. Right.
 That is a real issue. I will cover this in a second. Hold on! Let&#39;s clean up a bit first.</p>
-<h2 is="more-h2" id="separating-dependencies">Separating Dependencies</h2>
+<h2 is="more-h2" show-link-on-mouseover id="separating-dependencies">Separating Dependencies</h2>
 <p>First I would like to refactor the code a little bit. The parameters 
 are nice and the destructuring makes it nice to have named parameters.
 But I think that <code>studentId</code> and <code>cache</code> are two different kind of parameters.
@@ -224,7 +224,7 @@ It can look like this:</p>
 // Use like this: 
 const loadStudent = makeLoadStudent(dependencies);
 loadStudent({studentId: 42});</code></pre>
-<h2 is="more-h2" id="discover-a-second-dependency-the-fetch-function">Discover a Second Dependency, the <code>fetch()</code> Function</h2>
+<h2 is="more-h2" show-link-on-mouseover id="discover-a-second-dependency-the-fetch-function">Discover a Second Dependency, the <code>fetch()</code> Function</h2>
 <p>Let&#39;s tackle one of the open issues, which is testing the <code>fetch()</code> function.
 It is a global function, currently. So we are treating it as a nasty global
 function for now, and just overriding it in the following test (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/aaf3278c68aaf39b060585b9b309f3a1295a0bbc">commit</a>).</p>
@@ -236,7 +236,7 @@ function for now, and just overriding it in the following test (<a href="https:/
 });</code></pre>
 <p>We <strong>know</strong> now that <code>fetch()</code> is used inside of <code>loadStudent()</code>. And that knowledge
 is not in our test, that is nasty too. We need to make that obvious.</p>
-<h2 is="more-h2" id="inject-the-second-dependency">Inject the Second Dependency</h2>
+<h2 is="more-h2" show-link-on-mouseover id="inject-the-second-dependency">Inject the Second Dependency</h2>
 <p>We make this obvious by (just say it with me), yes, correct: <strong>injecting the dependency</strong> (<a href="https://gitlab.com/wolframkriesing/article-discover-extract-dependencies/commit/9d808180666de271e1c7a37e4e2a4f96add0b08f">commit</a>).</p>
 <pre><code class="undefinedjs">it(&#39;fetch the student if not in the cache&#39;, () =&gt; {
   const emptyCache = {};
@@ -245,7 +245,7 @@ is not in our test, that is nasty too. We need to make that obvious.</p>
   assertThat(student, equalTo(&#39;student 23&#39;));
 });</code></pre>
 <p>See <code>fetch()</code> is passed in the <code>dependencies</code> object. And no global is overridden anymore.</p>
-<h2 is="more-h2" id="provide-production-dependencies">Provide Production Dependencies</h2>
+<h2 is="more-h2" show-link-on-mouseover id="provide-production-dependencies">Provide Production Dependencies</h2>
 <p>Now we have all the dependencies identified. We have <code>cache</code> and <code>fetch()</code> (even though <code>fetch</code> is a pretty bad name).
 Those two dependencies can be injected, the function works using them.
 Now we should not just have the tests run, but also the production setup.
@@ -281,11 +281,11 @@ const loadStudent = ({ studentId }, dependencies = defaultDependencies()) =&gt; 
 only of some imported items. One could go further and move this out and just inject a structure into this file.
 I saw it working well until now with this less generic, more explicit approach and allowing 
 the reader (of the code) to see what the dependencies consist of, right where they are used.</p>
-<h2 is="more-h2" id="why-inject-default-dependencies-as-a-function">Why Inject Default Dependencies as a Function?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="why-inject-default-dependencies-as-a-function">Why Inject Default Dependencies as a Function?</h2>
 <p>Why a function <code>defaultDependencies()</code> and not just a simple object? Simple answer, a function
 makes it lazy. Until the dependencies are not needed they don&#39;t get resolved, this might 
 dribble down the call stack. And it also allows for configuring a dependency, if necessary.</p>
-<h2 is="more-h2" id="next-steps">Next Steps</h2>
+<h2 is="more-h2" show-link-on-mouseover id="next-steps">Next Steps</h2>
 <p>The variable <code>cache</code> is a very simple, very stupid cache now.
 Which is quite cool. But thinking about a cache, there might be more to it.
 I might want to create a simple API for the reading from and writing to the cache.</p>
@@ -295,7 +295,7 @@ simple <code>fetch()</code> function behind it, is secondary.</p>
 <p>Maybe making it asynchronous would be a nice add-on. It would be very easy, but unfortunately
 this involves also changes in the test code. But that is the nature of JavaScript, it 
 can not simply hide asynchronicity in code.</p>
-<h2 is="more-h2" id="conclusions">Conclusions</h2>
+<h2 is="more-h2" show-link-on-mouseover id="conclusions">Conclusions</h2>
 <p>Separating dependencies can be done by writing tests for untested code.
 It looks like it blows up the code? Think again! It also decouples your code in the places
 where you might not want it coupled. Decoupling is just like every person using a different glass when

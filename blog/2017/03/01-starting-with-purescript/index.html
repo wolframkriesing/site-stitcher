@@ -100,7 +100,7 @@
 </blockquote>
 <p>This capability paired with the strictness (see first quote) makes for a strong combination and I think this will help to write more predictable and better software. Phil states that in his book <em>&quot;static types are not only a means of gaining confidence in the correctness of your programs, but also an aid to development in their own right&quot;</em>.</p>
 <p>A lot of time we spend in changing code, which we normally (should) do via refactoring. Here Purescript shines again, compared to JavaScript, where it <em>&quot;can be difficult when using any but the simplest of abstractions&quot;</em> as Phil states. From experience I can say that this is an issue. You know the code and it&#39;s &quot;interfaces&quot; as long as you are deep inside of it esp. while writing it, but reading it and even worse changing it, especially making big changes, in pure JavaScript, with pure objects, that maybe don&#39;t even have good names, can become quite spooky. Especially when untyped data structures bubble through the code, get mixed and mangled, sliced up and mapped.</p>
-<h2 is="more-h2" id="some-code-please">Some code please</h2>
+<h2 is="more-h2" show-link-on-mouseover id="some-code-please">Some code please</h2>
 <p>Below you see a tiny function, taken from the book.</p>
 <pre><code class="undefinedtext">module Main where
 
@@ -121,7 +121,7 @@ var diagonal = function (w) {
 module.exports = {
     diagonal: diagonal
 };</code></pre>
-<h2 is="more-h2" id="get-started-asap">Get started, asap</h2>
+<h2 is="more-h2" show-link-on-mouseover id="get-started-asap">Get started, asap</h2>
 <p>And on top, Purescript comes with the tool <code>pulp</code> which called like so <code>pulp browserify</code> generates source code you can use in the browser right away. So Purescript is a tool for the front-end and the backend. You can get started now to be stricter with your code!</p>
 <p>You want to get started? Here I can just quote the book again, which mentions some great example use cases, where you can start using Purescript a little at a time, you can do like so:</p>
 <blockquote>

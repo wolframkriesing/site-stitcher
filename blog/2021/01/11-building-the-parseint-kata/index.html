@@ -120,7 +120,7 @@ this is a pretty easy to read part of the spec.</p>
     <figcaption>The kata is in the planning.</figcaption>
 </figure>
 
-<h2 is="more-h2" id="content">Content</h2>
+<h2 is="more-h2" show-link-on-mouseover id="content">Content</h2>
 <ol>
 <li><a href="#numberparseint-and-the-global-parseint"><code>Number.parseInt()</code> and the Global <code>parseInt()</code></a>  </li>
 <li><a href="#es1-parseint">ES1: <code>parseInt()</code></a></li>
@@ -129,7 +129,7 @@ this is a pretty easy to read part of the spec.</p>
 <li><a href="#katas-done">Katas Done</a></li>
 <li><a href="#conclusion">Conclusion</a></li>
 </ol>
-<h2 is="more-h2" id="numberparseint-and-the-global-parseint"><code>Number.parseInt()</code> and the Global <code>parseInt()</code></h2>
+<h2 is="more-h2" show-link-on-mouseover id="numberparseint-and-the-global-parseint"><code>Number.parseInt()</code> and the Global <code>parseInt()</code></h2>
 <p>Actually ES6 makes the <code>Number.parseInt()</code> kata very simple. 
 Because it just says it&#39;s the same as the global <code>parseInt</code>.
 Reading the spec it seems this is a simple piece of JavaScript.
@@ -149,7 +149,7 @@ And this is where it gets a bit difficult.</p>
     <figcaption>To begin with, two tests in this kata.</figcaption>
 </figure>
 
-<h2 is="more-h2" id="es1-parseint">ES1: <code>parseInt()</code></h2>
+<h2 is="more-h2" show-link-on-mouseover id="es1-parseint">ES1: <code>parseInt()</code></h2>
 <p>I looked up <a href="https://www.ecma-international.org/publications/standards/Ecma-262-arch.htm">the spec archive</a> 
 and <a href="https://www.ecma-international.org/publications/files/ECMA-ST-ARCH/ECMA-262,%201st%20edition,%20June%201997.pdf">in ES1 <code>parseInt</code> was already specified</a> 
 (see image below). 
@@ -167,7 +167,7 @@ The ES1 spec has a list of 26 items defining the global <code>parseInt()</code> 
 <p>The change is interesting, since I was always under the assumption that JavaScript
 only gets extended and never (or only very rarely) changed, so that it stays backwards 
 compatible all the time.</p>
-<h2 is="more-h2" id="diff-between-es1-and-es6">Diff Between ES1 and ES6</h2>
+<h2 is="more-h2" show-link-on-mouseover id="diff-between-es1-and-es6">Diff Between ES1 and ES6</h2>
 <p>Now, I have to decide how to continue for building the kata.
 I had two choices:</p>
 <ol>
@@ -190,7 +190,7 @@ I guess the answer is I put it into ES1 but will use the latest spec to write th
 and assume the functionality has not changed (significantly).</p>
 <p>In case I ever figure out that the functionality of <code>parseInt</code> has changed between ES1 and ES10, 
 I would have to come back and split the <code>parseInt</code> kata and move the changes into the according ESx kata.</p>
-<h2 is="more-h2" id="es5-introduced-one-change">ES5 Introduced one Change</h2>
+<h2 is="more-h2" show-link-on-mouseover id="es5-introduced-one-change">ES5 Introduced one Change</h2>
 <p>One thing <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt#ECMAScript_5_removes_octal_interpretation">changed with ES5 about how <code>parseInt</code> works</a>. 
 &quot;ECMAScript 5 removes octal interpretation&quot; - I am glad this has changed, it did bite me hard once.
 See below for the entire explanation from MDN. 
@@ -200,7 +200,7 @@ So good to read this, and also to read the hint <strong>&quot;always specify a r
     <figcaption>ECMAScript 5 removes octal interpretation</figcaption>
 </figure>
 
-<h2 is="more-h2" id="katas-done">Katas Done</h2>
+<h2 is="more-h2" show-link-on-mouseover id="katas-done">Katas Done</h2>
 <p>So I finished two new katas for <code>parseInt</code>. 
 One <a href="https://jskatas.org/#bundle-es6-katas">the ES6 version</a>, 
 the other in <a href="https://jskatas.org/#bundle-es1-katas">ES1</a> 
@@ -216,7 +216,7 @@ Input welcome.</p>
 <p>It is live.
 The ES1 <code>parseInt()</code> kata is live, now. The in-depth one will follow.
 <a href="https://jskatas.org">https://jskatas.org</a></p>
-<h2 is="more-h2" id="conclusion">Conclusion</h2>
+<h2 is="more-h2" show-link-on-mouseover id="conclusion">Conclusion</h2>
 <p>I would sum up my learning like this: </p>
 <ul>
 <li>read the spec, </li>

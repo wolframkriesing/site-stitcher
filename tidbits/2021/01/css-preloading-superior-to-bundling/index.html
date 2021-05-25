@@ -100,7 +100,7 @@ I think it is **superior to bundling**. It is less complex and has better cachin
 Tab of your DevTools?
 There is a simple measure to help the browser optimize loading assets. Preload them.<br>I think it is <strong>superior to bundling</strong>. It is less complex and has better caching behavior.</p>
 <p>Let&#39;s start by looking at how we used to do it.</p>
-<h2 is="more-h2" id="before">Before</h2>
+<h2 is="more-h2" show-link-on-mouseover id="before">Before</h2>
 <p>We normally use </p>
 <pre><code class="undefinedhtml">&lt;!-- blog.html --&gt;
 &lt;link rel=&quot;stylesheet&quot; href=&quot;blog.css&quot;&gt;
@@ -121,7 +121,7 @@ results in loading more files. Even though we actually know what other files wil
 </figure>
 
 <p>Let&#39;s optimize loading the CSS files.</p>
-<h2 is="more-h2" id="after">After</h2>
+<h2 is="more-h2" show-link-on-mouseover id="after">After</h2>
 <p>Preloading the assets is as easy as adding a couple of lines in your site&#39;s <code>&lt;head&gt;</code>.
 In the above example we can preload like this:</p>
 <pre><code class="undefinedhtml">&lt;link rel=&quot;preload&quot; href=&quot;/_vars.css&quot; as=&quot;style&quot;&gt;
@@ -134,7 +134,7 @@ In the above example we can preload like this:</p>
     <figcaption>Preloading all CSS files. No waterfall. Ideal.</figcaption>
 </figure>
 
-<h2 is="more-h2" id="superior-to-bundling---why">Superior to Bundling - Why?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="superior-to-bundling---why">Superior to Bundling - Why?</h2>
 <p>It brings <strong>less complexity</strong>. Bundlers themselves are complex tools. You can drops them
 completely for the CSS part of a site by leveraging preloading. You might want to
 generate the preload-tags if manual maintanence is a burden. For this site I am sticking to
@@ -144,7 +144,7 @@ If you deploy multiple times a day you can prevent the customer to have to downl
 bundle every time they visit the site. Using this approach files like <code>_vars.css</code> or <code>_reset.css</code>
 may not change as often as others, so the browser won&#39;t need to reload them, and even less
 a big bundled CSS file.</p>
-<h2 is="more-h2" id="details">Details</h2>
+<h2 is="more-h2" show-link-on-mouseover id="details">Details</h2>
 <p>On MDN the article 
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content">Preloading content with rel=&quot;preload&quot;</a>
 describes how and what can be preloaded in way more detail.</p>

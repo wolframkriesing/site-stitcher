@@ -91,18 +91,18 @@
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
 }</code></pre>
-<h2 is="more-h2" id="overflowhidden-prevents-a-shadow"><code>overflow=hidden</code> prevents a shadow</h2>
+<h2 is="more-h2" show-link-on-mouseover id="overflowhidden-prevents-a-shadow"><code>overflow=hidden</code> prevents a shadow</h2>
 <p>does not show a shadow</p>
 <pre><code>&lt;Pressable style={{overflow: hidden, ...iosShadow}}&gt;</code></pre>
 <p>Remove the <code>overflow</code> attribute, which hides the shadow</p>
 <pre><code>&lt;Pressable style={{...iosShadow}}&gt;</code></pre>
-<h2 is="more-h2" id="text-styling-is-limited-wrap-it-in-a-view"><code>&lt;Text&gt;</code> styling is limited, wrap it in a <code>&lt;View&gt;</code></h2>
+<h2 is="more-h2" show-link-on-mouseover id="text-styling-is-limited-wrap-it-in-a-view"><code>&lt;Text&gt;</code> styling is limited, wrap it in a <code>&lt;View&gt;</code></h2>
 <p>on iOS </p>
 <pre><code>&lt;Text style={{borderRadius: 5}}&gt;</code></pre>
 <p>does not render a round corner, do</p>
 <pre><code>&lt;View style={{borderRadius: 5}}&gt;
   &lt;Text&gt;</code></pre>
-<h2 is="more-h2" id="reactuseeffect---deep-compare-works-on-ios">React.useEffect() - deep compare works on iOS</h2>
+<h2 is="more-h2" show-link-on-mouseover id="reactuseeffect---deep-compare-works-on-ios">React.useEffect() - deep compare works on iOS</h2>
 <p>Watch out. Actually <code>React.useEffect()</code> does not deep compare.
 Something like <code>React.useEffect(yourFn, [anObject])</code> triggers
 <code>yourFn</code> to be called on every render. You have to use the props explicitly

@@ -90,7 +90,7 @@ TL;DR: It removes whitespaces inside a block. The offical docs say it &quot;stri
 
 
     <p>What the heck does <code>-%}</code> mean in a Jinja template?<br>TL;DR: It removes whitespaces inside a block. The offical docs say it &quot;strip[s] whitespace in templates [...] add a minus sign (-) to the start or end of a block&quot;, so <code>{%- </code> at the end of the block works too, but you better <a href="http://jinja.quantprogramming.com">play with around with it to really understand it</a> the dash is quite flexible.</p>
-<h2 is="more-h2" id="example-with-all-whitespaces-removed---a-lot-of-dashes-used">Example with all Whitespaces Removed - A lot of Dashes Used</h2>
+<h2 is="more-h2" show-link-on-mouseover id="example-with-all-whitespaces-removed---a-lot-of-dashes-used">Example with all Whitespaces Removed - A lot of Dashes Used</h2>
 <pre><code>Dear {{- name -}}
 ,
 
@@ -105,7 +105,7 @@ The end</code></pre>
 <pre><code>DearJane,&lt;p&gt;
 ··Welcome!
 ··&lt;/p&gt;The·end</code></pre>
-<h2 is="more-h2" id="example-with-no-whitespaces-removed---no-dashes-used">Example with No Whitespaces Removed - no dashes used</h2>
+<h2 is="more-h2" show-link-on-mouseover id="example-with-no-whitespaces-removed---no-dashes-used">Example with No Whitespaces Removed - no dashes used</h2>
 <p>The same template, just  <strong>all dashes removed</strong> looking like this:</p>
 <pre><code>Dear {{ name }}
 ,
@@ -129,7 +129,7 @@ The end</code></pre>
 
 The·end</code></pre>
 <p>FYI: I tried all of the above in <a href="http://jinja.quantprogramming.com">jinja.quantprogramming.com</a>.</p>
-<h2 is="more-h2" id="i-discovered-it-through-lektor">I Discovered it Through Lektor</h2>
+<h2 is="more-h2" show-link-on-mouseover id="i-discovered-it-through-lektor">I Discovered it Through Lektor</h2>
 <p>By using Lektor I need to learn <a href="http://jinja.pocoo.org/">Jinja</a>, the template engine used. And I have to say it has the addons that I had always wished for in Django&#39;s template language (swig). For example there is <code>else</code> for the <code>for</code> loop, which applies when there is nothing to loop over.</p>
 <p>And while looking for a tag system I came across <a href="https://pypi.python.org/pypi/lektor-tags">lektor-tags</a> which looks like the tag power and simplicity I need. While trying to get it to run, I came across this piece of Jinja template:</p>
 <pre><code class="undefinedjinja">{% for t in this.tags -%}

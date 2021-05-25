@@ -95,14 +95,14 @@ apache very well, so why learn another one. But my nextcloud setup and letsencry
     <p>Until today I was just a copy+paster of nginx configs. I thought I had my share back when I learned and undestood
 apache very well, so why learn another one. But my nextcloud setup and letsencrypt that comes with it has an nginx
 &quot;bundled&quot;, so I would like to understand things a bit better. So I started reading the docs and will take my notes here.</p>
-<h2 is="more-h2" id="open-source-or-not">Open Source Or Not?</h2>
+<h2 is="more-h2" show-link-on-mouseover id="open-source-or-not">Open Source Or Not?</h2>
 <p>I been surfing and reading on nginx.com which didn&#39;t feel very open sourcy and always mentioned &quot;NGINX Plus&quot;,
 where I felt I have to go and buy it, which was the intention, I guess. But I did find 
 <a href="https://nginx.org/">nginx.org</a> and reading the <a href="https://nginx.org/en/">about nginx</a>
 I also got the confirmation for my feelings, there is the open source universe and the commercial universe
 for nginx. Very cool, I love it when open source can be made sustainable by having those that can/want/should
 do pay for the software. Sounds like another open source based business at work, awesome!</p>
-<h2 is="more-h2" id="notes-on-server-server_name-and-location">Notes on <code>server</code>, <code>server_name</code> and <code>location</code></h2>
+<h2 is="more-h2" show-link-on-mouseover id="notes-on-server-server_name-and-location">Notes on <code>server</code>, <code>server_name</code> and <code>location</code></h2>
 <ul>
 <li>The first server block (as the docs name it), looking like this <code>server {</code>, is <strong>the default server</strong>, used when none below matches</li>
 <li><strong>Search Priorities</strong> is always 1) exact name 2) wildcards 3) regular expressions

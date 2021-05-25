@@ -95,11 +95,11 @@ List of devices attached
 ABCDEF1234    no permissions (user in plugdev group; are your udev rules wrong?); see [http://developer.android.com/tools/device.html]</code></pre>
 <p>The most in depth explanation of how to get a handle on the problem is this article here <a href="http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/</a>
 it didn&#39;t help me to solve the problem, but I believe I learned a lot and I have one more puzzle piece about the android world.</p>
-<h2 is="more-h2" id="udev">udev</h2>
+<h2 is="more-h2" show-link-on-mouseover id="udev">udev</h2>
 <p>While at it, I also learned that there is something like <code>udev</code> which is the device manager for the linux kernel.
 This site explains it quite well <a href="https://www.thegeekdiary.com/beginners-guide-to-udev-in-linux/">https://www.thegeekdiary.com/beginners-guide-to-udev-in-linux/</a>.
 And my plugged in android phone is a device, right?</p>
-<h2 is="more-h2" id="do-it-on-the-host-system">Do it on the host system</h2>
+<h2 is="more-h2" show-link-on-mouseover id="do-it-on-the-host-system">Do it on the host system</h2>
 <p>I have a docker container with the android-studio running inside, which mounts the USB devices in there.
 I first tried it inside the docker container, until I realized this is not so clever and actually also does not work.
 So I did the udev magic, as described in <a href="http://www.janosgyerik.com/adding-udev-rules-for-usb-debugging-android-devices/">the article linked above</a>, created the file, set the right permissions
