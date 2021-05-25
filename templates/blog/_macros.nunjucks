@@ -3,7 +3,7 @@
 {% macro articlePreview(post) %}
   <article class="preview {{ 'isDraft' if post.isDraft else '' }}" itemscope itemtype="http://schema.org/BlogPosting">
     <header>
-      <h2 id="{{post.slug}}" is="more-h2">
+      <h2 id="{{post.slug}}" is="more-h2" show-link-on-mouseover>
         <a href="{{post.url}}" itemprop="url">
         <span itemprop="name headline">{{post.headlineAsHtml | safe }}</span></a>
         {{' 📺' if post.hasVideo else ''}}

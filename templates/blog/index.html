@@ -26,7 +26,7 @@
 {% block content %}
   <article class="latest">
     <header>
-      <h1 id="{{posts[0].slug}}" is="more-h1">
+      <h1 id="{{posts[0].slug}}" is="more-h1" show-link-on-mouseover>
         <a href="{{posts[0].url}}">{{ posts[0].headlineAsHtml | safe }}</a>{{ ' 📺' if posts[0].hasVideo else '' }}
       </h1>
       <div class="metadata">

@@ -47,7 +47,7 @@
     {% endif %}
 
     <header>
-      <h1 id="{{post.slug}}" is="more-h1">
+      <h1 id="{{post.slug}}" is="more-h1" show-link-on-mouseover>
         {{ post.headlineAsHtml | safe }}
         {{ ' [this is a draft]' if post.isDraft else ''}}
       </h1>
@@ -77,7 +77,7 @@
 {% block mainEnd %}
   <aside class="right">
     {% if (post.relatedPosts.length > 1) %}
-      <h3 id="related" is="more-h3">Related Posts</h3>
+      <h3 id="related" is="more-h3" show-link-on-mouseover>Related Posts</h3>
       {% for p in post.relatedPosts %}
         {% if (post === p) %}
           <span>{{p.headline}}</span><br/>
