@@ -13,7 +13,7 @@ moreHtmlRenderer.heading = (...args) => {
   const [, level] = args;
   const heading = defaultRenderer.heading(...args);
   const headingStart = `<h${level} `;
-  return heading.replace(headingStart, headingStart + `is="more-h${level}" `);
+  return heading.replace(headingStart, headingStart + `is="more-h${level}" show-link-on-mouseover `);
 };
 
 /**

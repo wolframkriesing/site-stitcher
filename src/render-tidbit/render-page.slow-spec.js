@@ -65,7 +65,7 @@ describe('Render tidbits pages', () => {
       });
       it('AND render attribute `is=more-h2` for enhancing the H2 via the more-html component', async () => {
         const writtenToFile = await renderTidbitIndexPage([createTidbit(),]);
-        assertThat(writtenToFile, matchesPattern(/<h2[^>]* is="more-h2"/gms));
+        assertThat(writtenToFile, matchesPattern(/<h2[^>]* is="more-h2" show-link-on-mouseover/gms));
       });
       it('AND renders the first tag AND the data-attribute contains the tag`s slug', async () => {
         const writtenToFile = await renderTidbitIndexPage([
@@ -116,7 +116,7 @@ describe('Render tidbits pages', () => {
       it('AND render attribute `is=more-h1` for enhancing the H1 via the more-html component', async () => {
         const tidbits = [createTidbit()];
         const writtenToFile = await renderTidbitPage(tidbits);
-        assertThat(writtenToFile, matchesPattern(/<h1[^>]* is="more-h1"/gms));
+        assertThat(writtenToFile, matchesPattern(/<h1[^>]* is="more-h1" show-link-on-mouseover/gms));
       });
       it('AND write one tidbit to "/tidbits/2000/01/a-tidbit/index.html"', async () => {
         const tidbits = [
