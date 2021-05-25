@@ -13,25 +13,78 @@
 {% endblock %}
 
 {% block content %}
-  {% import "blog/_macros.nunjucks" as blogParts %}
-  <section>
-    <h2>Latest <a href="/blog">Blog Posts ✍</a></h2>
-
-    {% for post in posts.slice(0, 10) %}
-      {{ blogParts.articlePreview(post) }}
-    {% endfor %}
-
-    <a  href="/blog">All Blog Posts →</a>
-  </section>
-
   {% import "tidbit/_macros.nunjucks" as tidbitParts %}
   <section>
-    <h2>Latest <a href="/tidbits">Tidbits 😋</a></h2>
 
-    {% for tidbit in tidbits.slice(0, 10) %}
-      {{ tidbitParts.tidbitPreview(tidbit) }}
+    <img
+      style="height: 5rem; margin-bottom: 2rem;"
+      src="https://rescript-lang.org/static/rescript_logo_black.svg"
+    >
+
+    <h2>Learn Along with me</h2>
+    <p>
+      ReScript (see <a href="https://rescript-lang.org/">rescript-lang.org</a>)
+      is a strongly-typed, I call it
+      <a href="/tidbits/2021/05/learning-rescript-part-1/#what-is-rescript">typed-first language</a>,
+      that compiles to JavaScript.
+    </p>
+    <p>
+      <b>It has exhaustiveness built-in</b> from the go, which means more complete error checks by the compiler.
+    </p>
+    <p>
+      <b>It infers a lot of types</b>, less types to write.
+    </p>
+    <p>
+      It also claims to look and
+      act a lot like JavaScript, which I would not highlight, since the more real typing you
+      do in ReScript the less it is like JavaScript, naturally (JS is just not typed).
+      <br/>
+      Still I find it very interesting, because I think it really eases the use of (strict) typing,
+      way more than languages like PureScript. ReScript allows using types in a much more
+      efficient way than languages like flow or TypeScript because it is typed-first and
+      not taped onto JavaScript. Curious? Want to follow along learning, then start with
+      <a href="/tidbits/2021/05/learning-rescript-part-1/">Part 1</a>, and have fun.
+    </p>
+
+
+    {% for post in categories.rescript %}
+      <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+          <h2 id="{{post.slug}}" is="more-h2">
+            <a href="{{post.url}}" itemprop="url">
+            <span itemprop="name headline">{{post.headlineAsHtml | safe }}</span></a>
+          </h2>
+        </header>
+        <div class="content">
+          <p class="abstract">{{post.abstractAsHtml | safe }}</p>
+        </div>
+      </article>
     {% endfor %}
 
-    <a  href="/tidbits">All Tidbits →</a>
+  </section>
+
+  <section>
+    <h2>Other Recommended Posts</h2>
+
+    {% for post in categories.recommended %}
+      <article class="preview" itemscope itemtype="http://schema.org/BlogPosting">
+        <header>
+          <h2 id="{{post.slug}}" is="more-h2">
+            <a href="{{post.url}}" itemprop="url">
+            <span itemprop="name headline">{{post.headlineAsHtml | safe }}</span></a>
+          </h2>
+          <div class="metadata">
+            {{post.dateCreated | toReadableDate}}
+            {{ parts.taggedWith(post.tags) }}
+          </div>
+        </header>
+        <div class="content" style="flex-direction: column">
+          {% if post.previewImage %}
+            <img src="{{ post.previewImageUrl }}" style="height: 5rem; object-fit: cover; margin-bottom: 1rem;"/>
+          {% endif %}
+          <p class="abstract">{{post.abstractAsHtml | safe }}</p>
+        </div>
+      </article>
+    {% endfor %}
   </section>
 {% endblock %}

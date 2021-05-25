@@ -115,8 +115,39 @@ const generateBlogOverviewPage = async (posts) => {
   await fs.promises.writeFile(destFilename1, renderedFile);
 };
 
+// Some sets of posts that are randomly chosen to be shown under "recommended"
+// every build might create a new set
+const recommendedSets = [
+  [
+    'resource-timing-', // 3 posts
+  ],
+  [
+    'typescript-for-javascript',
+    'discover-extract-dependencies',
+  ],
+  [
+    'jscoderetreat-',
+    'enterjs',
+    'async-function-kata-jslang',
+    'building-the-parseint-kata',
+  ],
+];
+const randomSet = ~~(Math.random() * recommendedSets.length);
+const isOneOfRecommended = (slug) => {
+  return recommendedSets[randomSet].filter(s => slug.includes(s)).length > 0;
+}
+
 const generateHomePage = async (posts, tidbits) => {
-  const renderedFile = renderTemplate('home.html', {...defaultRenderParams, posts, tidbits});
+  const categories = {
+    rescript: [
+      ...posts.filter(post => post.tags.map(tag => tag.slug).filter(slug => slug === 'rescript').length > 0),
+      ...tidbits.filter(tidbit => tidbit.tags.map(tag => tag.slug).filter(slug => slug === 'rescript').length > 0),
+    ].reverse(),
+    recommended: [
+      ...posts.filter(post => isOneOfRecommended(post.slug)),
+    ].sort(sortByDateCreatedDescending)
+  };
+  const renderedFile = renderTemplate('home.html', {...defaultRenderParams, categories});
   const destFilename = path.join(OUTPUT_DIRECTORY, 'index.html');
   await fs.promises.writeFile(destFilename, renderedFile);
 };

@@ -427,7 +427,7 @@ dateCreated: 2021-05-24 16:41 CET
 tags: ReScript, JavaScript, typed language, typing, learning  
 previewImage: ../rescript-cutout2.gif  
 
-
+Part 2 done. Now dive deep, maybe.
 
 ## Formatting
 
@@ -471,3 +471,33 @@ it doesn't make me feel too comfortable reading it.
 https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks
 They are right, no doubt.
 "The more you overload the poor string type, the less the type system (or a teammate) can help you!"
+
+
+
+
+
+# Learning ReScript - First Conclusions
+slug: learning-re-script-first-conclusions
+dateCreated: 2021-05-25 11:58 CET
+tags: ReScript, JavaScript, typed language, typing, learning  
+
+Taking in the rear view mirror for the first time and trying to sum up 
+what I learned from ReScript and compare it to my initial expectations.
+
+- understand where types are inferred and where NOT
+    - inferred types are (often) weaker and maybe dont want to be used
+    - not writing the type aside the variable, letting the compiler "discover it"
+      feels strange, might needs getting used to
+- records require type definition, objects dont - so why use objects at all?
+- variants are explicit and safer than polymorphic variants - so why use the latter at all?
+  
+- already using `Js.log()` makes it feel much less "functional" (where I mean difficult)
+  compared to languages like PureScript, PureScript knocked me out when it came to building 
+  code with side-effect, like an XHR, it was way too complicated imho
+- the pattern matching with the different syntaxes for lists, records, etc. 
+  looks like it might become hard to read code, if one does not take good care   
+  I can see the nerds going wild already writing the hardest to read code, because they can ;)
+  just read the chapter in the docs https://rescript-lang.org/docs/manual/latest/pattern-matching-destructuring  
+    - tbh I don't see the huge advantage of **only** the "supercharged switch" used for pattern matching,
+      For ease of use (esp for newcomers), having "supercharged" the "if" would be nice, the "switch" just feels just like a different construct (that the functional community is more used to?)
+- I think I wish for a lot more JS-iness  
