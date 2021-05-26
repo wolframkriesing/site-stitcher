@@ -1,4 +1,4 @@
-# Learning ReScript - Part 1 (Intro and Setup)
+# Learning ReScript - Part 1 (intro, setup)
 slug: learning-rescript-part-1  
 dateCreated: 2021-05-22 17:31 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
@@ -421,8 +421,8 @@ in [Part 3](../learning-rescript-part-3).
 
 
 
-# Learning ReScript - Part 3 (format command)
-slug: learning-rescript-part-3  
+# Learning ReScript - Part 3 (format, start typing)
+slug: learning-rescript-part-3   
 dateCreated: 2021-05-24 16:41 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
 previewImage: ../rescript-cutout2.gif  
@@ -463,26 +463,86 @@ Here we go:
 let helloWorld: string = "Hello World"
 ```
 
-[I added the `: string`](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/6a5c588c754d4f72543488f6c6cc9374ff26627a),
-it compiled and made no problems. I didn't expect it to.
+I added the `:string` type annotation ([see commit](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/6a5c588c754d4f72543488f6c6cc9374ff26627a)),
+it compiled and made no problems. I didn't expect it to either.
 
-The type can also be written after the value and enclosed in parens like so:
+The type can go behind the value, enclosed in parens like so ([see commit](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/76f5cc660ae77b7e52b2bc631c8f2c0f3d5633d8)):
 ```rescript
 let helloWorld = ("Hello World": string)
 ```
-https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/76f5cc660ae77b7e52b2bc631c8f2c0f3d5633d8
+
 Cool this feels like it might come in handy, eventually.
 
+## Type Alias
 
-## Going Through the Docs
+Next I am trying a type alias. Makes it handy when I know this type might get more specialized later,
+I had seen this often. Some value is currently of type string but is actually a "license plate" or "city name",
+so why not start out with a type alias like `type licensePlate = string`. I also think it can make code more
+understandable, it's like a comment but eventually can be verified, once the licensePlate becomes a more explicit type than a string.
+So I try:
+```rescript
+type HelloWorldString = string
+let helloWorld = ("Hello World": HelloWorldString)
+```
 
-After I finished the installation and have ReScript running, proven by the
-hello.res file, its compilation and letting it run 
+I get a syntax error, a bit cryptic but I seem [not to be the only one](https://twitter.com/hoodie_de/status/1396857432605855749) that feels this is 
+not the best error message yet, but [it's on the radar of the ReScript team](https://twitter.com/ryyppy/status/1397448731226562560):
+```shell-session
+Syntax error!
+/app/src/hello.res:1:22-23
 
-go through docs
-next chapters are not intersting for me
-so i jump to lang-features overview
-but no examples or intro into using the language but a comparison to JS
+1 │ type HelloWorldString = string
+2 │ 
+3 │ module Printer = {
+
+Did you forget a `.` here?
+```
+
+The answer to this error comes later in the docs, when learning about [variants](https://rescript-lang.org/docs/manual/latest/variant),
+there the docs say "a variant's constructors need to be capitalized". My assumption the compiler mixes this up
+and gives some error message that I can not "understand" yet. I am leaving it at this for now.
+It feels like something that eventually will dissolve when I read some docs or ReScript source code.
+Good enough for now, that I learned types **must start with lower case**.
+
+Unsurprisingly this compiles and works just fine:
+```rescript
+type HelloWorldString = string
+let helloWorld = ("Hello World": HelloWorldString)
+```
+
+the [commit is here](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/10a58ddb08cfa0b5d598cbb54ed8fe9c9f25d327).
+
+
+## Retrospective #1
+I want to wrap up the learning experience up to here a bit.
+
+Actually I did not feel guided by the docs yet. What I did was going through the docs from top to 
+bottom not knowing how much is left and if that path is a good path.  
+I am quite convinced that learning ReScript is a good thing, but I also remember that it was
+the same thing with PureScript and I dropped it eventually when I got drowned in the 
+functional rabbit hole way to deep. I am not sure if this can and will happen here too.
+So I am bringing along a lot of optimism and hope that my time is well invested.
+
+I am not sure everyone is so interested in finding this out by investing a lot of
+time and eventually being disappointed. Maybe the docs could offer a short walk through ReScript
+for those that have a shorter attention span.
+
+Of course I was scrolling the docs a bit and I have seen that there is a lot more
+to come for me to learn. But that is not surprising me and also just confirms that
+I need a sustainable way of learning it.
+I am always [advancing the repo](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit)
+and some time later coming back here to write something down, which is a great recap for me.
+And I am convinced it helps me to learn better.
+
+My initial goal was to rewrite [jskatas.org](https://jskatas.org) in ReScript, but
+I realized quickly that I want to understand the language better before running with it.
+That might just be how I roll. So be it. Find your way!
+
+Along the way I was also looking for writing katas and learning ReScript that way, since that
+is something I highly appreciate. But I didn't know how to do that in a language that
+I don't know yet, I am quite happy extending the hello-world more and more.
+I know the code becomes insanely stupid, just so I can use langauge features. 
+But this serves the purpose well, at least for me.
 
 
 ## An Opinion on the Docs
@@ -507,10 +567,23 @@ I am not sure this belongs in a technical language documentation.
 Maybe everything there is correct, but it feels kinda like "ReScript is better",
 it doesn't make me feel too comfortable reading it.
 
-"other crazy patterns you'll soon find horrible, after getting used to ReScript's alternatives."
-https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks
-They are right, no doubt.
-"The more you overload the poor string type, the less the type system (or a teammate) can help you!"
+Others that also caught my attention (or am I just trying hard to find more examples?), are phrases like
+* "other crazy patterns you'll soon find horrible, after getting used to ReScript's alternatives."
+* "The more you overload the poor string type, the less the type system (or a teammate) can help you!"
+
+all of them on the [Primitive Types](https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks)
+page in the docs. They are right, no doubt.
+For me there is too much opinion in the docs. I want cold facts and decide for myself if anything I used
+to do was horrible or not. Maybe I just don't agree and therefore drop learning ReScript, definitely not an intention
+of the docs, right? Or am I too sensitive?
+
+## To be Continued ...
+
+Let's tackle real useful data structures, some that don't (yet) exist in JavaScript land, go on to
+[Part 4](../learning-rescript-part-4).
+
+
+
 
 
 
@@ -541,3 +614,15 @@ what I learned from ReScript and compare it to my initial expectations.
     - tbh I don't see the huge advantage of **only** the "supercharged switch" used for pattern matching,
       For ease of use (esp for newcomers), having "supercharged" the "if" would be nice, the "switch" just feels just like a different construct (that the functional community is more used to?)
 - I think I wish for a lot more JS-iness  
+
+
+
+
+# [WIP] Learning ReScript - Part 4 (Tuples)
+slug: learning-rescript-part-4  
+dateCreated: 2021-05-26 12:39 CET
+tags: ReScript, JavaScript, typed language, typing, learning  
+isDraft: true  
+
+seen formatting and first type annotations in part 3, now lets get a bit more concrete with tuples
+real data structures ftw
