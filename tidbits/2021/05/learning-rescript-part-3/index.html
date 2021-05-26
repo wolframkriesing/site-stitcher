@@ -10,14 +10,14 @@
 
     <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@wolframkriesing" />
-  <meta name="twitter:title" content="Learning ReScript - Part 3 (format command)" />
+  <meta name="twitter:title" content="Learning ReScript - Part 3 (format, start typing)" />
 
-  <meta property="og:title" content="Learning ReScript - Part 3 (format command)">
+  <meta property="og:title" content="Learning ReScript - Part 3 (format, start typing)">
   <meta property="og:type" content="website">
 <meta property="og:url" content="https://picostitch.com/tidbits/2021/05/learning-rescript-part-3/">  <meta property="og:site_name" content="picostitch - crafting (and) JavaScript">
 
   <script async defer data-domain="picostitch.com" src="https://plausible.io/js/plausible.js"></script>
-<link rel="canonical" href="https://picostitch.com/tidbits/2021/05/learning-rescript-part-3/">  <title>Learning ReScript - Part 3 (format command) | picostitch - crafting (and) JavaScript</title>
+<link rel="canonical" href="https://picostitch.com/tidbits/2021/05/learning-rescript-part-3/">  <title>Learning ReScript - Part 3 (format, start typing) | picostitch - crafting (and) JavaScript</title>
 
   <script async defer type="module" src="https://more-html.github.io/components/src/Heading-loader.js"></script>
   <link rel="stylesheet" href="/tidbits/tidbits.css" type="text/css">
@@ -69,7 +69,7 @@ the docs chapters from top to bottom." />
   <nav class="breadcrumb">
   <a href="/">Home</a> &raquo;
   <a href="/tidbits/">Tidbits</a> &raquo;
-  Learning ReScript - Part 3 (format command)
+  Learning ReScript - Part 3 (format, start typing)
   </nav>
 
   <main>
@@ -80,7 +80,7 @@ the docs chapters from top to bottom." />
 
     <header>
       <div class="tag" data-tag="rescript">#ReScript</div>
-      <h1 id="learning-rescript-part-3" is="more-h1" show-link-on-mouseover>Learning ReScript - Part 3 (format command)</h1>
+      <h1 id="learning-rescript-part-3" is="more-h1" show-link-on-mouseover>Learning ReScript - Part 3 (format, start typing)</h1>
       <div class="metadata">
         Wolfram Kriesing - May 24, 2021
             - tagged with:
@@ -118,19 +118,62 @@ and do not worry about coding style anymore (I thought).</p>
 <p>Yeah, a lot of tooling and stuff but no real types yet.
 Here we go:</p>
 <pre><code class="undefinedrescript">let helloWorld: string = &quot;Hello World&quot;</code></pre>
-<p><a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/6a5c588c754d4f72543488f6c6cc9374ff26627a">I added the <code>: string</code></a>,
-it compiled and made no problems. I didn&#39;t expect it to.</p>
-<p>The type can also be written after the value and enclosed in parens like so:</p>
+<p>I added the <code>:string</code> type annotation (<a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/6a5c588c754d4f72543488f6c6cc9374ff26627a">see commit</a>),
+it compiled and made no problems. I didn&#39;t expect it to either.</p>
+<p>The type can go behind the value, enclosed in parens like so (<a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/76f5cc660ae77b7e52b2bc631c8f2c0f3d5633d8">see commit</a>):</p>
 <pre><code class="undefinedrescript">let helloWorld = (&quot;Hello World&quot;: string)</code></pre>
-<p><a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/76f5cc660ae77b7e52b2bc631c8f2c0f3d5633d8">https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/76f5cc660ae77b7e52b2bc631c8f2c0f3d5633d8</a>
-Cool this feels like it might come in handy, eventually.</p>
-<h2 is="more-h2" show-link-on-mouseover id="going-through-the-docs">Going Through the Docs</h2>
-<p>After I finished the installation and have ReScript running, proven by the
-hello.res file, its compilation and letting it run </p>
-<p>go through docs
-next chapters are not intersting for me
-so i jump to lang-features overview
-but no examples or intro into using the language but a comparison to JS</p>
+<p>Cool this feels like it might come in handy, eventually.</p>
+<h2 is="more-h2" show-link-on-mouseover id="type-alias">Type Alias</h2>
+<p>Next I am trying a type alias. Makes it handy when I know this type might get more specialized later,
+I had seen this often. Some value is currently of type string but is actually a &quot;license plate&quot; or &quot;city name&quot;,
+so why not start out with a type alias like <code>type licensePlate = string</code>. I also think it can make code more
+understandable, it&#39;s like a comment but eventually can be verified, once the licensePlate becomes a more explicit type than a string.
+So I try:</p>
+<pre><code class="undefinedrescript">type HelloWorldString = string
+let helloWorld = (&quot;Hello World&quot;: HelloWorldString)</code></pre>
+<p>I get a syntax error, a bit cryptic but I seem <a href="https://twitter.com/hoodie_de/status/1396857432605855749">not to be the only one</a> that feels this is 
+not the best error message yet, but <a href="https://twitter.com/ryyppy/status/1397448731226562560">it&#39;s on the radar of the ReScript team</a>:</p>
+<pre><code class="undefinedshell-session">Syntax error!
+/app/src/hello.res:1:22-23
+
+1 │ type HelloWorldString = string
+2 │ 
+3 │ module Printer = {
+
+Did you forget a `.` here?</code></pre>
+<p>The answer to this error comes later in the docs, when learning about <a href="https://rescript-lang.org/docs/manual/latest/variant">variants</a>,
+there the docs say &quot;a variant&#39;s constructors need to be capitalized&quot;. My assumption the compiler mixes this up
+and gives some error message that I can not &quot;understand&quot; yet. I am leaving it at this for now.
+It feels like something that eventually will dissolve when I read some docs or ReScript source code.
+Good enough for now, that I learned types <strong>must start with lower case</strong>.</p>
+<p>Unsurprisingly this compiles and works just fine:</p>
+<pre><code class="undefinedrescript">type HelloWorldString = string
+let helloWorld = (&quot;Hello World&quot;: HelloWorldString)</code></pre>
+<p>the <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/10a58ddb08cfa0b5d598cbb54ed8fe9c9f25d327">commit is here</a>.</p>
+<h2 is="more-h2" show-link-on-mouseover id="retrospective-1">Retrospective #1</h2>
+<p>I want to wrap up the learning experience up to here a bit.</p>
+<p>Actually I did not feel guided by the docs yet. What I did was going through the docs from top to 
+bottom not knowing how much is left and if that path is a good path.<br>I am quite convinced that learning ReScript is a good thing, but I also remember that it was
+the same thing with PureScript and I dropped it eventually when I got drowned in the 
+functional rabbit hole way to deep. I am not sure if this can and will happen here too.
+So I am bringing along a lot of optimism and hope that my time is well invested.</p>
+<p>I am not sure everyone is so interested in finding this out by investing a lot of
+time and eventually being disappointed. Maybe the docs could offer a short walk through ReScript
+for those that have a shorter attention span.</p>
+<p>Of course I was scrolling the docs a bit and I have seen that there is a lot more
+to come for me to learn. But that is not surprising me and also just confirms that
+I need a sustainable way of learning it.
+I am always <a href="https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit">advancing the repo</a>
+and some time later coming back here to write something down, which is a great recap for me.
+And I am convinced it helps me to learn better.</p>
+<p>My initial goal was to rewrite <a href="https://jskatas.org">jskatas.org</a> in ReScript, but
+I realized quickly that I want to understand the language better before running with it.
+That might just be how I roll. So be it. Find your way!</p>
+<p>Along the way I was also looking for writing katas and learning ReScript that way, since that
+is something I highly appreciate. But I didn&#39;t know how to do that in a language that
+I don&#39;t know yet, I am quite happy extending the hello-world more and more.
+I know the code becomes insanely stupid, just so I can use langauge features. 
+But this serves the purpose well, at least for me.</p>
 <h2 is="more-h2" show-link-on-mouseover id="an-opinion-on-the-docs">An Opinion on the Docs</h2>
 <p>The docs have quite an opinionated touch to them and, to be honest, they don&#39;t
 read easy all the time. Sentences like &quot;ReScript is the language for folks who 
@@ -150,10 +193,19 @@ has some glorification and subjective comparisons on it, like
 I am not sure this belongs in a technical language documentation.
 Maybe everything there is correct, but it feels kinda like &quot;ReScript is better&quot;,
 it doesn&#39;t make me feel too comfortable reading it.</p>
-<p>&quot;other crazy patterns you&#39;ll soon find horrible, after getting used to ReScript&#39;s alternatives.&quot;
-<a href="https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks">https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks</a>
-They are right, no doubt.
-&quot;The more you overload the poor string type, the less the type system (or a teammate) can help you!&quot;</p>
+<p>Others that also caught my attention (or am I just trying hard to find more examples?), are phrases like</p>
+<ul>
+<li>&quot;other crazy patterns you&#39;ll soon find horrible, after getting used to ReScript&#39;s alternatives.&quot;</li>
+<li>&quot;The more you overload the poor string type, the less the type system (or a teammate) can help you!&quot;</li>
+</ul>
+<p>all of them on the <a href="https://rescript-lang.org/docs/manual/latest/primitive-types#tips--tricks">Primitive Types</a>
+page in the docs. They are right, no doubt.
+For me there is too much opinion in the docs. I want cold facts and decide for myself if anything I used
+to do was horrible or not. Maybe I just don&#39;t agree and therefore drop learning ReScript, definitely not an intention
+of the docs, right? Or am I too sensitive?</p>
+<h2 is="more-h2" show-link-on-mouseover id="to-be-continued-">To be Continued ...</h2>
+<p>Let&#39;s tackle real useful data structures, some that don&#39;t (yet) exist in JavaScript land, go on to
+<a href="../learning-rescript-part-4">Part 4</a>.</p>
 
   </article>
     </div>
