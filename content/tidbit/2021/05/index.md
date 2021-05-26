@@ -436,6 +436,15 @@ the docs chapters from top to bottom.
     <figcaption>ReScript docs TOC</figcaption>
 </figure>
 
+## Contents
+
+1) [Formatting](#formatting)
+1) [First Type Annotations](#first-type-annotations)
+1) [Type Alias](#type-alias)
+1) [Retrospective #1](#retrospective-1)
+1) [An Opinion on the Docs](#an-opinion-on-the-docs)
+1) [To be Continued ...](#to-be-continued-)
+
 ## Formatting
 
 I remember having heard on the [podcast with Patrick Ecker](https://changelog.com/jsparty/175)
