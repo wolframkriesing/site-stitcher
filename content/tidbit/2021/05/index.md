@@ -1,4 +1,4 @@
-# Learning ReScript - Part 1 (intro, setup)
+# Learning ReScript - Part 1 (Intro, Setup)
 slug: learning-rescript-part-1  
 dateCreated: 2021-05-22 17:31 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
@@ -148,7 +148,7 @@ in [Part 2](../learning-rescript-part-2).
 
 
 
-# Learning ReScript - Part 2 (rescript command)
+# Learning ReScript - Part 2 (rescript Command)
 slug: learning-rescript-part-2  
 dateCreated: 2021-05-22 22:36 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
@@ -421,7 +421,7 @@ in [Part 3](../learning-rescript-part-3).
 
 
 
-# Learning ReScript - Part 3 (format, start typing)
+# Learning ReScript - Part 3 (Format, Start Typing)
 slug: learning-rescript-part-3   
 dateCreated: 2021-05-24 16:41 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
