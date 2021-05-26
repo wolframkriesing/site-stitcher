@@ -421,17 +421,57 @@ in [Part 3](../learning-rescript-part-3).
 
 
 
-# [WIP] Learning ReScript - Part 3
+# Learning ReScript - Part 3 (format command)
 slug: learning-rescript-part-3  
 dateCreated: 2021-05-24 16:41 CET  
 tags: ReScript, JavaScript, typed language, typing, learning  
 previewImage: ../rescript-cutout2.gif  
 
-Part 2 done. Now dive deep, maybe.
+The setup is working, I can compile and run ReScript files, I touched a bit
+on the syntax in [Part 2](../learning-rescript-part-2), next I will continue through 
+the docs chapters from top to bottom.
+
+<figure>
+    <img src="../rescript-docs-toc.gif" alt="ReScript docs TOC" width="100" class="sizeup-onhover-image scale2 origin-left-top" />
+    <figcaption>ReScript docs TOC</figcaption>
+</figure>
 
 ## Formatting
 
+I remember having heard on the [podcast with Patrick Ecker](https://changelog.com/jsparty/175)
+that ReScript comes with a formatting tool (just like golang, or many of the newer languages),
+which prevents discussions about code layout, cool. Now it's time to apply it, the hello world 
+code is growing, it needs some proper styling.
 
+After `rescript -h` (remember, not `--help`!) I figured out it is `rescript format`.
+Alright. I run `rescript format`, nothing happens. So I have to pass the filename explicitly.
+Sad. Ok, `rescript format src/hello.res` works fine. It took me a while to read the `rescript format -h` 
+help page properly to figure out that
+```shell-session
+# rescript format -all
+```
+
+is the script I want to call. Remember `-all` with **one dash** only (not `--all`!).
+I [ran it on the code, committed](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/52da40b1ae9b2a9b0573bc1b95e17570b899842e)
+and do not worry about coding style anymore (I thought).
+
+## First Type Annotations
+
+Yeah, a lot of tooling and stuff but no real types yet.
+Here we go:
+```rescript
+let helloWorld: string = "Hello World"
+```
+
+[I added the `: string`](https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/6a5c588c754d4f72543488f6c6cc9374ff26627a),
+it compiled and made no problems. I didn't expect it to.
+
+The type can also be written after the value and enclosed in parens like so:
+```rescript
+let helloWorld = ("Hello World": string)
+```
+https://codeberg.org/wolframkriesing/rescript-learning-commit-by-commit/commit/76f5cc660ae77b7e52b2bc631c8f2c0f3d5633d8
+Cool this feels like it might come in handy, eventually.
 
 
 ## Going Through the Docs
