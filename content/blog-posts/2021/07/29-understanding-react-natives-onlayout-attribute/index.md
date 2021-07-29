@@ -51,6 +51,8 @@ export const App = () => {
     );
 };
 ```
+[Open in snack.expo.dev](https://snack.expo.dev/vG2AFUaim).
+
 **This app renders some current layout values, provided by `onLayout`, every time `onLayout` fires.**
 Playing around with the attributes was definitely very teaching for me.   
 Note: I use the background color to also visually see the change of the `<View>`, the edges, borders and its position.
