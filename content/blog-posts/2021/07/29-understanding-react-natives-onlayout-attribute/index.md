@@ -1,5 +1,5 @@
-dateCreated: 2021-07-29 11:44 CET
-tags: React Native, JavaScript, android, iOS, mobile, KeyboardAvoidingView
+dateCreated: 2021-07-29 11:44 CET  
+tags: React Native, JavaScript, android, iOS, mobile, KeyboardAvoidingView  
 
 # Understanding React Native's `onLayout` Attribute (a bit)
 
