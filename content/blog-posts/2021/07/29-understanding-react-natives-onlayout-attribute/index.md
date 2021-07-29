@@ -91,13 +91,23 @@ sounds to me as if all native `onLayout` events are propagated to react-native.
 Which means one needs understand when the underlying platform sends layout events.
 Good to know.
 
-One more finding, the `onLayout` dispatching seems to be even device dependent (potentially)
+One more finding, the `onLayout` dispatching seems to be even device dependent (potentially),
 because [this Android code in the file "uimanager/ReactShadowNodeImpl.java"](https://github.com/facebook/react-native/blob/1465c8f3874cdee8c325ab4a4916fda0b3e43bdb/ReactAndroid/src/main/java/com/facebook/react/uimanager/ReactShadowNodeImpl.java#L341)
 determines when a layout change is detected, which I assume triggers an `onLayout`.
 I didn't find the connection from this file to firing `onLayout` but while digging into the
 code I somehow (magically) "saw" the connection ;).
 
+This code does also very well reflect the learning from above.
+The code:
+```java 
+int newAbsoluteLeft = Math.round(absoluteX + layoutX);
+int newAbsoluteTop = Math.round(absoluteY + layoutY);
+```
 
+reveals that intention quite well. The variables `absoluteX` and `absoluteY`
+do already, by using "absolute", let me assume
+this is how the box's position is calculated and that, when they change, fires the
+`onLayout`.
 
 [1]: https://reactnative.dev/docs/keyboardavoidingview
 [react-native]: https://reactnative.dev
